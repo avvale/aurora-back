@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { src, dest } = require('gulp');
+const { src, dest, series } = require('gulp');
+var jeditor = require("gulp-json-editor");
 
 function defaultTask(cb)
 {
@@ -15,17 +16,36 @@ function copy()
             '**/*',
             '.gitignore',
             '.eslintrc.json',
+            '!package.json',
             '!node_modules/**',
             '!package-lock.json',
             '!gulpfile.js',
-        ],
-        {
-            ignore: [
-            ],
-        })
-        .pipe(dest('publish/'));
+        ])
+        .pipe(
+            dest('publish/'),
+        );
+}
+
+function change()
+{
+    return src(
+        [
+            'package.json',
+        ])
+        .pipe(
+            jeditor(function(json)
+            {
+                delete json.devDependencies.gulp;
+                delete json.devDependencies['gulp-json-editor'];
+                return json;
+            }),
+        )
+        .pipe(dest('publish'));
 }
 
 
 exports.default = defaultTask;
-exports.copy = copy;
+exports.publish = series(
+    copy,
+    change,
+);
