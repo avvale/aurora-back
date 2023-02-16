@@ -9,12 +9,12 @@ import { AuditingHttpCommunicationControllers, AuditingHttpCommunicationResolver
     imports: [
         SharedModule,
         SequelizeModule.forFeature([
-                ...AuditingModels
-            ])
+            ...AuditingModels,
+        ]),
     ],
     controllers: [
         ...AuditingSideEffectControllers,
-        ...AuditingHttpCommunicationControllers
+        ...AuditingHttpCommunicationControllers,
     ],
     providers: [
         ...AuditingHandlers,
@@ -26,7 +26,7 @@ import { AuditingHttpCommunicationControllers, AuditingHttpCommunicationResolver
         ...AuditingHttpCommunicationResolvers,
         ...AuditingHttpCommunicationApiHandlers,
         ...AuditingSideEffectServices,
-        ...AuditingHttpCommunicationServices
+        ...AuditingHttpCommunicationServices,
     ],
 })
 export class AuditingModule {}

@@ -1,17 +1,20 @@
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
+import { ICommandBus, Utils } from '@aurora-ts/core';
+import type { InternalAxiosRequestConfig, AxiosResponse } from 'axios';
+
+// @api
+import { AuditingHttpCommunicationEvent } from '@api/graphql';
+
+// @app
 import { CreateHttpCommunicationCommand } from '@app/auditing/http-communication/application/create/create-http-communication.command';
 import { UpdateHttpCommunicationByIdCommand } from '@app/auditing/http-communication/application/update/update-http-communication-by-id.command';
-import { AxiosInterceptor, AxiosFulfilledInterceptor, AxiosRejectedInterceptor, AxiosResponseCustomConfig } from '@narando/nest-axios-interceptor';
-import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
-import { ICommandBus, Utils } from '@aurora-ts/core';
-import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { AuditingHttpCommunicationEvent } from '@api/graphql';
 
 // logging.axios-interceptor.ts
 const META_KEY = Symbol('metaAxiosInterceptor');
 
 // Merging our custom properties with the base config
-interface MetaAxiosRequestConfig extends AxiosRequestConfig
+interface MetaAxiosRequestConfig extends InternalAxiosRequestConfig
 {
     [META_KEY]: {
         id: string;
@@ -20,17 +23,39 @@ interface MetaAxiosRequestConfig extends AxiosRequestConfig
 }
 
 @Injectable()
-export class LoggingAxiosInterceptorService extends AxiosInterceptor<MetaAxiosRequestConfig>
+export class LoggingAxiosInterceptorService implements OnModuleInit
 {
     constructor(
-        httpService: HttpService,
+        private readonly httpService: HttpService,
         private readonly commandBus: ICommandBus,
-    )
+    ) {}
+
+    onModuleInit(): void
     {
-        super(httpService);
+        this.registerInterceptors();
     }
 
-    requestFulfilled(): AxiosFulfilledInterceptor<MetaAxiosRequestConfig>
+    private registerInterceptors(): void
+    {
+        const { axiosRef: axios } = this.httpService;
+
+        axios.interceptors.request.use(
+            this.requestFulfilled(),
+            this.requestRejected(),
+        );
+
+        axios.interceptors.response.use(
+            this.responseFulfilled(),
+            this.responseRejected(),
+        );
+    }
+
+    protected isAxiosError(err: any): boolean
+    {
+        return !!(err.isAxiosError && err.isAxiosError === true);
+    }
+
+    requestFulfilled()
     {
         return async (config: MetaAxiosRequestConfig) =>
         {
@@ -80,7 +105,7 @@ export class LoggingAxiosInterceptorService extends AxiosInterceptor<MetaAxiosRe
         };
     }
 
-    requestRejected(): AxiosRejectedInterceptor
+    requestRejected(): (error: any) => any
     {
         return async err =>
         {
@@ -113,9 +138,9 @@ export class LoggingAxiosInterceptorService extends AxiosInterceptor<MetaAxiosRe
         };
     }
 
-    responseFulfilled(): AxiosFulfilledInterceptor<AxiosResponseCustomConfig<MetaAxiosRequestConfig>>
+    responseFulfilled()
     {
-        return async (response: AxiosResponseCustomConfig<MetaAxiosRequestConfig>) =>
+        return async (response: AxiosResponse) =>
         {
             await this.commandBus.dispatch(new UpdateHttpCommunicationByIdCommand(
                 {
@@ -137,7 +162,7 @@ export class LoggingAxiosInterceptorService extends AxiosInterceptor<MetaAxiosRe
         };
     }
 
-    responseRejected(): AxiosRejectedInterceptor
+    responseRejected(): (error: any) => any
     {
         return async err =>
         {
