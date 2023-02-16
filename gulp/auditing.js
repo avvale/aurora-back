@@ -4,6 +4,9 @@ const fs = require('node:fs');
 const fse = require('fs-extra');
 const { series } = require('gulp');
 
+/**
+ * Copy auditing files to publish folder
+ */
 function copyAuditing()
 {
     return Promise.all([
@@ -15,12 +18,15 @@ function copyAuditing()
 
 function copyToCLI()
 {
+    // remove old cli auditing files
     fs.rmSync('../aurora-cli/src/templates/back/packages/auditing', { recursive: true, force: true });
+    // copy new cli auditing files
     return fse.copy('publish', '../aurora-cli/src/templates/back/packages/auditing', { overwrite: true });
 }
 
 async function clean()
 {
+    // remove publish folder
     fs.rmSync('publish', { recursive: true, force: true });
 }
 

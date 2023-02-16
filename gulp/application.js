@@ -45,6 +45,7 @@ function editPackageJson()
             {
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs-modules/mailer'];
+                delete json.dependencies['@nestjs/axios'];
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];
                 delete json.dependencies['handlebars'];
