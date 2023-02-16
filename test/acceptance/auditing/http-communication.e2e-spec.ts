@@ -8,15 +8,10 @@ import { IHttpCommunicationRepository } from '@app/auditing/http-communication/d
 import { MockHttpCommunicationSeeder } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.seeder';
 import { httpCommunications } from '@app/auditing/http-communication/infrastructure/seeds/http-communication.seed';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
+import { AuthenticationGuard, AuthorizationGuard } from '@aurora-ts/core';
 import { AuditingModule } from '@api/auditing/auditing.module';
 import * as request from 'supertest';
 import * as _ from 'lodash';
-
-// has OAuth
-import { IamModule } from '@api/iam/iam.module';
-import { OAuthModule } from '@api/o-auth/o-auth.module';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
@@ -38,8 +33,6 @@ describe('http-communication', () =>
         const module: TestingModule = await Test.createTestingModule({
             imports: [
                 ...importForeignModules,
-                OAuthModule,
-                IamModule,
                 AuditingModule,
                 GraphQLConfigModule,
                 SequelizeModule.forRootAsync({
@@ -67,7 +60,7 @@ describe('http-communication', () =>
                 MockHttpCommunicationSeeder,
             ],
         })
-            .overrideGuard(AuthenticationJwtGuard)
+            .overrideGuard(AuthenticationGuard)
             .useValue({ canActivate: () => true })
             .overrideGuard(AuthorizationGuard)
             .useValue({ canActivate: () => true })

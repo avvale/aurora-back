@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Controller, Put, Body, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { QueryStatement, Timezone } from '@aurora-ts/core';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, QueryStatement, Timezone } from '@aurora-ts/core';
 import { AuditingSideEffectDto, AuditingUpdateSideEffectsDto } from '../dto';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // @app
 import { AuditingUpdateSideEffectsHandler } from '../handlers/auditing-update-side-effects.handler';
@@ -15,7 +10,7 @@ import { AuditingUpdateSideEffectsHandler } from '../handlers/auditing-update-si
 @ApiTags('[auditing] side-effect')
 @Controller('auditing/side-effects/update')
 @Permissions('auditing.sideEffect.update')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class AuditingUpdateSideEffectsController
 {
     constructor(

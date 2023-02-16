@@ -1,11 +1,6 @@
 import { UseGuards } from '@nestjs/common';
 import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { Timezone } from '@aurora-ts/core';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, Timezone } from '@aurora-ts/core';
 
 // @app
 import { AuditingCreateSideEffectsHandler } from '../handlers/auditing-create-side-effects.handler';
@@ -13,7 +8,7 @@ import { AuditingCreateSideEffectInput } from '@api/graphql';
 
 @Resolver()
 @Permissions('auditing.sideEffect.create')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class AuditingCreateSideEffectsResolver
 {
     constructor(

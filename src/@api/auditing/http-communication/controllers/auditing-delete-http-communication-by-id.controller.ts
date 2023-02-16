@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Body, Controller, Param, Delete, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { QueryStatement, Timezone } from '@aurora-ts/core';
+import { QueryStatement, Permissions, Timezone, AuthorizationGuard, AuthenticationGuard } from '@aurora-ts/core';
 import { AuditingHttpCommunicationDto } from '../dto';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // @app
 import { AuditingDeleteHttpCommunicationByIdHandler } from '../handlers/auditing-delete-http-communication-by-id.handler';
@@ -15,7 +10,7 @@ import { AuditingDeleteHttpCommunicationByIdHandler } from '../handlers/auditing
 @ApiTags('[auditing] http-communication')
 @Controller('auditing/http-communication/delete')
 @Permissions('auditing.httpCommunication.delete')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class AuditingDeleteHttpCommunicationByIdController
 {
     constructor(

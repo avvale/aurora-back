@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Body, Controller, Param, Delete, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { QueryStatement, Timezone } from '@aurora-ts/core';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, QueryStatement, Timezone } from '@aurora-ts/core';
 import { AuditingSideEffectDto } from '../dto';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // @app
 import { AuditingDeleteSideEffectByIdHandler } from '../handlers/auditing-delete-side-effect-by-id.handler';
@@ -15,7 +10,7 @@ import { AuditingDeleteSideEffectByIdHandler } from '../handlers/auditing-delete
 @ApiTags('[auditing] side-effect')
 @Controller('auditing/side-effect/delete')
 @Permissions('auditing.sideEffect.delete')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class AuditingDeleteSideEffectByIdController
 {
     constructor(
