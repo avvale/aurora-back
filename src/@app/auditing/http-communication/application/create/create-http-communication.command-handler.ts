@@ -13,6 +13,8 @@ import {
     HttpCommunicationHttpRequestRejected,
     HttpCommunicationHttpResponse,
     HttpCommunicationHttpResponseRejected,
+    HttpCommunicationIsReprocessing,
+    HttpCommunicationReprocessingHttpCommunicationId,
     HttpCommunicationCreatedAt,
     HttpCommunicationUpdatedAt,
     HttpCommunicationDeletedAt,
@@ -40,6 +42,8 @@ export class CreateHttpCommunicationCommandHandler implements ICommandHandler<Cr
                 httpRequestRejected: new HttpCommunicationHttpRequestRejected(command.payload.httpRequestRejected),
                 httpResponse: new HttpCommunicationHttpResponse(command.payload.httpResponse),
                 httpResponseRejected: new HttpCommunicationHttpResponseRejected(command.payload.httpResponseRejected),
+                isReprocessing: new HttpCommunicationIsReprocessing(command.payload.isReprocessing),
+                reprocessingHttpCommunicationId: new HttpCommunicationReprocessingHttpCommunicationId(command.payload.reprocessingHttpCommunicationId),
             },
             command.cQMetadata,
         );

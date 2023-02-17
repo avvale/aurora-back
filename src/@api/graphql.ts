@@ -45,6 +45,8 @@ export interface AuditingCreateHttpCommunicationInput {
     httpRequestRejected?: Nullable<JSON>;
     httpResponse?: Nullable<JSON>;
     httpResponseRejected?: Nullable<JSON>;
+    isReprocessing: GraphQLBoolean;
+    reprocessingHttpCommunicationId?: Nullable<string>;
 }
 
 export interface AuditingUpdateHttpCommunicationByIdInput {
@@ -58,6 +60,8 @@ export interface AuditingUpdateHttpCommunicationByIdInput {
     httpRequestRejected?: Nullable<JSON>;
     httpResponse?: Nullable<JSON>;
     httpResponseRejected?: Nullable<JSON>;
+    isReprocessing?: Nullable<GraphQLBoolean>;
+    reprocessingHttpCommunicationId?: Nullable<string>;
 }
 
 export interface AuditingUpdateHttpCommunicationsInput {
@@ -71,6 +75,8 @@ export interface AuditingUpdateHttpCommunicationsInput {
     httpRequestRejected?: Nullable<JSON>;
     httpResponse?: Nullable<JSON>;
     httpResponseRejected?: Nullable<JSON>;
+    isReprocessing?: Nullable<GraphQLBoolean>;
+    reprocessingHttpCommunicationId?: Nullable<string>;
 }
 
 export interface AuditingCreateSideEffectInput {
@@ -168,6 +174,8 @@ export interface AuditingHttpCommunication {
     httpRequestRejected?: Nullable<JSON>;
     httpResponse?: Nullable<JSON>;
     httpResponseRejected?: Nullable<JSON>;
+    isReprocessing: GraphQLBoolean;
+    reprocessingHttpCommunicationId?: Nullable<string>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

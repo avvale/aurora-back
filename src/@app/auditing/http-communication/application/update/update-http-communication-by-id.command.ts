@@ -15,6 +15,8 @@ export class UpdateHttpCommunicationByIdCommand
             httpRequestRejected?: any;
             httpResponse?: any;
             httpResponseRejected?: any;
+            isReprocessing?: boolean;
+            reprocessingHttpCommunicationId?: string;
         },
         public readonly constraint?: QueryStatement,
         public readonly cQMetadata?: CQMetadata,

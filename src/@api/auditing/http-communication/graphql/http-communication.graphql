@@ -18,6 +18,8 @@ type AuditingHttpCommunication
     httpRequestRejected: JSON
     httpResponse: JSON
     httpResponseRejected: JSON
+    isReprocessing: GraphQLBoolean!
+    reprocessingHttpCommunicationId: ID
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
     deletedAt: GraphQLTimestamp
@@ -35,6 +37,8 @@ input AuditingCreateHttpCommunicationInput
     httpRequestRejected: JSON
     httpResponse: JSON
     httpResponseRejected: JSON
+    isReprocessing: GraphQLBoolean!
+    reprocessingHttpCommunicationId: ID
 }
 
 input AuditingUpdateHttpCommunicationByIdInput
@@ -49,6 +53,8 @@ input AuditingUpdateHttpCommunicationByIdInput
     httpRequestRejected: JSON
     httpResponse: JSON
     httpResponseRejected: JSON
+    isReprocessing: GraphQLBoolean
+    reprocessingHttpCommunicationId: ID
 }
 
 input AuditingUpdateHttpCommunicationsInput
@@ -63,6 +69,8 @@ input AuditingUpdateHttpCommunicationsInput
     httpRequestRejected: JSON
     httpResponse: JSON
     httpResponseRejected: JSON
+    isReprocessing: GraphQLBoolean
+    reprocessingHttpCommunicationId: ID
 }
 
 type Query

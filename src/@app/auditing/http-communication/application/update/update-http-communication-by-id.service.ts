@@ -13,6 +13,8 @@ import {
     HttpCommunicationHttpRequestRejected,
     HttpCommunicationHttpResponse,
     HttpCommunicationHttpResponseRejected,
+    HttpCommunicationIsReprocessing,
+    HttpCommunicationReprocessingHttpCommunicationId,
     HttpCommunicationCreatedAt,
     HttpCommunicationUpdatedAt,
     HttpCommunicationDeletedAt,
@@ -40,6 +42,8 @@ export class UpdateHttpCommunicationByIdService
             httpRequestRejected?: HttpCommunicationHttpRequestRejected;
             httpResponse?: HttpCommunicationHttpResponse;
             httpResponseRejected?: HttpCommunicationHttpResponseRejected;
+            isReprocessing?: HttpCommunicationIsReprocessing;
+            reprocessingHttpCommunicationId?: HttpCommunicationReprocessingHttpCommunicationId;
         },
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
@@ -57,6 +61,8 @@ export class UpdateHttpCommunicationByIdService
             payload.httpRequestRejected,
             payload.httpResponse,
             payload.httpResponseRejected,
+            payload.isReprocessing,
+            payload.reprocessingHttpCommunicationId,
             null, // createdAt
             new HttpCommunicationUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt

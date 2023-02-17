@@ -12,6 +12,8 @@ import {
     HttpCommunicationHttpRequestRejected,
     HttpCommunicationHttpResponse,
     HttpCommunicationHttpResponseRejected,
+    HttpCommunicationIsReprocessing,
+    HttpCommunicationReprocessingHttpCommunicationId,
     HttpCommunicationCreatedAt,
     HttpCommunicationUpdatedAt,
     HttpCommunicationDeletedAt,
@@ -39,6 +41,8 @@ export class UpsertHttpCommunicationService
             httpRequestRejected: HttpCommunicationHttpRequestRejected;
             httpResponse: HttpCommunicationHttpResponse;
             httpResponseRejected: HttpCommunicationHttpResponseRejected;
+            isReprocessing: HttpCommunicationIsReprocessing;
+            reprocessingHttpCommunicationId: HttpCommunicationReprocessingHttpCommunicationId;
         },
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -55,6 +59,8 @@ export class UpsertHttpCommunicationService
             payload.httpRequestRejected,
             payload.httpResponse,
             payload.httpResponseRejected,
+            payload.isReprocessing,
+            payload.reprocessingHttpCommunicationId,
             new HttpCommunicationCreatedAt({ currentTimestamp: true }),
             new HttpCommunicationUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt

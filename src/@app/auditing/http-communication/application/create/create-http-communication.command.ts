@@ -14,6 +14,8 @@ export class CreateHttpCommunicationCommand
             httpRequestRejected?: any;
             httpResponse?: any;
             httpResponseRejected?: any;
+            isReprocessing: boolean;
+            reprocessingHttpCommunicationId?: string;
         },
         public readonly cQMetadata?: CQMetadata,
     ) {}

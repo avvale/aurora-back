@@ -13,6 +13,8 @@ import {
     HttpCommunicationHttpRequestRejected,
     HttpCommunicationHttpResponse,
     HttpCommunicationHttpResponseRejected,
+    HttpCommunicationIsReprocessing,
+    HttpCommunicationReprocessingHttpCommunicationId,
     HttpCommunicationCreatedAt,
     HttpCommunicationUpdatedAt,
     HttpCommunicationDeletedAt,
@@ -33,6 +35,8 @@ export class AuditingHttpCommunication extends AggregateRoot
     httpRequestRejected: HttpCommunicationHttpRequestRejected;
     httpResponse: HttpCommunicationHttpResponse;
     httpResponseRejected: HttpCommunicationHttpResponseRejected;
+    isReprocessing: HttpCommunicationIsReprocessing;
+    reprocessingHttpCommunicationId: HttpCommunicationReprocessingHttpCommunicationId;
     createdAt: HttpCommunicationCreatedAt;
     updatedAt: HttpCommunicationUpdatedAt;
     deletedAt: HttpCommunicationDeletedAt;
@@ -50,6 +54,8 @@ export class AuditingHttpCommunication extends AggregateRoot
         httpRequestRejected: HttpCommunicationHttpRequestRejected,
         httpResponse: HttpCommunicationHttpResponse,
         httpResponseRejected: HttpCommunicationHttpResponseRejected,
+        isReprocessing: HttpCommunicationIsReprocessing,
+        reprocessingHttpCommunicationId: HttpCommunicationReprocessingHttpCommunicationId,
         createdAt: HttpCommunicationCreatedAt,
         updatedAt: HttpCommunicationUpdatedAt,
         deletedAt: HttpCommunicationDeletedAt,
@@ -67,6 +73,8 @@ export class AuditingHttpCommunication extends AggregateRoot
         this.httpRequestRejected = httpRequestRejected;
         this.httpResponse = httpResponse;
         this.httpResponseRejected = httpResponseRejected;
+        this.isReprocessing = isReprocessing;
+        this.reprocessingHttpCommunicationId = reprocessingHttpCommunicationId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
@@ -85,6 +93,8 @@ export class AuditingHttpCommunication extends AggregateRoot
         httpRequestRejected: HttpCommunicationHttpRequestRejected,
         httpResponse: HttpCommunicationHttpResponse,
         httpResponseRejected: HttpCommunicationHttpResponseRejected,
+        isReprocessing: HttpCommunicationIsReprocessing,
+        reprocessingHttpCommunicationId: HttpCommunicationReprocessingHttpCommunicationId,
         createdAt: HttpCommunicationCreatedAt,
         updatedAt: HttpCommunicationUpdatedAt,
         deletedAt: HttpCommunicationDeletedAt,
@@ -102,6 +112,8 @@ export class AuditingHttpCommunication extends AggregateRoot
             httpRequestRejected,
             httpResponse,
             httpResponseRejected,
+            isReprocessing,
+            reprocessingHttpCommunicationId,
             createdAt,
             updatedAt,
             deletedAt,
@@ -123,6 +135,8 @@ export class AuditingHttpCommunication extends AggregateRoot
                 httpCommunication.httpRequestRejected?.value,
                 httpCommunication.httpResponse?.value,
                 httpCommunication.httpResponseRejected?.value,
+                httpCommunication.isReprocessing.value,
+                httpCommunication.reprocessingHttpCommunicationId?.value,
                 httpCommunication.createdAt?.value,
                 httpCommunication.updatedAt?.value,
                 httpCommunication.deletedAt?.value,
@@ -144,6 +158,8 @@ export class AuditingHttpCommunication extends AggregateRoot
                 httpCommunication.httpRequestRejected?.value,
                 httpCommunication.httpResponse?.value,
                 httpCommunication.httpResponseRejected?.value,
+                httpCommunication.isReprocessing?.value,
+                httpCommunication.reprocessingHttpCommunicationId?.value,
                 httpCommunication.createdAt?.value,
                 httpCommunication.updatedAt?.value,
                 httpCommunication.deletedAt?.value,
@@ -165,6 +181,8 @@ export class AuditingHttpCommunication extends AggregateRoot
                 httpCommunication.httpRequestRejected?.value,
                 httpCommunication.httpResponse?.value,
                 httpCommunication.httpResponseRejected?.value,
+                httpCommunication.isReprocessing.value,
+                httpCommunication.reprocessingHttpCommunicationId?.value,
                 httpCommunication.createdAt?.value,
                 httpCommunication.updatedAt?.value,
                 httpCommunication.deletedAt?.value,
@@ -185,6 +203,8 @@ export class AuditingHttpCommunication extends AggregateRoot
             httpRequestRejected: this.httpRequestRejected?.value,
             httpResponse: this.httpResponse?.value,
             httpResponseRejected: this.httpResponseRejected?.value,
+            isReprocessing: this.isReprocessing.value,
+            reprocessingHttpCommunicationId: this.reprocessingHttpCommunicationId?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
@@ -207,6 +227,8 @@ export class AuditingHttpCommunication extends AggregateRoot
             httpRequestRejected: this.httpRequestRejected?.value,
             httpResponse: this.httpResponse?.value,
             httpResponseRejected: this.httpResponseRejected?.value,
+            isReprocessing: this.isReprocessing.value,
+            reprocessingHttpCommunicationId: this.reprocessingHttpCommunicationId?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,

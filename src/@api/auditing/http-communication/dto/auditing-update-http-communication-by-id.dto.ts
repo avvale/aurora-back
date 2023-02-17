@@ -66,4 +66,17 @@ export class AuditingUpdateHttpCommunicationByIdDto
     })
     httpResponseRejected?: any;
 
+    @ApiProperty({
+        type       : Boolean,
+        description: 'isReprocessing [input here api field description]',
+        example    : true,
+    })
+    isReprocessing?: boolean;
+
+    @ApiProperty({
+        type       : String,
+        description: 'reprocessingHttpCommunicationId [input here api field description]',
+    })
+    reprocessingHttpCommunicationId?: string;
+
 }

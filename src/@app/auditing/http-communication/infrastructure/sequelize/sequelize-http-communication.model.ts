@@ -7,6 +7,12 @@ import { DataTypes } from 'sequelize';
     modelName: 'AuditingHttpCommunication',
     freezeTableName: true,
     timestamps: false,
+    indexes: [
+        {
+            fields: ['reprocessingHttpCommunicationId'],
+            unique: false,
+        },
+    ],
 })
 export class AuditingHttpCommunicationModel extends Model<AuditingHttpCommunicationModel>
 {
@@ -80,6 +86,21 @@ export class AuditingHttpCommunicationModel extends Model<AuditingHttpCommunicat
         type: DataTypes.JSON,
     })
     httpResponseRejected: any;
+
+    @Column({
+        field: 'isReprocessing',
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    })
+    isReprocessing: boolean;
+
+    @Column({
+        field: 'reprocessingHttpCommunicationId',
+        allowNull: true,
+        type: DataTypes.UUID,
+    })
+    reprocessingHttpCommunicationId: string;
 
     @Column({
         field: 'createdAt',

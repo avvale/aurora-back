@@ -16,6 +16,8 @@ import {
     HttpCommunicationHttpRequestRejected,
     HttpCommunicationHttpResponse,
     HttpCommunicationHttpResponseRejected,
+    HttpCommunicationIsReprocessing,
+    HttpCommunicationReprocessingHttpCommunicationId,
     HttpCommunicationCreatedAt,
     HttpCommunicationUpdatedAt,
     HttpCommunicationDeletedAt,
@@ -75,6 +77,8 @@ describe('CreateHttpCommunicationService', () =>
                     httpRequestRejected: new HttpCommunicationHttpRequestRejected(httpCommunications[0].httpRequestRejected),
                     httpResponse: new HttpCommunicationHttpResponse(httpCommunications[0].httpResponse),
                     httpResponseRejected: new HttpCommunicationHttpResponseRejected(httpCommunications[0].httpResponseRejected),
+                    isReprocessing: new HttpCommunicationIsReprocessing(httpCommunications[0].isReprocessing),
+                    reprocessingHttpCommunicationId: new HttpCommunicationReprocessingHttpCommunicationId(httpCommunications[0].reprocessingHttpCommunicationId),
                 },
             )).toBe(undefined);
         });

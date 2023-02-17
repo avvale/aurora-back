@@ -52,6 +52,8 @@ describe('UpdateHttpCommunicationByIdCommandHandler', () =>
                         httpRequestRejected: httpCommunications[0].httpRequestRejected,
                         httpResponse: httpCommunications[0].httpResponse,
                         httpResponseRejected: httpCommunications[0].httpResponseRejected,
+                        isReprocessing: httpCommunications[0].isReprocessing,
+                        reprocessingHttpCommunicationId: httpCommunications[0].reprocessingHttpCommunicationId,
                     },
                     {},
                     { timezone: process.env.TZ },

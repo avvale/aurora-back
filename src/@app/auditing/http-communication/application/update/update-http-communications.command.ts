@@ -15,6 +15,8 @@ export class UpdateHttpCommunicationsCommand
             httpRequestRejected?: any;
             httpResponse?: any;
             httpResponseRejected?: any;
+            isReprocessing?: boolean;
+            reprocessingHttpCommunicationId?: string;
         },
         public readonly queryStatement?: QueryStatement,
         public readonly constraint?: QueryStatement,
