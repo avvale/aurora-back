@@ -36,7 +36,7 @@ export enum AuditingSideEffectMethod {
 
 export interface AuditingCreateHttpCommunicationInput {
     id: string;
-    code?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
     event: AuditingHttpCommunicationEvent;
     status?: Nullable<GraphQLInt>;
     method: GraphQLString;
@@ -49,7 +49,7 @@ export interface AuditingCreateHttpCommunicationInput {
 
 export interface AuditingUpdateHttpCommunicationByIdInput {
     id: string;
-    code?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
     event?: Nullable<AuditingHttpCommunicationEvent>;
     status?: Nullable<GraphQLInt>;
     method?: Nullable<GraphQLString>;
@@ -62,7 +62,7 @@ export interface AuditingUpdateHttpCommunicationByIdInput {
 
 export interface AuditingUpdateHttpCommunicationsInput {
     id?: Nullable<string>;
-    code?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
     event?: Nullable<AuditingHttpCommunicationEvent>;
     status?: Nullable<GraphQLInt>;
     method?: Nullable<GraphQLString>;
@@ -159,7 +159,7 @@ export interface QueryStatement {
 
 export interface AuditingHttpCommunication {
     id: string;
-    code?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
     event: AuditingHttpCommunicationEvent;
     status?: Nullable<GraphQLInt>;
     method: GraphQLString;

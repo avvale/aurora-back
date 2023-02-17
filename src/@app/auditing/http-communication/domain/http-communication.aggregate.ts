@@ -4,7 +4,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 import { Utils } from '@aurora-ts/core';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -24,7 +24,7 @@ import { DeletedHttpCommunicationEvent } from '../application/events/deleted-htt
 export class AuditingHttpCommunication extends AggregateRoot
 {
     id: HttpCommunicationId;
-    code: HttpCommunicationCode;
+    tags: HttpCommunicationTags;
     event: HttpCommunicationEvent;
     status: HttpCommunicationStatus;
     method: HttpCommunicationMethod;
@@ -41,7 +41,7 @@ export class AuditingHttpCommunication extends AggregateRoot
 
     constructor(
         id: HttpCommunicationId,
-        code: HttpCommunicationCode,
+        tags: HttpCommunicationTags,
         event: HttpCommunicationEvent,
         status: HttpCommunicationStatus,
         method: HttpCommunicationMethod,
@@ -58,7 +58,7 @@ export class AuditingHttpCommunication extends AggregateRoot
     {
         super();
         this.id = id;
-        this.code = code;
+        this.tags = tags;
         this.event = event;
         this.status = status;
         this.method = method;
@@ -76,7 +76,7 @@ export class AuditingHttpCommunication extends AggregateRoot
 
     static register (
         id: HttpCommunicationId,
-        code: HttpCommunicationCode,
+        tags: HttpCommunicationTags,
         event: HttpCommunicationEvent,
         status: HttpCommunicationStatus,
         method: HttpCommunicationMethod,
@@ -93,7 +93,7 @@ export class AuditingHttpCommunication extends AggregateRoot
     {
         return new AuditingHttpCommunication(
             id,
-            code,
+            tags,
             event,
             status,
             method,
@@ -114,7 +114,7 @@ export class AuditingHttpCommunication extends AggregateRoot
         this.apply(
             new CreatedHttpCommunicationEvent(
                 httpCommunication.id.value,
-                httpCommunication.code?.value,
+                httpCommunication.tags?.value,
                 httpCommunication.event.value,
                 httpCommunication.status?.value,
                 httpCommunication.method.value,
@@ -135,7 +135,7 @@ export class AuditingHttpCommunication extends AggregateRoot
         this.apply(
             new UpdatedHttpCommunicationEvent(
                 httpCommunication.id?.value,
-                httpCommunication.code?.value,
+                httpCommunication.tags?.value,
                 httpCommunication.event?.value,
                 httpCommunication.status?.value,
                 httpCommunication.method?.value,
@@ -156,7 +156,7 @@ export class AuditingHttpCommunication extends AggregateRoot
         this.apply(
             new DeletedHttpCommunicationEvent(
                 httpCommunication.id.value,
-                httpCommunication.code?.value,
+                httpCommunication.tags?.value,
                 httpCommunication.event.value,
                 httpCommunication.status?.value,
                 httpCommunication.method.value,
@@ -176,7 +176,7 @@ export class AuditingHttpCommunication extends AggregateRoot
     {
         return {
             id: this.id.value,
-            code: this.code?.value,
+            tags: this.tags?.value,
             event: this.event.value,
             status: this.status?.value,
             method: this.method.value,
@@ -198,7 +198,7 @@ export class AuditingHttpCommunication extends AggregateRoot
     {
         return {
             id: this.id.value,
-            code: this.code?.value,
+            tags: this.tags?.value,
             event: this.event.value,
             status: this.status?.value,
             method: this.method.value,

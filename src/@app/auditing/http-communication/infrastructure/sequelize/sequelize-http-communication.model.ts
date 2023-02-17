@@ -19,11 +19,11 @@ export class AuditingHttpCommunicationModel extends Model<AuditingHttpCommunicat
     id: string;
 
     @Column({
-        field: 'code',
+        field: 'tags',
         allowNull: true,
-        type: DataTypes.STRING(100),
+        type: DataTypes.JSON,
     })
-    code: string;
+    tags: any;
 
     @Column({
         field: 'event',

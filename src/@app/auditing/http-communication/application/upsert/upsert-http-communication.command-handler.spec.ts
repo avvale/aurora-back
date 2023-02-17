@@ -43,7 +43,7 @@ describe('UpsertHttpCommunicationCommandHandler', () =>
                 new UpsertHttpCommunicationCommand(
                     {
                         id: httpCommunications[0].id,
-                        code: httpCommunications[0].code,
+                        tags: httpCommunications[0].tags,
                         event: httpCommunications[0].event,
                         status: httpCommunications[0].status,
                         method: httpCommunications[0].method,

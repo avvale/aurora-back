@@ -3,7 +3,7 @@ import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurora-ts/core';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -30,7 +30,7 @@ export class UpsertHttpCommunicationService
     async main(
         payload: {
             id: HttpCommunicationId;
-            code: HttpCommunicationCode;
+            tags: HttpCommunicationTags;
             event: HttpCommunicationEvent;
             status: HttpCommunicationStatus;
             method: HttpCommunicationMethod;
@@ -46,7 +46,7 @@ export class UpsertHttpCommunicationService
         // upsert aggregate with factory pattern
         const httpCommunication = AuditingHttpCommunication.register(
             payload.id,
-            payload.code,
+            payload.tags,
             payload.event,
             payload.status,
             payload.method,

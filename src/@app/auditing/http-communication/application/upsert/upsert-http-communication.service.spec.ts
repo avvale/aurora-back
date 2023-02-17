@@ -7,7 +7,7 @@ import { httpCommunications } from '@app/auditing/http-communication/infrastruct
 import { UpsertHttpCommunicationService } from './upsert-http-communication.service';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -66,7 +66,7 @@ describe('UpsertHttpCommunicationService', () =>
             expect(await service.main(
                 {
                     id: new HttpCommunicationId(httpCommunications[0].id),
-                    code: new HttpCommunicationCode(httpCommunications[0].code),
+                    tags: new HttpCommunicationTags(httpCommunications[0].tags),
                     event: new HttpCommunicationEvent(httpCommunications[0].event),
                     status: new HttpCommunicationStatus(httpCommunications[0].status),
                     method: new HttpCommunicationMethod(httpCommunications[0].method),

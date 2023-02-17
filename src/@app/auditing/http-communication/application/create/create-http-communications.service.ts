@@ -3,7 +3,7 @@ import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurora-ts/core';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -31,7 +31,7 @@ export class CreateHttpCommunicationsService
     async main(
         httpCommunications: {
             id: HttpCommunicationId;
-            code: HttpCommunicationCode;
+            tags: HttpCommunicationTags;
             event: HttpCommunicationEvent;
             status: HttpCommunicationStatus;
             method: HttpCommunicationMethod;
@@ -47,7 +47,7 @@ export class CreateHttpCommunicationsService
         // create aggregate with factory pattern
         const aggregateHttpCommunications = httpCommunications.map(httpCommunication => AuditingHttpCommunication.register(
             httpCommunication.id,
-            httpCommunication.code,
+            httpCommunication.tags,
             httpCommunication.event,
             httpCommunication.status,
             httpCommunication.method,

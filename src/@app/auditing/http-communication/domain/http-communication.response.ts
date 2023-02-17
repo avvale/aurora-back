@@ -3,7 +3,7 @@ export class HttpCommunicationResponse
 {
     constructor(
         public readonly id: string,
-        public readonly code: string,
+        public readonly tags: any,
         public readonly event: string,
         public readonly status: number,
         public readonly method: string,

@@ -12,9 +12,8 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
-  - name: code
-    type: varchar
-    maxLength: 100
+  - name: tags
+    type: json
     nullable: true
   - name: event
     type: enum

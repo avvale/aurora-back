@@ -4,7 +4,7 @@ import { AuditingHttpCommunication } from './http-communication.aggregate';
 import { HttpCommunicationResponse } from './http-communication.response';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -43,7 +43,7 @@ export class HttpCommunicationMapper implements IMapper
     {
         if (!Array.isArray(httpCommunications)) return;
 
-        return httpCommunications.map(httpCommunication  => this.makeAggregate(httpCommunication, cQMetadata));
+        return httpCommunications.map(httpCommunication => this.makeAggregate(httpCommunication, cQMetadata));
     }
 
     /**
@@ -70,7 +70,7 @@ export class HttpCommunicationMapper implements IMapper
     {
         return AuditingHttpCommunication.register(
             new HttpCommunicationId(httpCommunication.id, { undefinable: true }),
-            new HttpCommunicationCode(httpCommunication.code, { undefinable: true }),
+            new HttpCommunicationTags(httpCommunication.tags, { undefinable: true }),
             new HttpCommunicationEvent(httpCommunication.event, { undefinable: true }),
             new HttpCommunicationStatus(httpCommunication.status, { undefinable: true }),
             new HttpCommunicationMethod(httpCommunication.method, { undefinable: true }),
@@ -91,7 +91,7 @@ export class HttpCommunicationMapper implements IMapper
 
         return new HttpCommunicationResponse(
             httpCommunication.id.value,
-            httpCommunication.code.value,
+            httpCommunication.tags.value,
             httpCommunication.event.value,
             httpCommunication.status.value,
             httpCommunication.method.value,

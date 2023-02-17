@@ -1,5 +1,5 @@
 export { HttpCommunicationId } from './http-communication-id';
-export { HttpCommunicationCode } from './http-communication-code';
+export { HttpCommunicationTags } from './http-communication-tags';
 export { HttpCommunicationEvent } from './http-communication-event';
 export { HttpCommunicationStatus } from './http-communication-status';
 export { HttpCommunicationMethod } from './http-communication-method';

@@ -9,7 +9,7 @@ enum AuditingHttpCommunicationEvent {
 type AuditingHttpCommunication
 {
     id: ID!
-    code: GraphQLString
+    tags: JSON
     event: AuditingHttpCommunicationEvent!
     status: GraphQLInt
     method: GraphQLString!
@@ -26,7 +26,7 @@ type AuditingHttpCommunication
 input AuditingCreateHttpCommunicationInput
 {
     id: ID!
-    code: GraphQLString
+    tags: JSON
     event: AuditingHttpCommunicationEvent!
     status: GraphQLInt
     method: GraphQLString!
@@ -40,7 +40,7 @@ input AuditingCreateHttpCommunicationInput
 input AuditingUpdateHttpCommunicationByIdInput
 {
     id: ID!
-    code: GraphQLString
+    tags: JSON
     event: AuditingHttpCommunicationEvent
     status: GraphQLInt
     method: GraphQLString
@@ -54,7 +54,7 @@ input AuditingUpdateHttpCommunicationByIdInput
 input AuditingUpdateHttpCommunicationsInput
 {
     id: ID
-    code: GraphQLString
+    tags: JSON
     event: AuditingHttpCommunicationEvent
     status: GraphQLInt
     method: GraphQLString

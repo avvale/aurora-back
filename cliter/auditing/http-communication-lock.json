@@ -7,23 +7,23 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communication.command-handler.spec.ts",
-            "integrity": "sha1:9c2cc20166d2f8cb8ad1825f452a1fc6da740ed5"
+            "integrity": "sha1:a3c93176b3618bc6adab5f0ef7cae894fb5ebd96"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communication.command-handler.ts",
-            "integrity": "sha1:5b5f033acd456550e60bb582dafec1d402c45b7f"
+            "integrity": "sha1:3d26c2d0baae7694d8a95facc23cad2ad4b3cac2"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communication.command.ts",
-            "integrity": "sha1:ac6961af7f5cbe31d00b7adb9c533eeb64700bf5"
+            "integrity": "sha1:e1f8fba6c8c35762b8da4a573e884f114118182d"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communication.service.spec.ts",
-            "integrity": "sha1:fa63c8f3430e6951f1bea992712705593f3a27f2"
+            "integrity": "sha1:747a3662fd3e9b90d700c8812c4bae2118a488b6"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communication.service.ts",
-            "integrity": "sha1:e403630383a6145cd6848efb8be561169bccdd37"
+            "integrity": "sha1:af42e3b08fd0fd93b4370c8228562e6324a76cde"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communications.command-handler.spec.ts",
@@ -31,11 +31,11 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communications.command-handler.ts",
-            "integrity": "sha1:598eef0a78acdae704868e7ee1a932f7bfd0e9c5"
+            "integrity": "sha1:25d44515ce43bd697d55fdbadc13283c6ac3cac3"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communications.command.ts",
-            "integrity": "sha1:fcdb4c3203c576cd1cb739f79ac1ce420af6223d"
+            "integrity": "sha1:d14f5083d4b831d8bdc3d412e31493ca568817d4"
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communications.service.spec.ts",
@@ -43,7 +43,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/create/create-http-communications.service.ts",
-            "integrity": "sha1:26485e755e0d4b88341aecfdae90e93a2dcc6d82"
+            "integrity": "sha1:2368058ba8d2cbbb455baf435989a6f1a391b2d8"
         },
         {
             "path": "src/@app/auditing/http-communication/application/delete/delete-http-communication-by-id.command-handler.spec.ts",
@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/add-http-communications-context.event.ts",
-            "integrity": "sha1:880062f8e9e6ecb660d4fb89c1f1b8ae8af7341f"
+            "integrity": "sha1:75521a75ba924556a20aa8022d68d8eac9e582f7"
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/created-http-communication.event-handler.ts",
@@ -95,7 +95,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/created-http-communication.event.ts",
-            "integrity": "sha1:477b53bc88407ad64e9446457f2cee70d5132ae8"
+            "integrity": "sha1:07ea1e7dfa1f7924fc287cc08b2b1c2eca281776"
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/created-http-communications.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/deleted-http-communication.event.ts",
-            "integrity": "sha1:eec180bbda6e25610c6ecebc6681581241226abb"
+            "integrity": "sha1:981745f331f392f1d38e336ce886dd14cf5e9eec"
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/deleted-http-communications.event-handler.ts",
@@ -127,7 +127,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/updated-http-communication.event.ts",
-            "integrity": "sha1:a8ab05f2c7281055734ca1a2a9683a1b5d06e081"
+            "integrity": "sha1:c6675a7f78c65d07bf877c3228ad3bb0d4578b59"
         },
         {
             "path": "src/@app/auditing/http-communication/application/events/updated-http-communications.event-handler.ts",
@@ -243,71 +243,71 @@
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communication-by-id.command-handler.spec.ts",
-            "integrity": "sha1:364a06229a1ca08232fa64991b078931c51aa12d"
+            "integrity": "sha1:9277145bfa1daee097447d73bcb2698e9ab5dfb7"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communication-by-id.command-handler.ts",
-            "integrity": "sha1:ac12cc0e9d001d0dbd6aa85b603b3199a26de576"
+            "integrity": "sha1:b0d80860565ac5269c89fc6028b4317dfa164f56"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communication-by-id.command.ts",
-            "integrity": "sha1:9c68d2a417d5062744d8d5c07032b62f42c80836"
+            "integrity": "sha1:a8b4e63a9756900bd49ec8599e09f7a6e8f042e1"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communication-by-id.service.spec.ts",
-            "integrity": "sha1:5989fac30eeb235dafa5a61e148245779715e479"
+            "integrity": "sha1:b87f3caab4ec110c62ca41a81a85bee91df83322"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communication-by-id.service.ts",
-            "integrity": "sha1:5404e7c2898a488fb101026aee7bece1f4227282"
+            "integrity": "sha1:da7932336bbb97972d812023c1fd3d7ecebd6dba"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communications.command-handler.spec.ts",
-            "integrity": "sha1:229c0f027e3bf30598f8ecb752061a404049d3c2"
+            "integrity": "sha1:5db26df1a8231fbf9a1a328f4b8d598cd9450eac"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communications.command-handler.ts",
-            "integrity": "sha1:2ba09dbd297dd9470e14289ed8cfa42f5851edcb"
+            "integrity": "sha1:ff5acf39260cea25082ced0f95e2003718afe537"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communications.command.ts",
-            "integrity": "sha1:f16492b813ee69fadc51ca302babfe34b5b957fe"
+            "integrity": "sha1:7f03270a61b935ff6d9dcaa98a21ead16b51bc94"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communications.service.spec.ts",
-            "integrity": "sha1:b0672d7a02e3a2e505e3a864bb1d3eb6877682df"
+            "integrity": "sha1:c0505801a5eede03ab6fb3e51a00b8883dba2126"
         },
         {
             "path": "src/@app/auditing/http-communication/application/update/update-http-communications.service.ts",
-            "integrity": "sha1:0b2139b538b7b577ff848256eb5914fa79c82239"
+            "integrity": "sha1:4a7c4463573c7af94d198bf727e4b57d35a8da9c"
         },
         {
             "path": "src/@app/auditing/http-communication/application/upsert/upsert-http-communication.command-handler.spec.ts",
-            "integrity": "sha1:8562d21ec0c6df323c946d23a711e246699a19d7"
+            "integrity": "sha1:e68ba31c51d5dfa4a6e75d61028a5c7178a2bb25"
         },
         {
             "path": "src/@app/auditing/http-communication/application/upsert/upsert-http-communication.command-handler.ts",
-            "integrity": "sha1:131f65fbaebcad2a5ae3c5ca7c04743c6ebe1c71"
+            "integrity": "sha1:6176a9013a489213cd1a4e849783caff6035f947"
         },
         {
             "path": "src/@app/auditing/http-communication/application/upsert/upsert-http-communication.command.ts",
-            "integrity": "sha1:3a42d58dcec467577cbe60e16bfe69f5288da5bf"
+            "integrity": "sha1:c4b0f6ccacc92e679af7fa0b210a6d67c21f6ad8"
         },
         {
             "path": "src/@app/auditing/http-communication/application/upsert/upsert-http-communication.service.spec.ts",
-            "integrity": "sha1:db35744a3eeb6964716c1903d0f364a1e12d7a70"
+            "integrity": "sha1:88ed630ed3efc306daf5c81c9a45da239d89ebeb"
         },
         {
             "path": "src/@app/auditing/http-communication/application/upsert/upsert-http-communication.service.ts",
-            "integrity": "sha1:46a7e3681fef588d934ef77e0698297fc9dc1214"
+            "integrity": "sha1:c1d9c45b1e44198bce15182ba3190ea33f48391c"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/http-communication.aggregate.ts",
-            "integrity": "sha1:786ae4f7125b52d4daab726599b97b103033a464"
+            "integrity": "sha1:4b194480bf62ec12d2953094c7582a6c7f1f46ac"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/http-communication.mapper.ts",
-            "integrity": "sha1:3f607996593be0a95b66df6578e4f63fb51b7267"
+            "integrity": "sha1:e7ac71a3a46b7e61cce03443e61eb90eab1ff86e"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/http-communication.repository.ts",
@@ -315,11 +315,11 @@
         },
         {
             "path": "src/@app/auditing/http-communication/domain/http-communication.response.ts",
-            "integrity": "sha1:604757ccb85e604aeaaf23581f337c8b596b7fe8"
+            "integrity": "sha1:60a3c415b9af4b69fc65a0b2edbbff39cfb63c70"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/index.ts",
-            "integrity": "sha1:a1b77870f8a1961bf6cd36b3334cb5b03bab1895"
+            "integrity": "sha1:82259a4bd0f8132cdca478731333935877c867f4"
         },
         {
             "path": "src/@app/auditing/http-communication/index.ts",
@@ -327,19 +327,19 @@
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/mock-http-communication.repository.ts",
-            "integrity": "sha1:2df85b3fd8d575a5802d0cbc0966886978cd9b8c"
+            "integrity": "sha1:d3d6a3c3fe63ba2b6c3be6a8711ed453dd1a63c7"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/mock-http-communication.seeder.ts",
-            "integrity": "sha1:45722fba796578cdafba18a362290ec28c0c7efb"
+            "integrity": "sha1:05a355c6e03636a05488a86dd489b984764445df"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/seeds/http-communication.seed.ts",
-            "integrity": "sha1:6a47e2bf1abef87880306a297b41dca5ed0d6319"
+            "integrity": "sha1:fb654f8d9a3a82236fcf2d4ea9b48207f1f5c3a8"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/sequelize/sequelize-http-communication.model.ts",
-            "integrity": "sha1:b84bbe5544c90e69fa301cad3e1841bbacb6d5e7"
+            "integrity": "sha1:a24ffae7035fd0c3a42f7030637d0a733988357d"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/sequelize/sequelize-http-communication.repository.ts",
@@ -350,8 +350,8 @@
             "integrity": "sha1:c2954d62b7e7a3d95a40fe8d0e77c90d71268370"
         },
         {
-            "path": "src/@app/auditing/http-communication/domain/value-objects/http-communication-code.ts",
-            "integrity": "sha1:a464f7aa028dc166f1ae568ec7da46ea991021bc"
+            "path": "src/@app/auditing/http-communication/domain/value-objects/http-communication-tags.ts",
+            "integrity": "sha1:77662f0da8b4d9db527c94d9673e60ff684e63c1"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/http-communication-event.ts",
@@ -491,19 +491,19 @@
         },
         {
             "path": "src/@api/auditing/http-communication/dto/auditing-http-communication.dto.ts",
-            "integrity": "sha1:d4d675d59b6696104a79751121765c43d3bf6e06"
+            "integrity": "sha1:9e015290798f5cac8dd4d2bc5b8dd827974a2324"
         },
         {
             "path": "src/@api/auditing/http-communication/dto/auditing-create-http-communication.dto.ts",
-            "integrity": "sha1:4ad0355d02bcba6350bcc351d7433404a435417c"
+            "integrity": "sha1:0e959e83584c7d0cc58706798ec8dc60d74564f2"
         },
         {
             "path": "src/@api/auditing/http-communication/dto/auditing-update-http-communication-by-id.dto.ts",
-            "integrity": "sha1:c014f8aa800010d50029f15382053a14ab4cc738"
+            "integrity": "sha1:dbfa9fa7a323fc3dc3d4df5ae4203a0fc6a19793"
         },
         {
             "path": "src/@api/auditing/http-communication/dto/auditing-update-http-communications.dto.ts",
-            "integrity": "sha1:4aad9531feb30843fc78688ff6918cf4e393b496"
+            "integrity": "sha1:5b09d35326f6c86289e8809e1da5bdef380e6ca6"
         },
         {
             "path": "src/@api/auditing/http-communication/dto/index.ts",
@@ -511,7 +511,7 @@
         },
         {
             "path": "src/@api/auditing/http-communication/graphql/http-communication.graphql",
-            "integrity": "sha1:96a6fae715d6327c553829dfa1178c33b7e8ea64"
+            "integrity": "sha1:7fb78747649e5a8ae39bc2c79c073a853546849d"
         },
         {
             "path": "src/@api/auditing/http-communication/handlers/auditing-create-http-communication.handler.spec.ts",
@@ -699,11 +699,11 @@
         },
         {
             "path": "test/acceptance/auditing/http-communication.e2e-spec.ts",
-            "integrity": "sha1:9baf3585323214f1320420037a24b8bf95bc1162"
+            "integrity": "sha1:a5fef729f865a434ffa908b881ba0f6e64fcba86"
         },
         {
             "path": "postman/auditing.http-communication.postman.json",
-            "integrity": "sha1:3246a380f0198e2d67ecb8219bb232b31eeffb35"
+            "integrity": "sha1:201f06e82bc6146923251f48217b8261e4186a33"
         }
     ]
 }

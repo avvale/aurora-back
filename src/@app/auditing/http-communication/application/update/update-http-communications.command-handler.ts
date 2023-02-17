@@ -4,7 +4,7 @@ import { UpdateHttpCommunicationsCommand } from './update-http-communications.co
 import { UpdateHttpCommunicationsService } from './update-http-communications.service';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -31,7 +31,7 @@ export class UpdateHttpCommunicationsCommandHandler implements ICommandHandler<U
         await this.updateHttpCommunicationsService.main(
             {
                 id: new HttpCommunicationId(command.payload.id, { undefinable: true }),
-                code: new HttpCommunicationCode(command.payload.code),
+                tags: new HttpCommunicationTags(command.payload.tags),
                 event: new HttpCommunicationEvent(command.payload.event, { undefinable: true }),
                 status: new HttpCommunicationStatus(command.payload.status),
                 method: new HttpCommunicationMethod(command.payload.method, { undefinable: true }),

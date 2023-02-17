@@ -4,7 +4,7 @@ import { CreateHttpCommunicationCommand } from './create-http-communication.comm
 import { CreateHttpCommunicationService } from './create-http-communication.service';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -31,7 +31,7 @@ export class CreateHttpCommunicationCommandHandler implements ICommandHandler<Cr
         await this.createHttpCommunicationService.main(
             {
                 id: new HttpCommunicationId(command.payload.id),
-                code: new HttpCommunicationCode(command.payload.code),
+                tags: new HttpCommunicationTags(command.payload.tags),
                 event: new HttpCommunicationEvent(command.payload.event),
                 status: new HttpCommunicationStatus(command.payload.status),
                 method: new HttpCommunicationMethod(command.payload.method),

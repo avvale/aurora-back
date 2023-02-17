@@ -6,7 +6,7 @@ export class UpdateHttpCommunicationByIdCommand
     constructor(
         public readonly payload: {
             id: string;
-            code?: string;
+            tags?: any;
             event?: string;
             status?: number;
             method?: string;

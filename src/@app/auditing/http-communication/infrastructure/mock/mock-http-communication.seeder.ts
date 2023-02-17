@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { MockSeeder } from '@aurora-ts/core';
 import {
     HttpCommunicationId,
-    HttpCommunicationCode,
+    HttpCommunicationTags,
     HttpCommunicationEvent,
     HttpCommunicationStatus,
     HttpCommunicationMethod,
@@ -39,7 +39,7 @@ export class MockHttpCommunicationSeeder extends MockSeeder<AuditingHttpCommunic
             this.collectionSource.push(
                 AuditingHttpCommunication.register(
                     new HttpCommunicationId(httpCommunication.id),
-                    new HttpCommunicationCode(httpCommunication.code),
+                    new HttpCommunicationTags(httpCommunication.tags),
                     new HttpCommunicationEvent(httpCommunication.event),
                     new HttpCommunicationStatus(httpCommunication.status),
                     new HttpCommunicationMethod(httpCommunication.method),
