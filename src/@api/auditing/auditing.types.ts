@@ -1,6 +1,11 @@
-import { IamAccount } from '@api/graphql';
+export interface AuditingAccount
+{
+    id: string;
+    email: string;
+}
 
-export interface AuditingMeta {
+export interface AuditingMeta<T extends AuditingAccount = AuditingAccount>
+{
     ip: string;
     userAgent: string;
     method: string;
@@ -8,7 +13,7 @@ export interface AuditingMeta {
     params: { [key: string]: any };
     query: { [key: string]: any };
     body: { [key: string]: any };
-    account: IamAccount;
+    account: T;
     operationId?: string;
     operationSort?: number;
     tags?: string[];

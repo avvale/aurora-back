@@ -114,8 +114,15 @@ async function cleanShareModule()
 {
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'shared.module.ts']);
+
+    // remove LoggingAxiosInterceptorService
     codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/logging.axios-interceptor.service');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'LoggingAxiosInterceptorService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'providers', 'LoggingAxiosInterceptorService');
+
+    // remove HttpModule
+    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/logging.axios-interceptor.service');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'HttpModule');
+
     sourceFile.saveSync();
 }
 
