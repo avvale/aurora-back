@@ -3,10 +3,12 @@ import { Module } from '@nestjs/common';
 import { CoreModule } from './@aurora/core.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuditingModule } from '@api/auditing/auditing.module';
 
 @Module({
     imports: [
         CoreModule,
+        AuditingModule,
     ],
     controllers: [
         AppController,

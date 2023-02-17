@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const fse = require('fs-extra');
 const { src, dest, series } = require('gulp');
 const jeditor = require('gulp-json-editor');
+const codeWriter = require('./helpers/code-writer');
 
 /**
  * Copy application files to publish folder
@@ -17,6 +18,7 @@ function copyApplication()
             '.eslintrc.json',
             '!cliter/**',
             '!db/**',
+            '!dist/**',
             '!gulp/**',
             '!postman/**',
             '!node_modules/**',
@@ -61,6 +63,7 @@ function editPackageJson()
                 delete json.devDependencies['@types/passport-jwt'];
                 delete json.devDependencies['gulp-json-editor'];
                 delete json.devDependencies['fs-extra'];
+                delete json.devDependencies['through2'];
 
                 return json;
             }),
@@ -98,6 +101,24 @@ function copyToCLI()
     return fse.copy('publish', '../aurora-cli/src/templates/back/application', { overwrite: true });
 }
 
+async function cleanAppModule()
+{
+    const project = codeWriter.createProject(['publish', 'tsconfig.json']);
+    const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', 'app.module.ts']);
+    codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AuditingModule');
+    sourceFile.saveSync();
+}
+
+async function cleanShareModule()
+{
+    const project = codeWriter.createProject(['publish', 'tsconfig.json']);
+    const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'shared.module.ts']);
+    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/logging.axios-interceptor.service');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'LoggingAxiosInterceptorService');
+    sourceFile.saveSync();
+}
+
 async function clean()
 {
     // remove publish folder
@@ -108,6 +129,8 @@ exports.publishApplication = series(
     copyApplication,
     editPackageJson,
     editNestCli,
+    cleanAppModule,
+    cleanShareModule,
     copyToCLI,
     clean,
 );

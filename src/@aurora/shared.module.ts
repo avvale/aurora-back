@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { AddI18NConstraintService, CoreModule } from '@aurora-ts/core';
 import { CqrsConfigModule } from './cqrs-config.module';
+import { LoggingAxiosInterceptorService } from '@api/auditing/shared/services/logging.axios-interceptor.service';
 
 @Module({
     imports: [
@@ -11,6 +12,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
         CoreModule,
         CqrsConfigModule,
         CqrsModule,
+        LoggingAxiosInterceptorService,
     ],
     providers: [
         AddI18NConstraintService,
