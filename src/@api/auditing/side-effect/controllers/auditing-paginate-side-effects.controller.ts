@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Body, Controller, HttpCode, Post, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation, ApiQuery } from '@nestjs/swagger';
-import { AuthenticationGuard, AuthorizationGuard, Pagination, Permissions, QueryStatement, Timezone } from '@aurora-ts/core';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, Pagination, QueryStatement, Timezone } from '@aurora-ts/core';
 
 // @app
 import { AuditingPaginateSideEffectsHandler } from '../handlers/auditing-paginate-side-effects.handler';

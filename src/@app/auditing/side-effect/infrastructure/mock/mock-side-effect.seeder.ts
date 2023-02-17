@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { MockSeeder } from '@aurora-ts/core';
 import {
     SideEffectId,
+    SideEffectTags,
     SideEffectModelPath,
     SideEffectModelName,
     SideEffectOperationId,
@@ -19,7 +20,6 @@ import {
     SideEffectQuery,
     SideEffectBody,
     SideEffectUserAgent,
-    SideEffectTags,
     SideEffectIsRollback,
     SideEffectRollbackSideEffectId,
     SideEffectCreatedAt,
@@ -50,6 +50,7 @@ export class MockSideEffectSeeder extends MockSeeder<AuditingSideEffect>
             this.collectionSource.push(
                 AuditingSideEffect.register(
                     new SideEffectId(sideEffect.id),
+                    new SideEffectTags(sideEffect.tags),
                     new SideEffectModelPath(sideEffect.modelPath),
                     new SideEffectModelName(sideEffect.modelName),
                     new SideEffectOperationId(sideEffect.operationId),
@@ -67,7 +68,6 @@ export class MockSideEffectSeeder extends MockSeeder<AuditingSideEffect>
                     new SideEffectQuery(sideEffect.query),
                     new SideEffectBody(sideEffect.body),
                     new SideEffectUserAgent(sideEffect.userAgent),
-                    new SideEffectTags(sideEffect.tags),
                     new SideEffectIsRollback(sideEffect.isRollback),
                     new SideEffectRollbackSideEffectId(sideEffect.rollbackSideEffectId),
                     new SideEffectCreatedAt({ currentTimestamp: true }),

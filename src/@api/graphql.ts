@@ -75,6 +75,7 @@ export interface AuditingUpdateHttpCommunicationsInput {
 
 export interface AuditingCreateSideEffectInput {
     id: string;
+    tags?: Nullable<JSON>;
     modelPath: GraphQLString;
     modelName: GraphQLString;
     operationId?: Nullable<string>;
@@ -92,13 +93,13 @@ export interface AuditingCreateSideEffectInput {
     query?: Nullable<JSON>;
     body?: Nullable<JSON>;
     userAgent?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
     isRollback: GraphQLBoolean;
     rollbackSideEffectId?: Nullable<string>;
 }
 
 export interface AuditingUpdateSideEffectByIdInput {
     id: string;
+    tags?: Nullable<JSON>;
     modelPath?: Nullable<GraphQLString>;
     modelName?: Nullable<GraphQLString>;
     operationId?: Nullable<string>;
@@ -116,13 +117,13 @@ export interface AuditingUpdateSideEffectByIdInput {
     query?: Nullable<JSON>;
     body?: Nullable<JSON>;
     userAgent?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
     isRollback?: Nullable<GraphQLBoolean>;
     rollbackSideEffectId?: Nullable<string>;
 }
 
 export interface AuditingUpdateSideEffectsInput {
     id?: Nullable<string>;
+    tags?: Nullable<JSON>;
     modelPath?: Nullable<GraphQLString>;
     modelName?: Nullable<GraphQLString>;
     operationId?: Nullable<string>;
@@ -140,7 +141,6 @@ export interface AuditingUpdateSideEffectsInput {
     query?: Nullable<JSON>;
     body?: Nullable<JSON>;
     userAgent?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
     isRollback?: Nullable<GraphQLBoolean>;
     rollbackSideEffectId?: Nullable<string>;
 }
@@ -205,6 +205,7 @@ export interface IMutation {
 
 export interface AuditingSideEffect {
     id: string;
+    tags?: Nullable<JSON>;
     modelPath: GraphQLString;
     modelName: GraphQLString;
     operationId?: Nullable<string>;
@@ -222,7 +223,6 @@ export interface AuditingSideEffect {
     query?: Nullable<JSON>;
     body?: Nullable<JSON>;
     userAgent?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
     isRollback: GraphQLBoolean;
     rollbackSideEffectId?: Nullable<string>;
     createdAt?: Nullable<GraphQLTimestamp>;
