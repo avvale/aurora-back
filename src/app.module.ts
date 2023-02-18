@@ -4,6 +4,8 @@ import { CoreModule } from './@aurora/core.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuditingModule } from '@api/auditing/auditing.module';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
 
 @Module({
     imports: [
@@ -17,11 +19,11 @@ import { AuditingModule } from '@api/auditing/auditing.module';
         AppService,
         {
             provide : AuthenticationGuard,
-            useClass: AuthenticationDisabledAdapterGuard,
+            useClass: AuthenticationJwtGuard,
         },
         {
             provide : AuthorizationGuard,
-            useClass: AuthorizationDisabledAdapterGuard,
+            useClass: AuthorizationPermissionsGuard,
         },
     ],
 })

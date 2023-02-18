@@ -5,18 +5,18 @@ import { HttpModule } from '@nestjs/axios';
 import { AddI18NConstraintService, CoreModule } from '@aurora-ts/core';
 import { CqrsConfigModule } from './cqrs-config.module';
 import { LoggingAxiosInterceptorService } from '@api/auditing/shared/services/logging.axios-interceptor.service';
-import { AuthModule } from '../@app/o-auth/shared/modules/auth.module';
-import { jwtConfig } from '../@app/o-auth/shared/jwt-config';
+import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
+import { jwtConfig } from '@app/o-auth/shared/jwt-config';
 
 @Module({
     imports: [
+        AuthJwtStrategyRegistryModule.forRoot(jwtConfig),
         CacheModule.register(),
         ConfigModule.forRoot({ isGlobal: true }),
         CoreModule,
         CqrsConfigModule,
         CqrsModule,
         HttpModule,
-        AuthModule.forRoot(jwtConfig)
     ],
     providers: [
         AddI18NConstraintService,
@@ -24,10 +24,10 @@ import { jwtConfig } from '../@app/o-auth/shared/jwt-config';
     ],
     exports: [
         AddI18NConstraintService,
+        AuthJwtStrategyRegistryModule,
         CacheModule,
         ConfigModule,
         CqrsConfigModule,
-        AuthModule
     ],
 })
 export class SharedModule {}

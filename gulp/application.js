@@ -25,6 +25,7 @@ function copyApplication()
             '!postman/**',
             '!src/@api/**',
             '!src/@app/**',
+            '!src/index.ts',
             '!nest-cli.json',
             '!test/acceptance/**',
             '!docker-compose.yml',
@@ -114,9 +115,11 @@ async function cleanAppModule()
 
     // remove AuthenticationJwtGuard
     codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
+    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'AppModule', 'providers', 'AuthenticationGuard', 'AuthenticationDisabledAdapterGuard');
 
     // remove AuthorizationPermissionsGuard
     codeWriter.removeImport(sourceFile, '@api/iam/shared/guards/authorization-permissions.guard');
+    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'AppModule', 'providers', 'AuthorizationGuard', 'AuthorizationDisabledAdapterGuard');
 
     sourceFile.saveSync();
 }
@@ -133,6 +136,14 @@ async function cleanShareModule()
     // remove HttpModule
     codeWriter.removeImport(sourceFile, '@nestjs/axios');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'HttpModule');
+
+    // remove AuthJwtStrategyRegistryModule
+    codeWriter.removeImport(sourceFile, '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'exports', 'AuthJwtStrategyRegistryModule');
+
+    // remove AuthJwtStrategyRegistryModule
+    codeWriter.removeImport(sourceFile, '@app/o-auth/shared/jwt-config');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
 
     sourceFile.saveSync();
 }

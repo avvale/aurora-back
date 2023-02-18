@@ -55,3 +55,34 @@ exports.removeDecoratorProperty = (sourceFile, moduleName, propertyName, valueNa
         }
     }
 };
+
+exports.changeDecoratorPropertyAdapter = (sourceFile, moduleName, propertyName, provide, adapter) =>
+{
+    const moduleClass = sourceFile.getClass(moduleName);
+    const moduleDecorator = moduleClass.getDecorator('Module');
+    const moduleDecoratorArguments = moduleDecorator.getArguments()[0];
+    const importsArgument = moduleDecoratorArguments.getProperty(propertyName);
+    const importsArray = importsArgument.getInitializerIfKindOrThrow(ts.SyntaxKind.ArrayLiteralExpression);
+
+    for (const [index, value] of importsArray.getElements().entries())
+    {
+        // const object = value.getInitializer();
+        if (value instanceof tsMorph.ObjectLiteralExpression)
+        {
+            const properties = value.getProperties();
+            let isProvideWanted = false;
+            for (const property of properties)
+            {
+                if (property.getName() === 'provide' && property.getInitializer().getText() === provide)
+                {
+                    isProvideWanted = true;
+                }
+                if (isProvideWanted && property.getName() === 'useClass')
+                {
+                    property.setInitializer(adapter);
+                    break;
+                }
+            }
+        }
+    }
+};
