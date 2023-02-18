@@ -1,17 +1,12 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Controller, Post, Body, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiCreatedResponse, ApiBody, ApiOperation } from '@nestjs/swagger';
-import { Timezone } from '@aurora-ts/core';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, Timezone } from '@aurora-ts/core';
 import { IamPermissionDto, IamCreatePermissionDto } from '../dto';
 
 // auditing
 import { Auditing } from '@api/auditing/shared/decorators/auditing.decorator';
 import { AuditingMeta } from '@api/auditing/auditing.types';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // @app
 import { IamCreatePermissionsHandler } from '../handlers/iam-create-permissions.handler';
@@ -19,7 +14,7 @@ import { IamCreatePermissionsHandler } from '../handlers/iam-create-permissions.
 @ApiTags('[iam] permission')
 @Controller('iam/permissions/create')
 @Permissions('iam.permission.create')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class IamCreatePermissionsController
 {
     constructor(

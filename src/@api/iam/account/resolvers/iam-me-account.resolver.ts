@@ -1,14 +1,12 @@
 import { UseGuards } from '@nestjs/common';
 import { Resolver, Query, Context } from '@nestjs/graphql';
+import { AuthenticationGuard } from '@aurora-ts/core';
 import { IamAccount } from '@api/graphql';
-
-// authorization
-import { AuthenticationJwtGuard } from '../../../o-auth/shared/guards/authentication-jwt.guard';
 
 // @app
 import { IamMeAccountHandler } from '../handlers/iam-me-account.handler';
 @Resolver()
-@UseGuards(AuthenticationJwtGuard)
+@UseGuards(AuthenticationGuard)
 export class IamMeAccountResolver
 {
     constructor(

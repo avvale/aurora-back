@@ -1,15 +1,10 @@
 import { UseGuards } from '@nestjs/common';
 import { Resolver, Args, Mutation, Context } from '@nestjs/graphql';
-import { Timezone } from '@aurora-ts/core';
+import { AuthenticationGuard, AuthorizationGuard, Permissions, Timezone } from '@aurora-ts/core';
 
 // auditing
 import { Auditing } from '@api/auditing/shared/decorators/auditing.decorator';
 import { AuditingMeta } from '@api/auditing/auditing.types';
-
-// authorization
-import { Permissions } from '@api/iam/shared/decorators/permissions.decorator';
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
 
 // @app
 import { IamCreateAccountHandler } from '../handlers/iam-create-account.handler';
@@ -17,7 +12,7 @@ import { IamAccount, IamCreateAccountInput } from '@api/graphql';
 
 @Resolver()
 @Permissions('iam.account.create')
-@UseGuards(AuthenticationJwtGuard, AuthorizationGuard)
+@UseGuards(AuthenticationGuard, AuthorizationGuard)
 export class IamCreateAccountResolver
 {
     constructor(

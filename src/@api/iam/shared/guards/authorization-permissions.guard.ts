@@ -4,7 +4,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class AuthorizationGuard implements CanActivate
+export class AuthorizationPermissionsGuard implements CanActivate
 {
     constructor(private reflector: Reflector) {}
 
