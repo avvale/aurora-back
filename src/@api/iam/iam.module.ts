@@ -1,0 +1,54 @@
+import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { SharedModule } from '../../@aurora/shared.module';
+import { IamModels, IamHandlers, IamServices, IamRepositories, IamSagas } from '@app/iam';
+import { IamBoundedContextControllers, IamBoundedContextResolvers, IamBoundedContextApiHandlers } from './bounded-context';
+import { IamPermissionControllers, IamPermissionResolvers, IamPermissionApiHandlers } from './permission';
+import { IamPermissionRoleControllers, IamPermissionRoleResolvers, IamPermissionRoleApiHandlers } from './permission-role';
+import { IamTenantControllers, IamTenantResolvers, IamTenantApiHandlers } from './tenant';
+import { IamRoleControllers, IamRoleResolvers, IamRoleApiHandlers } from './role';
+import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers } from './account';
+import { IamUserControllers, IamUserResolvers, IamUserApiHandlers } from './user';
+import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
+
+@Module({
+    imports: [
+        SharedModule,
+        SequelizeModule.forFeature([
+            ...IamModels,
+        ]),
+    ],
+    controllers: [
+        ...IamAccountControllers,
+        ...IamBoundedContextControllers,
+        ...IamPermissionControllers,
+        ...IamPermissionRoleControllers,
+        ...IamRoleControllers,
+        ...IamTenantControllers,
+        ...IamUserControllers,
+        ...IamUserMetaControllers,
+    ],
+    providers: [
+        ...IamAccountApiHandlers,
+        ...IamAccountResolvers,
+        ...IamBoundedContextApiHandlers,
+        ...IamBoundedContextResolvers,
+        ...IamHandlers,
+        ...IamPermissionApiHandlers,
+        ...IamPermissionResolvers,
+        ...IamPermissionRoleApiHandlers,
+        ...IamPermissionRoleResolvers,
+        ...IamRepositories,
+        ...IamRoleApiHandlers,
+        ...IamRoleResolvers,
+        ...IamSagas,
+        ...IamServices,
+        ...IamTenantApiHandlers,
+        ...IamTenantResolvers,
+        ...IamUserApiHandlers,
+        ...IamUserMetaApiHandlers,
+        ...IamUserMetaResolvers,
+        ...IamUserResolvers,
+    ],
+})
+export class IamModule {}
