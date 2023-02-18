@@ -11,6 +11,7 @@ const codeWriter = require('./helpers/code-writer');
  */
 function copyApplication()
 {
+    // by default don't copy hidden files
     return src(
         [
             '**/*',
