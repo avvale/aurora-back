@@ -27,9 +27,10 @@ function copyApplication()
             '!src/@app/**',
             '!test/acceptance/**',
             '!nest-cli.json',
+            '!docker-compose.yml',
+            '!gulpfile.js',
             '!package.json',
             '!package-lock.json',
-            '!gulpfile.js',
         ])
         .pipe(
             dest('publish/'),
