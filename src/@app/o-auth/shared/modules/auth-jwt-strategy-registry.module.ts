@@ -16,12 +16,12 @@ import { JwtStrategy } from '../strategies/jwt.strategy';
         JwtModule,
     ],
 })
-export class AuthModule
+export class AuthJwtStrategyRegistryModule
 {
     static forRoot(jwtOptions: JwtModuleOptions): DynamicModule
     {
         return {
-            module : AuthModule,
+            module : AuthJwtStrategyRegistryModule,
             imports: [
                 JwtModule.register(jwtOptions),
             ],

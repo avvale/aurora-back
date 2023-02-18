@@ -107,8 +107,17 @@ async function cleanAppModule()
 {
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', 'app.module.ts']);
+
+    // remove AuditingModule
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AuditingModule');
+
+    // remove AuthenticationJwtGuard
+    codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
+
+    // remove AuthorizationPermissionsGuard
+    codeWriter.removeImport(sourceFile, '@api/iam/shared/guards/authorization-permissions.guard');
+
     sourceFile.saveSync();
 }
 
@@ -122,7 +131,7 @@ async function cleanShareModule()
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'providers', 'LoggingAxiosInterceptorService');
 
     // remove HttpModule
-    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/logging.axios-interceptor.service');
+    codeWriter.removeImport(sourceFile, '@nestjs/axios');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'HttpModule');
 
     sourceFile.saveSync();
