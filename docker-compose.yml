@@ -1,0 +1,21 @@
+version: '3'
+name: aurora-enviroment
+
+services:
+  db1:
+    container_name: aurora-mariadb
+    image: mariadb:jammy
+    volumes:
+      - mariadb-vol:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MARIADB_USER: ${DATABASE_USER}
+      MARIADB_PASSWORD: ${DATABASE_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      MARIADB_DATABASE: ${DATABASE_SCHEMA}
+
+volumes:
+  mariadb-vol:
+    external: false
