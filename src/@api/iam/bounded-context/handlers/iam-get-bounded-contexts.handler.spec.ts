@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { IamGetBoundedContextsHandler } from './iam-get-bounded-contexts.handler';
 
 // sources
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/seeds/bounded-context.seed';
+import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 
 describe('IamGetBoundedContextsHandler', () =>
 {

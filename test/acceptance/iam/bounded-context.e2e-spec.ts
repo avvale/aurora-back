@@ -6,7 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { IBoundedContextRepository } from '@app/iam/bounded-context/domain/bounded-context.repository';
 import { MockBoundedContextSeeder } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.seeder';
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/seeds/bounded-context.seed';
+import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { IamModule } from '@api/iam/iam.module';
 import * as request from 'supertest';

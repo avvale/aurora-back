@@ -11,7 +11,7 @@ import {
     BoundedContextDeletedAt,
 } from '../../domain/value-objects';
 import { IamBoundedContext } from '../../domain/bounded-context.aggregate';
-import { boundedContexts } from '../seeds/bounded-context.seed';
+import { boundedContexts } from './mock-bounded-context.data';
 import * as _ from 'lodash';
 
 @Injectable()

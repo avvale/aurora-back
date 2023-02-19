@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { DeleteBoundedContextByIdCommandHandler } from './delete-bounded-context-by-id.command-handler';
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/seeds/bounded-context.seed';
+import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 import { DeleteBoundedContextByIdCommand } from './delete-bounded-context-by-id.command';
 import { DeleteBoundedContextByIdService } from './delete-bounded-context-by-id.service';
 

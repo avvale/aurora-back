@@ -6,7 +6,7 @@ import { IamDeleteBoundedContextsController } from './iam-delete-bounded-context
 import { IamDeleteBoundedContextsHandler } from '../handlers/iam-delete-bounded-contexts.handler';
 
 // sources
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/seeds/bounded-context.seed';
+import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 
 describe('IamDeleteBoundedContextsController', () =>
 {

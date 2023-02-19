@@ -12,7 +12,7 @@ import {
     BoundedContextDeletedAt,
 } from '@app/iam/bounded-context/domain/value-objects';
 import { IamBoundedContext } from '../../domain/bounded-context.aggregate';
-import { boundedContexts } from '../seeds/bounded-context.seed';
+import { boundedContexts } from './mock-bounded-context.data';
 
 @Injectable()
 export class MockBoundedContextRepository extends MockRepository<IamBoundedContext> implements IBoundedContextRepository

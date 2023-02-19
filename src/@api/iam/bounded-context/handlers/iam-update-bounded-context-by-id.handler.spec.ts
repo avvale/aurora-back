@@ -7,7 +7,7 @@ import { IamUpdateBoundedContextByIdHandler } from './iam-update-bounded-context
 import { IamUpdateBoundedContextByIdInput } from '@api/graphql';
 
 // sources
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/seeds/bounded-context.seed';
+import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 
 describe('IamUpdateBoundedContextByIdHandler', () =>
 {
