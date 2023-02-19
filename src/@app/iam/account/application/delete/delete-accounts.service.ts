@@ -20,7 +20,11 @@ export class DeleteAccountsService
     ): Promise<void>
     {
         // get objects to delete
-        const accounts = await this.repository.get({ queryStatement, constraint, cQMetadata });
+        const accounts = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         await this.repository.delete({
             queryStatement,

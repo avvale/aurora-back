@@ -50,7 +50,7 @@ export class AccountMapper implements IMapper
     {
         if (!Array.isArray(accounts)) return;
 
-        return accounts.map(account  => this.makeAggregate(account, cQMetadata));
+        return accounts.map(account => this.makeAggregate(account, cQMetadata));
     }
 
     /**

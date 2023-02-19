@@ -12,6 +12,7 @@ import { PaginateAccountsQueryHandler } from './application/paginate/paginate-ac
 import { GetAccountsQueryHandler } from './application/get/get-accounts.query-handler';
 import { FindAccountQueryHandler } from './application/find/find-account.query-handler';
 import { FindAccountByIdQueryHandler } from './application/find/find-account-by-id.query-handler';
+import { RawSQLAccountsQueryHandler } from './application/raw-sql/raw-sql-accounts.query-handler';
 
 // events
 import { CreatedAccountEventHandler } from './application/events/created-account.event-handler';
@@ -28,6 +29,7 @@ import { PaginateAccountsService } from './application/paginate/paginate-account
 import { GetAccountsService } from './application/get/get-accounts.service';
 import { FindAccountService } from './application/find/find-account.service';
 import { FindAccountByIdService } from './application/find/find-account-by-id.service';
+import { RawSQLAccountsService } from './application/raw-sql/raw-sql-accounts.service';
 import { UpdateAccountByIdService } from './application/update/update-account-by-id.service';
 import { UpdateAccountsService } from './application/update/update-accounts.service';
 import { UpsertAccountService } from './application/upsert/upsert-account.service';
@@ -59,6 +61,7 @@ export const IamAccountHandlers = [
     GetAccountsQueryHandler,
     FindAccountQueryHandler,
     FindAccountByIdQueryHandler,
+    RawSQLAccountsQueryHandler,
 
     // events
     CreatedAccountEventHandler,
@@ -76,6 +79,7 @@ export const IamAccountServices = [
     GetAccountsService,
     FindAccountService,
     FindAccountByIdService,
+    RawSQLAccountsService,
     UpdateAccountByIdService,
     UpdateAccountsService,
     UpsertAccountService,

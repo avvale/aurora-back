@@ -11,8 +11,18 @@ export class FindAccountByIdService
         private readonly repository: IAccountRepository,
     ) {}
 
-    async main(id: AccountId, constraint?: QueryStatement, cQMetadata?: CQMetadata): Promise<IamAccount>
+    async main(
+        id: AccountId,
+        constraint?: QueryStatement,
+        cQMetadata?: CQMetadata,
+    ): Promise<IamAccount>
     {
-        return await this.repository.findById(id, { constraint, cQMetadata });
+        return await this.repository.findById(
+            id,
+            {
+                constraint,
+                cQMetadata,
+            },
+        );
     }
 }

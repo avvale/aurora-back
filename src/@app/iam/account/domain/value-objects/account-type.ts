@@ -2,7 +2,7 @@ import { EnumValueObject, ValidationRules } from '@aurora-ts/core';
 
 export class AccountType extends EnumValueObject
 {
-    public readonly type: 'AccountType';
+    public readonly type: string = 'AccountType';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {

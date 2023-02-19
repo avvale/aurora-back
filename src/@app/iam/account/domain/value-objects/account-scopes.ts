@@ -2,7 +2,7 @@ import { JsonValueObject, ValidationRules } from '@aurora-ts/core';
 
 export class AccountScopes extends JsonValueObject
 {
-    public readonly type: 'AccountScopes';
+    public readonly type: string = 'AccountScopes';
 
     constructor(value: any, validationRules: ValidationRules = {})
     {

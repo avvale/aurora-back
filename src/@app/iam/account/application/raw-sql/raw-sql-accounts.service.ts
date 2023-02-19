@@ -1,26 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { QueryStatement } from '@aurora-ts/core';
-import { Pagination } from '@aurora-ts/core';
 import { CQMetadata } from '@aurora-ts/core';
 import { IAccountRepository } from '../../domain/account.repository';
 import { IamAccount } from '../../domain/account.aggregate';
 
 @Injectable()
-export class PaginateAccountsService
+export class RawSQLAccountsService
 {
     constructor(
         private readonly repository: IAccountRepository,
     ) {}
 
     async main(
-        queryStatement?: QueryStatement,
-        constraint?: QueryStatement,
+        rawSQL?: string,
         cQMetadata?: CQMetadata,
-    ): Promise<Pagination<IamAccount>>
+    ): Promise<IamAccount[]>
     {
-        return await this.repository.paginate({
-            queryStatement,
-            constraint,
+        return await this.repository.rawSQL({
+            rawSQL,
             cQMetadata,
         });
     }

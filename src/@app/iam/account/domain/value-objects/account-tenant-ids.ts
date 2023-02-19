@@ -2,7 +2,7 @@ import { UuidArrayValueObject, ValidationRules } from '@aurora-ts/core';
 
 export class AccountTenantIds extends UuidArrayValueObject
 {
-    public readonly type: 'AccountTenantIds';
+    public readonly type: string = 'AccountTenantIds';
 
     constructor(value: string | string[], validationRules: ValidationRules = {})
     {

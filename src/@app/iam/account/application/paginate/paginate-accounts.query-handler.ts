@@ -12,7 +12,11 @@ export class PaginateAccountsQueryHandler implements IQueryHandler<PaginateAccou
 
     async execute(query: PaginateAccountsQuery): Promise<PaginationResponse>
     {
-        const { total, count, rows } = await this.paginateAccountsService.main(query.queryStatement, query.constraint, query.cQMetadata);
+        const { total, count, rows } = await this.paginateAccountsService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        );
 
         return new PaginationResponse(
             total,

@@ -11,3 +11,10 @@ export { AuditingHttpCommunicationModel } from './@app/auditing/http-communicati
 export { HttpCommunicationResponse } from './@app/auditing/http-communication/domain/http-communication.response';
 export { HttpCommunicationMapper } from './@app/auditing/http-communication/domain/http-communication.mapper';
 export { httpCommunications } from './@app/auditing/http-communication/infrastructure/seeds/http-communication.seed';
+export { IamModule } from './@api/iam/iam.module';
+export { IamAccountDto } from './@api/iam/account/dto/iam-account.dto';
+export { IamAccount } from './@app/iam/account/domain/account.aggregate';
+export { IamAccountModel } from './@app/iam/account';
+export { AccountResponse } from './@app/iam/account/domain/account.response';
+export { AccountMapper } from './@app/iam/account/domain/account.mapper';
+export { accounts } from './@app/iam/account/infrastructure/seeds/account.seed';
