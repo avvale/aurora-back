@@ -113,6 +113,14 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AuditingModule');
 
+    // remove OAuthModule
+    codeWriter.removeImport(sourceFile, '@api/o-auth/o-auth.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'OAuthModule');
+
+    // remove IamModule
+    codeWriter.removeImport(sourceFile, '@api/iam/iam.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'IamModule');
+
     // remove AuthenticationJwtGuard
     codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'AppModule', 'providers', 'AuthenticationGuard', 'AuthenticationDisabledAdapterGuard');
