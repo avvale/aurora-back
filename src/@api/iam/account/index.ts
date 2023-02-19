@@ -34,6 +34,9 @@ import { IamUpsertAccountHandler } from './handlers/iam-upsert-account.handler';
 import { IamDeleteAccountByIdHandler } from './handlers/iam-delete-account-by-id.handler';
 import { IamDeleteAccountsHandler } from './handlers/iam-delete-accounts.handler';
 
+// seeder
+import { IamAccountSeeder } from './seeder/iam-account.seeder';
+
 // ---- customizations ----
 import { IamMeAccountController } from './controllers/iam-me-account.controller';
 import { IamMeAccountResolver } from './resolvers/iam-me-account.resolver';
@@ -85,4 +88,8 @@ export const IamAccountApiHandlers = [
 
     // ---- customizations ----
     IamMeAccountHandler,
+];
+
+export const IamAccountServices = [
+    IamAccountSeeder,
 ];

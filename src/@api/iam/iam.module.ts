@@ -7,7 +7,7 @@ import { IamPermissionControllers, IamPermissionResolvers, IamPermissionApiHandl
 import { IamPermissionRoleControllers, IamPermissionRoleResolvers, IamPermissionRoleApiHandlers } from './permission-role';
 import { IamTenantControllers, IamTenantResolvers, IamTenantApiHandlers } from './tenant';
 import { IamRoleControllers, IamRoleResolvers, IamRoleApiHandlers } from './role';
-import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers } from './account';
+import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers, IamAccountServices } from './account';
 import { IamUserControllers, IamUserResolvers, IamUserApiHandlers } from './user';
 import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
@@ -50,6 +50,7 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...IamUserMetaApiHandlers,
         ...IamUserMetaResolvers,
         ...IamUserResolvers,
+        ...IamAccountServices,
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
