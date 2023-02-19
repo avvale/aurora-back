@@ -10,6 +10,7 @@ import { IamRoleControllers, IamRoleResolvers, IamRoleApiHandlers } from './role
 import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers } from './account';
 import { IamUserControllers, IamUserResolvers, IamUserApiHandlers } from './user';
 import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
+import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
 
 @Module({
     imports: [
@@ -49,6 +50,9 @@ import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } 
         ...IamUserMetaApiHandlers,
         ...IamUserMetaResolvers,
         ...IamUserResolvers,
+
+        // ---- customizations ----
+        IamCreatePermissionsFromRolesService,
     ],
 })
 export class IamModule {}
