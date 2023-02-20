@@ -1,11 +1,9 @@
-import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
-
 // ignored file
 export const users = [
     // user demo
     {
         id           : 'b94dd025-c538-4a37-b852-a7fee35a3561',
-        accountId    : accounts[0].id,
+        accountId    : 'f0af6bd6-ddee-41bf-a1dd-cb0affa8081f',
         name         : 'John',
         surname      : 'Doe',
         avatar       : null,
