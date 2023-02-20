@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { OAuthDeleteClientsHandler } from './o-auth-delete-clients.handler';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthDeleteClientsHandler', () =>
 {

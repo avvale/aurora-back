@@ -7,7 +7,7 @@ import { OAuthUpsertClientHandler } from '../handlers/o-auth-upsert-client.handl
 import { OAuthUpsertClientInput } from '@api/graphql';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthUpsertClientResolver', () =>
 {

@@ -6,7 +6,7 @@ import { OAuthUpsertClientController } from './o-auth-upsert-client.controller';
 import { OAuthUpsertClientHandler } from '../handlers/o-auth-upsert-client.handler';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthUpsertClientController', () =>
 {

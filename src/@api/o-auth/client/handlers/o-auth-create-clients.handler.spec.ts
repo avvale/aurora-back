@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 
 // custom items
 import { OAuthCreateClientsHandler } from './o-auth-create-clients.handler';
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthCreateClientsHandler', () =>
 {

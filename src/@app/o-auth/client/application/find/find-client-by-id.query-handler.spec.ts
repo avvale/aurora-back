@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindClientByIdQueryHandler } from './find-client-by-id.query-handler';
 import { MockClientRepository } from '@app/o-auth/client/infrastructure/mock/mock-client.repository';
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 import { IClientRepository } from '@app/o-auth/client/domain/client.repository';
 import { ClientMapper } from '@app/o-auth/client/domain/client.mapper';
 import { FindClientByIdQuery } from './find-client-by-id.query';

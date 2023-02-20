@@ -7,7 +7,7 @@ import { OAuthCreateClientHandler } from '../handlers/o-auth-create-client.handl
 import { OAuthCreateClientInput } from '@api/graphql';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthCreateClientResolver', () =>
 {

@@ -1,3 +1,5 @@
+import { OAuthClientGrantType } from "@api/graphql";
+
 export const boundedContexts = [
     {
         id      : '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7',
@@ -51,5 +53,23 @@ export const applications = [
         secret   : '$2y$10$EOA/SKEwKRgHPw64kO4LZ.6oy5b8kl6JzW/mCROMfSq6S38/IiywG',
         isMaster : true,
         clientIds: [],
+    },
+];
+
+export const clients = [
+    {
+        id                 : '333910d9-394b-42d7-b3e0-0c7ae7a54478',
+        grantType          : OAuthClientGrantType.PASSWORD,
+        name               : 'Aurora - Password Grant',
+        secret             : 'om9QPNdkNJc09JgzTTwvcL4897E5EhbAGWqwkwtA',
+        authUrl            : null,
+        redirect           : null,
+        scopeOptions       : ['write', 'read'],
+        expiredAccessToken : 3600,
+        expiredRefreshToken: 7200,
+        isActive           : true,
+        isMaster           : true,
+        applicationIds     : ['8bb03dc8-c97b-4e06-b1b0-3c62e108fd80'],
+        applications, // mock related applications
     },
 ];

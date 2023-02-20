@@ -6,7 +6,7 @@ import { OAuthPaginateClientsController } from './o-auth-paginate-clients.contro
 import { OAuthPaginateClientsHandler } from '../handlers/o-auth-paginate-clients.handler';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthPaginateClientsController', () =>
 {

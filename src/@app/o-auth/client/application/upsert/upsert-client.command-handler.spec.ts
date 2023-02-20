@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 import { UpsertClientCommandHandler } from './upsert-client.command-handler';
 import { UpsertClientCommand } from './upsert-client.command';
 import { UpsertClientService } from './upsert-client.service';

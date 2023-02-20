@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ICommandBus } from '@aurora-ts/core';
 import { CreateClientsCommand } from '@app/o-auth/client/application/create/create-clients.command';
 import { SeederModule } from './seeder.module';
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 export class Seeder
 {

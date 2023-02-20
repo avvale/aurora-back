@@ -6,7 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { IClientRepository } from '@app/o-auth/client/domain/client.repository';
 import { MockClientSeeder } from '@app/o-auth/client/infrastructure/mock/mock-client.seeder';
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { OAuthModule } from '@api/o-auth/o-auth.module';
 import * as request from 'supertest';

@@ -6,7 +6,7 @@ import { OAuthUpdateClientsController } from './o-auth-update-clients.controller
 import { OAuthUpdateClientsHandler } from '../handlers/o-auth-update-clients.handler';
 
 // sources
-import { clients } from '@app/o-auth/client/infrastructure/seeds/client.seed';
+import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 
 describe('OAuthUpdateClientsController', () =>
 {

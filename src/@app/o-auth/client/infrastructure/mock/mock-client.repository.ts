@@ -22,7 +22,7 @@ import {
     ClientDeletedAt,
 } from '@app/o-auth/client/domain/value-objects';
 import { OAuthClient } from '../../domain/client.aggregate';
-import { clients } from '../seeds/client.seed';
+import { clients } from './mock-client.data';
 import * as _ from 'lodash';
 
 @Injectable()
