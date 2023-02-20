@@ -6,7 +6,7 @@ import { OAuthFindApplicationByIdController } from './o-auth-find-application-by
 import { OAuthFindApplicationByIdHandler } from '../handlers/o-auth-find-application-by-id.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthFindApplicationByIdController', () =>
 {

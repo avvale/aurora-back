@@ -2,7 +2,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 import { CreateApplicationsCommandHandler } from './create-applications.command-handler';
 import { CreateApplicationsCommand } from './create-applications.command';
 import { CreateApplicationsService } from './create-applications.service';

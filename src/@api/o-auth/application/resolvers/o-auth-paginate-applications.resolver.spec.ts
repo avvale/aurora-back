@@ -6,7 +6,7 @@ import { OAuthPaginateApplicationsResolver } from './o-auth-paginate-application
 import { OAuthPaginateApplicationsHandler } from '../handlers/o-auth-paginate-applications.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthPaginateApplicationsResolver', () =>
 {

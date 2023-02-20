@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 import { UpdateApplicationByIdCommandHandler } from './update-application-by-id.command-handler';
 import { UpdateApplicationByIdCommand } from './update-application-by-id.command';
 import { UpdateApplicationByIdService } from './update-application-by-id.service';

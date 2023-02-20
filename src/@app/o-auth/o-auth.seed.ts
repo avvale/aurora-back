@@ -42,3 +42,14 @@ export const permissions = [
     { id: '00b6441b-a7db-404c-8cd2-aaa2c95d0b8d',  name: 'oAuth.scope.update',                         boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
     { id: 'ce28ebaa-5700-4eb9-a2f2-bf06c78e9da9',  name: 'oAuth.scope.delete',                         boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
 ];
+
+export const applications = [
+    {
+        id       : '8bb03dc8-c97b-4e06-b1b0-3c62e108fd80',
+        name     : 'Aurora',
+        code     : 'aurora',
+        secret   : '$2y$10$EOA/SKEwKRgHPw64kO4LZ.6oy5b8kl6JzW/mCROMfSq6S38/IiywG',
+        isMaster : true,
+        clientIds: [],
+    },
+];

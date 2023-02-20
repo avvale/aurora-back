@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { OAuthFindApplicationHandler } from './o-auth-find-application.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthFindApplicationHandler', () =>
 {

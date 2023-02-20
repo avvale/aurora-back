@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { OAuthPaginateApplicationsHandler } from './o-auth-paginate-applications.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthPaginateApplicationsHandler', () =>
 {

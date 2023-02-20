@@ -12,7 +12,7 @@ import {
     ApplicationDeletedAt,
 } from '../../domain/value-objects';
 import { OAuthApplication } from '../../domain/application.aggregate';
-import { applications } from '../seeds/application.seed';
+import { applications } from './mock-application.data';
 import * as _ from 'lodash';
 
 @Injectable()

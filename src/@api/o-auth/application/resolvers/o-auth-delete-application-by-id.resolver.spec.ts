@@ -6,7 +6,7 @@ import { OAuthDeleteApplicationByIdResolver } from './o-auth-delete-application-
 import { OAuthDeleteApplicationByIdHandler } from '../handlers/o-auth-delete-application-by-id.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthDeleteApplicationByIdResolver', () =>
 {

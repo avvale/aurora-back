@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { DeleteApplicationByIdCommandHandler } from './delete-application-by-id.command-handler';
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 import { DeleteApplicationByIdCommand } from './delete-application-by-id.command';
 import { DeleteApplicationByIdService } from './delete-application-by-id.service';
 

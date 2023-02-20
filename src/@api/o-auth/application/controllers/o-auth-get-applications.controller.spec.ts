@@ -6,7 +6,7 @@ import { OAuthGetApplicationsController } from './o-auth-get-applications.contro
 import { OAuthGetApplicationsHandler } from '../handlers/o-auth-get-applications.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthGetApplicationsController', () =>
 {

@@ -6,7 +6,7 @@ import { OAuthFindApplicationResolver } from './o-auth-find-application.resolver
 import { OAuthFindApplicationHandler } from '../handlers/o-auth-find-application.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthFindApplicationResolver', () =>
 {

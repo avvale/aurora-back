@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindApplicationByIdQueryHandler } from './find-application-by-id.query-handler';
 import { MockApplicationRepository } from '@app/o-auth/application/infrastructure/mock/mock-application.repository';
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 import { IApplicationRepository } from '@app/o-auth/application/domain/application.repository';
 import { ApplicationMapper } from '@app/o-auth/application/domain/application.mapper';
 import { FindApplicationByIdQuery } from './find-application-by-id.query';

@@ -6,7 +6,7 @@ import { OAuthUpdateApplicationByIdController } from './o-auth-update-applicatio
 import { OAuthUpdateApplicationByIdHandler } from '../handlers/o-auth-update-application-by-id.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthUpdateApplicationByIdController', () =>
 {

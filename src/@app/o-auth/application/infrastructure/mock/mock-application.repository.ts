@@ -13,7 +13,7 @@ import {
     ApplicationDeletedAt,
 } from '@app/o-auth/application/domain/value-objects';
 import { OAuthApplication } from '../../domain/application.aggregate';
-import { applications } from '../seeds/application.seed';
+import { applications } from './mock-application.data';
 
 @Injectable()
 export class MockApplicationRepository extends MockRepository<OAuthApplication> implements IApplicationRepository

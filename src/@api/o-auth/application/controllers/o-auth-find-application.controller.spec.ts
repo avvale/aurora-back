@@ -6,7 +6,7 @@ import { OAuthFindApplicationController } from './o-auth-find-application.contro
 import { OAuthFindApplicationHandler } from '../handlers/o-auth-find-application.handler';
 
 // sources
-import { applications } from '@app/o-auth/application/infrastructure/seeds/application.seed';
+import { applications } from '@app/o-auth/application/infrastructure/mock/mock-application.data';
 
 describe('OAuthFindApplicationController', () =>
 {
