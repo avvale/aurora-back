@@ -78,7 +78,10 @@ export class OAuthCreateCredentialsHandler
         if (payload.grantType === OAuthClientGrantType.PASSWORD)
         {
             // get user with username and password
-            const user = await this.queryBus.ask(new FindUserByUsernamePasswordQuery(payload.username, payload.password));
+            const user = await this.queryBus.ask(new FindUserByUsernamePasswordQuery(
+                payload.username,
+                payload.password,
+            ));
 
             // if not exist user throw error
             if (!user) throw new UnauthorizedException();

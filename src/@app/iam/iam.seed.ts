@@ -1,5 +1,6 @@
 // ignored file
 import { IamAccountType } from '@api/graphql';
+import { clients } from '@app/o-auth/o-auth.seed';
 import { PermissionHelper } from './permission/domain/permission-helper';
 
 export const boundedContexts = [
@@ -81,7 +82,7 @@ export const accounts = [
         code             : null,
         email            : 'john.doe@contoso.com',
         isActive         : true,
-        clientId         : '5ac621dc-be2c-4e84-a4e4-6a08cc5a8488',
+        clientId         : clients[0].id,
         dApplicationCodes: ['orion'],
         dPermissions     : {},
         dTenants         : [],
