@@ -44,6 +44,14 @@ export abstract class IPermissionRepository implements IRepository<IamPermission
         }
     ): Promise<IamPermission[]>;
 
+    // get records with rawSQL
+    abstract rawSQL(
+        options?: {
+            rawSQL?: string;
+            cQMetadata?: CQMetadata;
+        }
+    ): Promise<IamPermission[]>;
+
     // count records
     abstract count(
         options?: {

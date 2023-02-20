@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
-import { DeletePermissionByIdService } from './delete-permission-by-id.service';
-import { PermissionId } from '../../domain/value-objects';
+import { RawSQLPermissionsService } from './raw-sql-permissions.service';
 import { IPermissionRepository } from '../../domain/permission.repository';
 import { MockPermissionRepository } from '../../infrastructure/mock/mock-permission.repository';
 
-describe('DeletePermissionByIdService', () =>
+describe('RawSQLPermissionsService', () =>
 {
-    let service: DeletePermissionByIdService;
+    let service: RawSQLPermissionsService;
     let repository: IPermissionRepository;
     let mockRepository: MockPermissionRepository;
 
@@ -22,37 +19,34 @@ describe('DeletePermissionByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeletePermissionByIdService,
+                RawSQLPermissionsService,
                 MockPermissionRepository,
                 {
                     provide : IPermissionRepository,
                     useValue: {
-                        deleteById: id => { /**/ },
-                        findById  : id => { /**/ },
+                        rawSQL: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(DeletePermissionByIdService);
+        service         = module.get(RawSQLPermissionsService);
         repository      = module.get(IPermissionRepository);
         mockRepository  = module.get(MockPermissionRepository);
     });
 
     describe('main', () =>
     {
-        test('DeletePermissionByIdService should be defined', () =>
+        test('RawSQLPermissionsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should delete permission and emit event', async () =>
+        test('should get permissions', async () =>
         {
-            jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new PermissionId(permissions[0].id),
-            )).toBe(undefined);
+            jest.spyOn(repository, 'rawSQL').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource)));
+            expect(await service.main()).toBe(mockRepository.collectionSource);
         });
     });
 });

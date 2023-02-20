@@ -1,3 +1,6 @@
+// ignored file
+import { IamAccountType } from '@api/graphql';
+
 export const boundedContexts = [
     {
         id      : 'f405132f-786d-4a6a-a262-0e6a6518aec3',
@@ -51,4 +54,49 @@ export const permissions = [
 
     { id: '85926b32-50db-4a6d-9bbe-bd076ca08e33',  name: 'iam.userData.get',                         boundedContextId: '9e8dbba3-b82b-406f-b71f-060a0494ffba', roleIds: []},
     { id: 'afc4219b-8944-4fbc-98e8-ec525f2ddd92',  name: 'iam.userData.update',                      boundedContextId: '9e8dbba3-b82b-406f-b71f-060a0494ffba', roleIds: []},
+];
+
+export const users = [
+    {
+        id           : 'b94dd025-c538-4a37-b852-a7fee35a3561',
+        accountId    : '092d0372-5af7-482b-be2a-6e4c84921aa6',
+        name         : 'John',
+        surname      : 'Doe',
+        avatar       : null,
+        mobile       : null,
+        langId       : null,
+        username     : 'john.doe@contoso.com',
+        password     : '1111',
+        rememberToken: null,
+        data         : null,
+    },
+];
+
+export const accounts = [
+    // user demo
+    {
+        id               : '092d0372-5af7-482b-be2a-6e4c84921aa6',
+        type             : IamAccountType.USER,
+        code             : null,
+        email            : 'john.doe@contoso.com',
+        isActive         : true,
+        clientId         : '5ac621dc-be2c-4e84-a4e4-6a08cc5a8488',
+        dApplicationCodes: ['orion'],
+        dPermissions     : {},
+        dTenants         : [],
+        dScopes          : ['GDO','DRIVER','LOADER','CARRIER'],
+        data             : null,
+        roleIds          : [],
+        tenantIds        : [],
+        user             : users[0],
+    },
+];
+
+export const roles = [
+    {
+        id      : '99b06044-fff5-4267-9314-4bae9f909010',
+        name    : 'Administrator',
+        isMaster: true,
+        permissions, // mock related permissions
+    },
 ];

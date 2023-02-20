@@ -1,26 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { QueryStatement } from '@aurora-ts/core';
-import { Pagination } from '@aurora-ts/core';
 import { CQMetadata } from '@aurora-ts/core';
 import { IPermissionRepository } from '../../domain/permission.repository';
 import { IamPermission } from '../../domain/permission.aggregate';
 
 @Injectable()
-export class PaginatePermissionsService
+export class RawSQLPermissionsService
 {
     constructor(
         private readonly repository: IPermissionRepository,
     ) {}
 
     async main(
-        queryStatement?: QueryStatement,
-        constraint?: QueryStatement,
+        rawSQL?: string,
         cQMetadata?: CQMetadata,
-    ): Promise<Pagination<IamPermission>>
+    ): Promise<IamPermission[]>
     {
-        return await this.repository.paginate({
-            queryStatement,
-            constraint,
+        return await this.repository.rawSQL({
+            rawSQL,
             cQMetadata,
         });
     }

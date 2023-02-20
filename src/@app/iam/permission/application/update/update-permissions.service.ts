@@ -56,7 +56,11 @@ export class UpdatePermissionsService
         });
 
         // get objects to delete
-        const permissions = await this.repository.get({ queryStatement, constraint, cQMetadata });
+        const permissions = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const permissionsRegister = this.publisher.mergeObjectContext(

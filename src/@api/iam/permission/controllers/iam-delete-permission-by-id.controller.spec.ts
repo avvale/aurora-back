@@ -6,7 +6,7 @@ import { IamDeletePermissionByIdController } from './iam-delete-permission-by-id
 import { IamDeletePermissionByIdHandler } from '../handlers/iam-delete-permission-by-id.handler';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamDeletePermissionByIdController', () =>
 {

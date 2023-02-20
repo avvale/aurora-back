@@ -25,7 +25,11 @@ export class IamUpdatePermissionByIdHandler
         auditing?: AuditingMeta,
     ): Promise<IamPermission | IamPermissionDto>
     {
-        const permission = await this.queryBus.ask(new FindPermissionByIdQuery(payload.id, constraint, { timezone }));
+        const permission = await this.queryBus.ask(new FindPermissionByIdQuery(
+            payload.id,
+            constraint,
+            { timezone },
+        ));
 
         const dataToUpdate = Utils.diff(payload, permission);
 
@@ -43,6 +47,10 @@ export class IamUpdatePermissionByIdHandler
             },
         ));
 
-        return await this.queryBus.ask(new FindPermissionByIdQuery(payload.id, constraint, { timezone }));
+        return await this.queryBus.ask(new FindPermissionByIdQuery(
+            payload.id,
+            constraint,
+            { timezone },
+        ));
     }
 }

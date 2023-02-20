@@ -12,6 +12,7 @@ import { PaginatePermissionsQueryHandler } from './application/paginate/paginate
 import { GetPermissionsQueryHandler } from './application/get/get-permissions.query-handler';
 import { FindPermissionQueryHandler } from './application/find/find-permission.query-handler';
 import { FindPermissionByIdQueryHandler } from './application/find/find-permission-by-id.query-handler';
+import { RawSQLPermissionsQueryHandler } from './application/raw-sql/raw-sql-permissions.query-handler';
 
 // events
 import { CreatedPermissionEventHandler } from './application/events/created-permission.event-handler';
@@ -28,6 +29,7 @@ import { PaginatePermissionsService } from './application/paginate/paginate-perm
 import { GetPermissionsService } from './application/get/get-permissions.service';
 import { FindPermissionService } from './application/find/find-permission.service';
 import { FindPermissionByIdService } from './application/find/find-permission-by-id.service';
+import { RawSQLPermissionsService } from './application/raw-sql/raw-sql-permissions.service';
 import { UpdatePermissionByIdService } from './application/update/update-permission-by-id.service';
 import { UpdatePermissionsService } from './application/update/update-permissions.service';
 import { UpsertPermissionService } from './application/upsert/upsert-permission.service';
@@ -59,6 +61,7 @@ export const IamPermissionHandlers = [
     GetPermissionsQueryHandler,
     FindPermissionQueryHandler,
     FindPermissionByIdQueryHandler,
+    RawSQLPermissionsQueryHandler,
 
     // events
     CreatedPermissionEventHandler,
@@ -76,6 +79,7 @@ export const IamPermissionServices = [
     GetPermissionsService,
     FindPermissionService,
     FindPermissionByIdService,
+    RawSQLPermissionsService,
     UpdatePermissionByIdService,
     UpdatePermissionsService,
     UpsertPermissionService,

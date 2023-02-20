@@ -10,7 +10,7 @@ import {
     PermissionDeletedAt,
 } from '../../domain/value-objects';
 import { IamPermission } from '../../domain/permission.aggregate';
-import { permissions } from '../seeds/permission.seed';
+import { permissions } from './mock-permission.data';
 import * as _ from 'lodash';
 
 @Injectable()

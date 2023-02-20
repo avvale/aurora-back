@@ -11,7 +11,7 @@ import {
     PermissionDeletedAt,
 } from '@app/iam/permission/domain/value-objects';
 import { IamPermission } from '../../domain/permission.aggregate';
-import { permissions } from '../seeds/permission.seed';
+import { permissions } from './mock-permission.data';
 
 @Injectable()
 export class MockPermissionRepository extends MockRepository<IamPermission> implements IPermissionRepository

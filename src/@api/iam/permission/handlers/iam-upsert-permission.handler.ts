@@ -34,6 +34,10 @@ export class IamUpsertPermissionHandler
             },
         ));
 
-        return await this.queryBus.ask(new FindPermissionByIdQuery(payload.id, {}, { timezone }));
+        return await this.queryBus.ask(new FindPermissionByIdQuery(
+            payload.id,
+            {},
+            { timezone },
+        ));
     }
 }

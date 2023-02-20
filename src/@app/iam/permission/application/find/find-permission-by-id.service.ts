@@ -17,6 +17,12 @@ export class FindPermissionByIdService
         cQMetadata?: CQMetadata,
     ): Promise<IamPermission>
     {
-        return await this.repository.findById(id, { constraint, cQMetadata });
+        return await this.repository.findById(
+            id,
+            {
+                constraint,
+                cQMetadata,
+            },
+        );
     }
 }

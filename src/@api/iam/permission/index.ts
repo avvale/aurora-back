@@ -37,6 +37,9 @@ import { IamUpsertPermissionHandler } from './handlers/iam-upsert-permission.han
 import { IamDeletePermissionByIdHandler } from './handlers/iam-delete-permission-by-id.handler';
 import { IamDeletePermissionsHandler } from './handlers/iam-delete-permissions.handler';
 
+// seeder
+import { IamPermissionSeeder } from './seeder/iam-permission.seeder';
+
 export const IamPermissionControllers = [
     IamCreatePermissionController,
     IamCreatePermissionsController,
@@ -77,4 +80,8 @@ export const IamPermissionApiHandlers = [
     IamUpsertPermissionHandler,
     IamDeletePermissionByIdHandler,
     IamDeletePermissionsHandler,
+];
+
+export const IamPermissionServices = [
+    IamPermissionSeeder,
 ];

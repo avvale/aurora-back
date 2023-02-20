@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 import { UpsertPermissionCommandHandler } from './upsert-permission.command-handler';
 import { UpsertPermissionCommand } from './upsert-permission.command';
 import { UpsertPermissionService } from './upsert-permission.service';
@@ -42,6 +42,10 @@ describe('UpsertPermissionCommandHandler', () =>
             expect(await commandHandler.execute(
                 new UpsertPermissionCommand(
                     {
+                        id: permissions[0].id,
+                        name: permissions[0].name,
+                        boundedContextId: permissions[0].boundedContextId,
+                        roleIds: permissions[0].roleIds,
                     },
                     { timezone: process.env.TZ },
                 ),

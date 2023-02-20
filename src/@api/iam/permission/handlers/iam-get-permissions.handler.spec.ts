@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { IamGetPermissionsHandler } from './iam-get-permissions.handler';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamGetPermissionsHandler', () =>
 {

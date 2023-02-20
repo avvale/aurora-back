@@ -6,7 +6,7 @@ import { IamUpsertPermissionController } from './iam-upsert-permission.controlle
 import { IamUpsertPermissionHandler } from '../handlers/iam-upsert-permission.handler';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamUpsertPermissionController', () =>
 {

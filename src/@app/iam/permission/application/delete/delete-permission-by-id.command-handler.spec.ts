@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { DeletePermissionByIdCommandHandler } from './delete-permission-by-id.command-handler';
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 import { DeletePermissionByIdCommand } from './delete-permission-by-id.command';
 import { DeletePermissionByIdService } from './delete-permission-by-id.service';
 

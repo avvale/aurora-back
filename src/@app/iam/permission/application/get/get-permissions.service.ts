@@ -17,6 +17,10 @@ export class GetPermissionsService
         cQMetadata?: CQMetadata,
     ): Promise<IamPermission[]>
     {
-        return await this.repository.get({ queryStatement, constraint, cQMetadata });
+        return await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
     }
 }

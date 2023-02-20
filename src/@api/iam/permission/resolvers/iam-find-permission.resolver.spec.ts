@@ -6,7 +6,7 @@ import { IamFindPermissionResolver } from './iam-find-permission.resolver';
 import { IamFindPermissionHandler } from '../handlers/iam-find-permission.handler';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamFindPermissionResolver', () =>
 {

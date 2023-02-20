@@ -20,7 +20,11 @@ export class DeletePermissionsService
     ): Promise<void>
     {
         // get objects to delete
-        const permissions = await this.repository.get({ queryStatement, constraint, cQMetadata });
+        const permissions = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         await this.repository.delete({
             queryStatement,

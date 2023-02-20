@@ -4,10 +4,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { IamUpsertPermissionResolver } from './iam-upsert-permission.resolver';
 import { IamUpsertPermissionHandler } from '../handlers/iam-upsert-permission.handler';
-import { IamUpsertPermissionInput } from '@api/graphql';
+import { IamUpdatePermissionByIdInput } from '@api/graphql';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamUpsertPermissionResolver', () =>
 {
@@ -50,7 +50,7 @@ describe('IamUpsertPermissionResolver', () =>
         test('should return an permission upserted', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(permissions[0])));
-            expect(await resolver.main(<IamUpsertPermissionInput>permissions[0])).toBe(permissions[0]);
+            expect(await resolver.main(<IamUpdatePermissionByIdInput>permissions[0])).toBe(permissions[0]);
         });
     });
 });

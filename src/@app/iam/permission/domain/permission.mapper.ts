@@ -39,7 +39,7 @@ export class PermissionMapper implements IMapper
     {
         if (!Array.isArray(permissions)) return;
 
-        return permissions.map(permission  => this.makeAggregate(permission, cQMetadata));
+        return permissions.map(permission => this.makeAggregate(permission, cQMetadata));
     }
 
     /**

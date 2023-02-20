@@ -8,16 +8,13 @@ import { IPermissionRepository } from '@app/iam/permission/domain/permission.rep
 import { MockPermissionSeeder } from '@app/iam/permission/infrastructure/mock/mock-permission.seeder';
 import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
-import { IamModule } from '@api/iam/iam.module';
 import * as request from 'supertest';
 import * as _ from 'lodash';
 
 // has OAuth
-import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
-import { AuthorizationGuard } from '@api/iam/shared/guards/authorization.guard';
-
-// ---- customizations ----
+import { IamModule } from '@api/iam/iam.module';
 import { OAuthModule } from '@api/o-auth/o-auth.module';
+import { AuthenticationGuard, AuthorizationGuard } from '@aurora-ts/core';
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
@@ -67,7 +64,7 @@ describe('permission', () =>
                 MockPermissionSeeder,
             ],
         })
-            .overrideGuard(AuthenticationJwtGuard)
+            .overrideGuard(AuthenticationGuard)
             .useValue({ canActivate: () => true })
             .overrideGuard(AuthorizationGuard)
             .useValue({ canActivate: () => true })

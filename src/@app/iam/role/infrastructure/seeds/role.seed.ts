@@ -1,7 +1,7 @@
 // ignored file
 /* eslint-disable max-len */
 // ignored file
-import { permissions } from '../../../permission/infrastructure/seeds/permission.seed';
+import { permissions } from '../../../permission/infrastructure/mock/mock-permission.data';
 
 export const roles = [
     {

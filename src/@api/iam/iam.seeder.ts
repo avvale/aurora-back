@@ -1,21 +1,16 @@
+// ignored file
 import { Injectable } from '@nestjs/common';
 import { ICommandBus, IQueryBus } from '@aurora-ts/core';
-// import { CreatePermissionsCommand } from '@app/iam/permission/application/create/create-permissions.command';
-// import { CreateBoundedContextsCommand } from '@app/iam/bounded-context/application/create/create-bounded-contexts.command';
-import { boundedContexts, permissions } from '@app/iam/iam.seed';
+import { accounts, boundedContexts, permissions, roles, users } from '@app/iam/iam.seed';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
 import { BoundedContextHelper } from '@app/iam/bounded-context/domain/bounded-context-helper';
 import { PermissionHelper } from '@app/iam/permission/domain/permission-helper';
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
 import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
 import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
 import { CreateRolesCommand } from '@app/iam/role/application/create/create-roles.command';
 import { CreateRolesAccountsCommand } from '@app/iam/role/application/create/create-roles-accounts.command';
-import { roles } from '@app/iam/role/infrastructure/seeds/role.seed';
 import { IamAccount } from '@app/iam/account/domain/account.aggregate';
 
 @Injectable()

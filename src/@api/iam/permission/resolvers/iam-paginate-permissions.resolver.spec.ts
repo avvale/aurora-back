@@ -6,7 +6,7 @@ import { IamPaginatePermissionsResolver } from './iam-paginate-permissions.resol
 import { IamPaginatePermissionsHandler } from '../handlers/iam-paginate-permissions.handler';
 
 // sources
-import { permissions } from '@app/iam/permission/infrastructure/seeds/permission.seed';
+import { permissions } from '@app/iam/permission/infrastructure/mock/mock-permission.data';
 
 describe('IamPaginatePermissionsResolver', () =>
 {
