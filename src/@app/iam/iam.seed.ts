@@ -1,5 +1,6 @@
 // ignored file
 import { IamAccountType } from '@api/graphql';
+import { PermissionHelper } from './permission/domain/permission-helper';
 
 export const boundedContexts = [
     {
@@ -58,8 +59,8 @@ export const permissions = [
 
 export const users = [
     {
-        id           : 'b94dd025-c538-4a37-b852-a7fee35a3561',
-        accountId    : '092d0372-5af7-482b-be2a-6e4c84921aa6',
+        id           : PermissionHelper.administratorUserId,
+        accountId    : PermissionHelper.administratorAccountId,
         name         : 'John',
         surname      : 'Doe',
         avatar       : null,
@@ -73,9 +74,9 @@ export const users = [
 ];
 
 export const accounts = [
-    // user demo
+    // administrator account
     {
-        id               : '092d0372-5af7-482b-be2a-6e4c84921aa6',
+        id               : PermissionHelper.administratorAccountId,
         type             : IamAccountType.USER,
         code             : null,
         email            : 'john.doe@contoso.com',
@@ -94,7 +95,7 @@ export const accounts = [
 
 export const roles = [
     {
-        id      : '99b06044-fff5-4267-9314-4bae9f909010',
+        id      : PermissionHelper.administratorRoleId,
         name    : 'Administrator',
         isMaster: true,
         permissions, // mock related permissions

@@ -10,8 +10,9 @@ import { CreatePermissionsRolesCommand } from '@app/iam/permission-role/applicat
 
 export class PermissionHelper
 {
-    static administratorAccountId   = '948a5308-a49d-42dc-9ea3-7490e120000b';
-    static administratorRoleId      = '99b06044-fff5-4267-9314-4bae9f909010';
+    static administratorAccountId = '948a5308-a49d-42dc-9ea3-7490e120000b';
+    static administratorUserId    = 'b94dd025-c538-4a37-b852-a7fee35a3561';
+    static administratorRoleId    = '99b06044-fff5-4267-9314-4bae9f909010';
 
     /**
      * Create permissions and assign to administrator role and administrator account

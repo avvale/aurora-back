@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
+import { IamSeeder } from './iam.seeder';
 import { IamModels, IamHandlers, IamServices, IamRepositories, IamSagas } from '@app/iam';
 import { IamBoundedContextControllers, IamBoundedContextResolvers, IamBoundedContextApiHandlers } from './bounded-context';
 import { IamPermissionControllers, IamPermissionResolvers, IamPermissionApiHandlers, IamPermissionServices } from './permission';
@@ -30,6 +31,7 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...IamUserMetaControllers,
     ],
     providers: [
+        IamSeeder,
         ...IamAccountApiHandlers,
         ...IamAccountResolvers,
         ...IamBoundedContextApiHandlers,

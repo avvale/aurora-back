@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
+import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers } from './client';
@@ -26,6 +27,7 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthScopeControllers
     ],
     providers: [
+        OAuthSeeder,
         ...OAuthHandlers,
         ...OAuthServices,
         ...OAuthRepositories,

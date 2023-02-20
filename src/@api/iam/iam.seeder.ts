@@ -45,7 +45,6 @@ export class IamSeeder
         {
             await this.commandBus.dispatch(new CreateAccountsCommand(accounts));
             await this.commandBus.dispatch(new CreateUsersCommand(users));
-
             await this.commandBus.dispatch(new CreateRolesCommand(roles));
 
             // set all roles to administration account
