@@ -6,7 +6,7 @@ import { IamFindUserMetaByIdController } from './iam-find-user-meta-by-id.contro
 import { IamFindUserMetaByIdHandler } from '../handlers/iam-find-user-meta-by-id.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamFindUserMetaByIdController', () =>
 {

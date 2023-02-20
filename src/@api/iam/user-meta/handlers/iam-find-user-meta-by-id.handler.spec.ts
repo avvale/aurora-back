@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { IamFindUserMetaByIdHandler } from './iam-find-user-meta-by-id.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamFindUserByIdHandler', () =>
 {

@@ -7,7 +7,7 @@ import { IamUpdateUserMetaByIdHandler } from './iam-update-user-meta-by-id.handl
 import { IamUpdateUserByIdInput } from '@api/graphql';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamUpdateUserByIdHandler', () =>
 {

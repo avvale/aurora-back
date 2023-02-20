@@ -6,7 +6,7 @@ import { IamDeleteUsersResolver } from './iam-delete-users.resolver';
 import { IamDeleteUsersHandler } from '../handlers/iam-delete-users.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamDeleteUsersResolver', () =>
 {

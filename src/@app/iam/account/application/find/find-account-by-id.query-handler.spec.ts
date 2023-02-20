@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindAccountByIdQueryHandler } from './find-account-by-id.query-handler';
 import { MockAccountRepository } from '@app/iam/account/infrastructure/mock/mock-account.repository';
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 import { IAccountRepository } from '@app/iam/account/domain/account.repository';
 import { AccountMapper } from '@app/iam/account/domain/account.mapper';
 import { FindAccountByIdQuery } from './find-account-by-id.query';

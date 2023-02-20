@@ -17,7 +17,7 @@ import {
     UserDeletedAt,
 } from '../../domain/value-objects';
 import { IamUser } from '../../domain/user.aggregate';
-import { users } from '../seeds/user.seed';
+import { users } from './mock-user.data';
 import * as _ from 'lodash';
 
 @Injectable()

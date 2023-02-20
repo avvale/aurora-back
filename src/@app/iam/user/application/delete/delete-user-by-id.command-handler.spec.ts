@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { DeleteUserByIdCommandHandler } from './delete-user-by-id.command-handler';
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 import { DeleteUserByIdCommand } from './delete-user-by-id.command';
 import { DeleteUserByIdService } from './delete-user-by-id.service';
 

@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { IamUpsertAccountHandler } from './iam-upsert-account.handler';
 
 // sources
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 
 describe('IamUpsertAccountHandler', () =>
 {

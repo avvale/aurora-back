@@ -6,7 +6,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 import { IamPaginateAccountsHandler } from './iam-paginate-accounts.handler';
 
 // sources
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 
 describe('IamPaginateAccountsHandler', () =>
 {

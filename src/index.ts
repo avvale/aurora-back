@@ -17,7 +17,7 @@ export { IamAccount } from './@app/iam/account/domain/account.aggregate';
 export { IamAccountModel } from './@app/iam/account';
 export { AccountResponse } from './@app/iam/account/domain/account.response';
 export { AccountMapper } from './@app/iam/account/domain/account.mapper';
-export { accounts } from './@app/iam/account/infrastructure/seeds/account.seed';
+export { accounts } from './@app/iam/account/infrastructure/mock/mock-account.data';
 export { IamPermissionDto } from './@api/iam/permission/dto/iam-permission.dto';
 export { IamPermission } from './@app/iam/permission/domain/permission.aggregate';
 export { IamPermissionModel } from './@app/iam/permission';

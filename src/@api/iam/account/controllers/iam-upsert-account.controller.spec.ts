@@ -6,7 +6,7 @@ import { IamUpsertAccountController } from './iam-upsert-account.controller';
 import { IamUpsertAccountHandler } from '../handlers/iam-upsert-account.handler';
 
 // sources
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 
 describe('IamUpsertAccountController', () =>
 {

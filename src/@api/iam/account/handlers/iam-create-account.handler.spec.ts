@@ -10,7 +10,7 @@ import { FindClientByIdQuery } from '@app/o-auth/client/application/find/find-cl
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
 
 // sources
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 import { roles } from '@app/iam/role/infrastructure/seeds/role.seed';
 import { clients } from '@app/o-auth/client/infrastructure/mock/mock-client.data';
 

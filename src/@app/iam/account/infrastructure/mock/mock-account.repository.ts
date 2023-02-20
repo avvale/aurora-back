@@ -20,7 +20,7 @@ import {
     AccountDeletedAt,
 } from '@app/iam/account/domain/value-objects';
 import { IamAccount } from '../../domain/account.aggregate';
-import { accounts } from '../seeds/account.seed';
+import { accounts } from './mock-account.data';
 
 @Injectable()
 export class MockAccountRepository extends MockRepository<IamAccount> implements IAccountRepository

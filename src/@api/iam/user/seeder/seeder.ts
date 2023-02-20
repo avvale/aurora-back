@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ICommandBus } from '@aurora-ts/core';
 import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
 import { SeederModule } from './seeder.module';
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 export class Seeder
 {

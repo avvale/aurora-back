@@ -6,7 +6,7 @@ import { IamGetUsersResolver } from './iam-get-users.resolver';
 import { IamGetUsersHandler } from '../handlers/iam-get-users.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamGetUsersResolver', () =>
 {

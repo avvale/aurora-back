@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 import { UpsertAccountCommandHandler } from './upsert-account.command-handler';
 import { UpsertAccountCommand } from './upsert-account.command';
 import { UpsertAccountService } from './upsert-account.service';

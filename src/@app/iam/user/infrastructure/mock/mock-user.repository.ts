@@ -18,7 +18,7 @@ import {
     UserDeletedAt,
 } from '@app/iam/user/domain/value-objects';
 import { IamUser } from '../../domain/user.aggregate';
-import { users } from '../seeds/user.seed';
+import { users } from './mock-user.data';
 
 @Injectable()
 export class MockUserRepository extends MockRepository<IamUser> implements IUserRepository

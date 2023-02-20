@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 
 //
 import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
-import { accounts } from '@app/iam/account/infrastructure/seeds/account.seed';
+import { accounts } from '@app/iam/account/infrastructure/mock/mock-account.data';
 
 @Injectable()
 export class IamAccountSeeder

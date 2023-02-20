@@ -19,7 +19,7 @@ import {
     AccountDeletedAt,
 } from '../../domain/value-objects';
 import { IamAccount } from '../../domain/account.aggregate';
-import { accounts } from '../seeds/account.seed';
+import { accounts } from './mock-account.data';
 import * as _ from 'lodash';
 
 @Injectable()

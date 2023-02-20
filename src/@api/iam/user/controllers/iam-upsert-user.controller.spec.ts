@@ -6,7 +6,7 @@ import { IamUpsertUserController } from './iam-upsert-user.controller';
 import { IamUpsertUserHandler } from '../handlers/iam-upsert-user.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamUpsertUserController', () =>
 {

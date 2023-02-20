@@ -6,7 +6,7 @@ import { IamPaginateUsersController } from './iam-paginate-users.controller';
 import { IamPaginateUsersHandler } from '../handlers/iam-paginate-users.handler';
 
 // sources
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 
 describe('IamPaginateUsersController', () =>
 {

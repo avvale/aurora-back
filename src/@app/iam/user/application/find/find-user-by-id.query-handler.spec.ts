@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindUserByIdQueryHandler } from './find-user-by-id.query-handler';
 import { MockUserRepository } from '@app/iam/user/infrastructure/mock/mock-user.repository';
-import { users } from '@app/iam/user/infrastructure/seeds/user.seed';
+import { users } from '@app/iam/user/infrastructure/mock/mock-user.data';
 import { IUserRepository } from '@app/iam/user/domain/user.repository';
 import { UserMapper } from '@app/iam/user/domain/user.mapper';
 import { FindUserByIdQuery } from './find-user-by-id.query';
