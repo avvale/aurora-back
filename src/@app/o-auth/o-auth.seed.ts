@@ -1,4 +1,4 @@
-import { OAuthClientGrantType } from "@api/graphql";
+import { OAuthClientGrantType } from '@api/graphql';
 
 export const boundedContexts = [
     {
