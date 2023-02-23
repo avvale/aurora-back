@@ -13,6 +13,8 @@ function copyAuditing()
         fse.copy('cliter/auditing', 'publish/cliter/auditing', { overwrite: true }),
         fse.copy('src/@api/auditing', 'publish/src/@api/auditing', { overwrite: true }),
         fse.copy('src/@app/auditing', 'publish/src/@app/auditing', { overwrite: true }),
+        fse.copy('test/acceptance/auditing', 'publish/test/acceptance/auditing', { overwrite: true }),
+        fse.copy('postman/auditing', 'publish/postman/auditing', { overwrite: true }),
     ]);
 }
 
