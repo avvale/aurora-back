@@ -59,7 +59,6 @@ function editPackageJson()
                 delete json.dependencies['mariadb'];
                 delete json.dependencies['nodemailer'];
                 delete json.dependencies['passport-jwt'];
-                delete json.dependencies['ts-morph'];
 
                 delete json.devDependencies.gulp;
                 delete json.devDependencies['@types/nodemailer'];
