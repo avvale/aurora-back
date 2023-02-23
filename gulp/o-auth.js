@@ -32,7 +32,7 @@ async function clean()
     fs.rmSync('publish', { recursive: true, force: true });
 }
 
-exports.publishIam = series(
+exports.publishOAuth = series(
     copyOAuth,
     copyToCLI,
     clean,
