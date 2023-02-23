@@ -30,6 +30,8 @@ function copyApplication()
             '!test/acceptance/**',
             '!docker-compose.yml',
             '!gulpfile.js',
+            '!oauth-private.key',
+            '!oauth-public.key',
             '!package.json',
             '!package-lock.json',
         ])
