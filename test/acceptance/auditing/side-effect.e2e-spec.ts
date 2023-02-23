@@ -6,7 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ISideEffectRepository } from '@app/auditing/side-effect/domain/side-effect.repository';
 import { MockSideEffectSeeder } from '@app/auditing/side-effect/infrastructure/mock/mock-side-effect.seeder';
-import { sideEffects } from '@app/auditing/side-effect/infrastructure/seeds/side-effect.seed';
+import { sideEffects } from '@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { AuditingModule } from '@api/auditing/auditing.module';
 import { AuthenticationGuard, AuthorizationGuard } from '@aurora-ts/core';
