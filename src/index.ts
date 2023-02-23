@@ -4,7 +4,7 @@ export { AuditingSideEffect } from './@app/auditing/side-effect/domain/side-effe
 export { AuditingSideEffectModel } from './@app/auditing/side-effect';
 export { SideEffectResponse } from './@app/auditing/side-effect/domain/side-effect.response';
 export { SideEffectMapper } from './@app/auditing/side-effect/domain/side-effect.mapper';
-export { sideEffects } from './@app/auditing/side-effect/infrastructure/seeds/side-effect.seed';
+export { sideEffects } from './@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data';
 export { AuditingHttpCommunicationDto } from './@api/auditing/http-communication/dto/auditing-http-communication.dto';
 export { AuditingHttpCommunication } from './@app/auditing/http-communication/domain/http-communication.aggregate';
 export { AuditingHttpCommunicationModel } from './@app/auditing/http-communication';
