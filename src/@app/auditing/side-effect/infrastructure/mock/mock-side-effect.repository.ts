@@ -28,7 +28,7 @@ import {
     SideEffectDeletedAt,
 } from '@app/auditing/side-effect/domain/value-objects';
 import { AuditingSideEffect } from '../../domain/side-effect.aggregate';
-import { sideEffects } from '../seeds/side-effect.seed';
+import { sideEffects } from './mock-side-effect.data';
 
 @Injectable()
 export class MockSideEffectRepository extends MockRepository<AuditingSideEffect> implements ISideEffectRepository

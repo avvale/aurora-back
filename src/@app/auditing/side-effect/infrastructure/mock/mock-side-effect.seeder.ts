@@ -27,7 +27,7 @@ import {
     SideEffectDeletedAt,
 } from '../../domain/value-objects';
 import { AuditingSideEffect } from '../../domain/side-effect.aggregate';
-import { sideEffects } from '../seeds/side-effect.seed';
+import { sideEffects } from './mock-side-effect.data';
 import * as _ from 'lodash';
 
 @Injectable()

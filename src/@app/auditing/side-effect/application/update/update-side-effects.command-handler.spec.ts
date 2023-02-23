@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { sideEffects } from '@app/auditing/side-effect/infrastructure/seeds/side-effect.seed';
+import { sideEffects } from '@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data';
 import { UpdateSideEffectsCommandHandler } from './update-side-effects.command-handler';
 import { UpdateSideEffectsCommand } from './update-side-effects.command';
 import { UpdateSideEffectsService } from './update-side-effects.service';
