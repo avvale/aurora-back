@@ -10,7 +10,7 @@ export { AuditingHttpCommunication } from './@app/auditing/http-communication/do
 export { AuditingHttpCommunicationModel } from './@app/auditing/http-communication';
 export { HttpCommunicationResponse } from './@app/auditing/http-communication/domain/http-communication.response';
 export { HttpCommunicationMapper } from './@app/auditing/http-communication/domain/http-communication.mapper';
-export { httpCommunications } from './@app/auditing/http-communication/infrastructure/seeds/http-communication.seed';
+export { httpCommunications } from './@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
 export { IamModule } from './@api/iam/iam.module';
 export { IamAccountDto } from './@api/iam/account/dto/iam-account.dto';
 export { IamAccount } from './@app/iam/account/domain/account.aggregate';
