@@ -4,7 +4,7 @@ import { CqrsModule } from '@nestjs/cqrs';
 import { HttpModule } from '@nestjs/axios';
 import { AddI18NConstraintService, CoreModule } from '@aurora-ts/core';
 import { CqrsConfigModule } from './cqrs-config.module';
-import { LoggingAxiosInterceptorService } from '@api/auditing/shared/services/logging.axios-interceptor.service';
+import { AuditingAxiosInterceptorService } from '@api/auditing/shared/services/auditing-axios-interceptor.service';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
 import { jwtConfig } from '@app/o-auth/shared/jwt-config';
 
@@ -20,7 +20,7 @@ import { jwtConfig } from '@app/o-auth/shared/jwt-config';
     ],
     providers: [
         AddI18NConstraintService,
-        LoggingAxiosInterceptorService,
+        AuditingAxiosInterceptorService,
     ],
     exports: [
         AddI18NConstraintService,

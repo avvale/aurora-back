@@ -23,7 +23,7 @@ interface MetaAxiosRequestConfig extends InternalAxiosRequestConfig
 }
 
 @Injectable()
-export class LoggingAxiosInterceptorService implements OnModuleInit
+export class AuditingAxiosInterceptorService implements OnModuleInit
 {
     constructor(
         private readonly httpService: HttpService,
