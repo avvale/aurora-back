@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { refreshTokens } from '@app/o-auth/refresh-token/infrastructure/mock/mock-refresh-token.data';
-import { DeleteRefreshTokenByIdService } from './delete-refresh-token-by-id.service';
-import { RefreshTokenId } from '../../domain/value-objects';
+import { RawSQLRefreshTokensService } from './raw-sql-refresh-tokens.service';
 import { IRefreshTokenRepository } from '../../domain/refresh-token.repository';
 import { MockRefreshTokenRepository } from '../../infrastructure/mock/mock-refresh-token.repository';
 
-describe('DeleteRefreshTokenByIdService', () =>
+describe('RawSQLRefreshTokensService', () =>
 {
-    let service: DeleteRefreshTokenByIdService;
+    let service: RawSQLRefreshTokensService;
     let repository: IRefreshTokenRepository;
     let mockRepository: MockRefreshTokenRepository;
 
@@ -22,37 +19,34 @@ describe('DeleteRefreshTokenByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteRefreshTokenByIdService,
+                RawSQLRefreshTokensService,
                 MockRefreshTokenRepository,
                 {
                     provide : IRefreshTokenRepository,
                     useValue: {
-                        deleteById: id => { /**/ },
-                        findById  : id => { /**/ },
+                        rawSQL: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(DeleteRefreshTokenByIdService);
+        service         = module.get(RawSQLRefreshTokensService);
         repository      = module.get(IRefreshTokenRepository);
         mockRepository  = module.get(MockRefreshTokenRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteRefreshTokenByIdService should be defined', () =>
+        test('RawSQLRefreshTokensService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should delete refreshToken and emit event', async () =>
+        test('should get refreshTokens', async () =>
         {
-            jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new RefreshTokenId(refreshTokens[0].id),
-            )).toBe(undefined);
+            jest.spyOn(repository, 'rawSQL').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource)));
+            expect(await service.main()).toBe(mockRepository.collectionSource);
         });
     });
 });

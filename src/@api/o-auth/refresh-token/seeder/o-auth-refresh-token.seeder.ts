@@ -2,10 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 
 //
-import { accessTokens } from '@app/o-auth/access-token/infrastructure/mock/mock-access-token.data';
+import { CreateRefreshTokensCommand } from '@app/o-auth/refresh-token/application/create/create-refresh-tokens.command';
+import { refreshTokens } from '@app/o-auth/refresh-token/infrastructure/mock/mock-refresh-token.data';
 
 @Injectable()
-export class OAuthAccessTokenSeeder
+export class OAuthRefreshTokenSeeder
 {
     constructor(
         private readonly commandBus: ICommandBus,
@@ -14,12 +15,12 @@ export class OAuthAccessTokenSeeder
 
     async main(): Promise<boolean>
     {
-       /*  await this.commandBus.dispatch(new CreateAccessTokensCommand(
-            accessTokens,
+        await this.commandBus.dispatch(new CreateRefreshTokensCommand(
+            refreshTokens,
             {
                 timezone: process.env.TZ ,
             },
-        )); */
+        ));
 
         return true;
     }

@@ -6,7 +6,7 @@ import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSaga
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
 import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers, OAuthAccessTokenServices } from './access-token';
-import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers } from './refresh-token';
+import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers, OAuthRefreshTokenServices } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
 import { OAuthScopeControllers, OAuthScopeResolvers, OAuthScopeApiHandlers } from './scope';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
@@ -49,7 +49,8 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         IamCreatePermissionsFromRolesService,
         ...OAuthAccessTokenServices,
         ...OAuthApplicationServices,
-        ...OAuthClientServices
+        ...OAuthClientServices,
+        ...OAuthRefreshTokenServices
     ],
 })
 export class OAuthModule {}
