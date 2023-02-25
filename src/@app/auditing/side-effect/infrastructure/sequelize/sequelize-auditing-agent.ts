@@ -98,6 +98,7 @@ export class SequelizeAuditingAgent
 
         AuditingSideEffectModel.create({
             id                  : auditingMeta.id ? auditingMeta.id : Utils.uuid(), // defined id when execute rollback to fill rollbackSideEffectId column
+            tags                : auditingMeta.tags,
             modelPath,
             modelName,
             operationId         : auditingMeta.operationId,
@@ -115,7 +116,6 @@ export class SequelizeAuditingAgent
             query               : auditingMeta.query,
             body                : auditingMeta.body,
             userAgent           : auditingMeta.userAgent,
-            tags                : auditingMeta.tags,
             isRollback          : false,
             rollbackSideEffectId: null,
             createdAt           : now,
