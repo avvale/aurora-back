@@ -9,7 +9,7 @@ import { IamPermissionRoleControllers, IamPermissionRoleResolvers, IamPermission
 import { IamTenantControllers, IamTenantResolvers, IamTenantApiHandlers, IamTenantServices } from './tenant';
 import { IamRoleControllers, IamRoleResolvers, IamRoleApiHandlers, IamRoleServices } from './role';
 import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers, IamAccountServices } from './account';
-import { IamUserControllers, IamUserResolvers, IamUserApiHandlers } from './user';
+import { IamUserControllers, IamUserResolvers, IamUserApiHandlers, IamUserServices } from './user';
 import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
 
@@ -59,7 +59,8 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...IamPermissionServices,
         ...IamBoundedContextServices,
         ...IamRoleServices,
-        ...IamTenantServices
+        ...IamTenantServices,
+        ...IamUserServices
     ],
 })
 export class IamModule {}
