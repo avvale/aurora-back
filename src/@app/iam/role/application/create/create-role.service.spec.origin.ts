@@ -3,8 +3,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { denormalizedRoles as roles } from '@app/iam/role/infrastructure/mock/mock-role.data';
-import { UpdateRolesService } from './update-roles.service';
+import { roles } from '@app/iam/role/infrastructure/mock/mock-role.data';
+import { CreateRoleService } from './create-role.service';
 import {
     RoleId,
     RoleName,
@@ -18,9 +18,10 @@ import {
 import { IRoleRepository } from '../../domain/role.repository';
 import { MockRoleRepository } from '../../infrastructure/mock/mock-role.repository';
 
-describe('UpdateRolesService', () =>
+describe('CreateRoleService', () =>
+
 {
-    let service: UpdateRolesService;
+    let service: CreateRoleService;
     let repository: IRoleRepository;
     let mockRepository: MockRoleRepository;
 
@@ -31,32 +32,31 @@ describe('UpdateRolesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                UpdateRolesService,
+                CreateRoleService,
                 MockRoleRepository,
                 {
                     provide : IRoleRepository,
                     useValue: {
-                        update: () => { /**/ },
-                        get   : () => { /**/ },
+                        create: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(UpdateRolesService);
+        service         = module.get(CreateRoleService);
         repository      = module.get(IRoleRepository);
         mockRepository  = module.get(MockRoleRepository);
     });
 
     describe('main', () =>
     {
-        test('UpdateRolesService should be defined', () =>
+        test('CreateRoleService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should update a roles and emit event', async () =>
+        test('should create a role and emit event', async () =>
         {
             expect(await service.main(
                 {

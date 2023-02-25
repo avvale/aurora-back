@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { roles } from '@app/iam/role/infrastructure/mock/mock-role.data';
-import { DeleteRoleByIdService } from './delete-role-by-id.service';
-import { RoleId } from '../../domain/value-objects';
+import { RawSQLRolesService } from './raw-sql-roles.service';
 import { IRoleRepository } from '../../domain/role.repository';
 import { MockRoleRepository } from '../../infrastructure/mock/mock-role.repository';
 
-describe('DeleteRoleByIdService', () =>
+describe('RawSQLRolesService', () =>
 {
-    let service: DeleteRoleByIdService;
+    let service: RawSQLRolesService;
     let repository: IRoleRepository;
     let mockRepository: MockRoleRepository;
 
@@ -22,37 +19,34 @@ describe('DeleteRoleByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteRoleByIdService,
+                RawSQLRolesService,
                 MockRoleRepository,
                 {
                     provide : IRoleRepository,
                     useValue: {
-                        deleteById: id => { /**/ },
-                        findById  : id => { /**/ },
+                        rawSQL: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(DeleteRoleByIdService);
+        service         = module.get(RawSQLRolesService);
         repository      = module.get(IRoleRepository);
         mockRepository  = module.get(MockRoleRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteRoleByIdService should be defined', () =>
+        test('RawSQLRolesService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should delete role and emit event', async () =>
+        test('should get roles', async () =>
         {
-            jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new RoleId(roles[0].id),
-            )).toBe(undefined);
+            jest.spyOn(repository, 'rawSQL').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource)));
+            expect(await service.main()).toBe(mockRepository.collectionSource);
         });
     });
 });
