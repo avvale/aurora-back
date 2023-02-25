@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data.ts",
-            "integrity": "sha1:9bb1c18392e834888ea10a887b383df78b57e367"
+            "integrity": "sha1:192bbddb3c895cfba411ad970b44bd3d1c72b89a"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/mock-http-communication.repository.ts",
@@ -343,7 +343,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/sequelize/sequelize-http-communication.repository.ts",
-            "integrity": "sha1:de6a8b48179698baf66939b48ce94799cad11617"
+            "integrity": "sha1:3f596b202daa1d4fd2ed8c59d00d6ce13067e1a8"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/http-communication-id.ts",
@@ -711,7 +711,7 @@
         },
         {
             "path": "postman/auditing/auditing.http-communication.postman.json",
-            "integrity": "sha1:d54199af8db0aee451b2feca9ca2db90c651e80f"
+            "integrity": "sha1:b4b8b18a67f0a87126505587a637e3c1f4aaa396"
         }
     ]
 }
