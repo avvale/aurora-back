@@ -1,5 +1,5 @@
 import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { Timezone } from '@aurora-ts/core';
+import { Auditing, AuditingMeta, Timezone } from '@aurora-ts/core';
 import { Auth } from '@aurora/decorators';
 
 // @app
