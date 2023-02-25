@@ -3,7 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
 import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
-import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers } from './application';
+import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers } from './client';
 import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers, OAuthAccessTokenServices } from './access-token';
 import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers } from './refresh-token';
@@ -47,7 +47,8 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
-        ...OAuthAccessTokenServices
+        ...OAuthAccessTokenServices,
+        ...OAuthApplicationServices
     ],
 })
 export class OAuthModule {}
