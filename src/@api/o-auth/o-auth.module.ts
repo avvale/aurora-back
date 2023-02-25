@@ -4,7 +4,7 @@ import { SharedModule } from '@aurora/shared.module';
 import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
-import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers } from './client';
+import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
 import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers, OAuthAccessTokenServices } from './access-token';
 import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
@@ -48,7 +48,8 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
         ...OAuthAccessTokenServices,
-        ...OAuthApplicationServices
+        ...OAuthApplicationServices,
+        ...OAuthClientServices
     ],
 })
 export class OAuthModule {}
