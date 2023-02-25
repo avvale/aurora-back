@@ -86,3 +86,37 @@ exports.changeDecoratorPropertyAdapter = (sourceFile, moduleName, propertyName, 
         }
     }
 };
+
+exports.removeCallExpressionArgument = (sourceFile, functionName, argumentName) =>
+{
+    const callExpressions = sourceFile.getDescendantsOfKind(tsMorph.SyntaxKind.CallExpression);
+
+    for (const callExpression of callExpressions)
+    {
+        if (callExpression.getExpression().getText() === functionName)
+        {
+            for (const [index, value] of callExpression.getArguments().entries())
+            {
+                if (value.getText() === argumentName);
+                {
+                    callExpression.removeArgument(index);
+                    break;
+                }
+            }
+        }
+    }
+};
+
+exports.addCallExpressionArgument = (sourceFile, functionName, argumentName) =>
+{
+    const callExpressions = sourceFile.getDescendantsOfKind(tsMorph.SyntaxKind.CallExpression);
+
+    for (const callExpression of callExpressions)
+    {
+        if (callExpression.getExpression().getText() === functionName)
+        {
+            callExpression.addArgument(argumentName);
+            break;
+        }
+    }
+};

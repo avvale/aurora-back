@@ -19,6 +19,6 @@ export interface AuditingMeta<T extends AuditingAccount = AuditingAccount>
     tags?: string[];
     // property to define the id that the side effect will be created,
     // used to define the id in the rollback action and related to the
-    // affected side effect
+    // affected side effects
     id?: string;
 }

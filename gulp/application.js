@@ -122,14 +122,6 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/iam/iam.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'IamModule');
 
-    // remove AuthenticationJwtGuard
-    codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
-    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'AppModule', 'providers', 'AuthenticationGuard', 'AuthenticationDisabledAdapterGuard');
-
-    // remove AuthorizationPermissionsGuard
-    codeWriter.removeImport(sourceFile, '@api/iam/shared/guards/authorization-permissions.guard');
-    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'AppModule', 'providers', 'AuthorizationGuard', 'AuthorizationDisabledAdapterGuard');
-
     sourceFile.saveSync();
 }
 
@@ -139,8 +131,8 @@ async function cleanShareModule()
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'shared.module.ts']);
 
     // remove LoggingAxiosInterceptorService
-    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/logging.axios-interceptor.service');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'providers', 'LoggingAxiosInterceptorService');
+    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-axios-interceptor.service');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'providers', 'AuditingAxiosInterceptorService');
 
     // remove HttpModule
     codeWriter.removeImport(sourceFile, '@nestjs/axios');
@@ -157,6 +149,19 @@ async function cleanShareModule()
     sourceFile.saveSync();
 }
 
+async function cleanAuthGuard()
+{
+    const project = codeWriter.createProject(['publish', 'tsconfig.json']);
+    const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'decorators', 'auth.decorator.ts']);
+
+    codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationJwtGuard');
+    codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthorizationPermissionsGuard');
+    codeWriter.addCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationDisabledAdapterGuard');
+    codeWriter.addCallExpressionArgument(sourceFile, 'UseGuards', 'AuthorizationDisabledAdapterGuard');
+
+    sourceFile.saveSync();
+}
+
 async function clean()
 {
     // remove publish folder
@@ -169,6 +174,7 @@ exports.publishApplication = series(
     editNestCli,
     cleanAppModule,
     cleanShareModule,
+    cleanAuthGuard,
     copyToCLI,
     clean,
 );
