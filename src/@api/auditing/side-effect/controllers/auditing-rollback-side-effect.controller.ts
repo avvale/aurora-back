@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags, ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
-import { AuditingMeta, QueryStatement, Timezone } from '@aurora-ts/core';
+import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurora-ts/core';
 import { AuditingUpdateSideEffectByIdDto } from '../dto';
 import { Auth } from '@aurora/decorators';
-
-// auditing
-import { Auditing } from '@api/auditing/shared/decorators/auditing.decorator';
 
 // @app
 import { AuditingRollbackSideEffectHandler } from '../handlers/auditing-rollback-side-effect.handler';
