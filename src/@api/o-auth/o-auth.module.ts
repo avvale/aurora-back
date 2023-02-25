@@ -5,7 +5,7 @@ import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers } from './client';
-import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers } from './access-token';
+import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers, OAuthAccessTokenServices } from './access-token';
 import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
 import { OAuthScopeControllers, OAuthScopeResolvers, OAuthScopeApiHandlers } from './scope';
@@ -47,6 +47,7 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
+        ...OAuthAccessTokenServices
     ],
 })
 export class OAuthModule {}
