@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data.ts",
-            "integrity": "sha1:a6def0ad7a007c24baf1006a47c4f7ea9a50817e"
+            "integrity": "sha1:2d648dec2ed28f2d3ec062ae1e116cb652c602fa"
         },
         {
             "path": "src/@app/auditing/side-effect/infrastructure/mock/mock-side-effect.repository.ts",
@@ -711,7 +711,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-paginate-side-effects.resolver.ts",
-            "integrity": "sha1:8df175e4bd61bd4f3d66494ce23e87698b026eea"
+            "integrity": "sha1:b1c6eac8b8b7f3f7e21ddfa8b0555231dacbfb32"
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-update-side-effect-by-id.resolver.spec.ts",
@@ -727,7 +727,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-update-side-effects.resolver.ts",
-            "integrity": "sha1:91cade44b3241feb53aa7d30047c1365f7b7acbb"
+            "integrity": "sha1:13ae6b25df8a6018c1748a93c5b3e10bd4f052eb"
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-upsert-side-effect.resolver.spec.ts",
@@ -771,7 +771,7 @@
         },
         {
             "path": "postman/auditing/auditing.side-effect.postman.json",
-            "integrity": "sha1:c3efd22d9f35ab215791015eb17502db20abc256"
+            "integrity": "sha1:e7c9e3ed1907a65b5c69bc392c1ee962c8a86629"
         }
     ]
 }
