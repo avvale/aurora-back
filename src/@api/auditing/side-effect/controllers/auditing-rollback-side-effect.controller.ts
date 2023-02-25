@@ -1,20 +1,19 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags, ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
-import { AuthenticationGuard, AuthorizationGuard, Permissions, QueryStatement, Timezone } from '@aurora-ts/core';
+import { AuditingMeta, QueryStatement, Timezone } from '@aurora-ts/core';
 import { AuditingUpdateSideEffectByIdDto } from '../dto';
+import { Auth } from '@aurora/decorators';
 
 // auditing
 import { Auditing } from '@api/auditing/shared/decorators/auditing.decorator';
-import { AuditingMeta } from '@api/auditing/auditing.types';
 
 // @app
 import { AuditingRollbackSideEffectHandler } from '../handlers/auditing-rollback-side-effect.handler';
 
 @ApiTags('[auditing] side-effect')
 @Controller('auditing/side-effect/rollback')
-@Permissions('auditing.sideEffect.rollback')
-@UseGuards(AuthenticationGuard, AuthorizationGuard)
+@Auth('auditing.sideEffect.rollback')
 export class AuditingRollbackSideEffectController
 {
     constructor(
