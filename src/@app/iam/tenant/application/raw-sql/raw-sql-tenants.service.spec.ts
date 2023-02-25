@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { tenants } from '@app/iam/tenant/infrastructure/mock/mock-tenant.data';
-import { DeleteTenantByIdService } from './delete-tenant-by-id.service';
-import { TenantId } from '../../domain/value-objects';
+import { RawSQLTenantsService } from './raw-sql-tenants.service';
 import { ITenantRepository } from '../../domain/tenant.repository';
 import { MockTenantRepository } from '../../infrastructure/mock/mock-tenant.repository';
 
-describe('DeleteTenantByIdService', () =>
+describe('RawSQLTenantsService', () =>
 {
-    let service: DeleteTenantByIdService;
+    let service: RawSQLTenantsService;
     let repository: ITenantRepository;
     let mockRepository: MockTenantRepository;
 
@@ -22,37 +19,34 @@ describe('DeleteTenantByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteTenantByIdService,
+                RawSQLTenantsService,
                 MockTenantRepository,
                 {
                     provide : ITenantRepository,
                     useValue: {
-                        deleteById: id => { /**/ },
-                        findById  : id => { /**/ },
+                        rawSQL: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(DeleteTenantByIdService);
+        service         = module.get(RawSQLTenantsService);
         repository      = module.get(ITenantRepository);
         mockRepository  = module.get(MockTenantRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteTenantByIdService should be defined', () =>
+        test('RawSQLTenantsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should delete tenant and emit event', async () =>
+        test('should get tenants', async () =>
         {
-            jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new TenantId(tenants[0].id),
-            )).toBe(undefined);
+            jest.spyOn(repository, 'rawSQL').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource)));
+            expect(await service.main()).toBe(mockRepository.collectionSource);
         });
     });
 });

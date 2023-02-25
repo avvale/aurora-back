@@ -1,18 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindTenantByIdQueryHandler } from './find-tenant-by-id.query-handler';
 import { MockTenantRepository } from '@app/iam/tenant/infrastructure/mock/mock-tenant.repository';
-import { tenants } from '@app/iam/tenant/infrastructure/mock/mock-tenant.data';
 import { ITenantRepository } from '@app/iam/tenant/domain/tenant.repository';
 import { TenantMapper } from '@app/iam/tenant/domain/tenant.mapper';
-import { FindTenantByIdQuery } from './find-tenant-by-id.query';
-import { FindTenantByIdService } from './find-tenant-by-id.service';
+import { RawSQLTenantsQueryHandler } from './raw-sql-tenants.query-handler';
+import { RawSQLTenantsQuery } from './raw-sql-tenants.query';
+import { RawSQLTenantsService } from './raw-sql-tenants.service';
 
-describe('FindTenantByIdQueryHandler', () =>
+describe('RawSQLTenantsQueryHandler', () =>
 {
-    let queryHandler: FindTenantByIdQueryHandler;
-    let service: FindTenantByIdService;
+    let queryHandler: RawSQLTenantsQueryHandler;
+    let service: RawSQLTenantsService;
     let repository: MockTenantRepository;
     let mapper: TenantMapper;
 
@@ -20,13 +19,13 @@ describe('FindTenantByIdQueryHandler', () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindTenantByIdQueryHandler,
+                RawSQLTenantsQueryHandler,
                 {
                     provide : ITenantRepository,
                     useClass: MockTenantRepository,
                 },
                 {
-                    provide : FindTenantByIdService,
+                    provide : RawSQLTenantsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,28 +34,25 @@ describe('FindTenantByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindTenantByIdQueryHandler>(FindTenantByIdQueryHandler);
-        service         = module.get<FindTenantByIdService>(FindTenantByIdService);
+        queryHandler    = module.get<RawSQLTenantsQueryHandler>(RawSQLTenantsQueryHandler);
+        service         = module.get<RawSQLTenantsService>(RawSQLTenantsService);
         repository      = <MockTenantRepository>module.get<ITenantRepository>(ITenantRepository);
         mapper          = new TenantMapper();
     });
 
     describe('main', () =>
     {
-        test('FindTenantByIdQueryHandler should be defined', () =>
+        test('RawSQLTenantsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
 
-        test('should return an tenant founded', async () =>
+        test('should return an tenants founded', async () =>
         {
-            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
+            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource)));
             expect(await queryHandler.execute(
-                new FindTenantByIdQuery(
-                    tenants[0].id,
-
-                ),
-            )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
+                new RawSQLTenantsQuery(),
+            )).toStrictEqual(mapper.mapAggregatesToResponses(repository.collectionSource));
         });
     });
 });
