@@ -1,18 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindScopeByIdQueryHandler } from './find-scope-by-id.query-handler';
 import { MockScopeRepository } from '@app/o-auth/scope/infrastructure/mock/mock-scope.repository';
-import { scopes } from '@app/o-auth/scope/infrastructure/mock/mock-scope.data';
 import { IScopeRepository } from '@app/o-auth/scope/domain/scope.repository';
 import { ScopeMapper } from '@app/o-auth/scope/domain/scope.mapper';
-import { FindScopeByIdQuery } from './find-scope-by-id.query';
-import { FindScopeByIdService } from './find-scope-by-id.service';
+import { RawSQLScopesQueryHandler } from './raw-sql-scopes.query-handler';
+import { RawSQLScopesQuery } from './raw-sql-scopes.query';
+import { RawSQLScopesService } from './raw-sql-scopes.service';
 
-describe('FindScopeByIdQueryHandler', () =>
+describe('RawSQLScopesQueryHandler', () =>
 {
-    let queryHandler: FindScopeByIdQueryHandler;
-    let service: FindScopeByIdService;
+    let queryHandler: RawSQLScopesQueryHandler;
+    let service: RawSQLScopesService;
     let repository: MockScopeRepository;
     let mapper: ScopeMapper;
 
@@ -20,13 +19,13 @@ describe('FindScopeByIdQueryHandler', () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindScopeByIdQueryHandler,
+                RawSQLScopesQueryHandler,
                 {
                     provide : IScopeRepository,
                     useClass: MockScopeRepository,
                 },
                 {
-                    provide : FindScopeByIdService,
+                    provide : RawSQLScopesService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,28 +34,25 @@ describe('FindScopeByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindScopeByIdQueryHandler>(FindScopeByIdQueryHandler);
-        service         = module.get<FindScopeByIdService>(FindScopeByIdService);
+        queryHandler    = module.get<RawSQLScopesQueryHandler>(RawSQLScopesQueryHandler);
+        service         = module.get<RawSQLScopesService>(RawSQLScopesService);
         repository      = <MockScopeRepository>module.get<IScopeRepository>(IScopeRepository);
         mapper          = new ScopeMapper();
     });
 
     describe('main', () =>
     {
-        test('FindScopeByIdQueryHandler should be defined', () =>
+        test('RawSQLScopesQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
 
-        test('should return an scope founded', async () =>
+        test('should return an scopes founded', async () =>
         {
-            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
+            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource)));
             expect(await queryHandler.execute(
-                new FindScopeByIdQuery(
-                    scopes[0].id,
-
-                ),
-            )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
+                new RawSQLScopesQuery(),
+            )).toStrictEqual(mapper.mapAggregatesToResponses(repository.collectionSource));
         });
     });
 });

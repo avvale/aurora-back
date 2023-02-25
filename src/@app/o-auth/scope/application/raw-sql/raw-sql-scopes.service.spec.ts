@@ -2,15 +2,13 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { scopes } from '@app/o-auth/scope/infrastructure/mock/mock-scope.data';
-import { FindScopeByIdService } from './find-scope-by-id.service';
-import { ScopeId } from '../../domain/value-objects';
+import { RawSQLScopesService } from './raw-sql-scopes.service';
 import { IScopeRepository } from '../../domain/scope.repository';
 import { MockScopeRepository } from '../../infrastructure/mock/mock-scope.repository';
 
-describe('FindScopeByIdService', () =>
+describe('RawSQLScopesService', () =>
 {
-    let service: FindScopeByIdService;
+    let service: RawSQLScopesService;
     let repository: IScopeRepository;
     let mockRepository: MockScopeRepository;
 
@@ -21,36 +19,34 @@ describe('FindScopeByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindScopeByIdService,
+                RawSQLScopesService,
                 MockScopeRepository,
                 {
                     provide : IScopeRepository,
                     useValue: {
-                        findById: id => { /**/ },
+                        rawSQL: () => { /**/ },
                     },
                 },
             ],
         })
             .compile();
 
-        service         = module.get(FindScopeByIdService);
+        service         = module.get(RawSQLScopesService);
         repository      = module.get(IScopeRepository);
         mockRepository  = module.get(MockScopeRepository);
     });
 
     describe('main', () =>
     {
-        test('FindScopeByIdService should be defined', () =>
+        test('RawSQLScopesService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
-        test('should find scope by id', async () =>
+        test('should get scopes', async () =>
         {
-            jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new ScopeId(scopes[0].id),
-            )).toBe(mockRepository.collectionSource[0]);
+            jest.spyOn(repository, 'rawSQL').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource)));
+            expect(await service.main()).toBe(mockRepository.collectionSource);
         });
     });
 });
