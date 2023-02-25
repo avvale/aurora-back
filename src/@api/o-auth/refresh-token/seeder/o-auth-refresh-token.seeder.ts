@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { ICommandBus, IQueryBus } from '@aurora-ts/core';
 
 //
-import { CreateRefreshTokensCommand } from '@app/o-auth/refresh-token/application/create/create-refresh-tokens.command';
 import { refreshTokens } from '@app/o-auth/refresh-token/infrastructure/mock/mock-refresh-token.data';
 
 @Injectable()
@@ -15,12 +14,12 @@ export class OAuthRefreshTokenSeeder
 
     async main(): Promise<boolean>
     {
-        await this.commandBus.dispatch(new CreateRefreshTokensCommand(
+        /* await this.commandBus.dispatch(new CreateRefreshTokensCommand(
             refreshTokens,
             {
                 timezone: process.env.TZ ,
             },
-        ));
+        )); */
 
         return true;
     }
