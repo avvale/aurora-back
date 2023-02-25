@@ -8,7 +8,6 @@ import { IHttpCommunicationRepository } from '@app/auditing/http-communication/d
 import { MockHttpCommunicationSeeder } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.seeder';
 import { httpCommunications } from '@app/auditing/http-communication/infrastructure/seeds/http-communication.seed';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
-import { AuthenticationGuard, AuthorizationGuard } from '@aurora-ts/core';
 import { AuditingModule } from '@api/auditing/auditing.module';
 import * as request from 'supertest';
 import * as _ from 'lodash';
