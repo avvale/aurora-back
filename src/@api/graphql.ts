@@ -327,8 +327,6 @@ export interface IamCreateUserInput {
     username: GraphQLString;
     password: GraphQLString;
     rememberToken?: Nullable<GraphQLString>;
-    accountId: string;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserByIdInput {
@@ -341,8 +339,6 @@ export interface IamUpdateUserByIdInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUsersInput {
@@ -355,8 +351,6 @@ export interface IamUpdateUsersInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface OAuthCreateAccessTokenInput {
@@ -677,6 +671,7 @@ export interface IMutation {
     oAuthCreateApplications(payload: Nullable<OAuthCreateApplicationInput>[]): boolean | Promise<boolean>;
     oAuthUpdateApplicationById(payload: OAuthUpdateApplicationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
     oAuthUpdateApplications(payload: OAuthUpdateApplicationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplication>[] | Promise<Nullable<OAuthApplication>[]>;
+    oAuthUpsertApplication(payload: OAuthUpdateApplicationByIdInput): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
     oAuthDeleteApplicationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
     oAuthDeleteApplications(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplication>[] | Promise<Nullable<OAuthApplication>[]>;
     oAuthCreateClient(payload: OAuthCreateClientInput): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
