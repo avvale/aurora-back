@@ -146,6 +146,10 @@ async function cleanShareModule()
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared/jwt-config');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
 
+    // disabled auditing runner implementation
+    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-runner-aurora-implementation.service');
+    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
+
     sourceFile.saveSync();
 }
 
@@ -154,6 +158,8 @@ async function cleanAuthGuard()
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'decorators', 'auth.decorator.ts']);
 
+    codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
+    codeWriter.removeImport(sourceFile, '@api/iam/shared/guards/authorization-permissions.guard');
     codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationJwtGuard');
     codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthorizationPermissionsGuard');
     codeWriter.addCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationDisabledAdapterGuard');
