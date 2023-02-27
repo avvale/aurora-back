@@ -97,7 +97,7 @@ exports.removeCallExpressionArgument = (sourceFile, functionName, argumentName) 
         {
             for (const [index, value] of callExpression.getArguments().entries())
             {
-                if (value.getText() === argumentName);
+                if (value.getText() === argumentName)
                 {
                     callExpression.removeArgument(index);
                     break;
