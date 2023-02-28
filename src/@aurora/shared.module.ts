@@ -8,6 +8,7 @@ import { AuditingAxiosInterceptorService } from '@api/auditing/shared/services/a
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
 import { jwtConfig } from '@app/o-auth/shared/jwt-config';
 import { AuditingRunnerAuroraImplementationService } from '@api/auditing/shared/services/auditing-runner-aurora-implementation.service';
+import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { AuditingRunnerAuroraImplementationService } from '@api/auditing/shared/
         CqrsConfigModule,
         CqrsModule,
         HttpModule,
+        WhatsappSharedModule,
     ],
     providers: [
         AddI18NConstraintService,
@@ -34,6 +36,7 @@ import { AuditingRunnerAuroraImplementationService } from '@api/auditing/shared/
         ConfigModule,
         CqrsConfigModule,
         AuditingRunner,
+        WhatsappSharedModule,
     ],
 })
 export class SharedModule {}

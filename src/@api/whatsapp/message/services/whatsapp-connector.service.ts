@@ -1,0 +1,261 @@
+/* eslint-disable quote-props */
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
+import { Injectable } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
+import { ConfigService } from '@nestjs/config';
+import { Observable } from 'rxjs';
+import { WhatsappButton } from '@app/whatsapp/whatsapp';
+
+@Injectable()
+export class WhatsappConnectorService
+{
+    baseApi = 'https://graph.facebook.com';
+    version = 'v15.0';
+    messagesApi = 'messages';
+
+    constructor(
+        private readonly configService: ConfigService,
+        private readonly httpService: HttpService,
+    ) {}
+
+    getSenderTelephoneNumberId(): string
+    {
+        return this.configService.get('WHATSAPP_SENDER_TELEPHONE_NUMBER_ID');
+    }
+
+    getToken(): string
+    {
+        return this.configService.get('WHATSAPP_TOKEN');
+    }
+
+    getUrlMessagesPath(): string
+    {
+        return `${this.baseApi}/${this.version}/${this.getSenderTelephoneNumberId()}/${this.messagesApi}`;
+    }
+
+    getCommonHeaders(to: string): object
+    {
+        return {
+            'Authorization'  : `Bearer ${this.getToken()}`,
+            'Content-Type'   : 'application/json',
+            'X-Auditing-Tags': `WABA ${to}`,
+        };
+    }
+
+    sendText(
+        to: string,
+        text: string,
+        previewUrl: boolean = false,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'text',
+                    text             : {
+                        preview_url: previewUrl,
+                        body       : text,
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendImage(
+        to: string,
+        link: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'image',
+                    image            : {
+                        link, // png or jpg
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendAudio(
+        to: string,
+        link: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'audio',
+                    audio            : {
+                        link, // mp3 or wav
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendDocument(
+        to: string,
+        link: string,
+        caption: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'document',
+                    document         : {
+                        link, // doc, xls, ppt
+                        caption,
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendVideo(
+        to: string,
+        link: string,
+        caption: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'video',
+                    video            : {
+                        link, // mp4
+                        caption,
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendSticker(
+        to: string,
+        link: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'sticker',
+                    sticker          : {
+                        link, // webp
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendLocation(
+        to: string,
+        latitude: string,
+        longitude: string,
+        name: string,
+        address: string,
+    ): Observable<any>
+    {
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'location',
+                    location         : {
+                        latitude,
+                        longitude,
+                        name,
+                        address,
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+
+    sendButton(
+        to: string,
+        textHeader: string,
+        textBody: string,
+        buttons: WhatsappButton[],
+    ): Observable<any>
+    {
+        const whatsappButtons = [];
+        for (const button of  buttons)
+        {
+            whatsappButtons.push({
+                type : 'reply',
+                reply: {
+                    'id'   : button.id,
+                    'title': button.title,
+                },
+            });
+        }
+
+        return this.httpService
+            .post(
+                this.getUrlMessagesPath(),
+                {
+                    messaging_product: 'whatsapp',
+                    recipient_type   : 'individual',
+                    to,
+                    type             : 'interactive',
+                    interactive      : {
+                        type: 'button',
+                        body: {
+                            text: textBody,
+                        },
+                        action: {
+                            buttons: whatsappButtons,
+                        },
+                    },
+                },
+                {
+                    headers: this.getCommonHeaders(to),
+                },
+            );
+    }
+}
