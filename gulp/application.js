@@ -156,6 +156,11 @@ async function cleanShareModule()
     codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-runner-aurora-implementation.service');
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
 
+    // remove whatsapp service
+    codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp-shared.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'WhatsappSharedModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'exports', 'WhatsappSharedModule');
+
     sourceFile.saveSync();
 }
 
