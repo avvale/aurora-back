@@ -61,14 +61,17 @@ function editPackageJson()
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs-modules/mailer'];
                 delete json.dependencies['@nestjs/axios'];
+                delete json.dependencies['@nestjs/bull'];
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];
+                delete json.dependencies['bull'];
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['mariadb'];
                 delete json.dependencies['nodemailer'];
                 delete json.dependencies['passport-jwt'];
 
                 delete json.devDependencies.gulp;
+                delete json.devDependencies['@types/bull'];
                 delete json.devDependencies['@types/nodemailer'];
                 delete json.devDependencies['@types/passport-jwt'];
                 delete json.devDependencies['gulp-json-editor'];
