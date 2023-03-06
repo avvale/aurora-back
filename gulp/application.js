@@ -64,6 +64,7 @@ function editPackageJson()
                 delete json.dependencies['@nestjs/bull'];
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];
+                delete json.dependencies['@nestjs/schedule'];
                 delete json.dependencies['bull'];
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['mariadb'];
@@ -71,6 +72,7 @@ function editPackageJson()
                 delete json.dependencies['passport-jwt'];
 
                 delete json.devDependencies.gulp;
+                delete json.devDependencies['@types/cron'];
                 delete json.devDependencies['@types/bull'];
                 delete json.devDependencies['@types/nodemailer'];
                 delete json.devDependencies['@types/passport-jwt'];
@@ -118,6 +120,10 @@ async function cleanAppModule()
 {
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', 'app.module.ts']);
+
+    // remove ScheduleModule
+    codeWriter.removeImport(sourceFile, '@nestjs/schedule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'ScheduleModule.forRoot()');
 
     // remove AuditingModule
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
