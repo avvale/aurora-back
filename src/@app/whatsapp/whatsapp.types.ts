@@ -1,3 +1,16 @@
+export interface Button
+{
+    id: string;
+    title: string | number;
+}
+
+export interface ReplyButton
+{
+    type: 'reply';
+    reply: Button;
+}
+
+
 import type { RequireAtLeastOne } from 'type-fest';
 
 // https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages
@@ -86,13 +99,7 @@ export interface InteractiveBase {
 export interface InteractiveReplyButton {
     type: 'button';
     action: {
-        buttons: {
-            type: 'reply';
-            reply: {
-                title: string | number;
-                id: string;
-            };
-        }[];
+        buttons: ReplyButton[];
     };
 }
 
