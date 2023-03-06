@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { Observable } from 'rxjs';
-import { WhatsappButton } from '@app/whatsapp/whatsapp';
+import { WhatsappButton } from '@app/whatsapp/whatsapp.types';
 
 @Injectable()
 export class WhatsappConnectorService
