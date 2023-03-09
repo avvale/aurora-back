@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ScheduleModule } from '@nestjs/schedule';
 import { CoreModule } from './@aurora/core.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -28,6 +29,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
             inject: [ConfigService],
         }),
         CoreModule,
+        ScheduleModule.forRoot(),
         OAuthModule,
         IamModule,
         AuditingModule,
