@@ -511,6 +511,42 @@ export interface OAuthUpdateScopesInput {
     name?: Nullable<GraphQLString>;
 }
 
+export interface QueueManagerCreateQueueInput {
+    id: string;
+    prefix: GraphQLString;
+    name: GraphQLString;
+    waitingJobs: GraphQLInt;
+    activeJobs: GraphQLInt;
+    completedJobs: GraphQLInt;
+    failedJobs: GraphQLInt;
+    delayedJobs: GraphQLInt;
+    pausedJobs: GraphQLInt;
+}
+
+export interface QueueManagerUpdateQueueByIdInput {
+    id: string;
+    prefix?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    waitingJobs?: Nullable<GraphQLInt>;
+    activeJobs?: Nullable<GraphQLInt>;
+    completedJobs?: Nullable<GraphQLInt>;
+    failedJobs?: Nullable<GraphQLInt>;
+    delayedJobs?: Nullable<GraphQLInt>;
+    pausedJobs?: Nullable<GraphQLInt>;
+}
+
+export interface QueueManagerUpdateQueuesInput {
+    id?: Nullable<string>;
+    prefix?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    waitingJobs?: Nullable<GraphQLInt>;
+    activeJobs?: Nullable<GraphQLInt>;
+    completedJobs?: Nullable<GraphQLInt>;
+    failedJobs?: Nullable<GraphQLInt>;
+    delayedJobs?: Nullable<GraphQLInt>;
+    pausedJobs?: Nullable<GraphQLInt>;
+}
+
 export interface QueryStatement {
     where?: Nullable<JSON>;
     attributes?: Nullable<JSON>;
@@ -599,6 +635,10 @@ export interface IQuery {
     oAuthFindScopeById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthGetScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope>[] | Promise<Nullable<OAuthScope>[]>;
     oAuthPaginateScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    queueManagerFindQueue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerFindQueueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerGetQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
+    queueManagerPaginateQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     hello(): Nullable<string> | Promise<Nullable<string>>;
 }
 
@@ -691,6 +731,13 @@ export interface IMutation {
     oAuthUpsertScope(payload: OAuthUpdateScopeByIdInput): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthDeleteScopeById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthDeleteScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope>[] | Promise<Nullable<OAuthScope>[]>;
+    queueManagerCreateQueue(payload: QueueManagerCreateQueueInput): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerCreateQueues(payload: Nullable<QueueManagerCreateQueueInput>[]): boolean | Promise<boolean>;
+    queueManagerUpdateQueueById(payload: QueueManagerUpdateQueueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerUpdateQueues(payload: QueueManagerUpdateQueuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
+    queueManagerUpsertQueue(payload: QueueManagerUpdateQueueByIdInput): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerDeleteQueueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
+    queueManagerDeleteQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
 }
 
 export interface AuditingSideEffect {
@@ -885,6 +932,21 @@ export interface OAuthScope {
     id: string;
     code: GraphQLString;
     name: GraphQLString;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface QueueManagerQueue {
+    id: string;
+    prefix: GraphQLString;
+    name: GraphQLString;
+    waitingJobs: GraphQLInt;
+    activeJobs: GraphQLInt;
+    completedJobs: GraphQLInt;
+    failedJobs: GraphQLInt;
+    delayedJobs: GraphQLInt;
+    pausedJobs: GraphQLInt;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

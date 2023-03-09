@@ -138,6 +138,10 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/iam/iam.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'IamModule');
 
+    // remove QueueManagerModule
+    codeWriter.removeImport(sourceFile, '@api/queue-manager/queue-manager.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'QueueManagerModule');
+
     sourceFile.saveSync();
 }
 
