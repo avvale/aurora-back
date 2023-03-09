@@ -67,7 +67,7 @@ import { appQueues } from 'src/app.queues';
         ...IamBoundedContextServices,
         ...IamRoleServices,
         ...IamTenantServices,
-        ...IamUserServices
+        ...IamUserServices,
     ],
 })
 export class IamModule {}
