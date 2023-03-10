@@ -9,6 +9,7 @@ import { QueueManagerHandlers, QueueManagerModels, QueueManagerRepositories, Que
 import { QueueManagerQueueApiHandlers, QueueManagerQueueControllers, QueueManagerQueueResolvers, QueueManagerQueueServices } from './queue';
 import { QueueManagerSeeder } from './queue-manager.seeder';
 import { QueueRedisImplementationService } from './services/queue-redis-implementation.service';
+import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobApiHandlers, QueueManagerJobServices } from './job';
 
 @Module({
     imports: [
@@ -38,6 +39,7 @@ import { QueueRedisImplementationService } from './services/queue-redis-implemen
     ],
     controllers: [
         ...QueueManagerQueueControllers,
+        ...QueueManagerJobControllers
     ],
     providers: [
         {
@@ -62,6 +64,9 @@ import { QueueRedisImplementationService } from './services/queue-redis-implemen
         ...QueueManagerQueueResolvers,
         ...QueueManagerQueueApiHandlers,
         ...QueueManagerQueueServices,
+        ...QueueManagerJobResolvers,
+        ...QueueManagerJobApiHandlers,
+        ...QueueManagerJobServices
     ],
 })
 export class QueueManagerModule {}

@@ -86,3 +86,4 @@ export { QueueMapper } from './@app/queue-manager/queue/domain/queue.mapper';
 export { queues } from './@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
 export { QueueManagerModule } from './@api/queue-manager/queue-manager.module';
 export { QueueManagerQueueDto } from './@api/queue-manager/queue/dto/queue-manager-queue.dto';
+export { QueueManagerJobDto } from './@api/queue-manager/job/dto/queue-manager-job.dto';

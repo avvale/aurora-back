@@ -1,0 +1,125 @@
+
+type QueueManagerJob
+{
+    id: ID!
+    priority: GraphQLInt!
+    delay: GraphQLInt!
+    attempts: GraphQLInt
+    repeat: GraphQLString!
+    backoff: GraphQLInt
+    lifo: GraphQLBoolean!
+    timeout: GraphQLInt!
+    jobId: GraphQLInt!
+    removeOnComplete: GraphQLBoolean!
+    removeOnFail: GraphQLBoolean!
+    stackTraceLimit: GraphQLInt!
+}
+
+input QueueManagerCreateJobInput
+{
+    id: ID!
+    priority: GraphQLInt!
+    delay: GraphQLInt!
+    attempts: GraphQLInt
+    repeat: GraphQLString!
+    backoff: GraphQLInt
+    lifo: GraphQLBoolean!
+    timeout: GraphQLInt!
+    jobId: GraphQLInt!
+    removeOnComplete: GraphQLBoolean!
+    removeOnFail: GraphQLBoolean!
+    stackTraceLimit: GraphQLInt!
+}
+
+input QueueManagerUpdateJobByIdInput
+{
+    id: ID!
+    priority: GraphQLInt
+    delay: GraphQLInt
+    attempts: GraphQLInt
+    repeat: GraphQLString
+    backoff: GraphQLInt
+    lifo: GraphQLBoolean
+    timeout: GraphQLInt
+    jobId: GraphQLInt
+    removeOnComplete: GraphQLBoolean
+    removeOnFail: GraphQLBoolean
+    stackTraceLimit: GraphQLInt
+}
+
+input QueueManagerUpdateJobsInput
+{
+    id: ID
+    priority: GraphQLInt
+    delay: GraphQLInt
+    attempts: GraphQLInt
+    repeat: GraphQLString
+    backoff: GraphQLInt
+    lifo: GraphQLBoolean
+    timeout: GraphQLInt
+    jobId: GraphQLInt
+    removeOnComplete: GraphQLBoolean
+    removeOnFail: GraphQLBoolean
+    stackTraceLimit: GraphQLInt
+}
+
+type Query
+{
+    queueManagerFindJob(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): QueueManagerJob
+
+    queueManagerFindJobById(
+        id: ID
+        constraint: QueryStatement
+    ): QueueManagerJob
+
+    queueManagerGetJobs(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [QueueManagerJob]!
+
+    queueManagerPaginateJobs(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    queueManagerCreateJob(
+        payload: QueueManagerCreateJobInput!
+    ): QueueManagerJob
+
+    queueManagerCreateJobs(
+        payload: [QueueManagerCreateJobInput]!
+    ): Boolean!
+
+    queueManagerUpdateJobById(
+        payload: QueueManagerUpdateJobByIdInput!
+        constraint: QueryStatement
+    ): QueueManagerJob
+
+    queueManagerUpdateJobs(
+        payload: QueueManagerUpdateJobsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [QueueManagerJob]!
+
+    queueManagerUpsertJob(
+        payload: QueueManagerUpdateJobByIdInput!
+    ): QueueManagerJob
+
+    queueManagerDeleteJobById(
+        id: ID!
+        constraint: QueryStatement
+    ): QueueManagerJob
+
+    queueManagerDeleteJobs(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [QueueManagerJob]!
+
+}

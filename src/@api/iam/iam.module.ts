@@ -13,7 +13,6 @@ import { IamUserControllers, IamUserResolvers, IamUserApiHandlers, IamUserServic
 import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
 import { BullModule } from '@nestjs/bull';
-import { AudioProcessor } from './role/processors/audio.processor';
 import { appQueues } from 'src/app.queues';
 
 @Module({
@@ -37,7 +36,6 @@ import { appQueues } from 'src/app.queues';
         ...IamUserMetaControllers,
     ],
     providers: [
-        AudioProcessor,
         IamSeeder,
         ...IamAccountApiHandlers,
         ...IamAccountResolvers,
