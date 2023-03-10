@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/queue-manager/queue/infrastructure/mock/mock-queue.data.ts",
-            "integrity": "sha1:ac71fed1b90d6612a39d3425528c2922675e7a16"
+            "integrity": "sha1:4d34b9af805711cd82b9b058856166d947d11377"
         },
         {
             "path": "src/@app/queue-manager/queue/infrastructure/mock/mock-queue.repository.ts",
@@ -507,7 +507,7 @@
         },
         {
             "path": "src/@api/queue-manager/queue/graphql/queue.graphql",
-            "integrity": "sha1:137dc58cde97cd704792a11c10f365f8cecf8014"
+            "integrity": "sha1:2812b247568552fc19f65f3577bd1ff7b9f0ac7d"
         },
         {
             "path": "src/@api/queue-manager/queue/handlers/queue-manager-create-queue.handler.spec.ts",
@@ -599,7 +599,7 @@
         },
         {
             "path": "src/@api/queue-manager/queue/index.ts",
-            "integrity": "sha1:9279406e99093c261054945a5ff4fb1936474a52"
+            "integrity": "sha1:dc275044e17d41c6508aa28e8582e231f6ba2451"
         },
         {
             "path": "src/@api/queue-manager/queue/resolvers/queue-manager-create-queue.resolver.spec.ts",
@@ -694,12 +694,36 @@
             "integrity": "sha1:eb9a42923958ec0124a3e8602b5ef73b9926e6e2"
         },
         {
+            "path": "src/@api/queue-manager/queue/controllers/queue-manager-paginate-queue-jobs.controller.spec.ts",
+            "integrity": "sha1:b42df0e6dafcca43aea47b72116104acf3d6aa77"
+        },
+        {
+            "path": "src/@api/queue-manager/queue/controllers/queue-manager-paginate-queue-jobs.controller.ts",
+            "integrity": "sha1:ba8e0d4cf46a080b7974bcd4f2d4d967910e9f1a"
+        },
+        {
+            "path": "src/@api/queue-manager/queue/handlers/queue-manager-paginate-queue-jobs.handler.spec.ts",
+            "integrity": "sha1:fc30427b4fcd8517b6012fd3e507504afebb8554"
+        },
+        {
+            "path": "src/@api/queue-manager/queue/handlers/queue-manager-paginate-queue-jobs.handler.ts",
+            "integrity": "sha1:660ff5c3b41f8d0273f2deb553ad6490e183babd"
+        },
+        {
+            "path": "src/@api/queue-manager/queue/resolvers/queue-manager-paginate-queue-jobs.resolver.spec.ts",
+            "integrity": "sha1:515ba40f0d8474fa9d20140bd2814af3f3ebe2b1"
+        },
+        {
+            "path": "src/@api/queue-manager/queue/resolvers/queue-manager-paginate-queue-jobs.resolver.ts",
+            "integrity": "sha1:1be4e81a75980977ecb29cc9a648db676e4c110b"
+        },
+        {
             "path": "test/acceptance/queue-manager/queue.e2e-spec.ts",
             "integrity": "sha1:3cdb40f3ca8afc4a3d477602313c5547d18be845"
         },
         {
             "path": "postman/queue-manager/queue-manager.queue.postman.json",
-            "integrity": "sha1:e907c661d76c9ddf4c29aaff8e60be14fa46d893"
+            "integrity": "sha1:fe041b1c861c99bc4887ca828db6c1f74950cf6f"
         }
     ]
 }
