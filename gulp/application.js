@@ -69,6 +69,7 @@ function editPackageJson()
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['mariadb'];
                 delete json.dependencies['nodemailer'];
+                delete json.dependencies['passport-azure-ad'];
                 delete json.dependencies['passport-jwt'];
 
                 delete json.devDependencies.gulp;
