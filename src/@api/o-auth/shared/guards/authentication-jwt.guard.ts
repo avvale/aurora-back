@@ -1,6 +1,6 @@
+import { getRequestFromExecutionContext } from '@aurora-ts/core';
 import { Injectable, ExecutionContext, UnauthorizedException } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { GqlExecutionContext } from '@nestjs/graphql';
 
 @Injectable()
 export class AuthenticationJwtGuard extends AuthGuard('jwt')
@@ -9,14 +9,7 @@ export class AuthenticationJwtGuard extends AuthGuard('jwt')
     // graphql wrap request in context object
     getRequest(context: ExecutionContext): Request
     {
-        if (context['contextType'] === 'graphql')
-        {
-            return GqlExecutionContext.create(context).getContext().req;
-        }
-        else if (context['contextType'] === 'http')
-        {
-            return context.switchToHttp().getRequest();
-        }
+        return getRequestFromExecutionContext(context);
     }
 
     // Account returned by jwt.strategy in validate method
