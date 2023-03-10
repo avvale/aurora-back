@@ -16,5 +16,13 @@ export const permissions = [
     { id: 'e681e0c2-0747-48e2-a7b9-d532cc45bdfa',  name: 'queueManager.queue.get',      boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
     { id: 'b4a1a49b-5d3f-4e10-8680-376e79af39d9',  name: 'queueManager.queue.create',   boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
     { id: 'f9df7c0f-2f37-4b13-b4bc-ad5a288e56a1',  name: 'queueManager.queue.update',   boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: 'f5437590-b693-4466-9426-cba1066ae31e',  name: 'queueManager.queue.upsert',   boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
     { id: '8233cf2d-b212-4f4c-9fc9-bcfb9a18d118',  name: 'queueManager.queue.delete',   boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+
+    { id: '8fb8e60a-d650-4d96-8bd1-a8c9b461a715',  name: 'queueManager.job.access',     boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: '64890840-f87f-45e6-a2c8-11e94ec894e8',  name: 'queueManager.job.get',        boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: 'ef7ab534-950a-4e84-a1ab-c3b92fb01a08',  name: 'queueManager.job.create',     boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: 'cd44861f-e79d-48e2-bee6-a94c89368570',  name: 'queueManager.job.update',     boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: '197c0988-4827-4486-bb65-69697bf80595',  name: 'queueManager.job.upsert',     boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
+    { id: 'd6eb921d-9c6a-497a-a095-9bcb2ec6e87a',  name: 'queueManager.job.delete',     boundedContextId: '1effdcd9-c1a0-410f-a49d-b2bf6ce34ac7', roleIds: []},
 ];
