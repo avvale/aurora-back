@@ -4,7 +4,7 @@ import { CreateQueuesCommand } from '@app/queue-manager/queue/application/create
 import { DeleteQueuesCommand } from '@app/queue-manager/queue/application/delete/delete-queues.command';
 import { ICommandBus, Utils } from '@aurora-ts/core';
 import { getQueueToken } from '@nestjs/bull';
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ModuleRef } from '@nestjs/core';
 import { QueueStorage } from '../../../app.queues';
@@ -38,15 +38,26 @@ export class QueueRedisImplementationService
                 continue;
             }
 
-            const queueInstance = this.moduleRef.get(
-                getQueueToken(queue.name),
-                { strict: false },
-            );
+            try
+            {
+                const queueInstance = this.moduleRef.get(
+                    getQueueToken(queue.name),
+                    { strict: false },
+                );
 
-            // get all promises
-            results.push(queue);
-            results.push(queueInstance.count());
-            results.push(queueInstance.getJobCounts());
+                // get all promises
+                results.push(queue);
+                results.push(queueInstance.count());
+                results.push(queueInstance.getJobCounts());
+            }
+            catch (error)
+            {
+                Logger.error(
+                    error.message,
+                    // error.stack,
+                    'QueueRedisImplementationService',
+                );
+            }
         }
 
         Promise.all(results)

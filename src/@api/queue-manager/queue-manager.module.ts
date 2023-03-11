@@ -39,7 +39,7 @@ import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobAp
     ],
     controllers: [
         ...QueueManagerQueueControllers,
-        ...QueueManagerJobControllers
+        ...QueueManagerJobControllers,
     ],
     providers: [
         {
@@ -66,7 +66,7 @@ import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobAp
         ...QueueManagerQueueServices,
         ...QueueManagerJobResolvers,
         ...QueueManagerJobApiHandlers,
-        ...QueueManagerJobServices
+        ...QueueManagerJobServices,
     ],
 })
 export class QueueManagerModule {}
