@@ -23,8 +23,7 @@ export class AuthorizationPermissionsGuard implements CanActivate
         });
     }
 
-    // override the getRequest() method for return request from graphql or rest api,
-    // graphql wrap request in context object
+    // override the getRequest() method for return request from graphql or rest api.
     getRequest<T = any>(context: ExecutionContext): T
     {
         return getRequestFromExecutionContext(context);

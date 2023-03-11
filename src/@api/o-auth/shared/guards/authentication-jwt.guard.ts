@@ -5,8 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 @Injectable()
 export class AuthenticationJwtGuard extends AuthGuard('jwt')
 {
-    // override the getRequest() method for return request from graphql or rest api,
-    // graphql wrap request in context object
+    // override the getRequest() method for return request from graphql or rest api.
     getRequest(context: ExecutionContext): Request
     {
         return getRequestFromExecutionContext(context);
