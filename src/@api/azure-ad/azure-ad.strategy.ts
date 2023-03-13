@@ -14,9 +14,9 @@ export class AzureADStrategy extends PassportStrategy(
     )
     {
         super({
-            identityMetadata: `https://login.microsoftonline.com/${configService.get('AZURE_TENANT_ID')}/v2.0/.well-known/openid-configuration`,
-            clientID        : configService.get('AZURE_CLIENT_ID'),
-            audience        : configService.get('AZURE_CLIENT_ID'),
+            identityMetadata: `https://login.microsoftonline.com/${configService.get('AZURE_AD_TENANT_ID')}/v2.0/.well-known/openid-configuration`,
+            clientID        : configService.get('AZURE_AD_CLIENT_ID'),
+            audience        : configService.get('AZURE_AD_CLIENT_ID'),
             // loggingLevel    : 'debug',
         });
     }
