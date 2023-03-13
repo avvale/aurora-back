@@ -5,6 +5,7 @@ const { publishAuditing } = require('./gulp/auditing');
 const { publishIam } = require('./gulp/iam');
 const { publishOAuth } = require('./gulp/o-auth');
 const { publishWhatsapp } = require('./gulp/whatsapp');
+const { publishAzureAd } = require('./gulp/azure-ad');
 
 function defaultTask(cb)
 {
@@ -20,3 +21,4 @@ exports.publishAuditing = publishAuditing;
 exports.publishIam = publishIam;
 exports.publishOAuth = publishOAuth;
 exports.publishWhatsapp = publishWhatsapp;
+exports.publishAzureAd = publishAzureAd;

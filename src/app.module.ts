@@ -7,6 +7,7 @@ import { AuditingModule } from '@api/auditing/auditing.module';
 import { OAuthModule } from '@api/o-auth/o-auth.module';
 import { IamModule } from '@api/iam/iam.module';
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
+import { AzureAdModule } from '@api/azure-ad/azure-ad.module';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
         IamModule,
         AuditingModule,
         QueueManagerModule,
+        AzureAdModule,
     ],
     controllers: [
         AppController,
