@@ -38,10 +38,10 @@ exports.removeImport = (sourceFile, importPath) =>
     someModuleImport.remove();
 };
 
-exports.removeDecoratorProperty = (sourceFile, moduleName, propertyName, valueName) =>
+exports.removeDecoratorProperty = (sourceFile, moduleName, decoratorNameName, propertyName, valueName) =>
 {
     const moduleClass = sourceFile.getClass(moduleName);
-    const moduleDecorator = moduleClass.getDecorator('Module');
+    const moduleDecorator = moduleClass.getDecorator(decoratorNameName);
     const moduleDecoratorArguments = moduleDecorator.getArguments()[0];
     const importsArgument = moduleDecoratorArguments.getProperty(propertyName);
     const importsArray = importsArgument.getInitializerIfKindOrThrow(ts.SyntaxKind.ArrayLiteralExpression);
@@ -85,6 +85,102 @@ exports.changeDecoratorPropertyAdapter = (sourceFile, moduleName, propertyName, 
             }
         }
     }
+};
+
+exports.removeDecoratorPropertyAdapter = (sourceFile, moduleName, decoratorName, propertyName, provide) =>
+{
+    const moduleClass = sourceFile.getClass(moduleName);
+    const moduleDecorator = moduleClass.getDecorator(decoratorName);
+    const moduleDecoratorArguments = moduleDecorator.getArguments()[0];
+    const decoratorProperty = moduleDecoratorArguments.getProperty(propertyName);
+    const decoratorArrayProperty = decoratorProperty.getInitializerIfKindOrThrow(ts.SyntaxKind.ArrayLiteralExpression);
+
+    for (const [index, value] of decoratorArrayProperty.getElements().entries())
+    {
+        // const object = value.getInitializer();
+        if (value instanceof tsMorph.ObjectLiteralExpression)
+        {
+            const properties = value.getProperties();
+            for (const property of properties)
+            {
+                if (property.getName() === 'provide' && property.getInitializer().getText() === provide)
+                {
+                    decoratorArrayProperty.removeElement(index);
+                    break;
+                }
+            }
+        }
+    }
+};
+
+exports.removeItemsFromObjectArrayAccordPropertyValue = (arrayToManage, propertyName, valuesToDelete) =>
+{
+    for (const [index, value] of arrayToManage.getElements().entries())
+    {
+        const valueName = value.getPropertyOrThrow(propertyName)
+            .getInitializerIfKindOrThrow(ts.SyntaxKind.StringLiteral)
+            .getText();
+
+        if (valuesToDelete.includes(valueName.replaceAll('\'', '')))
+        {
+            arrayToManage.removeElement(index);
+            this.removeItemsFromObjectArrayAccordPropertyValue(arrayToManage, propertyName, valuesToDelete);
+            break;
+        }
+    }
+};
+
+exports.removeArrayItemsAccordValue = (arrayToManage, valuesToDelete) =>
+{
+    for (const [index, value] of arrayToManage.getElements().entries())
+    {
+        const valueName = value.getText();
+
+        if (valuesToDelete.includes(valueName.replaceAll('\'', '')))
+        {
+            arrayToManage.removeElement(index);
+            this.removeArrayItemsAccordValue(arrayToManage, valuesToDelete);
+            break;
+        }
+    }
+};
+
+exports.addDecoratorPropertyAdapter = (sourceFile, moduleName, propertyName, item) =>
+{
+    const moduleClass = sourceFile.getClass(moduleName);
+    const moduleDecorator = moduleClass.getDecorator('NgModule');
+    const moduleDecoratorArguments = moduleDecorator.getArguments()[0];
+    const decoratorProperty = moduleDecoratorArguments.getProperty(propertyName);
+    const decoratorArrayProperty = decoratorProperty.getInitializerIfKindOrThrow(ts.SyntaxKind.ArrayLiteralExpression);
+    this.addArrayItem(decoratorArrayProperty, item);
+};
+
+exports.addArrayItem = (arrayToManage, item, finder) =>
+{
+    if (!this.isDuplicateArrayValue(arrayToManage, item, finder))
+    {
+        arrayToManage?.addElement(item, { useNewLines: true });
+    }
+};
+
+exports.isDuplicateArrayValue = (arrayToManage, item, finder) =>
+{
+    // format string to avoid break spaces and extra white spaces
+    const arrayItems = arrayToManage?.getElements().map(i => i.getText()).map(j => j.replace(/(\r\n|\n|\r|\s)/gm, ''));
+
+    if (finder) return finder(item, arrayToManage);
+
+    if (Array.isArray(arrayItems)) return arrayItems.includes(item.replace(/(\r\n|\n|\r|\s)/gm, ''));
+
+    return false;
+};
+
+exports.removeObjectProperty = (sourceFile, variableInitializer, propertyName) =>
+{
+    const variable = sourceFile.getVariableDeclarationOrThrow(variableInitializer);
+    const obj = variable.getInitializerIfKindOrThrow(ts.SyntaxKind.ObjectLiteralExpression);
+    const property = obj.getProperty(propertyName);
+    if (property) property.remove();
 };
 
 exports.removeCallExpressionArgument = (sourceFile, functionName, argumentName) =>

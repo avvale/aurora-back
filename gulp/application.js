@@ -126,27 +126,27 @@ async function cleanAppModule()
 
     // remove ScheduleModule
     codeWriter.removeImport(sourceFile, '@nestjs/schedule');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'ScheduleModule.forRoot()');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ScheduleModule.forRoot()');
 
     // remove AuditingModule
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AuditingModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AuditingModule');
 
     // remove OAuthModule
     codeWriter.removeImport(sourceFile, '@api/o-auth/o-auth.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'OAuthModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'OAuthModule');
 
     // remove IamModule
     codeWriter.removeImport(sourceFile, '@api/iam/iam.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'IamModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'IamModule');
 
     // remove QueueManagerModule
     codeWriter.removeImport(sourceFile, '@api/queue-manager/queue-manager.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'QueueManagerModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'QueueManagerModule');
 
     // remove QueueManagerModule
     codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AzureAdModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureAdModule');
 
     sourceFile.saveSync();
 }
@@ -158,19 +158,19 @@ async function cleanShareModule()
 
     // remove LoggingAxiosInterceptorService
     codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-axios-interceptor.service');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'providers', 'AuditingAxiosInterceptorService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'providers', 'AuditingAxiosInterceptorService');
 
     // remove HttpModule
     codeWriter.removeImport(sourceFile, '@nestjs/axios');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'HttpModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'HttpModule');
 
     // remove AuthJwtStrategyRegistryModule
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'exports', 'AuthJwtStrategyRegistryModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'AuthJwtStrategyRegistryModule');
 
     // remove AuthJwtStrategyRegistryModule
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared/jwt-config');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
 
     // disabled auditing runner implementation
     codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-runner-aurora-implementation.service');
@@ -178,8 +178,8 @@ async function cleanShareModule()
 
     // remove whatsapp service
     codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp-shared.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'imports', 'WhatsappSharedModule');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'exports', 'WhatsappSharedModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'WhatsappSharedModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'WhatsappSharedModule');
 
     sourceFile.saveSync();
 }
