@@ -31,6 +31,7 @@ function copyApplication()
             '!postman/**',
             '!src/@api/**',
             '!src/@app/**',
+            '!src/app.queues.ts',
             '!src/index.ts',
             '!nest-cli.json',
             '!test/acceptance/**',
@@ -143,6 +144,10 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/queue-manager/queue-manager.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'QueueManagerModule');
 
+    // remove QueueManagerModule
+    codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'imports', 'AzureAdModule');
+
     sourceFile.saveSync();
 }
 
@@ -186,8 +191,10 @@ async function cleanAuthGuard()
 
     codeWriter.removeImport(sourceFile, '@api/o-auth/shared/guards/authentication-jwt.guard');
     codeWriter.removeImport(sourceFile, '@api/iam/shared/guards/authorization-permissions.guard');
+    codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.guard');
     codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationJwtGuard');
     codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AuthorizationPermissionsGuard');
+    codeWriter.removeCallExpressionArgument(sourceFile, 'UseGuards', 'AzureADGuard');
     codeWriter.addCallExpressionArgument(sourceFile, 'UseGuards', 'AuthenticationDisabledAdapterGuard');
     codeWriter.addCallExpressionArgument(sourceFile, 'UseGuards', 'AuthorizationDisabledAdapterGuard');
 
