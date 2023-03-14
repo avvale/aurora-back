@@ -111,14 +111,6 @@ function editNestCli()
         .pipe(dest('publish'));
 }
 
-function copyToCLI()
-{
-    // remove old cli application files
-    fs.rmSync('../aurora-cli/src/templates/back/application', { recursive: true, force: true });
-    // copy new cli application files
-    return fse.copy('publish', '../aurora-cli/src/templates/back/application', { overwrite: true });
-}
-
 async function cleanAppModule()
 {
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
@@ -168,9 +160,15 @@ async function cleanShareModule()
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'AuthJwtStrategyRegistryModule');
 
-    // remove AuthJwtStrategyRegistryModule
+    // remove jwtConfig
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared/jwt-config');
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
+    codeWriter.removeDecoratorProperty(
+        sourceFile,
+        'SharedModule',
+        'Module',
+        'imports',
+        'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)',
+    );
 
     // disabled auditing runner implementation
     codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-runner-aurora-implementation.service');
@@ -201,6 +199,19 @@ async function cleanAuthGuard()
     sourceFile.saveSync();
 }
 
+async function createIndexFile()
+{
+    fs.openSync('./publish/src/index.ts', 'w');
+}
+
+function copyToCLI()
+{
+    // remove old cli application files
+    fs.rmSync('../aurora-cli/src/templates/back/application', { recursive: true, force: true });
+    // copy new cli application files
+    return fse.copy('publish', '../aurora-cli/src/templates/back/application', { overwrite: true });
+}
+
 async function clean()
 {
     // remove publish folder
@@ -215,6 +226,7 @@ exports.publishApplication = series(
     cleanAppModule,
     cleanShareModule,
     cleanAuthGuard,
+    createIndexFile,
     copyToCLI,
     clean,
 );
