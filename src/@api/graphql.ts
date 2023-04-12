@@ -293,7 +293,6 @@ export interface IamCreateTenantInput {
     logo?: Nullable<GraphQLString>;
     isActive: GraphQLBoolean;
     accountIds?: Nullable<Nullable<string>[]>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateTenantByIdInput {
@@ -303,7 +302,6 @@ export interface IamUpdateTenantByIdInput {
     logo?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     accountIds?: Nullable<Nullable<string>[]>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateTenantsInput {
@@ -313,7 +311,6 @@ export interface IamUpdateTenantsInput {
     logo?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     accountIds?: Nullable<Nullable<string>[]>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserMetaByIdInput {
