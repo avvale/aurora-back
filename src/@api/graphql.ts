@@ -169,7 +169,7 @@ export interface IamCreateAccountInput {
     code?: Nullable<GraphQLString>;
     email: GraphQLString;
     isActive: GraphQLBoolean;
-    clientId: string;
+    clientId?: Nullable<string>;
     scopes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
