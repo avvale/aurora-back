@@ -169,15 +169,12 @@ export interface IamCreateAccountInput {
     code?: Nullable<GraphQLString>;
     email: GraphQLString;
     isActive: GraphQLBoolean;
-    clientId: string;
+    clientId?: Nullable<string>;
     scopes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
     user?: Nullable<IamCreateUserInput>;
-    dApplicationCodes: JSON;
-    dPermissions: JSON;
-    dTenants: JSON;
 }
 
 export interface IamUpdateAccountByIdInput {
@@ -192,9 +189,6 @@ export interface IamUpdateAccountByIdInput {
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
     user?: Nullable<IamUpdateUserByIdInput>;
-    dApplicationCodes?: Nullable<JSON>;
-    dPermissions?: Nullable<JSON>;
-    dTenants?: Nullable<JSON>;
 }
 
 export interface IamUpdateAccountsInput {
@@ -211,7 +205,6 @@ export interface IamUpdateAccountsInput {
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
     user?: Nullable<IamUpdateUsersInput>;
-    dTenants?: Nullable<JSON>;
 }
 
 export interface IamCreateBoundedContextInput {
