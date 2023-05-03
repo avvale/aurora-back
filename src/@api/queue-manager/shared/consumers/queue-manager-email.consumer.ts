@@ -12,7 +12,7 @@ export class QueueManagerEmailConsumer
     {
         try
         {
-            console.log(job.data);
+            Logger.log(job.data);
             await Utils.wait(5000);
             Logger.log('Email sent successfully');
         }

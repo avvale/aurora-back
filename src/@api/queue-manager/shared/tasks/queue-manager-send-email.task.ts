@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { ICommandBus, Utils } from '@aurora-ts/core';
+import { ICommandBus } from '@aurora-ts/core';
 import { InjectQueue } from '@nestjs/bull';
 import { Queue } from 'bull';
 import { QueueStorage } from 'src/app.queues';
