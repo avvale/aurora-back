@@ -10,6 +10,9 @@ import { QueueManagerQueueApiHandlers, QueueManagerQueueControllers, QueueManage
 import { QueueManagerSeeder } from './queue-manager.seeder';
 import { QueueRedisImplementationService } from './services/queue-redis-implementation.service';
 import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobApiHandlers, QueueManagerJobServices } from './job';
+import { appQueues } from 'src/app.queues';
+import { QueueManagerSendEmailTasksService } from './shared/tasks/queue-manager-send-email.task';
+import { QueueManagerEmailConsumer } from './shared/consumers/queue-manager-email.consumer';
 
 @Module({
     imports: [
@@ -36,6 +39,11 @@ import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobAp
                 },
             }),
         }),
+
+        // TODO, BORRAR ESTO, ES SOLO PARA PROBAR
+        BullModule.registerQueue(
+            ...appQueues.iam,
+        ),
     ],
     controllers: [
         ...QueueManagerQueueControllers,
@@ -67,6 +75,10 @@ import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobAp
         ...QueueManagerJobResolvers,
         ...QueueManagerJobApiHandlers,
         ...QueueManagerJobServices,
+
+        // TODO, BORRAR ESTO, ES SOLO PARA PROBAR
+        QueueManagerSendEmailTasksService,
+        QueueManagerEmailConsumer,
     ],
 })
 export class QueueManagerModule {}

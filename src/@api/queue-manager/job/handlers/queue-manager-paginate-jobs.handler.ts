@@ -27,6 +27,7 @@ export class QueueManagerPaginateJobsHandler
             getQueueToken(QueueStorage.COMMON_MAIL),
             { strict: false },
         );
+
         //'completed' | 'waiting' | 'active' | 'delayed' | 'failed'| 'paused';
         const jobs = await queue.getJobs(
             ['completed', 'waiting', 'active', 'delayed', 'failed', 'paused'],

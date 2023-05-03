@@ -23,12 +23,17 @@ export class QueueRedisImplementationService
     async onApplicationBootstrap(): Promise<void>
     {
         const queueManagerPrefix = this.configService.get('QUEUE_MANAGER_PREFIX') || 'bull';
+
+        // get all queue names from all bounded contexts
         const queueNames = Object.values(QueueStorage) as string[];
 
+        // get all queues from redis
         const queues = await this.getQueues();
         const results = [];
         for (const queue of queues)
         {
+            // delete all queues that are not register
+            // in app.queues in redis database
             if (
                 queue.prefix === queueManagerPrefix &&
                 !queueNames.includes(queue.name)
@@ -92,10 +97,12 @@ export class QueueRedisImplementationService
                     });
                 }
 
+                // clean queues table
                 await this.commandBus.dispatch(new DeleteQueuesCommand({
                     where: {},
                 }));
 
+                // create existing queues in redis
                 await this.commandBus.dispatch(new CreateQueuesCommand(
                     payload,
                     {
@@ -108,6 +115,7 @@ export class QueueRedisImplementationService
             });
     }
 
+    // get all queues from redis
     async getQueues(): Promise<QueueDefinition[]>
     {
         const queueNameRegExp = new RegExp('(.*):(.*):id');
