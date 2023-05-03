@@ -35,10 +35,10 @@ describe('FindQueueByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindQueueByIdQueryHandler>(FindQueueByIdQueryHandler);
-        service         = module.get<FindQueueByIdService>(FindQueueByIdService);
-        repository      = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
-        mapper          = new QueueMapper();
+        queryHandler = module.get<FindQueueByIdQueryHandler>(FindQueueByIdQueryHandler);
+        service = module.get<FindQueueByIdService>(FindQueueByIdService);
+        repository = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
+        mapper = new QueueMapper();
     });
 
     describe('main', () =>

@@ -48,9 +48,9 @@ describe('UpsertQueueService', () =>
         })
             .compile();
 
-        service         = module.get(UpsertQueueService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(UpsertQueueService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

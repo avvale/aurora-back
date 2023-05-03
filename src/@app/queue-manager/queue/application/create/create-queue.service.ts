@@ -1,22 +1,22 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurora-ts/core';
-import {
-    QueueId,
-    QueuePrefix,
-    QueueName,
-    QueueWaitingJobs,
-    QueueActiveJobs,
-    QueueCompletedJobs,
-    QueueFailedJobs,
-    QueueDelayedJobs,
-    QueuePausedJobs,
-    QueueCreatedAt,
-    QueueUpdatedAt,
-    QueueDeletedAt,
-} from '../../domain/value-objects';
 import { IQueueRepository } from '../../domain/queue.repository';
 import { QueueManagerQueue } from '../../domain/queue.aggregate';
+import {
+	QueueActiveJobs,
+	QueueCompletedJobs,
+	QueueCreatedAt,
+	QueueDelayedJobs,
+	QueueDeletedAt,
+	QueueFailedJobs,
+	QueueId,
+	QueueName,
+	QueuePausedJobs,
+	QueuePrefix,
+	QueueUpdatedAt,
+	QueueWaitingJobs,
+} from '../../domain/value-objects';
 
 @Injectable()
 export class CreateQueueService

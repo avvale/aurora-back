@@ -26,8 +26,8 @@ describe('DeleteQueueByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<DeleteQueueByIdCommandHandler>(DeleteQueueByIdCommandHandler);
-        service         = module.get<DeleteQueueByIdService>(DeleteQueueByIdService);
+        commandHandler = module.get<DeleteQueueByIdCommandHandler>(DeleteQueueByIdCommandHandler);
+        service = module.get<DeleteQueueByIdService>(DeleteQueueByIdService);
     });
 
     describe('main', () =>

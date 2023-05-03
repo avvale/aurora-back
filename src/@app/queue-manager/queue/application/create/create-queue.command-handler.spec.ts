@@ -26,8 +26,8 @@ describe('CreateQueueCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<CreateQueueCommandHandler>(CreateQueueCommandHandler);
-        service         = module.get<CreateQueueService>(CreateQueueService);
+        commandHandler = module.get<CreateQueueCommandHandler>(CreateQueueCommandHandler);
+        service = module.get<CreateQueueService>(CreateQueueService);
     });
 
     describe('main', () =>

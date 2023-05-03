@@ -38,9 +38,9 @@ describe('QueueManagerUpdateQueuesHandler', () =>
         })
             .compile();
 
-        handler     = module.get<QueueManagerUpdateQueuesHandler>(QueueManagerUpdateQueuesHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<QueueManagerUpdateQueuesHandler>(QueueManagerUpdateQueuesHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('QueueManagerUpdateQueuesHandler should be defined', () =>

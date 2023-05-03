@@ -24,7 +24,9 @@ export class QueueManagerUpdateQueueByIdHandler
         const queue = await this.queryBus.ask(new FindQueueByIdQuery(
             payload.id,
             constraint,
-            { timezone },
+            {
+                timezone,
+            },
         ));
 
         const dataToUpdate = Utils.diff(payload, queue);
@@ -43,7 +45,9 @@ export class QueueManagerUpdateQueueByIdHandler
         return await this.queryBus.ask(new FindQueueByIdQuery(
             payload.id,
             constraint,
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }

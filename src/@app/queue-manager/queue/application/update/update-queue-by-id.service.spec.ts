@@ -47,9 +47,9 @@ describe('UpdateQueueByIdService', () =>
         })
             .compile();
 
-        service         = module.get(UpdateQueueByIdService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(UpdateQueueByIdService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

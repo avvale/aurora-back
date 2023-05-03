@@ -15,6 +15,10 @@ export class GetQueuesQueryHandler implements IQueryHandler<GetQueuesQuery>
 
     async execute(query: GetQueuesQuery): Promise<QueueResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getQueuesService.main(query.queryStatement, query.constraint, query.cQMetadata));
+        return this.mapper.mapAggregatesToResponses(await this.getQueuesService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        ));
     }
 }

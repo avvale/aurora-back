@@ -26,8 +26,8 @@ describe('UpdateQueueByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<UpdateQueueByIdCommandHandler>(UpdateQueueByIdCommandHandler);
-        service         = module.get<UpdateQueueByIdService>(UpdateQueueByIdService);
+        commandHandler = module.get<UpdateQueueByIdCommandHandler>(UpdateQueueByIdCommandHandler);
+        service = module.get<UpdateQueueByIdService>(UpdateQueueByIdService);
     });
 
     describe('main', () =>

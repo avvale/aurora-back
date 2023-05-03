@@ -22,7 +22,9 @@ export class QueueManagerFindQueueByIdHandler
         return await this.queryBus.ask(new FindQueueByIdQuery(
             id,
             constraint,
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }

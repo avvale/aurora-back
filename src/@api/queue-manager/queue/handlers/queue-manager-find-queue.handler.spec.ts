@@ -37,9 +37,9 @@ describe('QueueManagerFindQueueHandler', () =>
         })
             .compile();
 
-        handler    = module.get<QueueManagerFindQueueHandler>(QueueManagerFindQueueHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<QueueManagerFindQueueHandler>(QueueManagerFindQueueHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('QueueManagerFindQueueHandler should be defined', () =>

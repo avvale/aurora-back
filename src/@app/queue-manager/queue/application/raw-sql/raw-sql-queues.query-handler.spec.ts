@@ -34,10 +34,10 @@ describe('RawSQLQueuesQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<RawSQLQueuesQueryHandler>(RawSQLQueuesQueryHandler);
-        service         = module.get<RawSQLQueuesService>(RawSQLQueuesService);
-        repository      = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
-        mapper          = new QueueMapper();
+        queryHandler = module.get<RawSQLQueuesQueryHandler>(RawSQLQueuesQueryHandler);
+        service = module.get<RawSQLQueuesService>(RawSQLQueuesService);
+        repository = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
+        mapper = new QueueMapper();
     });
 
     describe('main', () =>

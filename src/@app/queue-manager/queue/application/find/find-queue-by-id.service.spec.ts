@@ -33,9 +33,9 @@ describe('FindQueueByIdService', () =>
         })
             .compile();
 
-        service         = module.get(FindQueueByIdService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(FindQueueByIdService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

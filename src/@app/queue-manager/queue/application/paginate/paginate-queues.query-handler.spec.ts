@@ -35,10 +35,10 @@ describe('PaginateQueuesQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<PaginateQueuesQueryHandler>(PaginateQueuesQueryHandler);
-        service         = module.get<PaginateQueuesService>(PaginateQueuesService);
-        repository      = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
-        mapper          = new QueueMapper();
+        queryHandler = module.get<PaginateQueuesQueryHandler>(PaginateQueuesQueryHandler);
+        service = module.get<PaginateQueuesService>(PaginateQueuesService);
+        repository = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
+        mapper = new QueueMapper();
     });
 
     describe('main', () =>

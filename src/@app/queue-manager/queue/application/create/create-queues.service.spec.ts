@@ -32,9 +32,9 @@ describe('CreateQueuesService', () =>
         })
             .compile();
 
-        service         = module.get(CreateQueuesService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(CreateQueuesService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

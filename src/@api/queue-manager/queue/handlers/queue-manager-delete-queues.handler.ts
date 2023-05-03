@@ -21,7 +21,13 @@ export class QueueManagerDeleteQueuesHandler
         timezone?: string,
     ): Promise<QueueManagerQueue[] | QueueManagerQueueDto[]>
     {
-        const queues = await this.queryBus.ask(new GetQueuesQuery(queryStatement, constraint, { timezone }));
+        const queues = await this.queryBus.ask(new GetQueuesQuery(
+            queryStatement,
+            constraint,
+            {
+                timezone,
+            },
+        ));
 
         await this.commandBus.dispatch(new DeleteQueuesCommand(
             queryStatement,

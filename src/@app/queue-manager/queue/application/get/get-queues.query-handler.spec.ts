@@ -34,10 +34,10 @@ describe('GetQueuesQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<GetQueuesQueryHandler>(GetQueuesQueryHandler);
-        service         = module.get<GetQueuesService>(GetQueuesService);
-        repository      = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
-        mapper          = new QueueMapper();
+        queryHandler = module.get<GetQueuesQueryHandler>(GetQueuesQueryHandler);
+        service = module.get<GetQueuesService>(GetQueuesService);
+        repository = <MockQueueRepository>module.get<IQueueRepository>(IQueueRepository);
+        mapper = new QueueMapper();
     });
 
     describe('main', () =>

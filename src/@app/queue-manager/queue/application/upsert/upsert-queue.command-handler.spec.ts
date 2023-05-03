@@ -26,8 +26,8 @@ describe('UpsertQueueCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<UpsertQueueCommandHandler>(UpsertQueueCommandHandler);
-        service         = module.get<UpsertQueueService>(UpsertQueueService);
+        commandHandler = module.get<UpsertQueueCommandHandler>(UpsertQueueCommandHandler);
+        service = module.get<UpsertQueueService>(UpsertQueueService);
     });
 
     describe('main', () =>

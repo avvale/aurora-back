@@ -31,9 +31,9 @@ describe('GetQueuesService', () =>
         })
             .compile();
 
-        service         = module.get(GetQueuesService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(GetQueuesService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

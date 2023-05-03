@@ -21,7 +21,9 @@ export class QueueManagerPaginateQueuesHandler
         return await this.queryBus.ask(new PaginateQueuesQuery(
             queryStatement,
             constraint,
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }

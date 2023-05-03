@@ -25,8 +25,8 @@ describe('DeleteQueuesCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<DeleteQueuesCommandHandler>(DeleteQueuesCommandHandler);
-        service         = module.get<DeleteQueuesService>(DeleteQueuesService);
+        commandHandler = module.get<DeleteQueuesCommandHandler>(DeleteQueuesCommandHandler);
+        service = module.get<DeleteQueuesService>(DeleteQueuesService);
     });
 
     describe('main', () =>

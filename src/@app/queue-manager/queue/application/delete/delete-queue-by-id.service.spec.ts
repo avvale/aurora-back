@@ -35,9 +35,9 @@ describe('DeleteQueueByIdService', () =>
         })
             .compile();
 
-        service         = module.get(DeleteQueueByIdService);
-        repository      = module.get(IQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        service = module.get(DeleteQueueByIdService);
+        repository = module.get(IQueueRepository);
+        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>

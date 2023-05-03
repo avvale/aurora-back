@@ -15,6 +15,9 @@ export class RawSQLQueuesQueryHandler implements IQueryHandler<RawSQLQueuesQuery
 
     async execute(query: RawSQLQueuesQuery): Promise<QueueResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.rawSQLQueuesService.main(query.rawSQL, query.cQMetadata));
+        return this.mapper.mapAggregatesToResponses(await this.rawSQLQueuesService.main(
+            query.rawSQL,
+            query.cQMetadata,
+        ));
     }
 }

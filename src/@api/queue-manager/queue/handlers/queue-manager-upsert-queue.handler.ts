@@ -30,7 +30,9 @@ export class QueueManagerUpsertQueueHandler
         return await this.queryBus.ask(new FindQueueByIdQuery(
             payload.id,
             {},
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }

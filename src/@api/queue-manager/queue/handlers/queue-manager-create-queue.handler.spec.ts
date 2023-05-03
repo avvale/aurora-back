@@ -37,9 +37,9 @@ describe('QueueManagerCreateQueueHandler', () =>
         })
             .compile();
 
-        handler     = module.get<QueueManagerCreateQueueHandler>(QueueManagerCreateQueueHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<QueueManagerCreateQueueHandler>(QueueManagerCreateQueueHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>

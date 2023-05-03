@@ -30,7 +30,9 @@ export class QueueManagerCreateQueueHandler
         return await this.queryBus.ask(new FindQueueByIdQuery(
             payload.id,
             {},
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }

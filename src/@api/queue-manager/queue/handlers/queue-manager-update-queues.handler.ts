@@ -34,7 +34,9 @@ export class QueueManagerUpdateQueuesHandler
         return await this.queryBus.ask(new GetQueuesQuery(
             queryStatement,
             constraint,
-            { timezone },
+            {
+                timezone,
+            },
         ));
     }
 }
