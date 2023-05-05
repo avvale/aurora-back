@@ -1,84 +1,26 @@
-
 type QueueManagerJob
 {
-    id: ID!
-    priority: GraphQLInt!
+    id: Any!
+    name: GraphQLString!
+    data: JSON!
+    opts: JSON!
+    progress: GraphQLInt!
     delay: GraphQLInt!
-    attempts: GraphQLInt
-    repeat: GraphQLString!
-    backoff: GraphQLInt
-    lifo: GraphQLBoolean!
-    timeout: GraphQLInt!
-    jobId: GraphQLInt!
-    removeOnComplete: GraphQLBoolean!
-    removeOnFail: GraphQLBoolean!
-    stackTraceLimit: GraphQLInt!
-}
-
-input QueueManagerCreateJobInput
-{
-    id: ID!
-    priority: GraphQLInt!
-    delay: GraphQLInt!
-    attempts: GraphQLInt
-    repeat: GraphQLString!
-    backoff: GraphQLInt
-    lifo: GraphQLBoolean!
-    timeout: GraphQLInt!
-    jobId: GraphQLInt!
-    removeOnComplete: GraphQLBoolean!
-    removeOnFail: GraphQLBoolean!
-    stackTraceLimit: GraphQLInt!
-}
-
-input QueueManagerUpdateJobByIdInput
-{
-    id: ID!
-    priority: GraphQLInt
-    delay: GraphQLInt
-    attempts: GraphQLInt
-    repeat: GraphQLString
-    backoff: GraphQLInt
-    lifo: GraphQLBoolean
-    timeout: GraphQLInt
-    jobId: GraphQLInt
-    removeOnComplete: GraphQLBoolean
-    removeOnFail: GraphQLBoolean
-    stackTraceLimit: GraphQLInt
-}
-
-input QueueManagerUpdateJobsInput
-{
-    id: ID
-    priority: GraphQLInt
-    delay: GraphQLInt
-    attempts: GraphQLInt
-    repeat: GraphQLString
-    backoff: GraphQLInt
-    lifo: GraphQLBoolean
-    timeout: GraphQLInt
-    jobId: GraphQLInt
-    removeOnComplete: GraphQLBoolean
-    removeOnFail: GraphQLBoolean
-    stackTraceLimit: GraphQLInt
+    timestamp: GraphQLInt!
+    attemptsMade: GraphQLInt!
+    failedReason: GraphQLString
+    stacktrace: [GraphQLString]!
+    returnvalue: Any
+    finishedOn: GraphQLInt!
+    processedOn: GraphQLInt!
 }
 
 type Query
 {
-    queueManagerFindJob(
-        query: QueryStatement
-        constraint: QueryStatement
-    ): QueueManagerJob
-
     queueManagerFindJobById(
-        id: ID
-        constraint: QueryStatement
+        id: GraphQLString!
+        name: GraphQLString!
     ): QueueManagerJob
-
-    queueManagerGetJobs(
-        query: QueryStatement
-        constraint: QueryStatement
-    ): [QueueManagerJob]!
 
     queueManagerPaginateJobs(
         query: QueryStatement
@@ -89,37 +31,9 @@ type Query
 
 type Mutation
 {
-    queueManagerCreateJob(
-        payload: QueueManagerCreateJobInput!
-    ): QueueManagerJob
-
-    queueManagerCreateJobs(
-        payload: [QueueManagerCreateJobInput]!
-    ): Boolean!
-
-    queueManagerUpdateJobById(
-        payload: QueueManagerUpdateJobByIdInput!
-        constraint: QueryStatement
-    ): QueueManagerJob
-
-    queueManagerUpdateJobs(
-        payload: QueueManagerUpdateJobsInput!
-        query: QueryStatement
-        constraint: QueryStatement
-    ): [QueueManagerJob]!
-
-    queueManagerUpsertJob(
-        payload: QueueManagerUpdateJobByIdInput!
-    ): QueueManagerJob
-
     queueManagerDeleteJobById(
-        id: ID!
-        constraint: QueryStatement
+        id: GraphQLString!
+        name: GraphQLString!
     ): QueueManagerJob
-
-    queueManagerDeleteJobs(
-        query: QueryStatement
-        constraint: QueryStatement
-    ): [QueueManagerJob]!
 
 }

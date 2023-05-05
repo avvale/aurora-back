@@ -5,7 +5,6 @@ import { Queue } from 'bull';
 
 // @app
 import { Pagination } from '@api/graphql';
-import { QueueStorage } from 'src/app.queues';
 import { ModuleRef } from '@nestjs/core';
 import { FindQueueByIdQuery } from '@app/queue-manager/queue/application/find/find-queue-by-id.query';
 
@@ -26,7 +25,7 @@ export class QueueManagerPaginateJobsHandler
     {
         // get queue from database
         const queue = await this.queryBus.ask(new FindQueueByIdQuery(
-            queryStatement.where.queueId,
+            constraint.where.queueId,
         ));
 
         // get queue from redis database
@@ -38,14 +37,38 @@ export class QueueManagerPaginateJobsHandler
         // get all jobs from redis database
         //'completed' | 'waiting' | 'active' | 'delayed' | 'failed'| 'paused';
         const jobs = await queueInstance.getJobs(
-            ['completed', 'waiting', 'active', 'delayed', 'failed', 'paused'],
+            [constraint.where.jobType],
             queryStatement.offset,
-            queryStatement.limit,
+            queryStatement.offset + queryStatement.limit -1,
         );
 
+        // get count jobs from redis database
+        let count = 0;
+        switch (constraint.where.jobType)
+        {
+            case 'completed':
+                count = await queueInstance.getCompletedCount();
+                break;
+            case 'waiting':
+                count = await queueInstance.getWaitingCount();
+                break;
+            case 'active':
+                count = await queueInstance.getActiveCount();
+                break;
+            case 'delayed':
+                count = await queueInstance.getDelayedCount();
+                break;
+            case 'failed':
+                count = await queueInstance.getFailedCount();
+                break;
+            case 'paused':
+                count = await queueInstance.getPausedCount();
+                break;
+        }
+
         return {
-            total: 0,
-            count: jobs.length,
+            total: count,
+            count,
             rows : jobs,
         };
     }

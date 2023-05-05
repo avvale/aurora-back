@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, Param, Delete } from '@nestjs/common';
+import { Controller, Param, Delete } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurora-ts/core';
 import { QueueManagerJobDto } from '../dto';
 import { Auth } from '@aurora/decorators';
 
@@ -22,14 +21,12 @@ export class QueueManagerDeleteJobByIdController
     @ApiOkResponse({ description: 'The record has been deleted successfully.', type: QueueManagerJobDto })
     async main(
         @Param('id') id: string,
-        @Body('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
+        @Param('name') name?: string,
     )
     {
         return await this.handler.main(
             id,
-            constraint,
-            timezone,
+            name,
         );
     }
 }

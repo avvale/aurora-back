@@ -7,13 +7,31 @@ export class QueueManagerJobDto
         type       : String,
         description: 'id [input here api field description]',
     })
-    id: string;
+    id: string | number;
 
     @ApiProperty({
-        type       : Number,
-        description: 'priority [input here api field description]',
+        type       : String,
+        description: 'name [input here api field description]',
     })
-    priority: number;
+    name: string;
+
+    @ApiProperty({
+        type       : Object,
+        description: 'data [input here api field description]',
+    })
+    data: any;
+
+    @ApiProperty({
+        type       : Object,
+        description: 'opts [input here api field description]',
+    })
+    opts: any;
+
+     @ApiProperty({
+        type       : Number,
+        description: 'progress [input here api field description]',
+    })
+    progress: number;
 
     @ApiProperty({
         type       : Number,
@@ -23,56 +41,44 @@ export class QueueManagerJobDto
 
     @ApiProperty({
         type       : Number,
-        description: 'attempts [input here api field description]',
+        description: 'timestamp [input here api field description]',
     })
-    attempts?: number;
+    timestamp: number;
+
+    @ApiProperty({
+        type       : Number,
+        description: 'attemptsMade [input here api field description]',
+    })
+    attemptsMade: number;
 
     @ApiProperty({
         type       : String,
-        description: 'repeat [input here api field description]',
+        description: 'failedReason [input here api field description]',
     })
-    repeat: string;
+    failedReason?: string;
+
+    @ApiProperty({
+        type       : [String],
+        description: 'stacktrace [input here api field description]',
+    })
+    stacktrace: string[];
+
+    @ApiProperty({
+        type       : Object,
+        description: 'returnValue [input here api field description]',
+    })
+    returnvalue: any;
 
     @ApiProperty({
         type       : Number,
-        description: 'backoff [input here api field description]',
+        description: 'finishedOn [input here api field description]',
     })
-    backoff?: number;
-
-    @ApiProperty({
-        type       : Boolean,
-        description: 'lifo [input here api field description]',
-    })
-    lifo: boolean;
+    finishedOn: number;
 
     @ApiProperty({
         type       : Number,
-        description: 'timeout [input here api field description]',
+        description: 'processedOn [input here api field description]',
     })
-    timeout: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'jobId [input here api field description]',
-    })
-    jobId: number;
-
-    @ApiProperty({
-        type       : Boolean,
-        description: 'removeOnComplete [input here api field description]',
-    })
-    removeOnComplete: boolean;
-
-    @ApiProperty({
-        type       : Boolean,
-        description: 'removeOnFail [input here api field description]',
-    })
-    removeOnFail: boolean;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'stackTraceLimit [input here api field description]',
-    })
-    stackTraceLimit: number;
+    processedOn: number;
 
 }

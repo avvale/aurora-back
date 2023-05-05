@@ -1,5 +1,7 @@
+import { ModuleRef } from '@nestjs/core';
 import { Injectable } from '@nestjs/common';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurora-ts/core';
+import { getQueueToken } from '@nestjs/bull';
+import { Job } from 'bull';
 
 // @app
 import { QueueManagerJob } from '@api/graphql';
@@ -9,16 +11,24 @@ import { QueueManagerJobDto } from '../dto';
 export class QueueManagerDeleteJobByIdHandler
 {
     constructor(
-        private readonly commandBus: ICommandBus,
-        private readonly queryBus: IQueryBus,
+        private readonly moduleRef: ModuleRef,
     ) {}
 
     async main(
         id: string,
-        constraint?: QueryStatement,
-        timezone?: string,
+        name?: string,
     ): Promise<QueueManagerJob | QueueManagerJobDto>
     {
-        return;
+        const queueInstance = this.moduleRef.get(
+            getQueueToken(name),
+            { strict: false },
+        );
+
+        const job: Job = await queueInstance.getJob(id);
+
+        // remove job from redis database
+        job.remove();
+
+        return job.toJSON();
     }
 }

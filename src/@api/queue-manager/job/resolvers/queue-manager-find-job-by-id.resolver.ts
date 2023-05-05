@@ -1,5 +1,4 @@
 import { Resolver, Args, Query } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurora-ts/core';
 import { Auth } from '@aurora/decorators';
 
 // @app
@@ -17,14 +16,12 @@ export class QueueManagerFindJobByIdResolver
     @Query('queueManagerFindJobById')
     async main(
         @Args('id') id: string,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
+        @Args('name') name: string,
     ): Promise<QueueManagerJob>
     {
         return await this.handler.main(
             id,
-            constraint,
-            timezone,
+            name,
         );
     }
 }
