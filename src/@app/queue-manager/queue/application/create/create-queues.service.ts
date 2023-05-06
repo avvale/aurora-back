@@ -5,12 +5,6 @@ import {
     QueueId,
     QueuePrefix,
     QueueName,
-    QueueWaitingJobs,
-    QueueActiveJobs,
-    QueueCompletedJobs,
-    QueueFailedJobs,
-    QueueDelayedJobs,
-    QueuePausedJobs,
     QueueCreatedAt,
     QueueUpdatedAt,
     QueueDeletedAt,
@@ -32,12 +26,6 @@ export class CreateQueuesService
             id: QueueId;
             prefix: QueuePrefix;
             name: QueueName;
-            waitingJobs: QueueWaitingJobs;
-            activeJobs: QueueActiveJobs;
-            completedJobs: QueueCompletedJobs;
-            failedJobs: QueueFailedJobs;
-            delayedJobs: QueueDelayedJobs;
-            pausedJobs: QueuePausedJobs;
         } [],
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -47,12 +35,6 @@ export class CreateQueuesService
             queue.id,
             queue.prefix,
             queue.name,
-            queue.waitingJobs,
-            queue.activeJobs,
-            queue.completedJobs,
-            queue.failedJobs,
-            queue.delayedJobs,
-            queue.pausedJobs,
             new QueueCreatedAt({ currentTimestamp: true }),
             new QueueUpdatedAt({ currentTimestamp: true }),
             null, // deleteAt

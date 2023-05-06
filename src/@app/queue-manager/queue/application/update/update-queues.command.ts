@@ -8,12 +8,6 @@ export class UpdateQueuesCommand
             id?: string;
             prefix?: string;
             name?: string;
-            waitingJobs?: number;
-            activeJobs?: number;
-            completedJobs?: number;
-            failedJobs?: number;
-            delayedJobs?: number;
-            pausedJobs?: number;
         },
         public readonly queryStatement?: QueryStatement,
         public readonly constraint?: QueryStatement,

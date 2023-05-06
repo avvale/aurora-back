@@ -43,54 +43,6 @@ export class QueueManagerQueueModel extends Model<QueueManagerQueueModel>
     name: string;
 
     @Column({
-        field: 'waitingJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    waitingJobs: number;
-
-    @Column({
-        field: 'activeJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    activeJobs: number;
-
-    @Column({
-        field: 'completedJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    completedJobs: number;
-
-    @Column({
-        field: 'failedJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    failedJobs: number;
-
-    @Column({
-        field: 'delayedJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    delayedJobs: number;
-
-    @Column({
-        field: 'pausedJobs',
-        allowNull: false,
-        type: DataTypes.INTEGER.UNSIGNED,
-        defaultValue: 0,
-    })
-    pausedJobs: number;
-
-    @Column({
         field: 'createdAt',
         allowNull: true,
         type: DataTypes.DATE,

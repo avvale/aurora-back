@@ -4,18 +4,12 @@ import { CQMetadata } from '@aurora-ts/core';
 import { IQueueRepository } from '../../domain/queue.repository';
 import { QueueManagerQueue } from '../../domain/queue.aggregate';
 import {
-	QueueActiveJobs,
-	QueueCompletedJobs,
 	QueueCreatedAt,
-	QueueDelayedJobs,
 	QueueDeletedAt,
-	QueueFailedJobs,
 	QueueId,
 	QueueName,
-	QueuePausedJobs,
 	QueuePrefix,
 	QueueUpdatedAt,
-	QueueWaitingJobs,
 } from '../../domain/value-objects';
 
 @Injectable()
@@ -31,12 +25,6 @@ export class CreateQueueService
             id: QueueId;
             prefix: QueuePrefix;
             name: QueueName;
-            waitingJobs: QueueWaitingJobs;
-            activeJobs: QueueActiveJobs;
-            completedJobs: QueueCompletedJobs;
-            failedJobs: QueueFailedJobs;
-            delayedJobs: QueueDelayedJobs;
-            pausedJobs: QueuePausedJobs;
         },
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -46,12 +34,6 @@ export class CreateQueueService
             payload.id,
             payload.prefix,
             payload.name,
-            payload.waitingJobs,
-            payload.activeJobs,
-            payload.completedJobs,
-            payload.failedJobs,
-            payload.delayedJobs,
-            payload.pausedJobs,
             new QueueCreatedAt({ currentTimestamp: true }),
             new QueueUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt

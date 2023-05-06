@@ -20,7 +20,7 @@ export class QueueManagerSendEmailTasksService
     async handleCron(): Promise<void>
     {
         Logger.log('add to Main Queue');
-        await this.commonMailQueue.add({
+        const job = await this.commonMailQueue.add({
             foo: 'bar',
         });
     }

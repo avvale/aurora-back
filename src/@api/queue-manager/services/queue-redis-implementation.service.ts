@@ -3,10 +3,8 @@ import { QueueDefinition, QUEUE_REDIS } from '@app/queue-manager/queue-manager.t
 import { CreateQueuesCommand } from '@app/queue-manager/queue/application/create/create-queues.command';
 import { DeleteQueuesCommand } from '@app/queue-manager/queue/application/delete/delete-queues.command';
 import { ICommandBus, Utils } from '@aurora-ts/core';
-import { getQueueToken } from '@nestjs/bull';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ModuleRef } from '@nestjs/core';
 import { QueueStorage } from '../../../app.queues';
 
 @Injectable()
@@ -14,7 +12,6 @@ export class QueueRedisImplementationService
 {
     constructor(
         @Inject(QUEUE_REDIS) private readonly queueRedis,
-        private readonly moduleRef: ModuleRef,
         private readonly commandBus: ICommandBus,
         private readonly configService: ConfigService,
     )
@@ -29,7 +26,7 @@ export class QueueRedisImplementationService
 
         // get all queues from redis
         const queues = await this.getQueues();
-        const results = [];
+        const payload = [];
         for (const queue of queues)
         {
             // delete all queues that are not register
@@ -45,15 +42,21 @@ export class QueueRedisImplementationService
 
             try
             {
-                const queueInstance = this.moduleRef.get(
-                    getQueueToken(queue.name),
-                    { strict: false },
-                );
+                payload.push({
+                    id    : Utils.uuid(),
+                    prefix: queue.prefix,
+                    name  : queue.name,
+                });
 
-                // get all promises
-                results.push(queue);
-                results.push(queueInstance.count());
-                results.push(queueInstance.getJobCounts());
+                // clean queues table
+                await this.commandBus.dispatch(new DeleteQueuesCommand({
+                    where: {},
+                }));
+
+                // create existing queues in redis
+                await this.commandBus.dispatch(new CreateQueuesCommand(
+                    payload,
+                ));
             }
             catch (error)
             {
@@ -64,55 +67,6 @@ export class QueueRedisImplementationService
                 );
             }
         }
-
-        Promise.all(results)
-            .then(async response =>
-            {
-                const jobCounts = Utils.arrayGroup(response, 3);
-                const payload = [];
-                for (const jobCount of jobCounts)
-                {
-
-                    const queue = jobCount[0];
-                    const {
-                        waiting: waitingJobs,
-                        active: activeJobs,
-                        completed: completedJobs,
-                        failed: failedJobs,
-                        delayed: delayedJobs,
-                        paused: pausedJobs,
-                    } = jobCount[2];
-
-                    payload.push({
-                        id       : Utils.uuid(),
-                        prefix   : queue.prefix,
-                        name     : queue.name,
-                        totalJobs: jobCount[1],
-                        waitingJobs,
-                        activeJobs,
-                        completedJobs,
-                        failedJobs,
-                        delayedJobs,
-                        pausedJobs,
-                    });
-                }
-
-                // clean queues table
-                await this.commandBus.dispatch(new DeleteQueuesCommand({
-                    where: {},
-                }));
-
-                // create existing queues in redis
-                await this.commandBus.dispatch(new CreateQueuesCommand(
-                    payload,
-                    {
-                        repositoryOptions: {
-                            updateOnDuplicate: ['totalJobs', 'waitingJobs', 'activeJobs', 'completedJobs', 'failedJobs', 'delayedJobs', 'pausedJobs'],
-                        },
-                    },
-                ));
-
-            });
     }
 
     // get all queues from redis

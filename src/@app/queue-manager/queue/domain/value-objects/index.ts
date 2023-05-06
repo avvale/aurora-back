@@ -1,12 +1,6 @@
 export { QueueId } from './queue-id';
 export { QueuePrefix } from './queue-prefix';
 export { QueueName } from './queue-name';
-export { QueueWaitingJobs } from './queue-waiting-jobs';
-export { QueueActiveJobs } from './queue-active-jobs';
-export { QueueCompletedJobs } from './queue-completed-jobs';
-export { QueueFailedJobs } from './queue-failed-jobs';
-export { QueueDelayedJobs } from './queue-delayed-jobs';
-export { QueuePausedJobs } from './queue-paused-jobs';
 export { QueueCreatedAt } from './queue-created-at';
 export { QueueUpdatedAt } from './queue-updated-at';
 export { QueueDeletedAt } from './queue-deleted-at';

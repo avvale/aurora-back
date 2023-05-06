@@ -124,102 +124,6 @@ describe('queue', () =>
             });
     });
 
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueWaitingJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                waitingJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueWaitingJobs must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueActiveJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                activeJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueActiveJobs must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueCompletedJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                completedJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueCompletedJobs must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueFailedJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                failedJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueFailedJobs must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueDelayedJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                delayedJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueDelayedJobs must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueuePausedJobs property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                pausedJobs: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueuePausedJobs must be defined, can not be null');
-            });
-    });
-
     test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueId property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -265,102 +169,6 @@ describe('queue', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for QueueName must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueWaitingJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                waitingJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueWaitingJobs must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueActiveJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                activeJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueActiveJobs must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueCompletedJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                completedJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueCompletedJobs must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueFailedJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                failedJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueFailedJobs must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueDelayedJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                delayedJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueDelayedJobs must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueuePausedJobs property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                pausedJobs: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueuePausedJobs must be defined, can not be undefined');
             });
     });
 
@@ -412,192 +220,6 @@ describe('queue', () =>
             });
     });
 
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueWaitingJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                waitingJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueWaitingJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueActiveJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                activeJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueActiveJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueCompletedJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                completedJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueCompletedJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueFailedJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                failedJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueFailedJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueDelayedJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                delayedJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueueDelayedJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueuePausedJobs is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                pausedJobs: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for QueuePausedJobs is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueWaitingJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                waitingJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueueWaitingJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueActiveJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                activeJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueueActiveJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueCompletedJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                completedJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueueCompletedJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueFailedJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                failedJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueueFailedJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueueDelayedJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                delayedJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueueDelayedJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST queue-manager/queue/create - Got 400 Conflict, QueuePausedJobs must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/queue-manager/queue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                pausedJobs: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for QueuePausedJobs must have a positive sign, this field does not accept negative values');
-            });
-    });
 
     test('/REST:POST queue-manager/queue/create - Got 409 Conflict, item already exist in database', () =>
     {
@@ -773,12 +395,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                         }
                     }
                 `,
@@ -847,12 +463,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -884,12 +494,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                         }
                     }
                 `,
@@ -921,12 +525,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -966,12 +564,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1009,12 +601,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1047,12 +633,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1083,12 +663,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1124,12 +698,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1163,12 +731,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1207,12 +769,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }
@@ -1245,12 +801,6 @@ describe('queue', () =>
                             id
                             prefix
                             name
-                            waitingJobs
-                            activeJobs
-                            completedJobs
-                            failedJobs
-                            delayedJobs
-                            pausedJobs
                             createdAt
                             updatedAt
                         }

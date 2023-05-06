@@ -21,40 +21,4 @@ export class QueueManagerUpdateQueueByIdDto
     })
     name?: string;
 
-    @ApiProperty({
-        type       : Number,
-        description: 'waitingJobs [input here api field description]',
-    })
-    waitingJobs?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'activeJobs [input here api field description]',
-    })
-    activeJobs?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'completedJobs [input here api field description]',
-    })
-    completedJobs?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'failedJobs [input here api field description]',
-    })
-    failedJobs?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'delayedJobs [input here api field description]',
-    })
-    delayedJobs?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'pausedJobs [input here api field description]',
-    })
-    pausedJobs?: number;
-
 }

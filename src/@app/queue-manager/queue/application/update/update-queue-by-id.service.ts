@@ -6,12 +6,6 @@ import {
     QueueId,
     QueuePrefix,
     QueueName,
-    QueueWaitingJobs,
-    QueueActiveJobs,
-    QueueCompletedJobs,
-    QueueFailedJobs,
-    QueueDelayedJobs,
-    QueuePausedJobs,
     QueueCreatedAt,
     QueueUpdatedAt,
     QueueDeletedAt,
@@ -32,12 +26,6 @@ export class UpdateQueueByIdService
             id: QueueId;
             prefix?: QueuePrefix;
             name?: QueueName;
-            waitingJobs?: QueueWaitingJobs;
-            activeJobs?: QueueActiveJobs;
-            completedJobs?: QueueCompletedJobs;
-            failedJobs?: QueueFailedJobs;
-            delayedJobs?: QueueDelayedJobs;
-            pausedJobs?: QueuePausedJobs;
         },
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
@@ -48,12 +36,6 @@ export class UpdateQueueByIdService
             payload.id,
             payload.prefix,
             payload.name,
-            payload.waitingJobs,
-            payload.activeJobs,
-            payload.completedJobs,
-            payload.failedJobs,
-            payload.delayedJobs,
-            payload.pausedJobs,
             null, // createdAt
             new QueueUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt

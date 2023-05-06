@@ -515,36 +515,18 @@ export interface QueueManagerCreateQueueInput {
     id: string;
     prefix: GraphQLString;
     name: GraphQLString;
-    waitingJobs: GraphQLInt;
-    activeJobs: GraphQLInt;
-    completedJobs: GraphQLInt;
-    failedJobs: GraphQLInt;
-    delayedJobs: GraphQLInt;
-    pausedJobs: GraphQLInt;
 }
 
 export interface QueueManagerUpdateQueueByIdInput {
     id: string;
     prefix?: Nullable<GraphQLString>;
     name?: Nullable<GraphQLString>;
-    waitingJobs?: Nullable<GraphQLInt>;
-    activeJobs?: Nullable<GraphQLInt>;
-    completedJobs?: Nullable<GraphQLInt>;
-    failedJobs?: Nullable<GraphQLInt>;
-    delayedJobs?: Nullable<GraphQLInt>;
-    pausedJobs?: Nullable<GraphQLInt>;
 }
 
 export interface QueueManagerUpdateQueuesInput {
     id?: Nullable<string>;
     prefix?: Nullable<GraphQLString>;
     name?: Nullable<GraphQLString>;
-    waitingJobs?: Nullable<GraphQLInt>;
-    activeJobs?: Nullable<GraphQLInt>;
-    completedJobs?: Nullable<GraphQLInt>;
-    failedJobs?: Nullable<GraphQLInt>;
-    delayedJobs?: Nullable<GraphQLInt>;
-    pausedJobs?: Nullable<GraphQLInt>;
 }
 
 export interface QueryStatement {

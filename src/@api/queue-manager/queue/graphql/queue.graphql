@@ -20,12 +20,6 @@ input QueueManagerCreateQueueInput
     id: ID!
     prefix: GraphQLString!
     name: GraphQLString!
-    waitingJobs: GraphQLInt!
-    activeJobs: GraphQLInt!
-    completedJobs: GraphQLInt!
-    failedJobs: GraphQLInt!
-    delayedJobs: GraphQLInt!
-    pausedJobs: GraphQLInt!
 }
 
 input QueueManagerUpdateQueueByIdInput
@@ -33,12 +27,6 @@ input QueueManagerUpdateQueueByIdInput
     id: ID!
     prefix: GraphQLString
     name: GraphQLString
-    waitingJobs: GraphQLInt
-    activeJobs: GraphQLInt
-    completedJobs: GraphQLInt
-    failedJobs: GraphQLInt
-    delayedJobs: GraphQLInt
-    pausedJobs: GraphQLInt
 }
 
 input QueueManagerUpdateQueuesInput
@@ -46,12 +34,6 @@ input QueueManagerUpdateQueuesInput
     id: ID
     prefix: GraphQLString
     name: GraphQLString
-    waitingJobs: GraphQLInt
-    activeJobs: GraphQLInt
-    completedJobs: GraphQLInt
-    failedJobs: GraphQLInt
-    delayedJobs: GraphQLInt
-    pausedJobs: GraphQLInt
 }
 
 type Query

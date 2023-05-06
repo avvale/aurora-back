@@ -6,12 +6,6 @@ import {
     QueueId,
     QueuePrefix,
     QueueName,
-    QueueWaitingJobs,
-    QueueActiveJobs,
-    QueueCompletedJobs,
-    QueueFailedJobs,
-    QueueDelayedJobs,
-    QueuePausedJobs,
     QueueCreatedAt,
     QueueUpdatedAt,
     QueueDeletedAt,
@@ -25,12 +19,6 @@ export class QueueManagerQueue extends AggregateRoot
     id: QueueId;
     prefix: QueuePrefix;
     name: QueueName;
-    waitingJobs: QueueWaitingJobs;
-    activeJobs: QueueActiveJobs;
-    completedJobs: QueueCompletedJobs;
-    failedJobs: QueueFailedJobs;
-    delayedJobs: QueueDelayedJobs;
-    pausedJobs: QueuePausedJobs;
     createdAt: QueueCreatedAt;
     updatedAt: QueueUpdatedAt;
     deletedAt: QueueDeletedAt;
@@ -41,12 +29,6 @@ export class QueueManagerQueue extends AggregateRoot
         id: QueueId,
         prefix: QueuePrefix,
         name: QueueName,
-        waitingJobs: QueueWaitingJobs,
-        activeJobs: QueueActiveJobs,
-        completedJobs: QueueCompletedJobs,
-        failedJobs: QueueFailedJobs,
-        delayedJobs: QueueDelayedJobs,
-        pausedJobs: QueuePausedJobs,
         createdAt: QueueCreatedAt,
         updatedAt: QueueUpdatedAt,
         deletedAt: QueueDeletedAt,
@@ -57,12 +39,6 @@ export class QueueManagerQueue extends AggregateRoot
         this.id = id;
         this.prefix = prefix;
         this.name = name;
-        this.waitingJobs = waitingJobs;
-        this.activeJobs = activeJobs;
-        this.completedJobs = completedJobs;
-        this.failedJobs = failedJobs;
-        this.delayedJobs = delayedJobs;
-        this.pausedJobs = pausedJobs;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
@@ -74,12 +50,6 @@ export class QueueManagerQueue extends AggregateRoot
         id: QueueId,
         prefix: QueuePrefix,
         name: QueueName,
-        waitingJobs: QueueWaitingJobs,
-        activeJobs: QueueActiveJobs,
-        completedJobs: QueueCompletedJobs,
-        failedJobs: QueueFailedJobs,
-        delayedJobs: QueueDelayedJobs,
-        pausedJobs: QueuePausedJobs,
         createdAt: QueueCreatedAt,
         updatedAt: QueueUpdatedAt,
         deletedAt: QueueDeletedAt,
@@ -90,12 +60,6 @@ export class QueueManagerQueue extends AggregateRoot
             id,
             prefix,
             name,
-            waitingJobs,
-            activeJobs,
-            completedJobs,
-            failedJobs,
-            delayedJobs,
-            pausedJobs,
             createdAt,
             updatedAt,
             deletedAt,
@@ -110,12 +74,6 @@ export class QueueManagerQueue extends AggregateRoot
                 queue.id.value,
                 queue.prefix.value,
                 queue.name.value,
-                queue.waitingJobs.value,
-                queue.activeJobs.value,
-                queue.completedJobs.value,
-                queue.failedJobs.value,
-                queue.delayedJobs.value,
-                queue.pausedJobs.value,
                 queue.createdAt?.value,
                 queue.updatedAt?.value,
                 queue.deletedAt?.value,
@@ -130,12 +88,6 @@ export class QueueManagerQueue extends AggregateRoot
                 queue.id?.value,
                 queue.prefix?.value,
                 queue.name?.value,
-                queue.waitingJobs?.value,
-                queue.activeJobs?.value,
-                queue.completedJobs?.value,
-                queue.failedJobs?.value,
-                queue.delayedJobs?.value,
-                queue.pausedJobs?.value,
                 queue.createdAt?.value,
                 queue.updatedAt?.value,
                 queue.deletedAt?.value,
@@ -150,12 +102,6 @@ export class QueueManagerQueue extends AggregateRoot
                 queue.id.value,
                 queue.prefix.value,
                 queue.name.value,
-                queue.waitingJobs.value,
-                queue.activeJobs.value,
-                queue.completedJobs.value,
-                queue.failedJobs.value,
-                queue.delayedJobs.value,
-                queue.pausedJobs.value,
                 queue.createdAt?.value,
                 queue.updatedAt?.value,
                 queue.deletedAt?.value,
@@ -169,12 +115,6 @@ export class QueueManagerQueue extends AggregateRoot
             id: this.id.value,
             prefix: this.prefix.value,
             name: this.name.value,
-            waitingJobs: this.waitingJobs.value,
-            activeJobs: this.activeJobs.value,
-            completedJobs: this.completedJobs.value,
-            failedJobs: this.failedJobs.value,
-            delayedJobs: this.delayedJobs.value,
-            pausedJobs: this.pausedJobs.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
@@ -190,12 +130,6 @@ export class QueueManagerQueue extends AggregateRoot
             id: this.id.value,
             prefix: this.prefix.value,
             name: this.name.value,
-            waitingJobs: this.waitingJobs.value,
-            activeJobs: this.activeJobs.value,
-            completedJobs: this.completedJobs.value,
-            failedJobs: this.failedJobs.value,
-            delayedJobs: this.delayedJobs.value,
-            pausedJobs: this.pausedJobs.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
