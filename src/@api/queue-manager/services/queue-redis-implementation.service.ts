@@ -1,11 +1,14 @@
 /* eslint-disable no-await-in-loop */
+import { ModuleRef } from '@nestjs/core';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { ICommandBus, Utils } from '@aurora-ts/core';
+import { getQueueToken } from '@nestjs/bull';
 import { QueueDefinition, QUEUE_REDIS } from '@app/queue-manager/queue-manager.types';
 import { CreateQueuesCommand } from '@app/queue-manager/queue/application/create/create-queues.command';
 import { DeleteQueuesCommand } from '@app/queue-manager/queue/application/delete/delete-queues.command';
-import { ICommandBus, Utils } from '@aurora-ts/core';
-import { Inject, Injectable, Logger } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { QueueStorage } from '../../../app.queues';
+import { QueueManagerQueue } from '@api/graphql';
 
 @Injectable()
 export class QueueRedisImplementationService
@@ -14,6 +17,7 @@ export class QueueRedisImplementationService
         @Inject(QUEUE_REDIS) private readonly queueRedis,
         private readonly commandBus: ICommandBus,
         private readonly configService: ConfigService,
+        private readonly moduleRef: ModuleRef,
     )
     {}
 
@@ -67,6 +71,35 @@ export class QueueRedisImplementationService
                 );
             }
         }
+    }
+
+    async addQueueCounters(queue): Promise<QueueManagerQueue>
+    {
+        const queueInstance = this.moduleRef.get(
+            getQueueToken(queue.name),
+            { strict: false },
+        );
+
+        const totalJobs = await queueInstance.count();
+        const {
+            waiting: waitingJobs,
+            active: activeJobs,
+            completed: completedJobs,
+            failed: failedJobs,
+            delayed: delayedJobs,
+            paused: pausedJobs,
+        } = await queueInstance.getJobCounts();
+
+        return {
+            ...queue,
+            totalJobs,
+            waitingJobs,
+            activeJobs,
+            completedJobs,
+            failedJobs,
+            delayedJobs,
+            pausedJobs,
+        };
     }
 
     // get all queues from redis

@@ -1,16 +1,20 @@
+import { ModuleRef } from '@nestjs/core';
 import { Injectable } from '@nestjs/common';
 import { IQueryBus, QueryStatement } from '@aurora-ts/core';
+import { getQueueToken } from '@nestjs/bull';
 
 // @app
 import { FindQueueByIdQuery } from '@app/queue-manager/queue/application/find/find-queue-by-id.query';
 import { QueueManagerQueue } from '@api/graphql';
 import { QueueManagerQueueDto } from '../dto';
+import { QueueRedisImplementationService } from '@api/queue-manager/services/queue-redis-implementation.service';
 
 @Injectable()
 export class QueueManagerFindQueueByIdHandler
 {
     constructor(
         private readonly queryBus: IQueryBus,
+        private readonly queueRedisImplementationService: QueueRedisImplementationService,
     ) {}
 
     async main(
@@ -19,12 +23,14 @@ export class QueueManagerFindQueueByIdHandler
         timezone?: string,
     ): Promise<QueueManagerQueue | QueueManagerQueueDto>
     {
-        return await this.queryBus.ask(new FindQueueByIdQuery(
+        const queue = await this.queryBus.ask(new FindQueueByIdQuery(
             id,
             constraint,
             {
                 timezone,
             },
         ));
+
+        return await this.queueRedisImplementationService.addQueueCounters(queue);
     }
 }
