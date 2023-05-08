@@ -87,3 +87,9 @@ export { queues } from './@app/queue-manager/queue/infrastructure/mock/mock-queu
 export { QueueManagerModule } from './@api/queue-manager/queue-manager.module';
 export { QueueManagerQueueDto } from './@api/queue-manager/queue/dto/queue-manager-queue.dto';
 export { QueueManagerJobDto } from './@api/queue-manager/job/dto/queue-manager-job.dto';
+export { QueueManagerJobRegistryDto } from './@api/queue-manager/job-registry/dto/queue-manager-job-registry.dto';
+export { QueueManagerJobRegistryModel } from './@app/queue-manager/job-registry';
+export { JobRegistryResponse } from './@app/queue-manager/job-registry/domain/job-registry.response';
+export { JobRegistryMapper } from './@app/queue-manager/job-registry/domain/job-registry.mapper';
+export { jobsRegistry } from './@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/job-registry.aggregate';

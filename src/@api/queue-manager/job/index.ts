@@ -16,6 +16,9 @@ import { QueueManagerDeleteJobByIdHandler } from './handlers/queue-manager-delet
 // seeder
 import { QueueManagerJobSeeder } from './seeder/queue-manager-job.seeder';
 
+// services
+import { QueueManagerJobService } from './shared/services/job.service';
+
 export const QueueManagerJobControllers = [
     QueueManagerPaginateJobsController,
     QueueManagerFindJobByIdController,
@@ -37,4 +40,5 @@ export const QueueManagerJobApiHandlers = [
 
 export const QueueManagerJobServices = [
     QueueManagerJobSeeder,
+    QueueManagerJobService,
 ];

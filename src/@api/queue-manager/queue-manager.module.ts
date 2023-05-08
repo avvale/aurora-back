@@ -13,6 +13,7 @@ import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobAp
 import { appQueues } from 'src/app.queues';
 import { QueueManagerSendEmailTasksService } from './shared/tasks/queue-manager-send-email.task';
 import { QueueManagerEmailConsumer } from './shared/consumers/queue-manager-email.consumer';
+import { QueueManagerJobRegistryControllers, QueueManagerJobRegistryResolvers, QueueManagerJobRegistryApiHandlers, QueueManagerJobRegistryServices } from './job-registry';
 
 @Module({
     imports: [
@@ -35,7 +36,8 @@ import { QueueManagerEmailConsumer } from './shared/consumers/queue-manager-emai
                     // removes the job when it successfully completes.
                     // A number specifies the amount of jobs to keep.
                     // Default behavior is to keep the job in the completed set.
-                    removeOnComplete: 100,
+                    removeOnComplete: +configService.get('QUEUE_MANAGER_REMOVE_ON_COMPLETE'),
+                    removeOnFail    : +configService.get('QUEUE_MANAGER_REMOVE_ON_FAIL'),
                 },
             }),
         }),
@@ -48,6 +50,7 @@ import { QueueManagerEmailConsumer } from './shared/consumers/queue-manager-emai
     controllers: [
         ...QueueManagerQueueControllers,
         ...QueueManagerJobControllers,
+        ...QueueManagerJobRegistryControllers
     ],
     providers: [
         {
@@ -75,6 +78,9 @@ import { QueueManagerEmailConsumer } from './shared/consumers/queue-manager-emai
         ...QueueManagerJobResolvers,
         ...QueueManagerJobApiHandlers,
         ...QueueManagerJobServices,
+        ...QueueManagerJobRegistryResolvers,
+        ...QueueManagerJobRegistryApiHandlers,
+        ...QueueManagerJobRegistryServices,
 
         // TODO, BORRAR ESTO, ES SOLO PARA PROBAR
         QueueManagerSendEmailTasksService,

@@ -511,6 +511,30 @@ export interface OAuthUpdateScopesInput {
     name?: Nullable<GraphQLString>;
 }
 
+export interface QueueManagerCreateJobRegistryInput {
+    id: string;
+    queueName: GraphQLString;
+    jobId: GraphQLString;
+    jobName?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
+}
+
+export interface QueueManagerUpdateJobRegistryByIdInput {
+    id: string;
+    queueName?: Nullable<GraphQLString>;
+    jobId?: Nullable<GraphQLString>;
+    jobName?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
+}
+
+export interface QueueManagerUpdateJobsRegistryInput {
+    id?: Nullable<string>;
+    queueName?: Nullable<GraphQLString>;
+    jobId?: Nullable<GraphQLString>;
+    jobName?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
+}
+
 export interface QueueManagerCreateQueueInput {
     id: string;
     prefix: GraphQLString;
@@ -617,6 +641,10 @@ export interface IQuery {
     oAuthFindScopeById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthGetScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope>[] | Promise<Nullable<OAuthScope>[]>;
     oAuthPaginateScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    queueManagerFindJobRegistry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerFindJobRegistryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerGetJobsRegistry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry>[] | Promise<Nullable<QueueManagerJobRegistry>[]>;
+    queueManagerPaginateJobsRegistry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     queueManagerFindJobById(id: GraphQLString, name: GraphQLString): Nullable<QueueManagerJob> | Promise<Nullable<QueueManagerJob>>;
     queueManagerPaginateJobs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     queueManagerFindQueue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
@@ -715,6 +743,13 @@ export interface IMutation {
     oAuthUpsertScope(payload: OAuthUpdateScopeByIdInput): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthDeleteScopeById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
     oAuthDeleteScopes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthScope>[] | Promise<Nullable<OAuthScope>[]>;
+    queueManagerCreateJobRegistry(payload: QueueManagerCreateJobRegistryInput): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerCreateJobsRegistry(payload: Nullable<QueueManagerCreateJobRegistryInput>[]): boolean | Promise<boolean>;
+    queueManagerUpdateJobRegistryById(payload: QueueManagerUpdateJobRegistryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerUpdateJobsRegistry(payload: QueueManagerUpdateJobsRegistryInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry>[] | Promise<Nullable<QueueManagerJobRegistry>[]>;
+    queueManagerUpsertJobRegistry(payload: QueueManagerUpdateJobRegistryByIdInput): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerDeleteJobRegistryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry> | Promise<Nullable<QueueManagerJobRegistry>>;
+    queueManagerDeleteJobsRegistry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerJobRegistry>[] | Promise<Nullable<QueueManagerJobRegistry>[]>;
     queueManagerDeleteJobById(id: GraphQLString, name: GraphQLString): Nullable<QueueManagerJob> | Promise<Nullable<QueueManagerJob>>;
     queueManagerCreateQueue(payload: QueueManagerCreateQueueInput): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
     queueManagerCreateQueues(payload: Nullable<QueueManagerCreateQueueInput>[]): boolean | Promise<boolean>;
@@ -917,6 +952,17 @@ export interface OAuthScope {
     id: string;
     code: GraphQLString;
     name: GraphQLString;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface QueueManagerJobRegistry {
+    id: string;
+    queueName: GraphQLString;
+    jobId: GraphQLString;
+    jobName?: Nullable<GraphQLString>;
+    tags?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
