@@ -980,7 +980,7 @@ export interface QueueManagerJob {
     failedReason?: Nullable<GraphQLString>;
     stacktrace: Nullable<GraphQLString>[];
     returnvalue?: Nullable<Any>;
-    finishedOn: GraphQLInt;
+    finishedOn?: Nullable<GraphQLInt>;
     processedOn: GraphQLInt;
 }
 

@@ -73,7 +73,7 @@ export class QueueManagerJobDto
         type       : Number,
         description: 'finishedOn [input here api field description]',
     })
-    finishedOn: number;
+    finishedOn?: number;
 
     @ApiProperty({
         type       : Number,

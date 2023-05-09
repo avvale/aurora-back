@@ -11,7 +11,7 @@ type QueueManagerJob
     failedReason: GraphQLString
     stacktrace: [GraphQLString]!
     returnvalue: Any
-    finishedOn: GraphQLInt!
+    finishedOn: GraphQLInt
     processedOn: GraphQLInt!
 }
 
