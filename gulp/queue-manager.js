@@ -19,6 +19,7 @@ function copyQueueManager()
         fse.copy('cliter/queue-manager', 'publish/cliter/queue-manager', { overwrite: true }),
         fse.copy('src/@api/queue-manager', 'publish/src/@api/queue-manager', { overwrite: true }),
         fse.copy('src/@app/queue-manager', 'publish/src/@app/queue-manager', { overwrite: true }),
+        fse.copy('src/app.queues.ts', 'publish/src/app.queues.ts', { overwrite: true }),
         fse.copy('test/acceptance/queue-manager', 'publish/test/acceptance/queue-manager', { overwrite: true }),
         fse.copy('postman/queue-manager', 'publish/postman/queue-manager', { overwrite: true }),
     ]);
