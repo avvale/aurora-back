@@ -8,7 +8,7 @@ import { createClient } from 'redis';
 import { QueueManagerHandlers, QueueManagerModels, QueueManagerRepositories, QueueManagerSagas, QueueManagerServices } from '../../@app/queue-manager';
 import { QueueManagerQueueApiHandlers, QueueManagerQueueControllers, QueueManagerQueueResolvers, QueueManagerQueueServices } from './queue';
 import { QueueManagerSeeder } from './queue-manager.seeder';
-import { QueueRedisImplementationService } from './services/queue-redis-implementation.service';
+import { QueueRedisImplementationService } from './shared/services/queue-redis-implementation.service';
 import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobApiHandlers, QueueManagerJobServices } from './job';
 import { appQueues } from 'src/app.queues';
 import { QueueManagerSendEmailTasksService } from './shared/tasks/queue-manager-send-email.task';

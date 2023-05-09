@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { IQueryBus, QueryStatement } from '@aurora-ts/core';
 
 // @app
-import { QueueRedisImplementationService } from '@api/queue-manager/services/queue-redis-implementation.service';
+import { QueueRedisImplementationService } from '@api/queue-manager/shared/services/queue-redis-implementation.service';
 import { PaginateQueuesQuery } from '@app/queue-manager/queue/application/paginate/paginate-queues.query';
 import { Pagination } from '@api/graphql';
 

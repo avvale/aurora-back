@@ -7,7 +7,7 @@ import { getQueueToken } from '@nestjs/bull';
 import { QueueDefinition, QUEUE_REDIS } from '@app/queue-manager/queue-manager.types';
 import { CreateQueuesCommand } from '@app/queue-manager/queue/application/create/create-queues.command';
 import { DeleteQueuesCommand } from '@app/queue-manager/queue/application/delete/delete-queues.command';
-import { QueueStorage } from '../../../app.queues';
+import { QueueStorage } from '../../../../app.queues';
 import { QueueManagerQueue } from '@api/graphql';
 
 @Injectable()

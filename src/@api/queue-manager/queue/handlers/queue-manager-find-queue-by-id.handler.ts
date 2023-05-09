@@ -7,7 +7,7 @@ import { getQueueToken } from '@nestjs/bull';
 import { FindQueueByIdQuery } from '@app/queue-manager/queue/application/find/find-queue-by-id.query';
 import { QueueManagerQueue } from '@api/graphql';
 import { QueueManagerQueueDto } from '../dto';
-import { QueueRedisImplementationService } from '@api/queue-manager/services/queue-redis-implementation.service';
+import { QueueRedisImplementationService } from '@api/queue-manager/shared/services/queue-redis-implementation.service';
 
 @Injectable()
 export class QueueManagerFindQueueByIdHandler
