@@ -50,7 +50,7 @@ import { QueueManagerJobRegistryControllers, QueueManagerJobRegistryResolvers, Q
     controllers: [
         ...QueueManagerQueueControllers,
         ...QueueManagerJobControllers,
-        ...QueueManagerJobRegistryControllers
+        ...QueueManagerJobRegistryControllers,
     ],
     providers: [
         {
