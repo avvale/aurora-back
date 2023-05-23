@@ -36,6 +36,14 @@ export class QueueManagerJobRegistryModel extends Model<QueueManagerJobRegistryM
     queueName: string;
 
     @Column({
+        field: 'state',
+        allowNull: false,
+        type: DataTypes.ENUM('COMPLETED','WAITING','ACTIVE','DELAYED','FAILED','PAUSED'),
+        defaultValue: 'WAITING',
+    })
+    state: string;
+
+    @Column({
         field: 'jobId',
         allowNull: false,
         type: DataTypes.STRING(36),

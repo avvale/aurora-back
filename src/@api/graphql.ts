@@ -46,6 +46,24 @@ export enum OAuthClientGrantType {
     REFRESH_TOKEN = "REFRESH_TOKEN"
 }
 
+export enum QueueManagerJobRegistryState {
+    COMPLETED = "COMPLETED",
+    WAITING = "WAITING",
+    ACTIVE = "ACTIVE",
+    DELAYED = "DELAYED",
+    FAILED = "FAILED",
+    PAUSED = "PAUSED"
+}
+
+export enum QueueManagerJobState {
+    COMPLETED = "COMPLETED",
+    WAITING = "WAITING",
+    ACTIVE = "ACTIVE",
+    DELAYED = "DELAYED",
+    FAILED = "FAILED",
+    PAUSED = "PAUSED"
+}
+
 export interface AuditingCreateHttpCommunicationInput {
     id: string;
     tags?: Nullable<JSON>;
@@ -514,6 +532,7 @@ export interface OAuthUpdateScopesInput {
 export interface QueueManagerCreateJobRegistryInput {
     id: string;
     queueName: GraphQLString;
+    state: QueueManagerJobRegistryState;
     jobId: GraphQLString;
     jobName?: Nullable<GraphQLString>;
     tags?: Nullable<JSON>;
@@ -522,6 +541,7 @@ export interface QueueManagerCreateJobRegistryInput {
 export interface QueueManagerUpdateJobRegistryByIdInput {
     id: string;
     queueName?: Nullable<GraphQLString>;
+    state?: Nullable<QueueManagerJobRegistryState>;
     jobId?: Nullable<GraphQLString>;
     jobName?: Nullable<GraphQLString>;
     tags?: Nullable<JSON>;
@@ -530,6 +550,7 @@ export interface QueueManagerUpdateJobRegistryByIdInput {
 export interface QueueManagerUpdateJobsRegistryInput {
     id?: Nullable<string>;
     queueName?: Nullable<GraphQLString>;
+    state?: Nullable<QueueManagerJobRegistryState>;
     jobId?: Nullable<GraphQLString>;
     jobName?: Nullable<GraphQLString>;
     tags?: Nullable<JSON>;
@@ -960,6 +981,7 @@ export interface OAuthScope {
 export interface QueueManagerJobRegistry {
     id: string;
     queueName: GraphQLString;
+    state: QueueManagerJobRegistryState;
     jobId: GraphQLString;
     jobName?: Nullable<GraphQLString>;
     tags?: Nullable<JSON>;
@@ -982,6 +1004,7 @@ export interface QueueManagerJob {
     returnvalue?: Nullable<Any>;
     finishedOn?: Nullable<GraphQLInt>;
     processedOn: GraphQLInt;
+    state: QueueManagerJobState;
 }
 
 export interface QueueManagerQueue {
