@@ -9,6 +9,10 @@ import { DataTypes } from 'sequelize';
     timestamps: false,
     indexes: [
         {
+            fields: ['state'],
+            unique: false,
+        },
+        {
             fields: ['jobId'],
             unique: true,
         },

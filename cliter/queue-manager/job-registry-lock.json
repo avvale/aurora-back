@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data.ts",
-            "integrity": "sha1:1517deac9a9e0c0327fc30bf4534c22f94f20efc"
+            "integrity": "sha1:1fd31aca6af14e9754b3ccfeab9cc35b3a5696df"
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/sequelize/sequelize-job-registry.model.ts",
-            "integrity": "sha1:fd2135968bde46c91fb902b88e09186511d847f2"
+            "integrity": "sha1:73016f7947dab473cbc56c570c5f277313fc0500"
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/sequelize/sequelize-job-registry.repository.ts",
@@ -687,7 +687,7 @@
         },
         {
             "path": "postman/queue-manager/queue-manager.job-registry.postman.json",
-            "integrity": "sha1:895f48bf1e19141620e2117e79a05f2e2d147eca"
+            "integrity": "sha1:96cc0b5299c2ea958e0892fdcf30be5a35c33892"
         }
     ]
 }

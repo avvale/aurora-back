@@ -27,6 +27,7 @@ aggregateProperties:
       - PAUSED
     nullable: false
     defaultValue: WAITING
+    index: index
     example: QueueManagerJobState.COMPLETED
   - name: jobId
     type: varchar
