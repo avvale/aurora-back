@@ -2,7 +2,7 @@ import { CacheModule, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { HttpModule } from '@nestjs/axios';
-import { AddI18NConstraintService, AuditingRunner, AuditingRunnerDisabledImplementationService, CoreModule } from '@aurorajs.dev/core';
+import { AddI18nConstraintService, AuditingRunner, AuditingRunnerDisabledImplementationService, CoreModule } from '@aurorajs.dev/core';
 import { CqrsConfigModule } from './cqrs-config.module';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
 import { jwtConfig } from '@app/o-auth/shared/jwt-config';
@@ -22,7 +22,7 @@ import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
         WhatsappSharedModule,
     ],
     providers: [
-        AddI18NConstraintService,
+        AddI18nConstraintService,
         AuditingAxiosInterceptorService,
         {
             provide : AuditingRunner,
@@ -30,7 +30,7 @@ import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
         },
     ],
     exports: [
-        AddI18NConstraintService,
+        AddI18nConstraintService,
         AuditingRunner,
         AuthJwtStrategyRegistryModule,
         CacheModule,
