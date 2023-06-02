@@ -124,6 +124,10 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AuditingModule');
 
+    // remove CommonModule
+    codeWriter.removeImport(sourceFile, '@api/common/common.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'CommonModule');
+
     // remove OAuthModule
     codeWriter.removeImport(sourceFile, '@api/o-auth/o-auth.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'OAuthModule');
