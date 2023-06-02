@@ -1,13 +1,12 @@
+import { CommonHandlers, CommonModels, CommonRepositories, CommonSagas, CommonServices } from '@app/common';
+import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
+import { SharedModule } from '@aurora/shared.module';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, Inject, Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { SharedModule } from '../../@aurora/shared.module';
-import { CommonModels, CommonHandlers, CommonServices, CommonRepositories, CommonSagas } from '../../@app/common';
-import { CommonLangControllers, CommonLangResolvers, CommonLangApiHandlers, CommonLangServices } from './lang';
-
-// custom
-import { IQueryBus } from '@aurorajs.dev/core';
-import { GetLangsQuery } from '../../@app/common/lang/application/get/get-langs.query';
 import { Cache } from 'cache-manager';
+import { CommonSeeder } from './common.seeder';
+import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, CommonLangServices } from './lang';
 
 @Module({
     imports: [
@@ -20,6 +19,7 @@ import { Cache } from 'cache-manager';
         ...CommonLangControllers,
     ],
     providers: [
+        CommonSeeder,
         ...CommonHandlers,
         ...CommonServices,
         ...CommonRepositories,
