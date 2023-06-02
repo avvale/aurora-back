@@ -2,7 +2,7 @@ import { CACHE_MANAGER, Inject, Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '../../@aurora/shared.module';
 import { CommonModels, CommonHandlers, CommonServices, CommonRepositories, CommonSagas } from '../../@app/common';
-import { CommonLangControllers, CommonLangResolvers, CommonLangApiHandlers } from './lang';
+import { CommonLangControllers, CommonLangResolvers, CommonLangApiHandlers, CommonLangServices } from './lang';
 import { CommonCountryControllers, CommonCountryResolvers, CommonCountryApiHandlers } from './country';
 
 // custom
@@ -41,7 +41,8 @@ import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLeve
         ...CommonCountryApiHandlers,
         ...CommonAdministrativeAreaLevel1ApiHandlers,
         ...CommonAdministrativeAreaLevel2ApiHandlers,
-        ...CommonAdministrativeAreaLevel3ApiHandlers
+        ...CommonAdministrativeAreaLevel3ApiHandlers,
+        ...CommonLangServices
     ],
 })
 export class CommonModule

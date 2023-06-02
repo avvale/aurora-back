@@ -2,7 +2,7 @@ import { EnumValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangDir extends EnumValueObject
 {
-    public readonly type: 'LangDir';
+    public readonly type: string = 'LangDir';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {

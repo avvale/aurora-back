@@ -5,6 +5,7 @@ moduleNames: langs
 aggregateName: CommonLang
 hasOAuth: false
 hasTenant: false
+hasAuditing: true
 aggregateProperties:
   - name: id
     type: id
@@ -59,3 +60,5 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
+aggregateI18nProperties: []
+additionalApis: []

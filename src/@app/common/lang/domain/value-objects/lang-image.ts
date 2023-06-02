@@ -2,7 +2,7 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangImage extends StringValueObject
 {
-    public readonly type: 'LangImage';
+    public readonly type: string = 'LangImage';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
@@ -10,7 +10,6 @@ export class LangImage extends StringValueObject
             name       : 'LangImage',
             nullable   : true,
             undefinable: true,
-            
         }, validationRules));
     }
 }

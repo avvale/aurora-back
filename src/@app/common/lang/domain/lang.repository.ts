@@ -44,6 +44,14 @@ export abstract class ILangRepository implements IRepository<CommonLang>
         }
     ): Promise<CommonLang[]>;
 
+    // get records with rawSQL
+    abstract rawSQL(
+        options?: {
+            rawSQL?: string;
+            cQMetadata?: CQMetadata;
+        }
+    ): Promise<CommonLang[]>;
+
     // count records
     abstract count(
         options?: {
@@ -98,6 +106,15 @@ export abstract class ILangRepository implements IRepository<CommonLang>
             queryStatement?: QueryStatement;
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            dataFactory?: (aggregate: CommonLang) => LiteralObject;
+        }
+    ): Promise<void>;
+
+    // insert or update key identification element already existing in the table
+    abstract upsert(
+        lang: CommonLang,
+        options?: {
+            upsertOptions?: LiteralObject;
             dataFactory?: (aggregate: CommonLang) => LiteralObject;
         }
     ): Promise<void>;

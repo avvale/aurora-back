@@ -15,6 +15,10 @@ export class GetLangsQueryHandler implements IQueryHandler<GetLangsQuery>
 
     async execute(query: GetLangsQuery): Promise<LangResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getLangsService.main(query.queryStatement, query.constraint, query.cQMetadata));
+        return this.mapper.mapAggregatesToResponses(await this.getLangsService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        ));
     }
 }

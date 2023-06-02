@@ -93,3 +93,10 @@ export { JobRegistryResponse } from './@app/queue-manager/job-registry/domain/jo
 export { JobRegistryMapper } from './@app/queue-manager/job-registry/domain/job-registry.mapper';
 export { jobsRegistry } from './@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
 export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/job-registry.aggregate';
+export { CommonModule } from './@api/common/common.module';
+export { CommonLangDto } from './@api/common/lang/dto/common-lang.dto';
+export { CommonLang } from './@app/common/lang/domain/lang.aggregate';
+export { CommonLangModel } from './@app/common/lang';
+export { LangResponse } from './@app/common/lang/domain/lang.response';
+export { LangMapper } from './@app/common/lang/domain/lang.mapper';
+export { langs } from './@app/common/lang/infrastructure/mock/mock-lang.data';

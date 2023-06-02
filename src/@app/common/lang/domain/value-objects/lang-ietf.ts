@@ -2,7 +2,7 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangIetf extends StringValueObject
 {
-    public readonly type: 'LangIetf';
+    public readonly type: string = 'LangIetf';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
@@ -11,7 +11,6 @@ export class LangIetf extends StringValueObject
             nullable   : false,
             undefinable: false,
             length     : 5,
-
         }, validationRules));
     }
 }

@@ -34,6 +34,11 @@ export enum AuditingSideEffectMethod {
     DELETE = "DELETE"
 }
 
+export enum CommonLangDir {
+    LTR = "LTR",
+    RTL = "RTL"
+}
+
 export enum IamAccountType {
     USER = "USER",
     SERVICE = "SERVICE"
@@ -179,6 +184,228 @@ export interface AuditingUpdateSideEffectsInput {
     userAgent?: Nullable<GraphQLString>;
     isRollback?: Nullable<GraphQLBoolean>;
     rollbackSideEffectId?: Nullable<string>;
+}
+
+export interface CommonCreateAdministrativeAreaLevel1Input {
+    id: string;
+    countryId: string;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreaLevel1ByIdInput {
+    id: string;
+    countryId?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreasLevel1Input {
+    id?: Nullable<string>;
+    countryId?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonCreateAdministrativeAreaLevel2Input {
+    id: string;
+    countryId: string;
+    administrativeAreaLevel1Id: string;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreaLevel2ByIdInput {
+    id: string;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreasLevel2Input {
+    id?: Nullable<string>;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonCreateAdministrativeAreaLevel3Input {
+    id: string;
+    countryId: string;
+    administrativeAreaLevel1Id: string;
+    administrativeAreaLevel2Id: string;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreaLevel3ByIdInput {
+    id: string;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    administrativeAreaLevel2Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonUpdateAdministrativeAreasLevel3Input {
+    id?: Nullable<string>;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    administrativeAreaLevel2Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+}
+
+export interface CommonCreateCountryInput {
+    id: string;
+    iso3166Alpha2: GraphQLString;
+    iso3166Alpha3: GraphQLString;
+    iso3166Numeric: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId: string;
+    name: GraphQLString;
+    slug: GraphQLString;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonUpdateCountryByIdInput {
+    id: string;
+    iso3166Alpha2?: Nullable<GraphQLString>;
+    iso3166Alpha3?: Nullable<GraphQLString>;
+    iso3166Numeric?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonUpdateCountriesInput {
+    id?: Nullable<string>;
+    iso3166Alpha2?: Nullable<GraphQLString>;
+    iso3166Alpha3?: Nullable<GraphQLString>;
+    iso3166Numeric?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonCreateLangInput {
+    id: string;
+    name: GraphQLString;
+    image?: Nullable<GraphQLString>;
+    iso6392: GraphQLString;
+    iso6393: GraphQLString;
+    ietf: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    dir: CommonLangDir;
+    sort?: Nullable<GraphQLInt>;
+    isActive: GraphQLBoolean;
+}
+
+export interface CommonUpdateLangByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    iso6392?: Nullable<GraphQLString>;
+    iso6393?: Nullable<GraphQLString>;
+    ietf?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    dir?: Nullable<CommonLangDir>;
+    sort?: Nullable<GraphQLInt>;
+    isActive?: Nullable<GraphQLBoolean>;
+}
+
+export interface CommonUpdateLangsInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    iso6392?: Nullable<GraphQLString>;
+    iso6393?: Nullable<GraphQLString>;
+    ietf?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    dir?: Nullable<CommonLangDir>;
+    sort?: Nullable<GraphQLInt>;
+    isActive?: Nullable<GraphQLBoolean>;
 }
 
 export interface IamCreateAccountInput {
@@ -613,6 +840,26 @@ export interface IQuery {
     auditingFindSideEffectById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingGetSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingPaginateSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAdministrativeAreaLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonFindAdministrativeAreaLevel1ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonGetAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonPaginateAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAdministrativeAreaLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonFindAdministrativeAreaLevel2ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonGetAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonPaginateAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAdministrativeAreaLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
+    commonFindAdministrativeAreaLevel3ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
+    commonGetAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
+    commonPaginateAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonPaginateCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindLang(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonFindLangById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonGetLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
+    commonPaginateLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamFindAccountById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>, queryGetClients?: Nullable<QueryStatement>, constraintGetClients?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamGetAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
@@ -691,6 +938,37 @@ export interface IMutation {
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    commonCreateAdministrativeAreaLevel1(payload: CommonCreateAdministrativeAreaLevel1Input): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonCreateAdministrativeAreasLevel1(payload: Nullable<CommonCreateAdministrativeAreaLevel1Input>[]): boolean | Promise<boolean>;
+    commonUpdateAdministrativeAreaLevel1ById(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonUpdateAdministrativeAreasLevel1(payload: CommonUpdateAdministrativeAreasLevel1Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonDeleteAdministrativeAreaLevel1ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonDeleteAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonCreateAdministrativeAreaLevel2(payload: CommonCreateAdministrativeAreaLevel2Input): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonCreateAdministrativeAreasLevel2(payload: Nullable<CommonCreateAdministrativeAreaLevel2Input>[]): boolean | Promise<boolean>;
+    commonUpdateAdministrativeAreaLevel2ById(payload: CommonUpdateAdministrativeAreaLevel2ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonUpdateAdministrativeAreasLevel2(payload: CommonUpdateAdministrativeAreasLevel2Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonDeleteAdministrativeAreaLevel2ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonDeleteAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonCreateAdministrativeAreaLevel3(payload: CommonCreateAdministrativeAreaLevel3Input): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
+    commonCreateAdministrativeAreasLevel3(payload: Nullable<CommonCreateAdministrativeAreaLevel3Input>[]): boolean | Promise<boolean>;
+    commonUpdateAdministrativeAreaLevel3ById(payload: CommonUpdateAdministrativeAreaLevel3ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
+    commonUpdateAdministrativeAreasLevel3(payload: CommonUpdateAdministrativeAreasLevel3Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
+    commonDeleteAdministrativeAreaLevel3ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
+    commonDeleteAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
+    commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
+    commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonUpdateCountries(payload: CommonUpdateCountriesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonDeleteCountryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonDeleteCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonCreateLang(payload: CommonCreateLangInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonCreateLangs(payload: Nullable<CommonCreateLangInput>[]): boolean | Promise<boolean>;
+    commonUpdateLangById(payload: CommonUpdateLangByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonUpdateLangs(payload: CommonUpdateLangsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
+    commonUpsertLang(payload: CommonUpdateLangByIdInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonDeleteLangById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
+    commonDeleteLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
     iamCreateAccount(payload: IamCreateAccountInput): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccountById(payload: IamUpdateAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccounts(payload: IamUpdateAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
@@ -803,6 +1081,102 @@ export interface AuditingSideEffect {
     userAgent?: Nullable<GraphQLString>;
     isRollback: GraphQLBoolean;
     rollbackSideEffectId?: Nullable<string>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreaLevel1 {
+    id: string;
+    countryId: string;
+    country?: Nullable<CommonCountry>;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreaLevel2 {
+    id: string;
+    countryId: string;
+    country?: Nullable<CommonCountry>;
+    administrativeAreaLevel1Id: string;
+    administrativeAreaLevel1?: Nullable<CommonAdministrativeAreaLevel1>;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreaLevel3 {
+    id: string;
+    countryId: string;
+    country?: Nullable<CommonCountry>;
+    administrativeAreaLevel1Id: string;
+    administrativeAreaLevel1?: Nullable<CommonAdministrativeAreaLevel1>;
+    administrativeAreaLevel2Id: string;
+    administrativeAreaLevel2?: Nullable<CommonAdministrativeAreaLevel2>;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonCountry {
+    id: string;
+    iso3166Alpha2: GraphQLString;
+    iso3166Alpha3: GraphQLString;
+    iso3166Numeric: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+    langId: string;
+    lang?: Nullable<CommonLang>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonLang {
+    id: string;
+    name: GraphQLString;
+    image?: Nullable<GraphQLString>;
+    iso6392: GraphQLString;
+    iso6393: GraphQLString;
+    ietf: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    dir: CommonLangDir;
+    sort?: Nullable<GraphQLInt>;
+    isActive: GraphQLBoolean;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

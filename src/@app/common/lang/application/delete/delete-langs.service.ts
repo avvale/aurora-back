@@ -20,7 +20,11 @@ export class DeleteLangsService
     ): Promise<void>
     {
         // get objects to delete
-        const langs = await this.repository.get({ queryStatement, constraint, cQMetadata });
+        const langs = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         await this.repository.delete({
             queryStatement,

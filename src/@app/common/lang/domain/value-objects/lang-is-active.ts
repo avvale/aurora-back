@@ -1,15 +1,15 @@
-import { BooleanValueObject, ValidationRules } from '@aurorajs.dev/core';
+import { BooleanValueObject, DataValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangIsActive extends BooleanValueObject
 {
-    public readonly type: 'LangIsActive';
+    public readonly type: string = 'LangIsActive';
 
-    constructor(value: boolean, validationRules: ValidationRules = {})
+    constructor(value: boolean, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
             name       : 'LangIsActive',
             nullable   : false,
             undefinable: false,
-        }, validationRules));
+        }, validationRules), data);
     }
 }

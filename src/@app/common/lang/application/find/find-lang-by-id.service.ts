@@ -11,8 +11,18 @@ export class FindLangByIdService
         private readonly repository: ILangRepository,
     ) {}
 
-    async main(id: LangId, constraint?: QueryStatement, cQMetadata?: CQMetadata): Promise<CommonLang>
+    async main(
+        id: LangId,
+        constraint?: QueryStatement,
+        cQMetadata?: CQMetadata,
+    ): Promise<CommonLang>
     {
-        return await this.repository.findById(id, { constraint, cQMetadata });
+        return await this.repository.findById(
+            id,
+            {
+                constraint,
+                cQMetadata,
+            },
+        );
     }
 }

@@ -62,7 +62,12 @@ export class CreateLangsService
         ));
 
         // insert
-        await this.repository.insert(aggregateLangs, { insertOptions: cQMetadata?.repositoryOptions });
+        await this.repository.insert(
+            aggregateLangs,
+            {
+                insertOptions: cQMetadata?.repositoryOptions,
+            },
+        );
 
         // create AddLangsContextEvent to have object wrapper to add event publisher functionality
         // insert EventBus in object, to be able to apply and commit events

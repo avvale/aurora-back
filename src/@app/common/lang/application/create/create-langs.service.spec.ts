@@ -32,9 +32,9 @@ describe('CreateLangsService', () =>
         })
             .compile();
 
-        service         = module.get(CreateLangsService);
-        repository      = module.get(ILangRepository);
-        mockRepository  = module.get(MockLangRepository);
+        service = module.get(CreateLangsService);
+        repository = module.get(ILangRepository);
+        mockRepository = module.get(MockLangRepository);
     });
 
     describe('main', () =>

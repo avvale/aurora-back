@@ -16,7 +16,7 @@ import {
     LangDeletedAt,
 } from '../../domain/value-objects';
 import { CommonLang } from '../../domain/lang.aggregate';
-import { langs } from '../seeds/lang.seed';
+import { langs } from './mock-lang.data';
 import * as _ from 'lodash';
 
 @Injectable()

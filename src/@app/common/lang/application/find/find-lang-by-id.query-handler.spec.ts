@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindLangByIdQueryHandler } from './find-lang-by-id.query-handler';
 import { MockLangRepository } from '@app/common/lang/infrastructure/mock/mock-lang.repository';
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { ILangRepository } from '@app/common/lang/domain/lang.repository';
 import { LangMapper } from '@app/common/lang/domain/lang.mapper';
 import { FindLangByIdQuery } from './find-lang-by-id.query';
@@ -35,10 +35,10 @@ describe('FindLangByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindLangByIdQueryHandler>(FindLangByIdQueryHandler);
-        service         = module.get<FindLangByIdService>(FindLangByIdService);
-        repository      = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
-        mapper          = new LangMapper();
+        queryHandler = module.get<FindLangByIdQueryHandler>(FindLangByIdQueryHandler);
+        service = module.get<FindLangByIdService>(FindLangByIdService);
+        repository = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
+        mapper = new LangMapper();
     });
 
     describe('main', () =>

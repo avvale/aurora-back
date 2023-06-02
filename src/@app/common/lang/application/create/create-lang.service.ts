@@ -1,23 +1,23 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurorajs.dev/core';
-import {
-    LangId,
-    LangName,
-    LangImage,
-    LangIso6392,
-    LangIso6393,
-    LangIetf,
-    LangCustomCode,
-    LangDir,
-    LangSort,
-    LangIsActive,
-    LangCreatedAt,
-    LangUpdatedAt,
-    LangDeletedAt,
-} from '../../domain/value-objects';
 import { ILangRepository } from '../../domain/lang.repository';
 import { CommonLang } from '../../domain/lang.aggregate';
+import {
+	LangCreatedAt,
+	LangCustomCode,
+	LangDeletedAt,
+	LangDir,
+	LangId,
+	LangIetf,
+	LangImage,
+	LangIsActive,
+	LangIso6392,
+	LangIso6393,
+	LangName,
+	LangSort,
+	LangUpdatedAt,
+} from '../../domain/value-objects';
 
 @Injectable()
 export class CreateLangService
@@ -60,7 +60,12 @@ export class CreateLangService
             null, // deletedAt
         );
 
-        await this.repository.create(lang, { createOptions: cQMetadata?.repositoryOptions });
+        await this.repository.create(
+            lang,
+            {
+                createOptions: cQMetadata?.repositoryOptions,
+            },
+        );
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const langRegister = this.publisher.mergeObjectContext(

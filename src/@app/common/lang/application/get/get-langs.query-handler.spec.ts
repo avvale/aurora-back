@@ -34,10 +34,10 @@ describe('GetLangsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<GetLangsQueryHandler>(GetLangsQueryHandler);
-        service         = module.get<GetLangsService>(GetLangsService);
-        repository      = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
-        mapper          = new LangMapper();
+        queryHandler = module.get<GetLangsQueryHandler>(GetLangsQueryHandler);
+        service = module.get<GetLangsService>(GetLangsService);
+        repository = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
+        mapper = new LangMapper();
     });
 
     describe('main', () =>

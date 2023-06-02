@@ -25,8 +25,8 @@ describe('DeleteLangsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<DeleteLangsCommandHandler>(DeleteLangsCommandHandler);
-        service         = module.get<DeleteLangsService>(DeleteLangsService);
+        commandHandler = module.get<DeleteLangsCommandHandler>(DeleteLangsCommandHandler);
+        service = module.get<DeleteLangsService>(DeleteLangsService);
     });
 
     describe('main', () =>

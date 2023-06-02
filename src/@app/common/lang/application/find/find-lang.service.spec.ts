@@ -31,9 +31,9 @@ describe('FindLangService', () =>
         })
             .compile();
 
-        service         = module.get(FindLangService);
-        repository      = module.get(ILangRepository);
-        mockRepository  = module.get(MockLangRepository);
+        service = module.get(FindLangService);
+        repository = module.get(ILangRepository);
+        mockRepository = module.get(MockLangRepository);
     });
 
     describe('main', () =>

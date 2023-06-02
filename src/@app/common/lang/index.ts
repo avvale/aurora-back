@@ -3,6 +3,7 @@ import { CreateLangCommandHandler } from './application/create/create-lang.comma
 import { CreateLangsCommandHandler } from './application/create/create-langs.command-handler';
 import { UpdateLangByIdCommandHandler } from './application/update/update-lang-by-id.command-handler';
 import { UpdateLangsCommandHandler } from './application/update/update-langs.command-handler';
+import { UpsertLangCommandHandler } from './application/upsert/upsert-lang.command-handler';
 import { DeleteLangByIdCommandHandler } from './application/delete/delete-lang-by-id.command-handler';
 import { DeleteLangsCommandHandler } from './application/delete/delete-langs.command-handler';
 
@@ -11,6 +12,7 @@ import { PaginateLangsQueryHandler } from './application/paginate/paginate-langs
 import { GetLangsQueryHandler } from './application/get/get-langs.query-handler';
 import { FindLangQueryHandler } from './application/find/find-lang.query-handler';
 import { FindLangByIdQueryHandler } from './application/find/find-lang-by-id.query-handler';
+import { RawSQLLangsQueryHandler } from './application/raw-sql/raw-sql-langs.query-handler';
 
 // events
 import { CreatedLangEventHandler } from './application/events/created-lang.event-handler';
@@ -27,8 +29,10 @@ import { PaginateLangsService } from './application/paginate/paginate-langs.serv
 import { GetLangsService } from './application/get/get-langs.service';
 import { FindLangService } from './application/find/find-lang.service';
 import { FindLangByIdService } from './application/find/find-lang-by-id.service';
+import { RawSQLLangsService } from './application/raw-sql/raw-sql-langs.service';
 import { UpdateLangByIdService } from './application/update/update-lang-by-id.service';
 import { UpdateLangsService } from './application/update/update-langs.service';
+import { UpsertLangService } from './application/upsert/upsert-lang.service';
 import { DeleteLangByIdService } from './application/delete/delete-lang-by-id.service';
 import { DeleteLangsService } from './application/delete/delete-langs.service';
 
@@ -48,6 +52,7 @@ export const CommonLangHandlers = [
     CreateLangsCommandHandler,
     UpdateLangByIdCommandHandler,
     UpdateLangsCommandHandler,
+    UpsertLangCommandHandler,
     DeleteLangByIdCommandHandler,
     DeleteLangsCommandHandler,
 
@@ -56,6 +61,7 @@ export const CommonLangHandlers = [
     GetLangsQueryHandler,
     FindLangQueryHandler,
     FindLangByIdQueryHandler,
+    RawSQLLangsQueryHandler,
 
     // events
     CreatedLangEventHandler,
@@ -73,8 +79,10 @@ export const CommonLangServices = [
     GetLangsService,
     FindLangService,
     FindLangByIdService,
+    RawSQLLangsService,
     UpdateLangByIdService,
     UpdateLangsService,
+    UpsertLangService,
     DeleteLangByIdService,
     DeleteLangsService,
 ];

@@ -43,7 +43,7 @@ export class LangMapper implements IMapper
     {
         if (!Array.isArray(langs)) return;
 
-        return langs.map(lang  => this.makeAggregate(lang, cQMetadata));
+        return langs.map(lang => this.makeAggregate(lang, cQMetadata));
     }
 
     /**

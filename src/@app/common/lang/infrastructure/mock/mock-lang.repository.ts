@@ -17,7 +17,7 @@ import {
     LangDeletedAt,
 } from '@app/common/lang/domain/value-objects';
 import { CommonLang } from '../../domain/lang.aggregate';
-import { langs } from '../seeds/lang.seed';
+import { langs } from './mock-lang.data';
 
 @Injectable()
 export class MockLangRepository extends MockRepository<CommonLang> implements ILangRepository

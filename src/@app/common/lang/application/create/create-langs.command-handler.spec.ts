@@ -2,7 +2,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { CreateLangsCommandHandler } from './create-langs.command-handler';
 import { CreateLangsCommand } from './create-langs.command';
 import { CreateLangsService } from './create-langs.service';
@@ -27,8 +27,8 @@ describe('CreateLangsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<CreateLangsCommandHandler>(CreateLangsCommandHandler);
-        service         = module.get<CreateLangsService>(CreateLangsService);
+        commandHandler = module.get<CreateLangsCommandHandler>(CreateLangsCommandHandler);
+        service = module.get<CreateLangsService>(CreateLangsService);
     });
 
     describe('main', () =>

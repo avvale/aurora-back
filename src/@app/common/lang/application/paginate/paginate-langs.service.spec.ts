@@ -31,9 +31,9 @@ describe('PaginateLangsService', () =>
         })
             .compile();
 
-        service         = module.get(PaginateLangsService);
-        repository      = module.get(ILangRepository);
-        mockRepository  = module.get(MockLangRepository);
+        service = module.get(PaginateLangsService);
+        repository = module.get(ILangRepository);
+        mockRepository = module.get(MockLangRepository);
     });
 
     describe('main', () =>

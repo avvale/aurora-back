@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { CreateLangService } from './create-lang.service';
 import {
     LangId,
@@ -49,9 +49,9 @@ describe('CreateLangService', () =>
         })
             .compile();
 
-        service         = module.get(CreateLangService);
-        repository      = module.get(ILangRepository);
-        mockRepository  = module.get(MockLangRepository);
+        service = module.get(CreateLangService);
+        repository = module.get(ILangRepository);
+        mockRepository = module.get(MockLangRepository);
     });
 
     describe('main', () =>

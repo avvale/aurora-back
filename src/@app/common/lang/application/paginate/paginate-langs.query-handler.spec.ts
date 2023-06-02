@@ -35,10 +35,10 @@ describe('PaginateLangsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<PaginateLangsQueryHandler>(PaginateLangsQueryHandler);
-        service         = module.get<PaginateLangsService>(PaginateLangsService);
-        repository      = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
-        mapper          = new LangMapper();
+        queryHandler = module.get<PaginateLangsQueryHandler>(PaginateLangsQueryHandler);
+        service = module.get<PaginateLangsService>(PaginateLangsService);
+        repository = <MockLangRepository>module.get<ILangRepository>(ILangRepository);
+        mapper = new LangMapper();
     });
 
     describe('main', () =>

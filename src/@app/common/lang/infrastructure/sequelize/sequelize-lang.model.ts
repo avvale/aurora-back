@@ -1,11 +1,143 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne, Unique, Index } from 'sequelize-typescript';
+import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 
-@Table({ modelName: 'CommonLang', freezeTableName: true, timestamps: false })
+@Table({
+    modelName: 'CommonLang',
+    freezeTableName: true,
+    timestamps: false,
+    indexes: [
+		{
+			fields: ['iso6392'],
+			unique: false,
+		},
+		{
+			fields: ['iso6393'],
+			unique: false,
+		},
+		{
+			fields: ['ietf'],
+			unique: false,
+		},
+		{
+			fields: ['customCode'],
+			unique: false,
+		},
+
+    ],
+})
 export class CommonLangModel extends Model<CommonLangModel>
 {
+    @AfterCreate
+    static auditingCreate(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.CREATED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterBulkCreate
+    static auditingBulkCreate(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.BULK_CREATED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterUpdate
+    static auditingUpdate(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.UPDATED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterBulkUpdate
+    static auditingBulkUpdate(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_UPDATED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterDestroy
+    static auditingDestroy(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.DELETED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterBulkDestroy
+    static auditingBulkDestroy(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_DELETED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterRestore
+    static auditingRestore(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.RESTORED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterBulkRestore
+    static auditingBulkRestore(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_RESTORED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
+    @AfterUpsert
+    static auditingUpsert(instance: CommonLangModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.UPSERTED,
+            '@app/common/lang/infrastructure/sequelize/sequelize-lang.model',
+            'CommonLangModel',
+        );
+    }
+
     @Column({
         field: 'id',
         primaryKey: true,
@@ -28,7 +160,6 @@ export class CommonLangModel extends Model<CommonLangModel>
     })
     image: string;
 
-    @Index
     @Column({
         field: 'iso6392',
         allowNull: false,
@@ -36,7 +167,6 @@ export class CommonLangModel extends Model<CommonLangModel>
     })
     iso6392: string;
 
-    @Index
     @Column({
         field: 'iso6393',
         allowNull: false,
@@ -44,7 +174,6 @@ export class CommonLangModel extends Model<CommonLangModel>
     })
     iso6393: string;
 
-    @Index
     @Column({
         field: 'ietf',
         allowNull: false,
@@ -52,7 +181,6 @@ export class CommonLangModel extends Model<CommonLangModel>
     })
     ietf: string;
 
-    @Index
     @Column({
         field: 'customCode',
         allowNull: true,

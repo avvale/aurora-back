@@ -2,7 +2,7 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangCustomCode extends StringValueObject
 {
-    public readonly type: 'LangCustomCode';
+    public readonly type: string = 'LangCustomCode';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {

@@ -33,9 +33,9 @@ describe('DeleteLangsService', () =>
         })
             .compile();
 
-        service         = module.get(DeleteLangsService);
-        repository      = module.get(ILangRepository);
-        mockRepository  = module.get(MockLangRepository);
+        service = module.get(DeleteLangsService);
+        repository = module.get(ILangRepository);
+        mockRepository = module.get(MockLangRepository);
     });
 
     describe('main', () =>

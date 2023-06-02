@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { DeleteLangByIdCommandHandler } from './delete-lang-by-id.command-handler';
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { DeleteLangByIdCommand } from './delete-lang-by-id.command';
 import { DeleteLangByIdService } from './delete-lang-by-id.service';
 
@@ -26,8 +26,8 @@ describe('DeleteLangByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<DeleteLangByIdCommandHandler>(DeleteLangByIdCommandHandler);
-        service         = module.get<DeleteLangByIdService>(DeleteLangByIdService);
+        commandHandler = module.get<DeleteLangByIdCommandHandler>(DeleteLangByIdCommandHandler);
+        service = module.get<DeleteLangByIdService>(DeleteLangByIdService);
     });
 
     describe('main', () =>

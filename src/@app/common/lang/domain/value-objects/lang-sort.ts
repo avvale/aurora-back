@@ -2,7 +2,7 @@ import { SmallintValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class LangSort extends SmallintValueObject
 {
-    public readonly type: 'LangSort';
+    public readonly type: string = 'LangSort';
 
     constructor(value: number, validationRules: ValidationRules = {})
     {

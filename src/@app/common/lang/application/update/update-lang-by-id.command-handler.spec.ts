@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { UpdateLangByIdCommandHandler } from './update-lang-by-id.command-handler';
 import { UpdateLangByIdCommand } from './update-lang-by-id.command';
 import { UpdateLangByIdService } from './update-lang-by-id.service';
@@ -26,8 +26,8 @@ describe('UpdateLangByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<UpdateLangByIdCommandHandler>(UpdateLangByIdCommandHandler);
-        service         = module.get<UpdateLangByIdService>(UpdateLangByIdService);
+        commandHandler = module.get<UpdateLangByIdCommandHandler>(UpdateLangByIdCommandHandler);
+        service = module.get<UpdateLangByIdService>(UpdateLangByIdService);
     });
 
     describe('main', () =>
