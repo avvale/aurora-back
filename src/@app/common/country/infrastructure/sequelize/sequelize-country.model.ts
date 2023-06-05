@@ -12,11 +12,6 @@ import { CommonCountryI18nModel } from './sequelize-country-i18n.model';
     timestamps: false,
     indexes: [
 		{
-			fields: ['countryId', 'langId'],
-			unique: true,
-			name: 'uniqueLangId',
-		},
-		{
 			fields: ['iso3166Alpha2'],
 			unique: false,
 		},

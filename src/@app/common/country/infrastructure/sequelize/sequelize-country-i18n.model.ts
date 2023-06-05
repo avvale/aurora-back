@@ -16,22 +16,6 @@ import { CommonLangModel } from '@app/common/lang/infrastructure/sequelize/seque
 			unique: true,
 			name: 'uniqueLangId',
 		},
-		{
-			fields: ['iso3166Alpha2'],
-			unique: false,
-		},
-		{
-			fields: ['iso3166Alpha3'],
-			unique: false,
-		},
-		{
-			fields: ['iso3166Numeric'],
-			unique: false,
-		},
-		{
-			fields: ['customCode'],
-			unique: false,
-		},
 
     ],
 })
