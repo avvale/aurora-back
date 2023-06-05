@@ -1,33 +1,33 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurorajs.dev/core';
-import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
-    CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryAvailableLangs,
-    CountryCreatedAt,
-    CountryUpdatedAt,
-    CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
-    CountryI18nAdministrativeAreaLevel1,
-    CountryI18nAdministrativeAreaLevel2,
-    CountryI18nAdministrativeAreaLevel3,
-} from '../../domain/value-objects';
 import { ICountryRepository } from '../../domain/country.repository';
-import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
 import { CommonCountry } from '../../domain/country.aggregate';
+import {
+	CountryAdministrativeAreas,
+	CountryAvailableLangs,
+	CountryCreatedAt,
+	CountryCustomCode,
+	CountryDeletedAt,
+	CountryI18nAdministrativeAreaLevel1,
+	CountryI18nAdministrativeAreaLevel2,
+	CountryI18nAdministrativeAreaLevel3,
+	CountryI18nLangId,
+	CountryI18nName,
+	CountryI18nSlug,
+	CountryId,
+	CountryImage,
+	CountryIso3166Alpha2,
+	CountryIso3166Alpha3,
+	CountryIso3166Numeric,
+	CountryLatitude,
+	CountryLongitude,
+	CountryPrefix,
+	CountrySort,
+	CountryUpdatedAt,
+	CountryZoom,
+} from '../../domain/value-objects';
+import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -92,13 +92,28 @@ export class CreateCountryService
         try
         {
             // try get object from database
-            const countryInDB = await this.repository.findById(country.id, { constraint: { include: ['countryI18n']}});
+            const countryInDB = await this.repository.findById(
+                country.id,
+                {
+                    constraint: {
+                        include: ['countryI18n'],
+                    },
+                },
+            );
 
+            // eslint-disable-next-line max-len
             if (countryInDB.availableLangs.value.includes(country.langId.value)) throw new ConflictException(`Error to create CommonCountry, the id ${country['id']['value']} already exist in database`);
 
-            // add new lang id to data lang field to create or update field
+            // add new language id to data lang field to create or update field
             country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [country.langId.value]));
-            await this.repository.update(country, { dataFactory: aggregate => _.pick(aggregate.toI18nDTO(), 'id', 'availableLangs'), updateOptions: cQMetadata?.repositoryOptions });
+            await this.repository
+                .update(
+                    country,
+                    {
+                        dataFactory: aggregate => _.pick(aggregate.toI18nDTO(), 'id', 'availableLangs'),
+                        updateOptions: cQMetadata?.repositoryOptions
+                    },
+                );
         }
         catch (error)
         {
@@ -118,7 +133,7 @@ export class CreateCountryService
                     where: {
                         countryId: aggregate['id']['value'],
                         langId: aggregate['langId']['value'],
-                    }
+                    },
                 }),
                 createOptions: cQMetadata?.repositoryOptions,
             }

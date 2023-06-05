@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 // custom items
 import { CommonCreateCountriesHandler } from './common-create-countries.handler';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonCreateCountriesHandler', () =>
 {
@@ -32,9 +32,9 @@ describe('CommonCreateCountriesHandler', () =>
         })
             .compile();
 
-        handler     = module.get<CommonCreateCountriesHandler>(CommonCreateCountriesHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<CommonCreateCountriesHandler>(CommonCreateCountriesHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>

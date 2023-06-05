@@ -26,7 +26,7 @@ import {
     CountryI18nAdministrativeAreaLevel3,
 } from '@app/common/country/domain/value-objects';
 import { CommonCountry } from '../../domain/country.aggregate';
-import { countries } from '../seeds/country.seed';
+import { countries } from './mock-country.data';
 
 @Injectable()
 export class MockCountryRepository extends MockRepository<CommonCountry> implements ICountryRepository

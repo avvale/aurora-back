@@ -2,7 +2,7 @@ import { IntValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class CountryZoom extends IntValueObject
 {
-    public readonly type: 'CountryZoom';
+    public readonly type: string = 'CountryZoom';
 
     constructor(value: number, validationRules: ValidationRules = {})
     {

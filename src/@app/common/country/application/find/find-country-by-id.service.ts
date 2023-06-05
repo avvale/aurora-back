@@ -11,8 +11,18 @@ export class FindCountryByIdService
         private readonly repository: ICountryRepository,
     ) {}
 
-    async main(id: CountryId, constraint?: QueryStatement, cQMetadata?: CQMetadata): Promise<CommonCountry>
+    async main(
+        id: CountryId,
+        constraint?: QueryStatement,
+        cQMetadata?: CQMetadata,
+    ): Promise<CommonCountry>
     {
-        return await this.repository.findById(id, { constraint, cQMetadata });
+        return await this.repository.findById(
+            id,
+            {
+                constraint,
+                cQMetadata,
+            },
+        );
     }
 }

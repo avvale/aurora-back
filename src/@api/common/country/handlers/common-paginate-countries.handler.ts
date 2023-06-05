@@ -21,6 +21,12 @@ export class CommonPaginateCountriesHandler
     ): Promise<Pagination>
     {
         constraint = await this.addI18nConstraintService.main(constraint, 'countryI18n', contentLanguage);
-        return await this.queryBus.ask(new PaginateCountriesQuery(queryStatement, constraint, { timezone }));
+        return await this.queryBus.ask(new PaginateCountriesQuery(
+            queryStatement,
+            constraint,
+            {
+                timezone,
+            },
+        ));
     }
 }

@@ -21,7 +21,18 @@ export class CommonGetCountriesHandler
         contentLanguage?: string,
     ): Promise<CommonCountry[] | CommonCountryDto[]>
     {
-        constraint = await this.addI18nConstraintService.main(constraint, 'countryI18n', contentLanguage, { defineDefaultLanguage: false });
-        return await this.queryBus.ask(new GetCountriesQuery(queryStatement, constraint, { timezone }));
+        constraint = await this.addI18nConstraintService.main(
+            constraint,
+            'countryI18n',
+            contentLanguage,
+            { defineDefaultLanguage: false },
+        );
+        return await this.queryBus.ask(new GetCountriesQuery(
+            queryStatement,
+            constraint,
+            {
+                timezone,
+            },
+        ));
     }
 }

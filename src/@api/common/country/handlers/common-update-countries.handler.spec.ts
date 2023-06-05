@@ -10,7 +10,7 @@ import { CommonUpdateCountriesInput } from '@api/graphql';
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonUpdateCountriesHandler', () =>
 {
@@ -55,9 +55,9 @@ describe('CommonUpdateCountriesHandler', () =>
         })
             .compile();
 
-        handler     = module.get<CommonUpdateCountriesHandler>(CommonUpdateCountriesHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<CommonUpdateCountriesHandler>(CommonUpdateCountriesHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonUpdateCountriesHandler should be defined', () =>

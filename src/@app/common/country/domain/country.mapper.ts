@@ -53,7 +53,7 @@ export class CountryMapper implements IMapper
     {
         if (!Array.isArray(countries)) return;
 
-        return countries.map(country  => this.makeAggregate(country, cQMetadata));
+        return countries.map(country => this.makeAggregate(country, cQMetadata));
     }
 
     /**
@@ -101,7 +101,7 @@ export class CountryMapper implements IMapper
             new CountryI18nAdministrativeAreaLevel1(country.countryI18n.administrativeAreaLevel1, { undefinable: true }),
             new CountryI18nAdministrativeAreaLevel2(country.countryI18n.administrativeAreaLevel2, { undefinable: true }),
             new CountryI18nAdministrativeAreaLevel3(country.countryI18n.administrativeAreaLevel3, { undefinable: true }),
-            this.options.eagerLoading ? new LangMapper({ eagerLoading: true }).mapModelToAggregate(country.countryI18n.lang) : undefined,
+            this.options.eagerLoading ? new LangMapper({ eagerLoading: true }).mapModelToAggregate(country.countryI18n.lang, cQMetadata) : undefined,
         );
     }
 

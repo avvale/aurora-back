@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Controller, Put, Body } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { FormatLangCode, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auditing, AuditingMeta, FormatLangCode, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { CommonCountryDto, CommonUpdateCountriesDto } from '../dto';
 
 // @app
@@ -23,6 +23,7 @@ export class CommonUpdateCountriesController
         @Body('query') queryStatement?: QueryStatement,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
+        @Auditing() auditing?: AuditingMeta,
     )
     {
         return await this.handler.main(
@@ -30,6 +31,7 @@ export class CommonUpdateCountriesController
             queryStatement,
             constraint,
             timezone,
+            auditing,
         );
     }
 }

@@ -186,6 +186,72 @@ export interface AuditingUpdateSideEffectsInput {
     rollbackSideEffectId?: Nullable<string>;
 }
 
+export interface CommonCreateCountryInput {
+    id: string;
+    iso3166Alpha2: GraphQLString;
+    iso3166Alpha3: GraphQLString;
+    iso3166Numeric: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId: string;
+    name: GraphQLString;
+    slug: GraphQLString;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonUpdateCountryByIdInput {
+    id: string;
+    iso3166Alpha2?: Nullable<GraphQLString>;
+    iso3166Alpha3?: Nullable<GraphQLString>;
+    iso3166Numeric?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonUpdateCountriesInput {
+    id?: Nullable<string>;
+    iso3166Alpha2?: Nullable<GraphQLString>;
+    iso3166Alpha3?: Nullable<GraphQLString>;
+    iso3166Numeric?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    langId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
 export interface CommonCreateLangInput {
     id: string;
     name: GraphQLString;
@@ -657,6 +723,10 @@ export interface IQuery {
     auditingFindSideEffectById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingGetSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingPaginateSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonPaginateCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindLang(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonFindLangById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonGetLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
@@ -739,6 +809,13 @@ export interface IMutation {
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
+    commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonUpdateCountries(payload: CommonUpdateCountriesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonUpsertCountry(payload: CommonUpdateCountryByIdInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonDeleteCountryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
+    commonDeleteCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
     commonCreateLang(payload: CommonCreateLangInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonCreateLangs(payload: Nullable<CommonCreateLangInput>[]): boolean | Promise<boolean>;
     commonUpdateLangById(payload: CommonUpdateLangByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
@@ -861,6 +938,32 @@ export interface AuditingSideEffect {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonCountry {
+    id: string;
+    iso3166Alpha2: GraphQLString;
+    iso3166Alpha3: GraphQLString;
+    iso3166Numeric: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    prefix?: Nullable<GraphQLString>;
+    image?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    administrativeAreas?: Nullable<JSON>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    availableLangs?: Nullable<JSON>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+    langId: string;
+    lang?: Nullable<CommonLang>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    administrativeAreaLevel1?: Nullable<GraphQLString>;
+    administrativeAreaLevel2?: Nullable<GraphQLString>;
+    administrativeAreaLevel3?: Nullable<GraphQLString>;
 }
 
 export interface CommonLang {

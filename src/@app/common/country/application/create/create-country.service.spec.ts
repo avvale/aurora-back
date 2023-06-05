@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 import { CreateCountryService } from './create-country.service';
 import {
     CountryId,
@@ -66,10 +66,10 @@ describe('CreateCountryService', () =>
         })
             .compile();
 
-        service         = module.get(CreateCountryService);
-        repository      = module.get(ICountryRepository);
-        repositoryI18n  = module.get(ICountryI18nRepository);
-        mockRepository  = module.get(MockCountryRepository);
+        service = module.get(CreateCountryService);
+        repository = module.get(ICountryRepository);
+        repositoryI18n = module.get(ICountryI18nRepository);
+        mockRepository = module.get(MockCountryRepository);
     });
 
     describe('main', () =>

@@ -2,7 +2,7 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class CountryIso3166Alpha3 extends StringValueObject
 {
-    public readonly type: 'CountryIso3166Alpha3';
+    public readonly type: string = 'CountryIso3166Alpha3';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
@@ -11,7 +11,6 @@ export class CountryIso3166Alpha3 extends StringValueObject
             nullable   : false,
             undefinable: false,
             length     : 3,
-
         }, validationRules));
     }
 }

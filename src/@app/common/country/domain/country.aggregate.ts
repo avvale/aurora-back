@@ -290,7 +290,6 @@ export class CommonCountry extends AggregateRoot
         };
     }
 
-
     toI18nDTO(): LiteralObject
     {
         return {
@@ -305,6 +304,38 @@ export class CommonCountry extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
+        };
+    }
+
+    // function called to get data for repository side effect methods
+    toRepository(): LiteralObject
+    {
+        return {
+            id: this.id.value,
+            iso3166Alpha2: this.iso3166Alpha2.value,
+            iso3166Alpha3: this.iso3166Alpha3.value,
+            iso3166Numeric: this.iso3166Numeric.value,
+            customCode: this.customCode?.value,
+            prefix: this.prefix?.value,
+            image: this.image?.value,
+            sort: this.sort?.value,
+            administrativeAreas: this.administrativeAreas?.value,
+            latitude: this.latitude?.value,
+            longitude: this.longitude?.value,
+            zoom: this.zoom?.value,
+            availableLangs: this.availableLangs?.value,
+            createdAt: this.createdAt?.value,
+            updatedAt: this.updatedAt?.value,
+            deletedAt: this.deletedAt?.value,
+            langId: this.langId.value,
+            name: this.name.value,
+            slug: this.slug.value,
+            administrativeAreaLevel1: this.administrativeAreaLevel1?.value,
+            administrativeAreaLevel2: this.administrativeAreaLevel2?.value,
+            administrativeAreaLevel3: this.administrativeAreaLevel3?.value,
+
+            // eager relationship
+            lang: this.lang?.toDTO(),
         };
     }
 }

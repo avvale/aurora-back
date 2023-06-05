@@ -31,9 +31,9 @@ describe('GetCountriesService', () =>
         })
             .compile();
 
-        service         = module.get(GetCountriesService);
-        repository      = module.get(ICountryRepository);
-        mockRepository  = module.get(MockCountryRepository);
+        service = module.get(GetCountriesService);
+        repository = module.get(ICountryRepository);
+        mockRepository = module.get(MockCountryRepository);
     });
 
     describe('main', () =>

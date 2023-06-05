@@ -94,8 +94,22 @@ export class UpdateCountryByIdService
         delete country.availableLangs;
 
         // update by id
-        await this.repository.updateById(country, { constraint, cQMetadata, updateByIdOptions: cQMetadata?.repositoryOptions });
-        await this.repositoryI18n.updateById(country, { constraint, cQMetadata, updateByIdOptions: cQMetadata?.repositoryOptions, dataFactory: (aggregate: CommonCountry) => aggregate.toI18nDTO(), findArguments: { langId: country.langId.value, countryId: country.id.value }});
+        await this.repository.updateById(country, {
+            constraint,
+            cQMetadata,
+            updateByIdOptions: cQMetadata?.repositoryOptions,
+        });
+
+        await this.repositoryI18n.updateById(country, {
+            constraint,
+            cQMetadata,
+            updateByIdOptions: cQMetadata?.repositoryOptions,
+            dataFactory      : (aggregate: CommonCountry) => aggregate.toI18nDTO(),
+            findArguments    : {
+                langId: country.langId.value,
+                countryId: country.id.value,
+            },
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const countryRegister = this.publisher.mergeObjectContext(

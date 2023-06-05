@@ -18,7 +18,7 @@ export class CommonFindCountryByIdController
     @Post(':id')
     @HttpCode(200)
     @ApiOperation({ summary: 'Find country by id' })
-    @ApiOkResponse({ description: 'The record has been successfully created.', type: CommonCountryDto })
+    @ApiOkResponse({ description: 'The record has been successfully requested.', type: CommonCountryDto })
     async main(
         @Param('id') id: string,
         @Body('constraint') constraint?: QueryStatement,

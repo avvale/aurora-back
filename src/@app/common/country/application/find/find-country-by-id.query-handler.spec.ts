@@ -3,7 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 // custom items
 import { FindCountryByIdQueryHandler } from './find-country-by-id.query-handler';
 import { MockCountryRepository } from '@app/common/country/infrastructure/mock/mock-country.repository';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 import { ICountryRepository } from '@app/common/country/domain/country.repository';
 import { CountryMapper } from '@app/common/country/domain/country.mapper';
 import { FindCountryByIdQuery } from './find-country-by-id.query';
@@ -35,10 +35,10 @@ describe('FindCountryByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindCountryByIdQueryHandler>(FindCountryByIdQueryHandler);
-        service         = module.get<FindCountryByIdService>(FindCountryByIdService);
-        repository      = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
-        mapper          = new CountryMapper();
+        queryHandler = module.get<FindCountryByIdQueryHandler>(FindCountryByIdQueryHandler);
+        service = module.get<FindCountryByIdService>(FindCountryByIdService);
+        repository = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
+        mapper = new CountryMapper();
     });
 
     describe('main', () =>

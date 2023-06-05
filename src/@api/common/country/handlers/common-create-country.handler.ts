@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AddI18nConstraintService, FormatLangCode, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { AuditingMeta, AddI18nConstraintService, FormatLangCode, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 // @app
 import { FindCountryByIdQuery } from '@app/common/country/application/find/find-country-by-id.query';
@@ -19,11 +19,32 @@ export class CommonCreateCountryHandler
     async main(
         payload: CommonCreateCountryInput | CommonCreateCountryDto,
         timezone?: string,
+        auditing?: AuditingMeta,
     ): Promise<CommonCountry | CommonCountryDto>
     {
-        await this.commandBus.dispatch(new CreateCountryCommand(payload, { timezone }));
+        await this.commandBus.dispatch(new CreateCountryCommand(
+            payload,
+            {
+                timezone,
+                repositoryOptions: {
+                    auditing,
+                },
+            },
+        ));
 
-        const constraint = await this.addI18nConstraintService.main({}, 'countryI18n', payload.langId, { contentLanguageFormat: FormatLangCode.ID });
-        return await this.queryBus.ask(new FindCountryByIdQuery(payload.id, constraint, { timezone }));
+        const constraint = await this.addI18nConstraintService.main(
+            {},
+            'countryI18n',
+            payload.langId,
+            { contentLanguageFormat: FormatLangCode.ID },
+        );
+
+        return await this.queryBus.ask(new FindCountryByIdQuery(
+            payload.id,
+            constraint,
+            {
+                timezone,
+            },
+        ));
     }
 }

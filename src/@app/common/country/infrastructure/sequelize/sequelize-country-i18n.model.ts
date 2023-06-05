@@ -1,12 +1,150 @@
+/* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne, Unique, Index } from 'sequelize-typescript';
+import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 import { CommonCountryModel } from '@app/common/country/infrastructure/sequelize/sequelize-country.model';
 import { CommonLangModel } from '@app/common/lang/infrastructure/sequelize/sequelize-lang.model';
 
-@Table({ modelName: 'CommonCountryI18n', freezeTableName: true, timestamps: false })
+@Table({
+    modelName: 'CommonCountryI18n',
+    freezeTableName: true,
+    timestamps: false,
+    indexes: [
+		{
+			fields: ['countryId', 'langId'],
+			unique: true,
+			name: 'uniqueLangId',
+		},
+		{
+			fields: ['iso3166Alpha2'],
+			unique: false,
+		},
+		{
+			fields: ['iso3166Alpha3'],
+			unique: false,
+		},
+		{
+			fields: ['iso3166Numeric'],
+			unique: false,
+		},
+		{
+			fields: ['customCode'],
+			unique: false,
+		},
+
+    ],
+})
 export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
 {
+    @AfterCreate
+    static auditingCreate(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.CREATED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterBulkCreate
+    static auditingBulkCreate(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.BULK_CREATED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterUpdate
+    static auditingUpdate(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.UPDATED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterBulkUpdate
+    static auditingBulkUpdate(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_UPDATED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterDestroy
+    static auditingDestroy(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.DELETED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterBulkDestroy
+    static auditingBulkDestroy(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_DELETED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterRestore
+    static auditingRestore(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.RESTORED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterBulkRestore
+    static auditingBulkRestore(options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            null,
+            options,
+            AuditingSideEffectEvent.BULK_RESTORED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
+    @AfterUpsert
+    static auditingUpsert(instance: CommonCountryModel, options): void
+    {
+        SequelizeAuditingAgent.registerSideEffect(
+            instance,
+            options,
+            AuditingSideEffectEvent.UPSERTED,
+            '@app/common/country/infrastructure/sequelize/sequelize-country.model',
+            'CommonCountryModel',
+        );
+    }
+
     @Column({
         field: 'id',
         primaryKey: true,
@@ -16,19 +154,22 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
     id: string;
 
     @ForeignKey(() => CommonCountryModel)
-    @Unique('uniqueLangId')
     @Column({
         field: 'countryId',
         allowNull: false,
         type: DataTypes.UUID,
+        references: {
+            key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'NO ACTION',
     })
     countryId: string;
 
-    @BelongsTo(() => CommonCountryModel, { constraints: false })
+    @BelongsTo(() => CommonCountryModel)
     country: CommonCountryModel;
 
     @ForeignKey(() => CommonLangModel)
-    @Unique('uniqueLangId')
     @Column({
         field: 'langId',
         allowNull: false,
@@ -36,7 +177,10 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
     })
     langId: string;
 
-    @BelongsTo(() => CommonLangModel, { constraints: false })
+    @BelongsTo(() => CommonLangModel, {
+        constraints: false,
+        foreignKey: 'langId',
+    })
     lang: CommonLangModel;
 
     @Column({

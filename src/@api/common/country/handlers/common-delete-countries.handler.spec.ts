@@ -9,7 +9,7 @@ import { CommonDeleteCountriesHandler } from './common-delete-countries.handler'
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonDeleteCountriesHandler', () =>
 {
@@ -54,9 +54,9 @@ describe('CommonDeleteCountriesHandler', () =>
         })
             .compile();
 
-        handler    = module.get<CommonDeleteCountriesHandler>(CommonDeleteCountriesHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<CommonDeleteCountriesHandler>(CommonDeleteCountriesHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonDeleteCountriesHandler should be defined', () =>

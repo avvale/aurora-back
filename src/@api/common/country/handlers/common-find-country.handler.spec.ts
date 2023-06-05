@@ -9,7 +9,7 @@ import { CommonFindCountryHandler } from './common-find-country.handler';
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonFindCountryHandler', () =>
 {
@@ -54,9 +54,9 @@ describe('CommonFindCountryHandler', () =>
         })
             .compile();
 
-        handler    = module.get<CommonFindCountryHandler>(CommonFindCountryHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<CommonFindCountryHandler>(CommonFindCountryHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonFindCountryHandler should be defined', () =>

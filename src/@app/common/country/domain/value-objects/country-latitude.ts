@@ -2,7 +2,7 @@ import { DecimalValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class CountryLatitude extends DecimalValueObject
 {
-    public readonly type: 'CountryLatitude';
+    public readonly type: string = 'CountryLatitude';
 
     constructor(value: number, validationRules: ValidationRules = {})
     {

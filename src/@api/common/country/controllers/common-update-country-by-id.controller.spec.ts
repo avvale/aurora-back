@@ -9,7 +9,7 @@ import { CommonUpdateCountryByIdHandler } from '../handlers/common-update-countr
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonUpdateCountryByIdController', () =>
 {
@@ -47,7 +47,7 @@ describe('CommonUpdateCountryByIdController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return a country created', async () =>
+        test('should return a country updated', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(countries[0])));
             expect(await controller.main(countries[0])).toBe(countries[0]);

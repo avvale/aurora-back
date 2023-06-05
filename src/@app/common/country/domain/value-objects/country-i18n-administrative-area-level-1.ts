@@ -2,7 +2,7 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class CountryI18nAdministrativeAreaLevel1 extends StringValueObject
 {
-    public readonly type: 'CountryI18nAdministrativeAreaLevel1';
+    public readonly type: string = 'CountryI18nAdministrativeAreaLevel1';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {

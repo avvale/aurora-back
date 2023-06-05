@@ -2,7 +2,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 import { CreateCountriesCommandHandler } from './create-countries.command-handler';
 import { CreateCountriesCommand } from './create-countries.command';
 import { CreateCountriesService } from './create-countries.service';
@@ -27,8 +27,8 @@ describe('CreateCountriesCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<CreateCountriesCommandHandler>(CreateCountriesCommandHandler);
-        service         = module.get<CreateCountriesService>(CreateCountriesService);
+        commandHandler = module.get<CreateCountriesCommandHandler>(CreateCountriesCommandHandler);
+        service = module.get<CreateCountriesService>(CreateCountriesService);
     });
 
     describe('main', () =>

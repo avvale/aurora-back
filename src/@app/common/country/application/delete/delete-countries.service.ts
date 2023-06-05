@@ -22,15 +22,19 @@ export class DeleteCountriesService
     ): Promise<void>
     {
         // get objects to delete
-        const countries = await this.repository.get({ queryStatement, constraint, cQMetadata });
+        const countries = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         await this.repositoryI18n.delete({
             queryStatement: {
                 where: {
-                    countryId: { [Operator.in]: countries.map(item => item.id) }
+                    countryId: { [Operator.in]: countries.map(item => item.id) },
                 },
             },
-            deleteOptions: cQMetadata?.repositoryOptions
+            deleteOptions: cQMetadata?.repositoryOptions,
         });
         await this.repository.delete({
             queryStatement,

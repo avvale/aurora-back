@@ -5,6 +5,7 @@ moduleNames: countries
 aggregateName: CommonCountry
 hasOAuth: false
 hasTenant: false
+hasAuditing: true
 aggregateProperties:
   - name: id
     type: id
@@ -133,3 +134,4 @@ aggregateI18nProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
+additionalApis: []

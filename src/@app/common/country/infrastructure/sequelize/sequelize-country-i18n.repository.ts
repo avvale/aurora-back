@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, LiteralObject } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
+import { AuditingRunner, ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
 import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
 import { CommonCountry } from '../../domain/country.aggregate';
 import { CountryMapper } from '../../domain/country.mapper';
@@ -16,6 +16,7 @@ export class SequelizeCountryI18nRepository extends SequelizeRepository<CommonCo
         @InjectModel(CommonCountryI18nModel)
         public readonly repository: typeof CommonCountryI18nModel,
         public readonly criteria: ICriteria,
+        public readonly auditingRunner: AuditingRunner,
     )
     {
         super();

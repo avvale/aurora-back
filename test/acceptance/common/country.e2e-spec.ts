@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { INestApplication } from '@nestjs/common';
@@ -8,12 +9,11 @@ import { ICountryRepository } from '@app/common/country/domain/country.repositor
 import { ICountryI18nRepository } from '@app/common/country/domain/country-i18n.repository';
 import { AddI18nConstraintService } from '@aurorajs.dev/core';
 import { MockCountrySeeder } from '@app/common/country/infrastructure/mock/mock-country.seeder';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { CommonModule } from '@api/common/common.module';
 import * as request from 'supertest';
 import * as _ from 'lodash';
-
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
@@ -559,7 +559,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 36865733905624.516,
+                latitude: 12605582589725.105,
             })
             .expect(400)
             .then(res =>
@@ -574,7 +574,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 23492607017836.617,
+                longitude: 19960598854046.316,
             })
             .expect(400)
             .then(res =>
@@ -589,7 +589,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 319765352151.4302,
+                latitude: 158835777583.46213,
             })
             .expect(400)
             .then(res =>
@@ -604,7 +604,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 261496052269.8142,
+                longitude: 974303741419.6047,
             })
             .expect(400)
             .then(res =>
@@ -669,7 +669,7 @@ describe('country', () =>
                 {
                     where:
                     {
-                        id: 'fc407597-6888-4f1e-8be5-31229fb1b62f',
+                        id: 'adf98ef0-63f0-51db-8617-455b7ae32f3d',
                     },
                 },
             })
@@ -712,7 +712,7 @@ describe('country', () =>
     test('/REST:POST common/country/find/{id} - Got 404 Not Found', () =>
     {
         return request(app.getHttpServer())
-            .post('/common/country/find/8a108b12-e3fe-4d06-b26e-04bb3194db24')
+            .post('/common/country/find/31ceaeb7-8378-581c-914c-f8e31b3ab720')
             .set('Accept', 'application/json')
             .expect(404);
     });
@@ -736,7 +736,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                id: '420b1206-db4c-4962-a303-8fcfb695faa6',
+                id: '05cb3563-b462-5b52-ac18-36939eb5ea02',
             })
             .expect(404);
     });
@@ -760,7 +760,7 @@ describe('country', () =>
     test('/REST:DELETE common/country/delete/{id} - Got 404 Not Found', () =>
     {
         return request(app.getHttpServer())
-            .delete('/common/country/delete/53dab7b2-1806-45dc-88e3-6c2c24679c51')
+            .delete('/common/country/delete/45cc75d0-99f0-59f0-8bf8-19906649e782')
             .set('Accept', 'application/json')
             .expect(404);
     });
@@ -814,8 +814,8 @@ describe('country', () =>
             .then(res =>
             {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.response.statusCode).toBe(409);
-                expect(res.body.errors[0].extensions.response.message).toContain('already exist in database');
+                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(409);
+                expect(res.body.errors[0].extensions.originalError.message).toContain('already exist in database');
             });
     });
 
@@ -994,7 +994,7 @@ describe('country', () =>
                     {
                         where:
                         {
-                            id: '21527a9c-d2e4-4d54-943c-280b7d180fd8',
+                            id: '3bcba77a-3f5a-5300-b4ba-0b11262412f1',
                         },
                     },
                 },
@@ -1003,8 +1003,8 @@ describe('country', () =>
             .then(res =>
             {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.response.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.response.message).toContain('not found');
+                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
+                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
             });
     });
 
@@ -1101,15 +1101,15 @@ describe('country', () =>
                     }
                 `,
                 variables: {
-                    id: 'f330713b-71c3-4052-8251-45ee9be41fb1',
+                    id: '6f7c0d94-c718-5643-8e9f-e3a9bc89b55d',
                 },
             })
             .expect(200)
             .then(res =>
             {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.response.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.response.message).toContain('not found');
+                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
+                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
             });
     });
 
@@ -1201,7 +1201,7 @@ describe('country', () =>
                 variables: {
                     payload: {
                         ...mockData[0],
-                        id: 'eb7c8bdb-839c-486a-8608-fc7712f59181',
+                        id: '7731eef1-c23b-58fd-b194-b44e21d0a12d',
                     },
                 },
             })
@@ -1209,8 +1209,8 @@ describe('country', () =>
             .then(res =>
             {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.response.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.response.message).toContain('not found');
+                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
+                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
             });
     });
 
@@ -1359,15 +1359,15 @@ describe('country', () =>
                     }
                 `,
                 variables: {
-                    id: 'd5cce1df-85ad-4049-a607-85b45456c0b1',
+                    id: '85874859-f639-53ec-95ff-b53e4f05b1a3',
                 },
             })
             .expect(200)
             .then(res =>
             {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.response.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.response.message).toContain('not found');
+                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
+                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
             });
     });
 

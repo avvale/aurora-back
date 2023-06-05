@@ -12,7 +12,11 @@ export class PaginateCountriesQueryHandler implements IQueryHandler<PaginateCoun
 
     async execute(query: PaginateCountriesQuery): Promise<PaginationResponse>
     {
-        const { total, count, rows } = await this.paginateCountriesService.main(query.queryStatement, query.constraint, query.cQMetadata);
+        const { total, count, rows } = await this.paginateCountriesService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        );
 
         return new PaginationResponse(
             total,

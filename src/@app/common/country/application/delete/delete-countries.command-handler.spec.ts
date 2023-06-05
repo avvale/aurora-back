@@ -25,8 +25,8 @@ describe('DeleteCountriesCommandHandler', () =>
         })
             .compile();
 
-        commandHandler  = module.get<DeleteCountriesCommandHandler>(DeleteCountriesCommandHandler);
-        service         = module.get<DeleteCountriesService>(DeleteCountriesService);
+        commandHandler = module.get<DeleteCountriesCommandHandler>(DeleteCountriesCommandHandler);
+        service = module.get<DeleteCountriesService>(DeleteCountriesService);
     });
 
     describe('main', () =>

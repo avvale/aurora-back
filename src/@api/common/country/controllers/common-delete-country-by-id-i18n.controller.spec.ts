@@ -8,7 +8,7 @@ import { CommonDeleteCountryByIdI18nController } from './common-delete-country-b
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonDeleteCountryByIdI18nController', () =>
 {

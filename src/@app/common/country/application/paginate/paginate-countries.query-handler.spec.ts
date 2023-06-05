@@ -35,10 +35,10 @@ describe('PaginateCountriesQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<PaginateCountriesQueryHandler>(PaginateCountriesQueryHandler);
-        service         = module.get<PaginateCountriesService>(PaginateCountriesService);
-        repository      = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
-        mapper          = new CountryMapper();
+        queryHandler = module.get<PaginateCountriesQueryHandler>(PaginateCountriesQueryHandler);
+        service = module.get<PaginateCountriesService>(PaginateCountriesService);
+        repository = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
+        mapper = new CountryMapper();
     });
 
     describe('main', () =>

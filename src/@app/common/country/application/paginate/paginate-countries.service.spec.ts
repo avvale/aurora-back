@@ -31,9 +31,9 @@ describe('PaginateCountriesService', () =>
         })
             .compile();
 
-        service         = module.get(PaginateCountriesService);
-        repository      = module.get(ICountryRepository);
-        mockRepository  = module.get(MockCountryRepository);
+        service = module.get(PaginateCountriesService);
+        repository = module.get(ICountryRepository);
+        mockRepository = module.get(MockCountryRepository);
     });
 
     describe('main', () =>

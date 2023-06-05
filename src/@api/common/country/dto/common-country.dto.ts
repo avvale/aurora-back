@@ -1,6 +1,5 @@
 /* eslint-disable indent */
 import { ApiProperty } from '@nestjs/swagger';
-import { CommonCountryDto } from '../../../common/country/dto/common-country.dto';
 import { CommonLangDto } from '../../../common/lang/dto/common-lang.dto';
 
 export class CommonCountryDto
@@ -104,7 +103,7 @@ export class CommonCountryDto
     @ApiProperty({
         type       : String,
         description: 'langId [input here api field description]',
-        example    : 'd29dec42-081f-436d-a8be-d4d8a21abae8',
+        example    : '53805b00-dfd2-5a5e-bc41-1ad8bf9722a5',
     })
     langId: string;
 

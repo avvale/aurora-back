@@ -7,6 +7,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Cache } from 'cache-manager';
 import { CommonSeeder } from './common.seeder';
 import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, CommonLangServices } from './lang';
+import { CommonCountryControllers, CommonCountryResolvers, CommonCountryApiHandlers, CommonCountryServices } from './country';
 
 @Module({
     imports: [
@@ -17,6 +18,7 @@ import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, Comm
     ],
     controllers: [
         ...CommonLangControllers,
+        ...CommonCountryControllers
     ],
     providers: [
         CommonSeeder,
@@ -26,7 +28,10 @@ import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, Comm
         ...CommonSagas,
         ...CommonLangResolvers,
         ...CommonLangApiHandlers,
-        ...CommonLangServices
+        ...CommonLangServices,
+        ...CommonCountryResolvers,
+        ...CommonCountryApiHandlers,
+        ...CommonCountryServices
     ],
 })
 export class CommonModule

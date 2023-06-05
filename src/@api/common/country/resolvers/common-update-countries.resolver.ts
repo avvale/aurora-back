@@ -1,5 +1,5 @@
 import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 
 // @app
 import { CommonUpdateCountriesHandler } from '../handlers/common-update-countries.handler';
@@ -18,6 +18,7 @@ export class CommonUpdateCountriesResolver
         @Args('query') queryStatement?: QueryStatement,
         @Args('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
+        @Auditing() auditing?: AuditingMeta,
     ): Promise<CommonCountry>
     {
         return await this.handler.main(
@@ -25,6 +26,7 @@ export class CommonUpdateCountriesResolver
             queryStatement,
             constraint,
             timezone,
+            auditing,
         );
     }
 }

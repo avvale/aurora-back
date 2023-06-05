@@ -2,7 +2,7 @@ import { DataValueObject, TimestampValueObject, ValidationRules } from '@auroraj
 
 export class CountryDeletedAt extends TimestampValueObject
 {
-    public readonly type: 'CountryDeletedAt';
+    public readonly type: string = 'CountryDeletedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {

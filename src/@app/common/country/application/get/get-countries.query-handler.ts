@@ -15,6 +15,10 @@ export class GetCountriesQueryHandler implements IQueryHandler<GetCountriesQuery
 
     async execute(query: GetCountriesQuery): Promise<CountryResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getCountriesService.main(query.queryStatement, query.constraint, query.cQMetadata));
+        return this.mapper.mapAggregatesToResponses(await this.getCountriesService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        ));
     }
 }

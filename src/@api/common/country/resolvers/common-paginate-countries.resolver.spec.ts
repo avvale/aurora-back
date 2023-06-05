@@ -9,7 +9,7 @@ import { CommonPaginateCountriesHandler } from '../handlers/common-paginate-coun
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonPaginateCountriesResolver', () =>
 {
@@ -34,7 +34,7 @@ describe('CommonPaginateCountriesResolver', () =>
         })
             .compile();
 
-        resolver    = module.get<CommonPaginateCountriesResolver>(CommonPaginateCountriesResolver);
+        resolver = module.get<CommonPaginateCountriesResolver>(CommonPaginateCountriesResolver);
         handler = module.get<CommonPaginateCountriesHandler>(CommonPaginateCountriesHandler);
     });
 

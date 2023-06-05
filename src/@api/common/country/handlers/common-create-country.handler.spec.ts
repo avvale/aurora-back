@@ -9,7 +9,7 @@ import { CommonCreateCountryHandler } from './common-create-country.handler';
 
 // sources
 import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
-import { countries } from '@app/common/country/infrastructure/seeds/country.seed';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonCreateCountryHandler', () =>
 {
@@ -54,9 +54,9 @@ describe('CommonCreateCountryHandler', () =>
         })
             .compile();
 
-        handler     = module.get<CommonCreateCountryHandler>(CommonCreateCountryHandler);
-        queryBus    = module.get<IQueryBus>(IQueryBus);
-        commandBus  = module.get<ICommandBus>(ICommandBus);
+        handler = module.get<CommonCreateCountryHandler>(CommonCreateCountryHandler);
+        queryBus = module.get<IQueryBus>(IQueryBus);
+        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AddI18nConstraintService, ICommandBus } from '@aurorajs.dev/core';
+import { AuditingMeta, AddI18nConstraintService, ICommandBus } from '@aurorajs.dev/core';
 
 // @app
 import { CreateCountriesCommand } from '@app/common/country/application/create/create-countries.command';
@@ -17,9 +17,18 @@ export class CommonCreateCountriesHandler
     async main(
         payload: CommonCreateCountryInput[] | CommonCreateCountryDto[],
         timezone?: string,
+        auditing?: AuditingMeta,
     ): Promise<boolean>
     {
-        await this.commandBus.dispatch(new CreateCountriesCommand(payload, { timezone }));
+        await this.commandBus.dispatch(new CreateCountriesCommand(
+            payload,
+            {
+                timezone,
+                repositoryOptions: {
+                    auditing,
+                },
+            },
+        ));
         return true;
     }
 }

@@ -44,6 +44,14 @@ export abstract class ICountryRepository implements IRepository<CommonCountry>
         }
     ): Promise<CommonCountry[]>;
 
+    // get records with rawSQL
+    abstract rawSQL(
+        options?: {
+            rawSQL?: string;
+            cQMetadata?: CQMetadata;
+        }
+    ): Promise<CommonCountry[]>;
+
     // count records
     abstract count(
         options?: {
@@ -98,6 +106,15 @@ export abstract class ICountryRepository implements IRepository<CommonCountry>
             queryStatement?: QueryStatement;
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            dataFactory?: (aggregate: CommonCountry) => LiteralObject;
+        }
+    ): Promise<void>;
+
+    // insert or update key identification element already existing in the table
+    abstract upsert(
+        country: CommonCountry,
+        options?: {
+            upsertOptions?: LiteralObject;
             dataFactory?: (aggregate: CommonCountry) => LiteralObject;
         }
     ): Promise<void>;

@@ -2,7 +2,7 @@ import { DataValueObject, UuidValueObject, ValidationRules } from '@aurorajs.dev
 
 export class CountryI18nLangId extends UuidValueObject
 {
-    public readonly type: 'CountryI18nLangId';
+    public readonly type: string = 'CountryI18nLangId';
 
     constructor(value: string, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {

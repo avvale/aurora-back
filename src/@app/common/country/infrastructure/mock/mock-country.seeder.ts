@@ -25,7 +25,7 @@ import {
     CountryI18nAdministrativeAreaLevel3,
 } from '../../domain/value-objects';
 import { CommonCountry } from '../../domain/country.aggregate';
-import { countries } from '../seeds/country.seed';
+import { countries } from './mock-country.data';
 import * as _ from 'lodash';
 
 @Injectable()

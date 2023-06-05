@@ -34,10 +34,10 @@ describe('FindCountryQueryHandler', () =>
         })
             .compile();
 
-        queryHandler    = module.get<FindCountryQueryHandler>(FindCountryQueryHandler);
-        service         = module.get<FindCountryService>(FindCountryService);
-        repository      = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
-        mapper          = new CountryMapper();
+        queryHandler = module.get<FindCountryQueryHandler>(FindCountryQueryHandler);
+        service = module.get<FindCountryService>(FindCountryService);
+        repository = <MockCountryRepository>module.get<ICountryRepository>(ICountryRepository);
+        mapper = new CountryMapper();
     });
 
     describe('main', () =>

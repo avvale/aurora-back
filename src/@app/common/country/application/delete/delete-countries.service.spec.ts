@@ -42,10 +42,10 @@ describe('DeleteCountriesService', () =>
         })
             .compile();
 
-        service         = module.get(DeleteCountriesService);
-        repository      = module.get(ICountryRepository);
-        repositoryI18n  = module.get(ICountryI18nRepository);
-        mockRepository  = module.get(MockCountryRepository);
+        service = module.get(DeleteCountriesService);
+        repository = module.get(ICountryRepository);
+        repositoryI18n = module.get(ICountryI18nRepository);
+        mockRepository = module.get(MockCountryRepository);
     });
 
     describe('main', () =>
