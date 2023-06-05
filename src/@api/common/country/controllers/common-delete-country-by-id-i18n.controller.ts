@@ -3,12 +3,14 @@ import { Body, Controller, Param, Delete } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { Auditing, AuditingMeta, ContentLanguage, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { CommonCountryDto } from '../dto';
+import { Auth } from '@aurora/decorators';
 
 // @app
 import { CommonDeleteCountryByIdI18nHandler } from '../handlers/common-delete-country-by-id-i18n.handler';
 
 @ApiTags('[common] country')
 @Controller('common/country-i18n')
+@Auth('common.country.delete')
 export class CommonDeleteCountryByIdI18nController
 {
     constructor(

@@ -3,12 +3,14 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags, ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
 import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
 import { CommonCountryDto, CommonUpdateCountryByIdDto } from '../dto';
+import { Auth } from '@aurora/decorators';
 
 // @app
 import { CommonUpsertCountryHandler } from '../handlers/common-upsert-country.handler';
 
 @ApiTags('[common] country')
 @Controller('common/country/upsert')
+@Auth('common.country.upsert')
 export class CommonUpsertCountryController
 {
     constructor(

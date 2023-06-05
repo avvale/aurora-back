@@ -2,12 +2,14 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation, ApiQuery } from '@nestjs/swagger';
 import { ContentLanguage, Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auth } from '@aurora/decorators';
 
 // @app
 import { CommonPaginateCountriesHandler } from '../handlers/common-paginate-countries.handler';
 
 @ApiTags('[common] country')
 @Controller('common/countries/paginate')
+@Auth('common.country.get')
 export class CommonPaginateCountriesController
 {
     constructor(

@@ -3,12 +3,14 @@ import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation, ApiBody, ApiQuery } from '@nestjs/swagger';
 import { ContentLanguage, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { CommonCountryDto } from '../dto';
+import { Auth } from '@aurora/decorators';
 
 // @app
 import { CommonFindCountryHandler } from '../handlers/common-find-country.handler';
 
 @ApiTags('[common] country')
 @Controller('common/country/find')
+@Auth('common.country.get')
 export class CommonFindCountryController
 {
     constructor(

@@ -3,12 +3,14 @@ import { Controller, Put, Body } from '@nestjs/common';
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
 import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { CommonCountryDto, CommonUpdateCountryByIdDto } from '../dto';
+import { Auth } from '@aurora/decorators';
 
 // @app
 import { CommonUpdateCountryByIdHandler } from '../handlers/common-update-country-by-id.handler';
 
 @ApiTags('[common] country')
 @Controller('common/country/update')
+@Auth('common.country.update')
 export class CommonUpdateCountryByIdController
 {
     constructor(
