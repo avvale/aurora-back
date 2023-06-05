@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/mock-country.data.ts",
-            "integrity": "sha1:6ec289ce0e66d6458ec9ad178fa2566c08fb50cf"
+            "integrity": "sha1:156df05a33c3eae0f9330e1a542134538807c1bd"
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/mock-country.repository.ts",
@@ -811,11 +811,11 @@
         },
         {
             "path": "test/acceptance/common/country.e2e-spec.ts",
-            "integrity": "sha1:daa43f839d8770d116ad8576c91aa13bf710d967"
+            "integrity": "sha1:9b421d3e906f5c0f8b51dc9e188f56bc6297ef31"
         },
         {
             "path": "postman/common/common.country.postman.json",
-            "integrity": "sha1:910fe7aea3ca6fd881dd60da183d086e89b91270"
+            "integrity": "sha1:cc57561bda35c187e8e3f643e008a951f6447d5c"
         }
     ]
 }
