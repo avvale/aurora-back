@@ -226,6 +226,13 @@ export class CommonCountryModel extends Model<CommonCountryModel>
     zoom: number;
 
     @Column({
+        field: 'mapType',
+        allowNull: false,
+        type: DataTypes.ENUM('ROADMAP','SATELLITE','HYBRID','TERRAIN'),
+    })
+    mapType: string;
+
+    @Column({
         field: 'availableLangs',
         allowNull: true,
         type: DataTypes.JSON,

@@ -15,6 +15,7 @@ import {
     CountryLatitude,
     CountryLongitude,
     CountryZoom,
+    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
     CountryUpdatedAt,
@@ -53,6 +54,7 @@ export class UpdateCountryByIdService
             latitude?: CountryLatitude;
             longitude?: CountryLongitude;
             zoom?: CountryZoom;
+            mapType?: CountryMapType;
             langId?: CountryI18nLangId;
             name?: CountryI18nName;
             slug?: CountryI18nSlug;
@@ -78,6 +80,7 @@ export class UpdateCountryByIdService
             payload.latitude,
             payload.longitude,
             payload.zoom,
+            payload.mapType,
             null, // availableLangs
             null, // createdAt
             new CountryUpdatedAt({ currentTimestamp: true }),

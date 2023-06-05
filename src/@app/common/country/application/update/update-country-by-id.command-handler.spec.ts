@@ -54,6 +54,7 @@ describe('UpdateCountryByIdCommandHandler', () =>
                         latitude: countries[0].latitude,
                         longitude: countries[0].longitude,
                         zoom: countries[0].zoom,
+                        mapType: countries[0].mapType,
                         langId: countries[0].langId,
                         name: countries[0].name,
                         slug: countries[0].slug,

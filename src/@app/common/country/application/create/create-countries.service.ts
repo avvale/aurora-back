@@ -15,6 +15,7 @@ import {
     CountryLatitude,
     CountryLongitude,
     CountryZoom,
+    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
     CountryUpdatedAt,
@@ -55,6 +56,7 @@ export class CreateCountriesService
             latitude: CountryLatitude;
             longitude: CountryLongitude;
             zoom: CountryZoom;
+            mapType: CountryMapType;
             availableLangs: CountryAvailableLangs;
             langId: CountryI18nLangId;
             name: CountryI18nName;
@@ -80,6 +82,7 @@ export class CreateCountriesService
             country.latitude,
             country.longitude,
             country.zoom,
+            country.mapType,
             country.availableLangs,
             new CountryCreatedAt({ currentTimestamp: true }),
             new CountryUpdatedAt({ currentTimestamp: true }),

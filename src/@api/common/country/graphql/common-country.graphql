@@ -1,3 +1,10 @@
+enum CommonCountryMapType {
+    ROADMAP
+    SATELLITE
+    HYBRID
+    TERRAIN
+}
+
 
 type CommonCountry
 {
@@ -13,6 +20,7 @@ type CommonCountry
     latitude: GraphQLFloat
     longitude: GraphQLFloat
     zoom: GraphQLInt
+    mapType: CommonCountryMapType!
     availableLangs: JSON
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
@@ -40,6 +48,7 @@ input CommonCreateCountryInput
     latitude: GraphQLFloat
     longitude: GraphQLFloat
     zoom: GraphQLInt
+    mapType: CommonCountryMapType!
     availableLangs: JSON
     langId: ID!
     name: GraphQLString!
@@ -63,6 +72,7 @@ input CommonUpdateCountryByIdInput
     latitude: GraphQLFloat
     longitude: GraphQLFloat
     zoom: GraphQLInt
+    mapType: CommonCountryMapType
     availableLangs: JSON
     langId: ID
     name: GraphQLString
@@ -86,6 +96,7 @@ input CommonUpdateCountriesInput
     latitude: GraphQLFloat
     longitude: GraphQLFloat
     zoom: GraphQLInt
+    mapType: CommonCountryMapType
     availableLangs: JSON
     langId: ID
     name: GraphQLString

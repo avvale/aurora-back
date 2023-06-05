@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import { ApiProperty } from '@nestjs/swagger';
+import { CommonCountryMapType } from '@api/graphql';
 
 export class CommonUpdateCountryByIdDto
 {
@@ -74,6 +75,14 @@ export class CommonUpdateCountryByIdDto
         description: 'zoom [input here api field description]',
     })
     zoom?: number;
+
+    @ApiProperty({
+        type       : CommonCountryMapType,
+        enum       : ['ROADMAP','SATELLITE','HYBRID','TERRAIN'],
+        description: 'mapType [input here api field description]',
+        example    : CommonCountryMapType.TERRAIN,
+    })
+    mapType?: CommonCountryMapType;
 
     @ApiProperty({
         type       : Object,

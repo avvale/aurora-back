@@ -13,6 +13,7 @@ export class CreatedCountryEvent
         public readonly latitude: number,
         public readonly longitude: number,
         public readonly zoom: number,
+        public readonly mapType: string,
         public readonly availableLangs: any,
         public readonly createdAt: string,
         public readonly updatedAt: string,

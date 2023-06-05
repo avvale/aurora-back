@@ -15,6 +15,7 @@ import {
     CountryLatitude,
     CountryLongitude,
     CountryZoom,
+    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
     CountryUpdatedAt,
@@ -45,6 +46,7 @@ export class CommonCountry extends AggregateRoot
     latitude: CountryLatitude;
     longitude: CountryLongitude;
     zoom: CountryZoom;
+    mapType: CountryMapType;
     availableLangs: CountryAvailableLangs;
     createdAt: CountryCreatedAt;
     updatedAt: CountryUpdatedAt;
@@ -72,6 +74,7 @@ export class CommonCountry extends AggregateRoot
         latitude: CountryLatitude,
         longitude: CountryLongitude,
         zoom: CountryZoom,
+        mapType: CountryMapType,
         availableLangs: CountryAvailableLangs,
         createdAt: CountryCreatedAt,
         updatedAt: CountryUpdatedAt,
@@ -99,6 +102,7 @@ export class CommonCountry extends AggregateRoot
         this.latitude = latitude;
         this.longitude = longitude;
         this.zoom = zoom;
+        this.mapType = mapType;
         this.availableLangs = availableLangs;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -127,6 +131,7 @@ export class CommonCountry extends AggregateRoot
         latitude: CountryLatitude,
         longitude: CountryLongitude,
         zoom: CountryZoom,
+        mapType: CountryMapType,
         availableLangs: CountryAvailableLangs,
         createdAt: CountryCreatedAt,
         updatedAt: CountryUpdatedAt,
@@ -154,6 +159,7 @@ export class CommonCountry extends AggregateRoot
             latitude,
             longitude,
             zoom,
+            mapType,
             availableLangs,
             createdAt,
             updatedAt,
@@ -185,6 +191,7 @@ export class CommonCountry extends AggregateRoot
                 country.latitude?.value,
                 country.longitude?.value,
                 country.zoom?.value,
+                country.mapType.value,
                 country.availableLangs?.value,
                 country.createdAt?.value,
                 country.updatedAt?.value,
@@ -215,6 +222,7 @@ export class CommonCountry extends AggregateRoot
                 country.latitude?.value,
                 country.longitude?.value,
                 country.zoom?.value,
+                country.mapType?.value,
                 country.availableLangs?.value,
                 country.createdAt?.value,
                 country.updatedAt?.value,
@@ -245,6 +253,7 @@ export class CommonCountry extends AggregateRoot
                 country.latitude?.value,
                 country.longitude?.value,
                 country.zoom?.value,
+                country.mapType.value,
                 country.availableLangs?.value,
                 country.createdAt?.value,
                 country.updatedAt?.value,
@@ -274,6 +283,7 @@ export class CommonCountry extends AggregateRoot
             latitude: this.latitude?.value,
             longitude: this.longitude?.value,
             zoom: this.zoom?.value,
+            mapType: this.mapType.value,
             availableLangs: this.availableLangs?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
@@ -323,6 +333,7 @@ export class CommonCountry extends AggregateRoot
             latitude: this.latitude?.value,
             longitude: this.longitude?.value,
             zoom: this.zoom?.value,
+            mapType: this.mapType.value,
             availableLangs: this.availableLangs?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,

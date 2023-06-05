@@ -153,6 +153,22 @@ describe('country', () =>
             });
     });
 
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryMapType property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/country/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                mapType: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CountryMapType must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST common/country/create - Got 400 Conflict, CountryI18nLangId property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -262,6 +278,22 @@ describe('country', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CountryIso3166Numeric must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryMapType property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/country/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                mapType: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CountryMapType must be defined, can not be undefined');
             });
     });
 
@@ -552,6 +584,21 @@ describe('country', () =>
                 expect(res.body.message).toContain('The numerical value for CountryZoom must have a positive sign, this field does not accept negative values');
             });
     });
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryMapType has to be a enum option of ROADMAP, SATELLITE, HYBRID, TERRAIN', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/country/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                mapType: '****',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CountryMapType has to be any of this options: ROADMAP, SATELLITE, HYBRID, TERRAIN');
+            });
+    });
     test('/REST:POST common/country/create - Got 400 Conflict, CountryLatitude is too large, has a maximum decimal integers length of 13', () =>
     {
         return request(app.getHttpServer())
@@ -559,7 +606,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 27603651654748.65,
+                latitude: 31402496097593.203,
             })
             .expect(400)
             .then(res =>
@@ -574,7 +621,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 63385766549651.32,
+                longitude: 87904506599299.89,
             })
             .expect(400)
             .then(res =>
@@ -589,7 +636,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 145375964937.40164,
+                latitude: 583949099756.5614,
             })
             .expect(400)
             .then(res =>
@@ -604,7 +651,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 382801071741.2638,
+                longitude: 485677023240.62604,
             })
             .expect(400)
             .then(res =>
@@ -796,6 +843,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             langId
                             name
                             slug
@@ -879,6 +927,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -928,6 +977,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             langId
                             name
                             slug
@@ -974,6 +1024,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1031,6 +1082,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1086,6 +1138,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1136,6 +1189,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1184,6 +1238,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1237,6 +1292,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1288,6 +1344,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1344,6 +1401,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt
@@ -1394,6 +1452,7 @@ describe('country', () =>
                             latitude
                             longitude
                             zoom
+                            mapType
                             availableLangs
                             createdAt
                             updatedAt

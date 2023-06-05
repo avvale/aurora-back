@@ -63,6 +63,15 @@ aggregateProperties:
     type: int.unsigned
     maxLength: 2
     nullable: true
+  - name: mapType
+    type: enum
+    enumOptions:
+      - ROADMAP
+      - SATELLITE
+      - HYBRID
+      - TERRAIN
+    nullable: false
+    example: CommonCountryMapType.TERRAIN
   - name: availableLangs
     type: json
     nullable: true

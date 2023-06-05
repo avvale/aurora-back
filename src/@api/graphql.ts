@@ -34,6 +34,13 @@ export enum AuditingSideEffectMethod {
     DELETE = "DELETE"
 }
 
+export enum CommonCountryMapType {
+    ROADMAP = "ROADMAP",
+    SATELLITE = "SATELLITE",
+    HYBRID = "HYBRID",
+    TERRAIN = "TERRAIN"
+}
+
 export enum CommonLangDir {
     LTR = "LTR",
     RTL = "RTL"
@@ -199,6 +206,7 @@ export interface CommonCreateCountryInput {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
+    mapType: CommonCountryMapType;
     availableLangs?: Nullable<JSON>;
     langId: string;
     name: GraphQLString;
@@ -221,6 +229,7 @@ export interface CommonUpdateCountryByIdInput {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonCountryMapType>;
     availableLangs?: Nullable<JSON>;
     langId?: Nullable<string>;
     name?: Nullable<GraphQLString>;
@@ -243,6 +252,7 @@ export interface CommonUpdateCountriesInput {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonCountryMapType>;
     availableLangs?: Nullable<JSON>;
     langId?: Nullable<string>;
     name?: Nullable<GraphQLString>;
@@ -953,6 +963,7 @@ export interface CommonCountry {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
+    mapType: CommonCountryMapType;
     availableLangs?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;

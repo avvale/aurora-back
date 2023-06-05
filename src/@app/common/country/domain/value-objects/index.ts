@@ -10,6 +10,7 @@ export { CountryAdministrativeAreas } from './country-administrative-areas';
 export { CountryLatitude } from './country-latitude';
 export { CountryLongitude } from './country-longitude';
 export { CountryZoom } from './country-zoom';
+export { CountryMapType } from './country-map-type';
 export { CountryAvailableLangs } from './country-available-langs';
 export { CountryCreatedAt } from './country-created-at';
 export { CountryUpdatedAt } from './country-updated-at';
