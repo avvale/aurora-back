@@ -50,14 +50,14 @@ aggregateProperties:
   - name: latitude
     type: decimal
     decimals:
-      - 17
-      - 4
+      - 16
+      - 14
     nullable: true
   - name: longitude
     type: decimal
     decimals:
       - 17
-      - 4
+      - 14
     nullable: true
   - name: zoom
     type: int.unsigned

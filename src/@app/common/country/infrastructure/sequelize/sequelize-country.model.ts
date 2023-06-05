@@ -207,14 +207,14 @@ export class CommonCountryModel extends Model<CommonCountryModel>
     @Column({
         field: 'latitude',
         allowNull: true,
-        type: DataTypes.DECIMAL(17,4),
+        type: DataTypes.DECIMAL(16,14),
     })
     latitude: number;
 
     @Column({
         field: 'longitude',
         allowNull: true,
-        type: DataTypes.DECIMAL(17,4),
+        type: DataTypes.DECIMAL(17,14),
     })
     longitude: number;
 

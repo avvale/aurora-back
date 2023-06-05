@@ -599,64 +599,64 @@ describe('country', () =>
                 expect(res.body.message).toContain('Value for CountryMapType has to be any of this options: ROADMAP, SATELLITE, HYBRID, TERRAIN');
             });
     });
-    test('/REST:POST common/country/create - Got 400 Conflict, CountryLatitude is too large, has a maximum decimal integers length of 13', () =>
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryLatitude is too large, has a maximum decimal integers length of 2', () =>
     {
         return request(app.getHttpServer())
             .post('/common/country/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 31402496097593.203,
+                latitude: 963.2356497340535,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CountryLatitude is too large, has a maximum length of 13 integers in');
+                expect(res.body.message).toContain('Value for CountryLatitude is too large, has a maximum length of 2 integers in');
             });
     });
-    test('/REST:POST common/country/create - Got 400 Conflict, CountryLongitude is too large, has a maximum decimal integers length of 13', () =>
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryLongitude is too large, has a maximum decimal integers length of 3', () =>
     {
         return request(app.getHttpServer())
             .post('/common/country/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 87904506599299.89,
+                longitude: 1894.471490061694,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CountryLongitude is too large, has a maximum length of 13 integers in');
+                expect(res.body.message).toContain('Value for CountryLongitude is too large, has a maximum length of 3 integers in');
             });
     });
-    test('/REST:POST common/country/create - Got 400 Conflict, CountryLatitude is too large, has a maximum decimals length of 4', () =>
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryLatitude is too large, has a maximum decimals length of 14', () =>
     {
         return request(app.getHttpServer())
             .post('/common/country/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 583949099756.5614,
+                latitude: 2.436068034964152,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CountryLatitude is too large, has a maximum length of 4 decimals in');
+                expect(res.body.message).toContain('Value for CountryLatitude is too large, has a maximum length of 14 decimals in');
             });
     });
-    test('/REST:POST common/country/create - Got 400 Conflict, CountryLongitude is too large, has a maximum decimals length of 4', () =>
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryLongitude is too large, has a maximum decimals length of 14', () =>
     {
         return request(app.getHttpServer())
             .post('/common/country/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 485677023240.62604,
+                longitude: 38.76428164633617,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CountryLongitude is too large, has a maximum length of 4 decimals in');
+                expect(res.body.message).toContain('Value for CountryLongitude is too large, has a maximum length of 14 decimals in');
             });
     });
 

@@ -10,7 +10,7 @@ export class CountryLatitude extends DecimalValueObject
             name       : 'CountryLatitude',
             nullable   : true,
             undefinable: true,
-            decimals   : [17, 4],
+            decimals   : [16, 14],
             unsigned   : false,
         }, validationRules));
     }
