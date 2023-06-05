@@ -5,6 +5,7 @@ import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { Auth } from '@aurora/decorators';
 import { ICountryRepository } from '@app/common/country/domain/country.repository';
 import { ICountryI18nRepository } from '@app/common/country/domain/country-i18n.repository';
 import { AddI18nConstraintService } from '@aurorajs.dev/core';
@@ -63,6 +64,8 @@ describe('country', () =>
                 MockCountrySeeder,
             ],
         })
+            .overrideGuard(Auth)
+            .useValue({ canActivate: () => true })
             .overrideProvider(AddI18nConstraintService)
             .useValue({
                 main: () =>
@@ -606,7 +609,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 963.2356497340535,
+                latitude: 375.6821378164918,
             })
             .expect(400)
             .then(res =>
@@ -621,7 +624,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 1894.471490061694,
+                longitude: 4300.535135038258,
             })
             .expect(400)
             .then(res =>
@@ -636,7 +639,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 2.436068034964152,
+                latitude: 3.976492344121557,
             })
             .expect(400)
             .then(res =>
@@ -651,7 +654,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 38.76428164633617,
+                longitude: 97.85716741745425,
             })
             .expect(400)
             .then(res =>
