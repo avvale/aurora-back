@@ -15,6 +15,7 @@ services:
       MARIADB_PASSWORD: ${DATABASE_PASSWORD}
       MARIADB_ROOT_PASSWORD: ${DATABASE_PASSWORD}
       MARIADB_DATABASE: ${DATABASE_SCHEMA}
+
   db2:
     container_name: aurora-redis
     image: redis:7.0.9-alpine
@@ -24,6 +25,7 @@ services:
       - 6379:${REDIS_PORT}
     restart: always
     command: redis-server --save 30 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+
   db3:
     container_name: aurora-prostgres
     image: postgres:15.2-alpine
@@ -37,6 +39,35 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_SCHEMA}
 
+  elasticsearch01:
+    container_name: aurora-elasticsearch
+    image: elasticsearch:8.7.1
+    restart: always
+    volumes:
+      - ./elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+
+  kiabana:
+    depends_on:
+      elasticsearch01:
+        condition: service_healthy
+    container_name: aurora-kibana
+    restart: always
+    image: kibana:8.7.1
+    networks:
+      - es-net
+    ports:
+      - 5601:5601
+    environment:
+      - ELASTICSEARCH_HOSTS=http://aurora-elasticsearch:9200
+
 volumes:
   mariadb-vol:
     external: false
@@ -44,3 +75,7 @@ volumes:
     external: false
   redis-vol:
     external: false
+
+networks:
+  es-net:
+    driver: bridge
