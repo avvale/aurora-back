@@ -8,7 +8,7 @@ import { OAuthModule } from '@api/o-auth/o-auth.module';
 import { IamModule } from '@api/iam/iam.module';
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
 import { AzureAdModule } from '@api/azure-ad/azure-ad.module';
-import { CommonModule } from './@api/common/common.module';
+import { CommonModule } from '@api/common/common.module';
 
 @Module({
     imports: [

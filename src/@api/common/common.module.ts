@@ -2,12 +2,13 @@ import { CommonHandlers, CommonModels, CommonRepositories, CommonSagas, CommonSe
 import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
 import { SharedModule } from '@aurora/shared.module';
 import { IQueryBus } from '@aurorajs.dev/core';
-import { CACHE_MANAGER, Inject, Module } from '@nestjs/common';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Inject, Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Cache } from 'cache-manager';
 import { CommonSeeder } from './common.seeder';
+import { CommonCountryApiHandlers, CommonCountryControllers, CommonCountryResolvers, CommonCountryServices } from './country';
 import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, CommonLangServices } from './lang';
-import { CommonCountryControllers, CommonCountryResolvers, CommonCountryApiHandlers, CommonCountryServices } from './country';
 
 @Module({
     imports: [
@@ -48,7 +49,7 @@ export class CommonModule
             .set(
                 'common/langs',
                 await this.queryBus.ask(new GetLangsQuery()),
-                60 * 60 * 24 * 365 * 2, // ttl
+                1000 * 60 * 60 * 24 * 365, // ttl in milliseconds
             );
     }
 }
