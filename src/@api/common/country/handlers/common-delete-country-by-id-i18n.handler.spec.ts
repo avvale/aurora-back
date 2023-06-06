@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { CacheModule, CACHE_MANAGER } from '@nestjs/common';
+import { CacheModule, CACHE_MANAGER } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
 import { AddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 

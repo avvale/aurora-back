@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { CacheModule } from '@nestjs/cache-manager';
-import { ConfigService } from '@nestjs/config';
 
 // custom items
 import { CommonFindCountryByIdController } from './common-find-country-by-id.controller';
