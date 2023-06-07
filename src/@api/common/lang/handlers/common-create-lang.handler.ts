@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AuditingMeta, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 // @app
 import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
@@ -13,6 +13,7 @@ export class CommonCreateLangHandler
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
+        private readonly coreGetLangsService: CoreGetLangsService,
     ) {}
 
     async main(
@@ -30,6 +31,9 @@ export class CommonCreateLangHandler
                 },
             },
         ));
+
+        // reset cache langs
+        await this.coreGetLangsService.reset();
 
         return await this.queryBus.ask(new FindLangByIdQuery(
             payload.id,
