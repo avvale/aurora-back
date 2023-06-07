@@ -20,8 +20,13 @@ export class CommonGetLangsFromDbService implements CoreGetLangsService
         if (langs) return langs;
 
         // get langs from db and return cache langs
-        await this.cacheManager.set('common/langs', await this.getDbLangs());
+        await this.reset();
         return await this.cacheManager.get<CommonLang[]>('common/langs');
+    }
+
+    async reset(): Promise<void>
+    {
+        await this.cacheManager.set('common/langs', await this.getDbLangs());
     }
 
     async getDbLangs(): Promise<CommonLang[]>
