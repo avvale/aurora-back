@@ -153,7 +153,7 @@ async function cleanShareModule()
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', '@aurora', 'shared.module.ts']);
 
     // remove LoggingAxiosInterceptorService
-    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-axios-interceptor.service');
+    codeWriter.removeImport(sourceFile, '@api/auditing/shared');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'providers', 'AuditingAxiosInterceptorService');
 
     // remove HttpModule
@@ -161,11 +161,10 @@ async function cleanShareModule()
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'HttpModule');
 
     // remove AuthJwtStrategyRegistryModule
-    codeWriter.removeImport(sourceFile, '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module');
+    codeWriter.removeImport(sourceFile, '@app/o-auth/shared');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'AuthJwtStrategyRegistryModule');
 
     // remove jwtConfig
-    codeWriter.removeImport(sourceFile, '@app/o-auth/shared/jwt-config');
     codeWriter.removeDecoratorProperty(
         sourceFile,
         'SharedModule',
@@ -175,7 +174,6 @@ async function cleanShareModule()
     );
 
     // disabled auditing runner implementation
-    codeWriter.removeImport(sourceFile, '@api/auditing/shared/services/auditing-runner-aurora-implementation.service');
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
 
     // remove GetLangsFromDbService

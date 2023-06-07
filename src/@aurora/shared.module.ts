@@ -1,8 +1,7 @@
-import { AuditingAxiosInterceptorService } from '@api/auditing/shared/services/auditing-axios-interceptor.service';
-import { AuditingRunnerAuroraImplementationService } from '@api/auditing/shared/services/auditing-runner-aurora-implementation.service';
+import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
+import { CommonGetLangsFromDbService } from '@api/common/shared';
 import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
-import { jwtConfig } from '@app/o-auth/shared/jwt-config';
-import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
+import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
 import { CoreGetLangsFromJsonService } from '@aurora/modules/lang';
 import { AddI18nConstraintService, AuditingRunner, AuditingRunnerDisabledImplementationService, CoreGetLangsService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
@@ -11,7 +10,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { CqrsConfigModule } from './cqrs-config.module';
-import { CommonGetLangsFromDbService } from '@api/common/shared';
 
 @Module({
     imports: [
