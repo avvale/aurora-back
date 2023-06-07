@@ -3,18 +3,20 @@ import { AuditingRunnerAuroraImplementationService } from '@api/auditing/shared/
 import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 import { jwtConfig } from '@app/o-auth/shared/jwt-config';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared/modules/auth-jwt-strategy-registry.module';
-import { AddI18nConstraintService, AuditingRunner, AuditingRunnerDisabledImplementationService, CoreModule } from '@aurorajs.dev/core';
+import { GetLangsFromJsonService } from '@aurora/modules/lang/get-langs-from-json.service';
+import { AddI18nConstraintService, AuditingRunner, AuditingRunnerDisabledImplementationService, CoreGetLangsService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { CqrsConfigModule } from './cqrs-config.module';
+import { GetLangsFromDbService } from '@api/common/shared';
 
 @Module({
     imports: [
         AuthJwtStrategyRegistryModule.forRoot(jwtConfig),
-        CacheModule.register(),
+        CacheModule.register({ isGlobal: true }),
         ConfigModule.forRoot({ isGlobal: true }),
         CoreModule,
         CqrsConfigModule,
@@ -29,6 +31,10 @@ import { CqrsConfigModule } from './cqrs-config.module';
             provide : AuditingRunner,
             useClass: AuditingRunnerAuroraImplementationService,
         },
+        {
+            provide : CoreGetLangsService,
+            useClass: GetLangsFromDbService,
+        },
     ],
     exports: [
         AddI18nConstraintService,
@@ -36,6 +42,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
         AuthJwtStrategyRegistryModule,
         CacheModule,
         ConfigModule,
+        CoreGetLangsService,
         CqrsConfigModule,
         WhatsappSharedModule,
     ],
