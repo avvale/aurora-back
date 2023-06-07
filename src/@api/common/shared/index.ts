@@ -1,0 +1,1 @@
+export { GetLangsFromDbService } from './get-langs-from-db.service';
