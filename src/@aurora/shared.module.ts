@@ -14,7 +14,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
 @Module({
     imports: [
         AuthJwtStrategyRegistryModule.forRoot(jwtConfig),
-        CacheModule.register({ isGlobal: true }),
+        CacheModule.register({ isGlobal: true, ttl: 0 }),
         ConfigModule.forRoot({ isGlobal: true }),
         CoreModule,
         CqrsConfigModule,
