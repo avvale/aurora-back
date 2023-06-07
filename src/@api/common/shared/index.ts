@@ -1,1 +1,1 @@
-export { GetLangsFromDbService } from './get-langs-from-db.service';
+export { CommonGetLangsFromDbService } from './common-get-langs-from-db.service';

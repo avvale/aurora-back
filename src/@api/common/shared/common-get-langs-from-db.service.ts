@@ -6,7 +6,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 
 @Injectable()
-export class GetLangsFromDbService implements CoreGetLangsService
+export class CommonGetLangsFromDbService implements CoreGetLangsService
 {
     constructor(
         @Inject(CACHE_MANAGER) private cacheManager: Cache,
