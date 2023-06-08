@@ -60,6 +60,7 @@ function editPackageJson()
             jeditor(function(json)
             {
                 // modify @aurorajs.dev/core version
+                delete json.scripts['install:core'];
                 json.dependencies['@aurorajs.dev/core'] = '^2.2.0';
 
                 delete json.dependencies['@narando/nest-axios-interceptor'];
@@ -178,9 +179,10 @@ async function cleanShareModule()
     // disabled auditing runner implementation
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
 
-    // remove GetLangsFromDbService
+    // remove CommonGetLangsFromDbService && CommonGetFallbackLangFromDbService
     codeWriter.removeImport(sourceFile, '@api/common/shared');
-    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetLangsService', 'GetLangsFromJsonService');
+    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetLangsService', 'CoreGetLangsFromJsonService');
+    codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetFallbackLangService', 'CoreGetFallbackLangFromJsonService');
 
     // remove whatsapp service
     codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp-shared.module');
