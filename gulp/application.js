@@ -59,6 +59,9 @@ function editPackageJson()
         .pipe(
             jeditor(function(json)
             {
+                // modify @aurorajs.dev/core version
+                json.dependencies['@aurorajs.dev/core'] = '^2.2.0';
+
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs-modules/mailer'];
                 delete json.dependencies['@nestjs/axios'];
@@ -76,7 +79,6 @@ function editPackageJson()
 
                 delete json.devDependencies.gulp;
                 delete json.devDependencies['@types/cron'];
-                delete json.devDependencies['@types/bull'];
                 delete json.devDependencies['@types/nodemailer'];
                 delete json.devDependencies['@types/passport-jwt'];
                 delete json.devDependencies['gulp-json-editor'];
