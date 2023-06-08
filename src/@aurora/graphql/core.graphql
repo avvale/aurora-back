@@ -10,6 +10,29 @@ scalar GraphQLISODateTime
 scalar GraphQLTimestamp
 scalar GraphQLUpload
 
+type CoreLang
+{
+    id: GraphQLString!
+    name: GraphQLString!
+    image: GraphQLString
+    iso6392: GraphQLString!
+    iso6393: GraphQLString!
+    ietf: GraphQLString!
+    customCode: GraphQLString
+    dir: CoreLangDir!
+    sort: GraphQLInt
+    isActive: GraphQLBoolean!
+    createdAt: GraphQLString
+    updatedAt: GraphQLString
+    deletedAt: GraphQLString
+}
+
+enum CoreLangDir
+{
+    LTR
+    RTL
+}
+
 input QueryStatement
 {
     where: JSON
@@ -35,7 +58,7 @@ type Pagination
 
 type Query
 {
-    coreGetLangs: Any!
-    coreGetFallbackLang: String
+    coreGetLangs: [CoreLang]!
+    coreGetFallbackLang: CoreLang
     hello: String
 }

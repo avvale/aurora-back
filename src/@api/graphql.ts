@@ -76,6 +76,11 @@ export enum QueueManagerJobState {
     PAUSED = "PAUSED"
 }
 
+export enum CoreLangDir {
+    LTR = "LTR",
+    RTL = "RTL"
+}
+
 export interface AuditingCreateHttpCommunicationInput {
     id: string;
     tags?: Nullable<JSON>;
@@ -800,8 +805,8 @@ export interface IQuery {
     queueManagerFindQueueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
     queueManagerGetQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
     queueManagerPaginateQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    coreGetLangs(): Any | Promise<Any>;
-    coreGetFallbackLang(): Nullable<string> | Promise<Nullable<string>>;
+    coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
+    coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     hello(): Nullable<string> | Promise<Nullable<string>>;
 }
 
@@ -1207,6 +1212,22 @@ export interface QueueManagerQueue {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CoreLang {
+    id: GraphQLString;
+    name: GraphQLString;
+    image?: Nullable<GraphQLString>;
+    iso6392: GraphQLString;
+    iso6393: GraphQLString;
+    ietf: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    dir: CoreLangDir;
+    sort?: Nullable<GraphQLInt>;
+    isActive: GraphQLBoolean;
+    createdAt?: Nullable<GraphQLString>;
+    updatedAt?: Nullable<GraphQLString>;
+    deletedAt?: Nullable<GraphQLString>;
 }
 
 export interface Pagination {

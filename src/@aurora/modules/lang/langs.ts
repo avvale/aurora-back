@@ -1,4 +1,4 @@
-import { CoreLang, CoreLangDir } from './lang.types';
+import { CoreLang, CoreLangDir } from '@api/graphql';
 
 export const langs: CoreLang[] = [
     {
