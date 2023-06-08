@@ -801,6 +801,7 @@ export interface IQuery {
     queueManagerGetQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
     queueManagerPaginateQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Any | Promise<Any>;
+    coreGetFallbackLang(): Nullable<string> | Promise<Nullable<string>>;
     hello(): Nullable<string> | Promise<Nullable<string>>;
 }
 
