@@ -1,35 +1,37 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { ICountryRepository } from '../../domain/country.repository';
 import { CommonCountry } from '../../domain/country.aggregate';
 import {
-	CountryAdministrativeAreas,
-	CountryAvailableLangs,
-	CountryCreatedAt,
-	CountryCustomCode,
-	CountryDeletedAt,
-	CountryI18nAdministrativeAreaLevel1,
-	CountryI18nAdministrativeAreaLevel2,
-	CountryI18nAdministrativeAreaLevel3,
-	CountryI18nLangId,
-	CountryI18nName,
-	CountryI18nSlug,
-	CountryId,
-	CountryImage,
-	CountryIso3166Alpha2,
-	CountryIso3166Alpha3,
-	CountryIso3166Numeric,
-	CountryLatitude,
-	CountryLongitude,
-	CountryMapType,
-	CountryPrefix,
-	CountrySort,
-	CountryUpdatedAt,
-	CountryZoom,
+    CountryAdministrativeAreas,
+    CountryAvailableLangs,
+    CountryCreatedAt,
+    CountryCustomCode,
+    CountryDeletedAt,
+    CountryI18nAdministrativeAreaLevel1,
+    CountryI18nAdministrativeAreaLevel2,
+    CountryI18nAdministrativeAreaLevel3,
+    CountryI18nLangId,
+    CountryI18nName,
+    CountryI18nSlug,
+    CountryId,
+    CountryImage,
+    CountryIso3166Alpha2,
+    CountryIso3166Alpha3,
+    CountryIso3166Numeric,
+    CountryLatitude,
+    CountryLongitude,
+    CountryMapType,
+    CountryPrefix,
+    CountrySort,
+    CountryUpdatedAt,
+    CountryZoom,
 } from '../../domain/value-objects';
 import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
 import * as _ from 'lodash';
+import { Cache } from 'cache-manager';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 @Injectable()
 export class CreateCountryService
@@ -38,6 +40,7 @@ export class CreateCountryService
         private readonly publisher: EventPublisher,
         private readonly repository: ICountryRepository,
         private readonly repositoryI18n: ICountryI18nRepository,
+        @Inject(CACHE_MANAGER) private cacheManager: Cache,
     ) {}
 
     async main(
@@ -99,7 +102,14 @@ export class CreateCountryService
                 country.id,
                 {
                     constraint: {
-                        include: ['countryI18n'],
+                        include: [
+                            {
+                                association: 'countryI18n',
+                                where      : {
+                                    langId: (await this.cacheManager.get<{ id: string; }>('common/fallback-lang')).id,
+                                },
+                            },
+                        ],
                     },
                 },
             );
@@ -109,12 +119,18 @@ export class CreateCountryService
 
             // add new language id to data lang field to create or update field
             country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [country.langId.value]));
+
             await this.repository
                 .update(
                     country,
                     {
-                        dataFactory: aggregate => _.pick(aggregate.toI18nDTO(), 'id', 'availableLangs'),
-                        updateOptions: cQMetadata?.repositoryOptions
+                        dataFactory   : aggregate => _.pick(aggregate.toDTO(), 'id', 'availableLangs'),
+                        updateOptions : cQMetadata?.repositoryOptions,
+                        queryStatement: {
+                            where: {
+                                id: country.id.value,
+                            },
+                        },
                     },
                 );
         }
@@ -139,7 +155,7 @@ export class CreateCountryService
                     },
                 }),
                 createOptions: cQMetadata?.repositoryOptions,
-            }
+            },
         );
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
