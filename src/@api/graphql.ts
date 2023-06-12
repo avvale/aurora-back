@@ -81,6 +81,13 @@ export enum CoreLangDir {
     RTL = "RTL"
 }
 
+export enum CoreSearchKeyLang {
+    id = "id",
+    iso6392 = "iso6392",
+    iso6393 = "iso6393",
+    ietf = "ietf"
+}
+
 export interface AuditingCreateHttpCommunicationInput {
     id: string;
     tags?: Nullable<JSON>;
@@ -807,6 +814,7 @@ export interface IQuery {
     queueManagerPaginateQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
+    coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
     hello(): Nullable<string> | Promise<Nullable<string>>;
 }
 

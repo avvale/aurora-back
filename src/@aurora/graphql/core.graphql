@@ -33,6 +33,14 @@ enum CoreLangDir
     RTL
 }
 
+enum CoreSearchKeyLang
+{
+    id
+    iso6392
+    iso6393
+    ietf
+}
+
 input QueryStatement
 {
     where: JSON
@@ -60,5 +68,6 @@ type Query
 {
     coreGetLangs: [CoreLang]!
     coreGetFallbackLang: CoreLang
+    coreGetSearchKeyLang: CoreSearchKeyLang
     hello: String
 }

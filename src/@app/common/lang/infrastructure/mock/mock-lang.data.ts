@@ -19,7 +19,7 @@ export const langs = [
     {
         id: '7c4754e7-3363-48ca-af99-632522226b51',
         name: 'English',
-        image: 'gb',
+        image: 'us',
         iso6392: 'en',
         iso6393: 'eng',
         ietf: 'en-US',
