@@ -609,7 +609,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 960.979929680423,
+                latitude: 517.2393650648506,
             })
             .expect(400)
             .then(res =>
@@ -624,7 +624,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 6166.322409567473,
+                longitude: 3947.1249590761295,
             })
             .expect(400)
             .then(res =>
@@ -639,7 +639,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 8.509714891886825,
+                latitude: 2.882222065196892,
             })
             .expect(400)
             .then(res =>
@@ -654,7 +654,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 53.67558976620473,
+                longitude: 63.97088297877512,
             })
             .expect(400)
             .then(res =>

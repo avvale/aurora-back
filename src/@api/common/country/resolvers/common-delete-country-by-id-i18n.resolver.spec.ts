@@ -7,7 +7,7 @@ import { AddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/
 import { CommonDeleteCountryByIdI18nResolver } from './common-delete-country-by-id-i18n.resolver';
 
 // sources
-import { langs } from '@app/common/lang/infrastructure/seeds/lang.seed';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 
 describe('CommonDeleteCountryByIdI18nResolver', () =>

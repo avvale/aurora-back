@@ -143,10 +143,10 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
         allowNull: false,
         type: DataTypes.UUID,
         references: {
-            key: 'id'
+            key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'NO ACTION',
+        onDelete: 'CASCADE',
     })
     countryId: string;
 
