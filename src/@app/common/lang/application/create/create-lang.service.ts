@@ -4,19 +4,19 @@ import { CQMetadata } from '@aurorajs.dev/core';
 import { ILangRepository } from '../../domain/lang.repository';
 import { CommonLang } from '../../domain/lang.aggregate';
 import {
-	LangCreatedAt,
-	LangCustomCode,
-	LangDeletedAt,
-	LangDir,
-	LangId,
-	LangIetf,
-	LangImage,
-	LangIsActive,
-	LangIso6392,
-	LangIso6393,
-	LangName,
-	LangSort,
-	LangUpdatedAt,
+    LangCreatedAt,
+    LangCustomCode,
+    LangDeletedAt,
+    LangDir,
+    LangId,
+    LangIetf,
+    LangImage,
+    LangIsActive,
+    LangIso6392,
+    LangIso6393,
+    LangName,
+    LangSort,
+    LangUpdatedAt,
 } from '../../domain/value-objects';
 
 @Injectable()

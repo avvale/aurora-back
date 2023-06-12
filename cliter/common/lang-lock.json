@@ -23,7 +23,7 @@
         },
         {
             "path": "src/@app/common/lang/application/create/create-lang.service.ts",
-            "integrity": "sha1:5ff26629cbaae4c7dbc52ea56775a9cfcd0d27a6"
+            "integrity": "sha1:6379de81fe18509da8a2fe6ff4f392b6b781a46e"
         },
         {
             "path": "src/@app/common/lang/application/create/create-langs.command-handler.spec.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/mock-lang.data.ts",
-            "integrity": "sha1:3145b0d69abd02e7d81641678ac158ad0a5ffae1"
+            "integrity": "sha1:73477811fb251ab5cdf5c6b70297e143f6343f0e"
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/mock-lang.repository.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.lang.postman.json",
-            "integrity": "sha1:95ac963c0b23651e980ff49ac3cf477fbcb7d32e"
+            "integrity": "sha1:f39a04681e5a0811fcdaff4ac8ff091f30445485"
         }
     ]
 }
