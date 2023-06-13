@@ -1,13 +1,13 @@
 import { CommonLang } from '@api/graphql';
 import { FindLangQuery } from '@app/common/lang/application/find/find-lang.query';
-import { CoreGetLangsService, IQueryBus } from '@aurorajs.dev/core';
+import { CoreGetFallbackLangService, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Cache } from 'cache-manager';
 
 @Injectable()
-export class CommonGetFallbackLangFromDbService implements CoreGetLangsService
+export class CommonGetFallbackLangFromDbService implements CoreGetFallbackLangService
 {
     constructor(
         @Inject(CACHE_MANAGER) private cacheManager: Cache,
@@ -21,7 +21,7 @@ export class CommonGetFallbackLangFromDbService implements CoreGetLangsService
         const lang = await this.cacheManager.get<CommonLang>('common/fallback-lang');
         if (lang) return lang;
 
-        // get langs from db and return cache langs
+        // get langs from db and return cache langs if cache is expired
         await this.reset();
         return await this.cacheManager.get<CommonLang>('common/fallback-lang');
     }
@@ -39,5 +39,10 @@ export class CommonGetFallbackLangFromDbService implements CoreGetLangsService
                 iso6392: fallbackLangIso6392,
             },
         }));
+    }
+
+    onApplicationBootstrap(): void
+    {
+        this.reset();
     }
 }
