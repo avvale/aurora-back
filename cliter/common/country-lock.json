@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/mock-country.data.ts",
-            "integrity": "sha1:d9797da00e2861f8e8e2b4e834a40ba8da0630ee"
+            "integrity": "sha1:3a65e1b487dec238c15deb3509249beef179a981"
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/mock-country.repository.ts",
@@ -790,36 +790,12 @@
             "integrity": "sha1:b0063bd81d1717e02e00f8d87e98e15bc9d64f53"
         },
         {
-            "path": "src/@api/common/country/controllers/common-delete-country-by-id-i18n.controller.spec.ts",
-            "integrity": "sha1:c4bd7bf4d917dc8591793cee34afc1a06bd9e9a6"
-        },
-        {
-            "path": "src/@api/common/country/controllers/common-delete-country-by-id-i18n.controller.ts",
-            "integrity": "sha1:caf89f35db5ed235a202beed8bf60fb270f7cbed"
-        },
-        {
-            "path": "src/@api/common/country/handlers/common-delete-country-by-id-i18n.handler.spec.ts",
-            "integrity": "sha1:13376b3e7eb05708d7dfa4a8739d890b0c0d1c39"
-        },
-        {
-            "path": "src/@api/common/country/handlers/common-delete-country-by-id-i18n.handler.ts",
-            "integrity": "sha1:3f63db26e1011bdf8ffe889f3b1aa6537d07c131"
-        },
-        {
-            "path": "src/@api/common/country/resolvers/common-delete-country-by-id-i18n.resolver.spec.ts",
-            "integrity": "sha1:48647d36347bdc70b4ad36822ec2dd5c2a5fde6e"
-        },
-        {
-            "path": "src/@api/common/country/resolvers/common-delete-country-by-id-i18n.resolver.ts",
-            "integrity": "sha1:e0cf285aa48cc65626315c994fc586f6d97090ab"
-        },
-        {
             "path": "test/acceptance/common/country.e2e-spec.ts",
-            "integrity": "sha1:fc2950f49c707fdd23eedafd1c5a7a6b74f0d194"
+            "integrity": "sha1:a89095e64ba07b113af73d478bc8d485305b0e94"
         },
         {
             "path": "postman/common/common.country.postman.json",
-            "integrity": "sha1:1be5bc868d87e9a971ff943ba6bbcbe5e290be83"
+            "integrity": "sha1:0e83a3f1236af617959a6b987ce439a8b05d4986"
         }
     ]
 }
