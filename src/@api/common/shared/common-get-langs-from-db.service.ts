@@ -2,11 +2,11 @@ import { CommonLang } from '@api/graphql';
 import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
 import { CoreGetLangsService, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 
 @Injectable()
-export class CommonGetLangsFromDbService implements CoreGetLangsService
+export class CommonGetLangsFromDbService implements CoreGetLangsService, OnApplicationBootstrap
 {
     constructor(
         @Inject(CACHE_MANAGER) private cacheManager: Cache,
@@ -19,7 +19,7 @@ export class CommonGetLangsFromDbService implements CoreGetLangsService
         const langs = await this.cacheManager.get<CommonLang[]>('common/langs');
         if (langs) return langs;
 
-        // get langs from db and return cache langs
+        // get langs from db and return cache langs if cache is expired
         await this.reset();
         return await this.cacheManager.get<CommonLang[]>('common/langs');
     }
@@ -32,5 +32,10 @@ export class CommonGetLangsFromDbService implements CoreGetLangsService
     async getDbLangs(): Promise<CommonLang[]>
     {
         return await this.queryBus.ask(new GetLangsQuery());
+    }
+
+    onApplicationBootstrap(): void
+    {
+        this.reset();
     }
 }

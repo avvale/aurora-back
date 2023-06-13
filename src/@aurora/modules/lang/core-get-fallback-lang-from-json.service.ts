@@ -1,13 +1,13 @@
 import { CoreLang } from '@api/graphql';
 import { CoreGetFallbackLangService } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Cache } from 'cache-manager';
 import { langs } from './langs';
 
 @Injectable()
-export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangService
+export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangService, OnApplicationBootstrap
 {
     constructor(
         @Inject(CACHE_MANAGER) private cacheManager: Cache,
