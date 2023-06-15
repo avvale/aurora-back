@@ -1,6 +1,6 @@
 import { CommonICountryI18nRepository } from '../../domain/common-country-i18n.repository';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
-import { CountryAvailableLangs, CountryId } from '../../domain/value-objects';
+import { CommonCountryAvailableLangs, CommonCountryId } from '../../domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
@@ -16,7 +16,7 @@ export class CommonDeleteCountryByIdService
     ) {}
 
     async main(
-        id: CountryId,
+        id: CommonCountryId,
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -71,7 +71,7 @@ export class CommonDeleteCountryByIdService
             );
 
             // update available langs when delete translation
-            country.availableLangs = new CountryAvailableLangs(country.availableLangs.value.removeItem(contentLanguage.id));
+            country.availableLangs = new CommonCountryAvailableLangs(country.availableLangs.value.removeItem(contentLanguage.id));
 
             await this.repository
                 .update(

@@ -1,7 +1,7 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { CommonCountryResponse } from '../../domain/common-country.response';
 import { CommonCountryMapper } from '../../domain/common-country.mapper';
-import { CountryId } from '../../domain/value-objects';
+import { CommonCountryId } from '../../domain/value-objects';
 import { CommonFindCountryByIdQuery } from './common-find-country-by-id.query';
 import { CommonFindCountryByIdService } from './common-find-country-by-id.service';
 
@@ -17,7 +17,7 @@ export class CommonFindCountryByIdQueryHandler implements IQueryHandler<CommonFi
     async execute(query: CommonFindCountryByIdQuery): Promise<CommonCountryResponse>
     {
         const country = await this.findCountryByIdService.main(
-            new CountryId(query.id),
+            new CommonCountryId(query.id),
             query.constraint,
             query.cQMetadata,
         );

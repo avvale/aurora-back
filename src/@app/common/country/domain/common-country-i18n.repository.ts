@@ -3,7 +3,7 @@ import { LiteralObject } from '@nestjs/common';
 import { IRepository, QueryStatement } from '@aurorajs.dev/core';
 import { CQMetadata, Pagination } from '@aurorajs.dev/core';
 import { CommonCountry } from './common-country.aggregate';
-import { CountryId } from './value-objects';
+import { CommonCountryId } from './value-objects';
 
 export abstract class CommonICountryI18nRepository implements IRepository<CommonCountry>
 {
@@ -29,7 +29,7 @@ export abstract class CommonICountryI18nRepository implements IRepository<Common
 
     // find a single record by id
     abstract findById(
-        id: CountryId,
+        id: CommonCountryId,
         options?: {
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
@@ -122,7 +122,7 @@ export abstract class CommonICountryI18nRepository implements IRepository<Common
 
     // delete record
     abstract deleteById(
-        id: CountryId,
+        id: CommonCountryId,
         options?: {
             deleteOptions?: LiteralObject;
             constraint?: QueryStatement;

@@ -2,7 +2,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { CommonDeleteCountryByIdCommand } from './common-delete-country-by-id.command';
 import { CommonDeleteCountryByIdService } from './common-delete-country-by-id.service';
 import {
-    CountryId
+    CommonCountryId
 } from '../../domain/value-objects';
 
 @CommandHandler(CommonDeleteCountryByIdCommand)
@@ -16,7 +16,7 @@ export class CommonDeleteCountryByIdCommandHandler implements ICommandHandler<Co
     {
         // call to use case and implements ValueObjects
         await this.deleteCountryByIdService.main(
-            new CountryId(command.id),
+            new CommonCountryId(command.id),
             command.constraint,
             command.cQMetadata,
         );

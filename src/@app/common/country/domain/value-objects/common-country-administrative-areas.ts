@@ -1,6 +1,6 @@
 import { JsonValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryAdministrativeAreas extends JsonValueObject
+export class CommonCountryAdministrativeAreas extends JsonValueObject
 {
     public readonly type: string = 'CountryAdministrativeAreas';
 

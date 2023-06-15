@@ -1,6 +1,6 @@
 import { EnumValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryMapType extends EnumValueObject
+export class CommonCountryMapType extends EnumValueObject
 {
     public readonly type: string = 'CountryMapType';
 

@@ -1,6 +1,6 @@
 import { SmallintValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountrySort extends SmallintValueObject
+export class CommonCountrySort extends SmallintValueObject
 {
     public readonly type: string = 'CountrySort';
 

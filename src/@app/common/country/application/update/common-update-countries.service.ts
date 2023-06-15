@@ -3,29 +3,29 @@ import { EventPublisher } from '@nestjs/cqrs';
 import { QueryStatement } from '@aurorajs.dev/core';
 import { CQMetadata } from '@aurorajs.dev/core';
 import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
-    CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryMapType,
-    CountryAvailableLangs,
-    CountryCreatedAt,
-    CountryUpdatedAt,
-    CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
-    CountryI18nAdministrativeAreaLevel1,
-    CountryI18nAdministrativeAreaLevel2,
-    CountryI18nAdministrativeAreaLevel3,
+    CommonCountryId,
+    CommonCountryIso3166Alpha2,
+    CommonCountryIso3166Alpha3,
+    CommonCountryIso3166Numeric,
+    CommonCountryCustomCode,
+    CommonCountryPrefix,
+    CommonCountryImage,
+    CommonCountrySort,
+    CommonCountryAdministrativeAreas,
+    CommonCountryLatitude,
+    CommonCountryLongitude,
+    CommonCountryZoom,
+    CommonCountryMapType,
+    CommonCountryAvailableLangs,
+    CommonCountryCreatedAt,
+    CommonCountryUpdatedAt,
+    CommonCountryDeletedAt,
+    CommonCountryI18nLangId,
+    CommonCountryI18nName,
+    CommonCountryI18nSlug,
+    CommonCountryI18nAdministrativeAreaLevel1,
+    CommonCountryI18nAdministrativeAreaLevel2,
+    CommonCountryI18nAdministrativeAreaLevel3,
 } from '../../domain/value-objects';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import { CommonICountryI18nRepository } from '../../domain/common-country-i18n.repository';
@@ -43,25 +43,25 @@ export class CommonUpdateCountriesService
 
     async main(
         payload: {
-            id?: CountryId;
-            iso3166Alpha2?: CountryIso3166Alpha2;
-            iso3166Alpha3?: CountryIso3166Alpha3;
-            iso3166Numeric?: CountryIso3166Numeric;
-            customCode?: CountryCustomCode;
-            prefix?: CountryPrefix;
-            image?: CountryImage;
-            sort?: CountrySort;
-            administrativeAreas?: CountryAdministrativeAreas;
-            latitude?: CountryLatitude;
-            longitude?: CountryLongitude;
-            zoom?: CountryZoom;
-            mapType?: CountryMapType;
-            langId?: CountryI18nLangId;
-            name?: CountryI18nName;
-            slug?: CountryI18nSlug;
-            administrativeAreaLevel1?: CountryI18nAdministrativeAreaLevel1;
-            administrativeAreaLevel2?: CountryI18nAdministrativeAreaLevel2;
-            administrativeAreaLevel3?: CountryI18nAdministrativeAreaLevel3;
+            id?: CommonCountryId;
+            iso3166Alpha2?: CommonCountryIso3166Alpha2;
+            iso3166Alpha3?: CommonCountryIso3166Alpha3;
+            iso3166Numeric?: CommonCountryIso3166Numeric;
+            customCode?: CommonCountryCustomCode;
+            prefix?: CommonCountryPrefix;
+            image?: CommonCountryImage;
+            sort?: CommonCountrySort;
+            administrativeAreas?: CommonCountryAdministrativeAreas;
+            latitude?: CommonCountryLatitude;
+            longitude?: CommonCountryLongitude;
+            zoom?: CommonCountryZoom;
+            mapType?: CommonCountryMapType;
+            langId?: CommonCountryI18nLangId;
+            name?: CommonCountryI18nName;
+            slug?: CommonCountryI18nSlug;
+            administrativeAreaLevel1?: CommonCountryI18nAdministrativeAreaLevel1;
+            administrativeAreaLevel2?: CommonCountryI18nAdministrativeAreaLevel2;
+            administrativeAreaLevel3?: CommonCountryI18nAdministrativeAreaLevel3;
         },
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
@@ -71,7 +71,7 @@ export class CommonUpdateCountriesService
         const contentLanguage = cQMetadata.meta.contentLanguage;
 
         // override langId value object with header content-language value
-        payload.langId = new CountryI18nLangId(contentLanguage.id);
+        payload.langId = new CommonCountryI18nLangId(contentLanguage.id);
 
         // create aggregate with factory pattern
         const country = CommonCountry.register(
@@ -90,7 +90,7 @@ export class CommonUpdateCountriesService
             payload.mapType,
             null, // availableLangs
             null, // createdAt
-            new CountryUpdatedAt({ currentTimestamp: true }),
+            new CommonCountryUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt
             payload.langId,
             payload.name,

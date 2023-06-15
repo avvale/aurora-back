@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 import { QueryStatement } from '@aurorajs.dev/core';
 import { CQMetadata } from '@aurorajs.dev/core';
-import { CountryAvailableLangs, CountryId } from '../../domain/value-objects';
+import { CommonCountryAvailableLangs, CommonCountryId } from '../../domain/value-objects';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import { CommonICountryI18nRepository } from '../../domain/common-country-i18n.repository';
 
@@ -15,7 +15,7 @@ export class CommonDeleteCountryByIdI18nService
         private readonly repositoryI18n: CommonICountryI18nRepository,
     ) {}
 
-    async main(id: CountryId, constraint?: QueryStatement, cQMetadata?: CQMetadata): Promise<void>
+    async main(id: CommonCountryId, constraint?: QueryStatement, cQMetadata?: CQMetadata): Promise<void>
     {
         // get object to delete
         const country = await this.repository.findById(id, { constraint, cQMetadata });
@@ -40,7 +40,7 @@ export class CommonDeleteCountryByIdI18nService
         }
         else
         {
-            country.availableLangs = new CountryAvailableLangs(availableLangs);
+            country.availableLangs = new CommonCountryAvailableLangs(availableLangs);
             await this.repository.update(country);
         }
 

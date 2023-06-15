@@ -1,13 +1,13 @@
 import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryIso3166Alpha3 extends StringValueObject
+export class CommonCountryIso3166Numeric extends StringValueObject
 {
-    public readonly type: string = 'CountryIso3166Alpha3';
+    public readonly type: string = 'CountryIso3166Numeric';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'CountryIso3166Alpha3',
+            name       : 'CountryIso3166Numeric',
             nullable   : false,
             undefinable: false,
             length     : 3,

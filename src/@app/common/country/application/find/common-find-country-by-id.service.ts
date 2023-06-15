@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import { CommonCountry } from '../../domain/common-country.aggregate';
-import { CountryId } from '../../domain/value-objects';
+import { CommonCountryId } from '../../domain/value-objects';
 
 @Injectable()
 export class CommonFindCountryByIdService
@@ -12,7 +12,7 @@ export class CommonFindCountryByIdService
     ) {}
 
     async main(
-        id: CountryId,
+        id: CommonCountryId,
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
     ): Promise<CommonCountry>

@@ -5,7 +5,7 @@ import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 // custom items
 import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
 import { CommonDeleteCountryByIdI18nService } from './delete-country-by-id-i18n.service';
-import { CountryId } from '../../domain/value-objects';
+import { CommonCountryId } from '../../domain/value-objects';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import { CommonICountryI18nRepository } from '../../domain/country-i18n.repository';
 import { CommonMockCountryRepository } from '../../infrastructure/mock/mock-country.repository';

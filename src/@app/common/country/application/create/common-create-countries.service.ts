@@ -2,29 +2,29 @@ import { CommonICountryI18nRepository } from '../../domain/common-country-i18n.r
 import { CommonCountry } from '../../domain/common-country.aggregate';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import {
-    CountryAdministrativeAreas,
-    CountryAvailableLangs,
-    CountryCreatedAt,
-    CountryCustomCode,
-    CountryDeletedAt,
-    CountryI18nAdministrativeAreaLevel1,
-    CountryI18nAdministrativeAreaLevel2,
-    CountryI18nAdministrativeAreaLevel3,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
-    CountryId,
-    CountryImage,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryLatitude,
-    CountryLongitude,
-    CountryMapType,
-    CountryPrefix,
-    CountrySort,
-    CountryUpdatedAt,
-    CountryZoom,
+    CommonCountryAdministrativeAreas,
+    CommonCountryAvailableLangs,
+    CommonCountryCreatedAt,
+    CommonCountryCustomCode,
+    CommonCountryDeletedAt,
+    CommonCountryI18nAdministrativeAreaLevel1,
+    CommonCountryI18nAdministrativeAreaLevel2,
+    CommonCountryI18nAdministrativeAreaLevel3,
+    CommonCountryI18nLangId,
+    CommonCountryI18nName,
+    CommonCountryI18nSlug,
+    CommonCountryId,
+    CommonCountryImage,
+    CommonCountryIso3166Alpha2,
+    CommonCountryIso3166Alpha3,
+    CommonCountryIso3166Numeric,
+    CommonCountryLatitude,
+    CommonCountryLongitude,
+    CommonCountryMapType,
+    CommonCountryPrefix,
+    CommonCountrySort,
+    CommonCountryUpdatedAt,
+    CommonCountryZoom,
 } from '../../domain/value-objects';
 import { CommonAddCountriesContextEvent } from '../events/common-add-countries-context.event';
 import { CQMetadata } from '@aurorajs.dev/core';
@@ -42,26 +42,26 @@ export class CommonCreateCountriesService
 
     async main(
         countries: {
-            id: CountryId;
-            iso3166Alpha2: CountryIso3166Alpha2;
-            iso3166Alpha3: CountryIso3166Alpha3;
-            iso3166Numeric: CountryIso3166Numeric;
-            customCode: CountryCustomCode;
-            prefix: CountryPrefix;
-            image: CountryImage;
-            sort: CountrySort;
-            administrativeAreas: CountryAdministrativeAreas;
-            latitude: CountryLatitude;
-            longitude: CountryLongitude;
-            zoom: CountryZoom;
-            mapType: CountryMapType;
-            availableLangs: CountryAvailableLangs;
-            langId: CountryI18nLangId;
-            name: CountryI18nName;
-            slug: CountryI18nSlug;
-            administrativeAreaLevel1: CountryI18nAdministrativeAreaLevel1;
-            administrativeAreaLevel2: CountryI18nAdministrativeAreaLevel2;
-            administrativeAreaLevel3: CountryI18nAdministrativeAreaLevel3;
+            id: CommonCountryId;
+            iso3166Alpha2: CommonCountryIso3166Alpha2;
+            iso3166Alpha3: CommonCountryIso3166Alpha3;
+            iso3166Numeric: CommonCountryIso3166Numeric;
+            customCode: CommonCountryCustomCode;
+            prefix: CommonCountryPrefix;
+            image: CommonCountryImage;
+            sort: CommonCountrySort;
+            administrativeAreas: CommonCountryAdministrativeAreas;
+            latitude: CommonCountryLatitude;
+            longitude: CommonCountryLongitude;
+            zoom: CommonCountryZoom;
+            mapType: CommonCountryMapType;
+            availableLangs: CommonCountryAvailableLangs;
+            langId: CommonCountryI18nLangId;
+            name: CommonCountryI18nName;
+            slug: CommonCountryI18nSlug;
+            administrativeAreaLevel1: CommonCountryI18nAdministrativeAreaLevel1;
+            administrativeAreaLevel2: CommonCountryI18nAdministrativeAreaLevel2;
+            administrativeAreaLevel3: CommonCountryI18nAdministrativeAreaLevel3;
         } [],
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -82,8 +82,8 @@ export class CommonCreateCountriesService
             country.zoom,
             country.mapType,
             country.availableLangs,
-            new CountryCreatedAt({ currentTimestamp: true }),
-            new CountryUpdatedAt({ currentTimestamp: true }),
+            new CommonCountryCreatedAt({ currentTimestamp: true }),
+            new CommonCountryUpdatedAt({ currentTimestamp: true }),
             null, // deleteAt
             country.langId,
             country.name,

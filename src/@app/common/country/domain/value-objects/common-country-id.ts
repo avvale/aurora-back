@@ -1,6 +1,6 @@
 import { DataValueObject, UuidValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryId extends UuidValueObject
+export class CommonCountryId extends UuidValueObject
 {
     public readonly type: string = 'CountryId';
 

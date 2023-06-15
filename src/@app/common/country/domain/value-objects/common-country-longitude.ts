@@ -1,6 +1,6 @@
 import { DecimalValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryLongitude extends DecimalValueObject
+export class CommonCountryLongitude extends DecimalValueObject
 {
     public readonly type: string = 'CountryLongitude';
 

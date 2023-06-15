@@ -2,29 +2,29 @@ import { CommonICountryI18nRepository } from '../../domain/common-country-i18n.r
 import { CommonCountry } from '../../domain/common-country.aggregate';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
 import {
-    CountryAdministrativeAreas,
-    CountryAvailableLangs,
-    CountryCreatedAt,
-    CountryCustomCode,
-    CountryDeletedAt,
-    CountryI18nAdministrativeAreaLevel1,
-    CountryI18nAdministrativeAreaLevel2,
-    CountryI18nAdministrativeAreaLevel3,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
-    CountryId,
-    CountryImage,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryLatitude,
-    CountryLongitude,
-    CountryMapType,
-    CountryPrefix,
-    CountrySort,
-    CountryUpdatedAt,
-    CountryZoom,
+    CommonCountryAdministrativeAreas,
+    CommonCountryAvailableLangs,
+    CommonCountryCreatedAt,
+    CommonCountryCustomCode,
+    CommonCountryDeletedAt,
+    CommonCountryI18nAdministrativeAreaLevel1,
+    CommonCountryI18nAdministrativeAreaLevel2,
+    CommonCountryI18nAdministrativeAreaLevel3,
+    CommonCountryI18nLangId,
+    CommonCountryI18nName,
+    CommonCountryI18nSlug,
+    CommonCountryId,
+    CommonCountryImage,
+    CommonCountryIso3166Alpha2,
+    CommonCountryIso3166Alpha3,
+    CommonCountryIso3166Numeric,
+    CommonCountryLatitude,
+    CommonCountryLongitude,
+    CommonCountryMapType,
+    CommonCountryPrefix,
+    CommonCountrySort,
+    CommonCountryUpdatedAt,
+    CommonCountryZoom,
 } from '../../domain/value-objects';
 import { CQMetadata, Utils } from '@aurorajs.dev/core';
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
@@ -42,25 +42,25 @@ export class CommonUpsertCountryService
 
     async main(
         payload: {
-            id: CountryId;
-            iso3166Alpha2: CountryIso3166Alpha2;
-            iso3166Alpha3: CountryIso3166Alpha3;
-            iso3166Numeric: CountryIso3166Numeric;
-            customCode: CountryCustomCode;
-            prefix: CountryPrefix;
-            image: CountryImage;
-            sort: CountrySort;
-            administrativeAreas: CountryAdministrativeAreas;
-            latitude: CountryLatitude;
-            longitude: CountryLongitude;
-            zoom: CountryZoom;
-            mapType: CountryMapType;
-            langId: CountryI18nLangId;
-            name: CountryI18nName;
-            slug: CountryI18nSlug;
-            administrativeAreaLevel1: CountryI18nAdministrativeAreaLevel1;
-            administrativeAreaLevel2: CountryI18nAdministrativeAreaLevel2;
-            administrativeAreaLevel3: CountryI18nAdministrativeAreaLevel3;
+            id: CommonCountryId;
+            iso3166Alpha2: CommonCountryIso3166Alpha2;
+            iso3166Alpha3: CommonCountryIso3166Alpha3;
+            iso3166Numeric: CommonCountryIso3166Numeric;
+            customCode: CommonCountryCustomCode;
+            prefix: CommonCountryPrefix;
+            image: CommonCountryImage;
+            sort: CommonCountrySort;
+            administrativeAreas: CommonCountryAdministrativeAreas;
+            latitude: CommonCountryLatitude;
+            longitude: CommonCountryLongitude;
+            zoom: CommonCountryZoom;
+            mapType: CommonCountryMapType;
+            langId: CommonCountryI18nLangId;
+            name: CommonCountryI18nName;
+            slug: CommonCountryI18nSlug;
+            administrativeAreaLevel1: CommonCountryI18nAdministrativeAreaLevel1;
+            administrativeAreaLevel2: CommonCountryI18nAdministrativeAreaLevel2;
+            administrativeAreaLevel3: CommonCountryI18nAdministrativeAreaLevel3;
         },
         cQMetadata?: CQMetadata,
     ): Promise<void>
@@ -68,7 +68,7 @@ export class CommonUpsertCountryService
         const contentLanguage = cQMetadata.meta.contentLanguage;
 
         // override langId value object with header content-language value
-        payload.langId = new CountryI18nLangId(contentLanguage.id);
+        payload.langId = new CommonCountryI18nLangId(contentLanguage.id);
 
         // upsert aggregate with factory pattern
         const country = CommonCountry.register(
@@ -86,8 +86,8 @@ export class CommonUpsertCountryService
             payload.zoom,
             payload.mapType,
             null, // availableLangs
-            new CountryCreatedAt({ currentTimestamp: true }),
-            new CountryUpdatedAt({ currentTimestamp: true }),
+            new CommonCountryCreatedAt({ currentTimestamp: true }),
+            new CommonCountryUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt
             payload.langId,
             payload.name,
@@ -112,7 +112,7 @@ export class CommonUpsertCountryService
             if (countryInDB.availableLangs.value.includes(contentLanguage.id)) throw new ConflictException(`Error to upsert CommonCountry, the id ${contentLanguage.id} already exist in database`);
 
             // add new lang id to data lang field to upsert field
-            country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [contentLanguage.id]));
+            country.availableLangs = new CommonCountryAvailableLangs(_.union(countryInDB.availableLangs.value, [contentLanguage.id]));
             await this.repository.update(
                 country,
                 {
@@ -125,7 +125,7 @@ export class CommonUpsertCountryService
         {
             if (error instanceof NotFoundException)
             {
-                country.availableLangs = new CountryAvailableLangs([contentLanguage.id]);
+                country.availableLangs = new CommonCountryAvailableLangs([contentLanguage.id]);
                 await this.repository
                     .upsert(
                         country,
@@ -148,7 +148,7 @@ export class CommonUpsertCountryService
 
         // upsert i18n aggregate with factory pattern for upsert repository method
         const countryI18n = CommonCountry.register(
-            new CountryId(modelInDB ? modelInDB.id.value : Utils.uuid()),
+            new CommonCountryId(modelInDB ? modelInDB.id.value : Utils.uuid()),
             payload.iso3166Alpha2,
             payload.iso3166Alpha3,
             payload.iso3166Numeric,
@@ -162,8 +162,8 @@ export class CommonUpsertCountryService
             payload.zoom,
             payload.mapType,
             country.availableLangs,
-            new CountryCreatedAt({ currentTimestamp: true }),
-            new CountryUpdatedAt({ currentTimestamp: true }),
+            new CommonCountryCreatedAt({ currentTimestamp: true }),
+            new CommonCountryUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt
             payload.langId,
             payload.name,

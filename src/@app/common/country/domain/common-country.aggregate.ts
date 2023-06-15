@@ -3,29 +3,29 @@ import { LiteralObject } from '@nestjs/common';
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Utils } from '@aurorajs.dev/core';
 import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
-    CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryMapType,
-    CountryAvailableLangs,
-    CountryCreatedAt,
-    CountryUpdatedAt,
-    CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
-    CountryI18nAdministrativeAreaLevel1,
-    CountryI18nAdministrativeAreaLevel2,
-    CountryI18nAdministrativeAreaLevel3,
+    CommonCountryId,
+    CommonCountryIso3166Alpha2,
+    CommonCountryIso3166Alpha3,
+    CommonCountryIso3166Numeric,
+    CommonCountryCustomCode,
+    CommonCountryPrefix,
+    CommonCountryImage,
+    CommonCountrySort,
+    CommonCountryAdministrativeAreas,
+    CommonCountryLatitude,
+    CommonCountryLongitude,
+    CommonCountryZoom,
+    CommonCountryMapType,
+    CommonCountryAvailableLangs,
+    CommonCountryCreatedAt,
+    CommonCountryUpdatedAt,
+    CommonCountryDeletedAt,
+    CommonCountryI18nLangId,
+    CommonCountryI18nName,
+    CommonCountryI18nSlug,
+    CommonCountryI18nAdministrativeAreaLevel1,
+    CommonCountryI18nAdministrativeAreaLevel2,
+    CommonCountryI18nAdministrativeAreaLevel3,
 } from './value-objects';
 import { CommonCreatedCountryEvent } from '../application/events/common-created-country.event';
 import { CommonUpdatedCountryEvent } from '../application/events/common-updated-country.event';
@@ -34,57 +34,57 @@ import { CommonLang } from '@app/common/lang/domain/lang.aggregate';
 
 export class CommonCountry extends AggregateRoot
 {
-    id: CountryId;
-    iso3166Alpha2: CountryIso3166Alpha2;
-    iso3166Alpha3: CountryIso3166Alpha3;
-    iso3166Numeric: CountryIso3166Numeric;
-    customCode: CountryCustomCode;
-    prefix: CountryPrefix;
-    image: CountryImage;
-    sort: CountrySort;
-    administrativeAreas: CountryAdministrativeAreas;
-    latitude: CountryLatitude;
-    longitude: CountryLongitude;
-    zoom: CountryZoom;
-    mapType: CountryMapType;
-    availableLangs: CountryAvailableLangs;
-    createdAt: CountryCreatedAt;
-    updatedAt: CountryUpdatedAt;
-    deletedAt: CountryDeletedAt;
-    langId: CountryI18nLangId;
-    name: CountryI18nName;
-    slug: CountryI18nSlug;
-    administrativeAreaLevel1: CountryI18nAdministrativeAreaLevel1;
-    administrativeAreaLevel2: CountryI18nAdministrativeAreaLevel2;
-    administrativeAreaLevel3: CountryI18nAdministrativeAreaLevel3;
+    id: CommonCountryId;
+    iso3166Alpha2: CommonCountryIso3166Alpha2;
+    iso3166Alpha3: CommonCountryIso3166Alpha3;
+    iso3166Numeric: CommonCountryIso3166Numeric;
+    customCode: CommonCountryCustomCode;
+    prefix: CommonCountryPrefix;
+    image: CommonCountryImage;
+    sort: CommonCountrySort;
+    administrativeAreas: CommonCountryAdministrativeAreas;
+    latitude: CommonCountryLatitude;
+    longitude: CommonCountryLongitude;
+    zoom: CommonCountryZoom;
+    mapType: CommonCountryMapType;
+    availableLangs: CommonCountryAvailableLangs;
+    createdAt: CommonCountryCreatedAt;
+    updatedAt: CommonCountryUpdatedAt;
+    deletedAt: CommonCountryDeletedAt;
+    langId: CommonCountryI18nLangId;
+    name: CommonCountryI18nName;
+    slug: CommonCountryI18nSlug;
+    administrativeAreaLevel1: CommonCountryI18nAdministrativeAreaLevel1;
+    administrativeAreaLevel2: CommonCountryI18nAdministrativeAreaLevel2;
+    administrativeAreaLevel3: CommonCountryI18nAdministrativeAreaLevel3;
 
     // eager relationship
     lang: CommonLang;
 
     constructor(
-        id: CountryId,
-        iso3166Alpha2: CountryIso3166Alpha2,
-        iso3166Alpha3: CountryIso3166Alpha3,
-        iso3166Numeric: CountryIso3166Numeric,
-        customCode: CountryCustomCode,
-        prefix: CountryPrefix,
-        image: CountryImage,
-        sort: CountrySort,
-        administrativeAreas: CountryAdministrativeAreas,
-        latitude: CountryLatitude,
-        longitude: CountryLongitude,
-        zoom: CountryZoom,
-        mapType: CountryMapType,
-        availableLangs: CountryAvailableLangs,
-        createdAt: CountryCreatedAt,
-        updatedAt: CountryUpdatedAt,
-        deletedAt: CountryDeletedAt,
-        langId: CountryI18nLangId,
-        name: CountryI18nName,
-        slug: CountryI18nSlug,
-        administrativeAreaLevel1: CountryI18nAdministrativeAreaLevel1,
-        administrativeAreaLevel2: CountryI18nAdministrativeAreaLevel2,
-        administrativeAreaLevel3: CountryI18nAdministrativeAreaLevel3,
+        id: CommonCountryId,
+        iso3166Alpha2: CommonCountryIso3166Alpha2,
+        iso3166Alpha3: CommonCountryIso3166Alpha3,
+        iso3166Numeric: CommonCountryIso3166Numeric,
+        customCode: CommonCountryCustomCode,
+        prefix: CommonCountryPrefix,
+        image: CommonCountryImage,
+        sort: CommonCountrySort,
+        administrativeAreas: CommonCountryAdministrativeAreas,
+        latitude: CommonCountryLatitude,
+        longitude: CommonCountryLongitude,
+        zoom: CommonCountryZoom,
+        mapType: CommonCountryMapType,
+        availableLangs: CommonCountryAvailableLangs,
+        createdAt: CommonCountryCreatedAt,
+        updatedAt: CommonCountryUpdatedAt,
+        deletedAt: CommonCountryDeletedAt,
+        langId: CommonCountryI18nLangId,
+        name: CommonCountryI18nName,
+        slug: CommonCountryI18nSlug,
+        administrativeAreaLevel1: CommonCountryI18nAdministrativeAreaLevel1,
+        administrativeAreaLevel2: CommonCountryI18nAdministrativeAreaLevel2,
+        administrativeAreaLevel3: CommonCountryI18nAdministrativeAreaLevel3,
 
         lang?: CommonLang,
     )
@@ -119,29 +119,29 @@ export class CommonCountry extends AggregateRoot
     }
 
     static register (
-        id: CountryId,
-        iso3166Alpha2: CountryIso3166Alpha2,
-        iso3166Alpha3: CountryIso3166Alpha3,
-        iso3166Numeric: CountryIso3166Numeric,
-        customCode: CountryCustomCode,
-        prefix: CountryPrefix,
-        image: CountryImage,
-        sort: CountrySort,
-        administrativeAreas: CountryAdministrativeAreas,
-        latitude: CountryLatitude,
-        longitude: CountryLongitude,
-        zoom: CountryZoom,
-        mapType: CountryMapType,
-        availableLangs: CountryAvailableLangs,
-        createdAt: CountryCreatedAt,
-        updatedAt: CountryUpdatedAt,
-        deletedAt: CountryDeletedAt,
-        langId: CountryI18nLangId,
-        name: CountryI18nName,
-        slug: CountryI18nSlug,
-        administrativeAreaLevel1: CountryI18nAdministrativeAreaLevel1,
-        administrativeAreaLevel2: CountryI18nAdministrativeAreaLevel2,
-        administrativeAreaLevel3: CountryI18nAdministrativeAreaLevel3,
+        id: CommonCountryId,
+        iso3166Alpha2: CommonCountryIso3166Alpha2,
+        iso3166Alpha3: CommonCountryIso3166Alpha3,
+        iso3166Numeric: CommonCountryIso3166Numeric,
+        customCode: CommonCountryCustomCode,
+        prefix: CommonCountryPrefix,
+        image: CommonCountryImage,
+        sort: CommonCountrySort,
+        administrativeAreas: CommonCountryAdministrativeAreas,
+        latitude: CommonCountryLatitude,
+        longitude: CommonCountryLongitude,
+        zoom: CommonCountryZoom,
+        mapType: CommonCountryMapType,
+        availableLangs: CommonCountryAvailableLangs,
+        createdAt: CommonCountryCreatedAt,
+        updatedAt: CommonCountryUpdatedAt,
+        deletedAt: CommonCountryDeletedAt,
+        langId: CommonCountryI18nLangId,
+        name: CommonCountryI18nName,
+        slug: CommonCountryI18nSlug,
+        administrativeAreaLevel1: CommonCountryI18nAdministrativeAreaLevel1,
+        administrativeAreaLevel2: CommonCountryI18nAdministrativeAreaLevel2,
+        administrativeAreaLevel3: CommonCountryI18nAdministrativeAreaLevel3,
 
         lang?: CommonLang,
     ): CommonCountry

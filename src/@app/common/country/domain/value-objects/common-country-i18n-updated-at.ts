@@ -1,13 +1,13 @@
 import { DataValueObject, TimestampValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryI18nCreatedAt extends TimestampValueObject
+export class CommonCountryI18nUpdatedAt extends TimestampValueObject
 {
-    public readonly type: string = 'CountryI18nCreatedAt';
+    public readonly type: string = 'CountryI18nUpdatedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'CountryI18nCreatedAt',
+            name       : 'CountryI18nUpdatedAt',
             nullable   : true,
             undefinable: true,
         }, validationRules), data);

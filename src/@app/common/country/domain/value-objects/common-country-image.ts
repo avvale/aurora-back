@@ -1,6 +1,6 @@
 import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class CountryImage extends StringValueObject
+export class CommonCountryImage extends StringValueObject
 {
     public readonly type: string = 'CountryImage';
 
