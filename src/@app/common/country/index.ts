@@ -18,6 +18,22 @@ export { CommonRawSQLCountriesQuery } from './application/raw-sql/common-raw-sql
 // mocks
 export { commonCountries } from './infrastructure/mock/common-mock-country.data';
 
+// domain
+export { CommonCountry } from './domain/common-country.aggregate';
+export { CommonCountryMapper } from './domain/common-country.mapper';
+export { CommonICountryRepository } from './domain/common-country.repository';
+export { CommonCountryResponse } from './domain/common-country.response';
+export { CommonICountryI18nRepository } from './domain/common-country-i18n.repository';
+
+// infrastructure
+export { CommonCountryModel } from './infrastructure/sequelize/common-sequelize-country.model';
+export { CommonCountryI18nModel } from './infrastructure/sequelize/common-sequelize-country-i18n.model';
+export { CommonSequelizeCountryRepository } from './infrastructure/sequelize/common-sequelize-country.repository';
+export { CommonSequelizeCountryI18nRepository } from './infrastructure/sequelize/common-sequelize-country-i18n.repository';
+
+// sagas
+export { CommonCountrySagas } from './application/sagas/common-country.sagas';
+
 // command handlers
 import { CommonCreateCountryCommandHandler } from './application/create/common-create-country.command-handler';
 import { CommonCreateCountriesCommandHandler } from './application/create/common-create-countries.command-handler';
@@ -57,19 +73,6 @@ import { CommonUpsertCountryService } from './application/upsert/common-upsert-c
 import { CommonDeleteCountryByIdService } from './application/delete/common-delete-country-by-id.service';
 import { CommonDeleteCountryByIdI18nService } from './application/delete/common-delete-country-by-id-i18n.service';
 import { CommonDeleteCountriesService } from './application/delete/common-delete-countries.service';
-
-// models
-export { CommonCountryModel } from './infrastructure/sequelize/common-sequelize-country.model';
-export { CommonCountryI18nModel } from './infrastructure/sequelize/common-sequelize-country-i18n.model';
-
-// repository
-export { CommonICountryRepository } from './domain/common-country.repository';
-export { CommonSequelizeCountryRepository } from './infrastructure/sequelize/common-sequelize-country.repository';
-export { CommonICountryI18nRepository } from './domain/common-country-i18n.repository';
-export { CommonSequelizeCountryI18nRepository } from './infrastructure/sequelize/common-sequelize-country-i18n.repository';
-
-// sagas
-export { CommonCountrySagas } from './application/sagas/common-country.sagas';
 
 export const CommonCountryHandlers = [
     // commands

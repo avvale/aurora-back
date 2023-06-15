@@ -27,7 +27,7 @@ import {
     CommonCountryI18nAdministrativeAreaLevel2,
     CommonCountryI18nAdministrativeAreaLevel3,
 } from './value-objects';
-import { CommonLangMapper } from '@app/common/lang/domain/common-lang.mapper';
+import { CommonLangMapper } from '@app/common/lang';
 
 export class CommonCountryMapper implements IMapper
 {

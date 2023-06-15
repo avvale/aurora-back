@@ -17,6 +17,19 @@ export { CommonRawSQLLangsQuery } from './application/raw-sql/common-raw-sql-lan
 // mocks
 export { commonLangs } from './infrastructure/mock/common-mock-lang.data';
 
+// domain
+export { CommonLang } from './domain/common-lang.aggregate';
+export { CommonLangMapper } from './domain/common-lang.mapper';
+export { CommonILangRepository } from './domain/common-lang.repository';
+export { CommonLangResponse } from './domain/common-lang.response';
+
+// infrastructure
+export { CommonLangModel } from './infrastructure/sequelize/common-sequelize-lang.model';
+export { CommonSequelizeLangRepository } from './infrastructure/sequelize/common-sequelize-lang.repository';
+
+// sagas
+export { CommonLangSagas } from './application/sagas/common-lang.sagas';
+
 // command handlers
 import { CommonCreateLangCommandHandler } from './application/create/common-create-lang.command-handler';
 import { CommonCreateLangsCommandHandler } from './application/create/common-create-langs.command-handler';
@@ -54,16 +67,6 @@ import { CommonUpdateLangsService } from './application/update/common-update-lan
 import { CommonUpsertLangService } from './application/upsert/common-upsert-lang.service';
 import { CommonDeleteLangByIdService } from './application/delete/common-delete-lang-by-id.service';
 import { CommonDeleteLangsService } from './application/delete/common-delete-langs.service';
-
-// models
-export { CommonLangModel } from './infrastructure/sequelize/common-sequelize-lang.model';
-
-// repository
-export { CommonILangRepository } from './domain/common-lang.repository';
-export { CommonSequelizeLangRepository } from './infrastructure/sequelize/common-sequelize-lang.repository';
-
-// sagas
-export { CommonLangSagas } from './application/sagas/common-lang.sagas';
 
 export const CommonLangHandlers = [
     // commands

@@ -1,4 +1,4 @@
-import { CommonLangResponse } from '@app/common/lang/domain/common-lang.response';
+import { CommonLangResponse } from '@app/common/lang';
 
 export class CommonCountryResponse
 {
