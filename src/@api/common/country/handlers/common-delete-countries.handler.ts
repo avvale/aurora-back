@@ -1,7 +1,6 @@
 import { CommonCountryDto } from '../dto';
 import { CommonCountry } from '@api/graphql';
-import { DeleteCountriesCommand } from '@app/common/country/application/delete/delete-countries.command';
-import { GetCountriesQuery } from '@app/common/country/application/get/get-countries.query';
+import { CommonDeleteCountriesCommand, CommonGetCountriesQuery } from '@app/common/country';
 import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -37,7 +36,7 @@ export class CommonDeleteCountriesHandler
             },
         );
 
-        const countries = await this.queryBus.ask(new GetCountriesQuery(
+        const countries = await this.queryBus.ask(new CommonGetCountriesQuery(
             queryStatement,
             constraint,
             {
@@ -45,7 +44,7 @@ export class CommonDeleteCountriesHandler
             },
         ));
 
-        await this.commandBus.dispatch(new DeleteCountriesCommand(
+        await this.commandBus.dispatch(new CommonDeleteCountriesCommand(
             queryStatement,
             constraint,
             {

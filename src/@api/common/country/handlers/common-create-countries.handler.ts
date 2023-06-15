@@ -1,6 +1,6 @@
 import { CommonCreateCountryDto } from '../dto';
 import { CommonCreateCountryInput } from '@api/graphql';
-import { CreateCountriesCommand } from '@app/common/country/application/create/create-countries.command';
+import { CommonCreateCountriesCommand } from '@app/common/country';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -18,7 +18,7 @@ export class CommonCreateCountriesHandler
     ): Promise<boolean>
     {
         // no content-language header is required.
-        await this.commandBus.dispatch(new CreateCountriesCommand(
+        await this.commandBus.dispatch(new CommonCreateCountriesCommand(
             payload,
             {
                 timezone,

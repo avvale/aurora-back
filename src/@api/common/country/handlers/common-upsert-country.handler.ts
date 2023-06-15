@@ -1,7 +1,6 @@
 import { CommonCountryDto, CommonUpdateCountryByIdDto } from '../dto';
 import { CommonCountry, CommonUpdateCountryByIdInput } from '@api/graphql';
-import { FindCountryByIdQuery } from '@app/common/country/application/find/find-country-by-id.query';
-import { UpsertCountryCommand } from '@app/common/country/application/upsert/upsert-country.command';
+import { CommonFindCountryByIdQuery, CommonUpsertCountryCommand } from '@app/common/country';
 import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -25,7 +24,7 @@ export class CommonUpsertCountryHandler
     {
         if (!contentLanguage) throw new BadRequestException('To upsert a multi-language object, the content-language header must be defined.');
 
-        await this.commandBus.dispatch(new UpsertCountryCommand(
+        await this.commandBus.dispatch(new CommonUpsertCountryCommand(
             payload,
             {
                 timezone,
@@ -47,7 +46,7 @@ export class CommonUpsertCountryHandler
             },
         );
 
-        return await this.queryBus.ask(new FindCountryByIdQuery(
+        return await this.queryBus.ask(new CommonFindCountryByIdQuery(
             payload.id,
             constraint,
             {

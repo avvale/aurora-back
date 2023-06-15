@@ -1,7 +1,6 @@
 import { CommonCountryDto, CommonCreateCountryDto } from '../dto';
 import { CommonCountry, CommonCreateCountryInput } from '@api/graphql';
-import { CreateCountryCommand } from '@app/common/country/application/create/create-country.command';
-import { FindCountryByIdQuery } from '@app/common/country/application/find/find-country-by-id.query';
+import { CommonCreateCountryCommand, CommonFindCountryByIdQuery } from '@app/common/country';
 import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -26,7 +25,7 @@ export class CommonCreateCountryHandler
     {
         if (!contentLanguage) throw new BadRequestException('To create a multi-language object, the content-language header must be defined.');
 
-        await this.commandBus.dispatch(new CreateCountryCommand(
+        await this.commandBus.dispatch(new CommonCreateCountryCommand(
             payload,
             {
                 timezone,
@@ -49,7 +48,7 @@ export class CommonCreateCountryHandler
             },
         );
 
-        return await this.queryBus.ask(new FindCountryByIdQuery(
+        return await this.queryBus.ask(new CommonFindCountryByIdQuery(
             payload.id,
             constraint,
             {

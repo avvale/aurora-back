@@ -1,6 +1,6 @@
 import { CommonCountryDto } from '../dto';
 import { CommonCountry } from '@api/graphql';
-import { FindCountryQuery } from '@app/common/country/application/find/find-country.query';
+import { CommonFindCountryQuery } from '@app/common/country';
 import { CoreAddI18nConstraintService, CoreGetSearchKeyLangService, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -31,7 +31,7 @@ export class CommonFindCountryHandler
             },
         );
 
-        return await this.queryBus.ask(new FindCountryQuery(
+        return await this.queryBus.ask(new CommonFindCountryQuery(
             queryStatement,
             constraint,
             {

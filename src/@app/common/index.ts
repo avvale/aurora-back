@@ -1,5 +1,5 @@
 import { CommonLangHandlers, CommonLangServices, CommonLangModel, ILangRepository, SequelizeLangRepository, LangSagas } from './lang';
-import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, ICountryRepository, SequelizeCountryRepository, CountrySagas, CommonCountryI18nModel, ICountryI18nRepository, SequelizeCountryI18nRepository } from './country';
+import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, CommonCountryI18nModel, CommonICountryRepository, CommonSequelizeCountryRepository, CommonICountryI18nRepository, CommonSequelizeCountryI18nRepository, CommonCountrySagas } from './country';
 
 export const CommonHandlers = [
     ...CommonLangHandlers,
@@ -20,15 +20,16 @@ export const CommonRepositories = [
         useClass: SequelizeLangRepository
     },
     {
-        provide : ICountryRepository,
-        useClass: SequelizeCountryRepository
+        provide : CommonICountryI18nRepository,
+        useClass: CommonSequelizeCountryI18nRepository
     },
     {
-        provide : ICountryI18nRepository,
-        useClass: SequelizeCountryI18nRepository
+        provide : CommonICountryRepository,
+        useClass: CommonSequelizeCountryRepository
     }
 ];
 export const CommonSagas = [
     LangSagas,
-    CountrySagas
+    CommonCountrySagas
 ];
+

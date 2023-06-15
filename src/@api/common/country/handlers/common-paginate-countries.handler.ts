@@ -1,5 +1,5 @@
 import { Pagination } from '@api/graphql';
-import { PaginateCountriesQuery } from '@app/common/country/application/paginate/paginate-countries.query';
+import { CommonPaginateCountriesQuery } from '@app/common/country';
 import { CoreAddI18nConstraintService, CoreGetSearchKeyLangService, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -30,7 +30,7 @@ export class CommonPaginateCountriesHandler
             },
         );
 
-        return await this.queryBus.ask(new PaginateCountriesQuery(
+        return await this.queryBus.ask(new CommonPaginateCountriesQuery(
             queryStatement,
             constraint,
             {

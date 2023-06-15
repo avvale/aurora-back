@@ -1,7 +1,6 @@
 import { CommonCountryDto, CommonUpdateCountryByIdDto } from '../dto';
 import { CommonCountry, CommonUpdateCountryByIdInput } from '@api/graphql';
-import { FindCountryByIdQuery } from '@app/common/country/application/find/find-country-by-id.query';
-import { UpdateCountryByIdCommand } from '@app/common/country/application/update/update-country-by-id.command';
+import { CommonFindCountryByIdQuery, CommonUpdateCountryByIdCommand } from '@app/common/country';
 import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
@@ -35,7 +34,7 @@ export class CommonUpdateCountryByIdHandler
             },
         );
 
-        const country = await this.queryBus.ask(new FindCountryByIdQuery(
+        const country = await this.queryBus.ask(new CommonFindCountryByIdQuery(
             payload.id,
             constraintToFindById,
             {
@@ -47,7 +46,7 @@ export class CommonUpdateCountryByIdHandler
 
         const contentLanguageObject = await this.coreGetContentLanguageObjectService.get(contentLanguage);
 
-        await this.commandBus.dispatch(new UpdateCountryByIdCommand(
+        await this.commandBus.dispatch(new CommonUpdateCountryByIdCommand(
             {
                 ...dataToUpdate,
                 id    : payload.id,
@@ -65,7 +64,7 @@ export class CommonUpdateCountryByIdHandler
             },
         ));
 
-        return await this.queryBus.ask(new FindCountryByIdQuery(
+        return await this.queryBus.ask(new CommonFindCountryByIdQuery(
             payload.id,
             constraintToFindById,
             {

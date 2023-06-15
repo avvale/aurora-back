@@ -1,8 +1,7 @@
 import { CommonCountryDto, CommonUpdateCountriesDto } from '../dto';
 import { CommonCountry, CommonUpdateCountriesInput } from '@api/graphql';
-import { GetCountriesQuery } from '@app/common/country/application/get/get-countries.query';
-import { UpdateCountriesCommand } from '@app/common/country/application/update/update-countries.command';
-import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
+import { CommonGetCountriesQuery, CommonUpdateCountriesCommand } from '@app/common/country';
+import { AuditingMeta, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -27,7 +26,7 @@ export class CommonUpdateCountriesHandler
     {
         if (!contentLanguage) throw new BadRequestException('To update a multi-language objects, the content-language header must be defined.');
 
-        await this.commandBus.dispatch(new UpdateCountriesCommand(
+        await this.commandBus.dispatch(new CommonUpdateCountriesCommand(
             payload,
             queryStatement,
             constraint,
@@ -51,7 +50,7 @@ export class CommonUpdateCountriesHandler
             },
         );
 
-        return await this.queryBus.ask(new GetCountriesQuery(
+        return await this.queryBus.ask(new CommonGetCountriesQuery(
             queryStatement,
             constraint,
             {
