@@ -1,10 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-
-// @app
-import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
-import { CommonLang } from '@api/graphql';
 import { CommonLangDto } from '../dto';
+import { CommonLang } from '@api/graphql';
+import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
+import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CommonFindLangByIdHandler

@@ -15,10 +15,11 @@ export class DeleteCountryByIdI18nCommandHandler implements ICommandHandler<Dele
     async execute(command: DeleteCountryByIdI18nCommand): Promise<void>
     {
         // call to use case and implements ValueObjects
-        await this.deleteCountryByIdI18nService.main(
-            new CountryId(command.id),
-            command.constraint,
-            command.cQMetadata
-        );
+        await this.deleteCountryByIdI18nService
+            .main(
+                new CountryId(command.id),
+                command.constraint,
+                command.cQMetadata,
+            );
     }
 }

@@ -1,20 +1,20 @@
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
+import { CommonModule } from '@api/common/common.module';
+import { ICountryI18nRepository } from '@app/common/country/domain/country-i18n.repository';
+import { ICountryRepository } from '@app/common/country/domain/country.repository';
+import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
+import { MockCountrySeeder } from '@app/common/country/infrastructure/mock/mock-country.seeder';
+import { Auth } from '@aurora/decorators';
+import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
+import { CoreAddI18nConstraintService } from '@aurorajs.dev/core';
 import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Auth } from '@aurora/decorators';
-import { ICountryRepository } from '@app/common/country/domain/country.repository';
-import { ICountryI18nRepository } from '@app/common/country/domain/country-i18n.repository';
-import { AddI18nConstraintService } from '@aurorajs.dev/core';
-import { MockCountrySeeder } from '@app/common/country/infrastructure/mock/mock-country.seeder';
-import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
-import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
-import { CommonModule } from '@api/common/common.module';
-import * as request from 'supertest';
+import { Test, TestingModule } from '@nestjs/testing';
 import * as _ from 'lodash';
+import * as request from 'supertest';
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
@@ -66,16 +66,16 @@ describe('country', () =>
         })
             .overrideGuard(Auth)
             .useValue({ canActivate: () => true })
-            .overrideProvider(AddI18nConstraintService)
+            .overrideProvider(CoreAddI18nConstraintService)
             .useValue({
-                main: () =>
+                add: () =>
                     ({
                         include: [{
                             association: 'countryI18n',
                             required   : true,
-                            where      : { langId: '4470b5ab-9d57-4c9d-a68f-5bf8e32f543a' }
-                        }]
-                    })
+                            where      : { langId: '4470b5ab-9d57-4c9d-a68f-5bf8e32f543a' },
+                        }],
+                    }),
             })
             .compile();
 
@@ -609,7 +609,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 703.1223351846655,
+                latitude: 215.28486921282834,
             })
             .expect(400)
             .then(res =>
@@ -624,7 +624,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 6752.3148100301505,
+                longitude: 5214.578685023187,
             })
             .expect(400)
             .then(res =>
@@ -639,7 +639,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 9.111664803127718,
+                latitude: 9.95994823789566,
             })
             .expect(400)
             .then(res =>
@@ -654,7 +654,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 84.89061782046073,
+                longitude: 92.44499285713883,
             })
             .expect(400)
             .then(res =>

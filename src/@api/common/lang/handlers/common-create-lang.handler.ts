@@ -1,11 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// @app
-import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
+import { CommonCreateLangDto, CommonLangDto } from '../dto';
+import { CommonCreateLangInput, CommonLang } from '@api/graphql';
 import { CreateLangCommand } from '@app/common/lang/application/create/create-lang.command';
-import { CommonLang, CommonCreateLangInput } from '@api/graphql';
-import { CommonLangDto, CommonCreateLangDto } from '../dto';
+import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
+import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CommonCreateLangHandler
@@ -32,8 +30,8 @@ export class CommonCreateLangHandler
             },
         ));
 
-        // reset cache langs
-        await this.coreGetLangsService.reset();
+        // init cache langs to update langs
+        await this.coreGetLangsService.init();
 
         return await this.queryBus.ask(new FindLangByIdQuery(
             payload.id,

@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { ILangRepository } from '../../domain/lang.repository';
 import { CommonLang } from '../../domain/lang.aggregate';
+import { ILangRepository } from '../../domain/lang.repository';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FindLangService
@@ -17,10 +16,12 @@ export class FindLangService
         cQMetadata?: CQMetadata,
     ): Promise<CommonLang>
     {
-        return await this.repository.find({
-            queryStatement,
-            constraint,
-            cQMetadata,
-        });
+        return await this.repository.find(
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+            },
+        );
     }
 }

@@ -1,36 +1,35 @@
-import { Injectable } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { ConfigService } from '@nestjs/config';
-import { CQMetadata } from '@aurorajs.dev/core';
+import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
+import { CommonCountry } from '../../domain/country.aggregate';
+import { ICountryRepository } from '../../domain/country.repository';
 import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
     CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
-    CountryUpdatedAt,
+    CountryCustomCode,
     CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
     CountryI18nAdministrativeAreaLevel1,
     CountryI18nAdministrativeAreaLevel2,
     CountryI18nAdministrativeAreaLevel3,
+    CountryI18nLangId,
+    CountryI18nName,
+    CountryI18nSlug,
+    CountryId,
+    CountryImage,
+    CountryIso3166Alpha2,
+    CountryIso3166Alpha3,
+    CountryIso3166Numeric,
+    CountryLatitude,
+    CountryLongitude,
+    CountryMapType,
+    CountryPrefix,
+    CountrySort,
+    CountryUpdatedAt,
+    CountryZoom,
 } from '../../domain/value-objects';
-import { ICountryRepository } from '../../domain/country.repository';
-import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
-import { CommonCountry } from '../../domain/country.aggregate';
 import { AddCountriesContextEvent } from '../events/add-countries-context.event';
+import { CQMetadata } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
 export class CreateCountriesService
@@ -39,7 +38,6 @@ export class CreateCountriesService
         private readonly publisher: EventPublisher,
         private readonly repository: ICountryRepository,
         private readonly repositoryI18n: ICountryI18nRepository,
-        private readonly configService: ConfigService,
     ) {}
 
     async main(

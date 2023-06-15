@@ -1,8 +1,5 @@
-import { ConflictException, Injectable } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { ILangRepository } from '../../domain/lang.repository';
 import { CommonLang } from '../../domain/lang.aggregate';
+import { ILangRepository } from '../../domain/lang.repository';
 import {
     LangCreatedAt,
     LangCustomCode,
@@ -18,6 +15,9 @@ import {
     LangSort,
     LangUpdatedAt,
 } from '../../domain/value-objects';
+import { CQMetadata } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
 export class CreateLangService

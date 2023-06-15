@@ -1,11 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-
-// @app
-import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
-import { DeleteLangByIdCommand } from '@app/common/lang/application/delete/delete-lang-by-id.command';
-import { CommonLang } from '@api/graphql';
 import { CommonLangDto } from '../dto';
+import { CommonLang } from '@api/graphql';
+import { DeleteLangByIdCommand } from '@app/common/lang/application/delete/delete-lang-by-id.command';
+import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
+import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CommonDeleteLangByIdHandler
@@ -42,8 +40,8 @@ export class CommonDeleteLangByIdHandler
             },
         ));
 
-        // reset cache langs
-        await this.coreGetLangsService.reset();
+        // init cache langs to update langs
+        await this.coreGetLangsService.init();
 
         return lang;
     }

@@ -1,35 +1,34 @@
-import { Injectable } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
+import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
+import { CommonCountry } from '../../domain/country.aggregate';
+import { ICountryRepository } from '../../domain/country.repository';
 import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
     CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
-    CountryUpdatedAt,
+    CountryCustomCode,
     CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
     CountryI18nAdministrativeAreaLevel1,
     CountryI18nAdministrativeAreaLevel2,
     CountryI18nAdministrativeAreaLevel3,
+    CountryI18nLangId,
+    CountryI18nName,
+    CountryI18nSlug,
+    CountryId,
+    CountryImage,
+    CountryIso3166Alpha2,
+    CountryIso3166Alpha3,
+    CountryIso3166Numeric,
+    CountryLatitude,
+    CountryLongitude,
+    CountryMapType,
+    CountryPrefix,
+    CountrySort,
+    CountryUpdatedAt,
+    CountryZoom,
 } from '../../domain/value-objects';
-import { ICountryRepository } from '../../domain/country.repository';
-import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
-import { CommonCountry } from '../../domain/country.aggregate';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
 export class UpdateCountryByIdService
@@ -66,6 +65,11 @@ export class UpdateCountryByIdService
         cQMetadata?: CQMetadata,
     ): Promise<void>
     {
+        const contentLanguage = cQMetadata.meta.contentLanguage;
+
+        // override langId value object with header content-language value
+        payload.langId = new CountryI18nLangId(contentLanguage.id);
+
         // create aggregate with factory pattern
         const country = CommonCountry.register(
             payload.id,
@@ -97,22 +101,28 @@ export class UpdateCountryByIdService
         delete country.availableLangs;
 
         // update by id
-        await this.repository.updateById(country, {
-            constraint,
-            cQMetadata,
-            updateByIdOptions: cQMetadata?.repositoryOptions,
-        });
-
-        await this.repositoryI18n.updateById(country, {
-            constraint,
-            cQMetadata,
-            updateByIdOptions: cQMetadata?.repositoryOptions,
-            dataFactory      : (aggregate: CommonCountry) => aggregate.toI18nDTO(),
-            findArguments    : {
-                langId: country.langId.value,
-                countryId: country.id.value,
+        await this.repository.updateById(
+            country,
+            {
+                constraint,
+                cQMetadata,
+                updateByIdOptions: cQMetadata?.repositoryOptions,
             },
-        });
+        );
+
+        await this.repositoryI18n.updateById(
+            country,
+            {
+                constraint,
+                cQMetadata,
+                updateByIdOptions: cQMetadata?.repositoryOptions,
+                dataFactory      : (aggregate: CommonCountry) => aggregate.toI18nDTO(),
+                findArguments    : {
+                    langId: contentLanguage.id,
+                    countryId: country.id.value,
+                },
+            },
+        );
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const countryRegister = this.publisher.mergeObjectContext(

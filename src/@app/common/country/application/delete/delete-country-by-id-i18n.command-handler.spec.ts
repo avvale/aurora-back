@@ -17,9 +17,9 @@ describe('DeleteCountryByIdI18nCommandHandler', () =>
             providers: [
                 DeleteCountryByIdI18nCommandHandler,
                 {
-                    provide: DeleteCountryByIdI18nService,
+                    provide : DeleteCountryByIdI18nService,
                     useValue: {
-                        main: () => {},
+                        main: () => { /**/ },
                     },
                 },
             ],
@@ -42,7 +42,7 @@ describe('DeleteCountryByIdI18nCommandHandler', () =>
             expect(await commandHandler.execute(
                 new DeleteCountryByIdI18nCommand(
                     countries[0].id,
-                )
+                ),
             )).toBe(undefined);
         });
     });

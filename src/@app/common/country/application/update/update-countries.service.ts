@@ -68,6 +68,11 @@ export class UpdateCountriesService
         cQMetadata?: CQMetadata,
     ): Promise<void>
     {
+        const contentLanguage = cQMetadata.meta.contentLanguage;
+
+        // override langId value object with header content-language value
+        payload.langId = new CountryI18nLangId(contentLanguage.id);
+
         // create aggregate with factory pattern
         const country = CommonCountry.register(
             payload.id,
@@ -99,26 +104,35 @@ export class UpdateCountriesService
         delete country.availableLangs;
 
         // update
-        await this.repository.update(country, {
-            queryStatement,
-            constraint,
-            cQMetadata,
-            updateOptions: cQMetadata?.repositoryOptions,
-        });
-        await this.repositoryI18n.update(country, {
-            queryStatement,
-            constraint,
-            cQMetadata,
-            updateOptions: cQMetadata?.repositoryOptions,
-            dataFactory: (aggregate: CommonCountry) => aggregate.toI18nDTO(),
-        });
+        await this.repository.update(
+            country,
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+                updateOptions: cQMetadata?.repositoryOptions,
+            },
+        );
+
+        await this.repositoryI18n.update(
+            country,
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+                updateOptions: cQMetadata?.repositoryOptions,
+                dataFactory  : (aggregate: CommonCountry) => aggregate.toI18nDTO(),
+            },
+        );
 
         // get objects to delete
-        const countries = await this.repository.get({
-            queryStatement,
-            constraint,
-            cQMetadata,
-        });
+        const countries = await this.repository.get(
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+            },
+        );
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const countriesRegister = this.publisher.mergeObjectContext(

@@ -1,11 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-
-// @app
-import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
-import { DeleteLangsCommand } from '@app/common/lang/application/delete/delete-langs.command';
-import { CommonLang } from '@api/graphql';
 import { CommonLangDto } from '../dto';
+import { CommonLang } from '@api/graphql';
+import { DeleteLangsCommand } from '@app/common/lang/application/delete/delete-langs.command';
+import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CommonDeleteLangsHandler

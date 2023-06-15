@@ -1,8 +1,6 @@
-import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { ICountryRepository } from '../../domain/country.repository';
+import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
 import { CommonCountry } from '../../domain/country.aggregate';
+import { ICountryRepository } from '../../domain/country.repository';
 import {
     CountryAdministrativeAreas,
     CountryAvailableLangs,
@@ -28,10 +26,10 @@ import {
     CountryUpdatedAt,
     CountryZoom,
 } from '../../domain/value-objects';
-import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
+import { CQMetadata } from '@aurorajs.dev/core';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 import * as _ from 'lodash';
-import { Cache } from 'cache-manager';
-import { CACHE_MANAGER } from '@nestjs/cache-manager';
 
 @Injectable()
 export class CreateCountryService
@@ -40,7 +38,6 @@ export class CreateCountryService
         private readonly publisher: EventPublisher,
         private readonly repository: ICountryRepository,
         private readonly repositoryI18n: ICountryI18nRepository,
-        @Inject(CACHE_MANAGER) private cacheManager: Cache,
     ) {}
 
     async main(
@@ -68,6 +65,12 @@ export class CreateCountryService
         cQMetadata?: CQMetadata,
     ): Promise<void>
     {
+        const fallbackLang = cQMetadata.meta.fallbackLang;
+        const contentLanguage = cQMetadata.meta.contentLanguage;
+
+        // override langId value object with header content-language value
+        payload.langId = new CountryI18nLangId(contentLanguage.id);
+
         // create aggregate with factory pattern
         const country = CommonCountry.register(
             payload.id,
@@ -106,7 +109,7 @@ export class CreateCountryService
                             {
                                 association: 'countryI18n',
                                 where      : {
-                                    langId: (await this.cacheManager.get<{ id: string; }>('common/fallback-lang')).id,
+                                    langId: fallbackLang.id,
                                 },
                             },
                         ],
@@ -115,10 +118,10 @@ export class CreateCountryService
             );
 
             // eslint-disable-next-line max-len
-            if (countryInDB.availableLangs.value.includes(country.langId.value)) throw new ConflictException(`Error to create CommonCountry, the id ${country['id']['value']} already exist in database`);
+            if (countryInDB.availableLangs.value.includes(contentLanguage.id)) throw new ConflictException(`Error to create CommonCountry, the id ${contentLanguage.id} already exist in database`);
 
-            // add new language id to data lang field to create or update field
-            country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [country.langId.value]));
+            // add available lang when create country
+            country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [contentLanguage.id]));
 
             await this.repository
                 .update(
@@ -138,8 +141,14 @@ export class CreateCountryService
         {
             if (error instanceof NotFoundException)
             {
-                country.availableLangs = new CountryAvailableLangs([country.langId.value]);
-                await this.repository.create(country, { createOptions: cQMetadata?.repositoryOptions });
+                country.availableLangs = new CountryAvailableLangs([contentLanguage.id]);
+                await this.repository
+                    .create(
+                        country,
+                        {
+                            createOptions: cQMetadata?.repositoryOptions,
+                        },
+                    );
             }
         }
 

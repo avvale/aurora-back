@@ -66,19 +66,24 @@ export class UpdateLangsService
 
 
         // update
-        await this.repository.update(lang, {
-            queryStatement,
-            constraint,
-            cQMetadata,
-            updateOptions: cQMetadata?.repositoryOptions,
-        });
+        await this.repository.update(
+            lang,
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+                updateOptions: cQMetadata?.repositoryOptions,
+            },
+        );
 
         // get objects to delete
-        const langs = await this.repository.get({
-            queryStatement,
-            constraint,
-            cQMetadata,
-        });
+        const langs = await this.repository.get(
+            {
+                queryStatement,
+                constraint,
+                cQMetadata,
+            },
+        );
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const langsRegister = this.publisher.mergeObjectContext(

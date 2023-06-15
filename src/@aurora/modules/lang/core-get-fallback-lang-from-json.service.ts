@@ -1,13 +1,13 @@
 import { CoreLang } from '@api/graphql';
 import { CoreGetFallbackLangService } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable, OnApplicationBootstrap } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Cache } from 'cache-manager';
 import { langs } from './langs';
 
 @Injectable()
-export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangService, OnApplicationBootstrap
+export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangService
 {
     constructor(
         @Inject(CACHE_MANAGER) private cacheManager: Cache,
@@ -21,11 +21,11 @@ export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangSe
         if (langs) return lang;
 
         // get langs from json and return cache langs if cache is expired
-        await this.reset();
+        await this.init();
         return await this.cacheManager.get<T>('common/fallback-lang');
     }
 
-    async reset(): Promise<void>
+    async init(): Promise<void>
     {
         await this.cacheManager.set('common/fallback-lang', this.getJsonFallbackLang());
     }
@@ -38,6 +38,6 @@ export class CoreGetFallbackLangFromJsonService implements CoreGetFallbackLangSe
 
     onApplicationBootstrap(): void
     {
-        this.reset();
+        this.init();
     }
 }

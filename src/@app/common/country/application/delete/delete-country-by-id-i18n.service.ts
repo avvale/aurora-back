@@ -27,8 +27,8 @@ export class DeleteCountryByIdI18nService
                 where: {
                     langId: country.langId.value,
                     countryId: country.id.value,
-                }
-            }
+                },
+            },
         });
 
         const availableLangs = country.availableLangs.value.removeItem(country.langId.value);

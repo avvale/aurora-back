@@ -1,9 +1,8 @@
+import { ILangRepository } from '../../domain/lang.repository';
+import { LangId } from '../../domain/value-objects';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { LangId } from '../../domain/value-objects';
-import { ILangRepository } from '../../domain/lang.repository';
 
 @Injectable()
 export class DeleteLangByIdService
@@ -20,7 +19,13 @@ export class DeleteLangByIdService
     ): Promise<void>
     {
         // get object to delete
-        const lang = await this.repository.findById(id, { constraint, cQMetadata });
+        const lang = await this.repository.findById(
+            id,
+            {
+                constraint,
+                cQMetadata,
+            },
+        );
 
         // it is not necessary to pass the constraint in the delete, if the object
         // is not found in the findById, an exception will be thrown.

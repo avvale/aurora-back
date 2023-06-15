@@ -1,34 +1,34 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { CQMetadata, Utils } from '@aurorajs.dev/core';
+import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
+import { CommonCountry } from '../../domain/country.aggregate';
+import { ICountryRepository } from '../../domain/country.repository';
 import {
-    CountryId,
-    CountryIso3166Alpha2,
-    CountryIso3166Alpha3,
-    CountryIso3166Numeric,
-    CountryCustomCode,
-    CountryPrefix,
-    CountryImage,
-    CountrySort,
     CountryAdministrativeAreas,
-    CountryLatitude,
-    CountryLongitude,
-    CountryZoom,
-    CountryMapType,
     CountryAvailableLangs,
     CountryCreatedAt,
-    CountryUpdatedAt,
+    CountryCustomCode,
     CountryDeletedAt,
-    CountryI18nLangId,
-    CountryI18nName,
-    CountryI18nSlug,
     CountryI18nAdministrativeAreaLevel1,
     CountryI18nAdministrativeAreaLevel2,
     CountryI18nAdministrativeAreaLevel3,
+    CountryI18nLangId,
+    CountryI18nName,
+    CountryI18nSlug,
+    CountryId,
+    CountryImage,
+    CountryIso3166Alpha2,
+    CountryIso3166Alpha3,
+    CountryIso3166Numeric,
+    CountryLatitude,
+    CountryLongitude,
+    CountryMapType,
+    CountryPrefix,
+    CountrySort,
+    CountryUpdatedAt,
+    CountryZoom,
 } from '../../domain/value-objects';
-import { ICountryRepository } from '../../domain/country.repository';
-import { ICountryI18nRepository } from '../../domain/country-i18n.repository';
-import { CommonCountry } from '../../domain/country.aggregate';
+import { CQMetadata, Utils } from '@aurorajs.dev/core';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -65,6 +65,11 @@ export class UpsertCountryService
         cQMetadata?: CQMetadata,
     ): Promise<void>
     {
+        const contentLanguage = cQMetadata.meta.contentLanguage;
+
+        // override langId value object with header content-language value
+        payload.langId = new CountryI18nLangId(contentLanguage.id);
+
         // upsert aggregate with factory pattern
         const country = CommonCountry.register(
             payload.id,
@@ -95,12 +100,19 @@ export class UpsertCountryService
         try
         {
             // try get object from database
-            const countryInDB = await this.repository.findById(country.id, { constraint: { include: ['countryI18n']}});
+            const countryInDB = await this.repository.findById(
+                country.id,
+                {
+                    constraint: {
+                        include: ['countryI18n'],
+                    },
+                },
+            );
 
-            if (countryInDB.availableLangs.value.includes(country.langId.value)) throw new ConflictException(`Error to upsert CommonCountry, the id ${country['id']['value']} already exist in database`);
+            if (countryInDB.availableLangs.value.includes(contentLanguage.id)) throw new ConflictException(`Error to upsert CommonCountry, the id ${contentLanguage.id} already exist in database`);
 
             // add new lang id to data lang field to upsert field
-            country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [country.langId.value]));
+            country.availableLangs = new CountryAvailableLangs(_.union(countryInDB.availableLangs.value, [contentLanguage.id]));
             await this.repository.update(
                 country,
                 {
@@ -113,7 +125,7 @@ export class UpsertCountryService
         {
             if (error instanceof NotFoundException)
             {
-                country.availableLangs = new CountryAvailableLangs([country.langId.value]);
+                country.availableLangs = new CountryAvailableLangs([contentLanguage.id]);
                 await this.repository
                     .upsert(
                         country,
@@ -129,7 +141,7 @@ export class UpsertCountryService
                 queryStatement: {
                     where: {
                         countryId: country.id.value,
-                        langId: country.langId.value,
+                        langId: contentLanguage.id,
                     },
                 },
             });

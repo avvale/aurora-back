@@ -1,18 +1,18 @@
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
+import { CommonModule } from '@api/common/common.module';
+import { ILangRepository } from '@app/common/lang/domain/lang.repository';
+import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
+import { MockLangSeeder } from '@app/common/lang/infrastructure/mock/mock-lang.seeder';
+import { Auth } from '@aurora/decorators';
+import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Auth } from '@aurora/decorators';
-import { ILangRepository } from '@app/common/lang/domain/lang.repository';
-import { MockLangSeeder } from '@app/common/lang/infrastructure/mock/mock-lang.seeder';
-import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
-import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
-import { CommonModule } from '@api/common/common.module';
-import * as request from 'supertest';
+import { Test, TestingModule } from '@nestjs/testing';
 import * as _ from 'lodash';
+import * as request from 'supertest';
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
