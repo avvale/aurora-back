@@ -1,7 +1,6 @@
 import { CommonLangDto, CommonUpdateLangByIdDto } from '../dto';
 import { CommonLang, CommonUpdateLangByIdInput } from '@api/graphql';
-import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
-import { UpdateLangByIdCommand } from '@app/common/lang/application/update/update-lang-by-id.command';
+import { CommonFindLangByIdQuery, CommonUpdateLangByIdCommand } from '@app/common/lang';
 import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -21,7 +20,7 @@ export class CommonUpdateLangByIdHandler
         auditing?: AuditingMeta,
     ): Promise<CommonLang | CommonLangDto>
     {
-        const lang = await this.queryBus.ask(new FindLangByIdQuery(
+        const lang = await this.queryBus.ask(new CommonFindLangByIdQuery(
             payload.id,
             constraint,
             {
@@ -31,7 +30,7 @@ export class CommonUpdateLangByIdHandler
 
         const dataToUpdate = Utils.diff(payload, lang);
 
-        await this.commandBus.dispatch(new UpdateLangByIdCommand(
+        await this.commandBus.dispatch(new CommonUpdateLangByIdCommand(
             {
                 ...dataToUpdate,
                 id: payload.id,
@@ -48,7 +47,7 @@ export class CommonUpdateLangByIdHandler
         // init cache langs to update langs
         await this.coreGetLangsService.init();
 
-        return await this.queryBus.ask(new FindLangByIdQuery(
+        return await this.queryBus.ask(new CommonFindLangByIdQuery(
             payload.id,
             constraint,
             {

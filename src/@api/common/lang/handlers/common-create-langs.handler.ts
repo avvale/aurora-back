@@ -1,6 +1,6 @@
 import { CommonCreateLangDto } from '../dto';
 import { CommonCreateLangInput } from '@api/graphql';
-import { CreateLangsCommand } from '@app/common/lang/application/create/create-langs.command';
+import { CommonCreateLangsCommand } from '@app/common/lang';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -17,7 +17,7 @@ export class CommonCreateLangsHandler
         auditing?: AuditingMeta,
     ): Promise<boolean>
     {
-        await this.commandBus.dispatch(new CreateLangsCommand(
+        await this.commandBus.dispatch(new CommonCreateLangsCommand(
             payload,
             {
                 timezone,

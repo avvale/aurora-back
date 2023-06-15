@@ -1,4 +1,4 @@
-import { LangResponse } from '@app/common/lang/domain/lang.response';
+import { CommonLangResponse } from '@app/common/lang/domain/common-lang.response';
 
 export class CommonCountryResponse
 {
@@ -26,6 +26,6 @@ export class CommonCountryResponse
         public readonly administrativeAreaLevel1: string,
         public readonly administrativeAreaLevel2: string,
         public readonly administrativeAreaLevel3: string,
-        public readonly lang: LangResponse,
+        public readonly lang: CommonLangResponse,
     ) {}
 }

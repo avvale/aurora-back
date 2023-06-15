@@ -1,5 +1,5 @@
 import { CommonLang } from '@api/graphql';
-import { FindLangQuery } from '@app/common/lang/application/find/find-lang.query';
+import { CommonFindLangQuery } from '@app/common/lang/application/find/common-find-lang.query';
 import { CoreGetFallbackLangService, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
@@ -34,7 +34,7 @@ export class CommonGetFallbackLangFromDbService implements CoreGetFallbackLangSe
     async getDbFallbackLang(): Promise<CommonLang>
     {
         const fallbackLangIso6392 = this.configService.get('APP_FALLBACK_LANG');
-        return await this.queryBus.ask(new FindLangQuery({
+        return await this.queryBus.ask(new CommonFindLangQuery({
             where: {
                 iso6392: fallbackLangIso6392,
             },

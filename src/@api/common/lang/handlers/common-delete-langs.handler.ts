@@ -1,7 +1,6 @@
 import { CommonLangDto } from '../dto';
 import { CommonLang } from '@api/graphql';
-import { DeleteLangsCommand } from '@app/common/lang/application/delete/delete-langs.command';
-import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
+import { CommonDeleteLangsCommand, CommonGetLangsQuery } from '@app/common/lang';
 import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -20,7 +19,7 @@ export class CommonDeleteLangsHandler
         auditing?: AuditingMeta,
     ): Promise<CommonLang[] | CommonLangDto[]>
     {
-        const langs = await this.queryBus.ask(new GetLangsQuery(
+        const langs = await this.queryBus.ask(new CommonGetLangsQuery(
             queryStatement,
             constraint,
             {
@@ -28,7 +27,7 @@ export class CommonDeleteLangsHandler
             },
         ));
 
-        await this.commandBus.dispatch(new DeleteLangsCommand(
+        await this.commandBus.dispatch(new CommonDeleteLangsCommand(
             queryStatement,
             constraint,
             {

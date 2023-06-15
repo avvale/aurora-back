@@ -1,5 +1,5 @@
 import { CommonLang } from '@api/graphql';
-import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
+import { CommonGetLangsQuery } from '@app/common/lang/application/get/common-get-langs.query';
 import { CoreGetLangsService, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
@@ -31,7 +31,7 @@ export class CommonGetLangsFromDbService implements CoreGetLangsService
 
     async getDbLangs(): Promise<CommonLang[]>
     {
-        return await this.queryBus.ask(new GetLangsQuery());
+        return await this.queryBus.ask(new CommonGetLangsQuery());
     }
 
     onApplicationBootstrap(): void

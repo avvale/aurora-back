@@ -1,8 +1,7 @@
 import { CommonLangDto, CommonUpdateLangsDto } from '../dto';
 import { CommonLang, CommonUpdateLangsInput } from '@api/graphql';
-import { GetLangsQuery } from '@app/common/lang/application/get/get-langs.query';
-import { UpdateLangsCommand } from '@app/common/lang/application/update/update-langs.command';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
+import { CommonGetLangsQuery, CommonUpdateLangsCommand } from '@app/common/lang';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -21,7 +20,7 @@ export class CommonUpdateLangsHandler
         auditing?: AuditingMeta,
     ): Promise<CommonLang | CommonLangDto>
     {
-        await this.commandBus.dispatch(new UpdateLangsCommand(
+        await this.commandBus.dispatch(new CommonUpdateLangsCommand(
             payload,
             queryStatement,
             constraint,
@@ -33,7 +32,7 @@ export class CommonUpdateLangsHandler
             },
         ));
 
-        return await this.queryBus.ask(new GetLangsQuery(
+        return await this.queryBus.ask(new CommonGetLangsQuery(
             queryStatement,
             constraint,
             {

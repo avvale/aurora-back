@@ -27,7 +27,7 @@ import {
     CommonCountryI18nAdministrativeAreaLevel2,
     CommonCountryI18nAdministrativeAreaLevel3,
 } from './value-objects';
-import { LangMapper } from '@app/common/lang/domain/lang.mapper';
+import { CommonLangMapper } from '@app/common/lang/domain/common-lang.mapper';
 
 export class CommonCountryMapper implements IMapper
 {
@@ -103,7 +103,7 @@ export class CommonCountryMapper implements IMapper
             new CommonCountryI18nAdministrativeAreaLevel1(country.countryI18n.administrativeAreaLevel1, { undefinable: true }),
             new CommonCountryI18nAdministrativeAreaLevel2(country.countryI18n.administrativeAreaLevel2, { undefinable: true }),
             new CommonCountryI18nAdministrativeAreaLevel3(country.countryI18n.administrativeAreaLevel3, { undefinable: true }),
-            this.options.eagerLoading ? new LangMapper({ eagerLoading: true }).mapModelToAggregate(country.countryI18n.lang, cQMetadata) : undefined,
+            this.options.eagerLoading ? new CommonLangMapper({ eagerLoading: true }).mapModelToAggregate(country.countryI18n.lang, cQMetadata) : undefined,
         );
     }
 
@@ -135,7 +135,7 @@ export class CommonCountryMapper implements IMapper
             country.administrativeAreaLevel1.value,
             country.administrativeAreaLevel2.value,
             country.administrativeAreaLevel3.value,
-            this.options.eagerLoading ? new LangMapper({ eagerLoading: true }).mapAggregateToResponse(country.lang) : undefined,
+            this.options.eagerLoading ? new CommonLangMapper({ eagerLoading: true }).mapAggregateToResponse(country.lang) : undefined,
         );
     }
 }

@@ -1,5 +1,5 @@
 import { Pagination } from '@api/graphql';
-import { PaginateLangsQuery } from '@app/common/lang/application/paginate/paginate-langs.query';
+import { CommonPaginateLangsQuery } from '@app/common/lang';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -16,7 +16,7 @@ export class CommonPaginateLangsHandler
         timezone?: string,
     ): Promise<Pagination>
     {
-        return await this.queryBus.ask(new PaginateLangsQuery(
+        return await this.queryBus.ask(new CommonPaginateLangsQuery(
             queryStatement,
             constraint,
             {

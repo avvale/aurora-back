@@ -1,6 +1,6 @@
 import { CommonLangDto } from '../dto';
 import { CommonLang } from '@api/graphql';
-import { FindLangQuery } from '@app/common/lang/application/find/find-lang.query';
+import { CommonFindLangQuery } from '@app/common/lang';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -17,7 +17,7 @@ export class CommonFindLangHandler
         timezone?: string,
     ): Promise<CommonLang | CommonLangDto>
     {
-        return await this.queryBus.ask(new FindLangQuery(
+        return await this.queryBus.ask(new CommonFindLangQuery(
             queryStatement,
             constraint,
             {

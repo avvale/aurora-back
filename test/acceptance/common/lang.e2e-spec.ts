@@ -2,9 +2,9 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { CommonModule } from '@api/common/common.module';
-import { ILangRepository } from '@app/common/lang/domain/lang.repository';
-import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
-import { MockLangSeeder } from '@app/common/lang/infrastructure/mock/mock-lang.seeder';
+import { CommonILangRepository } from '@app/common/lang/domain/common-lang.repository';
+import { commonLangs } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
+import { CommonMockLangSeeder } from '@app/common/lang/infrastructure/mock/common-mock-lang.seeder';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -20,8 +20,8 @@ const importForeignModules = [];
 describe('lang', () =>
 {
     let app: INestApplication;
-    let langRepository: ILangRepository;
-    let langSeeder: MockLangSeeder;
+    let langRepository: CommonILangRepository;
+    let langSeeder: CommonMockLangSeeder;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let mockData: any;
@@ -58,17 +58,17 @@ describe('lang', () =>
                 }),
             ],
             providers: [
-                MockLangSeeder,
+                CommonMockLangSeeder,
             ],
         })
             .overrideGuard(Auth)
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = langs;
+        mockData = commonLangs;
         app = module.createNestApplication();
-        langRepository = module.get<ILangRepository>(ILangRepository);
-        langSeeder = module.get<MockLangSeeder>(MockLangSeeder);
+        langRepository = module.get<CommonILangRepository>(CommonILangRepository);
+        langSeeder = module.get<CommonMockLangSeeder>(CommonMockLangSeeder);
 
         // seed mock data in memory database
         await langRepository.insert(langSeeder.collectionSource);

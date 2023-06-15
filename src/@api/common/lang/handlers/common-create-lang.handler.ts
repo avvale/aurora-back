@@ -1,7 +1,6 @@
 import { CommonCreateLangDto, CommonLangDto } from '../dto';
 import { CommonCreateLangInput, CommonLang } from '@api/graphql';
-import { CreateLangCommand } from '@app/common/lang/application/create/create-lang.command';
-import { FindLangByIdQuery } from '@app/common/lang/application/find/find-lang-by-id.query';
+import { CommonCreateLangCommand, CommonFindLangByIdQuery } from '@app/common/lang';
 import { AuditingMeta, CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -20,7 +19,7 @@ export class CommonCreateLangHandler
         auditing?: AuditingMeta,
     ): Promise<CommonLang | CommonLangDto>
     {
-        await this.commandBus.dispatch(new CreateLangCommand(
+        await this.commandBus.dispatch(new CommonCreateLangCommand(
             payload,
             {
                 timezone,
@@ -33,7 +32,7 @@ export class CommonCreateLangHandler
         // init cache langs to update langs
         await this.coreGetLangsService.init();
 
-        return await this.queryBus.ask(new FindLangByIdQuery(
+        return await this.queryBus.ask(new CommonFindLangByIdQuery(
             payload.id,
             {},
             {
