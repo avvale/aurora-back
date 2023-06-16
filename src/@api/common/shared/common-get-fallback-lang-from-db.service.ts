@@ -52,7 +52,7 @@ export class CommonGetFallbackLangFromDbService implements CoreGetFallbackLangSe
             {
                 Logger.warn(`
                     APP_FALLBACK_LANG is not found in database, fallback value is: '${this.configService.get('APP_FALLBACK_LANG')}'
-                    Please, check the data of the CommonLang table.
+                    Please, check the data of the CommonLang table, or seed again the table.
                 `);
                 const fallbackLangIso6392 = this.configService.get('APP_FALLBACK_LANG');
                 return coreLangs.find(lang => lang.iso6392 === fallbackLangIso6392) as unknown as CommonLang;
