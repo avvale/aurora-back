@@ -47,7 +47,7 @@ services:
       - "${TYPESENSE_PORT}:8108"
     volumes:
       - typesense-data:/data
-    command: '--data-dir /data --api-key=xyz --enable-cors'
+    command: '--data-dir /data --api-key=${TYPESENSE_API_KEY} --enable-cors'
 
   elasticsearch:
     container_name: aurora-elasticsearch
