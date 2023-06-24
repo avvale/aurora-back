@@ -63,6 +63,8 @@ function editPackageJson()
                 delete json.scripts['install:core'];
                 json.dependencies['@aurorajs.dev/core'] = '^2.2.0';
 
+                delete json.scripts['install:typesense'];
+                delete json.dependencies['@aurorajs.dev/typesense'];
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs-modules/mailer'];
                 delete json.dependencies['@nestjs/axios'];

@@ -12,14 +12,14 @@ import { CommonModule } from '@api/common/common.module';
 
 @Module({
     imports: [
-        CoreModule,
-        ScheduleModule.forRoot(),
-        OAuthModule,
-        IamModule,
         AuditingModule,
-        QueueManagerModule,
         AzureAdModule,
-        CommonModule
+        CommonModule,
+        CoreModule,
+        IamModule,
+        OAuthModule,
+        QueueManagerModule,
+        ScheduleModule.forRoot(),
     ],
     controllers: [
         AppController,

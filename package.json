@@ -2,11 +2,12 @@
   "name": "aurora-app",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "José Carlos Rodríguez Palacín <carlos.rodriguez.palacin@gmail.com>",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "install:core": "rimraf node_modules/@aurorajs.dev/core && npm i @aurorajs.dev/core --install-links",
+    "install:typesense": "rimraf node_modules/@aurorajs.dev/typesense && npm i @aurorajs.dev/typesense --install-links",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -26,6 +27,7 @@
   "dependencies": {
     "@apollo/server": "^4.5.0",
     "@aurorajs.dev/core": "file:../aurora-core",
+    "@aurorajs.dev/typesense": "file:../aurora-typesense",
     "@nestjs/apollo": "^11.0.3",
     "@nestjs/axios": "^2.0.0",
     "@nestjs/bull": "^0.6.3",
