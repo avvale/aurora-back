@@ -39,32 +39,43 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_SCHEMA}
 
-  elasticsearch01:
+  typesense:
+    container_name: aurora-typesense
+    image: typesense/typesense:0.24.1-arm64
+    restart: on-failure
+    ports:
+      - "${TYPESENSE_PORT}:8108"
+    volumes:
+      - typesense-data:/data
+    command: '--data-dir /data --api-key=xyz --enable-cors'
+
+  elasticsearch:
     container_name: aurora-elasticsearch
     image: elasticsearch:8.7.1
     restart: always
     volumes:
-      - ./elasticsearch-data:/usr/share/elasticsearch/data
-    networks:
-      - es-net
+      - elasticsearch-data:/usr/share/elasticsearch/data
     ports:
-      - 9200:9200
+      - ${ELASTIC_PORT}:9200
       - 9300:9300
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   kiabana:
     depends_on:
-      elasticsearch01:
-        condition: service_healthy
+      - elasticsearch
     container_name: aurora-kibana
-    restart: always
     image: kibana:8.7.1
-    networks:
-      - es-net
+    restart: always
+    volumes:
+      - kibana-data:/usr/share/kibana/data
     ports:
-      - 5601:5601
+      - ${KIBANA_PORT}:5601
     environment:
       - ELASTICSEARCH_HOSTS=http://aurora-elasticsearch:9200
 
@@ -75,7 +86,9 @@ volumes:
     external: false
   redis-vol:
     external: false
-
-networks:
-  es-net:
-    driver: bridge
+  typesense-data:
+    external: false
+  elasticsearch-data:
+    driver: local
+  kibana-data:
+    driver: local
