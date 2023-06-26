@@ -13,6 +13,8 @@ import { QueueManagerQueue } from '@api/graphql';
 @Injectable()
 export class QueueRedisImplementationService
 {
+    private readonly logger = new Logger(QueueRedisImplementationService.name);
+
     constructor(
         @Inject(QUEUE_REDIS) private readonly queueRedis,
         private readonly commandBus: ICommandBus,
@@ -51,7 +53,7 @@ export class QueueRedisImplementationService
             try
             {
                 payload.push({
-                    id    : Utils.uuid(),
+                    id    : Utils.uuid(queueName),
                     prefix: queueManagerPrefix,
                     name  : queueName,
                 });
@@ -75,6 +77,8 @@ export class QueueRedisImplementationService
         await this.commandBus.dispatch(new CreateQueuesCommand(
             payload,
         ));
+
+        this.logger.log('Queues created successfully');
     }
 
     async addQueueCounters(queue): Promise<QueueManagerQueue>
