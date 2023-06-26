@@ -5,6 +5,7 @@ import { SearchEngineCreateCollectionsService } from './search-engine-create-col
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -32,6 +33,7 @@ export class SearchEngineCreateCollectionsCommandHandler implements ICommandHand
                     return {
                         id: new SearchEngineCollectionId(collection.id),
                         name: new SearchEngineCollectionName(collection.name),
+                        alias: new SearchEngineCollectionAlias(collection.alias),
                         documentsNumber: new SearchEngineCollectionDocumentsNumber(collection.documentsNumber),
                         defaultSortingField: new SearchEngineCollectionDefaultSortingField(collection.defaultSortingField),
                         numMemoryShards: new SearchEngineCollectionNumMemoryShards(collection.numMemoryShards),

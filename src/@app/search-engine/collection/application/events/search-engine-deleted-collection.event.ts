@@ -3,6 +3,7 @@ export class SearchEngineDeletedCollectionEvent
     constructor(
         public readonly id: string,
         public readonly name: string,
+        public readonly alias: string,
         public readonly documentsNumber: number,
         public readonly defaultSortingField: string,
         public readonly numMemoryShards: number,

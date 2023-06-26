@@ -106,3 +106,16 @@ export { CommonCountryResponse } from './@app/common/country/domain/common-count
 export { CommonCountryMapper } from './@app/common/country/domain/common-country.mapper';
 export { commonCountries } from './@app/common/country/infrastructure/mock/common-mock-country.data';
 export { CommonLang } from './@app/common/lang/domain/common-lang.aggregate';
+export { SearchEngineModule } from './@api/search-engine/search-engine.module';
+export { SearchEngineCollectionDto } from './@api/search-engine/collection/dto/search-engine-collection.dto';
+export { SearchEngineCollection } from './@app/search-engine/collection/domain/search-engine-collection.aggregate';
+export { SearchEngineCollectionModel } from './@app/search-engine/collection';
+export { SearchEngineCollectionResponse } from './@app/search-engine/collection/domain/search-engine-collection.response';
+export { SearchEngineCollectionMapper } from './@app/search-engine/collection/domain/search-engine-collection.mapper';
+export { searchEngineCollections } from './@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
+export { SearchEngineFieldDto } from './@api/search-engine/field/dto/search-engine-field.dto';
+export { SearchEngineField } from './@app/search-engine/field/domain/search-engine-field.aggregate';
+export { SearchEngineFieldModel } from './@app/search-engine/field';
+export { SearchEngineFieldResponse } from './@app/search-engine/field/domain/search-engine-field.response';
+export { SearchEngineFieldMapper } from './@app/search-engine/field/domain/search-engine-field.mapper';
+export { searchEngineFields } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';

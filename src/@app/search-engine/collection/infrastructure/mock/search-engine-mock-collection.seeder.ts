@@ -3,6 +3,7 @@ import { MockSeeder } from '@aurorajs.dev/core';
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -37,6 +38,7 @@ export class SearchEngineMockCollectionSeeder extends MockSeeder<SearchEngineCol
                 SearchEngineCollection.register(
                     new SearchEngineCollectionId(collection.id),
                     new SearchEngineCollectionName(collection.name),
+                    new SearchEngineCollectionAlias(collection.alias),
                     new SearchEngineCollectionDocumentsNumber(collection.documentsNumber),
                     new SearchEngineCollectionDefaultSortingField(collection.defaultSortingField),
                     new SearchEngineCollectionNumMemoryShards(collection.numMemoryShards),

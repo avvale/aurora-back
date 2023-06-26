@@ -4,6 +4,7 @@ import { SearchEngineICollectionRepository } from '@app/search-engine/collection
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -49,6 +50,7 @@ export class SearchEngineMockCollectionRepository extends MockRepository<SearchE
             this.collectionSource.push(SearchEngineCollection.register(
                 new SearchEngineCollectionId(itemCollection.id),
                 new SearchEngineCollectionName(itemCollection.name),
+                new SearchEngineCollectionAlias(itemCollection.alias),
                 new SearchEngineCollectionDocumentsNumber(itemCollection.documentsNumber),
                 new SearchEngineCollectionDefaultSortingField(itemCollection.defaultSortingField),
                 new SearchEngineCollectionNumMemoryShards(itemCollection.numMemoryShards),

@@ -1,0 +1,1 @@
+export { SearchEngineTypesenseImplementationService } from './services';

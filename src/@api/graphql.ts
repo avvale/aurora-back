@@ -706,6 +706,63 @@ export interface QueueManagerUpdateQueuesInput {
     name?: Nullable<GraphQLString>;
 }
 
+export interface SearchEngineCreateCollectionInput {
+    id: string;
+    name: GraphQLString;
+    alias?: Nullable<GraphQLString>;
+    documentsNumber?: Nullable<GraphQLInt>;
+    defaultSortingField?: Nullable<GraphQLString>;
+    numMemoryShards?: Nullable<GraphQLInt>;
+    timestampCreatedAt?: Nullable<GraphQLInt>;
+    isEnableNestedFields: GraphQLBoolean;
+}
+
+export interface SearchEngineUpdateCollectionByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+    alias?: Nullable<GraphQLString>;
+    documentsNumber?: Nullable<GraphQLInt>;
+    defaultSortingField?: Nullable<GraphQLString>;
+    numMemoryShards?: Nullable<GraphQLInt>;
+    timestampCreatedAt?: Nullable<GraphQLInt>;
+    isEnableNestedFields?: Nullable<GraphQLBoolean>;
+}
+
+export interface SearchEngineUpdateCollectionsInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    alias?: Nullable<GraphQLString>;
+    documentsNumber?: Nullable<GraphQLInt>;
+    defaultSortingField?: Nullable<GraphQLString>;
+    numMemoryShards?: Nullable<GraphQLInt>;
+    timestampCreatedAt?: Nullable<GraphQLInt>;
+    isEnableNestedFields?: Nullable<GraphQLBoolean>;
+}
+
+export interface SearchEngineCreateFieldInput {
+    id: string;
+    collectionId: string;
+    name: GraphQLString;
+    type: GraphQLString;
+    isNullable: GraphQLBoolean;
+}
+
+export interface SearchEngineUpdateFieldByIdInput {
+    id: string;
+    collectionId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    type?: Nullable<GraphQLString>;
+    isNullable?: Nullable<GraphQLBoolean>;
+}
+
+export interface SearchEngineUpdateFieldsInput {
+    id?: Nullable<string>;
+    collectionId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    type?: Nullable<GraphQLString>;
+    isNullable?: Nullable<GraphQLBoolean>;
+}
+
 export interface QueryStatement {
     where?: Nullable<JSON>;
     attributes?: Nullable<JSON>;
@@ -812,6 +869,14 @@ export interface IQuery {
     queueManagerFindQueueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
     queueManagerGetQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
     queueManagerPaginateQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    searchEngineFindCollection(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineFindCollectionById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineGetCollections(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection>[] | Promise<Nullable<SearchEngineCollection>[]>;
+    searchEnginePaginateCollections(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    searchEngineFindField(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineFindFieldById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineGetFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
+    searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
@@ -936,6 +1001,21 @@ export interface IMutation {
     queueManagerUpsertQueue(payload: QueueManagerUpdateQueueByIdInput): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
     queueManagerDeleteQueueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue> | Promise<Nullable<QueueManagerQueue>>;
     queueManagerDeleteQueues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<QueueManagerQueue>[] | Promise<Nullable<QueueManagerQueue>[]>;
+    searchEngineCreateCollection(payload: SearchEngineCreateCollectionInput): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineCreateCollections(payload: Nullable<SearchEngineCreateCollectionInput>[]): boolean | Promise<boolean>;
+    searchEngineUpdateCollectionById(payload: SearchEngineUpdateCollectionByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineUpdateCollections(payload: SearchEngineUpdateCollectionsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection>[] | Promise<Nullable<SearchEngineCollection>[]>;
+    searchEngineUpsertCollection(payload: SearchEngineUpdateCollectionByIdInput): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineDeleteCollectionById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
+    searchEngineDeleteCollections(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection>[] | Promise<Nullable<SearchEngineCollection>[]>;
+    searchEngineIndexCollection(payload: SearchEngineUpdateCollectionByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    searchEngineCreateField(payload: SearchEngineCreateFieldInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineCreateFields(payload: Nullable<SearchEngineCreateFieldInput>[]): boolean | Promise<boolean>;
+    searchEngineUpdateFieldById(payload: SearchEngineUpdateFieldByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineUpdateFields(payload: SearchEngineUpdateFieldsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
+    searchEngineUpsertField(payload: SearchEngineUpdateFieldByIdInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineDeleteFieldById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
+    searchEngineDeleteFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
 }
 
 export interface AuditingSideEffect {
@@ -1217,6 +1297,33 @@ export interface QueueManagerQueue {
     failedJobs: GraphQLInt;
     delayedJobs: GraphQLInt;
     pausedJobs: GraphQLInt;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface SearchEngineCollection {
+    id: string;
+    name: GraphQLString;
+    alias?: Nullable<GraphQLString>;
+    documentsNumber?: Nullable<GraphQLInt>;
+    defaultSortingField?: Nullable<GraphQLString>;
+    numMemoryShards?: Nullable<GraphQLInt>;
+    timestampCreatedAt?: Nullable<GraphQLInt>;
+    isEnableNestedFields: GraphQLBoolean;
+    fields?: Nullable<Nullable<SearchEngineField>[]>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface SearchEngineField {
+    id: string;
+    collectionId: string;
+    collection?: Nullable<SearchEngineCollection>;
+    name: GraphQLString;
+    type: GraphQLString;
+    isNullable: GraphQLBoolean;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

@@ -17,6 +17,12 @@ export class SearchEngineCollectionDto
     name: string;
 
     @ApiProperty({
+        type       : String,
+        description: 'alias [input here api field description]',
+    })
+    alias?: string;
+
+    @ApiProperty({
         type       : Number,
         description: 'documentsNumber [input here api field description]',
     })

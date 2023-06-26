@@ -5,6 +5,7 @@ import { CQMetadata } from '@aurorajs.dev/core';
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -30,6 +31,7 @@ export class SearchEngineUpdateCollectionsService
         payload: {
             id?: SearchEngineCollectionId;
             name?: SearchEngineCollectionName;
+            alias?: SearchEngineCollectionAlias;
             documentsNumber?: SearchEngineCollectionDocumentsNumber;
             defaultSortingField?: SearchEngineCollectionDefaultSortingField;
             numMemoryShards?: SearchEngineCollectionNumMemoryShards;
@@ -45,6 +47,7 @@ export class SearchEngineUpdateCollectionsService
         const collection = SearchEngineCollection.register(
             payload.id,
             payload.name,
+            payload.alias,
             payload.documentsNumber,
             payload.defaultSortingField,
             payload.numMemoryShards,

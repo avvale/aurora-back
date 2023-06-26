@@ -5,6 +5,7 @@ import { SearchEngineCollectionResponse } from './search-engine-collection.respo
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -69,6 +70,7 @@ export class SearchEngineCollectionMapper implements IMapper
         return SearchEngineCollection.register(
             new SearchEngineCollectionId(collection.id, { undefinable: true }),
             new SearchEngineCollectionName(collection.name, { undefinable: true }),
+            new SearchEngineCollectionAlias(collection.alias, { undefinable: true }),
             new SearchEngineCollectionDocumentsNumber(collection.documentsNumber, { undefinable: true }),
             new SearchEngineCollectionDefaultSortingField(collection.defaultSortingField, { undefinable: true }),
             new SearchEngineCollectionNumMemoryShards(collection.numMemoryShards, { undefinable: true }),
@@ -88,6 +90,7 @@ export class SearchEngineCollectionMapper implements IMapper
         return new SearchEngineCollectionResponse(
             collection.id.value,
             collection.name.value,
+            collection.alias.value,
             collection.documentsNumber.value,
             collection.defaultSortingField.value,
             collection.numMemoryShards.value,

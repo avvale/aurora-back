@@ -8,6 +8,13 @@ import { SearchEngineFieldModel } from '@app/search-engine/field';
     modelName: 'SearchEngineCollection',
     freezeTableName: true,
     timestamps: false,
+    indexes: [
+		{
+			fields: ['name'],
+			unique: true,
+		},
+
+    ],
 })
 export class SearchEngineCollectionModel extends Model<SearchEngineCollectionModel>
 {
@@ -25,6 +32,13 @@ export class SearchEngineCollectionModel extends Model<SearchEngineCollectionMod
         type: DataTypes.STRING(255),
     })
     name: string;
+
+    @Column({
+        field: 'alias',
+        allowNull: true,
+        type: DataTypes.STRING(255),
+    })
+    alias: string;
 
     @Column({
         field: 'documentsNumber',

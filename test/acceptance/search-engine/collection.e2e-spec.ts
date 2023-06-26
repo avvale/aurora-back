@@ -204,6 +204,22 @@ describe('collection', () =>
             });
     });
 
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionAlias is too large, has a maximum length of 255', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/search-engine/collection/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                alias: '****************************************************************************************************************************************************************************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CollectionAlias is too large, has a maximum length of 255');
+            });
+    });
+
     test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionDocumentsNumber is too large, has a maximum length of 10', () =>
     {
         return request(app.getHttpServer())
@@ -487,6 +503,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -559,6 +576,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -594,6 +612,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -629,6 +648,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -672,6 +692,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -713,6 +734,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -749,6 +771,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -783,6 +806,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -822,6 +846,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -859,6 +884,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -901,6 +927,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -937,6 +964,7 @@ describe('collection', () =>
                         {
                             id
                             name
+                            alias
                             documentsNumber
                             defaultSortingField
                             numMemoryShards

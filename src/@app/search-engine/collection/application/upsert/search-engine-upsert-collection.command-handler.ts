@@ -5,6 +5,7 @@ import { SearchEngineUpsertCollectionService } from './search-engine-upsert-coll
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -29,6 +30,7 @@ export class SearchEngineUpsertCollectionCommandHandler implements ICommandHandl
             {
                 id: new SearchEngineCollectionId(command.payload.id),
                 name: new SearchEngineCollectionName(command.payload.name),
+                alias: new SearchEngineCollectionAlias(command.payload.alias),
                 documentsNumber: new SearchEngineCollectionDocumentsNumber(command.payload.documentsNumber),
                 defaultSortingField: new SearchEngineCollectionDefaultSortingField(command.payload.defaultSortingField),
                 numMemoryShards: new SearchEngineCollectionNumMemoryShards(command.payload.numMemoryShards),

@@ -44,6 +44,7 @@ describe('SearchEngineUpdateCollectionByIdCommandHandler', () =>
                     {
                         id: collections[0].id,
                         name: collections[0].name,
+                        alias: collections[0].alias,
                         documentsNumber: collections[0].documentsNumber,
                         defaultSortingField: collections[0].defaultSortingField,
                         numMemoryShards: collections[0].numMemoryShards,

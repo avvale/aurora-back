@@ -8,6 +8,7 @@ import { CreateCollectionService } from './create-collection.service';
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -64,6 +65,7 @@ describe('SearchEngineCreateCollectionService', () =>
                 {
                     id: new SearchEngineCollectionId(collections[0].id),
                     name: new SearchEngineCollectionName(collections[0].name),
+                    alias: new SearchEngineCollectionAlias(collections[0].alias),
                     documentsNumber: new SearchEngineCollectionDocumentsNumber(collections[0].documentsNumber),
                     defaultSortingField: new SearchEngineCollectionDefaultSortingField(collections[0].defaultSortingField),
                     numMemoryShards: new SearchEngineCollectionNumMemoryShards(collections[0].numMemoryShards),

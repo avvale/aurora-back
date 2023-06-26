@@ -6,6 +6,7 @@ export class SearchEngineUpsertCollectionCommand
         public readonly payload: {
             id: string;
             name?: string;
+            alias?: string;
             documentsNumber?: number;
             defaultSortingField?: string;
             numMemoryShards?: number;

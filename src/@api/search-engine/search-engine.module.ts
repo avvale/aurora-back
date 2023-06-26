@@ -1,13 +1,17 @@
-import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
-import { SearchEngineSeeder } from './search-engine.seeder';
-import { SearchEngineModels, SearchEngineHandlers, SearchEngineServices, SearchEngineRepositories, SearchEngineSagas } from '../../@app/search-engine';
-import { SearchEngineCollectionControllers, SearchEngineCollectionResolvers, SearchEngineCollectionApiHandlers, SearchEngineCollectionServices } from './collection';
-import { SearchEngineTypesenseImplementationService } from './shared/services/search-engine-typesense-implementation.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypesenseModule } from '@aurorajs.dev/typesense';
-import { SearchEngineFieldControllers, SearchEngineFieldResolvers, SearchEngineFieldApiHandlers, SearchEngineFieldServices } from './field';
+import { BullModule } from '@nestjs/bull';
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { appQueues } from 'src/app.queues';
+import { SearchEngineHandlers, SearchEngineModels, SearchEngineRepositories, SearchEngineSagas, SearchEngineServices } from '../../@app/search-engine';
+import { SearchEngineCollectionApiHandlers, SearchEngineCollectionControllers, SearchEngineCollectionResolvers, SearchEngineCollectionServices } from './collection';
+import { SearchEngineFieldApiHandlers, SearchEngineFieldControllers, SearchEngineFieldResolvers, SearchEngineFieldServices } from './field';
+import { SearchEngineSeeder } from './search-engine.seeder';
+import { IndexCollectionSearchEngineConsumer } from './shared/consumers/index-collection-search-engine.consumer';
+import { SearchEngineTypesenseImplementationService } from './shared/services/search-engine-typesense-implementation.service';
+import { QueueManagerJobService } from '@api/queue-manager/shared/services';
 
 @Module({
     imports: [
@@ -29,10 +33,14 @@ import { SearchEngineFieldControllers, SearchEngineFieldResolvers, SearchEngineF
                 ],
             }),
         }),
+        BullModule.registerQueue(
+            ...appQueues.common,
+            ...appQueues.searchEngine,
+        ),
     ],
     controllers: [
         ...SearchEngineCollectionControllers,
-        ...SearchEngineFieldControllers
+        ...SearchEngineFieldControllers,
     ],
     providers: [
         SearchEngineSeeder,
@@ -46,7 +54,13 @@ import { SearchEngineFieldControllers, SearchEngineFieldResolvers, SearchEngineF
         ...SearchEngineCollectionServices,
         ...SearchEngineFieldResolvers,
         ...SearchEngineFieldApiHandlers,
-        ...SearchEngineFieldServices
+        ...SearchEngineFieldServices,
+
+        // services
+        QueueManagerJobService,
+
+        // consumers
+        IndexCollectionSearchEngineConsumer,
     ],
 })
 export class SearchEngineModule {}

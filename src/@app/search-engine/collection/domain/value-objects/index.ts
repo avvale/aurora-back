@@ -1,5 +1,6 @@
 export { SearchEngineCollectionId } from './search-engine-collection-id';
 export { SearchEngineCollectionName } from './search-engine-collection-name';
+export { SearchEngineCollectionAlias } from './search-engine-collection-alias';
 export { SearchEngineCollectionDocumentsNumber } from './search-engine-collection-documents-number';
 export { SearchEngineCollectionDefaultSortingField } from './search-engine-collection-default-sorting-field';
 export { SearchEngineCollectionNumMemoryShards } from './search-engine-collection-num-memory-shards';

@@ -1,6 +1,7 @@
 import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
 import {
+    SearchEngineCollectionAlias,
     SearchEngineCollectionCreatedAt,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionDeletedAt,
@@ -28,6 +29,7 @@ export class SearchEngineUpdateCollectionByIdService
         payload: {
             id: SearchEngineCollectionId;
             name?: SearchEngineCollectionName;
+            alias?: SearchEngineCollectionAlias;
             documentsNumber?: SearchEngineCollectionDocumentsNumber;
             defaultSortingField?: SearchEngineCollectionDefaultSortingField;
             numMemoryShards?: SearchEngineCollectionNumMemoryShards;
@@ -42,6 +44,7 @@ export class SearchEngineUpdateCollectionByIdService
         const collection = SearchEngineCollection.register(
             payload.id,
             payload.name,
+            payload.alias,
             payload.documentsNumber,
             payload.defaultSortingField,
             payload.numMemoryShards,

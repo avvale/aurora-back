@@ -11,6 +11,9 @@ import { SearchEngineUpsertCollectionController } from './controllers/search-eng
 import { SearchEngineDeleteCollectionByIdController } from './controllers/search-engine-delete-collection-by-id.controller';
 import { SearchEngineDeleteCollectionsController } from './controllers/search-engine-delete-collections.controller';
 
+// additionalApis
+import { SearchEngineIndexCollectionController } from './controllers/search-engine-index-collection.controller';
+
 // resolvers
 import { SearchEngineCreateCollectionResolver } from './resolvers/search-engine-create-collection.resolver';
 import { SearchEngineCreateCollectionsResolver } from './resolvers/search-engine-create-collections.resolver';
@@ -23,6 +26,9 @@ import { SearchEngineUpdateCollectionsResolver } from './resolvers/search-engine
 import { SearchEngineUpsertCollectionResolver } from './resolvers/search-engine-upsert-collection.resolver';
 import { SearchEngineDeleteCollectionByIdResolver } from './resolvers/search-engine-delete-collection-by-id.resolver';
 import { SearchEngineDeleteCollectionsResolver } from './resolvers/search-engine-delete-collections.resolver';
+
+// additionalApis
+import { SearchEngineIndexCollectionResolver } from './resolvers/search-engine-index-collection.resolver';
 
 // handlers
 import { SearchEngineCreateCollectionHandler } from './handlers/search-engine-create-collection.handler';
@@ -40,6 +46,9 @@ import { SearchEngineDeleteCollectionsHandler } from './handlers/search-engine-d
 // seeder
 import { SearchEngineCollectionSeeder } from './seeder/search-engine-collection.seeder';
 
+// additionalApis
+import { SearchEngineIndexCollectionHandler } from './handlers/search-engine-index-collection.handler';
+
 export const SearchEngineCollectionControllers = [
     SearchEngineCreateCollectionController,
     SearchEngineCreateCollectionsController,
@@ -52,6 +61,9 @@ export const SearchEngineCollectionControllers = [
     SearchEngineUpsertCollectionController,
     SearchEngineDeleteCollectionByIdController,
     SearchEngineDeleteCollectionsController,
+
+    // additionalApis
+    SearchEngineIndexCollectionController,
 ];
 
 export const SearchEngineCollectionResolvers = [
@@ -66,6 +78,9 @@ export const SearchEngineCollectionResolvers = [
     SearchEngineUpsertCollectionResolver,
     SearchEngineDeleteCollectionByIdResolver,
     SearchEngineDeleteCollectionsResolver,
+
+    // additionalApis
+    SearchEngineIndexCollectionResolver,
 ];
 
 export const SearchEngineCollectionApiHandlers = [
@@ -80,6 +95,9 @@ export const SearchEngineCollectionApiHandlers = [
     SearchEngineUpsertCollectionHandler,
     SearchEngineDeleteCollectionByIdHandler,
     SearchEngineDeleteCollectionsHandler,
+
+    // additionalApis
+    SearchEngineIndexCollectionHandler,
 ];
 
 export const SearchEngineCollectionServices = [

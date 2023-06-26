@@ -5,6 +5,7 @@ import { SearchEngineUpdateCollectionsService } from './search-engine-update-col
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -29,6 +30,7 @@ export class SearchEngineUpdateCollectionsCommandHandler implements ICommandHand
             {
                 id: new SearchEngineCollectionId(command.payload.id, { undefinable: true }),
                 name: new SearchEngineCollectionName(command.payload.name, { undefinable: true }),
+                alias: new SearchEngineCollectionAlias(command.payload.alias),
                 documentsNumber: new SearchEngineCollectionDocumentsNumber(command.payload.documentsNumber),
                 defaultSortingField: new SearchEngineCollectionDefaultSortingField(command.payload.defaultSortingField),
                 numMemoryShards: new SearchEngineCollectionNumMemoryShards(command.payload.numMemoryShards),

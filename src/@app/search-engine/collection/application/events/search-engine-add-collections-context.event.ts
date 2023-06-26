@@ -29,6 +29,7 @@ export class SearchEngineAddCollectionsContextEvent extends AggregateRoot
                     new SearchEngineCreatedCollectionEvent(
                         collection.id.value,
                         collection.name.value,
+                        collection.alias?.value,
                         collection.documentsNumber?.value,
                         collection.defaultSortingField?.value,
                         collection.numMemoryShards?.value,
@@ -51,6 +52,7 @@ export class SearchEngineAddCollectionsContextEvent extends AggregateRoot
                     new SearchEngineUpdatedCollectionEvent(
                         collection.id.value,
                         collection.name.value,
+                        collection.alias?.value,
                         collection.documentsNumber?.value,
                         collection.defaultSortingField?.value,
                         collection.numMemoryShards?.value,
@@ -73,6 +75,7 @@ export class SearchEngineAddCollectionsContextEvent extends AggregateRoot
                     new SearchEngineDeletedCollectionEvent(
                         collection.id.value,
                         collection.name.value,
+                        collection.alias?.value,
                         collection.documentsNumber?.value,
                         collection.defaultSortingField?.value,
                         collection.numMemoryShards?.value,

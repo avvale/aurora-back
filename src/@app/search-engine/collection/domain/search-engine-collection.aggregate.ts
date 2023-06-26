@@ -5,6 +5,7 @@ import { Utils } from '@aurorajs.dev/core';
 import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
+    SearchEngineCollectionAlias,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -23,6 +24,7 @@ export class SearchEngineCollection extends AggregateRoot
 {
     id: SearchEngineCollectionId;
     name: SearchEngineCollectionName;
+    alias: SearchEngineCollectionAlias;
     documentsNumber: SearchEngineCollectionDocumentsNumber;
     defaultSortingField: SearchEngineCollectionDefaultSortingField;
     numMemoryShards: SearchEngineCollectionNumMemoryShards;
@@ -38,6 +40,7 @@ export class SearchEngineCollection extends AggregateRoot
     constructor(
         id: SearchEngineCollectionId,
         name: SearchEngineCollectionName,
+        alias: SearchEngineCollectionAlias,
         documentsNumber: SearchEngineCollectionDocumentsNumber,
         defaultSortingField: SearchEngineCollectionDefaultSortingField,
         numMemoryShards: SearchEngineCollectionNumMemoryShards,
@@ -53,6 +56,7 @@ export class SearchEngineCollection extends AggregateRoot
         super();
         this.id = id;
         this.name = name;
+        this.alias = alias;
         this.documentsNumber = documentsNumber;
         this.defaultSortingField = defaultSortingField;
         this.numMemoryShards = numMemoryShards;
@@ -69,6 +73,7 @@ export class SearchEngineCollection extends AggregateRoot
     static register (
         id: SearchEngineCollectionId,
         name: SearchEngineCollectionName,
+        alias: SearchEngineCollectionAlias,
         documentsNumber: SearchEngineCollectionDocumentsNumber,
         defaultSortingField: SearchEngineCollectionDefaultSortingField,
         numMemoryShards: SearchEngineCollectionNumMemoryShards,
@@ -84,6 +89,7 @@ export class SearchEngineCollection extends AggregateRoot
         return new SearchEngineCollection(
             id,
             name,
+            alias,
             documentsNumber,
             defaultSortingField,
             numMemoryShards,
@@ -103,6 +109,7 @@ export class SearchEngineCollection extends AggregateRoot
             new SearchEngineCreatedCollectionEvent(
                 collection.id.value,
                 collection.name.value,
+                collection.alias?.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -121,6 +128,7 @@ export class SearchEngineCollection extends AggregateRoot
             new SearchEngineUpdatedCollectionEvent(
                 collection.id?.value,
                 collection.name?.value,
+                collection.alias?.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -139,6 +147,7 @@ export class SearchEngineCollection extends AggregateRoot
             new SearchEngineDeletedCollectionEvent(
                 collection.id.value,
                 collection.name.value,
+                collection.alias?.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -156,6 +165,7 @@ export class SearchEngineCollection extends AggregateRoot
         return {
             id: this.id.value,
             name: this.name.value,
+            alias: this.alias?.value,
             documentsNumber: this.documentsNumber?.value,
             defaultSortingField: this.defaultSortingField?.value,
             numMemoryShards: this.numMemoryShards?.value,
@@ -176,6 +186,7 @@ export class SearchEngineCollection extends AggregateRoot
         return {
             id: this.id.value,
             name: this.name.value,
+            alias: this.alias?.value,
             documentsNumber: this.documentsNumber?.value,
             defaultSortingField: this.defaultSortingField?.value,
             numMemoryShards: this.numMemoryShards?.value,
