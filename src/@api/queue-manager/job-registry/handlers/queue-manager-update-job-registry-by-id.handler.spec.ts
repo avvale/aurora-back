@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
 import { QueueManagerUpdateJobRegistryByIdHandler } from './queue-manager-update-job-registry-by-id.handler';
 import { QueueManagerUpdateJobRegistryByIdInput } from '@api/graphql';
-
-// sources
 import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('QueueManagerUpdateJobRegistryByIdHandler', () =>
 {

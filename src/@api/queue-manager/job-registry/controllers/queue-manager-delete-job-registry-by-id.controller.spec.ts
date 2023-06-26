@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { QueueManagerDeleteJobRegistryByIdController } from './queue-manager-delete-job-registry-by-id.controller';
 import { QueueManagerDeleteJobRegistryByIdHandler } from '../handlers/queue-manager-delete-job-registry-by-id.handler';
-
-// sources
+import { QueueManagerDeleteJobRegistryByIdController } from './queue-manager-delete-job-registry-by-id.controller';
 import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('QueueManagerDeleteJobRegistryByIdController', () =>
 {

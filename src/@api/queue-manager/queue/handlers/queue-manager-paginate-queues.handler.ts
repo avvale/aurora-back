@@ -3,7 +3,7 @@ import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 
 // @app
 import { QueueRedisImplementationService } from '@api/queue-manager/shared/services';
-import { PaginateQueuesQuery } from '@app/queue-manager/queue/application/paginate/paginate-queues.query';
+import { QueueManagerPaginateQueuesQuery } from '@app/queue-manager';
 import { Pagination } from '@api/graphql';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class QueueManagerPaginateQueuesHandler
         timezone?: string,
     ): Promise<Pagination>
     {
-        const paginateQueuesQuery = await this.queryBus.ask(new PaginateQueuesQuery(
+        const paginateQueuesQuery = await this.queryBus.ask(new QueueManagerPaginateQueuesQuery(
             queryStatement,
             constraint,
             {

@@ -1,27 +1,27 @@
 import { Injectable } from '@nestjs/common';
 import { MockRepository, Utils } from '@aurorajs.dev/core';
-import { IJobRegistryRepository } from '@app/queue-manager/job-registry/domain/job-registry.repository';
+import { QueueManagerIJobRegistryRepository } from '@app/queue-manager';
 import {
-    JobRegistryId,
-    JobRegistryQueueName,
-    JobRegistryState,
-    JobRegistryJobId,
-    JobRegistryJobName,
-    JobRegistryTags,
-    JobRegistryCreatedAt,
-    JobRegistryUpdatedAt,
-    JobRegistryDeletedAt,
+    QueueManagerJobRegistryId,
+    QueueManagerJobRegistryQueueName,
+    QueueManagerJobRegistryState,
+    QueueManagerJobRegistryJobId,
+    QueueManagerJobRegistryJobName,
+    QueueManagerJobRegistryTags,
+    QueueManagerJobRegistryCreatedAt,
+    QueueManagerJobRegistryUpdatedAt,
+    QueueManagerJobRegistryDeletedAt,
 } from '@app/queue-manager/job-registry/domain/value-objects';
-import { QueueManagerJobRegistry } from '../../domain/job-registry.aggregate';
+import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
 import { jobsRegistry } from './mock-job-registry.data';
 
 @Injectable()
-export class MockJobRegistryRepository extends MockRepository<QueueManagerJobRegistry> implements IJobRegistryRepository
+export class MockJobRegistryRepository extends MockRepository<QueueManagerJobRegistry> implements QueueManagerIJobRegistryRepository
 {
     public readonly repository: any;
     public readonly aggregateName: string = 'QueueManagerJobRegistry';
     public collectionSource: QueueManagerJobRegistry[];
-    public deletedAtInstance: JobRegistryDeletedAt = new JobRegistryDeletedAt(null);
+    public deletedAtInstance: QueueManagerJobRegistryDeletedAt = new QueueManagerJobRegistryDeletedAt(null);
 
     constructor()
     {
@@ -46,15 +46,15 @@ export class MockJobRegistryRepository extends MockRepository<QueueManagerJobReg
             itemCollection['deletedAt'] = null;
 
             this.collectionSource.push(QueueManagerJobRegistry.register(
-                new JobRegistryId(itemCollection.id),
-                new JobRegistryQueueName(itemCollection.queueName),
-                new JobRegistryState(itemCollection.state),
-                new JobRegistryJobId(itemCollection.jobId),
-                new JobRegistryJobName(itemCollection.jobName),
-                new JobRegistryTags(itemCollection.tags),
-                new JobRegistryCreatedAt(itemCollection.createdAt),
-                new JobRegistryUpdatedAt(itemCollection.updatedAt),
-                new JobRegistryDeletedAt(itemCollection.deletedAt),
+                new QueueManagerJobRegistryId(itemCollection.id),
+                new QueueManagerJobRegistryQueueName(itemCollection.queueName),
+                new QueueManagerJobRegistryState(itemCollection.state),
+                new QueueManagerJobRegistryJobId(itemCollection.jobId),
+                new QueueManagerJobRegistryJobName(itemCollection.jobName),
+                new QueueManagerJobRegistryTags(itemCollection.tags),
+                new QueueManagerJobRegistryCreatedAt(itemCollection.createdAt),
+                new QueueManagerJobRegistryUpdatedAt(itemCollection.updatedAt),
+                new QueueManagerJobRegistryDeletedAt(itemCollection.deletedAt),
             ));
         }
     }

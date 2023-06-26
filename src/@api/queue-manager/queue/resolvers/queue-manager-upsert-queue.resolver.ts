@@ -1,10 +1,8 @@
-import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
 import { QueueManagerUpsertQueueHandler } from '../handlers/queue-manager-upsert-queue.handler';
 import { QueueManagerQueue, QueueManagerUpdateQueueByIdInput } from '@api/graphql';
+import { Auth } from '@aurora/decorators';
+import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('queueManager.queue.upsert')

@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
 import { QueueManagerUpdateQueuesHandler } from './queue-manager-update-queues.handler';
 import { QueueManagerUpdateQueuesInput } from '@api/graphql';
-
-// sources
 import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('QueueManagerUpdateQueuesHandler', () =>
 {
