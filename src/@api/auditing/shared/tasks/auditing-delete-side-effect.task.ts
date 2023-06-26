@@ -7,6 +7,8 @@ import * as dayjs from 'dayjs';
 @Injectable()
 export class AuditingDeleteSideEffectTasksService
 {
+    private readonly logger = new Logger(AuditingDeleteSideEffectTasksService.name);
+
     constructor(
         private readonly commandBus: ICommandBus,
     ) {}
@@ -32,11 +34,11 @@ export class AuditingDeleteSideEffectTasksService
                 },
             ));
 
-            Logger.debug('Delete side effects before ' + deleteBeforeAt, 'AuditingDeleteSideEffectTasksService');
+            this.logger.log('Delete side effects before ' + deleteBeforeAt);
         }
         catch (error)
         {
-            Logger.error('Error to delete records from SideEffect table: ' + error.message, 'AuditingDeleteSideEffectTasksService');
+            this.logger.error('Error to delete records from SideEffect table: ' + error.message);
         }
     }
 }
