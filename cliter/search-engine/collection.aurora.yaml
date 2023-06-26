@@ -16,6 +16,7 @@ aggregateProperties:
     type: varchar
     maxLength: 255
     nullable: false
+    index: unique
   - name: documentsNumber
     type: int.unsigned
     maxLength: 10
@@ -59,4 +60,7 @@ aggregateProperties:
     type: timestamp
     nullable: true
 aggregateI18nProperties: []
-additionalApis: []
+additionalApis:
+  - path: search-engine/collection/index
+    resolverType: mutation
+    httpMethod: post

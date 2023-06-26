@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data.ts",
-            "integrity": "sha1:fb3d888cf1bda3debd57af193526c6bf255997cf"
+            "integrity": "sha1:7c592ac5ad5300845166f50b6759ff8d976d5f4a"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/sequelize/search-engine-sequelize-collection.model.ts",
-            "integrity": "sha1:8f0d2447138305ad574d297be811f8800cbf8fdd"
+            "integrity": "sha1:bbdc8cd8cc290a9af015b29f4f85af452fc6ca45"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/sequelize/search-engine-sequelize-collection.repository.ts",
@@ -499,7 +499,7 @@
         },
         {
             "path": "src/@api/search-engine/collection/graphql/search-engine-collection.graphql",
-            "integrity": "sha1:9dd51d7c894fa242279dc52c76d569343e0829d6"
+            "integrity": "sha1:635f2d035d4801a4f7775d6e7f0446fe1b2b30fd"
         },
         {
             "path": "src/@api/search-engine/collection/handlers/search-engine-create-collection.handler.spec.ts",
@@ -591,7 +591,7 @@
         },
         {
             "path": "src/@api/search-engine/collection/index.ts",
-            "integrity": "sha1:9e7b2be2ec0f7198955a83a1326a4093244cc84a"
+            "integrity": "sha1:246b2111585b24e373e05899fc3c37f2be08f9df"
         },
         {
             "path": "src/@api/search-engine/collection/resolvers/search-engine-create-collection.resolver.spec.ts",
@@ -686,12 +686,36 @@
             "integrity": "sha1:0e8ca1ab696874cd4ed609aee8568507ea9e759b"
         },
         {
+            "path": "src/@api/search-engine/collection/controllers/search-engine-index-collection.controller.spec.ts",
+            "integrity": "sha1:1bc3c8a0199cf836e4a4ec42f1c53bf9939c6d04"
+        },
+        {
+            "path": "src/@api/search-engine/collection/controllers/search-engine-index-collection.controller.ts",
+            "integrity": "sha1:6cc8054305193d30b9f68fb9bbcc17491537cc86"
+        },
+        {
+            "path": "src/@api/search-engine/collection/handlers/search-engine-index-collection.handler.spec.ts",
+            "integrity": "sha1:73ba38ab292786b7ccd4cb3198eff43afda453fb"
+        },
+        {
+            "path": "src/@api/search-engine/collection/handlers/search-engine-index-collection.handler.ts",
+            "integrity": "sha1:d7f51cb2eda2aca82da07e3031d20e82efe05169"
+        },
+        {
+            "path": "src/@api/search-engine/collection/resolvers/search-engine-index-collection.resolver.spec.ts",
+            "integrity": "sha1:5833c39b2bffe2c34649b8509b3d5aedac7aa4d3"
+        },
+        {
+            "path": "src/@api/search-engine/collection/resolvers/search-engine-index-collection.resolver.ts",
+            "integrity": "sha1:92f621534f4bbd88351a75a97d8d416c08ca4a5f"
+        },
+        {
             "path": "test/acceptance/search-engine/collection.e2e-spec.ts",
             "integrity": "sha1:829a2b0d8b0fd8d927bf7d902fa60b80a539a6e7"
         },
         {
             "path": "postman/search-engine/search-engine.collection.postman.json",
-            "integrity": "sha1:8148db81103efce99d8009981f85b3717ce9d15b"
+            "integrity": "sha1:7bd83d10c2907d8c8e724872ec09e9cd5144ee9c"
         }
     ]
 }
