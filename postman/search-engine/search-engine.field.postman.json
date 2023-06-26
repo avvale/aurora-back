@@ -1,0 +1,561 @@
+{
+    "info": {
+		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+		"name"          : "@app - search-engine/field",
+		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+			"name": "GraphQL - searchEngineCreateField",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:SearchEngineCreateFieldInput!)\n{\n\tsearchEngineCreateField (payload:$payload)\n\t{\n\t\tid\n\t\tcollectionId\n\t\tname\n\t\ttype\n\t\tisNullable\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"collectionId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"name\": \"Sleek Plastic Soap\", \n\t\t\"type\": \"uxe4a5f5jxze6jp8pu4\", \n\t\t\"isNullable\": false\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineCreateFields",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:[SearchEngineCreateFieldInput]!)\n{\n\tsearchEngineCreateFields (payload:$payload)\n}",
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"8e01c5cb-db97-4c39-945b-56e7ea91cea1\", \n\t\t\t\"collectionId\": \"927983cd-f1d8-4d2e-b3b6-76425f187b9e\", \n\t\t\t\"name\": \"Licensed Plastic Soap\", \n\t\t\t\"type\": \"t8nijp66cjlpoz25pe0\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"53b0ffe6-894d-4f76-ac8c-b5d9cf093d15\", \n\t\t\t\"collectionId\": \"d302ab69-41c8-45e5-a9f4-27d6ff30cb4f\", \n\t\t\t\"name\": \"Sleek Cotton Soap\", \n\t\t\t\"type\": \"m274ca7g6lwk8kbc0v1\", \n\t\t\t\"isNullable\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"22b45bbb-30b8-45e8-9351-7aaee4a744a7\", \n\t\t\t\"collectionId\": \"f4eaa744-869c-482e-a179-da04333d8e01\", \n\t\t\t\"name\": \"Incredible Rubber Cheese\", \n\t\t\t\"type\": \"n0c6mgxwr0hl4omd353\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"a1338338-39b1-4a95-b405-17f97cb725a4\", \n\t\t\t\"collectionId\": \"630b2b4c-093f-4521-aefa-2152f231b362\", \n\t\t\t\"name\": \"Ergonomic Steel Table\", \n\t\t\t\"type\": \"iblsypb45nydbld71su\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"cb37b4bb-50a9-41de-8e6f-849ae1e46675\", \n\t\t\t\"collectionId\": \"a47f7855-9854-4eb3-a6ac-6217342f60de\", \n\t\t\t\"name\": \"Fantastic Metal Pants\", \n\t\t\t\"type\": \"e1lbaobrkhjt6r7qswx\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"3038bfb4-ac98-4399-a403-29db3b13c448\", \n\t\t\t\"collectionId\": \"06e18fef-b838-4716-862b-980e8303f9b7\", \n\t\t\t\"name\": \"Refined Soft Tuna\", \n\t\t\t\"type\": \"jlwe5bipej7vj8p330c\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"34ed95eb-e372-48a0-97c1-0a1e89e30377\", \n\t\t\t\"collectionId\": \"c2222574-3579-4e48-a473-b72702e7ea0f\", \n\t\t\t\"name\": \"Generic Wooden Ball\", \n\t\t\t\"type\": \"e375dx7j79sq7w4aajp\", \n\t\t\t\"isNullable\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"80df89ba-2622-4d86-8344-9b393ed4a6f4\", \n\t\t\t\"collectionId\": \"4c48b822-5043-4566-87de-40f456cc36e2\", \n\t\t\t\"name\": \"Incredible Metal Shirt\", \n\t\t\t\"type\": \"az3ndu6uocgpg0834zf\", \n\t\t\t\"isNullable\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"9b5f563c-14b3-4e1d-9204-e0cf494aefff\", \n\t\t\t\"collectionId\": \"ad595df1-3a9c-4601-a76d-dba3ae5816c0\", \n\t\t\t\"name\": \"Generic Fresh Gloves\", \n\t\t\t\"type\": \"kl560z8du4zn34q7ja8\", \n\t\t\t\"isNullable\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"dfaf06c3-bd33-4773-9b22-08dded5255e6\", \n\t\t\t\"collectionId\": \"75dc3e85-f0b5-4417-9333-df69f23724a8\", \n\t\t\t\"name\": \"Licensed Concrete Hat\", \n\t\t\t\"type\": \"r2mr6rlbnsom95cwr0v\", \n\t\t\t\"isNullable\": false\n\t\t}\n\t]\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEnginePaginateFields",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tsearchEnginePaginateFields (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineGetFields",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tsearchEngineGetFields (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineFindField",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tsearchEngineFindField (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineFindFieldById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id:ID)\n{\n\tsearchEngineFindFieldById (id:$id)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineUpdateField",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:SearchEngineUpdateFieldInput!)\n{\n\tsearchEngineUpdateField (payload:$payload)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"collectionId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"name\": \"Intelligent Steel Cheese\", \n\t\t\"type\": \"30b9t0upv5bmyf7er1x\", \n\t\t\"isNullable\": false\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineDeleteFieldById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($id:ID!)\n{\n\tsearchEngineDeleteFieldById (id:$id)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - searchEngineDeleteFields",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($query:QueryStatement)\n{\n\tsearchEngineDeleteFields (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\ttype\n\t\tisNullable\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/field/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"collectionId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"name\": \"Generic Steel Mouse\", \n\t\"type\": \"j3troe0qw6l7kkao2wa\", \n\t\"isNullable\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/field/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"field",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/fields/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"1f5dea65-0adc-44e5-9f83-71d5f5df3f40\", \n\t\t\"collectionId\": \"217f7747-5176-40e9-a3cb-6710dfdf99ad\", \n\t\t\"name\": \"Fantastic Concrete Computer\", \n\t\t\"type\": \"kybdzkt0gxegclxh65h\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"66bfbbcd-52ed-4031-813b-c3962d3c2c7c\", \n\t\t\"collectionId\": \"00166de7-c638-4bbf-ae46-d62ca6db2c5f\", \n\t\t\"name\": \"Unbranded Soft Keyboard\", \n\t\t\"type\": \"oqjcea1vr4gxtn8ux9q\", \n\t\t\"isNullable\": false\n\t}, \n\t{\n\t\t\"id\": \"957aa5a6-c70c-4daa-867e-8c8e0092b4be\", \n\t\t\"collectionId\": \"8cb7ab65-b0e9-403a-abf4-91af1ef2a593\", \n\t\t\"name\": \"Licensed Metal Table\", \n\t\t\"type\": \"pk123sffqj5c9t0jv5z\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"acc2ae31-2e53-442e-b1f6-d2c5e168f2f4\", \n\t\t\"collectionId\": \"aedf0874-9116-4048-bac9-86324bb5d9d6\", \n\t\t\"name\": \"Awesome Granite Pants\", \n\t\t\"type\": \"c1e8tm357rw6gbjo4hi\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"0484b1fe-5432-4554-9626-ec24d6d3905d\", \n\t\t\"collectionId\": \"a6b85c4e-e0bd-417e-803f-8833f6c709f6\", \n\t\t\"name\": \"Handmade Fresh Tuna\", \n\t\t\"type\": \"xwg688cuwtb15hu8585\", \n\t\t\"isNullable\": false\n\t}, \n\t{\n\t\t\"id\": \"7d669195-9555-4db0-9b9e-fd25b63c6b3b\", \n\t\t\"collectionId\": \"79fb1597-f83e-4b5a-b84b-9f7c0ee42ad0\", \n\t\t\"name\": \"Gorgeous Metal Gloves\", \n\t\t\"type\": \"h1i9z0y9ghbkzf6ctcn\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"7f6f64c0-e41d-4cc0-8a23-2fcb168d85fc\", \n\t\t\"collectionId\": \"f4c79b8b-0f47-4e04-a196-f796f2032f04\", \n\t\t\"name\": \"Intelligent Rubber Pizza\", \n\t\t\"type\": \"rjl8rabzsbs77z75fxc\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"fe2c7226-f64d-47e0-9a69-c3942c7fcf9f\", \n\t\t\"collectionId\": \"bd580cd6-c52a-4b5b-88c8-31b188212f5a\", \n\t\t\"name\": \"Refined Rubber Shoes\", \n\t\t\"type\": \"1ffqvlcb96y2ehxyiey\", \n\t\t\"isNullable\": true\n\t}, \n\t{\n\t\t\"id\": \"4f02cee0-5b2f-4011-9bda-ef4799757727\", \n\t\t\"collectionId\": \"e15786ce-9f24-4e65-84f4-c3541f80abbf\", \n\t\t\"name\": \"Handmade Concrete Computer\", \n\t\t\"type\": \"myrfijcd34jmg7f9yls\", \n\t\t\"isNullable\": false\n\t}, \n\t{\n\t\t\"id\": \"6506f4ab-9c2b-45e8-896e-5e8e5cdd3f20\", \n\t\t\"collectionId\": \"61160375-1511-405b-b330-cc66c1d94ce9\", \n\t\t\"name\": \"Practical Fresh Chips\", \n\t\t\"type\": \"vvk9jehsz0erpspctp0\", \n\t\t\"isNullable\": true\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/fields/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"fields",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/fields/paginate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/fields/paginate",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+                        "fields",
+                        "paginate"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/fields/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/fields/get",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"fields",
+                        "get"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/field/find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/field/find",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"field",
+                        "find"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/field/find/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/field/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"field",
+                        "find",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/field/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"collectionId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"name\": \"Rustic Granite Mouse\", \n\t\"type\": \"nrjewfg8iho89uj191k\", \n\t\"isNullable\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/field/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"field",
+                        "update"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - search-engine/field/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/field/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"field",
+                        "delete",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "REST - search-engine/fields/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/search-engine/fields/delete",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search-engine",
+						"fields",
+                        "delete"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+    "variable": [
+		{
+			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

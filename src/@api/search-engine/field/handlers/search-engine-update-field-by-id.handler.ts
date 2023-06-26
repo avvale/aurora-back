@@ -1,0 +1,50 @@
+import { SearchEngineFieldDto, SearchEngineUpdateFieldByIdDto } from '../dto';
+import { SearchEngineField, SearchEngineUpdateFieldByIdInput } from '@api/graphql';
+import { SearchEngineFindFieldByIdQuery, SearchEngineUpdateFieldByIdCommand } from '@app/search-engine/field';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class SearchEngineUpdateFieldByIdHandler
+{
+    constructor(
+        private readonly commandBus: ICommandBus,
+        private readonly queryBus: IQueryBus,
+    ) {}
+
+    async main(
+        payload: SearchEngineUpdateFieldByIdInput | SearchEngineUpdateFieldByIdDto,
+        constraint?: QueryStatement,
+        timezone?: string,
+    ): Promise<SearchEngineField | SearchEngineFieldDto>
+    {
+        const field = await this.queryBus.ask(new SearchEngineFindFieldByIdQuery(
+            payload.id,
+            constraint,
+            {
+                timezone,
+            },
+        ));
+
+        const dataToUpdate = Utils.diff(payload, field);
+
+        await this.commandBus.dispatch(new SearchEngineUpdateFieldByIdCommand(
+            {
+                ...dataToUpdate,
+                id: payload.id,
+            },
+            constraint,
+            {
+                timezone,
+            },
+        ));
+
+        return await this.queryBus.ask(new SearchEngineFindFieldByIdQuery(
+            payload.id,
+            constraint,
+            {
+                timezone,
+            },
+        ));
+    }
+}

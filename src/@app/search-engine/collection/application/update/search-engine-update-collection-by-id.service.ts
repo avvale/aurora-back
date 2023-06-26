@@ -1,0 +1,73 @@
+import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
+import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
+import {
+    SearchEngineCollectionCreatedAt,
+    SearchEngineCollectionDefaultSortingField,
+    SearchEngineCollectionDeletedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
+} from '../../domain/value-objects';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
+
+@Injectable()
+export class SearchEngineUpdateCollectionByIdService
+{
+    constructor(
+        private readonly publisher: EventPublisher,
+        private readonly repository: SearchEngineICollectionRepository,
+    ) {}
+
+    async main(
+        payload: {
+            id: SearchEngineCollectionId;
+            name?: SearchEngineCollectionName;
+            documentsNumber?: SearchEngineCollectionDocumentsNumber;
+            defaultSortingField?: SearchEngineCollectionDefaultSortingField;
+            numMemoryShards?: SearchEngineCollectionNumMemoryShards;
+            timestampCreatedAt?: SearchEngineCollectionTimestampCreatedAt;
+            isEnableNestedFields?: SearchEngineCollectionIsEnableNestedFields;
+        },
+        constraint?: QueryStatement,
+        cQMetadata?: CQMetadata,
+    ): Promise<void>
+    {
+        // create aggregate with factory pattern
+        const collection = SearchEngineCollection.register(
+            payload.id,
+            payload.name,
+            payload.documentsNumber,
+            payload.defaultSortingField,
+            payload.numMemoryShards,
+            payload.timestampCreatedAt,
+            payload.isEnableNestedFields,
+            null, // createdAt
+            new SearchEngineCollectionUpdatedAt({ currentTimestamp: true }),
+            null, // deletedAt
+        );
+
+        // update by id
+        await this.repository.updateById(
+            collection,
+            {
+                constraint,
+                cQMetadata,
+                updateByIdOptions: cQMetadata?.repositoryOptions,
+            },
+        );
+
+        // merge EventBus methods with object returned by the repository, to be able to apply and commit events
+        const collectionRegister = this.publisher.mergeObjectContext(
+            collection,
+        );
+
+        collectionRegister.updated(collection); // apply event to model events
+        collectionRegister.commit(); // commit all events of model
+    }
+}

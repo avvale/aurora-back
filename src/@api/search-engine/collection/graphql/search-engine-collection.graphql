@@ -1,0 +1,109 @@
+
+type SearchEngineCollection
+{
+    id: ID!
+    name: GraphQLString!
+    documentsNumber: GraphQLInt
+    defaultSortingField: GraphQLString
+    numMemoryShards: GraphQLInt
+    timestampCreatedAt: GraphQLInt
+    isEnableNestedFields: GraphQLBoolean!
+    fields: [SearchEngineField]
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input SearchEngineCreateCollectionInput
+{
+    id: ID!
+    name: GraphQLString!
+    documentsNumber: GraphQLInt
+    defaultSortingField: GraphQLString
+    numMemoryShards: GraphQLInt
+    timestampCreatedAt: GraphQLInt
+    isEnableNestedFields: GraphQLBoolean!
+}
+
+input SearchEngineUpdateCollectionByIdInput
+{
+    id: ID!
+    name: GraphQLString
+    documentsNumber: GraphQLInt
+    defaultSortingField: GraphQLString
+    numMemoryShards: GraphQLInt
+    timestampCreatedAt: GraphQLInt
+    isEnableNestedFields: GraphQLBoolean
+}
+
+input SearchEngineUpdateCollectionsInput
+{
+    id: ID
+    name: GraphQLString
+    documentsNumber: GraphQLInt
+    defaultSortingField: GraphQLString
+    numMemoryShards: GraphQLInt
+    timestampCreatedAt: GraphQLInt
+    isEnableNestedFields: GraphQLBoolean
+}
+
+type Query
+{
+    searchEngineFindCollection(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): SearchEngineCollection
+
+    searchEngineFindCollectionById(
+        id: ID
+        constraint: QueryStatement
+    ): SearchEngineCollection
+
+    searchEngineGetCollections(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineCollection]!
+
+    searchEnginePaginateCollections(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    searchEngineCreateCollection(
+        payload: SearchEngineCreateCollectionInput!
+    ): SearchEngineCollection
+
+    searchEngineCreateCollections(
+        payload: [SearchEngineCreateCollectionInput]!
+    ): Boolean!
+
+    searchEngineUpdateCollectionById(
+        payload: SearchEngineUpdateCollectionByIdInput!
+        constraint: QueryStatement
+    ): SearchEngineCollection
+
+    searchEngineUpdateCollections(
+        payload: SearchEngineUpdateCollectionsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineCollection]!
+
+    searchEngineUpsertCollection(
+        payload: SearchEngineUpdateCollectionByIdInput!
+    ): SearchEngineCollection
+
+    searchEngineDeleteCollectionById(
+        id: ID!
+        constraint: QueryStatement
+    ): SearchEngineCollection
+
+    searchEngineDeleteCollections(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineCollection]!
+
+}

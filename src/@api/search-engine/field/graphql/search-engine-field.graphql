@@ -1,0 +1,101 @@
+
+type SearchEngineField
+{
+    id: ID!
+    collectionId: ID!
+    collection: SearchEngineCollection
+    name: GraphQLString!
+    type: GraphQLString!
+    isNullable: GraphQLBoolean!
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input SearchEngineCreateFieldInput
+{
+    id: ID!
+    collectionId: ID!
+    name: GraphQLString!
+    type: GraphQLString!
+    isNullable: GraphQLBoolean!
+}
+
+input SearchEngineUpdateFieldByIdInput
+{
+    id: ID!
+    collectionId: ID
+    name: GraphQLString
+    type: GraphQLString
+    isNullable: GraphQLBoolean
+}
+
+input SearchEngineUpdateFieldsInput
+{
+    id: ID
+    collectionId: ID
+    name: GraphQLString
+    type: GraphQLString
+    isNullable: GraphQLBoolean
+}
+
+type Query
+{
+    searchEngineFindField(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): SearchEngineField
+
+    searchEngineFindFieldById(
+        id: ID
+        constraint: QueryStatement
+    ): SearchEngineField
+
+    searchEngineGetFields(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineField]!
+
+    searchEnginePaginateFields(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    searchEngineCreateField(
+        payload: SearchEngineCreateFieldInput!
+    ): SearchEngineField
+
+    searchEngineCreateFields(
+        payload: [SearchEngineCreateFieldInput]!
+    ): Boolean!
+
+    searchEngineUpdateFieldById(
+        payload: SearchEngineUpdateFieldByIdInput!
+        constraint: QueryStatement
+    ): SearchEngineField
+
+    searchEngineUpdateFields(
+        payload: SearchEngineUpdateFieldsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineField]!
+
+    searchEngineUpsertField(
+        payload: SearchEngineUpdateFieldByIdInput!
+    ): SearchEngineField
+
+    searchEngineDeleteFieldById(
+        id: ID!
+        constraint: QueryStatement
+    ): SearchEngineField
+
+    searchEngineDeleteFields(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SearchEngineField]!
+
+}

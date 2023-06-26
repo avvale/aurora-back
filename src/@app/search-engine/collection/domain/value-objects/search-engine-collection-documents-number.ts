@@ -1,0 +1,17 @@
+import { IntValueObject, ValidationRules } from '@aurorajs.dev/core';
+
+export class SearchEngineCollectionDocumentsNumber extends IntValueObject
+{
+    public readonly type: string = 'CollectionDocumentsNumber';
+
+    constructor(value: number, validationRules: ValidationRules = {})
+    {
+        super(value, Object.assign({
+            name       : 'CollectionDocumentsNumber',
+            nullable   : true,
+            undefinable: true,
+            maxLength  : 10,
+            unsigned   : true,
+        }, validationRules));
+    }
+}
