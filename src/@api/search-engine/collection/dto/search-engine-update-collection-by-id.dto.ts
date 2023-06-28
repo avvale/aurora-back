@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import { ApiProperty } from '@nestjs/swagger';
+import { SearchEngineCollectionStatus } from '@api/graphql';
 
 export class SearchEngineUpdateCollectionByIdDto
 {
@@ -20,6 +21,14 @@ export class SearchEngineUpdateCollectionByIdDto
         description: 'alias [input here api field description]',
     })
     alias?: string;
+
+    @ApiProperty({
+        type       : SearchEngineCollectionStatus,
+        enum       : ['CONSOLIDATED','INDEXING'],
+        description: 'status [input here api field description]',
+        example    : SearchEngineCollectionStatus.CONSOLIDATED,
+    })
+    status?: SearchEngineCollectionStatus;
 
     @ApiProperty({
         type       : Number,

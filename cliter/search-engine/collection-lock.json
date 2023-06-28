@@ -7,23 +7,23 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collection.command-handler.spec.ts",
-            "integrity": "sha1:dc53f43479698d3f674a87fceeb2aa84025211d7"
+            "integrity": "sha1:70a2f8ae950404684f51ff7e86592fa478d0b1db"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collection.command-handler.ts",
-            "integrity": "sha1:2ffd6882b03853ac83a21da96d424f62be34faea"
+            "integrity": "sha1:43e9d5cb7ce117c11c1fbb2f389a4a3c593e8f5f"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collection.command.ts",
-            "integrity": "sha1:716fa08ae729c43618bb69b6e5172876fea90998"
+            "integrity": "sha1:862f7b879b93e3c5073f586be9a9204198a8c73f"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collection.service.spec.ts",
-            "integrity": "sha1:11ee0cb30ffd0f567f95911d441dd89d05caaa52"
+            "integrity": "sha1:f95bc9873143ed8a9a328542011b60d00fd31c15"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collection.service.ts",
-            "integrity": "sha1:c7d7f850d344c3b58824a2faae12b62e79dba660"
+            "integrity": "sha1:d09635031c0cf81a8600482f3a51b855a9f5bff0"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collections.command-handler.spec.ts",
@@ -31,11 +31,11 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collections.command-handler.ts",
-            "integrity": "sha1:445c07adf53039686bb726fd5ae988542ec9a598"
+            "integrity": "sha1:4bdc607d5834c5318e7bfbea184ac0152d438376"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collections.command.ts",
-            "integrity": "sha1:87baf3e104a48390f460e30815690f227879c0bf"
+            "integrity": "sha1:693082c8c71d2a4861c23b8fe7aff33540a45528"
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collections.service.spec.ts",
@@ -43,7 +43,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/create/search-engine-create-collections.service.ts",
-            "integrity": "sha1:b82aa76fa8bc5dd3f4243da2cd6c858b585f7310"
+            "integrity": "sha1:eee4a6a129e77dcf78e3260ea35ca05ff50e12d1"
         },
         {
             "path": "src/@app/search-engine/collection/application/delete/search-engine-delete-collection-by-id.command-handler.spec.ts",
@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-add-collections-context.event.ts",
-            "integrity": "sha1:f1581571dbf8f7b8e07756cccb23e2cf4afdba8d"
+            "integrity": "sha1:867f1a2a2bb731419940a21fba2ef651dca99aad"
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-created-collection.event-handler.ts",
@@ -95,7 +95,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-created-collection.event.ts",
-            "integrity": "sha1:49c04572e5807f45f353f1afad5099b8c0b2c38e"
+            "integrity": "sha1:a8a6822362e083237b48f7f1d6de643f8d9218c0"
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-created-collections.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-deleted-collection.event.ts",
-            "integrity": "sha1:6456293762a59346a996b4fd22ecc54076292f1b"
+            "integrity": "sha1:18690450c7c0225f07c9637710eec0418acdcecb"
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-deleted-collections.event-handler.ts",
@@ -127,7 +127,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-updated-collection.event.ts",
-            "integrity": "sha1:44c9b0435ce037cc284a1c532f447e776c0be10a"
+            "integrity": "sha1:fa2097358609d907bdccfdcfc1f3d6fd35d8e3b7"
         },
         {
             "path": "src/@app/search-engine/collection/application/events/search-engine-updated-collections.event-handler.ts",
@@ -243,71 +243,71 @@
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collection-by-id.command-handler.spec.ts",
-            "integrity": "sha1:0a6e46b22904b25c406b9534053a067ed753ed4d"
+            "integrity": "sha1:c9f408e6fbad29db91158441240ad96978573cf5"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collection-by-id.command-handler.ts",
-            "integrity": "sha1:46fad952922d44280daa7475adebc74222ed1fa7"
+            "integrity": "sha1:c891f8eb581e8b85f1ff19330772f0347631790c"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collection-by-id.command.ts",
-            "integrity": "sha1:fa07035e2ac50a03ac0d1bc301640aa637a9f38c"
+            "integrity": "sha1:04224207a15c1dfab9d09bbf695df36f307961b6"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collection-by-id.service.spec.ts",
-            "integrity": "sha1:86574e7057076a533b7f4c95a1148111eef64351"
+            "integrity": "sha1:f7b6cf319fa68294ba76e48c0670fcec6bd4c439"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collection-by-id.service.ts",
-            "integrity": "sha1:d37f90212487ac1f528b5c3f8bbb1d3269ab5ab5"
+            "integrity": "sha1:9dde7d42dd56b01111c07f98bc829c5f989fbd9b"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collections.command-handler.spec.ts",
-            "integrity": "sha1:4030ed65e8cf9663bc9d43cdc7e4909f733de7ec"
+            "integrity": "sha1:4baad521b0faaaf3467348a92e4620b10d33cf87"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collections.command-handler.ts",
-            "integrity": "sha1:1faa8baa3f0976b18679df9fc87c59de0687d42f"
+            "integrity": "sha1:caeee39f535ab476f476dfccec15abe42f4eb835"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collections.command.ts",
-            "integrity": "sha1:8c3f9cad192594525057f3e205db0b282db80243"
+            "integrity": "sha1:3d278b678c13790ab3d7808554bdb0d0f11aca15"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collections.service.spec.ts",
-            "integrity": "sha1:d4be6394f5797dc5819a034e3757c8f30e3db59e"
+            "integrity": "sha1:b02d4345eff96cff3a43f7a73049887b692f172f"
         },
         {
             "path": "src/@app/search-engine/collection/application/update/search-engine-update-collections.service.ts",
-            "integrity": "sha1:bf5d20f7e77f48c82852c86cfc9f2a11b3d41887"
+            "integrity": "sha1:554df3a197572748bc624c73d9e65bf1dbd7c288"
         },
         {
             "path": "src/@app/search-engine/collection/application/upsert/search-engine-upsert-collection.command-handler.spec.ts",
-            "integrity": "sha1:ee876da8f5adac335f0513cea26b53e23b5eb9ef"
+            "integrity": "sha1:01653a72efd5ca32b7ef067330d613622dea35ba"
         },
         {
             "path": "src/@app/search-engine/collection/application/upsert/search-engine-upsert-collection.command-handler.ts",
-            "integrity": "sha1:36f8d6380930b8a0ee17aa98a68f0caf489e0888"
+            "integrity": "sha1:38f81938296794776c07d778db8a3231bf5f9582"
         },
         {
             "path": "src/@app/search-engine/collection/application/upsert/search-engine-upsert-collection.command.ts",
-            "integrity": "sha1:cc60d3b734694cd40b4e951478f5ff350d4ad714"
+            "integrity": "sha1:caa622d17c238df0bf8f49e4a870d6e590332c45"
         },
         {
             "path": "src/@app/search-engine/collection/application/upsert/search-engine-upsert-collection.service.spec.ts",
-            "integrity": "sha1:7d5bf404fec7b71f9004d70da835edbd5ec1db69"
+            "integrity": "sha1:950cf3d2df8d4d500401a61af247ab64ed298e22"
         },
         {
             "path": "src/@app/search-engine/collection/application/upsert/search-engine-upsert-collection.service.ts",
-            "integrity": "sha1:b6fd140da4a996a6e771dabc1a0508e3faca13eb"
+            "integrity": "sha1:7e4903550cec732532bc283d213045a5977bd737"
         },
         {
             "path": "src/@app/search-engine/collection/domain/search-engine-collection.aggregate.ts",
-            "integrity": "sha1:9164509bccfc011c9f9c9c0e9e86e24a9b9b8e13"
+            "integrity": "sha1:3fd10b5cac05d639e79c8333e592c3752cda56f5"
         },
         {
             "path": "src/@app/search-engine/collection/domain/search-engine-collection.mapper.ts",
-            "integrity": "sha1:3b05ece4e8e3a2df7f10dc37b8a210b32ed4ead0"
+            "integrity": "sha1:9a34022964054fd4241ef9a228ae4f51fa81993f"
         },
         {
             "path": "src/@app/search-engine/collection/domain/search-engine-collection.repository.ts",
@@ -315,11 +315,11 @@
         },
         {
             "path": "src/@app/search-engine/collection/domain/search-engine-collection.response.ts",
-            "integrity": "sha1:d4d7d8ca76cf7ada0ea9e494299ebeca4112b718"
+            "integrity": "sha1:949f3fd52985568d1a7d9a2e84aca8b8148eeaba"
         },
         {
             "path": "src/@app/search-engine/collection/domain/value-objects/index.ts",
-            "integrity": "sha1:cb1d5cb04d0f4f07dc036339ee717b431bab70a9"
+            "integrity": "sha1:de223e1042d3fd90c9cd72d55966ae6ffcb3a9fe"
         },
         {
             "path": "src/@app/search-engine/collection/index.ts",
@@ -327,19 +327,19 @@
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data.ts",
-            "integrity": "sha1:505d09012a6e2759ec076b7424b06caa3b8d294e"
+            "integrity": "sha1:c0ccdd5d6c665f921b8ffec01b68b7e192a3b4c4"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository.ts",
-            "integrity": "sha1:798dfd96cae72d9bb81716f6ccd0963fec736337"
+            "integrity": "sha1:a9698269cf5f68fe2dc54582c3a5292a23056758"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.seeder.ts",
-            "integrity": "sha1:7a8aba944989d0243c861f38a363c132ae19e1ba"
+            "integrity": "sha1:dac93939ac35e24358c0c735c87e4315ac5e6f8c"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/sequelize/search-engine-sequelize-collection.model.ts",
-            "integrity": "sha1:dfe5b0ded5812bacb2473a80b72c7e02440ca3fa"
+            "integrity": "sha1:6d06ed0441e957d8f341e2cb90490bdd0e467764"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/sequelize/search-engine-sequelize-collection.repository.ts",
@@ -356,6 +356,10 @@
         {
             "path": "src/@app/search-engine/collection/domain/value-objects/search-engine-collection-alias.ts",
             "integrity": "sha1:21ee0e9911e6c5d47dedc5ae8b2e58c03e5fc850"
+        },
+        {
+            "path": "src/@app/search-engine/collection/domain/value-objects/search-engine-collection-status.ts",
+            "integrity": "sha1:fdd329b37879beb0be8dac68c3e619fb86fc6490"
         },
         {
             "path": "src/@app/search-engine/collection/domain/value-objects/search-engine-collection-documents-number.ts",
@@ -483,19 +487,19 @@
         },
         {
             "path": "src/@api/search-engine/collection/dto/search-engine-collection.dto.ts",
-            "integrity": "sha1:e1c944f8f0db24f047b456cdd271d852019c967c"
+            "integrity": "sha1:aa709b5f37519fd53f860058a5fedd4b1af216b6"
         },
         {
             "path": "src/@api/search-engine/collection/dto/search-engine-create-collection.dto.ts",
-            "integrity": "sha1:4e2dfa71ba775f0602b21087df9303e8048f1d54"
+            "integrity": "sha1:f823937da8243e793941bcf6847ad2587db327a8"
         },
         {
             "path": "src/@api/search-engine/collection/dto/search-engine-update-collection-by-id.dto.ts",
-            "integrity": "sha1:184f82e10877d90a1933d2191c9ca54739f392b8"
+            "integrity": "sha1:fd18cf600fc4c3dccb205b5a1eb46ee8bc84a3ec"
         },
         {
             "path": "src/@api/search-engine/collection/dto/search-engine-update-collections.dto.ts",
-            "integrity": "sha1:641aa968c1e948d3db0473d1b9fb9392680f6ed9"
+            "integrity": "sha1:b5a6ab740aae71a7bb0a6f0cdd165e09f3459636"
         },
         {
             "path": "src/@api/search-engine/collection/dto/index.ts",
@@ -503,7 +507,7 @@
         },
         {
             "path": "src/@api/search-engine/collection/graphql/search-engine-collection.graphql",
-            "integrity": "sha1:b120c6330bed07ce0e816c07852445c0b3e7c722"
+            "integrity": "sha1:2051e4fb89cf17cbd41a85af80c667d8ea94516a"
         },
         {
             "path": "src/@api/search-engine/collection/handlers/search-engine-create-collection.handler.spec.ts",
@@ -715,11 +719,11 @@
         },
         {
             "path": "test/acceptance/search-engine/collection.e2e-spec.ts",
-            "integrity": "sha1:fb93126504b4f79dbb49babcda3370ce2079c5f2"
+            "integrity": "sha1:063db17f8694700e0a92c55343691e675834e164"
         },
         {
             "path": "postman/search-engine/search-engine.collection.postman.json",
-            "integrity": "sha1:dc65a5e4123c6353f64130ca75c952dbad90c403"
+            "integrity": "sha1:a557082683347efa80fa8f44230f6b36d8200866"
         }
     ]
 }

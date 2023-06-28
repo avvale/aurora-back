@@ -6,6 +6,7 @@ import {
     SearchEngineCollectionId,
     SearchEngineCollectionName,
     SearchEngineCollectionAlias,
+    SearchEngineCollectionStatus,
     SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionNumMemoryShards,
@@ -25,6 +26,7 @@ export class SearchEngineCollection extends AggregateRoot
     id: SearchEngineCollectionId;
     name: SearchEngineCollectionName;
     alias: SearchEngineCollectionAlias;
+    status: SearchEngineCollectionStatus;
     documentsNumber: SearchEngineCollectionDocumentsNumber;
     defaultSortingField: SearchEngineCollectionDefaultSortingField;
     numMemoryShards: SearchEngineCollectionNumMemoryShards;
@@ -41,6 +43,7 @@ export class SearchEngineCollection extends AggregateRoot
         id: SearchEngineCollectionId,
         name: SearchEngineCollectionName,
         alias: SearchEngineCollectionAlias,
+        status: SearchEngineCollectionStatus,
         documentsNumber: SearchEngineCollectionDocumentsNumber,
         defaultSortingField: SearchEngineCollectionDefaultSortingField,
         numMemoryShards: SearchEngineCollectionNumMemoryShards,
@@ -57,6 +60,7 @@ export class SearchEngineCollection extends AggregateRoot
         this.id = id;
         this.name = name;
         this.alias = alias;
+        this.status = status;
         this.documentsNumber = documentsNumber;
         this.defaultSortingField = defaultSortingField;
         this.numMemoryShards = numMemoryShards;
@@ -74,6 +78,7 @@ export class SearchEngineCollection extends AggregateRoot
         id: SearchEngineCollectionId,
         name: SearchEngineCollectionName,
         alias: SearchEngineCollectionAlias,
+        status: SearchEngineCollectionStatus,
         documentsNumber: SearchEngineCollectionDocumentsNumber,
         defaultSortingField: SearchEngineCollectionDefaultSortingField,
         numMemoryShards: SearchEngineCollectionNumMemoryShards,
@@ -90,6 +95,7 @@ export class SearchEngineCollection extends AggregateRoot
             id,
             name,
             alias,
+            status,
             documentsNumber,
             defaultSortingField,
             numMemoryShards,
@@ -110,6 +116,7 @@ export class SearchEngineCollection extends AggregateRoot
                 collection.id.value,
                 collection.name.value,
                 collection.alias?.value,
+                collection.status.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -129,6 +136,7 @@ export class SearchEngineCollection extends AggregateRoot
                 collection.id?.value,
                 collection.name?.value,
                 collection.alias?.value,
+                collection.status?.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -148,6 +156,7 @@ export class SearchEngineCollection extends AggregateRoot
                 collection.id.value,
                 collection.name.value,
                 collection.alias?.value,
+                collection.status.value,
                 collection.documentsNumber?.value,
                 collection.defaultSortingField?.value,
                 collection.numMemoryShards?.value,
@@ -166,6 +175,7 @@ export class SearchEngineCollection extends AggregateRoot
             id: this.id.value,
             name: this.name.value,
             alias: this.alias?.value,
+            status: this.status.value,
             documentsNumber: this.documentsNumber?.value,
             defaultSortingField: this.defaultSortingField?.value,
             numMemoryShards: this.numMemoryShards?.value,
@@ -187,6 +197,7 @@ export class SearchEngineCollection extends AggregateRoot
             id: this.id.value,
             name: this.name.value,
             alias: this.alias?.value,
+            status: this.status.value,
             documentsNumber: this.documentsNumber?.value,
             defaultSortingField: this.defaultSortingField?.value,
             numMemoryShards: this.numMemoryShards?.value,

@@ -118,3 +118,4 @@ export { QueueManagerJobRegistryResponse } from './@app/queue-manager/job-regist
 export { QueueManagerJobRegistryMapper } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
 export { queueManagerJobsRegistry } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 export { QueueManagerQueue } from './@app/queue-manager/queue/domain/queue-manager-queue.aggregate';
+export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.aggregate';

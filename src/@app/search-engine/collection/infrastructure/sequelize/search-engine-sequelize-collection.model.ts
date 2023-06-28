@@ -13,6 +13,10 @@ import { SearchEngineFieldModel } from '@app/search-engine/field';
 			fields: ['name'],
 			unique: true,
 		},
+		{
+			fields: ['alias'],
+			unique: true,
+		},
 
     ],
 })
@@ -39,6 +43,14 @@ export class SearchEngineCollectionModel extends Model<SearchEngineCollectionMod
         type: DataTypes.STRING(255),
     })
     alias: string;
+
+    @Column({
+        field: 'status',
+        allowNull: false,
+        type: DataTypes.ENUM('CONSOLIDATED','INDEXING'),
+        defaultValue: 'CONSOLIDATED',
+    })
+    status: string;
 
     @Column({
         field: 'documentsNumber',

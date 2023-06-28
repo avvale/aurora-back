@@ -76,6 +76,11 @@ export enum QueueManagerJobState {
     PAUSED = "PAUSED"
 }
 
+export enum SearchEngineCollectionStatus {
+    CONSOLIDATED = "CONSOLIDATED",
+    INDEXING = "INDEXING"
+}
+
 export enum CoreLangDir {
     LTR = "LTR",
     RTL = "RTL"
@@ -1008,7 +1013,7 @@ export interface IMutation {
     searchEngineUpsertCollection(payload: SearchEngineUpdateCollectionByIdInput): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
     searchEngineDeleteCollectionById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
     searchEngineDeleteCollections(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection>[] | Promise<Nullable<SearchEngineCollection>[]>;
-    searchEngineIndexCollection(payload: SearchEngineUpdateCollectionByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    searchEngineIndexCollection(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     searchEngineCreateField(payload: SearchEngineCreateFieldInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineCreateFields(payload: Nullable<SearchEngineCreateFieldInput>[]): boolean | Promise<boolean>;
     searchEngineUpdateFieldById(payload: SearchEngineUpdateFieldByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
@@ -1306,6 +1311,7 @@ export interface SearchEngineCollection {
     id: string;
     name: GraphQLString;
     alias?: Nullable<GraphQLString>;
+    status: SearchEngineCollectionStatus;
     documentsNumber?: Nullable<GraphQLInt>;
     defaultSortingField?: Nullable<GraphQLString>;
     numMemoryShards?: Nullable<GraphQLInt>;

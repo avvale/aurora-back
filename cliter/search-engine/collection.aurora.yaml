@@ -21,6 +21,15 @@ aggregateProperties:
     type: varchar
     maxLength: 255
     nullable: true
+    index: unique
+  - name: status
+    type: enum
+    enumOptions:
+      - CONSOLIDATED
+      - INDEXING
+    nullable: false
+    defaultValue: CONSOLIDATED
+    example: SearchEngineCollectionStatus.CONSOLIDATED
   - name: documentsNumber
     type: int.unsigned
     maxLength: 10

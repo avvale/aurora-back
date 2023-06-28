@@ -108,6 +108,22 @@ describe('collection', () =>
             });
     });
 
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionStatus property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/search-engine/collection/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                status: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CollectionStatus must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionIsEnableNestedFields property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -153,6 +169,22 @@ describe('collection', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CollectionName must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionStatus property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/search-engine/collection/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                status: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CollectionStatus must be defined, can not be undefined');
             });
     });
 
@@ -327,6 +359,21 @@ describe('collection', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CollectionIsEnableNestedFields has to be a boolean value');
+            });
+    });
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionStatus has to be a enum option of CONSOLIDATED, INDEXING', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/search-engine/collection/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                status: '****',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CollectionStatus has to be any of this options: CONSOLIDATED, INDEXING');
             });
     });
 
@@ -504,6 +551,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -577,6 +625,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -613,6 +662,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -649,6 +699,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -693,6 +744,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -735,6 +787,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -772,6 +825,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -807,6 +861,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -847,6 +902,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -885,6 +941,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -928,6 +985,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards
@@ -965,6 +1023,7 @@ describe('collection', () =>
                             id
                             name
                             alias
+                            status
                             documentsNumber
                             defaultSortingField
                             numMemoryShards

@@ -1,9 +1,15 @@
+enum SearchEngineCollectionStatus {
+    CONSOLIDATED
+    INDEXING
+}
+
 
 type SearchEngineCollection
 {
     id: ID!
     name: GraphQLString!
     alias: GraphQLString
+    status: SearchEngineCollectionStatus!
     documentsNumber: GraphQLInt
     defaultSortingField: GraphQLString
     numMemoryShards: GraphQLInt
@@ -113,7 +119,7 @@ type Mutation
 
     # additionalApis
     searchEngineIndexCollection(
-        payload: SearchEngineUpdateCollectionByIdInput!
+        id: ID!
         constraint: QueryStatement
     ): Boolean!
 

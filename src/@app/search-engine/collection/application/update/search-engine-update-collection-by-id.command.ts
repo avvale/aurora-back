@@ -8,6 +8,7 @@ export class SearchEngineUpdateCollectionByIdCommand
             id: string;
             name?: string;
             alias?: string;
+            status?: string;
             documentsNumber?: number;
             defaultSortingField?: string;
             numMemoryShards?: number;

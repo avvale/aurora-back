@@ -1,6 +1,9 @@
 import { SearchEngineCollectionHandlers, SearchEngineCollectionServices, SearchEngineCollectionModel, SearchEngineICollectionRepository, SearchEngineSequelizeCollectionRepository, SearchEngineCollectionSagas } from './collection';
 import { SearchEngineFieldHandlers, SearchEngineFieldServices, SearchEngineFieldModel, SearchEngineIFieldRepository, SearchEngineSequelizeFieldRepository, SearchEngineFieldSagas } from './field';
 
+export * from './collection';
+export * from './field';
+
 export const SearchEngineHandlers = [
     ...SearchEngineCollectionHandlers,
     ...SearchEngineFieldHandlers

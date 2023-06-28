@@ -1,5 +1,5 @@
 import { SearchEngineCreateCollectionDto } from '../dto';
-import { SearchEngineCreateCollectionInput } from '@api/graphql';
+import { SearchEngineCollectionStatus, SearchEngineCreateCollectionInput } from '@api/graphql';
 import { SearchEngineCreateCollectionsCommand } from '@app/search-engine/collection';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -17,7 +17,10 @@ export class SearchEngineCreateCollectionsHandler
     ): Promise<boolean>
     {
         await this.commandBus.dispatch(new SearchEngineCreateCollectionsCommand(
-            payload,
+            payload.map(collection => ({
+                ...collection,
+                status: SearchEngineCollectionStatus.CONSOLIDATED,
+            })),
             {
                 timezone,
             },

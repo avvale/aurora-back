@@ -1,18 +1,20 @@
 import { QueueManagerJobService } from '@api/queue-manager/shared/services';
-import { SearchEngineFindCollectionByIdQuery } from '@app/search-engine/collection';
+import { SearchEngineFindCollectionByIdQuery, SearchEngineUpdateCollectionByIdCommand } from '@app/search-engine/collection';
 import { ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
 import { InjectQueue } from '@nestjs/bull';
 import { Injectable } from '@nestjs/common';
 import { Queue } from 'bull';
 import { QueueStorage } from 'src/app.queues';
+import * as _ from 'lodash';
+import { SearchEngineCollectionStatus } from '@api/graphql';
 
 @Injectable()
 export class SearchEngineIndexCollectionHandler
 {
     constructor(
         private readonly commandBus: ICommandBus,
-        private readonly queryBus: IQueryBus,
         private readonly jobService: QueueManagerJobService,
+        private readonly queryBus: IQueryBus,
         @InjectQueue(QueueStorage.SEARCH_ENGINE_COLLECTION) private searchEngineCollectionQueue: Queue,
     ) {}
 
@@ -22,28 +24,29 @@ export class SearchEngineIndexCollectionHandler
         timezone?: string,
     ): Promise<boolean>
     {
-        // coding here
-        const collection = await this.commandBus.dispatch(new SearchEngineFindCollectionByIdQuery(
+        const collection = await this.queryBus.ask(new SearchEngineFindCollectionByIdQuery(
             id,
-            constraint,
+            {},
             {
                 timezone,
             },
         ));
 
         // create job to create delivery
+        const collectionName = collection.alias + '_' + Utils.uuid();
         await this.jobService.add(
             this.searchEngineCollectionQueue,
             {
                 payload: {
-                    id,
-                    offset        : 0,
-                    limit         : 1000,
-                    collectionName: collection.name + '_' + Utils.uuid(),
+                    id,             // collection id
+                    offset: 0,      // start from 0
+                    limit : 1000,   // take 1000 items
+                    collectionName, // new collection name that will be replaced with alias
+                    constraint,
                 },
                 timezone,
             },
-            [collection.name],
+            [collectionName],
             'indexCollection',
             {
                 delay   : 5000,             // delay in ms
@@ -54,6 +57,17 @@ export class SearchEngineIndexCollectionHandler
                 },
             },
         );
+
+        await this.commandBus.dispatch(new SearchEngineUpdateCollectionByIdCommand(
+            {
+                id,
+                status: SearchEngineCollectionStatus.INDEXING,
+            },
+            constraint,
+            {
+                timezone,
+            },
+        ));
 
         return true;
     }

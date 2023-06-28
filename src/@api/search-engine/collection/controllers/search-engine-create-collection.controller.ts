@@ -2,7 +2,7 @@
 import { SearchEngineCollectionDto, SearchEngineCreateCollectionDto } from '../dto';
 import { SearchEngineCreateCollectionHandler } from '../handlers/search-engine-create-collection.handler';
 import { Auth } from '@aurora/decorators';
-import { Timezone } from '@aurorajs.dev/core';
+import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 

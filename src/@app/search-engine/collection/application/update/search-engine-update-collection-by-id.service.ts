@@ -10,6 +10,7 @@ import {
     SearchEngineCollectionIsEnableNestedFields,
     SearchEngineCollectionName,
     SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
     SearchEngineCollectionTimestampCreatedAt,
     SearchEngineCollectionUpdatedAt,
 } from '../../domain/value-objects';
@@ -30,6 +31,7 @@ export class SearchEngineUpdateCollectionByIdService
             id: SearchEngineCollectionId;
             name?: SearchEngineCollectionName;
             alias?: SearchEngineCollectionAlias;
+            status?: SearchEngineCollectionStatus;
             documentsNumber?: SearchEngineCollectionDocumentsNumber;
             defaultSortingField?: SearchEngineCollectionDefaultSortingField;
             numMemoryShards?: SearchEngineCollectionNumMemoryShards;
@@ -45,6 +47,7 @@ export class SearchEngineUpdateCollectionByIdService
             payload.id,
             payload.name,
             payload.alias,
+            payload.status,
             payload.documentsNumber,
             payload.defaultSortingField,
             payload.numMemoryShards,

@@ -1,9 +1,10 @@
 /* eslint-disable no-await-in-loop */
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ICommandBus, Utils } from '@aurorajs.dev/core';
 import { Client } from 'typesense';
 import { SearchEngineCreateCollectionsCommand, SearchEngineDeleteCollectionsCommand } from '@app/search-engine/collection';
 import { SearchEngineCreateFieldsCommand, SearchEngineDeleteFieldsCommand } from '@app/search-engine/field';
+import { SearchEngineCollectionStatus } from '@api/graphql';
 
 @Injectable()
 export class SearchEngineTypesenseImplementationService
@@ -32,8 +33,9 @@ export class SearchEngineTypesenseImplementationService
 
             collectionsPayload.push({
                 id                  : collectionId,
-                alias               : alias?.name || null,
                 name                : collection.name,
+                alias               : alias?.name || null,
+                status              : SearchEngineCollectionStatus.CONSOLIDATED,
                 documentsNumber     : collection.num_documents,
                 defaultSortingField : collection.default_sorting_field,
                 numMemoryShards     : collection.num_memory_shards,
