@@ -3,7 +3,7 @@ import { CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from 
 import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
-import { AuditingRunner, AuditingRunnerDisabledImplementationService, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
+import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
@@ -13,6 +13,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
 
 @Module({
     imports: [
+        AuroraMetadataModule,
         AuthJwtStrategyRegistryModule.forRoot(jwtConfig),
         CacheModule.register({ isGlobal: true, ttl: 0 }),
         ConfigModule.forRoot({ isGlobal: true }),
@@ -41,11 +42,12 @@ import { CqrsConfigModule } from './cqrs-config.module';
         },
     ],
     exports: [
-        CoreAddI18nConstraintService,
         AuditingRunner,
+        AuroraMetadataModule,
         AuthJwtStrategyRegistryModule,
         CacheModule,
         ConfigModule,
+        CoreAddI18nConstraintService,
         CoreGetContentLanguageObjectService,
         CoreGetFallbackLangService,
         CoreGetLangsService,

@@ -5,9 +5,9 @@ import { AuroraMetadataRegistry, ICommandBus, IQueryBus, QueryStatement } from '
 import { TypesenseMetadataRegistry } from '@aurorajs.dev/typesense';
 import { InjectQueue, Process, Processor } from '@nestjs/bull';
 import { Job, Queue } from 'bull';
-import * as _ from 'lodash';
 import { QueueStorage } from 'src/app.queues';
 import { Client } from 'typesense';
+import * as _ from 'lodash';
 
 @Processor(QueueStorage.SEARCH_ENGINE_COLLECTION)
 export class IndexCollectionSearchEngineConsumer
@@ -62,7 +62,7 @@ export class IndexCollectionSearchEngineConsumer
             if ((error as any).httpStatus === 404)
             {
                 const schema = this.typesenseMetadataRegistry
-                    .getSchemaByName(collection.name);
+                    .getSchemaByName(collection.alias);
 
                 // create new collection
                 await this.typesense.collections()
@@ -83,7 +83,10 @@ export class IndexCollectionSearchEngineConsumer
         // get pagination query
         const paginationQuery = await this.queryBus.ask(
             new imports[`${auroraMetadata.boundedContextName.toPascalCase()}Paginate${auroraMetadata.moduleNames.toPascalCase()}Query`](
-                {},
+                {
+                    offset: payload.offset,
+                    limit : payload.limit,
+                },
                 payload.constraint,
                 {
                     timezone,
@@ -109,12 +112,22 @@ export class IndexCollectionSearchEngineConsumer
                 .collections(collection.name)
                 .delete();
 
+            // get new collection from typesense
+            const typesenseCollection = await this.typesense
+                .collections(payload.collectionName)
+                .retrieve();
+
             // update collection with new collection name
             await this.commandBus.dispatch(new SearchEngineUpdateCollectionByIdCommand(
                 {
-                    id    : payload.id,
-                    name  : payload.collectionName,
-                    status: SearchEngineCollectionStatus.CONSOLIDATED,
+                    id                  : payload.id,
+                    name                : payload.collectionName,
+                    status              : SearchEngineCollectionStatus.CONSOLIDATED,
+                    documentsNumber     : typesenseCollection.num_documents,
+                    defaultSortingField : typesenseCollection.default_sorting_field,
+                    numMemoryShards     : typesenseCollection.num_memory_shards,
+                    timestampCreatedAt  : typesenseCollection.created_at,
+                    isEnableNestedFields: typesenseCollection.enable_nested_fields,
                 },
                 {},
                 {
@@ -125,39 +138,53 @@ export class IndexCollectionSearchEngineConsumer
             return;
         }
 
-        // index documents
-        this.typesense
-            .collections(payload.collectionName)
-            .documents()
-            .import(
-                // filter collection fields
-                paginationQuery.rows
-                    .map(row => _.pick(row, ['id', ...collection.fields.map(field => field.name)])),
+        try
+        {
+            // index documents
+            await this.typesense
+                .collections(payload.collectionName)
+                .documents()
+                .import(
+                    // filter collection fields
+                    paginationQuery.rows
+                        .map(row => _.pick(row, ['id', ...collection.fields.map(field => field.name)])),
+                    {
+                        action: 'create',
+                    },
+                );
+
+            // create job for next batch
+            await this.jobService.add(
+                this.searchEngineCollectionQueue,
                 {
-                    action: 'create',
+                    payload: {
+                        ...payload,
+                        offset: payload.offset + payload.limit,
+                    },
+                    timezone,
+                },
+                [payload.collectionName],
+                'indexCollection',
+                {
+                    delay   : 5000,             // delay in ms
+                    attempts: 3,                // times to retry
+                    backoff : {
+                        type : 'exponential',   // each fail will increase the delay, formula: Math.round((Math.pow(2, attemptsMade) - 1) * delay);
+                        delay: 10000,           // delay in ms
+                    },
                 },
             );
-
-        // create job for next batch
-        await this.jobService.add(
-            this.searchEngineCollectionQueue,
+        }
+        catch (error)
+        {
+            if (error.constructor.name === 'ImportError')
             {
-                payload: {
-                    ...payload,
-                    offset: payload.offset + payload.limit,
-                },
-                timezone,
-            },
-            [payload.collectionName],
-            'indexCollection',
+                // TODO add logger
+            }
+            else
             {
-                delay   : 5000,             // delay in ms
-                attempts: 3,                // times to retry
-                backoff : {
-                    type : 'exponential',   // each fail will increase the delay, formula: Math.round((Math.pow(2, attemptsMade) - 1) * delay);
-                    delay: 10000,           // delay in ms
-                },
-            },
-        );
+                // TODO add logger
+            }
+        }
     }
 }
