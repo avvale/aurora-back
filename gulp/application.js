@@ -121,33 +121,37 @@ async function cleanAppModule()
     const project = codeWriter.createProject(['publish', 'tsconfig.json']);
     const sourceFile = codeWriter.createSourceFile(project, ['publish', 'src', 'app.module.ts']);
 
-    // remove ScheduleModule
-    codeWriter.removeImport(sourceFile, '@nestjs/schedule');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ScheduleModule.forRoot()');
-
     // remove AuditingModule
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AuditingModule');
+
+    // remove AzureADModule
+    codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureAdModule');
 
     // remove CommonModule
     codeWriter.removeImport(sourceFile, '@api/common/common.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'CommonModule');
 
-    // remove OAuthModule
-    codeWriter.removeImport(sourceFile, '@api/o-auth/o-auth.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'OAuthModule');
-
     // remove IamModule
     codeWriter.removeImport(sourceFile, '@api/iam/iam.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'IamModule');
+
+    // remove OAuthModule
+    codeWriter.removeImport(sourceFile, '@api/o-auth/o-auth.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'OAuthModule');
 
     // remove QueueManagerModule
     codeWriter.removeImport(sourceFile, '@api/queue-manager/queue-manager.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'QueueManagerModule');
 
-    // remove QueueManagerModule
-    codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureAdModule');
+    // remove SearchEngineModule
+    codeWriter.removeImport(sourceFile, '@api/search-engine/search-engine.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'SearchEngineModule');
+
+    // remove ScheduleModule
+    codeWriter.removeImport(sourceFile, '@nestjs/schedule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ScheduleModule.forRoot()');
 
     sourceFile.saveSync();
 }
