@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonUpdateCountriesHandler } from './common-update-countries.handler';
 import { CommonUpdateCountriesInput } from '@api/graphql';
-import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
+import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
 import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { CoreAddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
@@ -70,8 +70,8 @@ describe('CommonUpdateCountriesHandler', () =>
 
         test('should return a countries updated', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(countries[0])));
-            expect(await handler.main(<CommonUpdateCountriesInput>countries[0])).toBe(countries[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockCountryData[0])));
+            expect(await handler.main(<CommonUpdateCountriesInput>commonMockCountryData[0])).toBe(commonMockCountryData[0]);
         });
     });
 });

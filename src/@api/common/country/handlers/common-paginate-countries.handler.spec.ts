@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonPaginateCountriesHandler } from './common-paginate-countries.handler';
-import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
+import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
 import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { CoreAddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
@@ -70,14 +70,14 @@ describe('CommonPaginateCountriesHandler', () =>
         test('should return a countries', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve({
-                total: countries.length,
-                count: countries.length,
-                rows : countries,
+                total: commonMockCountryData.length,
+                count: commonMockCountryData.length,
+                rows : commonMockCountryData,
             })));
             expect(await handler.main()).toEqual({
-                total: countries.length,
-                count: countries.length,
-                rows : countries,
+                total: commonMockCountryData.length,
+                count: commonMockCountryData.length,
+                rows : commonMockCountryData,
             });
         });
     });

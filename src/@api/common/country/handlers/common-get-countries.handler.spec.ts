@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonGetCountriesHandler } from './common-get-countries.handler';
-import { countries } from '@app/common/country/infrastructure/mock/mock-country.data';
+import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
 import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
 import { CoreAddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
@@ -67,10 +67,10 @@ describe('CommonGetCountriesHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return a countries', async () =>
+        test('should return a commonMockCountryData', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(countries)));
-            expect(await handler.main()).toBe(countries);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockCountryData)));
+            expect(await handler.main()).toBe(commonMockCountryData);
         });
     });
 });

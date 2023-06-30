@@ -2,15 +2,15 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { FindCountryService } from './common-find-country.service';
+import { CommonFindCountryService } from './common-find-country.service';
 import { CommonICountryRepository } from '../../domain/common-country.repository';
-import { MockCountryRepository } from '../../infrastructure/mock/mock-country.repository';
+import { CommonMockCountryRepository } from '../../infrastructure/mock/common-mock-country.repository';
 
-describe('FindCountryService', () =>
+describe('CommonFindCountryService', () =>
 {
-    let service: FindCountryService;
+    let service: CommonFindCountryService;
     let repository: CommonICountryRepository;
-    let mockRepository: MockCountryRepository;
+    let mockRepository: CommonMockCountryRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,8 @@ describe('FindCountryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindCountryService,
-                MockCountryRepository,
+                CommonFindCountryService,
+                CommonMockCountryRepository,
                 {
                     provide : CommonICountryRepository,
                     useValue: {
@@ -31,14 +31,14 @@ describe('FindCountryService', () =>
         })
             .compile();
 
-        service = module.get(FindCountryService);
+        service = module.get(CommonFindCountryService);
         repository = module.get(CommonICountryRepository);
-        mockRepository = module.get(MockCountryRepository);
+        mockRepository = module.get(CommonMockCountryRepository);
     });
 
     describe('main', () =>
     {
-        test('FindCountryService should be defined', () =>
+        test('CommonFindCountryService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

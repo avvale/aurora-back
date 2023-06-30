@@ -96,7 +96,7 @@ export { CommonCountryModel } from './@app/common/country';
 export { CommonCountry } from './@app/common/country/domain/common-country.aggregate';
 export { CommonCountryResponse } from './@app/common/country/domain/common-country.response';
 export { CommonCountryMapper } from './@app/common/country/domain/common-country.mapper';
-export { commonCountries } from './@app/common/country/infrastructure/mock/common-mock-country.data';
+export { commonMockCountryData } from './@app/common/country/infrastructure/mock/common-mock-country.data';
 export { CommonLang } from './@app/common/lang/domain/common-lang.aggregate';
 export { SearchEngineModule } from './@api/search-engine/search-engine.module';
 export { SearchEngineCollectionDto } from './@api/search-engine/collection/dto/search-engine-collection.dto';

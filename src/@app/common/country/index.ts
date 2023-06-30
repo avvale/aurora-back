@@ -16,7 +16,7 @@ export { CommonFindCountryByIdQuery } from './application/find/common-find-count
 export { CommonRawSQLCountriesQuery } from './application/raw-sql/common-raw-sql-countries.query';
 
 // mocks
-export { commonCountries } from './infrastructure/mock/common-mock-country.data';
+export { commonMockCountryData } from './infrastructure/mock/common-mock-country.data';
 
 // domain
 export { CommonCountry } from './domain/common-country.aggregate';
