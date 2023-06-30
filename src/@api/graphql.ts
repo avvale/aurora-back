@@ -34,6 +34,13 @@ export enum AuditingSideEffectMethod {
     DELETE = "DELETE"
 }
 
+export enum CommonAdministrativeAreaLevel1MapType {
+    ROADMAP = "ROADMAP",
+    SATELLITE = "SATELLITE",
+    HYBRID = "HYBRID",
+    TERRAIN = "TERRAIN"
+}
+
 export enum CommonCountryMapType {
     ROADMAP = "ROADMAP",
     SATELLITE = "SATELLITE",
@@ -208,6 +215,45 @@ export interface AuditingUpdateSideEffectsInput {
     userAgent?: Nullable<GraphQLString>;
     isRollback?: Nullable<GraphQLBoolean>;
     rollbackSideEffectId?: Nullable<string>;
+}
+
+export interface CommonCreateAdministrativeAreaLevel1Input {
+    id: string;
+    countryId: string;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType: CommonAdministrativeAreaLevel1MapType;
+}
+
+export interface CommonUpdateAdministrativeAreaLevel1ByIdInput {
+    id: string;
+    countryId?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonAdministrativeAreaLevel1MapType>;
+}
+
+export interface CommonUpdateAdministrativeAreasLevel1Input {
+    id?: Nullable<string>;
+    countryId?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonAdministrativeAreaLevel1MapType>;
 }
 
 export interface CommonCreateCountryInput {
@@ -807,6 +853,10 @@ export interface IQuery {
     auditingFindSideEffectById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingGetSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingPaginateSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAdministrativeAreaLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonFindAdministrativeAreaLevel1ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonGetAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonPaginateAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
@@ -904,6 +954,13 @@ export interface IMutation {
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    commonCreateAdministrativeAreaLevel1(payload: CommonCreateAdministrativeAreaLevel1Input): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonCreateAdministrativeAreasLevel1(payload: Nullable<CommonCreateAdministrativeAreaLevel1Input>[]): boolean | Promise<boolean>;
+    commonUpdateAdministrativeAreaLevel1ById(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonUpdateAdministrativeAreasLevel1(payload: CommonUpdateAdministrativeAreasLevel1Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonUpsertAdministrativeAreaLevel1(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonDeleteAdministrativeAreaLevel1ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
+    commonDeleteAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1045,6 +1102,23 @@ export interface AuditingSideEffect {
     userAgent?: Nullable<GraphQLString>;
     isRollback: GraphQLBoolean;
     rollbackSideEffectId?: Nullable<string>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreaLevel1 {
+    id: string;
+    countryId: string;
+    country?: Nullable<CommonCountry>;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType: CommonAdministrativeAreaLevel1MapType;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

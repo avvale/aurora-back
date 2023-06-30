@@ -5,6 +5,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { CommonSeeder } from './common.seeder';
 import { CommonCountryApiHandlers, CommonCountryControllers, CommonCountryResolvers, CommonCountryServices } from './country';
 import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, CommonLangServices } from './lang';
+import { CommonAdministrativeAreaLevel1Controllers, CommonAdministrativeAreaLevel1Resolvers, CommonAdministrativeAreaLevel1ApiHandlers, CommonAdministrativeAreaLevel1Services } from './administrative-area-level-1';
 
 @Module({
     imports: [
@@ -15,7 +16,8 @@ import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, Comm
     ],
     controllers: [
         ...CommonLangControllers,
-        ...CommonCountryControllers
+        ...CommonCountryControllers,
+        ...CommonAdministrativeAreaLevel1Controllers
     ],
     providers: [
         CommonSeeder,
@@ -28,7 +30,10 @@ import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, Comm
         ...CommonLangServices,
         ...CommonCountryResolvers,
         ...CommonCountryApiHandlers,
-        ...CommonCountryServices
+        ...CommonCountryServices,
+        ...CommonAdministrativeAreaLevel1Resolvers,
+        ...CommonAdministrativeAreaLevel1ApiHandlers,
+        ...CommonAdministrativeAreaLevel1Services
     ],
 })
 export class CommonModule {}

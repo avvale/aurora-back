@@ -32,7 +32,7 @@ export class CommonDeleteCountriesService
 
         if (countries.length === 0) return;
 
-        if (commonMockCountryData[0].langId.value === fallbackLang.id)
+        if (countries[0].langId.value === fallbackLang.id)
         {
             // delete all translations if delete fallback language
             await this.repository.delete({

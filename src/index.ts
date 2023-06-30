@@ -119,3 +119,9 @@ export { QueueManagerJobRegistryMapper } from './@app/queue-manager/job-registry
 export { queueManagerJobsRegistry } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 export { QueueManagerQueue } from './@app/queue-manager/queue/domain/queue-manager-queue.aggregate';
 export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.aggregate';
+export { CommonAdministrativeAreaLevel1Dto } from './@api/common/administrative-area-level-1/dto/common-administrative-area-level-1.dto';
+export { CommonAdministrativeAreaLevel1 } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.aggregate';
+export { CommonAdministrativeAreaLevel1Model } from './@app/common/administrative-area-level-1';
+export { CommonAdministrativeAreaLevel1Response } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.response';
+export { CommonAdministrativeAreaLevel1Mapper } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.mapper';
+export { commonMockAdministrativeAreaLevel1Data } from './@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
