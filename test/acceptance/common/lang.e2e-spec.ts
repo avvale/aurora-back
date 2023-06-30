@@ -3,7 +3,7 @@
 /* eslint-disable key-spacing */
 import { CommonModule } from '@api/common/common.module';
 import { CommonILangRepository } from '@app/common/lang/domain/common-lang.repository';
-import { commonLangs } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
+import { commonMockLangData } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
 import { CommonMockLangSeeder } from '@app/common/lang/infrastructure/mock/common-mock-lang.seeder';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
@@ -65,7 +65,7 @@ describe('lang', () =>
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = commonLangs;
+        mockData = commonMockLangData;
         app = module.createNestApplication();
         langRepository = module.get<CommonILangRepository>(CommonILangRepository);
         langSeeder = module.get<CommonMockLangSeeder>(CommonMockLangSeeder);
@@ -361,6 +361,22 @@ describe('lang', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for LangIetf is not allowed, must be a length of 5');
+            });
+    });
+
+    test('/REST:POST common/lang/create - Got 400 Conflict, LangName is too large, has a maximum length of 100', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/lang/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                name: '*****************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for LangName is too large, has a maximum length of 100');
             });
     });
 

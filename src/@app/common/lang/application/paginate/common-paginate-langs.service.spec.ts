@@ -4,13 +4,13 @@ import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 // custom items
 import { CommonPaginateLangsService } from './common-paginate-langs.service';
 import { CommonILangRepository } from '../../domain/common-lang.repository';
-import { MockLangRepository } from '../../infrastructure/mock/mock-lang.repository';
+import { CommonMockLangRepository } from '../../infrastructure/mock/common-mock-lang.repository';
 
-describe('PaginateLangsService', () =>
+describe('CommonPaginateLangsService', () =>
 {
-    let service: PaginateLangsService;
+    let service: CommonPaginateLangsService;
     let repository: CommonILangRepository;
-    let mockRepository: MockLangRepository;
+    let mockRepository: CommonMockLangRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,8 @@ describe('PaginateLangsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                PaginateLangsService,
-                MockLangRepository,
+                CommonPaginateLangsService,
+                CommonMockLangRepository,
                 {
                     provide : CommonILangRepository,
                     useValue: {
@@ -31,14 +31,14 @@ describe('PaginateLangsService', () =>
         })
             .compile();
 
-        service = module.get(PaginateLangsService);
+        service = module.get(CommonPaginateLangsService);
         repository = module.get(CommonILangRepository);
-        mockRepository = module.get(MockLangRepository);
+        mockRepository = module.get(CommonMockLangRepository);
     });
 
     describe('main', () =>
     {
-        test('PaginateLangsService should be defined', () =>
+        test('CommonPaginateLangsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

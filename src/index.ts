@@ -90,7 +90,7 @@ export { CommonLangDto } from './@api/common/lang/dto/common-lang.dto';
 export { CommonLangModel } from './@app/common/lang';
 export { CommonLangResponse } from './@app/common/lang/domain/common-lang.response';
 export { CommonLangMapper } from './@app/common/lang/domain/common-lang.mapper';
-export { commonLangs } from './@app/common/lang/infrastructure/mock/common-mock-lang.data';
+export { commonMockLangData } from './@app/common/lang/infrastructure/mock/common-mock-lang.data';
 export { CommonCountryDto } from './@api/common/country/dto/common-country.dto';
 export { CommonCountryModel } from './@app/common/country';
 export { CommonCountry } from './@app/common/country/domain/common-country.aggregate';

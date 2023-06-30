@@ -15,7 +15,7 @@ export { CommonFindLangByIdQuery } from './application/find/common-find-lang-by-
 export { CommonRawSQLLangsQuery } from './application/raw-sql/common-raw-sql-langs.query';
 
 // mocks
-export { commonLangs } from './infrastructure/mock/common-mock-lang.data';
+export { commonMockLangData } from './infrastructure/mock/common-mock-lang.data';
 
 // domain
 export { CommonLang } from './domain/common-lang.aggregate';
@@ -67,6 +67,7 @@ import { CommonUpdateLangsService } from './application/update/common-update-lan
 import { CommonUpsertLangService } from './application/upsert/common-upsert-lang.service';
 import { CommonDeleteLangByIdService } from './application/delete/common-delete-lang-by-id.service';
 import { CommonDeleteLangsService } from './application/delete/common-delete-langs.service';
+import { CommonLangSchema } from './infrastructure/sequelize/common-lang.schema';
 
 export const CommonLangHandlers = [
     // commands

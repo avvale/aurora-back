@@ -3,15 +3,15 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
 
 // custom items
-import { CreateLangsService } from './create-langs.service';
+import { CommonCreateLangsService } from './common-create-langs.service';
 import { CommonILangRepository } from '../../domain/common-lang.repository';
-import { MockLangRepository } from '../../infrastructure/mock/mock-lang.repository';
+import { CommonMockLangRepository } from '../../infrastructure/mock/common-mock-lang.repository';
 
-describe('CreateLangsService', () =>
+describe('CommonCreateLangsService', () =>
 {
-    let service: CreateLangsService;
+    let service: CommonCreateLangsService;
     let repository: CommonILangRepository;
-    let mockRepository: MockLangRepository;
+    let mockRepository: CommonMockLangRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +20,8 @@ describe('CreateLangsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateLangsService,
-                MockLangRepository,
+                CommonCreateLangsService,
+                CommonMockLangRepository,
                 {
                     provide : CommonILangRepository,
                     useValue: {
@@ -32,9 +32,9 @@ describe('CreateLangsService', () =>
         })
             .compile();
 
-        service = module.get(CreateLangsService);
+        service = module.get(CommonCreateLangsService);
         repository = module.get(CommonILangRepository);
-        mockRepository = module.get(MockLangRepository);
+        mockRepository = module.get(CommonMockLangRepository);
     });
 
     describe('main', () =>
