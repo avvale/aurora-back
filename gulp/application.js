@@ -22,7 +22,7 @@ function copyApplication()
         [
             '**/*',
             '.gitignore',
-            '.eslintrc.json',
+            '.eslintrc.js',
             '!cliter/**',
             '!db/**',
             '!dist/**',
@@ -61,7 +61,7 @@ function editPackageJson()
             {
                 // modify @aurorajs.dev/core version
                 delete json.scripts['install:core'];
-                json.dependencies['@aurorajs.dev/core'] = '^2.2.0';
+                json.dependencies['@aurorajs.dev/core'] = '^3.0.0';
 
                 delete json.scripts['install:typesense'];
                 delete json.dependencies['@aurorajs.dev/typesense'];
