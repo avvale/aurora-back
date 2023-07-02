@@ -6,7 +6,7 @@ import { AuditingUpdateHttpCommunicationByIdController } from './auditing-update
 import { AuditingUpdateHttpCommunicationByIdHandler } from '../handlers/auditing-update-http-communication-by-id.handler';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingUpdateHttpCommunicationByIdController', () =>
 {
@@ -45,8 +45,8 @@ describe('AuditingUpdateHttpCommunicationByIdController', () =>
 
         test('should return a httpCommunication updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await controller.main(httpCommunications[0])).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await controller.main(auditingMockHttpCommunicationData[0])).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

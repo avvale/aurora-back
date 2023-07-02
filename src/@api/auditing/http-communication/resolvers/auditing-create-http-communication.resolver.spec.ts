@@ -7,7 +7,7 @@ import { AuditingCreateHttpCommunicationHandler } from '../handlers/auditing-cre
 import { AuditingCreateHttpCommunicationInput } from '@api/graphql';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingCreateHttpCommunicationResolver', () =>
 {
@@ -49,8 +49,8 @@ describe('AuditingCreateHttpCommunicationResolver', () =>
 
         test('should return an httpCommunication created', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await resolver.main(<AuditingCreateHttpCommunicationInput>httpCommunications[0])).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await resolver.main(<AuditingCreateHttpCommunicationInput>auditingMockHttpCommunicationData[0])).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

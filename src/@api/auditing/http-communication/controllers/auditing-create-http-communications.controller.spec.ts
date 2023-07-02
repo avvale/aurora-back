@@ -5,7 +5,7 @@ import { AuditingCreateHttpCommunicationsController } from './auditing-create-ht
 import { AuditingCreateHttpCommunicationsHandler } from '../handlers/auditing-create-http-communications.handler';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingCreateHttpCommunicationsController', () =>
 {
@@ -40,9 +40,9 @@ describe('AuditingCreateHttpCommunicationsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return an httpCommunications created', async () =>
+        test('should return an auditingMockHttpCommunicationData created', async () =>
         {
-            expect(await controller.main(httpCommunications)).toBe(undefined);
+            expect(await controller.main(auditingMockHttpCommunicationData)).toBe(undefined);
         });
     });
 });

@@ -6,7 +6,7 @@ import { AuditingDeleteHttpCommunicationByIdResolver } from './auditing-delete-h
 import { AuditingDeleteHttpCommunicationByIdHandler } from '../handlers/auditing-delete-http-communication-by-id.handler';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingDeleteHttpCommunicationByIdResolver', () =>
 {
@@ -48,8 +48,8 @@ describe('AuditingDeleteHttpCommunicationByIdResolver', () =>
 
         test('should return an httpCommunication deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await resolver.main(httpCommunications[0].id)).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await resolver.main(auditingMockHttpCommunicationData[0].id)).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

@@ -6,7 +6,7 @@ import { AuditingPaginateHttpCommunicationsController } from './auditing-paginat
 import { AuditingPaginateHttpCommunicationsHandler } from '../handlers/auditing-paginate-http-communications.handler';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingPaginateHttpCommunicationsController', () =>
 {
@@ -43,17 +43,17 @@ describe('AuditingPaginateHttpCommunicationsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return a httpCommunications', async () =>
+        test('should return a auditingMockHttpCommunicationData', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve({
                 total: 5,
                 count: 5,
-                rows : httpCommunications,
+                rows : auditingMockHttpCommunicationData,
             })));
             expect(await controller.main()).toStrictEqual({
                 total: 5,
                 count: 5,
-                rows : httpCommunications,
+                rows : auditingMockHttpCommunicationData,
             });
         });
     });

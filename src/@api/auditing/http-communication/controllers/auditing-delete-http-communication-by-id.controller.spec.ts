@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingDeleteHttpCommunicationByIdController } from './auditing-delete-http-communication-by-id.controller';
 import { AuditingDeleteHttpCommunicationByIdHandler } from '../handlers/auditing-delete-http-communication-by-id.handler';
-
-// sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { AuditingDeleteHttpCommunicationByIdController } from './auditing-delete-http-communication-by-id.controller';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingDeleteHttpCommunicationByIdController', () =>
 {
@@ -45,8 +41,8 @@ describe('AuditingDeleteHttpCommunicationByIdController', () =>
 
         test('should return an httpCommunication deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await controller.main(httpCommunications[0].id)).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await controller.main(auditingMockHttpCommunicationData[0].id)).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

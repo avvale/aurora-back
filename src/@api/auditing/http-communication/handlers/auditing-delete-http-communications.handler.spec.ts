@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
 import { AuditingDeleteHttpCommunicationsHandler } from './auditing-delete-http-communications.handler';
-
-// sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingDeleteHttpCommunicationsHandler', () =>
 {
@@ -54,10 +50,10 @@ describe('AuditingDeleteHttpCommunicationsHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return an httpCommunications deleted', async () =>
+        test('should return an auditingMockHttpCommunicationData deleted', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(httpCommunications)));
-            expect(await handler.main()).toBe(httpCommunications);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData)));
+            expect(await handler.main()).toBe(auditingMockHttpCommunicationData);
         });
     });
 });

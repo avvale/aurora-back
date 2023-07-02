@@ -6,11 +6,7 @@ export { SideEffectResponse } from './@app/auditing/side-effect/domain/side-effe
 export { SideEffectMapper } from './@app/auditing/side-effect/domain/side-effect.mapper';
 export { sideEffects } from './@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data';
 export { AuditingHttpCommunicationDto } from './@api/auditing/http-communication/dto/auditing-http-communication.dto';
-export { AuditingHttpCommunication } from './@app/auditing/http-communication/domain/http-communication.aggregate';
 export { AuditingHttpCommunicationModel } from './@app/auditing/http-communication';
-export { HttpCommunicationResponse } from './@app/auditing/http-communication/domain/http-communication.response';
-export { HttpCommunicationMapper } from './@app/auditing/http-communication/domain/http-communication.mapper';
-export { httpCommunications } from './@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
 export { IamModule } from './@api/iam/iam.module';
 export { IamAccountDto } from './@api/iam/account/dto/iam-account.dto';
 export { IamAccount } from './@app/iam/account/domain/account.aggregate';
@@ -125,3 +121,6 @@ export { CommonAdministrativeAreaLevel1Model } from './@app/common/administrativ
 export { CommonAdministrativeAreaLevel1Response } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.response';
 export { CommonAdministrativeAreaLevel1Mapper } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.mapper';
 export { commonMockAdministrativeAreaLevel1Data } from './@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
+export { AuditingHttpCommunicationResponse } from './@app/auditing/http-communication/domain/auditing-http-communication.response';
+export { AuditingHttpCommunicationMapper } from './@app/auditing/http-communication/domain/auditing-http-communication.mapper';
+export { auditingMockHttpCommunicationData } from './@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';

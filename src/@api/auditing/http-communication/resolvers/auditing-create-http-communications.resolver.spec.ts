@@ -6,7 +6,7 @@ import { AuditingCreateHttpCommunicationsHandler } from '../handlers/auditing-cr
 import { AuditingCreateHttpCommunicationInput } from '@api/graphql';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingCreateHttpCommunicationsResolver', () =>
 {
@@ -46,7 +46,7 @@ describe('AuditingCreateHttpCommunicationsResolver', () =>
 
         test('should return an httpCommunications created', async () =>
         {
-            expect(await resolver.main(<AuditingCreateHttpCommunicationInput[]>httpCommunications)).toBe(undefined);
+            expect(await resolver.main(<AuditingCreateHttpCommunicationInput[]>auditingMockHttpCommunicationData)).toBe(undefined);
         });
     });
 });

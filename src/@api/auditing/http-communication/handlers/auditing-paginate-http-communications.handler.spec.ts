@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
 import { AuditingPaginateHttpCommunicationsHandler } from './auditing-paginate-http-communications.handler';
-
-// sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingPaginateHttpCommunicationsHandler', () =>
 {
@@ -57,14 +53,14 @@ describe('AuditingPaginateHttpCommunicationsHandler', () =>
         test('should return a httpCommunications', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve({
-                total: httpCommunications.length,
-                count: httpCommunications.length,
-                rows : httpCommunications,
+                total: auditingMockHttpCommunicationData.length,
+                count: auditingMockHttpCommunicationData.length,
+                rows : auditingMockHttpCommunicationData,
             })));
             expect(await handler.main()).toEqual({
-                total: httpCommunications.length,
-                count: httpCommunications.length,
-                rows : httpCommunications,
+                total: auditingMockHttpCommunicationData.length,
+                count: auditingMockHttpCommunicationData.length,
+                rows : auditingMockHttpCommunicationData,
             });
         });
     });

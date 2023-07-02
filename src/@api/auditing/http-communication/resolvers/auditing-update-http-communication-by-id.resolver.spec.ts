@@ -7,7 +7,7 @@ import { AuditingUpdateHttpCommunicationByIdHandler } from '../handlers/auditing
 import { AuditingUpdateHttpCommunicationByIdInput } from '@api/graphql';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingUpdateHttpCommunicationByIdResolver', () =>
 {
@@ -49,8 +49,8 @@ describe('AuditingUpdateHttpCommunicationByIdResolver', () =>
 
         test('should return a httpCommunication by id updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await resolver.main(<AuditingUpdateHttpCommunicationByIdInput>httpCommunications[0])).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await resolver.main(<AuditingUpdateHttpCommunicationByIdInput>auditingMockHttpCommunicationData[0])).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

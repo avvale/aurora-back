@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 // custom items
 import { AuditingCreateHttpCommunicationsHandler } from './auditing-create-http-communications.handler';
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingCreateHttpCommunicationsHandler', () =>
 {
@@ -44,9 +44,9 @@ describe('AuditingCreateHttpCommunicationsHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return an httpCommunications created', async () =>
+        test('should return an auditingMockHttpCommunicationData created', async () =>
         {
-            expect(await handler.main(httpCommunications)).toBe(true);
+            expect(await handler.main(auditingMockHttpCommunicationData)).toBe(true);
         });
     });
 });

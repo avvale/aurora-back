@@ -6,7 +6,7 @@ import { AuditingFindHttpCommunicationResolver } from './auditing-find-http-comm
 import { AuditingFindHttpCommunicationHandler } from '../handlers/auditing-find-http-communication.handler';
 
 // sources
-import { httpCommunications } from '@app/auditing/http-communication/infrastructure/mock/mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingFindHttpCommunicationResolver', () =>
 {
@@ -48,8 +48,8 @@ describe('AuditingFindHttpCommunicationResolver', () =>
 
         test('should return a httpCommunication', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(httpCommunications[0])));
-            expect(await resolver.main()).toBe(httpCommunications[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
+            expect(await resolver.main()).toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });
