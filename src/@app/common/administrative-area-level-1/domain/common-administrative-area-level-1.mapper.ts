@@ -1,5 +1,4 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
 import { CommonAdministrativeAreaLevel1 } from './common-administrative-area-level-1.aggregate';
 import { CommonAdministrativeAreaLevel1Response } from './common-administrative-area-level-1.response';
 import {

@@ -1,6 +1,4 @@
-
-import { LiteralObject } from '@nestjs/common';
-import { CQMetadata, IRepository, Pagination, QueryStatement } from '@aurorajs.dev/core';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 import { QueueManagerQueue } from './queue-manager-queue.aggregate';
 import { QueueManagerQueueId } from './value-objects';
 

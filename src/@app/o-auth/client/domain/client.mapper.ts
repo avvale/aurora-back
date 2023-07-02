@@ -1,26 +1,25 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { AccessTokenMapper } from '@app/o-auth/access-token/domain/access-token.mapper';
+import { ApplicationMapper } from '@app/o-auth/application/domain/application.mapper';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 import { OAuthClient } from './client.aggregate';
 import { ClientResponse } from './client.response';
 import {
-    ClientId,
-    ClientGrantType,
-    ClientName,
-    ClientSecret,
+    ClientApplicationIds,
     ClientAuthUrl,
-    ClientRedirect,
-    ClientScopeOptions,
+    ClientCreatedAt,
+    ClientDeletedAt,
     ClientExpiredAccessToken,
     ClientExpiredRefreshToken,
+    ClientGrantType,
+    ClientId,
     ClientIsActive,
     ClientIsMaster,
-    ClientApplicationIds,
-    ClientCreatedAt,
+    ClientName,
+    ClientRedirect,
+    ClientScopeOptions,
+    ClientSecret,
     ClientUpdatedAt,
-    ClientDeletedAt,
 } from './value-objects';
-import { AccessTokenMapper } from '@app/o-auth/access-token/domain/access-token.mapper';
-import { ApplicationMapper } from '@app/o-auth/application/domain/application.mapper';
 
 export class ClientMapper implements IMapper
 {

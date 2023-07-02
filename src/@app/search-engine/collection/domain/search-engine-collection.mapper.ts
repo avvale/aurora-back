@@ -1,5 +1,4 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
 import { SearchEngineCollection } from './search-engine-collection.aggregate';
 import { SearchEngineCollectionResponse } from './search-engine-collection.response';
 import {

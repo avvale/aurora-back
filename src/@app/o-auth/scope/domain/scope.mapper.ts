@@ -1,14 +1,13 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 import { OAuthScope } from './scope.aggregate';
 import { ScopeResponse } from './scope.response';
 import {
-    ScopeId,
     ScopeCode,
-    ScopeName,
     ScopeCreatedAt,
-    ScopeUpdatedAt,
     ScopeDeletedAt,
+    ScopeId,
+    ScopeName,
+    ScopeUpdatedAt,
 } from './value-objects';
 
 export class ScopeMapper implements IMapper

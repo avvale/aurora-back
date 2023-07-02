@@ -1,5 +1,4 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
 import { QueueManagerJobRegistry } from './queue-manager-job-registry.aggregate';
 import { QueueManagerJobRegistryResponse } from './queue-manager-job-registry.response';
 import {

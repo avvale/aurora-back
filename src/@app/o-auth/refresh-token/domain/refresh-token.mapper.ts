@@ -1,18 +1,17 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { AccessTokenMapper } from '@app/o-auth/access-token/domain/access-token.mapper';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 import { OAuthRefreshToken } from './refresh-token.aggregate';
 import { RefreshTokenResponse } from './refresh-token.response';
 import {
-    RefreshTokenId,
     RefreshTokenAccessTokenId,
-    RefreshTokenToken,
-    RefreshTokenIsRevoked,
-    RefreshTokenExpiresAt,
     RefreshTokenCreatedAt,
-    RefreshTokenUpdatedAt,
     RefreshTokenDeletedAt,
+    RefreshTokenExpiresAt,
+    RefreshTokenId,
+    RefreshTokenIsRevoked,
+    RefreshTokenToken,
+    RefreshTokenUpdatedAt,
 } from './value-objects';
-import { AccessTokenMapper } from '@app/o-auth/access-token/domain/access-token.mapper';
 
 export class RefreshTokenMapper implements IMapper
 {

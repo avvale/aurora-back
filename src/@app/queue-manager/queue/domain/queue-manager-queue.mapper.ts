@@ -1,14 +1,13 @@
-import { LiteralObject } from '@nestjs/common';
-import { IMapper, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 import { QueueManagerQueue } from './queue-manager-queue.aggregate';
 import { QueueManagerQueueResponse } from './queue-manager-queue.response';
 import {
-    QueueManagerQueueId,
-    QueueManagerQueuePrefix,
-    QueueManagerQueueName,
     QueueManagerQueueCreatedAt,
-    QueueManagerQueueUpdatedAt,
     QueueManagerQueueDeletedAt,
+    QueueManagerQueueId,
+    QueueManagerQueueName,
+    QueueManagerQueuePrefix,
+    QueueManagerQueueUpdatedAt,
 } from './value-objects';
 
 export class QueueManagerQueueMapper implements IMapper

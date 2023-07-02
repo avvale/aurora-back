@@ -1,6 +1,6 @@
-import { Injectable, LiteralObject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { AuditingRunner, ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
+import { AuditingRunner, ICriteria, LiteralObject, SequelizeRepository } from '@aurorajs.dev/core';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
 import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
 import { QueueManagerJobRegistryMapper } from '../../domain/queue-manager-job-registry.mapper';

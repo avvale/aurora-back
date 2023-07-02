@@ -1,6 +1,6 @@
-import { Injectable, LiteralObject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { AuditingRunner, ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
+import { AuditingRunner, ICriteria, LiteralObject, SequelizeRepository } from '@aurorajs.dev/core';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
 import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
 import { SearchEngineCollectionMapper } from '../../domain/search-engine-collection.mapper';

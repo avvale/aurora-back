@@ -1,6 +1,4 @@
-
-import { LiteralObject } from '@nestjs/common';
-import { CQMetadata, IRepository, Pagination, QueryStatement } from '@aurorajs.dev/core';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 import { CommonAdministrativeAreaLevel1 } from './common-administrative-area-level-1.aggregate';
 import { CommonAdministrativeAreaLevel1Id } from './value-objects';
 

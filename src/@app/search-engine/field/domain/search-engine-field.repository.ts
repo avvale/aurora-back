@@ -1,6 +1,5 @@
 
-import { LiteralObject } from '@nestjs/common';
-import { CQMetadata, IRepository, Pagination, QueryStatement } from '@aurorajs.dev/core';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 import { SearchEngineField } from './search-engine-field.aggregate';
 import { SearchEngineFieldId } from './value-objects';
 
