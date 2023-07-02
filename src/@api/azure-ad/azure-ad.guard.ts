@@ -6,7 +6,7 @@ import { AuthGuard } from '@nestjs/passport';
 export class AzureADGuard extends AuthGuard('azure-ad')
 {
     // override the getRequest() method for return request from graphql or rest api.
-    getRequest(context: ExecutionContext): Request
+    getRequest<Request>(context: ExecutionContext): Request
     {
         return getRequestFromExecutionContext(context);
     }
