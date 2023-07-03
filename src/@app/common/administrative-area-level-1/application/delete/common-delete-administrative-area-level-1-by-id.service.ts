@@ -1,5 +1,5 @@
-import { CommonIAdministrativeAreaLevel1Repository } from '../../domain/common-administrative-area-level-1.repository';
-import { CommonAdministrativeAreaLevel1Id } from '../../domain/value-objects';
+import { CommonIAdministrativeAreaLevel1Repository } from '@app/common/administrative-area-level-1';
+import { CommonAdministrativeAreaLevel1Id } from '@app/common/administrative-area-level-1/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

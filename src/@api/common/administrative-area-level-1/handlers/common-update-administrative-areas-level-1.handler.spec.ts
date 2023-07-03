@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUpdateAdministrativeAreasLevel1Handler } from './common-update-administrative-areas-level-1.handler';
+import { CommonUpdateAdministrativeAreasLevel1Handler } from '@api/common/administrative-area-level-1';
 import { CommonUpdateAdministrativeAreasLevel1Input } from '@api/graphql';
-import { commonMockAdministrativeAreaLevel1Data } from '@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
+import { commonMockAdministrativeAreaLevel1Data } from '@app/common/administrative-area-level-1';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 

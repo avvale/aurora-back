@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { CommonModule } from '@api/common/common.module';
-import { CommonIAdministrativeAreaLevel1Repository } from '@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.repository';
-import { commonMockAdministrativeAreaLevel1Data } from '@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
-import { CommonMockAdministrativeAreaLevel1Seeder } from '@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.seeder';
+import { CommonIAdministrativeAreaLevel1Repository, commonMockAdministrativeAreaLevel1Data, CommonMockAdministrativeAreaLevel1Seeder } from '@app/common/administrative-area-level-1';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -417,7 +415,7 @@ describe('administrative-area-level-1', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 888.5670034057587,
+                latitude: 691.2118081374533,
             })
             .expect(400)
             .then(res =>
@@ -432,7 +430,7 @@ describe('administrative-area-level-1', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 6662.433696461467,
+                longitude: 8404.271848486896,
             })
             .expect(400)
             .then(res =>
@@ -447,7 +445,7 @@ describe('administrative-area-level-1', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 6.665739828080539,
+                latitude: 7.941606879999571,
             })
             .expect(400)
             .then(res =>
@@ -462,7 +460,7 @@ describe('administrative-area-level-1', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 23.711234146386282,
+                longitude: 32.70330927872646,
             })
             .expect(400)
             .then(res =>

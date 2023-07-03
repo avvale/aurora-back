@@ -1,5 +1,4 @@
-import { CommonAdministrativeAreaLevel1 } from '../../domain/common-administrative-area-level-1.aggregate';
-import { CommonIAdministrativeAreaLevel1Repository } from '../../domain/common-administrative-area-level-1.repository';
+import { CommonAddAdministrativeAreasLevel1ContextEvent, CommonAdministrativeAreaLevel1, CommonIAdministrativeAreaLevel1Repository } from '@app/common/administrative-area-level-1';
 import {
     CommonAdministrativeAreaLevel1Code,
     CommonAdministrativeAreaLevel1CountryId,
@@ -14,8 +13,7 @@ import {
     CommonAdministrativeAreaLevel1Slug,
     CommonAdministrativeAreaLevel1UpdatedAt,
     CommonAdministrativeAreaLevel1Zoom,
-} from '../../domain/value-objects';
-import { CommonAddAdministrativeAreasLevel1ContextEvent } from '../events/common-add-administrative-areas-level-1-context.event';
+} from '@app/common/administrative-area-level-1/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

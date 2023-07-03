@@ -1,4 +1,4 @@
-import { CommonAdministrativeAreaLevel1Dto, CommonUpdateAdministrativeAreaLevel1ByIdDto } from '../dto';
+import { CommonAdministrativeAreaLevel1Dto, CommonUpdateAdministrativeAreaLevel1ByIdDto } from '@api/common/administrative-area-level-1';
 import { CommonAdministrativeAreaLevel1, CommonUpdateAdministrativeAreaLevel1ByIdInput } from '@api/graphql';
 import { CommonFindAdministrativeAreaLevel1ByIdQuery, CommonUpsertAdministrativeAreaLevel1Command } from '@app/common/administrative-area-level-1';
 import { AuditingMeta, ICommandBus, IQueryBus } from '@aurorajs.dev/core';

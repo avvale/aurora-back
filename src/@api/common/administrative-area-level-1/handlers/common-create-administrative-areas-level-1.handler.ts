@@ -1,4 +1,4 @@
-import { CommonCreateAdministrativeAreaLevel1Dto } from '../dto';
+import { CommonCreateAdministrativeAreaLevel1Dto } from '@api/common/administrative-area-level-1';
 import { CommonCreateAdministrativeAreaLevel1Input } from '@api/graphql';
 import { CommonCreateAdministrativeAreasLevel1Command } from '@app/common/administrative-area-level-1';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';

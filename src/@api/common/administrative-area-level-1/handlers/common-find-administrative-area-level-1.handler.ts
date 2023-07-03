@@ -1,4 +1,4 @@
-import { CommonAdministrativeAreaLevel1Dto } from '../dto';
+import { CommonAdministrativeAreaLevel1Dto } from '@api/common/administrative-area-level-1';
 import { CommonAdministrativeAreaLevel1 } from '@api/graphql';
 import { CommonFindAdministrativeAreaLevel1Query } from '@app/common/administrative-area-level-1';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';

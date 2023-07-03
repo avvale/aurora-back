@@ -1,5 +1,4 @@
-import { CommonIAdministrativeAreaLevel1Repository } from '../../domain/common-administrative-area-level-1.repository';
-import { CommonAddAdministrativeAreasLevel1ContextEvent } from '../events/common-add-administrative-areas-level-1-context.event';
+import { CommonAddAdministrativeAreasLevel1ContextEvent, CommonIAdministrativeAreaLevel1Repository } from '@app/common/administrative-area-level-1';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

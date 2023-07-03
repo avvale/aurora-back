@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { CommonCreateAdministrativeAreasLevel1Service } from './common-create-administrative-areas-level-1.service';
@@ -20,6 +20,7 @@ describe('CommonCreateAdministrativeAreasLevel1Service', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonCreateAdministrativeAreasLevel1Service,
                 CommonMockAdministrativeAreaLevel1Repository,
                 {

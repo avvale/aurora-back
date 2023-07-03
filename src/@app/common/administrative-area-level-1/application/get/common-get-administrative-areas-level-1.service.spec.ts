@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { CommonGetAdministrativeAreasLevel1Service } from './common-get-administrative-areas-level-1.service';
@@ -19,6 +19,7 @@ describe('CommonGetAdministrativeAreasLevel1Service', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonGetAdministrativeAreasLevel1Service,
                 CommonMockAdministrativeAreaLevel1Repository,
                 {
