@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonDeleteCountryByIdHandler } from '../handlers/common-delete-country-by-id.handler';
-import { CommonDeleteCountryByIdController } from './common-delete-country-by-id.controller';
-import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
-import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
+import { CommonDeleteCountryByIdController, CommonDeleteCountryByIdHandler } from '@api/common/country';
+import { commonMockCountryData } from '@app/common/country';
+import { commonMockLangData } from '@app/common/lang';
 import { CoreAddI18nConstraintService } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
@@ -33,7 +32,7 @@ describe('CommonDeleteCountryByIdController', () =>
                 {
                     provide : CACHE_MANAGER,
                     useValue: {
-                        get: (key: string) => key === 'common/langs' ? langs : null,
+                        get: (key: string) => key === 'common/langs' ? commonMockLangData : null,
                     },
                 },
                 {

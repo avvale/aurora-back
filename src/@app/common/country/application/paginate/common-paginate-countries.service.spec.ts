@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { CommonPaginateCountriesService } from './common-paginate-countries.service';
@@ -19,6 +19,7 @@ describe('CommonPaginateCountriesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonPaginateCountriesService,
                 CommonMockCountryRepository,
                 {

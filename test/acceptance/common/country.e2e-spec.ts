@@ -2,10 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { CommonModule } from '@api/common/common.module';
-import { CommonICountryI18nRepository } from '@app/common/country/domain/common-country-i18n.repository';
-import { CommonICountryRepository } from '@app/common/country/domain/common-country.repository';
-import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
-import { CommonMockCountrySeeder } from '@app/common/country/infrastructure/mock/common-mock-country.seeder';
+import { CommonICountryI18nRepository, CommonICountryRepository, commonMockCountryData, CommonMockCountrySeeder } from '@app/common/country';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { CoreAddI18nConstraintService } from '@aurorajs.dev/core';
@@ -625,7 +622,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 481.8695437322146,
+                latitude: 205.99275444058145,
             })
             .expect(400)
             .then(res =>
@@ -640,7 +637,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 1141.5246331315313,
+                longitude: 1896.226943561679,
             })
             .expect(400)
             .then(res =>
@@ -655,7 +652,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                latitude: 3.379666899979965,
+                latitude: 6.550473361711377,
             })
             .expect(400)
             .then(res =>
@@ -670,7 +667,7 @@ describe('country', () =>
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                longitude: 56.38081371320898,
+                longitude: 90.11641355055885,
             })
             .expect(400)
             .then(res =>

@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { CommonModule } from '@api/common/common.module';
-import { CommonILangRepository } from '@app/common/lang/domain/common-lang.repository';
-import { commonMockLangData } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
-import { CommonMockLangSeeder } from '@app/common/lang/infrastructure/mock/common-mock-lang.seeder';
+import { CommonILangRepository, commonMockLangData, CommonMockLangSeeder } from '@app/common/lang';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';

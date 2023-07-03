@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonFindCountryByIdHandler } from './common-find-country-by-id.handler';
-import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
-import { langs } from '@app/common/lang/infrastructure/mock/mock-lang.data';
+import { CommonFindCountryByIdHandler } from '@api/common/country';
+import { commonMockCountryData } from '@app/common/country';
+import { commonMockLangData } from '@app/common/lang';
 import { CoreAddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
@@ -31,7 +31,7 @@ describe('CommonFindCountryByIdHandler', () =>
                 {
                     provide : CACHE_MANAGER,
                     useValue: {
-                        get: (key: string) => key === 'common/langs' ? langs : null,
+                        get: (key: string) => key === 'common/langs' ? commonMockLangData : null,
                     },
                 },
                 {

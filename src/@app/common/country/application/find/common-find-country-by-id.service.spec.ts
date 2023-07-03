@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
@@ -21,6 +21,7 @@ describe('CommonFindCountryByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonFindCountryByIdService,
                 CommonMockCountryRepository,
                 {
