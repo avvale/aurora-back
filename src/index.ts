@@ -124,3 +124,9 @@ export { commonMockAdministrativeAreaLevel1Data } from './@app/common/administra
 export { AuditingHttpCommunicationResponse } from './@app/auditing/http-communication/domain/auditing-http-communication.response';
 export { AuditingHttpCommunicationMapper } from './@app/auditing/http-communication/domain/auditing-http-communication.mapper';
 export { auditingMockHttpCommunicationData } from './@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+export { CommonAdministrativeAreaLevel2Dto } from './@api/common/administrative-area-level-2/dto/common-administrative-area-level-2.dto';
+export { CommonAdministrativeAreaLevel2 } from './@app/common/administrative-area-level-2/domain/common-administrative-area-level-2.aggregate';
+export { CommonAdministrativeAreaLevel2Model } from './@app/common/administrative-area-level-2';
+export { CommonAdministrativeAreaLevel2Response } from './@app/common/administrative-area-level-2/domain/common-administrative-area-level-2.response';
+export { CommonAdministrativeAreaLevel2Mapper } from './@app/common/administrative-area-level-2/domain/common-administrative-area-level-2.mapper';
+export { commonMockAdministrativeAreaLevel2Data } from './@app/common/administrative-area-level-2/infrastructure/mock/common-mock-administrative-area-level-2.data';

@@ -41,6 +41,13 @@ export enum CommonAdministrativeAreaLevel1MapType {
     TERRAIN = "TERRAIN"
 }
 
+export enum CommonAdministrativeAreaLevel2MapType {
+    ROADMAP = "ROADMAP",
+    SATELLITE = "SATELLITE",
+    HYBRID = "HYBRID",
+    TERRAIN = "TERRAIN"
+}
+
 export enum CommonCountryMapType {
     ROADMAP = "ROADMAP",
     SATELLITE = "SATELLITE",
@@ -254,6 +261,48 @@ export interface CommonUpdateAdministrativeAreasLevel1Input {
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
     mapType?: Nullable<CommonAdministrativeAreaLevel1MapType>;
+}
+
+export interface CommonCreateAdministrativeAreaLevel2Input {
+    id: string;
+    countryId: string;
+    administrativeAreaLevel1Id: string;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType: CommonAdministrativeAreaLevel2MapType;
+}
+
+export interface CommonUpdateAdministrativeAreaLevel2ByIdInput {
+    id: string;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonAdministrativeAreaLevel2MapType>;
+}
+
+export interface CommonUpdateAdministrativeAreasLevel2Input {
+    id?: Nullable<string>;
+    countryId?: Nullable<string>;
+    administrativeAreaLevel1Id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    customCode?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    slug?: Nullable<GraphQLString>;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType?: Nullable<CommonAdministrativeAreaLevel2MapType>;
 }
 
 export interface CommonCreateCountryInput {
@@ -857,6 +906,10 @@ export interface IQuery {
     commonFindAdministrativeAreaLevel1ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonGetAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
     commonPaginateAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAdministrativeAreaLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonFindAdministrativeAreaLevel2ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonGetAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonPaginateAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
@@ -961,6 +1014,13 @@ export interface IMutation {
     commonUpsertAdministrativeAreaLevel1(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonDeleteAdministrativeAreaLevel1ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonDeleteAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonCreateAdministrativeAreaLevel2(payload: CommonCreateAdministrativeAreaLevel2Input): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonCreateAdministrativeAreasLevel2(payload: Nullable<CommonCreateAdministrativeAreaLevel2Input>[]): boolean | Promise<boolean>;
+    commonUpdateAdministrativeAreaLevel2ById(payload: CommonUpdateAdministrativeAreaLevel2ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonUpdateAdministrativeAreasLevel2(payload: CommonUpdateAdministrativeAreasLevel2Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonUpsertAdministrativeAreaLevel2(payload: CommonUpdateAdministrativeAreaLevel2ByIdInput): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonDeleteAdministrativeAreaLevel2ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
+    commonDeleteAdministrativeAreasLevel2(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2>[] | Promise<Nullable<CommonAdministrativeAreaLevel2>[]>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1119,6 +1179,25 @@ export interface CommonAdministrativeAreaLevel1 {
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
     mapType: CommonAdministrativeAreaLevel1MapType;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreaLevel2 {
+    id: string;
+    countryId: string;
+    country?: Nullable<CommonCountry>;
+    administrativeAreaLevel1Id: string;
+    administrativeAreaLevel1?: Nullable<CommonAdministrativeAreaLevel1>;
+    code: GraphQLString;
+    customCode?: Nullable<GraphQLString>;
+    name: GraphQLString;
+    slug: GraphQLString;
+    latitude?: Nullable<GraphQLFloat>;
+    longitude?: Nullable<GraphQLFloat>;
+    zoom?: Nullable<GraphQLInt>;
+    mapType: CommonAdministrativeAreaLevel2MapType;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

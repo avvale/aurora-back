@@ -6,6 +6,7 @@ import { CommonSeeder } from './common.seeder';
 import { CommonCountryApiHandlers, CommonCountryControllers, CommonCountryResolvers, CommonCountryServices } from './country';
 import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, CommonLangServices } from './lang';
 import { CommonAdministrativeAreaLevel1Controllers, CommonAdministrativeAreaLevel1Resolvers, CommonAdministrativeAreaLevel1ApiHandlers, CommonAdministrativeAreaLevel1Services } from './administrative-area-level-1';
+import { CommonAdministrativeAreaLevel2Controllers, CommonAdministrativeAreaLevel2Resolvers, CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLevel2Services } from './administrative-area-level-2';
 
 @Module({
     imports: [
@@ -17,7 +18,8 @@ import { CommonAdministrativeAreaLevel1Controllers, CommonAdministrativeAreaLeve
     controllers: [
         ...CommonLangControllers,
         ...CommonCountryControllers,
-        ...CommonAdministrativeAreaLevel1Controllers
+        ...CommonAdministrativeAreaLevel1Controllers,
+        ...CommonAdministrativeAreaLevel2Controllers
     ],
     providers: [
         CommonSeeder,
@@ -33,7 +35,10 @@ import { CommonAdministrativeAreaLevel1Controllers, CommonAdministrativeAreaLeve
         ...CommonCountryServices,
         ...CommonAdministrativeAreaLevel1Resolvers,
         ...CommonAdministrativeAreaLevel1ApiHandlers,
-        ...CommonAdministrativeAreaLevel1Services
+        ...CommonAdministrativeAreaLevel1Services,
+        ...CommonAdministrativeAreaLevel2Resolvers,
+        ...CommonAdministrativeAreaLevel2ApiHandlers,
+        ...CommonAdministrativeAreaLevel2Services
     ],
 })
 export class CommonModule {}
