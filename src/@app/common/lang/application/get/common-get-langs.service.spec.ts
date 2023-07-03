@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { CommonGetLangsService } from './common-get-langs.service';
@@ -19,6 +19,7 @@ describe('CommonGetLangsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonGetLangsService,
                 CommonMockLangRepository,
                 {

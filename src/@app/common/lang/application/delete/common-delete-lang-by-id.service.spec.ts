@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { commonMockLangData } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
@@ -22,6 +22,7 @@ describe('CommonDeleteLangByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
+                UnhandledExceptionBus,
                 CommonDeleteLangByIdService,
                 CommonMockLangRepository,
                 {

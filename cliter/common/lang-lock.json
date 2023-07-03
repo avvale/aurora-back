@@ -19,7 +19,7 @@
         },
         {
             "path": "src/@app/common/lang/application/create/common-create-lang.service.spec.ts",
-            "integrity": "sha1:74928174e7217bb9b7c78b3d8feaedb1404e602d"
+            "integrity": "sha1:a6f6e1f28e819ffaae7ddbd0a380cb79937e3fa2"
         },
         {
             "path": "src/@app/common/lang/application/create/common-create-lang.service.ts",
@@ -39,7 +39,7 @@
         },
         {
             "path": "src/@app/common/lang/application/create/common-create-langs.service.spec.ts",
-            "integrity": "sha1:820da6db39ecf073fd7f99c02a3eec894a9e1fc5"
+            "integrity": "sha1:0579d729fbd9b3c57d368019422a2499fc09db95"
         },
         {
             "path": "src/@app/common/lang/application/create/common-create-langs.service.ts",
@@ -59,7 +59,7 @@
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-lang-by-id.service.spec.ts",
-            "integrity": "sha1:7ad635e583a91d755fb7c1cd085d555b5949ff3f"
+            "integrity": "sha1:0f14021ebf1587342a3f4882fa9d5971e6250f10"
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-lang-by-id.service.ts",
@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-langs.service.spec.ts",
-            "integrity": "sha1:cf353008fc6eb6c127b91c1512ff4109a7754ff2"
+            "integrity": "sha1:57833965964f82f7fd7902407d134084445c26ef"
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-langs.service.ts",
@@ -151,7 +151,7 @@
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang-by-id.service.spec.ts",
-            "integrity": "sha1:ce10ae41eea6bef0ccffee16a41d536422b9cd77"
+            "integrity": "sha1:84612cb6b19bce35d17249ef0b1ababe2f8231c0"
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang-by-id.service.ts",
@@ -171,7 +171,7 @@
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang.service.spec.ts",
-            "integrity": "sha1:7286519701c45ad51996b23236fe1542dcfcfa2c"
+            "integrity": "sha1:f60e41e628d211e8b7a5eaf2e3c618ec55a28e2e"
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang.service.ts",
@@ -191,7 +191,7 @@
         },
         {
             "path": "src/@app/common/lang/application/get/common-get-langs.service.spec.ts",
-            "integrity": "sha1:584fc09a7045d11d8d35f74f835f8f0649214fd2"
+            "integrity": "sha1:60453397a5fc736eec447d9d92593f3ef54e8941"
         },
         {
             "path": "src/@app/common/lang/application/get/common-get-langs.service.ts",
@@ -211,7 +211,7 @@
         },
         {
             "path": "src/@app/common/lang/application/paginate/common-paginate-langs.service.spec.ts",
-            "integrity": "sha1:7e6808389340cace6ebdc975ec53e3f0e94c6d3c"
+            "integrity": "sha1:8f6085a67820aaef18c1f084189358d77a94e991"
         },
         {
             "path": "src/@app/common/lang/application/paginate/common-paginate-langs.service.ts",
@@ -231,7 +231,7 @@
         },
         {
             "path": "src/@app/common/lang/application/raw-sql/common-raw-sql-langs.service.spec.ts",
-            "integrity": "sha1:e218132fe76017f3f6cdbb7d8c4ccadb6074b897"
+            "integrity": "sha1:b4c594dd5003a71e4152219ecf1f503b6b572335"
         },
         {
             "path": "src/@app/common/lang/application/raw-sql/common-raw-sql-langs.service.ts",
@@ -255,7 +255,7 @@
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-lang-by-id.service.spec.ts",
-            "integrity": "sha1:4f2a5f1e6fd685f32adb0ddc942615cba8795fe6"
+            "integrity": "sha1:c94c5c85ced61defcf10e8c7ae9c56414856a165"
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-lang-by-id.service.ts",
@@ -275,7 +275,7 @@
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-langs.service.spec.ts",
-            "integrity": "sha1:89f6593accce0ddbac8e4dbe2bdc429293219b39"
+            "integrity": "sha1:7ed72e908a3ee00cb530a98bbdd26b4b86ef0a4e"
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-langs.service.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/lang/application/upsert/common-upsert-lang.service.spec.ts",
-            "integrity": "sha1:8b87cc614bd41640cd68a62b015ff1f91a106aac"
+            "integrity": "sha1:e516734c0d4eb55104e2f2079ab9bca362f3ee7a"
         },
         {
             "path": "src/@app/common/lang/application/upsert/common-upsert-lang.service.ts",
@@ -303,15 +303,15 @@
         },
         {
             "path": "src/@app/common/lang/domain/common-lang.aggregate.ts",
-            "integrity": "sha1:88b1b35c389efa89cc8b225624f993a282e22ba6"
+            "integrity": "sha1:3ede0f9efe24bd80079151d17b2c41d3d5cbf78d"
         },
         {
             "path": "src/@app/common/lang/domain/common-lang.mapper.ts",
-            "integrity": "sha1:ea99410ce3830718d6c277d491e9d94702bc35a1"
+            "integrity": "sha1:e6ada33526269262846f625c99e358e8c2df225f"
         },
         {
             "path": "src/@app/common/lang/domain/common-lang.repository.ts",
-            "integrity": "sha1:0003943f49b507766aa6b5dfffccd8275fe700f7"
+            "integrity": "sha1:1ed1875a88528d17be021c89f55990cdb04debe3"
         },
         {
             "path": "src/@app/common/lang/domain/common-lang.response.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.data.ts",
-            "integrity": "sha1:1df5cdcdb847b654299d69299d235a3f5963ce4e"
+            "integrity": "sha1:ef127fffb0a0dd12814e320275393d78c6f4f3d4"
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.repository.ts",
@@ -343,7 +343,7 @@
         },
         {
             "path": "src/@app/common/lang/infrastructure/sequelize/common-sequelize-lang.repository.ts",
-            "integrity": "sha1:35a9b1477474123728df10f64979a7d7c6c9a4c4"
+            "integrity": "sha1:796bbf7860cfd8ac233e497121f518b71f5d2119"
         },
         {
             "path": "src/@app/common/lang/domain/value-objects/common-lang-id.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.lang.postman.json",
-            "integrity": "sha1:e2b65333c23d6819096d5a9d185f7f56c724a061"
+            "integrity": "sha1:d9432ceaba2395ad1b7a11b9514440bddf297c6d"
         }
     ]
 }

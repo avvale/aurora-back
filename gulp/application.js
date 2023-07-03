@@ -108,7 +108,9 @@ function editNestCli()
         .pipe(
             jeditor(function(json)
             {
-                delete json['compilerOptions'];
+                // modify here nest-cli.json
+                // example:
+                // delete json['compilerOptions'];
 
                 return json;
             }),
