@@ -1,10 +1,5 @@
+import { CommonCreateCountryCommand, CommonCreateCountryCommandHandler, CommonCreateCountryService, commonMockCountryData } from '@app/common/country';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
-import { CommonCreateCountryCommandHandler } from './common-create-country.command-handler';
-import { CommonCreateCountryCommand } from './common-create-country.command';
-import { CommonCreateCountryService } from './common-create-country.service';
 
 describe('CommonCreateCountryCommandHandler', () =>
 {
