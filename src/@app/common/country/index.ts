@@ -8,38 +8,6 @@ export { CommonDeleteCountryByIdCommand } from './application/delete/common-dele
 export { CommonDeleteCountryByIdI18nCommand } from './application/delete/common-delete-country-by-id-i18n.command';
 export { CommonDeleteCountriesCommand } from './application/delete/common-delete-countries.command';
 
-// export command handlers
-export { CommonCreateCountryCommandHandler } from './application/create/common-create-country.command-handler';
-export { CommonCreateCountriesCommandHandler } from './application/create/common-create-countries.command-handler';
-export { CommonUpdateCountryByIdCommandHandler } from './application/update/common-update-country-by-id.command-handler';
-export { CommonUpdateCountriesCommandHandler } from './application/update/common-update-countries.command-handler';
-export { CommonUpsertCountryCommandHandler } from './application/upsert/common-upsert-country.command-handler';
-export { CommonDeleteCountryByIdCommandHandler } from './application/delete/common-delete-country-by-id.command-handler';
-export { CommonDeleteCountryByIdI18nCommandHandler } from './application/delete/common-delete-country-by-id-i18n.command-handler';
-export { CommonDeleteCountriesCommandHandler } from './application/delete/common-delete-countries.command-handler';
-
-// export query handlers
-export { CommonPaginateCountriesQueryHandler } from './application/paginate/common-paginate-countries.query-handler';
-export { CommonGetCountriesQueryHandler } from './application/get/common-get-countries.query-handler';
-export { CommonFindCountryQueryHandler } from './application/find/common-find-country.query-handler';
-export { CommonFindCountryByIdQueryHandler } from './application/find/common-find-country-by-id.query-handler';
-export { CommonRawSQLCountriesQueryHandler } from './application/raw-sql/common-raw-sql-countries.query-handler';
-
-// export services
-export { CommonCreateCountryService } from './application/create/common-create-country.service';
-export { CommonCreateCountriesService } from './application/create/common-create-countries.service';
-export { CommonPaginateCountriesService } from './application/paginate/common-paginate-countries.service';
-export { CommonGetCountriesService } from './application/get/common-get-countries.service';
-export { CommonFindCountryService } from './application/find/common-find-country.service';
-export { CommonFindCountryByIdService } from './application/find/common-find-country-by-id.service';
-export { CommonRawSQLCountriesService } from './application/raw-sql/common-raw-sql-countries.service';
-export { CommonUpdateCountryByIdService } from './application/update/common-update-country-by-id.service';
-export { CommonUpdateCountriesService } from './application/update/common-update-countries.service';
-export { CommonUpsertCountryService } from './application/upsert/common-upsert-country.service';
-export { CommonDeleteCountryByIdService } from './application/delete/common-delete-country-by-id.service';
-export { CommonDeleteCountryByIdI18nService } from './application/delete/common-delete-country-by-id-i18n.service';
-export { CommonDeleteCountriesService } from './application/delete/common-delete-countries.service';
-
 // export queries
 export { CommonPaginateCountriesQuery } from './application/paginate/common-paginate-countries.query';
 export { CommonGetCountriesQuery } from './application/get/common-get-countries.query';
