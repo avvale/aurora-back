@@ -42,7 +42,7 @@ services:
   typesense:
     container_name: aurora-typesense
     image: typesense/typesense:0.24.1-arm64
-    restart: on-failure
+    restart: always
     ports:
       - "${TYPESENSE_PORT}:8108"
     volumes:
