@@ -7,7 +7,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-area-level-1.command-handler.spec.ts",
-            "integrity": "sha1:234a2d795b49bdbcb43833110f7c68cc0c668fd7"
+            "integrity": "sha1:dc3b6374440b2cbcece4fb01ee3a36e702459f6d"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-area-level-1.command-handler.ts",
@@ -323,11 +323,11 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/index.ts",
-            "integrity": "sha1:d3358346ed48a838402dcf1d8e29840a80d44be2"
+            "integrity": "sha1:4d79fdf0d2a94a9e68197dfb589f5333a0b210cc"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data.ts",
-            "integrity": "sha1:8ccc16f9be98136d126279d4e0c0e2d4c45e40dc"
+            "integrity": "sha1:817167e2cbcbe6f22b0f7a191d725a2448643a0e"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.repository.ts",
@@ -699,11 +699,11 @@
         },
         {
             "path": "test/acceptance/common/administrative-area-level-1.e2e-spec.ts",
-            "integrity": "sha1:ca4e9890d1d0d98ebd54fb60aa8f75362b09a49e"
+            "integrity": "sha1:84be4fbeb52b3c3c514d90ce152da5bae95abaf1"
         },
         {
             "path": "postman/common/common.administrative-area-level-1.postman.json",
-            "integrity": "sha1:c959c60b2770760d9b1dbbc534b0ceb5ffbfea01"
+            "integrity": "sha1:8fc0c868be99158ce5315e077cbf80fcad165dc7"
         }
     ]
 }
