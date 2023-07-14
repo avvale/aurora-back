@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data.ts",
-            "integrity": "sha1:817167e2cbcbe6f22b0f7a191d725a2448643a0e"
+            "integrity": "sha1:ab8792d66bf62d189a1336b796416d027ba25d79"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/sequelize/common-sequelize-administrative-area-level-1.model.ts",
-            "integrity": "sha1:4f19aa69c84c6b08c5ad57b801a38fd36bd8705a"
+            "integrity": "sha1:8d433759af9b1aac48200d3b10e2ac975a3dfe41"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/sequelize/common-sequelize-administrative-area-level-1.repository.ts",
@@ -699,11 +699,11 @@
         },
         {
             "path": "test/acceptance/common/administrative-area-level-1.e2e-spec.ts",
-            "integrity": "sha1:84be4fbeb52b3c3c514d90ce152da5bae95abaf1"
+            "integrity": "sha1:f340bbc1b8b379513fb10788d995198307e81c40"
         },
         {
             "path": "postman/common/common.administrative-area-level-1.postman.json",
-            "integrity": "sha1:8fc0c868be99158ce5315e077cbf80fcad165dc7"
+            "integrity": "sha1:c9eda4d2edde72471716625017e70f3307aba490"
         }
     ]
 }
