@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { CommonAdministrativeAreaLevel1Dto, CommonFindAdministrativeAreaLevel1ByIdHandler } from '@api/common/administrative-area-level-1';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
