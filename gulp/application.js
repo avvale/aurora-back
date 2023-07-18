@@ -65,6 +65,7 @@ function editPackageJson()
 
                 delete json.scripts['install:typesense'];
                 delete json.dependencies['@aurorajs.dev/typesense'];
+
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs-modules/mailer'];
                 delete json.dependencies['@nestjs/axios'];
@@ -154,6 +155,10 @@ async function cleanAppModule()
     // remove ScheduleModule
     codeWriter.removeImport(sourceFile, '@nestjs/schedule');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ScheduleModule.forRoot()');
+
+    // remove KitchenSinkModule
+    codeWriter.removeImport(sourceFile, '@api/kitchen-sink/kitchen-sink.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'KitchenSinkModule');
 
     sourceFile.saveSync();
 }
