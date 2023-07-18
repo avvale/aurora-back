@@ -12,6 +12,7 @@ import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
 import { AzureAdModule } from '@api/azure-ad/azure-ad.module';
 import { CommonModule } from '@api/common/common.module';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
+import { KitchenSinkModule } from '@api/kitchen-sink/kitchen-sink.module';
 
 @Module({
     imports: [
@@ -23,7 +24,8 @@ import { SearchEngineModule } from '@api/search-engine/search-engine.module';
         OAuthModule,
         QueueManagerModule,
         ScheduleModule.forRoot(),
-        SearchEngineModule
+        SearchEngineModule,
+        KitchenSinkModule,
     ],
     controllers: [
         AppController,
