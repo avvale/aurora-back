@@ -655,6 +655,11 @@ export interface IamUpdateUsersInput {
     rememberToken?: Nullable<GraphQLString>;
 }
 
+export interface KitchenSinkFileUploaded {
+    id: string;
+    file: Upload;
+}
+
 export interface OAuthCreateAccessTokenInput {
     id: string;
     clientId: string;
@@ -1145,6 +1150,8 @@ export interface IMutation {
     iamUpsertUser(payload: IamUpdateUserByIdInput): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUserById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUsers(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser>[] | Promise<Nullable<IamUser>[]>;
+    kitchenSinkUploadFile(id: string, file: Upload): KitchenSinkFile | Promise<KitchenSinkFile>;
+    kitchenSinkUploadFiles(files: KitchenSinkFileUploaded[]): KitchenSinkFile[] | Promise<KitchenSinkFile[]>;
     oAuthDeleteAccessTokenById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
     oAuthDeleteAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken>[] | Promise<Nullable<OAuthAccessToken>[]>;
     oAuthCreateApplication(payload: OAuthCreateApplicationInput): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
@@ -1428,6 +1435,13 @@ export interface IamUser {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface KitchenSinkFile {
+    id: string;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    encoding: GraphQLString;
+}
+
 export interface OAuthAccessToken {
     id: string;
     clientId: string;
@@ -1603,5 +1617,4 @@ export type GraphQLFloat = any;
 export type GraphQLBoolean = any;
 export type GraphQLISODateTime = any;
 export type GraphQLTimestamp = any;
-export type GraphQLUpload = any;
 type Nullable<T> = T | null;
