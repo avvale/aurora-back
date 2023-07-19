@@ -465,6 +465,30 @@ export interface CommonUpdateLangsInput {
     isActive?: Nullable<GraphQLBoolean>;
 }
 
+export interface CommonCreateResourceInput {
+    id: string;
+    code: GraphQLString;
+    name: GraphQLString;
+    isActive: GraphQLBoolean;
+    hasAttachments: GraphQLBoolean;
+}
+
+export interface CommonUpdateResourceByIdInput {
+    id: string;
+    code?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    hasAttachments?: Nullable<GraphQLBoolean>;
+}
+
+export interface CommonUpdateResourcesInput {
+    id?: Nullable<string>;
+    code?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    hasAttachments?: Nullable<GraphQLBoolean>;
+}
+
 export interface IamCreateAccountInput {
     id: string;
     type: IamAccountType;
@@ -979,6 +1003,10 @@ export interface IQuery {
     commonFindLangById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonGetLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
     commonPaginateLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindResource(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonFindResourceById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonGetResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
+    commonPaginateResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamFindAccountById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>, queryGetClients?: Nullable<QueryStatement>, constraintGetClients?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamGetAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
@@ -1103,6 +1131,13 @@ export interface IMutation {
     commonUpsertLang(payload: CommonUpdateLangByIdInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonDeleteLangById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonDeleteLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
+    commonCreateResource(payload: CommonCreateResourceInput): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonCreateResources(payload: Nullable<CommonCreateResourceInput>[]): boolean | Promise<boolean>;
+    commonUpdateResourceById(payload: CommonUpdateResourceByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonUpdateResources(payload: CommonUpdateResourcesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
+    commonUpsertResource(payload: CommonUpdateResourceByIdInput): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonDeleteResourceById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
+    commonDeleteResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
     iamCreateAccount(payload: IamCreateAccountInput): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccountById(payload: IamUpdateAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccounts(payload: IamUpdateAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
@@ -1332,6 +1367,17 @@ export interface CommonLang {
     dir: CommonLangDir;
     sort?: Nullable<GraphQLInt>;
     isActive: GraphQLBoolean;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonResource {
+    id: string;
+    code: GraphQLString;
+    name: GraphQLString;
+    isActive: GraphQLBoolean;
+    hasAttachments: GraphQLBoolean;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

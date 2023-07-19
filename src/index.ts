@@ -136,3 +136,9 @@ export { CommonAdministrativeAreaLevel3Model } from './@app/common/administrativ
 export { CommonAdministrativeAreaLevel3Response } from './@app/common/administrative-area-level-3/domain/common-administrative-area-level-3.response';
 export { CommonAdministrativeAreaLevel3Mapper } from './@app/common/administrative-area-level-3/domain/common-administrative-area-level-3.mapper';
 export { commonMockAdministrativeAreaLevel3Data } from './@app/common/administrative-area-level-3/infrastructure/mock/common-mock-administrative-area-level-3.data';
+export { CommonResourceDto } from './@api/common/resource/dto/common-resource.dto';
+export { CommonResource } from './@app/common/resource/domain/common-resource.aggregate';
+export { CommonResourceModel } from './@app/common/resource';
+export { CommonResourceResponse } from './@app/common/resource/domain/common-resource.response';
+export { CommonResourceMapper } from './@app/common/resource/domain/common-resource.mapper';
+export { commonMockResourceData } from './@app/common/resource/infrastructure/mock/common-mock-resource.data';

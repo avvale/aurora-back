@@ -46,4 +46,11 @@ export const permissions = [
     { id: 'cd45758c-0366-4ce6-b3e9-36d2ac831501',  name: 'common.administrativeAreaLevel3.update',  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
     { id: '42c1d4ab-7e54-4ce1-ba86-8d0b887d8023',  name: 'common.administrativeAreaLevel3.upsert',  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
     { id: '0bd1959f-e484-4a3b-b2af-0bcb84eac8d3',  name: 'common.administrativeAreaLevel3.delete',  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+
+    { id: 'be1c9cc9-7216-478c-b590-2a5ebd228ba6',  name: 'common.resource.access',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '75392e8e-f5fc-4188-b03d-73750a29fbc6',  name: 'common.resource.get',                     boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '4adb3d19-d911-40ec-a0b9-2f399fdc902d',  name: 'common.resource.create',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '9462d849-c450-4883-8cf2-5146ca268f90',  name: 'common.resource.update',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '9d4450bf-6598-46a2-b273-1324c183c2c8',  name: 'common.resource.upsert',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '425cc33c-d603-45ea-a97f-aa3fa75d26e8',  name: 'common.resource.delete',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
 ];

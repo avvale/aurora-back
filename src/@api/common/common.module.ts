@@ -8,6 +8,7 @@ import { CommonLangApiHandlers, CommonLangControllers, CommonLangResolvers, Comm
 import { CommonAdministrativeAreaLevel1Controllers, CommonAdministrativeAreaLevel1Resolvers, CommonAdministrativeAreaLevel1ApiHandlers, CommonAdministrativeAreaLevel1Services } from './administrative-area-level-1';
 import { CommonAdministrativeAreaLevel2Controllers, CommonAdministrativeAreaLevel2Resolvers, CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLevel2Services } from './administrative-area-level-2';
 import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLevel3Resolvers, CommonAdministrativeAreaLevel3ApiHandlers, CommonAdministrativeAreaLevel3Services } from './administrative-area-level-3';
+import { CommonResourceControllers, CommonResourceResolvers, CommonResourceApiHandlers, CommonResourceServices } from './resource';
 
 @Module({
     imports: [
@@ -21,7 +22,8 @@ import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLeve
         ...CommonCountryControllers,
         ...CommonAdministrativeAreaLevel1Controllers,
         ...CommonAdministrativeAreaLevel2Controllers,
-        ...CommonAdministrativeAreaLevel3Controllers
+        ...CommonAdministrativeAreaLevel3Controllers,
+        ...CommonResourceControllers
     ],
     providers: [
         CommonSeeder,
@@ -43,7 +45,10 @@ import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLeve
         ...CommonAdministrativeAreaLevel2Services,
         ...CommonAdministrativeAreaLevel3Resolvers,
         ...CommonAdministrativeAreaLevel3ApiHandlers,
-        ...CommonAdministrativeAreaLevel3Services
+        ...CommonAdministrativeAreaLevel3Services,
+        ...CommonResourceResolvers,
+        ...CommonResourceApiHandlers,
+        ...CommonResourceServices
     ],
 })
 export class CommonModule {}
