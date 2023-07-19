@@ -10,7 +10,7 @@ export const boundedContexts = [
 ];
 
 export const permissions = [
-    { id: 'd9bc3afc-fd40-5505-b57f-8f5d5118e01b',  name: 'common.access',                           boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+   /*  { id: 'd9bc3afc-fd40-5505-b57f-8f5d5118e01b',  name: 'common.access',                           boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
 
     { id: '27853c15-ba7f-42c0-967e-c299edc79763',  name: 'common.lang.access',                      boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
     { id: 'baa0fefd-1c77-4a1f-abd0-3f2d7da40227',  name: 'common.lang.get',                         boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
@@ -52,5 +52,12 @@ export const permissions = [
     { id: '4adb3d19-d911-40ec-a0b9-2f399fdc902d',  name: 'common.resource.create',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
     { id: '9462d849-c450-4883-8cf2-5146ca268f90',  name: 'common.resource.update',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
     { id: '9d4450bf-6598-46a2-b273-1324c183c2c8',  name: 'common.resource.upsert',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
-    { id: '425cc33c-d603-45ea-a97f-aa3fa75d26e8',  name: 'common.resource.delete',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '425cc33c-d603-45ea-a97f-aa3fa75d26e8',  name: 'common.resource.delete',                  boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []}, */
+
+    { id: 'b326faf0-f84f-4a7b-906a-9ce263425a55',  name: 'common.attachmentFamily.access',          boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: 'e9637044-13ab-45c2-8780-3872365d67de',  name: 'common.attachmentFamily.get',             boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '6a0ab01b-4ccc-4d3a-9d77-568e5838559c',  name: 'common.attachmentFamily.create',          boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '7fc62b98-1ddc-4a6a-a485-2e55ff07eb30',  name: 'common.attachmentFamily.update',          boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: 'ac98da22-1ae8-4d58-8f69-a57a91eb35b7',  name: 'common.attachmentFamily.upsert',          boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
+    { id: '77a28984-2ab2-4b24-829d-8e8a2db6d2df',  name: 'common.attachmentFamily.delete',          boundedContextId: '539423b1-4817-4eda-a068-e99ef457aa7a', roleIds: []},
 ];

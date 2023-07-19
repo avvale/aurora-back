@@ -55,6 +55,22 @@ export enum CommonAdministrativeAreaLevel3MapType {
     TERRAIN = "TERRAIN"
 }
 
+export enum CommonAttachmentFamilyFitType {
+    FIT_CROP = "FIT_CROP",
+    FIT_WIDTH = "FIT_WIDTH",
+    FIT_HEIGHT = "FIT_HEIGHT",
+    FIT_WIDTH_FREE_CROP = "FIT_WIDTH_FREE_CROP",
+    FIT_HEIGHT_FREE_CROP = "FIT_HEIGHT_FREE_CROP"
+}
+
+export enum CommonAttachmentFamilyFormat {
+    JPG = "JPG",
+    PNG = "PNG",
+    GIF = "GIF",
+    TIF = "TIF",
+    BMP = "BMP"
+}
+
 export enum CommonCountryMapType {
     ROADMAP = "ROADMAP",
     SATELLITE = "SATELLITE",
@@ -355,6 +371,42 @@ export interface CommonUpdateAdministrativeAreasLevel3Input {
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
     mapType?: Nullable<CommonAdministrativeAreaLevel3MapType>;
+}
+
+export interface CommonCreateAttachmentFamilyInput {
+    id: string;
+    resourceId: string;
+    name: GraphQLString;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    fitType?: Nullable<CommonAttachmentFamilyFitType>;
+    quality?: Nullable<GraphQLInt>;
+    sizes?: Nullable<JSON>;
+    format?: Nullable<CommonAttachmentFamilyFormat>;
+}
+
+export interface CommonUpdateAttachmentFamilyByIdInput {
+    id: string;
+    resourceId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    fitType?: Nullable<CommonAttachmentFamilyFitType>;
+    quality?: Nullable<GraphQLInt>;
+    sizes?: Nullable<JSON>;
+    format?: Nullable<CommonAttachmentFamilyFormat>;
+}
+
+export interface CommonUpdateAttachmentFamiliesInput {
+    id?: Nullable<string>;
+    resourceId?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    fitType?: Nullable<CommonAttachmentFamilyFitType>;
+    quality?: Nullable<GraphQLInt>;
+    sizes?: Nullable<JSON>;
+    format?: Nullable<CommonAttachmentFamilyFormat>;
 }
 
 export interface CommonCreateCountryInput {
@@ -995,6 +1047,10 @@ export interface IQuery {
     commonFindAdministrativeAreaLevel3ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonGetAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
     commonPaginateAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAttachmentFamily(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonFindAttachmentFamilyById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonGetAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
+    commonPaginateAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
@@ -1117,6 +1173,13 @@ export interface IMutation {
     commonUpsertAdministrativeAreaLevel3(payload: CommonUpdateAdministrativeAreaLevel3ByIdInput): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonDeleteAdministrativeAreaLevel3ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonDeleteAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
+    commonCreateAttachmentFamily(payload: CommonCreateAttachmentFamilyInput): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonCreateAttachmentFamilies(payload: Nullable<CommonCreateAttachmentFamilyInput>[]): boolean | Promise<boolean>;
+    commonUpdateAttachmentFamilyById(payload: CommonUpdateAttachmentFamilyByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonUpdateAttachmentFamilies(payload: CommonUpdateAttachmentFamiliesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
+    commonUpsertAttachmentFamily(payload: CommonUpdateAttachmentFamilyByIdInput): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonDeleteAttachmentFamilyById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
+    commonDeleteAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1324,6 +1387,22 @@ export interface CommonAdministrativeAreaLevel3 {
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
     mapType: CommonAdministrativeAreaLevel3MapType;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAttachmentFamily {
+    id: string;
+    resourceId: string;
+    resource?: Nullable<CommonResource>;
+    name: GraphQLString;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    fitType?: Nullable<CommonAttachmentFamilyFitType>;
+    quality?: Nullable<GraphQLInt>;
+    sizes?: Nullable<JSON>;
+    format?: Nullable<CommonAttachmentFamilyFormat>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

@@ -1,0 +1,561 @@
+{
+    "info": {
+		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+		"name"          : "@app - common/attachment-family",
+		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+			"name": "GraphQL - commonCreateAttachmentFamily",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:CommonCreateAttachmentFamilyInput!)\n{\n\tcommonCreateAttachmentFamily (payload:$payload)\n\t{\n\t\tid\n\t\tresourceId\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"resourceId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"name\": \"Refined Fresh Towels\", \n\t\t\"width\": 1844, \n\t\t\"height\": 2351, \n\t\t\"fitType\": 'FIT_WIDTH', \n\t\t\"quality\": 67, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'GIF'\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonCreateAttachmentFamilies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:[CommonCreateAttachmentFamilyInput]!)\n{\n\tcommonCreateAttachmentFamilies (payload:$payload)\n}",
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"bba708f8-dd22-4217-9565-294795a1d3aa\", \n\t\t\t\"resourceId\": \"20f44075-c337-428f-b8e1-5cd74a082505\", \n\t\t\t\"name\": \"Gorgeous Metal Chips\", \n\t\t\t\"width\": 7759, \n\t\t\t\"height\": 3908, \n\t\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\t\"quality\": 81, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'TIF'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"91e8d0aa-cbd6-440f-a528-802e4b508377\", \n\t\t\t\"resourceId\": \"49bfa346-8cf9-441a-8cc4-1020b3570895\", \n\t\t\t\"name\": \"Licensed Fresh Sausages\", \n\t\t\t\"width\": 3084, \n\t\t\t\"height\": 9291, \n\t\t\t\"fitType\": 'FIT_HEIGHT', \n\t\t\t\"quality\": 70, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'TIF'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"be93fd1f-29be-4eaf-bc42-d335a782c669\", \n\t\t\t\"resourceId\": \"ae465fbf-a107-47f8-bc7a-f070eee7441b\", \n\t\t\t\"name\": \"Sleek Rubber Table\", \n\t\t\t\"width\": 7099, \n\t\t\t\"height\": 5916, \n\t\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\t\"quality\": 59, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'PNG'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"2cba3b72-cb7b-4ddd-ae51-cb2981351e0a\", \n\t\t\t\"resourceId\": \"43f3e325-f28d-4803-a96e-8a46b7b9eff3\", \n\t\t\t\"name\": \"Sleek Plastic Chips\", \n\t\t\t\"width\": 1164, \n\t\t\t\"height\": 5653, \n\t\t\t\"fitType\": 'FIT_WIDTH', \n\t\t\t\"quality\": 78, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'GIF'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"6f36272d-2e79-4a96-b319-28c0bcd5919f\", \n\t\t\t\"resourceId\": \"071f86cd-2130-44b9-b702-1a868095c9be\", \n\t\t\t\"name\": \"Handmade Granite Pizza\", \n\t\t\t\"width\": 1927, \n\t\t\t\"height\": 6516, \n\t\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\t\"quality\": 16, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'JPG'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"61472ea6-9af8-4536-9946-a343cf0e6beb\", \n\t\t\t\"resourceId\": \"0c66897c-1483-4a71-897c-5d7d66c7372f\", \n\t\t\t\"name\": \"Sleek Wooden Table\", \n\t\t\t\"width\": 2896, \n\t\t\t\"height\": 7533, \n\t\t\t\"fitType\": 'FIT_WIDTH_FREE_CROP', \n\t\t\t\"quality\": 22, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'TIF'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"24afc98a-1cea-45d2-bfc7-12b6efef2a4e\", \n\t\t\t\"resourceId\": \"d68c520e-2f11-45e5-b7e7-eeeca4eab0f3\", \n\t\t\t\"name\": \"Fantastic Granite Chair\", \n\t\t\t\"width\": 5583, \n\t\t\t\"height\": 6986, \n\t\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\t\"quality\": 43, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'JPG'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"84610520-e143-475c-9ab8-6997d26c1f49\", \n\t\t\t\"resourceId\": \"72041a00-5ee3-4d46-9ca2-a3619b480efe\", \n\t\t\t\"name\": \"Refined Granite Tuna\", \n\t\t\t\"width\": 9127, \n\t\t\t\"height\": 1501, \n\t\t\t\"fitType\": 'FIT_CROP', \n\t\t\t\"quality\": 78, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'BMP'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ca394be3-7542-41b9-a88b-d2e298b6dfb0\", \n\t\t\t\"resourceId\": \"94fb8289-2f25-4db8-b830-c83157c73a81\", \n\t\t\t\"name\": \"Fantastic Fresh Towels\", \n\t\t\t\"width\": 5105, \n\t\t\t\"height\": 4405, \n\t\t\t\"fitType\": 'FIT_WIDTH_FREE_CROP', \n\t\t\t\"quality\": 14, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'BMP'\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ce4c500c-1f02-4004-8dfa-1ce8e0ed5fbb\", \n\t\t\t\"resourceId\": \"8f39da99-7747-400c-8440-f69e7fceace0\", \n\t\t\t\"name\": \"Handcrafted Rubber Chips\", \n\t\t\t\"width\": 9912, \n\t\t\t\"height\": 7747, \n\t\t\t\"fitType\": 'FIT_HEIGHT', \n\t\t\t\"quality\": 51, \n\t\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\t\"format\": 'GIF'\n\t\t}\n\t]\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonPaginateAttachmentFamilies",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tcommonPaginateAttachmentFamilies (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonGetAttachmentFamilies",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tcommonGetAttachmentFamilies (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonFindAttachmentFamily",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tcommonFindAttachmentFamily (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonFindAttachmentFamilyById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id:ID)\n{\n\tcommonFindAttachmentFamilyById (id:$id)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonUpdateAttachmentFamily",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:CommonUpdateAttachmentFamilyInput!)\n{\n\tcommonUpdateAttachmentFamily (payload:$payload)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"resourceId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"name\": \"Generic Plastic Towels\", \n\t\t\"width\": 7303, \n\t\t\"height\": 1697, \n\t\t\"fitType\": 'FIT_HEIGHT', \n\t\t\"quality\": 46, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'BMP'\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonDeleteAttachmentFamilyById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($id:ID!)\n{\n\tcommonDeleteAttachmentFamilyById (id:$id)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - commonDeleteAttachmentFamilies",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($query:QueryStatement)\n{\n\tcommonDeleteAttachmentFamilies (query: $query)\n\t{\n\t\tid\n\t\tname\n\t\twidth\n\t\theight\n\t\tfitType\n\t\tquality\n\t\tsizes\n\t\tformat\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-family/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"resourceId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"name\": \"Handmade Cotton Keyboard\", \n\t\"width\": 6958, \n\t\"height\": 6513, \n\t\"fitType\": 'FIT_WIDTH', \n\t\"quality\": 16, \n\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\"format\": 'JPG'\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-family/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-family",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-families/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"c90a610c-9f01-4903-92a1-1c8322cad3be\", \n\t\t\"resourceId\": \"26fee5a8-0981-4537-b237-de9cc48a39f8\", \n\t\t\"name\": \"Practical Wooden Cheese\", \n\t\t\"width\": 5299, \n\t\t\"height\": 8665, \n\t\t\"fitType\": 'FIT_CROP', \n\t\t\"quality\": 49, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'JPG'\n\t}, \n\t{\n\t\t\"id\": \"7e0cd7b2-ecf9-4767-9435-237a962ded8f\", \n\t\t\"resourceId\": \"4b8e8bcb-9688-4572-9dca-6eaa2f0b5858\", \n\t\t\"name\": \"Licensed Wooden Computer\", \n\t\t\"width\": 6382, \n\t\t\"height\": 6915, \n\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\"quality\": 93, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'JPG'\n\t}, \n\t{\n\t\t\"id\": \"b02a9396-b35b-4b41-86e8-e0a2c8a8f57e\", \n\t\t\"resourceId\": \"7f5aa341-e623-4819-9df1-9afc939bd364\", \n\t\t\"name\": \"Fantastic Concrete Fish\", \n\t\t\"width\": 9858, \n\t\t\"height\": 3646, \n\t\t\"fitType\": 'FIT_HEIGHT', \n\t\t\"quality\": 34, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'PNG'\n\t}, \n\t{\n\t\t\"id\": \"70e4bfa2-46f9-4419-8ea1-f1e0a8b4ca8c\", \n\t\t\"resourceId\": \"9a5afb21-973c-40be-a787-30e823dc77de\", \n\t\t\"name\": \"Awesome Soft Chicken\", \n\t\t\"width\": 6957, \n\t\t\"height\": 3870, \n\t\t\"fitType\": 'FIT_WIDTH_FREE_CROP', \n\t\t\"quality\": 19, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'GIF'\n\t}, \n\t{\n\t\t\"id\": \"e0f7aa4b-ab35-43bc-873f-dc7b83b80854\", \n\t\t\"resourceId\": \"caf5285b-f96f-4766-8dc8-5ea3c630f84f\", \n\t\t\"name\": \"Fantastic Wooden Bacon\", \n\t\t\"width\": 5669, \n\t\t\"height\": 5408, \n\t\t\"fitType\": 'FIT_HEIGHT_FREE_CROP', \n\t\t\"quality\": 50, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'PNG'\n\t}, \n\t{\n\t\t\"id\": \"079b3707-20dd-4030-8fd7-160c33336a91\", \n\t\t\"resourceId\": \"80e389a0-f0eb-4a72-bbea-8a41211dbd87\", \n\t\t\"name\": \"Ergonomic Plastic Chair\", \n\t\t\"width\": 5522, \n\t\t\"height\": 6342, \n\t\t\"fitType\": 'FIT_WIDTH', \n\t\t\"quality\": 64, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'JPG'\n\t}, \n\t{\n\t\t\"id\": \"f7db0d69-9541-41ef-8fb4-63d8dacbe17a\", \n\t\t\"resourceId\": \"8d0bf616-ce8b-420a-8810-68e18a55dff6\", \n\t\t\"name\": \"Intelligent Fresh Tuna\", \n\t\t\"width\": 2002, \n\t\t\"height\": 1462, \n\t\t\"fitType\": 'FIT_WIDTH', \n\t\t\"quality\": 72, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'BMP'\n\t}, \n\t{\n\t\t\"id\": \"af622186-e9a5-4757-b581-319c9f42a528\", \n\t\t\"resourceId\": \"0d681388-433e-4cee-a804-4ce5442a1200\", \n\t\t\"name\": \"Incredible Frozen Bacon\", \n\t\t\"width\": 8476, \n\t\t\"height\": 4533, \n\t\t\"fitType\": 'FIT_CROP', \n\t\t\"quality\": 33, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'GIF'\n\t}, \n\t{\n\t\t\"id\": \"7c414e63-9b99-4eb0-9669-773f61c057a0\", \n\t\t\"resourceId\": \"e8b3572e-46c8-4281-95eb-863a11c38c7a\", \n\t\t\"name\": \"Incredible Wooden Shirt\", \n\t\t\"width\": 2483, \n\t\t\"height\": 9787, \n\t\t\"fitType\": 'FIT_WIDTH', \n\t\t\"quality\": 47, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'GIF'\n\t}, \n\t{\n\t\t\"id\": \"51576d82-471c-488d-81d6-e742e0768fdf\", \n\t\t\"resourceId\": \"c0ebd928-97f3-47f8-b94a-cf8d5236d8e9\", \n\t\t\"name\": \"Unbranded Concrete Tuna\", \n\t\t\"width\": 6935, \n\t\t\"height\": 1096, \n\t\t\"fitType\": 'FIT_WIDTH_FREE_CROP', \n\t\t\"quality\": 98, \n\t\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\t\"format\": 'GIF'\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-families/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-families",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-families/paginate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-families/paginate",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+                        "attachment-families",
+                        "paginate"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-families/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-families/get",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-families",
+                        "get"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-family/find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-family/find",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-family",
+                        "find"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-family/find/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-family/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-family",
+                        "find",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-family/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"resourceId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"name\": \"Intelligent Metal Sausages\", \n\t\"width\": 5486, \n\t\"height\": 5549, \n\t\"fitType\": 'FIT_CROP', \n\t\"quality\": 58, \n\t\"sizes\": { \"foo\" : \"bar\" }, \n\t\"format\": 'JPG'\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-family/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-family",
+                        "update"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - common/attachment-family/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-family/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-family",
+                        "delete",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "REST - common/attachment-families/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/common/attachment-families/delete",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"common",
+						"attachment-families",
+                        "delete"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+    "variable": [
+		{
+			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
