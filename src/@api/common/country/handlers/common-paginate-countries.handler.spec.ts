@@ -2,7 +2,7 @@
 import { CommonPaginateCountriesHandler } from '@api/common/country';
 import { commonMockCountryData } from '@app/common/country';
 import { commonMockLangData } from '@app/common/lang';
-import { CoreAddI18nConstraintService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { CoreAddI18nConstraintService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -46,6 +46,12 @@ describe('CommonPaginateCountriesHandler', () =>
                         dispatch: () => { /**/ },
                     },
                 },
+                {
+                    provide : CoreGetSearchKeyLangService,
+                    useValue: {
+                        get: () => { /**/ },
+                    },
+                },
             ],
         })
             .compile();
@@ -74,11 +80,19 @@ describe('CommonPaginateCountriesHandler', () =>
                 count: commonMockCountryData.length,
                 rows : commonMockCountryData,
             })));
-            expect(await handler.main()).toEqual({
-                total: commonMockCountryData.length,
-                count: commonMockCountryData.length,
-                rows : commonMockCountryData,
-            });
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                    'en',
+                ),
+            )
+                .toEqual({
+                    total: commonMockCountryData.length,
+                    count: commonMockCountryData.length,
+                    rows : commonMockCountryData,
+                });
         });
     });
 });

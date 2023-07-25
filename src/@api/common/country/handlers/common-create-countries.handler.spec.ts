@@ -1,9 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { CommonCreateCountriesHandler } from '@api/common/country';
+import { commonMockCountryData } from '@app/common/country';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
-import { CommonCreateCountriesHandler } from './common-create-countries.handler';
-import { commonMockCountryData } from '@app/common/country/infrastructure/mock/common-mock-country.data';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateCountriesHandler', () =>
 {
