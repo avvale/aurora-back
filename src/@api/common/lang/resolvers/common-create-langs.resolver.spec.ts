@@ -6,7 +6,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 describe('CommonCreateLangsResolver', () =>
 {
     let resolver: CommonCreateLangsResolver;
-    let handler: CommonCreateLangsHandler;
 
     beforeAll(async () =>
     {
@@ -24,7 +23,6 @@ describe('CommonCreateLangsResolver', () =>
             .compile();
 
         resolver = module.get<CommonCreateLangsResolver>(CommonCreateLangsResolver);
-        handler = module.get<CommonCreateLangsHandler>(CommonCreateLangsHandler);
     });
 
     test('CommonCreateLangsResolver should be defined', () =>

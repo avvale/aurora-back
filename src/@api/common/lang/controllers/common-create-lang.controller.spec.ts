@@ -40,7 +40,12 @@ describe('CommonCreateLangController', () =>
         test('should return an lang created', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(commonMockLangData[0])));
-            expect(await controller.main(commonMockLangData[0])).toBe(commonMockLangData[0]);
+            expect(
+                await controller.main(
+                    commonMockLangData[0],
+                ),
+            )
+                .toBe(commonMockLangData[0]);
         });
     });
 });
