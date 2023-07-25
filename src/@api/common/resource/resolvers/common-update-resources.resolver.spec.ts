@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonUpdateResourcesResolver } from './common-update-resources.resolver';
-import { CommonUpdateResourcesHandler } from '../handlers/common-update-resources.handler';
+import { CommonUpdateResourcesHandler, CommonUpdateResourcesResolver } from '@api/common/resource';
 import { CommonUpdateResourcesInput } from '@api/graphql';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
+import { commonMockResourceData } from '@app/common/resource';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUpdateResourcesResolver', () =>
 {

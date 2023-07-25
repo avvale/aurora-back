@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonFindAttachmentFamilyByIdHandler } from '@api/common/attachment-family';
 import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonFindAttachmentFamilyByIdHandler', () =>
 {
     let handler: CommonFindAttachmentFamilyByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('CommonFindAttachmentFamilyByIdHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<CommonFindAttachmentFamilyByIdHandler>(CommonFindAttachmentFamilyByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonFindAttachmentFamilyByIdHandler should be defined', () =>
@@ -53,7 +45,14 @@ describe('CommonFindAttachmentFamilyByIdHandler', () =>
         test('should return an attachmentFamily by id', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await handler.main(commonMockAttachmentFamilyData[0].id)).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await handler.main(
+                    commonMockAttachmentFamilyData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

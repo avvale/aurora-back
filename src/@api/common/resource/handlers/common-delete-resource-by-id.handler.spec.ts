@@ -8,7 +8,6 @@ describe('CommonDeleteResourceByIdController', () =>
 {
     let handler: CommonDeleteResourceByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonDeleteResourceByIdController', () =>
 
         handler = module.get<CommonDeleteResourceByIdHandler>(CommonDeleteResourceByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,14 @@ describe('CommonDeleteResourceByIdController', () =>
         test('should return an resource deleted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData[0])));
-            expect(await handler.main(commonMockResourceData[0].id)).toBe(commonMockResourceData[0]);
+            expect(
+                await handler.main(
+                    commonMockResourceData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockResourceData[0]);
         });
     });
 });

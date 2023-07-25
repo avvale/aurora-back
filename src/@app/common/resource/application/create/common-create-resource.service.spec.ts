@@ -22,8 +22,6 @@ describe('CommonCreateResourceService', () =>
 
 {
     let service: CommonCreateResourceService;
-    let repository: CommonIResourceRepository;
-    let mockRepository: CommonMockResourceRepository;
 
     beforeAll(async () =>
     {
@@ -46,8 +44,6 @@ describe('CommonCreateResourceService', () =>
             .compile();
 
         service = module.get(CommonCreateResourceService);
-        repository = module.get(CommonIResourceRepository);
-        mockRepository = module.get(CommonMockResourceRepository);
     });
 
     describe('main', () =>
@@ -59,15 +55,18 @@ describe('CommonCreateResourceService', () =>
 
         test('should create a resource and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new CommonResourceId(commonMockResourceData[0].id),
-                    code: new CommonResourceCode(commonMockResourceData[0].code),
-                    name: new CommonResourceName(commonMockResourceData[0].name),
-                    isActive: new CommonResourceIsActive(commonMockResourceData[0].isActive),
-                    hasAttachments: new CommonResourceHasAttachments(commonMockResourceData[0].hasAttachments),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new CommonResourceId(commonMockResourceData[0].id),
+                        code: new CommonResourceCode(commonMockResourceData[0].code),
+                        name: new CommonResourceName(commonMockResourceData[0].name),
+                        isActive: new CommonResourceIsActive(commonMockResourceData[0].isActive),
+                        hasAttachments: new CommonResourceHasAttachments(commonMockResourceData[0].hasAttachments),
+                    },
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

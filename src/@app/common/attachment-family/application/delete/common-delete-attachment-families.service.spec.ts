@@ -11,7 +11,6 @@ describe('CommonDeleteAttachmentFamiliesService', () =>
 {
     let service: CommonDeleteAttachmentFamiliesService;
     let repository: CommonIAttachmentFamilyRepository;
-    let mockRepository: CommonMockAttachmentFamilyRepository;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('CommonDeleteAttachmentFamiliesService', () =>
 
         service = module.get(CommonDeleteAttachmentFamiliesService);
         repository = module.get(CommonIAttachmentFamilyRepository);
-        mockRepository = module.get(CommonMockAttachmentFamilyRepository);
     });
 
     describe('main', () =>
@@ -49,7 +47,13 @@ describe('CommonDeleteAttachmentFamiliesService', () =>
         test('should delete attachmentFamily and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

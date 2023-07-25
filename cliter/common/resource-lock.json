@@ -19,7 +19,7 @@
         },
         {
             "path": "src/@app/common/resource/application/create/common-create-resource.service.spec.ts",
-            "integrity": "sha1:f2d051823e17133a23a5a27cf1075f0facb3a989"
+            "integrity": "sha1:131018b942d6e8170e60fce484672c93b1a8ce9d"
         },
         {
             "path": "src/@app/common/resource/application/create/common-create-resource.service.ts",
@@ -39,7 +39,7 @@
         },
         {
             "path": "src/@app/common/resource/application/create/common-create-resources.service.spec.ts",
-            "integrity": "sha1:b9ab7c7cdf5977fe4f6e5e370bf25a01cb99350c"
+            "integrity": "sha1:ef87cfa84c0a05bf1b420857a0f6be53ada663ea"
         },
         {
             "path": "src/@app/common/resource/application/create/common-create-resources.service.ts",
@@ -59,11 +59,11 @@
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resource-by-id.service.spec.ts",
-            "integrity": "sha1:ea979275d6d270643a9ec7347f00665191338ff5"
+            "integrity": "sha1:34a987afdd0d65baaeef0413c035869f023daa34"
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resource-by-id.service.ts",
-            "integrity": "sha1:c78cfccd69c1d4458b64f902cdf8df85d1e13f91"
+            "integrity": "sha1:75d978c90c588838dc53cdd9a9a72727c8d0b093"
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resources.command-handler.spec.ts",
@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resources.service.spec.ts",
-            "integrity": "sha1:6b588d04bc4229f2cb770ffc08d82a81ed5e2331"
+            "integrity": "sha1:19656926132b7ce7f90a30886efcc70095b0c3e4"
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resources.service.ts",
@@ -255,7 +255,7 @@
         },
         {
             "path": "src/@app/common/resource/application/update/common-update-resource-by-id.service.spec.ts",
-            "integrity": "sha1:f8af6c73f02861e5864bd003d0c4fd10717e0a60"
+            "integrity": "sha1:08d249ae03365ce89e2da2385f7d139cbbc1e7e7"
         },
         {
             "path": "src/@app/common/resource/application/update/common-update-resource-by-id.service.ts",
@@ -275,7 +275,7 @@
         },
         {
             "path": "src/@app/common/resource/application/update/common-update-resources.service.spec.ts",
-            "integrity": "sha1:54dedb5fa9dfa1fda96be2e1353f935e93815d2d"
+            "integrity": "sha1:82465d44602fd7857356fb65aee993dfb57883c0"
         },
         {
             "path": "src/@app/common/resource/application/update/common-update-resources.service.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.service.spec.ts",
-            "integrity": "sha1:8e4eb7533fba23139e314a8f7b7d7d093c7f5c50"
+            "integrity": "sha1:f30474e5537750fad056d0896752e1f29ec0cfc3"
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.data.ts",
-            "integrity": "sha1:a2d925c56876479d584671334c3cb52dd42ac3f2"
+            "integrity": "sha1:64c3d64773d74b0658c0c41c38cf72e054f3d188"
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.repository.ts",
@@ -383,7 +383,7 @@
         },
         {
             "path": "src/@api/common/resource/controllers/common-create-resource.controller.spec.ts",
-            "integrity": "sha1:ebed86de9ca0c3a2267e4c2d9cb078067decb310"
+            "integrity": "sha1:1658af16918daa77c3d757f8ae1288b4fb9c142f"
         },
         {
             "path": "src/@api/common/resource/controllers/common-create-resource.controller.ts",
@@ -391,11 +391,11 @@
         },
         {
             "path": "src/@api/common/resource/controllers/common-create-resources.controller.spec.ts",
-            "integrity": "sha1:5d00c35b85528d4b9e0e2ce07343601c349b9fc2"
+            "integrity": "sha1:b8a06ed7e28ab9db55ac971bae4cb81941fae9d0"
         },
         {
             "path": "src/@api/common/resource/controllers/common-create-resources.controller.ts",
-            "integrity": "sha1:09bf23c5d345714dc2805823a22bf3273f1a2474"
+            "integrity": "sha1:ff59a28a31119d1201abc006a6e31adf5ec471de"
         },
         {
             "path": "src/@api/common/resource/controllers/common-delete-resource-by-id.controller.spec.ts",
@@ -471,19 +471,19 @@
         },
         {
             "path": "src/@api/common/resource/dto/common-resource.dto.ts",
-            "integrity": "sha1:5fd6fb0eb57550a889f39c4d6d18262739208ebf"
+            "integrity": "sha1:5d9bdcb0cd1441599bb7ef2a350141690c6926b4"
         },
         {
             "path": "src/@api/common/resource/dto/common-create-resource.dto.ts",
-            "integrity": "sha1:8754e252c5a1becabee3bc27365078c173ebfa3d"
+            "integrity": "sha1:33ff7dee7506bea3ef1762118465dafbae233b9b"
         },
         {
             "path": "src/@api/common/resource/dto/common-update-resource-by-id.dto.ts",
-            "integrity": "sha1:6573b933acef8d1c3ee8e6fbaa90d15696ffd5b3"
+            "integrity": "sha1:330f9082d01e1a8b672a7252ab7c719c7e770197"
         },
         {
             "path": "src/@api/common/resource/dto/common-update-resources.dto.ts",
-            "integrity": "sha1:3ef79c3db58ec4efd09207eeb75d8c17b64f9921"
+            "integrity": "sha1:2b184ba2dbd0e27d0949482f890b1c9f06c3be3c"
         },
         {
             "path": "src/@api/common/resource/dto/index.ts",
@@ -495,7 +495,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-create-resource.handler.spec.ts",
-            "integrity": "sha1:77aca19527fb64378e6bdfa00bf06df58bd00073"
+            "integrity": "sha1:9cd58847d4eb6996eab6f7bbd6c57ab6c0a1bc3f"
         },
         {
             "path": "src/@api/common/resource/handlers/common-create-resource.handler.ts",
@@ -503,7 +503,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-create-resources.handler.spec.ts",
-            "integrity": "sha1:aee54d904e291d32ed0ea06839bc607a3ad3ecbe"
+            "integrity": "sha1:83e9822da91a6da34bf15fc7558f3dc4e7f1be7c"
         },
         {
             "path": "src/@api/common/resource/handlers/common-create-resources.handler.ts",
@@ -511,7 +511,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-delete-resource-by-id.handler.spec.ts",
-            "integrity": "sha1:1a37a9e5fac96bff87130dfaa7684810a47908c3"
+            "integrity": "sha1:d21a95b899e2554365d3cc815132c3de84480b55"
         },
         {
             "path": "src/@api/common/resource/handlers/common-delete-resource-by-id.handler.ts",
@@ -519,7 +519,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-delete-resources.handler.spec.ts",
-            "integrity": "sha1:0925dd5450c9ae0becdaf21d9863a96824be84b2"
+            "integrity": "sha1:e2a73e72d943809a330a5779244ddf845205a074"
         },
         {
             "path": "src/@api/common/resource/handlers/common-delete-resources.handler.ts",
@@ -527,7 +527,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-find-resource-by-id.handler.spec.ts",
-            "integrity": "sha1:e748d42d5316de79b7c12832b910d420d7aea196"
+            "integrity": "sha1:08c387b0bea04f2bf28a270d78befbc2e4b9b37c"
         },
         {
             "path": "src/@api/common/resource/handlers/common-find-resource-by-id.handler.ts",
@@ -535,7 +535,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-find-resource.handler.spec.ts",
-            "integrity": "sha1:4b2b014dbf58c27503f54ba4848eae8f517aae4a"
+            "integrity": "sha1:0a5d198d0ea275544b84ef70c9a820f5824b9dab"
         },
         {
             "path": "src/@api/common/resource/handlers/common-find-resource.handler.ts",
@@ -543,7 +543,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-get-resources.handler.spec.ts",
-            "integrity": "sha1:4eeed6389071f7153af74445d222e307eeed3d2f"
+            "integrity": "sha1:7ef425d97d84216bd2975e34ed22fa6e97661b79"
         },
         {
             "path": "src/@api/common/resource/handlers/common-get-resources.handler.ts",
@@ -551,7 +551,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-paginate-resources.handler.spec.ts",
-            "integrity": "sha1:e4799be64fccaabcb2a711034434fbbd5ee41d86"
+            "integrity": "sha1:b0e26f04f3bf706932c4a029d1e247a9fe29fac7"
         },
         {
             "path": "src/@api/common/resource/handlers/common-paginate-resources.handler.ts",
@@ -559,7 +559,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-update-resource-by-id.handler.spec.ts",
-            "integrity": "sha1:ab906470b44758778155e1251ce900ea8077e213"
+            "integrity": "sha1:e7ac4d80e7115d72dd7dc5d54b48ee7ead639ca8"
         },
         {
             "path": "src/@api/common/resource/handlers/common-update-resource-by-id.handler.ts",
@@ -567,7 +567,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-update-resources.handler.spec.ts",
-            "integrity": "sha1:2449a63e87d0c3eb1f42b64cc7f1555796485db4"
+            "integrity": "sha1:42b0ef38f1d04ce0672327d487f65815ab501353"
         },
         {
             "path": "src/@api/common/resource/handlers/common-update-resources.handler.ts",
@@ -575,7 +575,7 @@
         },
         {
             "path": "src/@api/common/resource/handlers/common-upsert-resource.handler.spec.ts",
-            "integrity": "sha1:465f88d2cd3465f9bc9872ee2d7f5275e91e4a83"
+            "integrity": "sha1:c10ff1d74e9a77a616850f9e1677a65c857838ee"
         },
         {
             "path": "src/@api/common/resource/handlers/common-upsert-resource.handler.ts",
@@ -583,11 +583,11 @@
         },
         {
             "path": "src/@api/common/resource/index.ts",
-            "integrity": "sha1:907e36e8a42f1495b2cd04afaef5f60fe983cb95"
+            "integrity": "sha1:ea8a88f3784d6731768fb1ea89c2a892e7bc6dfb"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-create-resource.resolver.spec.ts",
-            "integrity": "sha1:cd91cab7fbe73cee02625e35485167090598ec67"
+            "integrity": "sha1:8f5d919ec32ec9ff5309a435f809fc18e772ea37"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-create-resource.resolver.ts",
@@ -595,31 +595,31 @@
         },
         {
             "path": "src/@api/common/resource/resolvers/common-create-resources.resolver.spec.ts",
-            "integrity": "sha1:046026242ff39ce923fb63507c6f4efb62bd76f3"
+            "integrity": "sha1:a3cca21921e599c790a62ce3b48e1b1807f22a95"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-create-resources.resolver.ts",
-            "integrity": "sha1:db10c62e4f811e23b7fca1404558d84f45536483"
+            "integrity": "sha1:01749e35b39111dd6d3d1a1233d5c4fe3fe18edf"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-delete-resource-by-id.resolver.spec.ts",
-            "integrity": "sha1:31369f3e3f43e33e14be736a874119e47d399c18"
+            "integrity": "sha1:3c8eb510114f7bffcff5d93163bd12754132ea39"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-delete-resource-by-id.resolver.ts",
-            "integrity": "sha1:37a49c79efe0d4e5482e65ee34135f58fcd24ffb"
+            "integrity": "sha1:3af1d58d35c03875a3c88a3fd9a00074fdac42b5"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-delete-resources.resolver.spec.ts",
-            "integrity": "sha1:1a92fb9f09ccc0b5af1486c0024893736e08c7eb"
+            "integrity": "sha1:fbedbad8056b0a26999bd1829e0ff00b6a931297"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-delete-resources.resolver.ts",
-            "integrity": "sha1:ae1445d85243a384f0cd4747881eb895e363fb89"
+            "integrity": "sha1:c72f4445697dec61766f2d075fa8eb74f0bb075f"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-find-resource-by-id.resolver.spec.ts",
-            "integrity": "sha1:cde4bff834f1688305fe14ebffa9e02265476e81"
+            "integrity": "sha1:d864da8d2825b373e70d07e7dbf5e37104026cac"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-find-resource-by-id.resolver.ts",
@@ -627,31 +627,31 @@
         },
         {
             "path": "src/@api/common/resource/resolvers/common-find-resource.resolver.spec.ts",
-            "integrity": "sha1:02a9d5d21406f62f518ee74cf9a1100a6e2bdf24"
+            "integrity": "sha1:780e13b7962f9bbfbac046f3c7508d759bebc08c"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-find-resource.resolver.ts",
-            "integrity": "sha1:1ca34967c39e83004a6c349a48c389ed2c3d05e1"
+            "integrity": "sha1:8abcc30fad09c1ee90d04e8f065d4bf8cac392a9"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-get-resources.resolver.spec.ts",
-            "integrity": "sha1:ad9fd5f1f62724bdc01b1f05068618012ed59fdd"
+            "integrity": "sha1:ec44160a42453cb6be1272d5faedb03ce20b8380"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-get-resources.resolver.ts",
-            "integrity": "sha1:f771a5cffa106b9f1807b988ad381acf34cc3cda"
+            "integrity": "sha1:b9ad73dd451683669a9f2400fc8cbd14bcb04036"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-paginate-resources.resolver.spec.ts",
-            "integrity": "sha1:cac8d234b24cea32baa6d89fb549788e0e5f644a"
+            "integrity": "sha1:c9321daac8753e12d85ad0c3b5faaf6bbc23f50f"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-paginate-resources.resolver.ts",
-            "integrity": "sha1:3d2c68f775761ba1c848258aea7e72a42198d5bb"
+            "integrity": "sha1:701958a0a277f9c90dfee37f4e402d01419f4630"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-update-resource-by-id.resolver.spec.ts",
-            "integrity": "sha1:8954f251f4a0c45dc8a9f69e5817b7f0f7746f27"
+            "integrity": "sha1:e6e15e8484656932c35c0b1394e2d5a7a4041f2f"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-update-resource-by-id.resolver.ts",
@@ -659,7 +659,7 @@
         },
         {
             "path": "src/@api/common/resource/resolvers/common-update-resources.resolver.spec.ts",
-            "integrity": "sha1:64ed917f67b7f714d1de14964502961b5ce66c87"
+            "integrity": "sha1:c0e45555e863411f8ba577f26f374bfe3b2c12a0"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-update-resources.resolver.ts",
@@ -667,7 +667,7 @@
         },
         {
             "path": "src/@api/common/resource/resolvers/common-upsert-resource.resolver.spec.ts",
-            "integrity": "sha1:e451fdd96b23d9b0e77b34bce512126cbc9f7baa"
+            "integrity": "sha1:9a241a202c84d8c30a380f82f0b5c459d85956d8"
         },
         {
             "path": "src/@api/common/resource/resolvers/common-upsert-resource.resolver.ts",
@@ -683,7 +683,7 @@
         },
         {
             "path": "postman/common/common.resource.postman.json",
-            "integrity": "sha1:842b7c6580b4fffc0abe4a4afc3fcee5f2037960"
+            "integrity": "sha1:4c2c8ffd79e20200eaab10c6c9b327e0f7ae0127"
         }
     ]
 }

@@ -8,7 +8,6 @@ describe('CommonDeleteResourcesHandler', () =>
 {
     let handler: CommonDeleteResourcesHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonDeleteResourcesHandler', () =>
 
         handler = module.get<CommonDeleteResourcesHandler>(CommonDeleteResourcesHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonDeleteResourcesHandler should be defined', () =>
@@ -53,7 +51,14 @@ describe('CommonDeleteResourcesHandler', () =>
         test('should return an commonMockResourceData deleted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData)));
-            expect(await handler.main()).toBe(commonMockResourceData);
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockResourceData);
         });
     });
 });

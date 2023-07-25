@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonFindAttachmentFamilyHandler, CommonFindAttachmentFamilyResolver } from '@api/common/attachment-family';
+import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonFindAttachmentFamilyResolver } from './common-find-attachment-family.resolver';
-import { CommonFindAttachmentFamilyHandler } from '../handlers/common-find-attachment-family.handler';
-
-// sources
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
 
 describe('CommonFindAttachmentFamilyResolver', () =>
 {

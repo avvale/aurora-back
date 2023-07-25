@@ -8,7 +8,6 @@ describe('CommonDeleteAttachmentFamiliesHandler', () =>
 {
     let handler: CommonDeleteAttachmentFamiliesHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonDeleteAttachmentFamiliesHandler', () =>
 
         handler = module.get<CommonDeleteAttachmentFamiliesHandler>(CommonDeleteAttachmentFamiliesHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonDeleteAttachmentFamiliesHandler should be defined', () =>
@@ -53,7 +51,14 @@ describe('CommonDeleteAttachmentFamiliesHandler', () =>
         test('should return an commonMockAttachmentFamilyData deleted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData)));
-            expect(await handler.main()).toBe(commonMockAttachmentFamilyData);
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData);
         });
     });
 });

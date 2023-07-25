@@ -1,6 +1,5 @@
 import { CommonCreateAttachmentFamilyController, CommonCreateAttachmentFamilyHandler } from '@api/common/attachment-family';
 import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
-import { CacheModule } from '@nestjs/cache-manager';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateAttachmentFamilyController', () =>
@@ -41,7 +40,12 @@ describe('CommonCreateAttachmentFamilyController', () =>
         test('should return an attachmentFamily created', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await controller.main(commonMockAttachmentFamilyData[0])).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await controller.main(
+                    commonMockAttachmentFamilyData[0],
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

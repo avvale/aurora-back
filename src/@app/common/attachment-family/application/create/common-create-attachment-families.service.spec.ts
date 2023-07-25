@@ -10,7 +10,6 @@ import { CommonMockAttachmentFamilyRepository } from '../../infrastructure/mock/
 describe('CommonCreateAttachmentFamiliesService', () =>
 {
     let service: CommonCreateAttachmentFamiliesService;
-    let repository: CommonIAttachmentFamilyRepository;
     let mockRepository: CommonMockAttachmentFamilyRepository;
 
     beforeAll(async () =>
@@ -34,7 +33,6 @@ describe('CommonCreateAttachmentFamiliesService', () =>
             .compile();
 
         service = module.get(CommonCreateAttachmentFamiliesService);
-        repository = module.get(CommonIAttachmentFamilyRepository);
         mockRepository = module.get(CommonMockAttachmentFamilyRepository);
     });
 
@@ -47,9 +45,12 @@ describe('CommonCreateAttachmentFamiliesService', () =>
 
         test('should create attachmentFamilies and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

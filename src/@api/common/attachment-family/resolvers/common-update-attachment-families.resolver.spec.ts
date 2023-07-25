@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonUpdateAttachmentFamiliesResolver } from './common-update-attachment-families.resolver';
-import { CommonUpdateAttachmentFamiliesHandler } from '../handlers/common-update-attachment-families.handler';
+import { CommonUpdateAttachmentFamiliesHandler, CommonUpdateAttachmentFamiliesResolver } from '@api/common/attachment-family';
 import { CommonUpdateAttachmentFamiliesInput } from '@api/graphql';
-
-// sources
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
+import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUpdateAttachmentFamiliesResolver', () =>
 {

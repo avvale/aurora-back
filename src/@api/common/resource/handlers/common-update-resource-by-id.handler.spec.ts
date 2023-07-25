@@ -9,7 +9,6 @@ describe('CommonUpdateResourceByIdHandler', () =>
 {
     let handler: CommonUpdateResourceByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('CommonUpdateResourceByIdHandler', () =>
 
         handler = module.get<CommonUpdateResourceByIdHandler>(CommonUpdateResourceByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonUpdateResourceByIdHandler should be defined', () =>
@@ -54,7 +52,13 @@ describe('CommonUpdateResourceByIdHandler', () =>
         test('should return a resource updated', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData[0])));
-            expect(await handler.main(<CommonUpdateResourceByIdInput>commonMockResourceData[0])).toBe(commonMockResourceData[0]);
+            expect(
+                await handler.main(
+                    <CommonUpdateResourceByIdInput>commonMockResourceData[0],
+                    {},
+                    'Europe/Madrid',
+                ))
+                .toBe(commonMockResourceData[0]);
         });
     });
 });

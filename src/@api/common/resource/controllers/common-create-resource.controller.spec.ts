@@ -1,6 +1,5 @@
 import { CommonCreateResourceController, CommonCreateResourceHandler } from '@api/common/resource';
 import { commonMockResourceData } from '@app/common/resource';
-import { CacheModule } from '@nestjs/cache-manager';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateResourceController', () =>
@@ -41,7 +40,12 @@ describe('CommonCreateResourceController', () =>
         test('should return an resource created', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData[0])));
-            expect(await controller.main(commonMockResourceData[0])).toBe(commonMockResourceData[0]);
+            expect(
+                await controller.main(
+                    commonMockResourceData[0],
+                ),
+            )
+                .toBe(commonMockResourceData[0]);
         });
     });
 });

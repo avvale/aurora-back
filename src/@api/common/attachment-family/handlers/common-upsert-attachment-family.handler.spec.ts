@@ -8,7 +8,6 @@ describe('CommonUpsertAttachmentFamilyHandler', () =>
 {
     let handler: CommonUpsertAttachmentFamilyHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonUpsertAttachmentFamilyHandler', () =>
 
         handler = module.get<CommonUpsertAttachmentFamilyHandler>(CommonUpsertAttachmentFamilyHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,12 @@ describe('CommonUpsertAttachmentFamilyHandler', () =>
         test('should return an attachmentFamily upserted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await handler.main(commonMockAttachmentFamilyData[0])).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await handler.main(
+                    commonMockAttachmentFamilyData[0],
+                    'Europe/Madrid',
+                ))
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

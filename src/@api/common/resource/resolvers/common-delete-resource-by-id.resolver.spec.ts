@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonDeleteResourceByIdHandler, CommonDeleteResourceByIdResolver } from '@api/common/resource';
+import { commonMockResourceData } from '@app/common/resource';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonDeleteResourceByIdResolver } from './common-delete-resource-by-id.resolver';
-import { CommonDeleteResourceByIdHandler } from '../handlers/common-delete-resource-by-id.handler';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
 
 describe('CommonDeleteResourceByIdResolver', () =>
 {

@@ -19,7 +19,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/create/common-create-attachment-family.service.spec.ts",
-            "integrity": "sha1:714f8ea6bffa8fe46a78f9ff73f816177c2e086c"
+            "integrity": "sha1:c9819bd5cd6433cdbf1d35669aec43a63e422687"
         },
         {
             "path": "src/@app/common/attachment-family/application/create/common-create-attachment-family.service.ts",
@@ -39,7 +39,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/create/common-create-attachment-families.service.spec.ts",
-            "integrity": "sha1:cb0060caa43ca1d9915ded55fdce58924685d75d"
+            "integrity": "sha1:9612ed1facf70f8605959d86a63ce5862a523b36"
         },
         {
             "path": "src/@app/common/attachment-family/application/create/common-create-attachment-families.service.ts",
@@ -59,11 +59,11 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/delete/common-delete-attachment-family-by-id.service.spec.ts",
-            "integrity": "sha1:29d6261e8dca510fa83888c3332e6db7ab26bbad"
+            "integrity": "sha1:f4f0021c913ade7c2492d333b0294d8f4327bb70"
         },
         {
             "path": "src/@app/common/attachment-family/application/delete/common-delete-attachment-family-by-id.service.ts",
-            "integrity": "sha1:5215ecea399703c7d82801faa93e318a738990ad"
+            "integrity": "sha1:9dc97938561558a01aa3b0091c100982b6b3bed7"
         },
         {
             "path": "src/@app/common/attachment-family/application/delete/common-delete-attachment-families.command-handler.spec.ts",
@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/delete/common-delete-attachment-families.service.spec.ts",
-            "integrity": "sha1:5a4b4fb3321592cf4578c25db262205f9a1cc603"
+            "integrity": "sha1:b13a4e3a2d6ecd5c0cf7603072e4c9af22167cce"
         },
         {
             "path": "src/@app/common/attachment-family/application/delete/common-delete-attachment-families.service.ts",
@@ -255,7 +255,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/update/common-update-attachment-family-by-id.service.spec.ts",
-            "integrity": "sha1:441ad8196f3f5130b0fc23c3682103b7735c7f66"
+            "integrity": "sha1:d72f73978a2735d82059bf34153ad4421f0a792a"
         },
         {
             "path": "src/@app/common/attachment-family/application/update/common-update-attachment-family-by-id.service.ts",
@@ -275,7 +275,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/update/common-update-attachment-families.service.spec.ts",
-            "integrity": "sha1:ecf9dd848e74079794dc33f46a95bb540ad591dd"
+            "integrity": "sha1:4d2fb3472dcbeae335f387f61919d2fc2d908d21"
         },
         {
             "path": "src/@app/common/attachment-family/application/update/common-update-attachment-families.service.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.service.spec.ts",
-            "integrity": "sha1:f4b157c3fa99df1fe722fd5de6c540fd6704ea59"
+            "integrity": "sha1:09694e3186e94d41ef40f3dae1d3cc450fd149e7"
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data.ts",
-            "integrity": "sha1:f352b15ef00be3a70bf4a04900f2a012a8d22b78"
+            "integrity": "sha1:3ae12d9b2329c97a4d87f7960e1bce2f70165744"
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.repository.ts",
@@ -399,7 +399,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/controllers/common-create-attachment-family.controller.spec.ts",
-            "integrity": "sha1:82edaf4856cd765a387eaa60443842f39ccc4436"
+            "integrity": "sha1:cb9b80701723fd7917e9ca7506da4da574847acc"
         },
         {
             "path": "src/@api/common/attachment-family/controllers/common-create-attachment-family.controller.ts",
@@ -407,11 +407,11 @@
         },
         {
             "path": "src/@api/common/attachment-family/controllers/common-create-attachment-families.controller.spec.ts",
-            "integrity": "sha1:7ef71a196e114db371d29f70406c23e0add53a9e"
+            "integrity": "sha1:d1fd95fe1807bb5cbe1c72a61217a5f0f33adbfa"
         },
         {
             "path": "src/@api/common/attachment-family/controllers/common-create-attachment-families.controller.ts",
-            "integrity": "sha1:4e597ce92cb0316caaca7da94a0f5063b2ad0db7"
+            "integrity": "sha1:7714bd36256b38c0ed0a2a027e48e327f1d0fc3a"
         },
         {
             "path": "src/@api/common/attachment-family/controllers/common-delete-attachment-family-by-id.controller.spec.ts",
@@ -487,19 +487,19 @@
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-attachment-family.dto.ts",
-            "integrity": "sha1:98b1e849be360359a4838aad782200845228bc07"
+            "integrity": "sha1:132578556c1d56d2f1d04d721356e7119b05f721"
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-create-attachment-family.dto.ts",
-            "integrity": "sha1:30635d3f6bfd3e7ff623a22717ebcc4a70200728"
+            "integrity": "sha1:b745de32b22b8ea0c8f14f5f2861f105881d7cb5"
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-update-attachment-family-by-id.dto.ts",
-            "integrity": "sha1:bb618294702078ad13671050f5c89a38e9141769"
+            "integrity": "sha1:4ea59b7fd769ffde4d558de2af0a51e36a06e010"
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-update-attachment-families.dto.ts",
-            "integrity": "sha1:4882654e53a786b0a4ba257c809ca14c06a0af69"
+            "integrity": "sha1:81885303b2d865e4d0d49189ef31fa2711d5ddf0"
         },
         {
             "path": "src/@api/common/attachment-family/dto/index.ts",
@@ -511,7 +511,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-create-attachment-family.handler.spec.ts",
-            "integrity": "sha1:4b4b22a8c9e03c63b1fe93971d2d014b729b8326"
+            "integrity": "sha1:48d3b7e3fb1db2204ad872a40434583dd1cef3c8"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-create-attachment-family.handler.ts",
@@ -519,7 +519,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-create-attachment-families.handler.spec.ts",
-            "integrity": "sha1:7870c1126f48223f51e65589b6f30a55c03743d7"
+            "integrity": "sha1:ca1460acfd0bf63b025cbc52c53b7db9475e56f9"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-create-attachment-families.handler.ts",
@@ -527,7 +527,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-delete-attachment-family-by-id.handler.spec.ts",
-            "integrity": "sha1:687bd7b39765ee9aa44bb74045dd32d7d42c04a7"
+            "integrity": "sha1:cd5b5f5cee198d4eef5d74b3cdfbb8629b66a07d"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-delete-attachment-family-by-id.handler.ts",
@@ -535,7 +535,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-delete-attachment-families.handler.spec.ts",
-            "integrity": "sha1:afa2fe470ba76240a44cae9c8243d32ac6f6154d"
+            "integrity": "sha1:10133d0a2fc4bdcccff6e61a034981c584dfe445"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-delete-attachment-families.handler.ts",
@@ -543,7 +543,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-find-attachment-family-by-id.handler.spec.ts",
-            "integrity": "sha1:5d51d683aacaac8dbbbd22cf48d6d87036fd35dc"
+            "integrity": "sha1:c0ea406d829832ce684939da00ebc69f6840ed15"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-find-attachment-family-by-id.handler.ts",
@@ -551,7 +551,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-find-attachment-family.handler.spec.ts",
-            "integrity": "sha1:d6e1619ba163798be0b58e468b06d46b6299f7cf"
+            "integrity": "sha1:ad2b9dd53bfaee68bebfa1b4f47b93df4d33459a"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-find-attachment-family.handler.ts",
@@ -559,7 +559,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-get-attachment-families.handler.spec.ts",
-            "integrity": "sha1:b3e22c994275a58a859aa0842521c4542d5532fb"
+            "integrity": "sha1:d8e9492bf6f2e8291504800b6c4fd37c16c7ae07"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-get-attachment-families.handler.ts",
@@ -567,7 +567,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-paginate-attachment-families.handler.spec.ts",
-            "integrity": "sha1:ffe4c2b03dd518d7a176a6945178cb505c729272"
+            "integrity": "sha1:70ff16fa5f14f782414dae231c3a572b8e9c897e"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-paginate-attachment-families.handler.ts",
@@ -575,7 +575,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-update-attachment-family-by-id.handler.spec.ts",
-            "integrity": "sha1:7b74863a23f58f83bbae82855fb62f92b66cfb18"
+            "integrity": "sha1:1817dd3a9d845fee3dd0093920ff68103f3268b7"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-update-attachment-family-by-id.handler.ts",
@@ -583,7 +583,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-update-attachment-families.handler.spec.ts",
-            "integrity": "sha1:fa4420383c7a07e4c459fda74af7a1bda8dbb008"
+            "integrity": "sha1:6a50a43545f8d717eba700ba2eb57a8444021d7d"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-update-attachment-families.handler.ts",
@@ -591,7 +591,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-upsert-attachment-family.handler.spec.ts",
-            "integrity": "sha1:49e7b6d56ec307389fc3aa6e3778924267af2fff"
+            "integrity": "sha1:6f20ec8a9158d67e722cc974cf7c73de866e0aaf"
         },
         {
             "path": "src/@api/common/attachment-family/handlers/common-upsert-attachment-family.handler.ts",
@@ -599,11 +599,11 @@
         },
         {
             "path": "src/@api/common/attachment-family/index.ts",
-            "integrity": "sha1:6f75cfbcad5441268672c59aaec600e23d6d9cf6"
+            "integrity": "sha1:2fecc913dafc01a46969f77ada765700d07efef4"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-create-attachment-family.resolver.spec.ts",
-            "integrity": "sha1:bf3efb3ba070e01479547214a25218fa054413f0"
+            "integrity": "sha1:2b8c534f03ea151d2f893f3ffd4f512be04e638b"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-create-attachment-family.resolver.ts",
@@ -611,31 +611,31 @@
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-create-attachment-families.resolver.spec.ts",
-            "integrity": "sha1:f501cebdb64f79e263ff19f96924ced086fbea0e"
+            "integrity": "sha1:d583fa66d4aec79e65e7501bbab4b16daa50b2a8"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-create-attachment-families.resolver.ts",
-            "integrity": "sha1:9b641c35e2d410a3a47c60da0447f81ff59885c6"
+            "integrity": "sha1:3973a29b4ba70bafac8ff02b2219f2fe7bba2781"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-delete-attachment-family-by-id.resolver.spec.ts",
-            "integrity": "sha1:7412f3a92d96bf7c8d4e43e973ac7c1a00f88282"
+            "integrity": "sha1:29a6e92c7354187a2e1586eee30b299f39b7beb1"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-delete-attachment-family-by-id.resolver.ts",
-            "integrity": "sha1:8949f6e39499141e63b121356c83ab2284e6b9b8"
+            "integrity": "sha1:5415af0f79ee554a7176d13f5ba980482f1c7f15"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-delete-attachment-families.resolver.spec.ts",
-            "integrity": "sha1:0e273954334a05769626bc0c4d158831bc1037a0"
+            "integrity": "sha1:191a1b60f2996ecd00dd5482a5b54a6697d4eb6a"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-delete-attachment-families.resolver.ts",
-            "integrity": "sha1:4eb6c827fc1174a6f7fa0dc12248066d41ce05b9"
+            "integrity": "sha1:2468772b837c2bd5679417c86af4ac0567aab684"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-find-attachment-family-by-id.resolver.spec.ts",
-            "integrity": "sha1:6aa4e0a00351a840bcf670a3a46a47de0a430962"
+            "integrity": "sha1:abac470e2c28a0707c6fe427e1ace094a0e8f04c"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-find-attachment-family-by-id.resolver.ts",
@@ -643,31 +643,31 @@
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-find-attachment-family.resolver.spec.ts",
-            "integrity": "sha1:d8177f109139232054339e96088ea6b84b102f5c"
+            "integrity": "sha1:c643dd4bfa8883a29de0a48a0f55e9052ae766ba"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-find-attachment-family.resolver.ts",
-            "integrity": "sha1:89232003a3210bb0f4e00fcda9d7441ab3c2f84a"
+            "integrity": "sha1:fa03ee7acbb3edad32959a855092bc2957c8e512"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-get-attachment-families.resolver.spec.ts",
-            "integrity": "sha1:2582b8ba137a24a78a8f9a82b4f3042847d30ec4"
+            "integrity": "sha1:21c216d2a4932ccecda811c51b7e267812ab8bac"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-get-attachment-families.resolver.ts",
-            "integrity": "sha1:feee6c37b8d63fae14bff42424253b82b3321278"
+            "integrity": "sha1:0cb892844809c4ba440b940f4aa1aa116830da2a"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-paginate-attachment-families.resolver.spec.ts",
-            "integrity": "sha1:9355fa9bd23f0d1d1295f5f90a7494741322b820"
+            "integrity": "sha1:7e753f7057c9285c190b03fc587dee0730468b74"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-paginate-attachment-families.resolver.ts",
-            "integrity": "sha1:1f07fb416afe0a956890b28c68534069d3b31ba8"
+            "integrity": "sha1:fe5188ffc5e9bce5a863224b11692be317374d80"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-update-attachment-family-by-id.resolver.spec.ts",
-            "integrity": "sha1:c149e103a76e128b9178533dba4da5329f7a3023"
+            "integrity": "sha1:836ba6ae284d49f7308b0c57a7c06c8dea8b894c"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-update-attachment-family-by-id.resolver.ts",
@@ -675,7 +675,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-update-attachment-families.resolver.spec.ts",
-            "integrity": "sha1:1655b402e3d1eab6b1bbd794b6413754eb6626cc"
+            "integrity": "sha1:af1460e84b7c451fef2c7568db7ad3dae4a688b8"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-update-attachment-families.resolver.ts",
@@ -683,7 +683,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-upsert-attachment-family.resolver.spec.ts",
-            "integrity": "sha1:4903a9ca92f0e47b8af3f4db8aaff31fb4d9705a"
+            "integrity": "sha1:f285e9079483ecfd8af1301a61c1d0d066f0af64"
         },
         {
             "path": "src/@api/common/attachment-family/resolvers/common-upsert-attachment-family.resolver.ts",
@@ -699,7 +699,7 @@
         },
         {
             "path": "postman/common/common.attachment-family.postman.json",
-            "integrity": "sha1:b87ab49bd52df48b1e9f36c70f7079583a2b1648"
+            "integrity": "sha1:9c321229a95f998dd8d5f12d6c6a47571ff85540"
         }
     ]
 }

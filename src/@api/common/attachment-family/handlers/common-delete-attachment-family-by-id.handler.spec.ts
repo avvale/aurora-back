@@ -8,7 +8,6 @@ describe('CommonDeleteAttachmentFamilyByIdController', () =>
 {
     let handler: CommonDeleteAttachmentFamilyByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonDeleteAttachmentFamilyByIdController', () =>
 
         handler = module.get<CommonDeleteAttachmentFamilyByIdHandler>(CommonDeleteAttachmentFamilyByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,14 @@ describe('CommonDeleteAttachmentFamilyByIdController', () =>
         test('should return an attachmentFamily deleted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await handler.main(commonMockAttachmentFamilyData[0].id)).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await handler.main(
+                    commonMockAttachmentFamilyData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

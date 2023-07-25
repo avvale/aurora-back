@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonFindResourceHandler, CommonFindResourceResolver } from '@api/common/resource';
+import { commonMockResourceData } from '@app/common/resource';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonFindResourceResolver } from './common-find-resource.resolver';
-import { CommonFindResourceHandler } from '../handlers/common-find-resource.handler';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
 
 describe('CommonFindResourceResolver', () =>
 {

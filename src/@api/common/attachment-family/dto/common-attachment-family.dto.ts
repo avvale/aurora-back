@@ -1,7 +1,7 @@
 /* eslint-disable indent */
-import { ApiProperty } from '@nestjs/swagger';
-import { CommonResourceDto } from '../../../common/resource/dto/common-resource.dto';
+import { CommonResourceDto } from '@api/common/resource';
 import { CommonAttachmentFamilyFitType, CommonAttachmentFamilyFormat } from '@api/graphql';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CommonAttachmentFamilyDto
 {

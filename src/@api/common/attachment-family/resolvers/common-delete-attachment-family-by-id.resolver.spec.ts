@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonDeleteAttachmentFamilyByIdHandler, CommonDeleteAttachmentFamilyByIdResolver } from '@api/common/attachment-family';
+import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonDeleteAttachmentFamilyByIdResolver } from './common-delete-attachment-family-by-id.resolver';
-import { CommonDeleteAttachmentFamilyByIdHandler } from '../handlers/common-delete-attachment-family-by-id.handler';
-
-// sources
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
 
 describe('CommonDeleteAttachmentFamilyByIdResolver', () =>
 {

@@ -1,10 +1,8 @@
-import { Resolver, Args, Query } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { CommonGetAttachmentFamiliesHandler } from '../handlers/common-get-attachment-families.handler';
+import { CommonGetAttachmentFamiliesHandler } from '@api/common/attachment-family';
 import { CommonAttachmentFamily } from '@api/graphql';
+import { Auth } from '@aurora/decorators';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('common.attachmentFamily.get')

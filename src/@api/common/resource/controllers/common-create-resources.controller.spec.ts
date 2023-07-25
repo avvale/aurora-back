@@ -5,7 +5,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 describe('CommonCreateResourcesController', () =>
 {
     let controller: CommonCreateResourcesController;
-    let handler: CommonCreateResourcesHandler;
 
     beforeAll(async () =>
     {
@@ -25,7 +24,6 @@ describe('CommonCreateResourcesController', () =>
             .compile();
 
         controller = module.get<CommonCreateResourcesController>(CommonCreateResourcesController);
-        handler = module.get<CommonCreateResourcesHandler>(CommonCreateResourcesHandler);
     });
 
     describe('main', () =>
@@ -37,7 +35,12 @@ describe('CommonCreateResourcesController', () =>
 
         test('should return an commonMockResourceData created', async () =>
         {
-            expect(await controller.main(commonMockResourceData)).toBe(undefined);
+            expect(
+                await controller.main(
+                    commonMockResourceData,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonFindResourceByIdHandler } from '@api/common/resource';
 import { commonMockResourceData } from '@app/common/resource';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonFindResourceByIdHandler', () =>
 {
     let handler: CommonFindResourceByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('CommonFindResourceByIdHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<CommonFindResourceByIdHandler>(CommonFindResourceByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonFindResourceByIdHandler should be defined', () =>
@@ -53,7 +45,14 @@ describe('CommonFindResourceByIdHandler', () =>
         test('should return an resource by id', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData[0])));
-            expect(await handler.main(commonMockResourceData[0].id)).toBe(commonMockResourceData[0]);
+            expect(
+                await handler.main(
+                    commonMockResourceData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockResourceData[0]);
         });
     });
 });

@@ -1,17 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonCreateAttachmentFamiliesResolver } from './common-create-attachment-families.resolver';
-import { CommonCreateAttachmentFamiliesHandler } from '../handlers/common-create-attachment-families.handler';
+import { CommonCreateAttachmentFamiliesHandler, CommonCreateAttachmentFamiliesResolver } from '@api/common/attachment-family';
 import { CommonCreateAttachmentFamilyInput } from '@api/graphql';
-
-// sources
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
+import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateAttachmentFamiliesResolver', () =>
 {
     let resolver: CommonCreateAttachmentFamiliesResolver;
-    let handler: CommonCreateAttachmentFamiliesHandler;
 
     beforeAll(async () =>
     {
@@ -29,7 +23,6 @@ describe('CommonCreateAttachmentFamiliesResolver', () =>
             .compile();
 
         resolver = module.get<CommonCreateAttachmentFamiliesResolver>(CommonCreateAttachmentFamiliesResolver);
-        handler = module.get<CommonCreateAttachmentFamiliesHandler>(CommonCreateAttachmentFamiliesHandler);
     });
 
     test('CommonCreateAttachmentFamiliesResolver should be defined', () =>

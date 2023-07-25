@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonGetResourcesHandler, CommonGetResourcesResolver } from '@api/common/resource';
+import { commonMockResourceData } from '@app/common/resource';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonGetResourcesResolver } from './common-get-resources.resolver';
-import { CommonGetResourcesHandler } from '../handlers/common-get-resources.handler';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
 
 describe('CommonGetResourcesResolver', () =>
 {

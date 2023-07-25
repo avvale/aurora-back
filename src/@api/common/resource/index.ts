@@ -30,6 +30,19 @@ export { CommonUpsertResourceController } from './controllers/common-upsert-reso
 export { CommonDeleteResourceByIdController } from './controllers/common-delete-resource-by-id.controller';
 export { CommonDeleteResourcesController } from './controllers/common-delete-resources.controller';
 
+// exports resolvers
+export { CommonCreateResourceResolver } from './resolvers/common-create-resource.resolver';
+export { CommonCreateResourcesResolver } from './resolvers/common-create-resources.resolver';
+export { CommonPaginateResourcesResolver } from './resolvers/common-paginate-resources.resolver';
+export { CommonGetResourcesResolver } from './resolvers/common-get-resources.resolver';
+export { CommonFindResourceByIdResolver } from './resolvers/common-find-resource-by-id.resolver';
+export { CommonFindResourceResolver } from './resolvers/common-find-resource.resolver';
+export { CommonUpdateResourceByIdResolver } from './resolvers/common-update-resource-by-id.resolver';
+export { CommonUpdateResourcesResolver } from './resolvers/common-update-resources.resolver';
+export { CommonUpsertResourceResolver } from './resolvers/common-upsert-resource.resolver';
+export { CommonDeleteResourceByIdResolver } from './resolvers/common-delete-resource-by-id.resolver';
+export { CommonDeleteResourcesResolver } from './resolvers/common-delete-resources.resolver';
+
 // controllers
 import { CommonCreateResourceController } from './controllers/common-create-resource.controller';
 import { CommonCreateResourcesController } from './controllers/common-create-resources.controller';

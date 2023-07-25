@@ -30,6 +30,19 @@ export { CommonUpsertAttachmentFamilyController } from './controllers/common-ups
 export { CommonDeleteAttachmentFamilyByIdController } from './controllers/common-delete-attachment-family-by-id.controller';
 export { CommonDeleteAttachmentFamiliesController } from './controllers/common-delete-attachment-families.controller';
 
+// exports resolvers
+export { CommonCreateAttachmentFamilyResolver } from './resolvers/common-create-attachment-family.resolver';
+export { CommonCreateAttachmentFamiliesResolver } from './resolvers/common-create-attachment-families.resolver';
+export { CommonPaginateAttachmentFamiliesResolver } from './resolvers/common-paginate-attachment-families.resolver';
+export { CommonGetAttachmentFamiliesResolver } from './resolvers/common-get-attachment-families.resolver';
+export { CommonFindAttachmentFamilyByIdResolver } from './resolvers/common-find-attachment-family-by-id.resolver';
+export { CommonFindAttachmentFamilyResolver } from './resolvers/common-find-attachment-family.resolver';
+export { CommonUpdateAttachmentFamilyByIdResolver } from './resolvers/common-update-attachment-family-by-id.resolver';
+export { CommonUpdateAttachmentFamiliesResolver } from './resolvers/common-update-attachment-families.resolver';
+export { CommonUpsertAttachmentFamilyResolver } from './resolvers/common-upsert-attachment-family.resolver';
+export { CommonDeleteAttachmentFamilyByIdResolver } from './resolvers/common-delete-attachment-family-by-id.resolver';
+export { CommonDeleteAttachmentFamiliesResolver } from './resolvers/common-delete-attachment-families.resolver';
+
 // controllers
 import { CommonCreateAttachmentFamilyController } from './controllers/common-create-attachment-family.controller';
 import { CommonCreateAttachmentFamiliesController } from './controllers/common-create-attachment-families.controller';

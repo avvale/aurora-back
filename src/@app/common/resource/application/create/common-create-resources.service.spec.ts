@@ -10,7 +10,6 @@ import { CommonMockResourceRepository } from '../../infrastructure/mock/common-m
 describe('CommonCreateResourcesService', () =>
 {
     let service: CommonCreateResourcesService;
-    let repository: CommonIResourceRepository;
     let mockRepository: CommonMockResourceRepository;
 
     beforeAll(async () =>
@@ -34,7 +33,6 @@ describe('CommonCreateResourcesService', () =>
             .compile();
 
         service = module.get(CommonCreateResourcesService);
-        repository = module.get(CommonIResourceRepository);
         mockRepository = module.get(CommonMockResourceRepository);
     });
 
@@ -47,9 +45,12 @@ describe('CommonCreateResourcesService', () =>
 
         test('should create resources and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

@@ -8,7 +8,6 @@ describe('CommonCreateAttachmentFamilyHandler', () =>
 {
     let handler: CommonCreateAttachmentFamilyHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonCreateAttachmentFamilyHandler', () =>
 
         handler = module.get<CommonCreateAttachmentFamilyHandler>(CommonCreateAttachmentFamilyHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,13 @@ describe('CommonCreateAttachmentFamilyHandler', () =>
         test('should return an attachmentFamily created', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await handler.main(commonMockAttachmentFamilyData[0])).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await handler.main(
+                    commonMockAttachmentFamilyData[0],
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

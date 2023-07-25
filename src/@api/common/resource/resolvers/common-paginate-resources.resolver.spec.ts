@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonPaginateResourcesHandler, CommonPaginateResourcesResolver } from '@api/common/resource';
+import { commonMockResourceData } from '@app/common/resource';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonPaginateResourcesResolver } from './common-paginate-resources.resolver';
-import { CommonPaginateResourcesHandler } from '../handlers/common-paginate-resources.handler';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
 
 describe('CommonPaginateResourcesResolver', () =>
 {

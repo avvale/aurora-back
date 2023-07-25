@@ -25,8 +25,6 @@ import { CommonMockAttachmentFamilyRepository } from '../../infrastructure/mock/
 describe('CommonUpdateAttachmentFamiliesService', () =>
 {
     let service: CommonUpdateAttachmentFamiliesService;
-    let repository: CommonIAttachmentFamilyRepository;
-    let mockRepository: CommonMockAttachmentFamilyRepository;
 
     beforeAll(async () =>
     {
@@ -50,8 +48,6 @@ describe('CommonUpdateAttachmentFamiliesService', () =>
             .compile();
 
         service = module.get(CommonUpdateAttachmentFamiliesService);
-        repository = module.get(CommonIAttachmentFamilyRepository);
-        mockRepository = module.get(CommonMockAttachmentFamilyRepository);
     });
 
     describe('main', () =>
@@ -63,19 +59,24 @@ describe('CommonUpdateAttachmentFamiliesService', () =>
 
         test('should update a attachmentFamilies and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new CommonAttachmentFamilyId(commonMockAttachmentFamilyData[0].id),
-                    resourceId: new CommonAttachmentFamilyResourceId(commonMockAttachmentFamilyData[0].resourceId),
-                    name: new CommonAttachmentFamilyName(commonMockAttachmentFamilyData[0].name),
-                    width: new CommonAttachmentFamilyWidth(commonMockAttachmentFamilyData[0].width),
-                    height: new CommonAttachmentFamilyHeight(commonMockAttachmentFamilyData[0].height),
-                    fitType: new CommonAttachmentFamilyFitType(commonMockAttachmentFamilyData[0].fitType),
-                    quality: new CommonAttachmentFamilyQuality(commonMockAttachmentFamilyData[0].quality),
-                    sizes: new CommonAttachmentFamilySizes(commonMockAttachmentFamilyData[0].sizes),
-                    format: new CommonAttachmentFamilyFormat(commonMockAttachmentFamilyData[0].format),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new CommonAttachmentFamilyId(commonMockAttachmentFamilyData[0].id),
+                        resourceId: new CommonAttachmentFamilyResourceId(commonMockAttachmentFamilyData[0].resourceId),
+                        name: new CommonAttachmentFamilyName(commonMockAttachmentFamilyData[0].name),
+                        width: new CommonAttachmentFamilyWidth(commonMockAttachmentFamilyData[0].width),
+                        height: new CommonAttachmentFamilyHeight(commonMockAttachmentFamilyData[0].height),
+                        fitType: new CommonAttachmentFamilyFitType(commonMockAttachmentFamilyData[0].fitType),
+                        quality: new CommonAttachmentFamilyQuality(commonMockAttachmentFamilyData[0].quality),
+                        sizes: new CommonAttachmentFamilySizes(commonMockAttachmentFamilyData[0].sizes),
+                        format: new CommonAttachmentFamilyFormat(commonMockAttachmentFamilyData[0].format),
+                    },
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

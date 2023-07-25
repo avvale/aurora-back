@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonCreateResourceResolver } from './common-create-resource.resolver';
-import { CommonCreateResourceHandler } from '../handlers/common-create-resource.handler';
+import { CommonCreateResourceHandler, CommonCreateResourceResolver } from '@api/common/resource';
 import { CommonCreateResourceInput } from '@api/graphql';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
+import { commonMockResourceData } from '@app/common/resource';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateResourceResolver', () =>
 {

@@ -19,7 +19,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-area-level-1.service.spec.ts",
-            "integrity": "sha1:a8235ce8bd1698f68da04b9df16413cde9cb5950"
+            "integrity": "sha1:814dcfdb6b3ee7e58f3745696cb3b6897e857fdc"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-area-level-1.service.ts",
@@ -39,7 +39,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-areas-level-1.service.spec.ts",
-            "integrity": "sha1:aa57c7f1fc223cb1a6f3536d3de232193d16d0aa"
+            "integrity": "sha1:ea22d0fd6eeafb519cfbe583ad1e633c5152705e"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/create/common-create-administrative-areas-level-1.service.ts",
@@ -59,11 +59,11 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/delete/common-delete-administrative-area-level-1-by-id.service.spec.ts",
-            "integrity": "sha1:659457a90e9e3b1132250d64dd729c44c4195638"
+            "integrity": "sha1:138086e58176f3b3ffac631b50e63429a25ac437"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/delete/common-delete-administrative-area-level-1-by-id.service.ts",
-            "integrity": "sha1:a105dd3bdbac5ec4f9bb8ea77052d7b2b8fc809c"
+            "integrity": "sha1:30202d025fb4e5ff76a737281389d40fa61ba331"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/delete/common-delete-administrative-areas-level-1.command-handler.spec.ts",
@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/delete/common-delete-administrative-areas-level-1.service.spec.ts",
-            "integrity": "sha1:9f459dc361b582125b0768eb80b91ca261ef321c"
+            "integrity": "sha1:7dc0fe56e78bb877a5d51ea8eef5c90ca7169186"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/delete/common-delete-administrative-areas-level-1.service.ts",
@@ -255,7 +255,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/update/common-update-administrative-area-level-1-by-id.service.spec.ts",
-            "integrity": "sha1:24ff7f065bd4bdac585c16f92329738b1d61061a"
+            "integrity": "sha1:547c81c737a50c0bb41d47918f63c51c2448833f"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/update/common-update-administrative-area-level-1-by-id.service.ts",
@@ -275,7 +275,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/update/common-update-administrative-areas-level-1.service.spec.ts",
-            "integrity": "sha1:17013b20e1d9eea107c27a0354c0bbc407230dc4"
+            "integrity": "sha1:b7fe2d49e8cfa1ec4c9c8fcb5808b62bdac7517f"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/update/common-update-administrative-areas-level-1.service.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.service.spec.ts",
-            "integrity": "sha1:9ea0e9be06665a6fa89cb057b2826797ca658b87"
+            "integrity": "sha1:4b0f6921dccda81a2e201427e764de294298daec"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data.ts",
-            "integrity": "sha1:454255370ac4690adf1449902e3980369c010078"
+            "integrity": "sha1:ae28ed935c3016b85e6c5ae6a5ea54ccfa8b7cc5"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.repository.ts",
@@ -403,7 +403,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/controllers/common-create-administrative-area-level-1.controller.spec.ts",
-            "integrity": "sha1:3551fd3ad2ad99f118786e7d2422da873f803915"
+            "integrity": "sha1:0c2d7fcadebbf0b0bd0359f3836598d76bcb3205"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/controllers/common-create-administrative-area-level-1.controller.ts",
@@ -411,11 +411,11 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/controllers/common-create-administrative-areas-level-1.controller.spec.ts",
-            "integrity": "sha1:325eb32e4854d8a7a4a3a86fb49694c3336d3fbb"
+            "integrity": "sha1:2670c8af3d42be6e6a55381f489c35eb309679e1"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/controllers/common-create-administrative-areas-level-1.controller.ts",
-            "integrity": "sha1:7baf3f8843ee41f897304cd51a786db417be15aa"
+            "integrity": "sha1:a4e6df9234f1125a57b4f9e2f2088e154400b29a"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/controllers/common-delete-administrative-area-level-1-by-id.controller.spec.ts",
@@ -491,19 +491,19 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/dto/common-administrative-area-level-1.dto.ts",
-            "integrity": "sha1:525560bfb54385010fdeec4813f2117fcf25811b"
+            "integrity": "sha1:fca95c1e42a5f3940e3c915b2e42ff6677050f8c"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/dto/common-create-administrative-area-level-1.dto.ts",
-            "integrity": "sha1:fcc61f5d9558db91c06a71af1f3516d9811ec994"
+            "integrity": "sha1:c51614025b89ed29a09a3bc724c0d21db2e1ff73"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/dto/common-update-administrative-area-level-1-by-id.dto.ts",
-            "integrity": "sha1:4cb5a283bc1349c26f7980c58d9f6b099a08493a"
+            "integrity": "sha1:5d3a2e73e05407ee8c5bffcbfb9f63d9e8572cd4"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/dto/common-update-administrative-areas-level-1.dto.ts",
-            "integrity": "sha1:3cf5527046cc44f0b95eb38e187b37d5a9df26c3"
+            "integrity": "sha1:4642bf42e9ac9019f24ae8e20d323b6561ae4f34"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/dto/index.ts",
@@ -515,7 +515,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-create-administrative-area-level-1.handler.spec.ts",
-            "integrity": "sha1:92ce93e25387ae175daffe76a47590499c2fa641"
+            "integrity": "sha1:2f8a8d4d039c6788cef414071f3ead14299fe80c"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-create-administrative-area-level-1.handler.ts",
@@ -523,7 +523,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-create-administrative-areas-level-1.handler.spec.ts",
-            "integrity": "sha1:43845eaf5978a15cfa6e0b5491812c19baddbacf"
+            "integrity": "sha1:798b1a86f5630847c4d82e6291c3750d8e5853c3"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-create-administrative-areas-level-1.handler.ts",
@@ -531,7 +531,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-delete-administrative-area-level-1-by-id.handler.spec.ts",
-            "integrity": "sha1:eebed16b3035124f3019a754faf305c276db14e8"
+            "integrity": "sha1:45366911f6e231ba94542b55898785eed5c14eb8"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-delete-administrative-area-level-1-by-id.handler.ts",
@@ -539,7 +539,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-delete-administrative-areas-level-1.handler.spec.ts",
-            "integrity": "sha1:e97b3afd38813335c8c8bae7b98727fbd307be11"
+            "integrity": "sha1:5e7be111e0f6f6a6e444b9b156e43b5cbfd27933"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-delete-administrative-areas-level-1.handler.ts",
@@ -547,7 +547,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-find-administrative-area-level-1-by-id.handler.spec.ts",
-            "integrity": "sha1:8aad6f1f335925cfd6865fc77ff05fc84ddcd661"
+            "integrity": "sha1:50dbc917eeac977ee36542fbbd309ecd043b9e45"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-find-administrative-area-level-1-by-id.handler.ts",
@@ -555,7 +555,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-find-administrative-area-level-1.handler.spec.ts",
-            "integrity": "sha1:ae15353360861b757b1409b7f4e0f43f79e50e5e"
+            "integrity": "sha1:c38b4ef6ffa720a7fb04b210763069811aa58a07"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-find-administrative-area-level-1.handler.ts",
@@ -563,7 +563,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-get-administrative-areas-level-1.handler.spec.ts",
-            "integrity": "sha1:9bbd0cf082bb78eeea85ca62696c39658e8368d9"
+            "integrity": "sha1:6734ef6b446ba1553fcd9a24ea094d2c7b3f198d"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-get-administrative-areas-level-1.handler.ts",
@@ -571,7 +571,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-paginate-administrative-areas-level-1.handler.spec.ts",
-            "integrity": "sha1:106f6e99fa5eb860fd307cf423257ebb28278caa"
+            "integrity": "sha1:61cd68822124e52e7e2c2f6d5f09401eb2ff050f"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-paginate-administrative-areas-level-1.handler.ts",
@@ -579,7 +579,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-update-administrative-area-level-1-by-id.handler.spec.ts",
-            "integrity": "sha1:08c68eade798ff8b650a1e8cd6d58cf7416b3e25"
+            "integrity": "sha1:62a714aeafbf40ea4187bb60f9b5396ebe482486"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-update-administrative-area-level-1-by-id.handler.ts",
@@ -587,7 +587,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-update-administrative-areas-level-1.handler.spec.ts",
-            "integrity": "sha1:8cb63d678e4b9d97e58a15028a874b62a90a8a5f"
+            "integrity": "sha1:355840d7dd055306085c4246e04178e2cac64279"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-update-administrative-areas-level-1.handler.ts",
@@ -595,7 +595,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-upsert-administrative-area-level-1.handler.spec.ts",
-            "integrity": "sha1:63ed6f28b22bb72532865e563002d3ab2ea01aee"
+            "integrity": "sha1:d329dee75fbf6c0ed4081809e1ddbbc52fe9ef84"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/handlers/common-upsert-administrative-area-level-1.handler.ts",
@@ -603,11 +603,11 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/index.ts",
-            "integrity": "sha1:0a58f1e71024c435957cf22522c8520bbf4644cc"
+            "integrity": "sha1:49795ced9480112c26b5da1887f53f8e630aa259"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-create-administrative-area-level-1.resolver.spec.ts",
-            "integrity": "sha1:65c7607ae9b3b86fdfc6753fe3dca0878b451430"
+            "integrity": "sha1:322d957f9515f70ff5410dd1979c1acf264d238f"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-create-administrative-area-level-1.resolver.ts",
@@ -615,31 +615,31 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-create-administrative-areas-level-1.resolver.spec.ts",
-            "integrity": "sha1:d3049451fbb24be588440d90c31c0693f9717633"
+            "integrity": "sha1:84ec42e997560e9ab041ded07860772cf03fe1e2"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-create-administrative-areas-level-1.resolver.ts",
-            "integrity": "sha1:20a7f28a087eebef152122c435b5631a4d412698"
+            "integrity": "sha1:056ea0707f54152a0b702d65345892dd1a077ac6"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-delete-administrative-area-level-1-by-id.resolver.spec.ts",
-            "integrity": "sha1:4e902e4af8b83a6bf1ea08506b1cc791daff61d2"
+            "integrity": "sha1:32a46b1c6ab3de231edfc35f750125366f1c30c5"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-delete-administrative-area-level-1-by-id.resolver.ts",
-            "integrity": "sha1:7cfef8b8cb32cbbda8729cf56a5f935299c40537"
+            "integrity": "sha1:a7f29201590a202d42740485214509310e255bd7"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-delete-administrative-areas-level-1.resolver.spec.ts",
-            "integrity": "sha1:69815b4eeaebb25d35c2a78f6d9292b677b18f60"
+            "integrity": "sha1:3eda57d0c42eddf160a5c4e9203f6b221908178c"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-delete-administrative-areas-level-1.resolver.ts",
-            "integrity": "sha1:1044e9c1d2843ecafa172c265a7c49252fbc2ab0"
+            "integrity": "sha1:4fbf6204f25d3e42ce1950894cedac3b132ad5cc"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-find-administrative-area-level-1-by-id.resolver.spec.ts",
-            "integrity": "sha1:125eefb6fb045b393a15ea887bdd5b4b83ba9a0a"
+            "integrity": "sha1:fd5411a7d0b2833e3d4890f8cd39c16263a79b99"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-find-administrative-area-level-1-by-id.resolver.ts",
@@ -647,31 +647,31 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-find-administrative-area-level-1.resolver.spec.ts",
-            "integrity": "sha1:328d927ce6c08db4fdfa47cbe80c51d0f8015d71"
+            "integrity": "sha1:23aa013dcc8a195e453c1e6654f5575d28a9c1d6"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-find-administrative-area-level-1.resolver.ts",
-            "integrity": "sha1:22e98831b3c3b92cacc4ea9abdcf6eb476f70dc6"
+            "integrity": "sha1:bfda19deeb9a8bf0f170577af1ba33d3490f45ad"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-get-administrative-areas-level-1.resolver.spec.ts",
-            "integrity": "sha1:6413a64f7f6d9f9459e2422955957168dd219f67"
+            "integrity": "sha1:95467852a2a3c705e51f3b2387bd1a13ec23220a"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-get-administrative-areas-level-1.resolver.ts",
-            "integrity": "sha1:8445d6f5c8df67a64ebc92f1389c3876aef1c9d5"
+            "integrity": "sha1:03d10bbee3903e6e1a5ec7f04ce9258d55b07850"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-paginate-administrative-areas-level-1.resolver.spec.ts",
-            "integrity": "sha1:c2b097e48b1ae2931d3e96b4957586c542ad9f63"
+            "integrity": "sha1:22d11927e7f874b75c5a4a618b2b331d51b98db9"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-paginate-administrative-areas-level-1.resolver.ts",
-            "integrity": "sha1:f4dd7028c57362befd5ca0b1db28d2b163bbed2e"
+            "integrity": "sha1:f99fce950e1f5e89d13414cf966cadcadea3177a"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-update-administrative-area-level-1-by-id.resolver.spec.ts",
-            "integrity": "sha1:d85bf0179997bea45d57b1a375d5513126726725"
+            "integrity": "sha1:3ff055c0bbeb94dc43fca51de0bf94f4f582d507"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-update-administrative-area-level-1-by-id.resolver.ts",
@@ -679,7 +679,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-update-administrative-areas-level-1.resolver.spec.ts",
-            "integrity": "sha1:042674427cec089664a4b6b4f68970a193bc6bcb"
+            "integrity": "sha1:b10e0b43db09ceaf4fa8da10e838c22bb99f38d6"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-update-administrative-areas-level-1.resolver.ts",
@@ -687,7 +687,7 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-upsert-administrative-area-level-1.resolver.spec.ts",
-            "integrity": "sha1:a2d7b642141b3bcd56ba970d25803a2533a2b1cf"
+            "integrity": "sha1:a5e78c22a0112d21198a746b2f754088c33793fe"
         },
         {
             "path": "src/@api/common/administrative-area-level-1/resolvers/common-upsert-administrative-area-level-1.resolver.ts",
@@ -699,11 +699,11 @@
         },
         {
             "path": "test/acceptance/common/administrative-area-level-1.e2e-spec.ts",
-            "integrity": "sha1:a0c2ac1fa5529c394f4ab08d27eba1937236aef6"
+            "integrity": "sha1:caa8086bda2e9e2659d23ba584636e9c34499e70"
         },
         {
             "path": "postman/common/common.administrative-area-level-1.postman.json",
-            "integrity": "sha1:900e11a557191ed6c84984ad52102661722f4e12"
+            "integrity": "sha1:dead8576713d6463b9a8dafb3b4898aae8102ab6"
         }
     ]
 }

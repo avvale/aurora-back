@@ -1,17 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonCreateResourcesResolver } from './common-create-resources.resolver';
-import { CommonCreateResourcesHandler } from '../handlers/common-create-resources.handler';
+import { CommonCreateResourcesHandler, CommonCreateResourcesResolver } from '@api/common/resource';
 import { CommonCreateResourceInput } from '@api/graphql';
-
-// sources
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
+import { commonMockResourceData } from '@app/common/resource';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateResourcesResolver', () =>
 {
     let resolver: CommonCreateResourcesResolver;
-    let handler: CommonCreateResourcesHandler;
 
     beforeAll(async () =>
     {
@@ -29,7 +23,6 @@ describe('CommonCreateResourcesResolver', () =>
             .compile();
 
         resolver = module.get<CommonCreateResourcesResolver>(CommonCreateResourcesResolver);
-        handler = module.get<CommonCreateResourcesHandler>(CommonCreateResourcesHandler);
     });
 
     test('CommonCreateResourcesResolver should be defined', () =>

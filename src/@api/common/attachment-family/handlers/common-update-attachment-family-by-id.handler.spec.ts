@@ -9,7 +9,6 @@ describe('CommonUpdateAttachmentFamilyByIdHandler', () =>
 {
     let handler: CommonUpdateAttachmentFamilyByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('CommonUpdateAttachmentFamilyByIdHandler', () =>
 
         handler = module.get<CommonUpdateAttachmentFamilyByIdHandler>(CommonUpdateAttachmentFamilyByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonUpdateAttachmentFamilyByIdHandler should be defined', () =>
@@ -54,7 +52,13 @@ describe('CommonUpdateAttachmentFamilyByIdHandler', () =>
         test('should return a attachmentFamily updated', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData[0])));
-            expect(await handler.main(<CommonUpdateAttachmentFamilyByIdInput>commonMockAttachmentFamilyData[0])).toBe(commonMockAttachmentFamilyData[0]);
+            expect(
+                await handler.main(
+                    <CommonUpdateAttachmentFamilyByIdInput>commonMockAttachmentFamilyData[0],
+                    {},
+                    'Europe/Madrid',
+                ))
+                .toBe(commonMockAttachmentFamilyData[0]);
         });
     });
 });

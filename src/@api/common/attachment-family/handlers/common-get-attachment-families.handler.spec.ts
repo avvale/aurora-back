@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonGetAttachmentFamiliesHandler } from '@api/common/attachment-family';
 import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonGetAttachmentFamiliesHandler', () =>
 {
     let handler: CommonGetAttachmentFamiliesHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('CommonGetAttachmentFamiliesHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<CommonGetAttachmentFamiliesHandler>(CommonGetAttachmentFamiliesHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonGetAttachmentFamiliesHandler should be defined', () =>
@@ -53,7 +45,14 @@ describe('CommonGetAttachmentFamiliesHandler', () =>
         test('should return a commonMockAttachmentFamilyData', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockAttachmentFamilyData)));
-            expect(await handler.main()).toBe(commonMockAttachmentFamilyData);
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(commonMockAttachmentFamilyData);
         });
     });
 });

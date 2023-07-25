@@ -5,7 +5,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 describe('CommonCreateAttachmentFamiliesController', () =>
 {
     let controller: CommonCreateAttachmentFamiliesController;
-    let handler: CommonCreateAttachmentFamiliesHandler;
 
     beforeAll(async () =>
     {
@@ -25,7 +24,6 @@ describe('CommonCreateAttachmentFamiliesController', () =>
             .compile();
 
         controller = module.get<CommonCreateAttachmentFamiliesController>(CommonCreateAttachmentFamiliesController);
-        handler = module.get<CommonCreateAttachmentFamiliesHandler>(CommonCreateAttachmentFamiliesHandler);
     });
 
     describe('main', () =>
@@ -37,7 +35,12 @@ describe('CommonCreateAttachmentFamiliesController', () =>
 
         test('should return an commonMockAttachmentFamilyData created', async () =>
         {
-            expect(await controller.main(commonMockAttachmentFamilyData)).toBe(undefined);
+            expect(
+                await controller.main(
+                    commonMockAttachmentFamilyData,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

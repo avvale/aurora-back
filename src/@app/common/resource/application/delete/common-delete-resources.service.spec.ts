@@ -11,7 +11,6 @@ describe('CommonDeleteResourcesService', () =>
 {
     let service: CommonDeleteResourcesService;
     let repository: CommonIResourceRepository;
-    let mockRepository: CommonMockResourceRepository;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('CommonDeleteResourcesService', () =>
 
         service = module.get(CommonDeleteResourcesService);
         repository = module.get(CommonIResourceRepository);
-        mockRepository = module.get(CommonMockResourceRepository);
     });
 
     describe('main', () =>
@@ -49,7 +47,13 @@ describe('CommonDeleteResourcesService', () =>
         test('should delete resource and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

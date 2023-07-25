@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { CommonPaginateAttachmentFamiliesHandler, CommonPaginateAttachmentFamiliesResolver } from '@api/common/attachment-family';
+import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonPaginateAttachmentFamiliesResolver } from './common-paginate-attachment-families.resolver';
-import { CommonPaginateAttachmentFamiliesHandler } from '../handlers/common-paginate-attachment-families.handler';
-
-// sources
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
 
 describe('CommonPaginateAttachmentFamiliesResolver', () =>
 {

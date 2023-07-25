@@ -8,7 +8,6 @@ describe('CommonUpsertResourceHandler', () =>
 {
     let handler: CommonUpsertResourceHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('CommonUpsertResourceHandler', () =>
 
         handler = module.get<CommonUpsertResourceHandler>(CommonUpsertResourceHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,12 @@ describe('CommonUpsertResourceHandler', () =>
         test('should return an resource upserted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(commonMockResourceData[0])));
-            expect(await handler.main(commonMockResourceData[0])).toBe(commonMockResourceData[0]);
+            expect(
+                await handler.main(
+                    commonMockResourceData[0],
+                    'Europe/Madrid',
+                ))
+                .toBe(commonMockResourceData[0]);
         });
     });
 });
