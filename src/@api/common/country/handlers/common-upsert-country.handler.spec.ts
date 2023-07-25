@@ -11,7 +11,6 @@ describe('CommonUpsertCountryHandler', () =>
 {
     let handler: CommonUpsertCountryHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -64,7 +63,6 @@ describe('CommonUpsertCountryHandler', () =>
 
         handler = module.get<CommonUpsertCountryHandler>(CommonUpsertCountryHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>

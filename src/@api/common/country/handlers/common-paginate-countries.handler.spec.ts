@@ -2,7 +2,7 @@
 import { CommonPaginateCountriesHandler } from '@api/common/country';
 import { commonMockCountryData } from '@app/common/country';
 import { commonMockLangData } from '@app/common/lang';
-import { CoreAddI18nConstraintService, CoreGetSearchKeyLangService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { CoreAddI18nConstraintService, CoreGetSearchKeyLangService, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER, CacheModule } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -11,7 +11,6 @@ describe('CommonPaginateCountriesHandler', () =>
 {
     let handler: CommonPaginateCountriesHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -41,12 +40,6 @@ describe('CommonPaginateCountriesHandler', () =>
                     },
                 },
                 {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
-                {
                     provide : CoreGetSearchKeyLangService,
                     useValue: {
                         get: () => { /**/ },
@@ -58,7 +51,6 @@ describe('CommonPaginateCountriesHandler', () =>
 
         handler = module.get<CommonPaginateCountriesHandler>(CommonPaginateCountriesHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('CommonPaginateCountriesHandler should be defined', () =>

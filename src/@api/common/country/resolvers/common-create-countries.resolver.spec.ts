@@ -1,13 +1,11 @@
 import { CommonCreateCountriesHandler, CommonCreateCountriesResolver } from '@api/common/country';
 import { CommonCreateCountryInput } from '@api/graphql';
 import { commonMockCountryData } from '@app/common/country';
-import { CacheModule } from '@nestjs/cache-manager';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateCountriesResolver', () =>
 {
     let resolver: CommonCreateCountriesResolver;
-    let handler: CommonCreateCountriesHandler;
 
     beforeAll(async () =>
     {
@@ -25,7 +23,6 @@ describe('CommonCreateCountriesResolver', () =>
             .compile();
 
         resolver = module.get<CommonCreateCountriesResolver>(CommonCreateCountriesResolver);
-        handler = module.get<CommonCreateCountriesHandler>(CommonCreateCountriesHandler);
     });
 
     test('CommonCreateCountriesResolver should be defined', () =>
