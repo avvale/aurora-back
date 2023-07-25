@@ -1,9 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { CommonCreateLangsHandler } from '@api/common/lang';
+import { commonMockLangData } from '@app/common/lang';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
-import { CommonCreateLangsHandler } from './common-create-langs.handler';
-import { commonMockLangData } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateLangsHandler', () =>
 {

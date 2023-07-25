@@ -1,12 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { CommonCreateLangsResolver } from './common-create-langs.resolver';
-import { CommonCreateLangsHandler } from '../handlers/common-create-langs.handler';
+import { CommonCreateLangsHandler, CommonCreateLangsResolver } from '@api/common/lang';
 import { CommonCreateLangInput } from '@api/graphql';
-
-// sources
-import { commonMockLangData } from '@app/common/lang/infrastructure/mock/common-mock-lang.data';
+import { commonMockLangData } from '@app/common/lang';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateLangsResolver', () =>
 {

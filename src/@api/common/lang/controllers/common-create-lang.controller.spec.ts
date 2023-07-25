@@ -1,6 +1,5 @@
 import { CommonCreateLangController, CommonCreateLangHandler } from '@api/common/lang';
 import { commonMockLangData } from '@app/common/lang';
-import { CacheModule } from '@nestjs/cache-manager';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateLangController', () =>

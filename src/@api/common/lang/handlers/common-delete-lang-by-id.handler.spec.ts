@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonDeleteLangByIdHandler } from '@api/common/lang';
 import { commonMockLangData } from '@app/common/lang';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonDeleteLangByIdController', () =>
@@ -27,6 +27,12 @@ describe('CommonDeleteLangByIdController', () =>
                     provide : ICommandBus,
                     useValue: {
                         dispatch: () => { /**/ },
+                    },
+                },
+                {
+                    provide : CoreGetLangsService,
+                    useValue: {
+                        init: () => { /**/ },
                     },
                 },
             ],

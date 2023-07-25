@@ -2,7 +2,7 @@
 import { CommonUpdateLangByIdHandler } from '@api/common/lang';
 import { CommonUpdateLangByIdInput } from '@api/graphql';
 import { commonMockLangData } from '@app/common/lang';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUpdateLangByIdHandler', () =>
@@ -28,6 +28,12 @@ describe('CommonUpdateLangByIdHandler', () =>
                     provide : ICommandBus,
                     useValue: {
                         dispatch: () => { /**/ },
+                    },
+                },
+                {
+                    provide : CoreGetLangsService,
+                    useValue: {
+                        init: () => { /**/ },
                     },
                 },
             ],

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonCreateLangHandler } from '@api/common/lang';
 import { commonMockLangData } from '@app/common/lang';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { CoreGetLangsService, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateLangHandler', () =>
@@ -27,6 +27,12 @@ describe('CommonCreateLangHandler', () =>
                     provide : ICommandBus,
                     useValue: {
                         dispatch: () => { /**/ },
+                    },
+                },
+                {
+                    provide : CoreGetLangsService,
+                    useValue: {
+                        init: () => { /**/ },
                     },
                 },
             ],
