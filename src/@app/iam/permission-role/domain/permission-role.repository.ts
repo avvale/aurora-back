@@ -2,7 +2,7 @@ import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } fr
 import { IamPermissionRole } from './permission-role.aggregate';
 
 // ---- customizations ----
-import { PermissionId } from '@app/iam/permission/domain/value-objects';
+import { IamPermissionId } from '@app/iam/permission/domain/value-objects';
 
 export abstract class IPermissionRoleRepository implements IRepository<IamPermissionRole>
 {
@@ -28,7 +28,7 @@ export abstract class IPermissionRoleRepository implements IRepository<IamPermis
 
     // find a single record by id
     abstract findById(
-        id: PermissionId,
+        id: IamPermissionId,
         options?: {
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
@@ -114,7 +114,7 @@ export abstract class IPermissionRoleRepository implements IRepository<IamPermis
 
     // delete record
     abstract deleteById(
-        id: PermissionId,
+        id: IamPermissionId,
         options?: {
             deleteOptions?: LiteralObject;
             constraint?: QueryStatement;

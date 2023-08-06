@@ -5,7 +5,7 @@ import { accounts, boundedContexts, permissions, roles, users } from '@app/iam/i
 
 // sources
 import { BoundedContextHelper } from '@app/iam/bounded-context/domain/bounded-context-helper';
-import { PermissionHelper } from '@app/iam/permission/domain/permission-helper';
+import { IamPermissionHelper } from '@app/iam/permission/domain/iam-permission-helper';
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
 import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
 import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
@@ -27,7 +27,7 @@ export class IamSeeder
     {
         try
         {
-            this.administratorAccount = await this.queryBus.ask(new FindAccountByIdQuery(PermissionHelper.administratorAccountId));
+            this.administratorAccount = await this.queryBus.ask(new FindAccountByIdQuery(IamPermissionHelper.administratorAccountId));
         }
         catch (error)
         {
@@ -39,7 +39,7 @@ export class IamSeeder
         {
             // create bounded contexts and permissions
             await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
-            await PermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
+            await IamPermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
         }
         else
         {
@@ -52,14 +52,14 @@ export class IamSeeder
             {
                 return {
                     roleId   : role.id,
-                    accountId: PermissionHelper.administratorAccountId,
+                    accountId: IamPermissionHelper.administratorAccountId,
                 };
             });
             await this.commandBus.dispatch(new CreateRolesAccountsCommand(rolesAccounts));
 
             // create bounded contexts and permissions
             await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
-            await PermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
+            await IamPermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
         }
 
         return true;

@@ -11,7 +11,7 @@ import {
     RoleUpdatedAt,
     RoleDeletedAt,
 } from './value-objects';
-import { PermissionMapper } from '@app/iam/permission/domain/permission.mapper';
+import { IamPermissionMapper } from '@app/iam/permission/domain/iam-permission.mapper';
 import { AccountMapper } from '@app/iam/account/domain/account.mapper';
 
 export class RoleMapper implements IMapper
@@ -73,7 +73,7 @@ export class RoleMapper implements IMapper
             new RoleCreatedAt(role.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new RoleUpdatedAt(role.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new RoleDeletedAt(role.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new PermissionMapper({ eagerLoading: true }).mapModelsToAggregates(role.permissions, cQMetadata) : undefined,
+            this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapModelsToAggregates(role.permissions, cQMetadata) : undefined,
             this.options.eagerLoading ? new AccountMapper({ eagerLoading: true }).mapModelsToAggregates(role.accounts, cQMetadata) : undefined,
         );
     }
@@ -91,7 +91,7 @@ export class RoleMapper implements IMapper
             role.createdAt.value,
             role.updatedAt.value,
             role.deletedAt.value,
-            this.options.eagerLoading ? new PermissionMapper({ eagerLoading: true }).mapAggregatesToResponses(role.permissions) : undefined,
+            this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapAggregatesToResponses(role.permissions) : undefined,
             this.options.eagerLoading ? new AccountMapper({ eagerLoading: true }).mapAggregatesToResponses(role.accounts) : undefined,
         );
     }

@@ -5,7 +5,7 @@ import { applications, boundedContexts, clients, permissions } from '@app/o-auth
 
 // sources
 import { BoundedContextHelper } from '@app/iam/bounded-context/domain/bounded-context-helper';
-import { PermissionHelper } from '@app/iam/permission/domain/permission-helper';
+import { IamPermissionHelper } from '@app/iam/permission/domain/iam-permission-helper';
 import { CreateApplicationsCommand } from '@app/o-auth/application/application/create/create-applications.command';
 import { CreateClientsCommand } from '@app/o-auth/client/application/create/create-clients.command';
 
@@ -21,7 +21,7 @@ export class OAuthSeeder
     {
         // create bounded contexts and permissions
         await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
-        await PermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
+        await IamPermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
 
         // create oauth applications
         await this.commandBus.dispatch(new CreateApplicationsCommand(applications));

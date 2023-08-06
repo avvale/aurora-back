@@ -11,7 +11,7 @@ import {
     BoundedContextUpdatedAt,
     BoundedContextDeletedAt,
 } from './value-objects';
-import { PermissionMapper } from '@app/iam/permission/domain/permission.mapper';
+import { IamPermissionMapper } from '@app/iam/permission/domain/iam-permission.mapper';
 
 export class BoundedContextMapper implements IMapper
 {
@@ -72,7 +72,7 @@ export class BoundedContextMapper implements IMapper
             new BoundedContextCreatedAt(boundedContext.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new BoundedContextUpdatedAt(boundedContext.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new BoundedContextDeletedAt(boundedContext.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new PermissionMapper({ eagerLoading: true }).mapModelsToAggregates(boundedContext.permissions, cQMetadata) : undefined,
+            this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapModelsToAggregates(boundedContext.permissions, cQMetadata) : undefined,
         );
     }
 
@@ -89,7 +89,7 @@ export class BoundedContextMapper implements IMapper
             boundedContext.createdAt.value,
             boundedContext.updatedAt.value,
             boundedContext.deletedAt.value,
-            this.options.eagerLoading ? new PermissionMapper({ eagerLoading: true }).mapAggregatesToResponses(boundedContext.permissions) : undefined,
+            this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapAggregatesToResponses(boundedContext.permissions) : undefined,
         );
     }
 }

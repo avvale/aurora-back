@@ -1,4 +1,4 @@
-import { PermissionResponse } from '@app/iam/permission/domain/permission.response';
+import { IamPermissionResponse } from '@app/iam/permission/domain/iam-permission.response';
 
 export class BoundedContextResponse
 {
@@ -11,6 +11,6 @@ export class BoundedContextResponse
         public readonly createdAt: string,
         public readonly updatedAt: string,
         public readonly deletedAt: string,
-        public readonly permissions: PermissionResponse[],
+        public readonly permissions: IamPermissionResponse[],
     ) {}
 }
