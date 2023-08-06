@@ -9,8 +9,8 @@ import { IamPermissionHelper } from '@app/iam/permission/domain/iam-permission-h
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
 import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
 import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
-import { CreateRolesCommand } from '@app/iam/role/application/create/create-roles.command';
-import { CreateRolesAccountsCommand } from '@app/iam/role/application/create/create-roles-accounts.command';
+import { IamCreateRolesCommand } from '@app/iam/role/application/create/iam-create-roles.command';
+import { IamCreateRolesAccountsCommand } from '@app/iam/role/application/create/iam-create-roles-accounts.command';
 import { IamAccount } from '@app/iam/account/domain/account.aggregate';
 
 @Injectable()
@@ -45,7 +45,7 @@ export class IamSeeder
         {
             await this.commandBus.dispatch(new CreateAccountsCommand(accounts));
             await this.commandBus.dispatch(new CreateUsersCommand(users));
-            await this.commandBus.dispatch(new CreateRolesCommand(roles));
+            await this.commandBus.dispatch(new IamCreateRolesCommand(roles));
 
             // set all roles to administration account
             const rolesAccounts = roles.map(role =>
@@ -55,7 +55,7 @@ export class IamSeeder
                     accountId: IamPermissionHelper.administratorAccountId,
                 };
             });
-            await this.commandBus.dispatch(new CreateRolesAccountsCommand(rolesAccounts));
+            await this.commandBus.dispatch(new IamCreateRolesAccountsCommand(rolesAccounts));
 
             // create bounded contexts and permissions
             await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);

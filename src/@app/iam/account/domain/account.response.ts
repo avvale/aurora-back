@@ -1,6 +1,6 @@
 import { UserResponse } from '@app/iam/user/domain/user.response';
 import { ClientResponse } from '@app/o-auth/client/domain/client.response';
-import { RoleResponse } from '@app/iam/role/domain/role.response';
+import { IamRoleResponse } from '@app/iam/role/domain/iam-role.response';
 import { TenantResponse } from '@app/iam/tenant/domain/tenant.response';
 
 export class AccountResponse
@@ -24,7 +24,7 @@ export class AccountResponse
         public readonly deletedAt: string,
         public readonly user: UserResponse,
         public readonly client: ClientResponse,
-        public readonly roles: RoleResponse[],
+        public readonly roles: IamRoleResponse[],
         public readonly tenants: TenantResponse[],
     ) {}
 }

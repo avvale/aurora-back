@@ -5,8 +5,8 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 import { DataTypes } from 'sequelize';
 import { IamUserModel } from '@app/iam/user/infrastructure/sequelize/sequelize-user.model';
 import { OAuthClientModel } from '@app/o-auth/client/infrastructure/sequelize/sequelize-client.model';
-import { IamRoleModel } from '@app/iam/role/infrastructure/sequelize/sequelize-role.model';
-import { IamRolesAccountsModel } from '@app/iam/role/infrastructure/sequelize/sequelize-roles-accounts.model';
+import { IamRoleModel } from '@app/iam/role/infrastructure/sequelize/iam-sequelize-role.model';
+import { IamRolesAccountsModel } from '@app/iam/role/infrastructure/sequelize/iam-sequelize-roles-accounts.model';
 import { IamTenantModel } from '@app/iam/tenant/infrastructure/sequelize/sequelize-tenant.model';
 import { IamTenantsAccountsModel } from '@app/iam/tenant/infrastructure/sequelize/sequelize-tenants-accounts.model';
 

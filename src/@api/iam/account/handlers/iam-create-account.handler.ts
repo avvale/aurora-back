@@ -10,7 +10,7 @@ import { IamAccountDto, IamCreateAccountDto } from '../dto';
 
 // ---- customizations ----
 import { JwtService } from '@nestjs/jwt';
-import { GetRolesQuery } from '@app/iam/role/application/get/get-roles.query';
+import { IamGetRolesQuery } from '@app/iam/role/application/get/iam-get-roles.query';
 import { FindClientByIdQuery } from '@app/o-auth/client/application/find/find-client-by-id.query';
 import { FindAccessTokenByIdQuery } from '@app/o-auth/access-token/application/find/find-access-token-by-id.query';
 import { CreateUserCommand } from '@app/iam/user/application/create/create-user.command';
@@ -109,7 +109,7 @@ export class IamCreateAccountHandler
         ));
 
         // get roles
-        const roles = await this.queryBus.ask(new GetRolesQuery({
+        const roles = await this.queryBus.ask(new IamGetRolesQuery({
             where: {
                 id: payload.roleIds,
             },

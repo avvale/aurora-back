@@ -24,7 +24,7 @@ import { UpdatedAccountEvent } from '../application/events/updated-account.event
 import { DeletedAccountEvent } from '../application/events/deleted-account.event';
 import { IamUser } from '@app/iam/user/domain/user.aggregate';
 import { OAuthClient } from '@app/o-auth/client/domain/client.aggregate';
-import { IamRole } from '@app/iam/role/domain/role.aggregate';
+import { IamRole } from '@app/iam/role/domain/iam-role.aggregate';
 import { IamTenant } from '@app/iam/tenant/domain/tenant.aggregate';
 
 export class IamAccount extends AggregateRoot

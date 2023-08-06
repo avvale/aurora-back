@@ -6,7 +6,7 @@ import {
     PermissionRoleRoleId,
 } from './value-objects';
 import { IamPermissionMapper } from '@app/iam/permission/domain/iam-permission.mapper';
-import { RoleMapper } from '@app/iam/role/domain/role.mapper';
+import { IamRoleMapper } from '@app/iam/role/domain/iam-role.mapper';
 
 export class PermissionRoleMapper implements IMapper
 {
@@ -62,7 +62,7 @@ export class PermissionRoleMapper implements IMapper
             new PermissionRolePermissionId(permissionRole.permissionId),
             new PermissionRoleRoleId(permissionRole.roleId),
             this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapModelToAggregate(permissionRole.permission, cQMetadata) : undefined,
-            this.options.eagerLoading ? new RoleMapper({ eagerLoading: true }).mapModelToAggregate(permissionRole.role, cQMetadata) : undefined,
+            this.options.eagerLoading ? new IamRoleMapper({ eagerLoading: true }).mapModelToAggregate(permissionRole.role, cQMetadata) : undefined,
         );
     }
 
@@ -74,7 +74,7 @@ export class PermissionRoleMapper implements IMapper
             permissionRole.permissionId.value,
             permissionRole.roleId.value,
             this.options.eagerLoading ? new IamPermissionMapper({ eagerLoading: true }).mapAggregateToResponse(permissionRole.permission) : undefined,
-            this.options.eagerLoading ? new RoleMapper({ eagerLoading: true }).mapAggregateToResponse(permissionRole.role) : undefined,
+            this.options.eagerLoading ? new IamRoleMapper({ eagerLoading: true }).mapAggregateToResponse(permissionRole.role) : undefined,
         );
     }
 }

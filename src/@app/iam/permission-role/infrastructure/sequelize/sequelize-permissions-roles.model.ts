@@ -4,7 +4,7 @@ import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/c
 import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 import { IamPermissionModel } from '@app/iam/permission/infrastructure/sequelize/iam-sequelize-permission.model';
-import { IamRoleModel } from '@app/iam/role/infrastructure/sequelize/sequelize-role.model';
+import { IamRoleModel } from '@app/iam/role/infrastructure/sequelize/iam-sequelize-role.model';
 
 @Table({
     modelName: 'IamPermissionsRoles',

@@ -2,7 +2,7 @@ import { IamBoundedContextHandlers, IamBoundedContextServices, IamBoundedContext
 import { IamPermissionHandlers, IamPermissionServices, IamPermissionModel, IamIPermissionRepository, IamSequelizePermissionRepository, IamPermissionSagas } from './permission';
 import { IamPermissionRoleHandlers, IamPermissionRoleServices, IamPermissionsRolesModel, IPermissionRoleRepository, SequelizePermissionRoleRepository } from './permission-role';
 import { IamTenantHandlers, IamTenantServices, IamTenantModel, ITenantRepository, SequelizeTenantRepository, TenantSagas, IamTenantsAccountsModel } from './tenant';
-import { IamRoleHandlers, IamRoleServices, IamRoleModel, IRoleRepository, SequelizeRoleRepository, RoleSagas, IamRolesAccountsModel, SequelizeRoleAccountRepository, IRoleAccountRepository } from './role';
+import { IamRoleHandlers, IamRoleServices, IamRoleModel, IamRolesAccountsModel, IamSequelizeRoleAccountRepository, IamIRoleAccountRepository, IamIRoleRepository, IamSequelizeRoleRepository, IamRoleSagas } from './role';
 import { IamAccountHandlers, IamAccountServices, IamAccountModel, IAccountRepository, SequelizeAccountRepository, AccountSagas } from './account';
 import { IamUserHandlers, IamUserServices, IamUserModel, IUserRepository, SequelizeUserRepository, UserSagas } from './user';
 
@@ -45,8 +45,8 @@ export const IamRepositories = [
         useClass: SequelizeTenantRepository
     },
     {
-        provide : IRoleRepository,
-        useClass: SequelizeRoleRepository
+        provide : IamIRoleRepository,
+        useClass: IamSequelizeRoleRepository
     },
     {
         provide : IAccountRepository,
@@ -63,19 +63,24 @@ export const IamRepositories = [
         useClass: SequelizePermissionRoleRepository
     },
     {
-        provide : IRoleAccountRepository,
-        useClass: SequelizeRoleAccountRepository
+        provide : IamIRoleAccountRepository,
+        useClass: IamSequelizeRoleAccountRepository
     },
     {
         provide : IamIPermissionRepository,
         useClass: IamSequelizePermissionRepository
+    },
+    {
+        provide : IamIRoleRepository,
+        useClass: IamSequelizeRoleRepository
     }
 ];
 export const IamSagas = [
     BoundedContextSagas,
     TenantSagas,
-    RoleSagas,
+    IamRoleSagas,
     AccountSagas,
     UserSagas,
-    IamPermissionSagas
+    IamPermissionSagas,
+    IamRoleSagas
 ];

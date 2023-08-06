@@ -8,7 +8,7 @@ import { FindUserByIdQuery } from '@app/iam/user/application/find/find-user-by-i
 import { UpdateAccountByIdCommand } from '@app/iam/account/application/update/update-account-by-id.command';
 import { IamAccount, IamAccountType, IamUpdateAccountByIdInput } from '@api/graphql';
 import { IamAccountDto, IamUpdateAccountByIdDto } from '../dto';
-import { GetRolesQuery } from '@app/iam/role/application/get/get-roles.query';
+import { IamGetRolesQuery } from '@app/iam/role/application/get/iam-get-roles.query';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
 import { UpdateUserByIdCommand } from '@app/iam/user/application/update/update-user-by-id.command';
 
@@ -40,7 +40,7 @@ export class IamUpdateAccountByIdHandler
         if ('roleIds' in dataToUpdate)
         {
             // get roles with permissions
-            const roles = await this.queryBus.ask(new GetRolesQuery({
+            const roles = await this.queryBus.ask(new IamGetRolesQuery({
                 where: {
                     id: payload.roleIds,
                 },

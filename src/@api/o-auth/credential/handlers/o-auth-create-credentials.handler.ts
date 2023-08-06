@@ -13,7 +13,7 @@ import { FindApplicationByAuthorizationHeaderQuery } from '@app/o-auth/applicati
 import { FindRefreshTokenByIdQuery } from '@app/o-auth/refresh-token/application/find/find-refresh-token-by-id.query';
 import { DeleteAccessTokenByIdCommand } from '@app/o-auth/access-token/application/delete/delete-access-token-by-id.command';
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
-import { GetRolesQuery } from '@app/iam/role/application/get/get-roles.query';
+import { IamGetRolesQuery } from '@app/iam/role/application/get/iam-get-roles.query';
 import { OAuthClientGrantType, OAuthCredentials, OAuthCreateCredentialsInput, IamAccountType, OAuthClient, IamAccount } from '@api/graphql';
 import { UpdateAccountByIdCommand } from '@app/iam/account/application/update/update-account-by-id.command';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
@@ -200,7 +200,7 @@ export class OAuthCreateCredentialsHandler
         auditing?: AuditingMeta,
     ): Promise<IamAccount>
     {
-        const roles = await this.queryBus.ask(new GetRolesQuery({
+        const roles = await this.queryBus.ask(new IamGetRolesQuery({
             where: {
                 id: account.roles.map(role => role.id),
             },

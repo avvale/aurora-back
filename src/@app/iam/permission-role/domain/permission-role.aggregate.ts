@@ -8,7 +8,7 @@ import { DeletedPermissionRoleEvent } from '../application/events/deleted-permis
 import { UpdatedPermissionRoleEvent } from '../application/events/updated-permission-role.event';
 import { CreatedPermissionRoleEvent } from '../application/events/created-permission-role.event';
 import { IamPermission } from '@app/iam/permission/domain/iam-permission.aggregate';
-import { IamRole } from '@app/iam/role/domain/role.aggregate';
+import { IamRole } from '@app/iam/role/domain/iam-role.aggregate';
 
 export class IamPermissionRole extends AggregateRoot
 {

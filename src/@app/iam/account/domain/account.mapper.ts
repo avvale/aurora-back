@@ -21,7 +21,7 @@ import {
 } from './value-objects';
 import { UserMapper } from '@app/iam/user/domain/user.mapper';
 import { ClientMapper } from '@app/o-auth/client/domain/client.mapper';
-import { RoleMapper } from '@app/iam/role/domain/role.mapper';
+import { IamRoleMapper } from '@app/iam/role/domain/iam-role.mapper';
 import { TenantMapper } from '@app/iam/tenant/domain/tenant.mapper';
 
 export class AccountMapper implements IMapper
@@ -93,7 +93,7 @@ export class AccountMapper implements IMapper
             new AccountDeletedAt(account.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             this.options.eagerLoading ? new UserMapper({ eagerLoading: true }).mapModelToAggregate(account.user, cQMetadata) : undefined,
             this.options.eagerLoading ? new ClientMapper({ eagerLoading: true }).mapModelToAggregate(account.client, cQMetadata) : undefined,
-            this.options.eagerLoading ? new RoleMapper({ eagerLoading: true }).mapModelsToAggregates(account.roles, cQMetadata) : undefined,
+            this.options.eagerLoading ? new IamRoleMapper({ eagerLoading: true }).mapModelsToAggregates(account.roles, cQMetadata) : undefined,
             this.options.eagerLoading ? new TenantMapper({ eagerLoading: true }).mapModelsToAggregates(account.tenants, cQMetadata) : undefined,
         );
     }
@@ -121,7 +121,7 @@ export class AccountMapper implements IMapper
             account.deletedAt.value,
             this.options.eagerLoading ? new UserMapper({ eagerLoading: true }).mapAggregateToResponse(account.user) : undefined,
             this.options.eagerLoading ? new ClientMapper({ eagerLoading: true }).mapAggregateToResponse(account.client) : undefined,
-            this.options.eagerLoading ? new RoleMapper({ eagerLoading: true }).mapAggregatesToResponses(account.roles) : undefined,
+            this.options.eagerLoading ? new IamRoleMapper({ eagerLoading: true }).mapAggregatesToResponses(account.roles) : undefined,
             this.options.eagerLoading ? new TenantMapper({ eagerLoading: true }).mapAggregatesToResponses(account.tenants) : undefined,
         );
     }
