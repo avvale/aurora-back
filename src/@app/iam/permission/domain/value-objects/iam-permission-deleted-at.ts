@@ -2,12 +2,12 @@ import { DataValueObject, TimestampValueObject, ValidationRules } from '@auroraj
 
 export class IamPermissionDeletedAt extends TimestampValueObject
 {
-    public readonly type: string = 'PermissionDeletedAt';
+    public readonly type: string = 'IamPermissionDeletedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'PermissionDeletedAt',
+            name       : 'IamPermissionDeletedAt',
             nullable   : true,
             undefinable: true,
         }, validationRules), data);
