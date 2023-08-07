@@ -3,8 +3,8 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { SeederModule } from './seeder.module';
 
 // sources
-import { IamCreatePermissionsCommand } from '@app/iam/permission/application/create/iam-create-permissions.command';
-import { CreateBoundedContextsCommand } from '@app/iam/bounded-context/application/create/create-bounded-contexts.command';
+import { IamCreatePermissionsCommand } from '@app/iam/permission';
+import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
 import { boundedContexts, permissions } from '@app/o-auth/o-auth.seed';
 
 export class Seeder
@@ -17,7 +17,7 @@ export class Seeder
             const queryBus              = appContext.get(IQueryBus);
 
             // create bounded contexts and permissions
-            commandBus.dispatch(new CreateBoundedContextsCommand(boundedContexts, { timezone: process.env.TZ }));
+            commandBus.dispatch(new IamCreateBoundedContextsCommand(boundedContexts, { timezone: process.env.TZ }));
             commandBus.dispatch(new IamCreatePermissionsCommand(permissions, { timezone: process.env.TZ }));
 
             appContext.close();

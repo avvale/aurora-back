@@ -1,7 +1,7 @@
 // ignored file
 import { IamAccountType } from '@api/graphql';
 import { clients } from '@app/o-auth/o-auth.seed';
-import { IamPermissionHelper } from './permission/domain/iam-permission-helper';
+import { IamPermissionHelper } from '@app/iam/permission';
 
 export const boundedContexts = [
     {

@@ -1,8 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ICommandBus } from '@aurorajs.dev/core';
-import { CreateBoundedContextsCommand } from '@app/iam/bounded-context/application/create/create-bounded-contexts.command';
+import { IamCreateBoundedContextsCommand, iamMockBoundedContextData } from '@app/iam/bounded-context';
 import { SeederModule } from './seeder.module';
-import { boundedContexts } from '@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 
 export class Seeder
 {
@@ -11,7 +10,7 @@ export class Seeder
         NestFactory.createApplicationContext(SeederModule).then(appContext =>
         {
             const commandBus = appContext.get(ICommandBus);
-            commandBus.dispatch(new CreateBoundedContextsCommand(boundedContexts, { timezone: process.env.TZ }));
+            commandBus.dispatch(new IamCreateBoundedContextsCommand(iamMockBoundedContextData, { timezone: process.env.TZ }));
             appContext.close();
         });
     }

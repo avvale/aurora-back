@@ -39,6 +39,7 @@ export { IamPermission } from './domain/iam-permission.aggregate';
 export { IamPermissionMapper } from './domain/iam-permission.mapper';
 export { IamIPermissionRepository } from './domain/iam-permission.repository';
 export { IamPermissionResponse } from './domain/iam-permission.response';
+export { IamPermissionHelper } from './domain/iam-permission-helper';
 
 // infrastructure
 export { IamPermissionModel } from './infrastructure/sequelize/iam-sequelize-permission.model';

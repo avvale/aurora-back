@@ -4,12 +4,12 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { accounts, boundedContexts, permissions, roles, users } from '@app/iam/iam.seed';
 
 // sources
-import { BoundedContextHelper } from '@app/iam/bounded-context/domain/bounded-context-helper';
-import { IamPermissionHelper } from '@app/iam/permission/domain/iam-permission-helper';
+import { IamBoundedContextHelper } from '@app/iam/bounded-context';
+import { IamPermissionHelper } from '@app/iam/permission';
 import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
 import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
 import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
-import { IamCreateRolesCommand } from '@app/iam/role/application/create/iam-create-roles.command';
+import { IamCreateRolesCommand } from '@app/iam/role';
 import { IamCreateRolesAccountsCommand } from '@app/iam/role/application/create/iam-create-roles-accounts.command';
 import { IamAccount } from '@app/iam/account/domain/account.aggregate';
 
@@ -38,7 +38,7 @@ export class IamSeeder
         if (this.administratorAccount)
         {
             // create bounded contexts and permissions
-            await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
+            await IamBoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
             await IamPermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
         }
         else
@@ -58,7 +58,7 @@ export class IamSeeder
             await this.commandBus.dispatch(new IamCreateRolesAccountsCommand(rolesAccounts));
 
             // create bounded contexts and permissions
-            await BoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
+            await IamBoundedContextHelper.createBoundedContexts(this.commandBus, boundedContexts);
             await IamPermissionHelper.createPermissions(this.commandBus, this.queryBus, permissions);
         }
 

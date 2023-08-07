@@ -17,11 +17,7 @@ export { accounts } from './@app/iam/account/infrastructure/mock/mock-account.da
 export { IamPermissionDto } from './@api/iam/permission/dto/iam-permission.dto';
 export { IamPermissionModel } from './@app/iam/permission';
 export { IamBoundedContextDto } from './@api/iam/bounded-context/dto/iam-bounded-context.dto';
-export { IamBoundedContext } from './@app/iam/bounded-context/domain/bounded-context.aggregate';
 export { IamBoundedContextModel } from './@app/iam/bounded-context';
-export { BoundedContextResponse } from './@app/iam/bounded-context/domain/bounded-context.response';
-export { BoundedContextMapper } from './@app/iam/bounded-context/domain/bounded-context.mapper';
-export { boundedContexts } from './@app/iam/bounded-context/infrastructure/mock/mock-bounded-context.data';
 export { IamRoleDto } from './@api/iam/role/dto/iam-role.dto';
 export { IamRoleModel } from './@app/iam/role';
 export { IamTenantDto } from './@api/iam/tenant/dto/iam-tenant.dto';
@@ -147,3 +143,6 @@ export { IamPermission } from './@app/iam/permission/domain/iam-permission.aggre
 export { IamRoleResponse } from './@app/iam/role/domain/iam-role.response';
 export { IamRoleMapper } from './@app/iam/role/domain/iam-role.mapper';
 export { iamMockRoleData } from './@app/iam/role/infrastructure/mock/iam-mock-role.data';
+export { IamBoundedContextResponse } from './@app/iam/bounded-context/domain/iam-bounded-context.response';
+export { IamBoundedContextMapper } from './@app/iam/bounded-context/domain/iam-bounded-context.mapper';
+export { iamMockBoundedContextData } from './@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.data';
