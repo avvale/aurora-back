@@ -18,7 +18,7 @@ export { IamUserDto } from './@api/iam/user/dto/iam-user.dto';
 export { IamUserModel } from './@app/iam/user';
 export { OAuthModule } from './@api/o-auth/o-auth.module';
 export { OAuthAccessTokenDto } from './@api/o-auth/access-token/dto/o-auth-access-token.dto';
-export { OAuthAccessTokenModel } from './@app/o-auth/access-token'
+export { OAuthAccessTokenModel } from './@app/o-auth/access-token';
 export { OAuthApplicationDto } from './@api/o-auth/application/dto/o-auth-application.dto';
 export { OAuthApplicationModel } from './@app/o-auth/application';
 export { OAuthClientDto } from './@api/o-auth/client/dto/o-auth-client.dto';
@@ -141,3 +141,4 @@ export { AuditingHttpCommunication } from './@app/auditing/http-communication/do
 export { AuditingSideEffectResponse } from './@app/auditing/side-effect/domain/auditing-side-effect.response';
 export { AuditingSideEffectMapper } from './@app/auditing/side-effect/domain/auditing-side-effect.mapper';
 export { auditingMockSideEffectData } from './@app/auditing/side-effect/infrastructure/mock/auditing-mock-side-effect.data';
+export { AuditingSideEffect } from './@app/auditing/side-effect/domain/auditing-side-effect.aggregate';

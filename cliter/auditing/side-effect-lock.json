@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/auditing/side-effect/infrastructure/mock/auditing-mock-side-effect.data.ts",
-            "integrity": "sha1:e1035ea347a45a47c6b5c78988cedc2bd1c9c60b"
+            "integrity": "sha1:a4348710b5e4b419d9b1de41288b648b270517ad"
         },
         {
             "path": "src/@app/auditing/side-effect/infrastructure/mock/auditing-mock-side-effect.repository.ts",
@@ -475,7 +475,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/controllers/auditing-delete-side-effects.controller.ts",
-            "integrity": "sha1:11787cf534cfe02d765b279b23a0c498ecee328c"
+            "integrity": "sha1:4cb127651fb52f799834a1d78f16b32efa7dc0c3"
         },
         {
             "path": "src/@api/auditing/side-effect/controllers/auditing-find-side-effect-by-id.controller.spec.ts",
@@ -663,7 +663,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-create-side-effects.resolver.ts",
-            "integrity": "sha1:389ed036918b615ac728db8b52a007ae3ffa2275"
+            "integrity": "sha1:f2d70f31bda75a68943b923e72e95db898b39041"
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-delete-side-effect-by-id.resolver.spec.ts",
@@ -671,7 +671,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-delete-side-effect-by-id.resolver.ts",
-            "integrity": "sha1:19bbd5137fb29449470ea96459a674090b40f84d"
+            "integrity": "sha1:beed158ac77b7d4895c54d1e60b233b5e34a9491"
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-delete-side-effects.resolver.spec.ts",
@@ -679,7 +679,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-delete-side-effects.resolver.ts",
-            "integrity": "sha1:51ee702f340b2efa607b2137672adfb43e41e50f"
+            "integrity": "sha1:1deb9b9a59d868d2049f144f92aa693a2fdd0b6e"
         },
         {
             "path": "src/@api/auditing/side-effect/resolvers/auditing-find-side-effect-by-id.resolver.spec.ts",
@@ -751,7 +751,7 @@
         },
         {
             "path": "src/@api/auditing/side-effect/handlers/auditing-rollback-side-effect.handler.spec.ts",
-            "integrity": "sha1:6df821573bf7fea6b95702b210add7ab2fb99d53"
+            "integrity": "sha1:2a810756147b5d2bcc2eb365e0bd186f1cb5c61d"
         },
         {
             "path": "src/@api/auditing/side-effect/handlers/auditing-rollback-side-effect.handler.ts",
@@ -771,7 +771,7 @@
         },
         {
             "path": "postman/auditing/auditing.side-effect.postman.json",
-            "integrity": "sha1:e00548f91587b2e2bd687e687666fb4cd0c53187"
+            "integrity": "sha1:9f8f65cbdba8953c8607df0945d76f3b10629107"
         }
     ]
 }
