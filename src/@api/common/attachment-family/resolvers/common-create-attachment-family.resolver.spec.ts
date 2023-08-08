@@ -2,7 +2,6 @@
 import { CommonCreateAttachmentFamilyHandler, CommonCreateAttachmentFamilyResolver } from '@api/common/attachment-family';
 import { CommonCreateAttachmentFamilyInput } from '@api/graphql';
 import { commonMockAttachmentFamilyData } from '@app/common/attachment-family';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateAttachmentFamilyResolver', () =>

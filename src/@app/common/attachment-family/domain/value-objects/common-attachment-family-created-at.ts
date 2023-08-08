@@ -2,12 +2,12 @@ import { DataValueObject, TimestampValueObject, ValidationRules } from '@auroraj
 
 export class CommonAttachmentFamilyCreatedAt extends TimestampValueObject
 {
-    public readonly type: string = 'AttachmentFamilyCreatedAt';
+    public readonly type: string = 'CommonAttachmentFamilyCreatedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'AttachmentFamilyCreatedAt',
+            name       : 'CommonAttachmentFamilyCreatedAt',
             nullable   : true,
             undefinable: true,
         }, validationRules), data);
