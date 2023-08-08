@@ -1,5 +1,5 @@
-import { QueueManagerFindJobRegistryByIdHandler } from '../handlers/queue-manager-find-job-registry-by-id.handler';
 import { QueueManagerJobRegistry } from '@api/graphql';
+import { QueueManagerFindJobRegistryByIdHandler } from '@api/queue-manager/job-registry';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Query, Resolver } from '@nestjs/graphql';

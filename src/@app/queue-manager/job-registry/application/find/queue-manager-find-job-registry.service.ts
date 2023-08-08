@@ -1,5 +1,4 @@
-import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
-import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
+import { QueueManagerIJobRegistryRepository, QueueManagerJobRegistry } from '@app/queue-manager/job-registry';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 

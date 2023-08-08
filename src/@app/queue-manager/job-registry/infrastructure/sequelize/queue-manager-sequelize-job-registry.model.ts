@@ -14,7 +14,7 @@ import { DataTypes } from 'sequelize';
 		},
 		{
 			fields: ['jobId'],
-			unique: false,
+			unique: true,
 		},
 		{
 			fields: ['tags'],

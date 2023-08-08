@@ -3,30 +3,30 @@ import { PaginationResponse } from '@aurorajs.dev/core';
 
 // custom items
 import { QueueManagerPaginateJobsRegistryQueryHandler } from './queue-manager-paginate-jobs-registry.query-handler';
-import { MockJobRegistryRepository } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.repository';
 import { QueueManagerIJobRegistryRepository } from '@app/queue-manager/job-registry/domain/queue-manager-job-registry.repository';
 import { QueueManagerJobRegistryMapper } from '@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
 import { QueueManagerPaginateJobsRegistryQuery } from './queue-manager-paginate-jobs-registry.query';
 import { QueueManagerPaginateJobsRegistryService } from './queue-manager-paginate-jobs-registry.service';
 
-describe('PaginateJobsRegistryQueryHandler', () =>
+describe('QueueManagerPaginateJobsRegistryQueryHandler', () =>
 {
-    let queryHandler: PaginateJobsRegistryQueryHandler;
-    let service: PaginateJobsRegistryService;
-    let repository: MockJobRegistryRepository;
-    let mapper: JobRegistryMapper;
+    let queryHandler: QueueManagerPaginateJobsRegistryQueryHandler;
+    let service: QueueManagerPaginateJobsRegistryService;
+    let repository: QueueManagerMockJobRegistryRepository;
+    let mapper: QueueManagerJobRegistryMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                PaginateJobsRegistryQueryHandler,
+                QueueManagerPaginateJobsRegistryQueryHandler,
                 {
                     provide : QueueManagerIJobRegistryRepository,
-                    useClass: MockJobRegistryRepository,
+                    useClass: QueueManagerMockJobRegistryRepository,
                 },
                 {
-                    provide : PaginateJobsRegistryService,
+                    provide : QueueManagerPaginateJobsRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,15 +35,15 @@ describe('PaginateJobsRegistryQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<PaginateJobsRegistryQueryHandler>(PaginateJobsRegistryQueryHandler);
-        service = module.get<PaginateJobsRegistryService>(PaginateJobsRegistryService);
-        repository = <MockJobRegistryRepository>module.get<QueueManagerIJobRegistryRepository>(QueueManagerIJobRegistryRepository);
-        mapper = new JobRegistryMapper();
+        queryHandler = module.get<QueueManagerPaginateJobsRegistryQueryHandler>(QueueManagerPaginateJobsRegistryQueryHandler);
+        service = module.get<QueueManagerPaginateJobsRegistryService>(QueueManagerPaginateJobsRegistryService);
+        repository = <QueueManagerMockJobRegistryRepository>module.get<QueueManagerIJobRegistryRepository>(QueueManagerIJobRegistryRepository);
+        mapper = new QueueManagerJobRegistryMapper();
     });
 
     describe('main', () =>
     {
-        test('PaginateJobsRegistryQueryHandler should be defined', () =>
+        test('QueueManagerPaginateJobsRegistryQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -58,7 +58,7 @@ describe('PaginateJobsRegistryQueryHandler', () =>
                 },
             )));
             expect(await queryHandler.execute(
-                new PaginateJobsRegistryQuery(
+                new QueueManagerPaginateJobsRegistryQuery(
                     {
                         offset: 0,
                         limit : 10,

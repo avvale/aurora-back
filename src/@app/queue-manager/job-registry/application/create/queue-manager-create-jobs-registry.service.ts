@@ -1,5 +1,4 @@
-import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
-import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
+import { QueueManagerAddJobsRegistryContextEvent, QueueManagerIJobRegistryRepository, QueueManagerJobRegistry } from '@app/queue-manager/job-registry';
 import {
     QueueManagerJobRegistryCreatedAt,
     QueueManagerJobRegistryDeletedAt,
@@ -10,8 +9,7 @@ import {
     QueueManagerJobRegistryState,
     QueueManagerJobRegistryTags,
     QueueManagerJobRegistryUpdatedAt,
-} from '../../domain/value-objects';
-import { QueueManagerAddJobsRegistryContextEvent } from '../events/queue-manager-add-jobs-registry-context.event';
+} from '@app/queue-manager/job-registry/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

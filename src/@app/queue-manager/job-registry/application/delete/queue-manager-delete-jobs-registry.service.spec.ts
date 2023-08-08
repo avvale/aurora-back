@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { DeleteJobsRegistryService } from './delete-jobs-registry.service';
+import { QueueManagerDeleteJobsRegistryService } from './queue-manager-delete-jobs-registry.service';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
 describe('QueueManagerDeleteJobsRegistryService', () =>
 {
-    let service: DeleteJobsRegistryService;
+    let service: QueueManagerDeleteJobsRegistryService;
     let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('QueueManagerDeleteJobsRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteJobsRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerDeleteJobsRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -33,14 +33,13 @@ describe('QueueManagerDeleteJobsRegistryService', () =>
         })
             .compile();
 
-        service = module.get(DeleteJobsRegistryService);
+        service = module.get(QueueManagerDeleteJobsRegistryService);
         repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteJobsRegistryService should be defined', () =>
+        test('QueueManagerDeleteJobsRegistryService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
@@ -48,7 +47,13 @@ describe('QueueManagerDeleteJobsRegistryService', () =>
         test('should delete jobRegistry and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

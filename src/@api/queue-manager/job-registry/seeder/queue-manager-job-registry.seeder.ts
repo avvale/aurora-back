@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 //
 import { QueueManagerCreateJobsRegistryCommand } from '@app/queue-manager/job-registry';
-import { queueManagerJobsRegistry } from '@app/queue-manager/job-registry';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry';
 
 @Injectable()
 export class QueueManagerJobRegistrySeeder
@@ -16,7 +16,7 @@ export class QueueManagerJobRegistrySeeder
     async main(): Promise<boolean>
     {
         await this.commandBus.dispatch(new QueueManagerCreateJobsRegistryCommand(
-            queueManagerJobsRegistry,
+            queueManagerMockJobRegistryData,
             {
                 timezone: process.env.TZ ,
             },

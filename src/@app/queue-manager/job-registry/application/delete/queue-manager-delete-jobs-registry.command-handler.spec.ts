@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { DeleteJobsRegistryCommandHandler } from './delete-jobs-registry.command-handler';
-import { DeleteJobsRegistryCommand } from './delete-jobs-registry.command';
-import { DeleteJobsRegistryService } from './delete-jobs-registry.service';
+import { QueueManagerDeleteJobsRegistryCommandHandler } from './queue-manager-delete-jobs-registry.command-handler';
+import { QueueManagerDeleteJobsRegistryCommand } from './queue-manager-delete-jobs-registry.command';
+import { QueueManagerDeleteJobsRegistryService } from './queue-manager-delete-jobs-registry.service';
 
 describe('QueueManagerDeleteJobsRegistryCommandHandler', () =>
 {
     let commandHandler: QueueManagerDeleteJobsRegistryCommandHandler;
-    let service: DeleteJobsRegistryService;
+    let service: QueueManagerDeleteJobsRegistryService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteJobsRegistryCommandHandler,
+                QueueManagerDeleteJobsRegistryCommandHandler,
                 {
-                    provide : DeleteJobsRegistryService,
+                    provide : QueueManagerDeleteJobsRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -25,13 +25,13 @@ describe('QueueManagerDeleteJobsRegistryCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteJobsRegistryCommandHandler>(DeleteJobsRegistryCommandHandler);
-        service = module.get<DeleteJobsRegistryService>(DeleteJobsRegistryService);
+        commandHandler = module.get<QueueManagerDeleteJobsRegistryCommandHandler>(QueueManagerDeleteJobsRegistryCommandHandler);
+        service = module.get<QueueManagerDeleteJobsRegistryService>(QueueManagerDeleteJobsRegistryService);
     });
 
     describe('main', () =>
     {
-        test('DeleteJobsRegistryCommandHandler should be defined', () =>
+        test('QueueManagerDeleteJobsRegistryCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
@@ -39,7 +39,7 @@ describe('QueueManagerDeleteJobsRegistryCommandHandler', () =>
         test('should return void', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteJobsRegistryCommand(),
+                new QueueManagerDeleteJobsRegistryCommand(),
             )).toBe(undefined);
         });
     });

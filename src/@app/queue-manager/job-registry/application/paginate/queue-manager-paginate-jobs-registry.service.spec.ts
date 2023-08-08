@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { QueueManagerPaginateJobsRegistryService } from './queue-manager-paginate-jobs-registry.service';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('PaginateJobsRegistryService', () =>
+describe('QueueManagerPaginateJobsRegistryService', () =>
 {
-    let service: PaginateJobsRegistryService;
+    let service: QueueManagerPaginateJobsRegistryService;
     let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let mockRepository: QueueManagerMockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('PaginateJobsRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                PaginateJobsRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerPaginateJobsRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('PaginateJobsRegistryService', () =>
         })
             .compile();
 
-        service = module.get(PaginateJobsRegistryService);
+        service = module.get(QueueManagerPaginateJobsRegistryService);
         repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        mockRepository = module.get(QueueManagerMockJobRegistryRepository);
     });
 
     describe('main', () =>
     {
-        test('PaginateJobsRegistryService should be defined', () =>
+        test('QueueManagerPaginateJobsRegistryService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

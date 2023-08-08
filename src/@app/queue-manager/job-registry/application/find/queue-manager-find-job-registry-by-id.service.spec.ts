@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
-import { FindJobRegistryByIdService } from './queue-manager-find-job-registry-by-id.service';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
+import { QueueManagerFindJobRegistryByIdService } from './queue-manager-find-job-registry-by-id.service';
 import { QueueManagerJobRegistryId } from '../../domain/value-objects';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('FindJobRegistryByIdService', () =>
+describe('QueueManagerFindJobRegistryByIdService', () =>
 {
-    let service: FindJobRegistryByIdService;
+    let service: QueueManagerFindJobRegistryByIdService;
     let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let mockRepository: QueueManagerMockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -21,8 +21,9 @@ describe('FindJobRegistryByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindJobRegistryByIdService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerFindJobRegistryByIdService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -33,9 +34,9 @@ describe('FindJobRegistryByIdService', () =>
         })
             .compile();
 
-        service = module.get(FindJobRegistryByIdService);
+        service = module.get(QueueManagerFindJobRegistryByIdService);
         repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        mockRepository = module.get(QueueManagerMockJobRegistryRepository);
     });
 
     describe('main', () =>
@@ -49,7 +50,7 @@ describe('FindJobRegistryByIdService', () =>
         {
             jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
             expect(await service.main(
-                new JobRegistryId(jobsRegistry[0].id),
+                new QueueManagerJobRegistryId(queueManagerMockJobRegistryData[0].id),
             )).toBe(mockRepository.collectionSource[0]);
         });
     });

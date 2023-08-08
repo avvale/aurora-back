@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueueManagerUpdateJobRegistryByIdHandler } from './queue-manager-update-job-registry-by-id.handler';
 import { QueueManagerUpdateJobRegistryByIdInput } from '@api/graphql';
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { QueueManagerUpdateJobRegistryByIdHandler } from '@api/queue-manager/job-registry';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -9,7 +9,6 @@ describe('QueueManagerUpdateJobRegistryByIdHandler', () =>
 {
     let handler: QueueManagerUpdateJobRegistryByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('QueueManagerUpdateJobRegistryByIdHandler', () =>
 
         handler = module.get<QueueManagerUpdateJobRegistryByIdHandler>(QueueManagerUpdateJobRegistryByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('QueueManagerUpdateJobRegistryByIdHandler should be defined', () =>
@@ -53,8 +51,14 @@ describe('QueueManagerUpdateJobRegistryByIdHandler', () =>
 
         test('should return a jobRegistry updated', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(jobsRegistry[0])));
-            expect(await handler.main(<QueueManagerUpdateJobRegistryByIdInput>jobsRegistry[0])).toBe(jobsRegistry[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(queueManagerMockJobRegistryData[0])));
+            expect(
+                await handler.main(
+                    <QueueManagerUpdateJobRegistryByIdInput>queueManagerMockJobRegistryData[0],
+                    {},
+                    'Europe/Madrid',
+                ))
+                .toBe(queueManagerMockJobRegistryData[0]);
         });
     });
 });

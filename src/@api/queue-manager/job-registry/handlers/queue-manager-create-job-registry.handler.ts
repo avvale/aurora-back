@@ -1,7 +1,7 @@
-import { QueueManagerCreateJobRegistryDto, QueueManagerJobRegistryDto } from '../dto';
 import { QueueManagerCreateJobRegistryInput, QueueManagerJobRegistry } from '@api/graphql';
+import { QueueManagerCreateJobRegistryDto, QueueManagerJobRegistryDto } from '@api/queue-manager/job-registry';
 import { QueueManagerCreateJobRegistryCommand, QueueManagerFindJobRegistryByIdQuery } from '@app/queue-manager/job-registry';
-import { AuditingMeta, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

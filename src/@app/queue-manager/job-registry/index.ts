@@ -1,4 +1,4 @@
-// commands
+// export commands
 export { QueueManagerCreateJobRegistryCommand } from './application/create/queue-manager-create-job-registry.command';
 export { QueueManagerCreateJobsRegistryCommand } from './application/create/queue-manager-create-jobs-registry.command';
 export { QueueManagerUpdateJobRegistryByIdCommand } from './application/update/queue-manager-update-job-registry-by-id.command';
@@ -7,15 +7,32 @@ export { QueueManagerUpsertJobRegistryCommand } from './application/upsert/queue
 export { QueueManagerDeleteJobRegistryByIdCommand } from './application/delete/queue-manager-delete-job-registry-by-id.command';
 export { QueueManagerDeleteJobsRegistryCommand } from './application/delete/queue-manager-delete-jobs-registry.command';
 
-// queries
+// export queries
 export { QueueManagerPaginateJobsRegistryQuery } from './application/paginate/queue-manager-paginate-jobs-registry.query';
 export { QueueManagerGetJobsRegistryQuery } from './application/get/queue-manager-get-jobs-registry.query';
 export { QueueManagerFindJobRegistryQuery } from './application/find/queue-manager-find-job-registry.query';
 export { QueueManagerFindJobRegistryByIdQuery } from './application/find/queue-manager-find-job-registry-by-id.query';
 export { QueueManagerRawSQLJobsRegistryQuery } from './application/raw-sql/queue-manager-raw-sql-jobs-registry.query';
 
-// mocks
-export { queueManagerJobsRegistry } from './infrastructure/mock/queue-manager-mock-job-registry.data';
+// export mocks
+export { queueManagerMockJobRegistryData } from './infrastructure/mock/queue-manager-mock-job-registry.data';
+export { QueueManagerMockJobRegistrySeeder } from './infrastructure/mock/queue-manager-mock-job-registry.seeder';
+export { QueueManagerMockJobRegistryRepository } from './infrastructure/mock/queue-manager-mock-job-registry.repository';
+
+// export events
+export { QueueManagerAddJobsRegistryContextEvent } from './application/events/queue-manager-add-jobs-registry-context.event';
+export { QueueManagerCreatedJobsRegistryEvent } from './application/events/queue-manager-created-jobs-registry.event';
+export { QueueManagerCreatedJobRegistryEvent } from './application/events/queue-manager-created-job-registry.event';
+export { QueueManagerDeletedJobsRegistryEvent } from './application/events/queue-manager-deleted-jobs-registry.event';
+export { QueueManagerDeletedJobRegistryEvent } from './application/events/queue-manager-deleted-job-registry.event';
+export { QueueManagerUpdatedJobsRegistryEvent } from './application/events/queue-manager-updated-jobs-registry.event';
+export { QueueManagerUpdatedJobRegistryEvent } from './application/events/queue-manager-updated-job-registry.event';
+
+// export command handlers
+// can not export application command handlers, because Nest can't resolve dependencies
+
+// export command services
+// can not export application services, because Nest can't resolve dependencies
 
 // domain
 export { QueueManagerJobRegistry } from './domain/queue-manager-job-registry.aggregate';

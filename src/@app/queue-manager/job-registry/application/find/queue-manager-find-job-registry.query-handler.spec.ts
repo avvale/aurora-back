@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindJobRegistryQueryHandler } from './queue-manager-find-job-registry.query-handler';
-import { MockJobRegistryRepository } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerFindJobRegistryQueryHandler } from './queue-manager-find-job-registry.query-handler';
+import { QueueManagerMockJobRegistryRepository } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.repository';
 import { QueueManagerIJobRegistryRepository } from '@app/queue-manager/job-registry/domain/queue-manager-job-registry.repository';
 import { QueueManagerJobRegistryMapper } from '@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
-import { FindJobRegistryQuery } from './queue-manager-find-job-registry.query';
-import { FindJobRegistryService } from './queue-manager-find-job-registry.service';
+import { QueueManagerFindJobRegistryQuery } from './queue-manager-find-job-registry.query';
+import { QueueManagerFindJobRegistryService } from './queue-manager-find-job-registry.service';
 
-describe('FindJobRegistryQueryHandler', () =>
+describe('QueueManagerFindJobRegistryQueryHandler', () =>
 {
-    let queryHandler: FindJobRegistryQueryHandler;
-    let service: FindJobRegistryService;
-    let repository: MockJobRegistryRepository;
-    let mapper: JobRegistryMapper;
+    let queryHandler: QueueManagerFindJobRegistryQueryHandler;
+    let service: QueueManagerFindJobRegistryService;
+    let repository: QueueManagerMockJobRegistryRepository;
+    let mapper: QueueManagerJobRegistryMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindJobRegistryQueryHandler,
+                QueueManagerFindJobRegistryQueryHandler,
                 {
                     provide : QueueManagerIJobRegistryRepository,
-                    useClass: MockJobRegistryRepository,
+                    useClass: QueueManagerMockJobRegistryRepository,
                 },
                 {
-                    provide : FindJobRegistryService,
+                    provide : QueueManagerFindJobRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('FindJobRegistryQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<FindJobRegistryQueryHandler>(FindJobRegistryQueryHandler);
-        service = module.get<FindJobRegistryService>(FindJobRegistryService);
-        repository = <MockJobRegistryRepository>module.get<QueueManagerIJobRegistryRepository>(QueueManagerIJobRegistryRepository);
-        mapper = new JobRegistryMapper();
+        queryHandler = module.get<QueueManagerFindJobRegistryQueryHandler>(QueueManagerFindJobRegistryQueryHandler);
+        service = module.get<QueueManagerFindJobRegistryService>(QueueManagerFindJobRegistryService);
+        repository = <QueueManagerMockJobRegistryRepository>module.get<QueueManagerIJobRegistryRepository>(QueueManagerIJobRegistryRepository);
+        mapper = new QueueManagerJobRegistryMapper();
     });
 
     describe('main', () =>
     {
-        test('FindJobRegistryQueryHandler should be defined', () =>
+        test('QueueManagerFindJobRegistryQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('FindJobRegistryQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
             expect(await queryHandler.execute(
-                new FindJobRegistryQuery(),
+                new QueueManagerFindJobRegistryQuery(),
             )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
         });
     });

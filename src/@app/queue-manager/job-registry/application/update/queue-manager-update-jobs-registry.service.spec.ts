@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 import { QueueManagerUpdateJobsRegistryService } from './queue-manager-update-jobs-registry.service';
 import {
     QueueManagerJobRegistryId,
@@ -17,13 +17,11 @@ import {
     QueueManagerJobRegistryDeletedAt,
 } from '../../domain/value-objects';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('UpdateJobsRegistryService', () =>
+describe('QueueManagerUpdateJobsRegistryService', () =>
 {
-    let service: UpdateJobsRegistryService;
-    let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let service: QueueManagerUpdateJobsRegistryService;
 
     beforeAll(async () =>
     {
@@ -32,8 +30,9 @@ describe('UpdateJobsRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                UpdateJobsRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerUpdateJobsRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -45,9 +44,7 @@ describe('UpdateJobsRegistryService', () =>
         })
             .compile();
 
-        service = module.get(UpdateJobsRegistryService);
-        repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        service = module.get(QueueManagerUpdateJobsRegistryService);
     });
 
     describe('main', () =>
@@ -59,16 +56,21 @@ describe('UpdateJobsRegistryService', () =>
 
         test('should update a jobsRegistry and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new QueueManagerJobRegistryId(jobsRegistry[0].id),
-                    queueName: new QueueManagerJobRegistryQueueName(jobsRegistry[0].queueName),
-                    state: new QueueManagerJobRegistryState(jobsRegistry[0].state),
-                    jobId: new QueueManagerJobRegistryJobId(jobsRegistry[0].jobId),
-                    jobName: new QueueManagerJobRegistryJobName(jobsRegistry[0].jobName),
-                    tags: new QueueManagerJobRegistryTags(jobsRegistry[0].tags),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new QueueManagerJobRegistryId(queueManagerMockJobRegistryData[0].id),
+                        queueName: new QueueManagerJobRegistryQueueName(queueManagerMockJobRegistryData[0].queueName),
+                        state: new QueueManagerJobRegistryState(queueManagerMockJobRegistryData[0].state),
+                        jobId: new QueueManagerJobRegistryJobId(queueManagerMockJobRegistryData[0].jobId),
+                        jobName: new QueueManagerJobRegistryJobName(queueManagerMockJobRegistryData[0].jobName),
+                        tags: new QueueManagerJobRegistryTags(queueManagerMockJobRegistryData[0].tags),
+                    },
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

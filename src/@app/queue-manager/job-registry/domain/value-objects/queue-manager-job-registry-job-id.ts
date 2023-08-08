@@ -2,12 +2,12 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class QueueManagerJobRegistryJobId extends StringValueObject
 {
-    public readonly type: string = 'JobRegistryJobId';
+    public readonly type: string = 'QueueManagerJobRegistryJobId';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'JobRegistryJobId',
+            name       : 'QueueManagerJobRegistryJobId',
             nullable   : false,
             undefinable: false,
             maxLength  : 36,

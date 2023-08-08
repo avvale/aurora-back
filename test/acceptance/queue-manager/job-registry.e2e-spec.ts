@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
-import { QueueManagerIJobRegistryRepository } from '@app/queue-manager/job-registry/domain/queue-manager-job-registry.repository';
-import { queueManagerJobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
-import { QueueManagerMockJobRegistrySeeder } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.seeder';
+import { QueueManagerIJobRegistryRepository, queueManagerMockJobRegistryData, QueueManagerMockJobRegistrySeeder } from '@app/queue-manager/job-registry';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -65,7 +63,7 @@ describe('job-registry', () =>
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = queueManagerJobsRegistry;
+        mockData = queueManagerMockJobRegistryData;
         app = module.createNestApplication();
         jobRegistryRepository = module.get<QueueManagerIJobRegistryRepository>(QueueManagerIJobRegistryRepository);
         jobRegistrySeeder = module.get<QueueManagerMockJobRegistrySeeder>(QueueManagerMockJobRegistrySeeder);

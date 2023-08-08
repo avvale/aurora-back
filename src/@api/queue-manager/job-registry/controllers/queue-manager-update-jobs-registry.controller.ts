@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { QueueManagerJobRegistryDto, QueueManagerUpdateJobsRegistryDto } from '../dto';
-import { QueueManagerUpdateJobsRegistryHandler } from '../handlers/queue-manager-update-jobs-registry.handler';
+import { QueueManagerJobRegistryDto, QueueManagerUpdateJobsRegistryDto, QueueManagerUpdateJobsRegistryHandler } from '@api/queue-manager/job-registry';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Put } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 

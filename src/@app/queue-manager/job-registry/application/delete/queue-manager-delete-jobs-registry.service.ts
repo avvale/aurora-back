@@ -1,5 +1,4 @@
-import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { QueueManagerAddJobsRegistryContextEvent } from '../events/queue-manager-add-jobs-registry-context.event';
+import { QueueManagerAddJobsRegistryContextEvent, QueueManagerIJobRegistryRepository } from '@app/queue-manager/job-registry';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

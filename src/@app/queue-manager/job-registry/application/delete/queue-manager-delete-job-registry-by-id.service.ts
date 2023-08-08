@@ -1,5 +1,5 @@
-import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { QueueManagerJobRegistryId } from '../../domain/value-objects';
+import { QueueManagerIJobRegistryRepository } from '@app/queue-manager/job-registry';
+import { QueueManagerJobRegistryId } from '@app/queue-manager/job-registry/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
@@ -19,23 +19,25 @@ export class QueueManagerDeleteJobRegistryByIdService
     ): Promise<void>
     {
         // get object to delete
-        const jobRegistry = await this.repository.findById(
-            id,
-            {
-                constraint,
-                cQMetadata,
-            },
-        );
+        const jobRegistry = await this.repository
+            .findById(
+                id,
+                {
+                    constraint,
+                    cQMetadata,
+                },
+            );
 
         // it is not necessary to pass the constraint in the delete, if the object
         // is not found in the findById, an exception will be thrown.
-        await this.repository.deleteById(
-            jobRegistry.id,
-            {
-                deleteOptions: cQMetadata?.repositoryOptions,
-                cQMetadata,
-            },
-        );
+        await this.repository
+            .deleteById(
+                jobRegistry.id,
+                {
+                    deleteOptions: cQMetadata?.repositoryOptions,
+                    cQMetadata,
+                },
+            );
 
         // insert EventBus in object, to be able to apply and commit events
         const jobRegistryRegister = this.publisher.mergeObjectContext(jobRegistry);

@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 import { QueueManagerUpdateJobsRegistryCommandHandler } from './queue-manager-update-jobs-registry.command-handler';
 import { QueueManagerUpdateJobsRegistryCommand } from './queue-manager-update-jobs-registry.command';
 import { QueueManagerUpdateJobsRegistryService } from './queue-manager-update-jobs-registry.service';
 
-describe('UpdateJobsRegistryCommandHandler', () =>
+describe('QueueManagerUpdateJobsRegistryCommandHandler', () =>
 {
-    let commandHandler: UpdateJobsRegistryCommandHandler;
-    let service: UpdateJobsRegistryService;
+    let commandHandler: QueueManagerUpdateJobsRegistryCommandHandler;
+    let service: QueueManagerUpdateJobsRegistryService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateJobsRegistryCommandHandler,
+                QueueManagerUpdateJobsRegistryCommandHandler,
                 {
-                    provide : UpdateJobsRegistryService,
+                    provide : QueueManagerUpdateJobsRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpdateJobsRegistryCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateJobsRegistryCommandHandler>(UpdateJobsRegistryCommandHandler);
-        service = module.get<UpdateJobsRegistryService>(UpdateJobsRegistryService);
+        commandHandler = module.get<QueueManagerUpdateJobsRegistryCommandHandler>(QueueManagerUpdateJobsRegistryCommandHandler);
+        service = module.get<QueueManagerUpdateJobsRegistryService>(QueueManagerUpdateJobsRegistryService);
     });
 
     describe('main', () =>
@@ -40,14 +40,14 @@ describe('UpdateJobsRegistryCommandHandler', () =>
         test('should return an jobsRegistry updated', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateJobsRegistryCommand(
+                new QueueManagerUpdateJobsRegistryCommand(
                     {
-                        id: jobsRegistry[0].id,
-                        queueName: jobsRegistry[0].queueName,
-                        state: jobsRegistry[0].state,
-                        jobId: jobsRegistry[0].jobId,
-                        jobName: jobsRegistry[0].jobName,
-                        tags: jobsRegistry[0].tags,
+                        id: queueManagerMockJobRegistryData[0].id,
+                        queueName: queueManagerMockJobRegistryData[0].queueName,
+                        state: queueManagerMockJobRegistryData[0].state,
+                        jobId: queueManagerMockJobRegistryData[0].jobId,
+                        jobName: queueManagerMockJobRegistryData[0].jobName,
+                        tags: queueManagerMockJobRegistryData[0].tags,
                     },
                     {},
                     {},

@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { GetJobsRegistryService } from './get-jobs-registry.service';
+import { QueueManagerGetJobsRegistryService } from './queue-manager-get-jobs-registry.service';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('GetJobsRegistryService', () =>
+describe('QueueManagerGetJobsRegistryService', () =>
 {
-    let service: GetJobsRegistryService;
+    let service: QueueManagerGetJobsRegistryService;
     let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let mockRepository: QueueManagerMockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('GetJobsRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                GetJobsRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerGetJobsRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('GetJobsRegistryService', () =>
         })
             .compile();
 
-        service = module.get(GetJobsRegistryService);
+        service = module.get(QueueManagerGetJobsRegistryService);
         repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        mockRepository = module.get(QueueManagerMockJobRegistryRepository);
     });
 
     describe('main', () =>

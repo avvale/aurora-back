@@ -2,22 +2,22 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { QueueManagerDeleteJobRegistryByIdCommandHandler } from './queue-manager-delete-job-registry-by-id.command-handler';
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 import { QueueManagerDeleteJobRegistryByIdCommand } from './queue-manager-delete-job-registry-by-id.command';
 import { QueueManagerDeleteJobRegistryByIdService } from './queue-manager-delete-job-registry-by-id.service';
 
 describe('QueueManagerDeleteJobRegistryByIdCommandHandler', () =>
 {
-    let commandHandler: DeleteJobRegistryByIdCommandHandler;
-    let service: DeleteJobRegistryByIdService;
+    let commandHandler: QueueManagerDeleteJobRegistryByIdCommandHandler;
+    let service: QueueManagerDeleteJobRegistryByIdService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteJobRegistryByIdCommandHandler,
+                QueueManagerDeleteJobRegistryByIdCommandHandler,
                 {
-                    provide : DeleteJobRegistryByIdService,
+                    provide : QueueManagerDeleteJobRegistryByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,22 +26,22 @@ describe('QueueManagerDeleteJobRegistryByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteJobRegistryByIdCommandHandler>(DeleteJobRegistryByIdCommandHandler);
-        service = module.get<DeleteJobRegistryByIdService>(DeleteJobRegistryByIdService);
+        commandHandler = module.get<QueueManagerDeleteJobRegistryByIdCommandHandler>(QueueManagerDeleteJobRegistryByIdCommandHandler);
+        service = module.get<QueueManagerDeleteJobRegistryByIdService>(QueueManagerDeleteJobRegistryByIdService);
     });
 
     describe('main', () =>
     {
-        test('DeleteJobRegistryByIdCommandHandler should be defined', () =>
+        test('QueueManagerDeleteJobRegistryByIdCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the value object id and pass them as parameters to the DeleteJobRegistryByIdService', async () =>
+        test('should create the value object id and pass them as parameters to the QueueManagerDeleteJobRegistryByIdService', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteJobRegistryByIdCommand(
-                    jobsRegistry[0].id,
+                new QueueManagerDeleteJobRegistryByIdCommand(
+                    queueManagerMockJobRegistryData[0].id,
                 ),
             )).toBe(undefined);
         });

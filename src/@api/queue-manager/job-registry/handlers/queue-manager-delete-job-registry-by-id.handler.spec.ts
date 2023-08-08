@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueueManagerDeleteJobRegistryByIdHandler } from './queue-manager-delete-job-registry-by-id.handler';
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { QueueManagerDeleteJobRegistryByIdHandler } from '@api/queue-manager/job-registry';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('QueueManagerDeleteJobRegistryByIdController', () =>
 {
     let handler: QueueManagerDeleteJobRegistryByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('QueueManagerDeleteJobRegistryByIdController', () =>
 
         handler = module.get<QueueManagerDeleteJobRegistryByIdHandler>(QueueManagerDeleteJobRegistryByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -47,8 +45,15 @@ describe('QueueManagerDeleteJobRegistryByIdController', () =>
 
         test('should return an jobRegistry deleted', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(jobsRegistry[0])));
-            expect(await handler.main(jobsRegistry[0].id)).toBe(jobsRegistry[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(queueManagerMockJobRegistryData[0])));
+            expect(
+                await handler.main(
+                    queueManagerMockJobRegistryData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(queueManagerMockJobRegistryData[0]);
         });
     });
 });

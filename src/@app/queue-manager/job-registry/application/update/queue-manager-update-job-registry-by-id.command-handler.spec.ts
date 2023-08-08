@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 import { QueueManagerUpdateJobRegistryByIdCommandHandler } from './queue-manager-update-job-registry-by-id.command-handler';
 import { QueueManagerUpdateJobRegistryByIdCommand } from './queue-manager-update-job-registry-by-id.command';
 import { QueueManagerUpdateJobRegistryByIdService } from './queue-manager-update-job-registry-by-id.service';
@@ -15,9 +15,9 @@ describe('QueueManagerUpdateJobRegistryByIdCommandHandler', () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateJobRegistryByIdCommandHandler,
+                QueueManagerUpdateJobRegistryByIdCommandHandler,
                 {
-                    provide : UpdateJobRegistryByIdService,
+                    provide : QueueManagerUpdateJobRegistryByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('QueueManagerUpdateJobRegistryByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateJobRegistryByIdCommandHandler>(UpdateJobRegistryByIdCommandHandler);
-        service = module.get<UpdateJobRegistryByIdService>(UpdateJobRegistryByIdService);
+        commandHandler = module.get<QueueManagerUpdateJobRegistryByIdCommandHandler>(QueueManagerUpdateJobRegistryByIdCommandHandler);
+        service = module.get<QueueManagerUpdateJobRegistryByIdService>(QueueManagerUpdateJobRegistryByIdService);
     });
 
     describe('main', () =>
@@ -40,14 +40,14 @@ describe('QueueManagerUpdateJobRegistryByIdCommandHandler', () =>
         test('should return an jobRegistry created', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateJobRegistryByIdCommand(
+                new QueueManagerUpdateJobRegistryByIdCommand(
                     {
-                        id: jobsRegistry[0].id,
-                        queueName: jobsRegistry[0].queueName,
-                        state: jobsRegistry[0].state,
-                        jobId: jobsRegistry[0].jobId,
-                        jobName: jobsRegistry[0].jobName,
-                        tags: jobsRegistry[0].tags,
+                        id: queueManagerMockJobRegistryData[0].id,
+                        queueName: queueManagerMockJobRegistryData[0].queueName,
+                        state: queueManagerMockJobRegistryData[0].state,
+                        jobId: queueManagerMockJobRegistryData[0].jobId,
+                        jobName: queueManagerMockJobRegistryData[0].jobName,
+                        tags: queueManagerMockJobRegistryData[0].tags,
                     },
                     {},
                     { timezone: process.env.TZ },

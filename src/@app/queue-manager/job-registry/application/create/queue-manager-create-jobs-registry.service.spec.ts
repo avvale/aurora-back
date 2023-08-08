@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { CreateJobsRegistryService } from './create-jobs-registry.service';
+import { QueueManagerCreateJobsRegistryService } from './queue-manager-create-jobs-registry.service';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('CreateJobsRegistryService', () =>
+describe('QueueManagerCreateJobsRegistryService', () =>
 {
-    let service: CreateJobsRegistryService;
-    let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let service: QueueManagerCreateJobsRegistryService;
+    let mockRepository: QueueManagerMockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('CreateJobsRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateJobsRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerCreateJobsRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -32,9 +32,8 @@ describe('CreateJobsRegistryService', () =>
         })
             .compile();
 
-        service = module.get(CreateJobsRegistryService);
-        repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        service = module.get(QueueManagerCreateJobsRegistryService);
+        mockRepository = module.get(QueueManagerMockJobRegistryRepository);
     });
 
     describe('main', () =>
@@ -46,9 +45,12 @@ describe('CreateJobsRegistryService', () =>
 
         test('should create jobsRegistry and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

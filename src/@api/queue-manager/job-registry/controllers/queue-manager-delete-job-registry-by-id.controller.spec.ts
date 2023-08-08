@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueueManagerDeleteJobRegistryByIdHandler } from '../handlers/queue-manager-delete-job-registry-by-id.handler';
-import { QueueManagerDeleteJobRegistryByIdController } from './queue-manager-delete-job-registry-by-id.controller';
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { QueueManagerDeleteJobRegistryByIdController, QueueManagerDeleteJobRegistryByIdHandler } from '@api/queue-manager/job-registry';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('QueueManagerDeleteJobRegistryByIdController', () =>
@@ -41,8 +40,8 @@ describe('QueueManagerDeleteJobRegistryByIdController', () =>
 
         test('should return an jobRegistry deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(jobsRegistry[0])));
-            expect(await controller.main(jobsRegistry[0].id)).toBe(jobsRegistry[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(queueManagerMockJobRegistryData[0])));
+            expect(await controller.main(queueManagerMockJobRegistryData[0].id)).toBe(queueManagerMockJobRegistryData[0]);
         });
     });
 });

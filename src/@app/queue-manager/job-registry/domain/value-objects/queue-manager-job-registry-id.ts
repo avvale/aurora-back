@@ -2,12 +2,12 @@ import { DataValueObject, UuidValueObject, ValidationRules } from '@aurorajs.dev
 
 export class QueueManagerJobRegistryId extends UuidValueObject
 {
-    public readonly type: string = 'JobRegistryId';
+    public readonly type: string = 'QueueManagerJobRegistryId';
 
     constructor(value: string, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'JobRegistryId',
+            name       : 'QueueManagerJobRegistryId',
             nullable   : false,
             undefinable: false,
             length     : 36,

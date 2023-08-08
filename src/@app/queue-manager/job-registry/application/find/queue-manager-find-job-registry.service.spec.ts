@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { FindJobRegistryService } from './queue-manager-find-job-registry.service';
+import { QueueManagerFindJobRegistryService } from './queue-manager-find-job-registry.service';
 import { QueueManagerIJobRegistryRepository } from '../../domain/queue-manager-job-registry.repository';
-import { MockJobRegistryRepository } from '../../infrastructure/mock/mock-job-registry.repository';
+import { QueueManagerMockJobRegistryRepository } from '../../infrastructure/mock/queue-manager-mock-job-registry.repository';
 
-describe('FindJobRegistryService', () =>
+describe('QueueManagerFindJobRegistryService', () =>
 {
-    let service: FindJobRegistryService;
+    let service: QueueManagerFindJobRegistryService;
     let repository: QueueManagerIJobRegistryRepository;
-    let mockRepository: MockJobRegistryRepository;
+    let mockRepository: QueueManagerMockJobRegistryRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('FindJobRegistryService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindJobRegistryService,
-                MockJobRegistryRepository,
+                UnhandledExceptionBus,
+                QueueManagerFindJobRegistryService,
+                QueueManagerMockJobRegistryRepository,
                 {
                     provide : QueueManagerIJobRegistryRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('FindJobRegistryService', () =>
         })
             .compile();
 
-        service = module.get(FindJobRegistryService);
+        service = module.get(QueueManagerFindJobRegistryService);
         repository = module.get(QueueManagerIJobRegistryRepository);
-        mockRepository = module.get(MockJobRegistryRepository);
+        mockRepository = module.get(QueueManagerMockJobRegistryRepository);
     });
 
     describe('main', () =>
     {
-        test('FindJobRegistryService should be defined', () =>
+        test('QueueManagerFindJobRegistryService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

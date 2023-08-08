@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 import { QueueManagerUpsertJobRegistryCommandHandler } from './queue-manager-upsert-job-registry.command-handler';
 import { QueueManagerUpsertJobRegistryCommand } from './queue-manager-upsert-job-registry.command';
 import { QueueManagerUpsertJobRegistryService } from './queue-manager-upsert-job-registry.service';
 
-describe('UpsertJobRegistryCommandHandler', () =>
+describe('QueueManagerUpsertJobRegistryCommandHandler', () =>
 {
-    let commandHandler: UpsertJobRegistryCommandHandler;
-    let service: UpsertJobRegistryService;
+    let commandHandler: QueueManagerUpsertJobRegistryCommandHandler;
+    let service: QueueManagerUpsertJobRegistryService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpsertJobRegistryCommandHandler,
+                QueueManagerUpsertJobRegistryCommandHandler,
                 {
-                    provide : UpsertJobRegistryService,
+                    provide : QueueManagerUpsertJobRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpsertJobRegistryCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpsertJobRegistryCommandHandler>(UpsertJobRegistryCommandHandler);
-        service = module.get<UpsertJobRegistryService>(UpsertJobRegistryService);
+        commandHandler = module.get<QueueManagerUpsertJobRegistryCommandHandler>(QueueManagerUpsertJobRegistryCommandHandler);
+        service = module.get<QueueManagerUpsertJobRegistryService>(QueueManagerUpsertJobRegistryService);
     });
 
     describe('main', () =>
@@ -37,17 +37,17 @@ describe('UpsertJobRegistryCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should upsert the values objects and pass them as parameters to the UpsertJobRegistryService', async () =>
+        test('should upsert the values objects and pass them as parameters to the QueueManagerUpsertJobRegistryService', async () =>
         {
             expect(await commandHandler.execute(
-                new UpsertJobRegistryCommand(
+                new QueueManagerUpsertJobRegistryCommand(
                     {
-                        id: jobsRegistry[0].id,
-                        queueName: jobsRegistry[0].queueName,
-                        state: jobsRegistry[0].state,
-                        jobId: jobsRegistry[0].jobId,
-                        jobName: jobsRegistry[0].jobName,
-                        tags: jobsRegistry[0].tags,
+                        id: queueManagerMockJobRegistryData[0].id,
+                        queueName: queueManagerMockJobRegistryData[0].queueName,
+                        state: queueManagerMockJobRegistryData[0].state,
+                        jobId: queueManagerMockJobRegistryData[0].jobId,
+                        jobName: queueManagerMockJobRegistryData[0].jobName,
+                        tags: queueManagerMockJobRegistryData[0].tags,
                     },
                     { timezone: process.env.TZ },
                 ),

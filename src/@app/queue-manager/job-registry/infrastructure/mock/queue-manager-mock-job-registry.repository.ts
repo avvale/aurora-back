@@ -13,7 +13,7 @@ import {
     QueueManagerJobRegistryDeletedAt,
 } from '@app/queue-manager/job-registry/domain/value-objects';
 import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
-import { queueManagerJobsRegistry } from './queue-manager-mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from './queue-manager-mock-job-registry.data';
 
 @Injectable()
 export class QueueManagerMockJobRegistryRepository extends MockRepository<QueueManagerJobRegistry> implements QueueManagerIJobRegistryRepository
@@ -39,7 +39,7 @@ export class QueueManagerMockJobRegistryRepository extends MockRepository<QueueM
         this.collectionSource = [];
         const now = Utils.nowTimestamp();
 
-        for (const itemCollection of <any[]>queueManagerJobsRegistry)
+        for (const itemCollection of <any[]>queueManagerMockJobRegistryData)
         {
             itemCollection['createdAt'] = now;
             itemCollection['updatedAt'] = now;

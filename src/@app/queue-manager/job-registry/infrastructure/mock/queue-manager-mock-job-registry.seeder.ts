@@ -12,7 +12,7 @@ import {
     QueueManagerJobRegistryDeletedAt,
 } from '../../domain/value-objects';
 import { QueueManagerJobRegistry } from '../../domain/queue-manager-job-registry.aggregate';
-import { queueManagerJobsRegistry } from './queue-manager-mock-job-registry.data';
+import { queueManagerMockJobRegistryData } from './queue-manager-mock-job-registry.data';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -30,7 +30,7 @@ export class QueueManagerMockJobRegistrySeeder extends MockSeeder<QueueManagerJo
     {
         this.collectionSource = [];
 
-        for (const jobRegistry of _.orderBy(queueManagerJobsRegistry, ['id']))
+        for (const jobRegistry of _.orderBy(queueManagerMockJobRegistryData, ['id']))
         {
             this.collectionSource.push(
                 QueueManagerJobRegistry.register(

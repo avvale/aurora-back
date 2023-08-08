@@ -64,7 +64,7 @@ export { QueueManagerQueueMapper } from './@app/queue-manager/queue/domain/queue
 export { queueManagerQueues } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 export { QueueManagerJobRegistryResponse } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.response';
 export { QueueManagerJobRegistryMapper } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
-export { queueManagerJobsRegistry } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
+export { queueManagerJobsRegistry, queueManagerMockJobRegistryData } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 export { QueueManagerQueue } from './@app/queue-manager/queue/domain/queue-manager-queue.aggregate';
 export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.aggregate';
 export { CommonAdministrativeAreaLevel1Dto } from './@api/common/administrative-area-level-1/dto/common-administrative-area-level-1.dto';

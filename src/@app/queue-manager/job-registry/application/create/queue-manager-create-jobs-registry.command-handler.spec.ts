@@ -2,23 +2,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { jobsRegistry } from '@app/queue-manager/job-registry/infrastructure/mock/mock-job-registry.data';
-import { CreateJobsRegistryCommandHandler } from './create-jobs-registry.command-handler';
-import { CreateJobsRegistryCommand } from './create-jobs-registry.command';
-import { CreateJobsRegistryService } from './create-jobs-registry.service';
+import { queueManagerMockJobRegistryData } from '@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
+import { QueueManagerCreateJobsRegistryCommandHandler } from './queue-manager-create-jobs-registry.command-handler';
+import { QueueManagerCreateJobsRegistryCommand } from './queue-manager-create-jobs-registry.command';
+import { QueueManagerCreateJobsRegistryService } from './queue-manager-create-jobs-registry.service';
 
-describe('CreateJobsRegistryCommandHandler', () =>
+describe('queueManagerCreateJobsRegistryCommandHandler', () =>
 {
-    let commandHandler: CreateJobsRegistryCommandHandler;
-    let service: CreateJobsRegistryService;
+    let commandHandler: QueueManagerCreateJobsRegistryCommandHandler;
+    let service: QueueManagerCreateJobsRegistryService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                CreateJobsRegistryCommandHandler,
+                QueueManagerCreateJobsRegistryCommandHandler,
                 {
-                    provide : CreateJobsRegistryService,
+                    provide : QueueManagerCreateJobsRegistryService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -27,22 +27,22 @@ describe('CreateJobsRegistryCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<CreateJobsRegistryCommandHandler>(CreateJobsRegistryCommandHandler);
-        service = module.get<CreateJobsRegistryService>(CreateJobsRegistryService);
+        commandHandler = module.get<QueueManagerCreateJobsRegistryCommandHandler>(QueueManagerCreateJobsRegistryCommandHandler);
+        service = module.get<QueueManagerCreateJobsRegistryService>(QueueManagerCreateJobsRegistryService);
     });
 
     describe('main', () =>
     {
-        test('CreateJobsRegistryCommandHandler should be defined', () =>
+        test('QueueManagerCreateJobsRegistryCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return jobsRegistry createds', async () =>
+        test('should return QueueManagerMockJobRegistryData createds', async () =>
         {
             expect(await commandHandler.execute(
-                new CreateJobsRegistryCommand(
-                    jobsRegistry,
+                new QueueManagerCreateJobsRegistryCommand(
+                    queueManagerMockJobRegistryData,
                     { timezone: process.env.TZ },
                 ),
             )).toBe(undefined);
