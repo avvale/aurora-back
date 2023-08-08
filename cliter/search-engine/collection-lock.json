@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data.ts",
-            "integrity": "sha1:6e74c7d64b3267886e8c159d6a1c1aedfebbc801"
+            "integrity": "sha1:7e1289becefff015681c7e2b51b17900e496c9e9"
         },
         {
             "path": "src/@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository.ts",
@@ -723,7 +723,7 @@
         },
         {
             "path": "postman/search-engine/search-engine.collection.postman.json",
-            "integrity": "sha1:45c9c46097162b16f85420068eb6998aa0d37a52"
+            "integrity": "sha1:091e6a8930722f4e2c93167e8aead738211446fe"
         }
     ]
 }
