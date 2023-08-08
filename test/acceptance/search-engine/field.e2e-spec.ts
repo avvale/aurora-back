@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
-import { searchEngineFields } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineMockFieldSeeder } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.seeder';
+import { SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldSeeder } from '@app/search-engine/field';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -65,7 +63,7 @@ describe('field', () =>
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = searchEngineFields;
+        mockData = searchEngineMockFieldData;
         app = module.createNestApplication();
         fieldRepository = module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
         fieldSeeder = module.get<SearchEngineMockFieldSeeder>(SearchEngineMockFieldSeeder);

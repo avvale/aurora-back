@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineUpsertFieldHandler } from './search-engine-upsert-field.handler';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { SearchEngineUpsertFieldHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('SearchEngineUpsertFieldHandler', () =>
 {
     let handler: SearchEngineUpsertFieldHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('SearchEngineUpsertFieldHandler', () =>
 
         handler = module.get<SearchEngineUpsertFieldHandler>(SearchEngineUpsertFieldHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -47,8 +45,13 @@ describe('SearchEngineUpsertFieldHandler', () =>
 
         test('should return an field upserted', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await handler.main(fields[0])).toBe(fields[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(
+                await handler.main(
+                    searchEngineMockFieldData[0],
+                    'Europe/Madrid',
+                ))
+                .toBe(searchEngineMockFieldData[0]);
         });
     });
 });

@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { DeleteFieldsService } from './delete-fields.service';
+import { SearchEngineDeleteFieldsService } from './search-engine-delete-fields.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
 describe('SearchEngineDeleteFieldsService', () =>
 {
-    let service: DeleteFieldsService;
+    let service: SearchEngineDeleteFieldsService;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('SearchEngineDeleteFieldsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteFieldsService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineDeleteFieldsService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -33,14 +33,13 @@ describe('SearchEngineDeleteFieldsService', () =>
         })
             .compile();
 
-        service = module.get(DeleteFieldsService);
+        service = module.get(SearchEngineDeleteFieldsService);
         repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteFieldsService should be defined', () =>
+        test('SearchEngineDeleteFieldsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
@@ -48,7 +47,13 @@ describe('SearchEngineDeleteFieldsService', () =>
         test('should delete field and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

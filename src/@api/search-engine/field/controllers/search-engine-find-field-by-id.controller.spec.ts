@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineFindFieldByIdController, SearchEngineFindFieldByIdHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineFindFieldByIdController } from './search-engine-find-field-by-id.controller';
-import { SearchEngineFindFieldByIdHandler } from '../handlers/search-engine-find-field-by-id.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineFindFieldByIdController', () =>
 {
@@ -45,8 +39,8 @@ describe('SearchEngineFindFieldByIdController', () =>
 
         test('should return an field by id', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await controller.main(fields[0].id)).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await controller.main(searchEngineMockFieldData[0].id)).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

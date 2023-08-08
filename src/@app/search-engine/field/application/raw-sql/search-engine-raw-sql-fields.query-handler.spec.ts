@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { MockFieldRepository } from '@app/search-engine/field/infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
 import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
 import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { RawSQLFieldsQueryHandler } from './raw-sql-fields.query-handler';
-import { RawSQLFieldsQuery } from './raw-sql-fields.query';
-import { RawSQLFieldsService } from './raw-sql-fields.service';
+import { SearchEngineRawSQLFieldsQueryHandler } from './search-engine-raw-sql-fields.query-handler';
+import { SearchEngineRawSQLFieldsQuery } from './search-engine-raw-sql-fields.query';
+import { SearchEngineRawSQLFieldsService } from './search-engine-raw-sql-fields.service';
 
 describe('RawSQLFieldsQueryHandler', () =>
 {
-    let queryHandler: RawSQLFieldsQueryHandler;
-    let service: RawSQLFieldsService;
-    let repository: MockFieldRepository;
-    let mapper: FieldMapper;
+    let queryHandler: SearchEngineRawSQLFieldsQueryHandler;
+    let service: SearchEngineRawSQLFieldsService;
+    let repository: SearchEngineMockFieldRepository;
+    let mapper: SearchEngineFieldMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                RawSQLFieldsQueryHandler,
+                SearchEngineRawSQLFieldsQueryHandler,
                 {
                     provide : SearchEngineIFieldRepository,
-                    useClass: MockFieldRepository,
+                    useClass: SearchEngineMockFieldRepository,
                 },
                 {
-                    provide : RawSQLFieldsService,
+                    provide : SearchEngineRawSQLFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('RawSQLFieldsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<RawSQLFieldsQueryHandler>(RawSQLFieldsQueryHandler);
-        service = module.get<RawSQLFieldsService>(RawSQLFieldsService);
-        repository = <MockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
-        mapper = new FieldMapper();
+        queryHandler = module.get<SearchEngineRawSQLFieldsQueryHandler>(SearchEngineRawSQLFieldsQueryHandler);
+        service = module.get<SearchEngineRawSQLFieldsService>(SearchEngineRawSQLFieldsService);
+        repository = <SearchEngineMockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
+        mapper = new SearchEngineFieldMapper();
     });
 
     describe('main', () =>
     {
-        test('RawSQLFieldsQueryHandler should be defined', () =>
+        test('SearchEngineRawSQLFieldsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('RawSQLFieldsQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource)));
             expect(await queryHandler.execute(
-                new RawSQLFieldsQuery(),
+                new SearchEngineRawSQLFieldsQuery(),
             )).toStrictEqual(mapper.mapAggregatesToResponses(repository.collectionSource));
         });
     });

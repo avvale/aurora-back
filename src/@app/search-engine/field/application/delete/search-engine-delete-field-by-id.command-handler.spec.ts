@@ -2,22 +2,22 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { SearchEngineDeleteFieldByIdCommandHandler } from './search-engine-delete-field-by-id.command-handler';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 import { SearchEngineDeleteFieldByIdCommand } from './search-engine-delete-field-by-id.command';
 import { SearchEngineDeleteFieldByIdService } from './search-engine-delete-field-by-id.service';
 
 describe('SearchEngineDeleteFieldByIdCommandHandler', () =>
 {
-    let commandHandler: DeleteFieldByIdCommandHandler;
-    let service: DeleteFieldByIdService;
+    let commandHandler: SearchEngineDeleteFieldByIdCommandHandler;
+    let service: SearchEngineDeleteFieldByIdService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteFieldByIdCommandHandler,
+                SearchEngineDeleteFieldByIdCommandHandler,
                 {
-                    provide : DeleteFieldByIdService,
+                    provide : SearchEngineDeleteFieldByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,22 +26,22 @@ describe('SearchEngineDeleteFieldByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteFieldByIdCommandHandler>(DeleteFieldByIdCommandHandler);
-        service = module.get<DeleteFieldByIdService>(DeleteFieldByIdService);
+        commandHandler = module.get<SearchEngineDeleteFieldByIdCommandHandler>(SearchEngineDeleteFieldByIdCommandHandler);
+        service = module.get<SearchEngineDeleteFieldByIdService>(SearchEngineDeleteFieldByIdService);
     });
 
     describe('main', () =>
     {
-        test('DeleteFieldByIdCommandHandler should be defined', () =>
+        test('SearchEngineDeleteFieldByIdCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the value object id and pass them as parameters to the DeleteFieldByIdService', async () =>
+        test('should create the value object id and pass them as parameters to the SearchEngineDeleteFieldByIdService', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteFieldByIdCommand(
-                    fields[0].id,
+                new SearchEngineDeleteFieldByIdCommand(
+                    searchEngineMockFieldData[0].id,
                 ),
             )).toBe(undefined);
         });

@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpdateFieldByIdResolver } from './search-engine-update-field-by-id.resolver';
-import { SearchEngineUpdateFieldByIdHandler } from '../handlers/search-engine-update-field-by-id.handler';
 import { SearchEngineUpdateFieldByIdInput } from '@api/graphql';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { SearchEngineUpdateFieldByIdHandler, SearchEngineUpdateFieldByIdResolver } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineUpdateFieldByIdResolver', () =>
 {
@@ -49,8 +44,8 @@ describe('SearchEngineUpdateFieldByIdResolver', () =>
 
         test('should return a field by id updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await resolver.main(<SearchEngineUpdateFieldByIdInput>fields[0])).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await resolver.main(<SearchEngineUpdateFieldByIdInput>searchEngineMockFieldData[0])).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

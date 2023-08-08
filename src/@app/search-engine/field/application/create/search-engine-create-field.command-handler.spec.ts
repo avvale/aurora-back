@@ -1,23 +1,20 @@
+import { SearchEngineCreateFieldCommandHandler } from './search-engine-create-field.command-handler';
+import { SearchEngineCreateFieldService } from './search-engine-create-field.service';
+import { SearchEngineCreateFieldCommand, searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
-import { SearchEngineCreateFieldCommandHandler } from './create-field.command-handler';
-import { SearchEngineCreateFieldCommand } from './create-field.command';
-import { SearchEngineCreateFieldService } from './create-field.service';
 
 describe('SearchEngineCreateFieldCommandHandler', () =>
 {
-    let commandHandler: CreateFieldCommandHandler;
-    let service: CreateFieldService;
+    let commandHandler: SearchEngineCreateFieldCommandHandler;
+    let service: SearchEngineCreateFieldService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                CreateFieldCommandHandler,
+                SearchEngineCreateFieldCommandHandler,
                 {
-                    provide : CreateFieldService,
+                    provide : SearchEngineCreateFieldService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +23,8 @@ describe('SearchEngineCreateFieldCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<CreateFieldCommandHandler>(CreateFieldCommandHandler);
-        service = module.get<CreateFieldService>(CreateFieldService);
+        commandHandler = module.get<SearchEngineCreateFieldCommandHandler>(SearchEngineCreateFieldCommandHandler);
+        service = module.get<SearchEngineCreateFieldService>(SearchEngineCreateFieldService);
     });
 
     describe('main', () =>
@@ -37,16 +34,16 @@ describe('SearchEngineCreateFieldCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the values objects and pass them as parameters to the CreateFieldService', async () =>
+        test('should create the values objects and pass them as parameters to the SearchEngineCreateFieldService', async () =>
         {
             expect(await commandHandler.execute(
-                new CreateFieldCommand(
+                new SearchEngineCreateFieldCommand(
                     {
-                        id: fields[0].id,
-                        collectionId: fields[0].collectionId,
-                        name: fields[0].name,
-                        type: fields[0].type,
-                        isNullable: fields[0].isNullable,
+                        id: searchEngineMockFieldData[0].id,
+                        collectionId: searchEngineMockFieldData[0].collectionId,
+                        name: searchEngineMockFieldData[0].name,
+                        type: searchEngineMockFieldData[0].type,
+                        isNullable: searchEngineMockFieldData[0].isNullable,
                     },
                     { timezone: process.env.TZ },
                 ),

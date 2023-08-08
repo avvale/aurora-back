@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineUpsertFieldController, SearchEngineUpsertFieldHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpsertFieldController } from './search-engine-upsert-field.controller';
-import { SearchEngineUpsertFieldHandler } from '../handlers/search-engine-upsert-field.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineUpsertFieldController', () =>
 {
@@ -45,8 +39,8 @@ describe('SearchEngineUpsertFieldController', () =>
 
         test('should return an field upserted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await controller.main(fields[0])).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await controller.main(searchEngineMockFieldData[0])).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

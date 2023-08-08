@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { GetFieldsService } from './get-fields.service';
+import { SearchEngineGetFieldsService } from './search-engine-get-fields.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('GetFieldsService', () =>
+describe('SearchEngineGetFieldsService', () =>
 {
-    let service: GetFieldsService;
+    let service: SearchEngineGetFieldsService;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('GetFieldsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                GetFieldsService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineGetFieldsService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('GetFieldsService', () =>
         })
             .compile();
 
-        service = module.get(GetFieldsService);
+        service = module.get(SearchEngineGetFieldsService);
         repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        mockRepository = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>

@@ -2,12 +2,12 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class SearchEngineFieldName extends StringValueObject
 {
-    public readonly type: string = 'FieldName';
+    public readonly type: string = 'SearchEngineFieldName';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'FieldName',
+            name       : 'SearchEngineFieldName',
             nullable   : false,
             undefinable: false,
             maxLength  : 255,

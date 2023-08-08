@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineGetFieldsHandler } from './search-engine-get-fields.handler';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { SearchEngineGetFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineGetFieldsHandler', () =>
 {
     let handler: SearchEngineGetFieldsHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('SearchEngineGetFieldsHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<SearchEngineGetFieldsHandler>(SearchEngineGetFieldsHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineGetFieldsHandler should be defined', () =>
@@ -50,10 +42,17 @@ describe('SearchEngineGetFieldsHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return a fields', async () =>
+        test('should return a searchEngineMockFieldData', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(fields)));
-            expect(await handler.main()).toBe(fields);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData)));
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockFieldData);
         });
     });
 });

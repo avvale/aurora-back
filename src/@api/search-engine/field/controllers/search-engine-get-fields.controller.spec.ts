@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineGetFieldsController, SearchEngineGetFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineGetFieldsController } from './search-engine-get-fields.controller';
-import { SearchEngineGetFieldsHandler } from '../handlers/search-engine-get-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineGetFieldsController', () =>
 {
@@ -43,10 +37,10 @@ describe('SearchEngineGetFieldsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return a fields', async () =>
+        test('should return a searchEngineMockFieldData', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields)));
-            expect(await controller.main()).toBe(fields);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData)));
+            expect(await controller.main()).toBe(searchEngineMockFieldData);
         });
     });
 });

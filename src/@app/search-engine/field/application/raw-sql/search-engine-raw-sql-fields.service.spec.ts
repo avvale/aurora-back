@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { RawSQLFieldsService } from './raw-sql-fields.service';
+import { SearchEngineRawSQLFieldsService } from './search-engine-raw-sql-fields.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('RawSQLFieldsService', () =>
+describe('SearchEngineRawSQLFieldsService ', () =>
 {
-    let service: RawSQLFieldsService;
+    let service: SearchEngineRawSQLFieldsService ;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('RawSQLFieldsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                RawSQLFieldsService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineRawSQLFieldsService ,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('RawSQLFieldsService', () =>
         })
             .compile();
 
-        service         = module.get(RawSQLFieldsService);
+        service         = module.get(SearchEngineRawSQLFieldsService );
         repository      = module.get(SearchEngineIFieldRepository);
-        mockRepository  = module.get(MockFieldRepository);
+        mockRepository  = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>

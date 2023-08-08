@@ -1,10 +1,7 @@
+import { SearchEngineField, SearchEngineFieldMapper, SearchEngineFieldModel, SearchEngineIFieldRepository } from '@app/search-engine/field';
+import { AuditingRunner, ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { AuditingRunner, ICriteria, LiteralObject, SequelizeRepository } from '@aurorajs.dev/core';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { SearchEngineFieldMapper } from '../../domain/search-engine-field.mapper';
-import { SearchEngineFieldModel } from './search-engine-sequelize-field.model';
 
 @Injectable()
 export class SearchEngineSequelizeFieldRepository extends SequelizeRepository<SearchEngineField, SearchEngineFieldModel> implements SearchEngineIFieldRepository

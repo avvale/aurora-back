@@ -2,12 +2,12 @@ import { DataValueObject, UuidValueObject, ValidationRules } from '@aurorajs.dev
 
 export class SearchEngineFieldCollectionId extends UuidValueObject
 {
-    public readonly type: string = 'FieldCollectionId';
+    public readonly type: string = 'SearchEngineFieldCollectionId';
 
     constructor(value: string, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'FieldCollectionId',
+            name       : 'SearchEngineFieldCollectionId',
             nullable   : false,
             undefinable: false,
             length     : 36,

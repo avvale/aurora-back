@@ -1,5 +1,4 @@
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineAddFieldsContextEvent } from '../events/search-engine-add-fields-context.event';
+import { SearchEngineAddFieldsContextEvent, SearchEngineIFieldRepository } from '@app/search-engine/field';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

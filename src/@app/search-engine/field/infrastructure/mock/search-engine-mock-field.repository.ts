@@ -12,7 +12,7 @@ import {
     SearchEngineFieldDeletedAt,
 } from '@app/search-engine/field/domain/value-objects';
 import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { searchEngineFields } from './search-engine-mock-field.data';
+import { searchEngineMockFieldData } from './search-engine-mock-field.data';
 
 @Injectable()
 export class SearchEngineMockFieldRepository extends MockRepository<SearchEngineField> implements SearchEngineIFieldRepository
@@ -38,7 +38,7 @@ export class SearchEngineMockFieldRepository extends MockRepository<SearchEngine
         this.collectionSource = [];
         const now = Utils.nowTimestamp();
 
-        for (const itemCollection of <any[]>searchEngineFields)
+        for (const itemCollection of <any[]>searchEngineMockFieldData)
         {
             itemCollection['createdAt'] = now;
             itemCollection['updatedAt'] = now;

@@ -1,5 +1,5 @@
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineFieldId } from '../../domain/value-objects';
+import { SearchEngineIFieldRepository } from '@app/search-engine/field';
+import { SearchEngineFieldId } from '@app/search-engine/field/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
@@ -19,23 +19,25 @@ export class SearchEngineDeleteFieldByIdService
     ): Promise<void>
     {
         // get object to delete
-        const field = await this.repository.findById(
-            id,
-            {
-                constraint,
-                cQMetadata,
-            },
-        );
+        const field = await this.repository
+            .findById(
+                id,
+                {
+                    constraint,
+                    cQMetadata,
+                },
+            );
 
         // it is not necessary to pass the constraint in the delete, if the object
         // is not found in the findById, an exception will be thrown.
-        await this.repository.deleteById(
-            field.id,
-            {
-                deleteOptions: cQMetadata?.repositoryOptions,
-                cQMetadata,
-            },
-        );
+        await this.repository
+            .deleteById(
+                field.id,
+                {
+                    deleteOptions: cQMetadata?.repositoryOptions,
+                    cQMetadata,
+                },
+            );
 
         // insert EventBus in object, to be able to apply and commit events
         const fieldRegister = this.publisher.mergeObjectContext(field);

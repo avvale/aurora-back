@@ -1,5 +1,5 @@
-import { SearchEngineFieldDto } from '../dto';
 import { SearchEngineField } from '@api/graphql';
+import { SearchEngineFieldDto } from '@api/search-engine/field';
 import { SearchEngineFindFieldQuery } from '@app/search-engine/field';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';

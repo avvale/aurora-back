@@ -1,10 +1,8 @@
-import { Resolver, Args, Query } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEnginePaginateFieldsHandler } from '../handlers/search-engine-paginate-fields.handler';
 import { Pagination } from '@api/graphql';
+import { SearchEnginePaginateFieldsHandler } from '@api/search-engine/field';
+import { Auth } from '@aurora/decorators';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.get')

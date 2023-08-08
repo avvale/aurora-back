@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { CreateFieldsService } from './create-fields.service';
+import { SearchEngineCreateFieldsService } from './search-engine-create-fields.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('CreateFieldsService', () =>
+describe('SearchEngineCreateFieldsService', () =>
 {
-    let service: CreateFieldsService;
-    let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let service: SearchEngineCreateFieldsService;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('CreateFieldsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateFieldsService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineCreateFieldsService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -32,9 +32,8 @@ describe('CreateFieldsService', () =>
         })
             .compile();
 
-        service = module.get(CreateFieldsService);
-        repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        service = module.get(SearchEngineCreateFieldsService);
+        mockRepository = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>
@@ -46,9 +45,12 @@ describe('CreateFieldsService', () =>
 
         test('should create fields and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

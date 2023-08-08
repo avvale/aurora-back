@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineDeleteFieldsController, SearchEngineDeleteFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteFieldsController } from './search-engine-delete-fields.controller';
-import { SearchEngineDeleteFieldsHandler } from '../handlers/search-engine-delete-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineDeleteFieldsController', () =>
 {
@@ -43,10 +37,10 @@ describe('SearchEngineDeleteFieldsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return an fields deleted', async () =>
+        test('should return an searchEngineMockFieldData deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields)));
-            expect(await controller.main()).toBe(fields);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData)));
+            expect(await controller.main()).toBe(searchEngineMockFieldData);
         });
     });
 });

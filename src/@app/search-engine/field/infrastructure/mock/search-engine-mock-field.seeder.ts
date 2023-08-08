@@ -11,7 +11,7 @@ import {
     SearchEngineFieldDeletedAt,
 } from '../../domain/value-objects';
 import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { searchEngineFields } from './search-engine-mock-field.data';
+import { searchEngineMockFieldData } from './search-engine-mock-field.data';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class SearchEngineMockFieldSeeder extends MockSeeder<SearchEngineField>
     {
         this.collectionSource = [];
 
-        for (const field of _.orderBy(searchEngineFields, ['id']))
+        for (const field of _.orderBy(searchEngineMockFieldData, ['id']))
         {
             this.collectionSource.push(
                 SearchEngineField.register(

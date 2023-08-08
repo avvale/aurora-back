@@ -1,5 +1,4 @@
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
+import { SearchEngineAddFieldsContextEvent, SearchEngineField, SearchEngineIFieldRepository } from '@app/search-engine/field';
 import {
     SearchEngineFieldCollectionId,
     SearchEngineFieldCreatedAt,
@@ -9,8 +8,7 @@ import {
     SearchEngineFieldName,
     SearchEngineFieldType,
     SearchEngineFieldUpdatedAt,
-} from '../../domain/value-objects';
-import { SearchEngineAddFieldsContextEvent } from '../events/search-engine-add-fields-context.event';
+} from '@app/search-engine/field/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

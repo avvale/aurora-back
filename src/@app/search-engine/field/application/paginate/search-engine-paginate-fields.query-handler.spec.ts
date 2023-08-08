@@ -3,30 +3,30 @@ import { PaginationResponse } from '@aurorajs.dev/core';
 
 // custom items
 import { SearchEnginePaginateFieldsQueryHandler } from './search-engine-paginate-fields.query-handler';
-import { MockFieldRepository } from '@app/search-engine/field/infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
 import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
 import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
 import { SearchEnginePaginateFieldsQuery } from './search-engine-paginate-fields.query';
 import { SearchEnginePaginateFieldsService } from './search-engine-paginate-fields.service';
 
-describe('PaginateFieldsQueryHandler', () =>
+describe('SearchEnginePaginateFieldsQueryHandler', () =>
 {
-    let queryHandler: PaginateFieldsQueryHandler;
-    let service: PaginateFieldsService;
-    let repository: MockFieldRepository;
-    let mapper: FieldMapper;
+    let queryHandler: SearchEnginePaginateFieldsQueryHandler;
+    let service: SearchEnginePaginateFieldsService;
+    let repository: SearchEngineMockFieldRepository;
+    let mapper: SearchEngineFieldMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                PaginateFieldsQueryHandler,
+                SearchEnginePaginateFieldsQueryHandler,
                 {
                     provide : SearchEngineIFieldRepository,
-                    useClass: MockFieldRepository,
+                    useClass: SearchEngineMockFieldRepository,
                 },
                 {
-                    provide : PaginateFieldsService,
+                    provide : SearchEnginePaginateFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,15 +35,15 @@ describe('PaginateFieldsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<PaginateFieldsQueryHandler>(PaginateFieldsQueryHandler);
-        service = module.get<PaginateFieldsService>(PaginateFieldsService);
-        repository = <MockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
-        mapper = new FieldMapper();
+        queryHandler = module.get<SearchEnginePaginateFieldsQueryHandler>(SearchEnginePaginateFieldsQueryHandler);
+        service = module.get<SearchEnginePaginateFieldsService>(SearchEnginePaginateFieldsService);
+        repository = <SearchEngineMockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
+        mapper = new SearchEngineFieldMapper();
     });
 
     describe('main', () =>
     {
-        test('PaginateFieldsQueryHandler should be defined', () =>
+        test('SearchEnginePaginateFieldsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -58,7 +58,7 @@ describe('PaginateFieldsQueryHandler', () =>
                 },
             )));
             expect(await queryHandler.execute(
-                new PaginateFieldsQuery(
+                new SearchEnginePaginateFieldsQuery(
                     {
                         offset: 0,
                         limit : 10,

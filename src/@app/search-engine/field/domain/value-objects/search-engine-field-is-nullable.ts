@@ -2,12 +2,12 @@ import { BooleanValueObject, DataValueObject, ValidationRules } from '@aurorajs.
 
 export class SearchEngineFieldIsNullable extends BooleanValueObject
 {
-    public readonly type: string = 'FieldIsNullable';
+    public readonly type: string = 'SearchEngineFieldIsNullable';
 
     constructor(value: boolean, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'FieldIsNullable',
+            name       : 'SearchEngineFieldIsNullable',
             nullable   : false,
             undefinable: false,
         }, validationRules), data);

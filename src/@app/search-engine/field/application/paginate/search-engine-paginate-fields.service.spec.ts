@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { SearchEnginePaginateFieldsService } from './search-engine-paginate-fields.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('PaginateFieldsService', () =>
+describe('SearchEnginePaginateFieldsService', () =>
 {
-    let service: PaginateFieldsService;
+    let service: SearchEnginePaginateFieldsService;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('PaginateFieldsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                PaginateFieldsService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEnginePaginateFieldsService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('PaginateFieldsService', () =>
         })
             .compile();
 
-        service = module.get(PaginateFieldsService);
+        service = module.get(SearchEnginePaginateFieldsService);
         repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        mockRepository = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>
     {
-        test('PaginateFieldsService should be defined', () =>
+        test('SearchEnginePaginateFieldsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

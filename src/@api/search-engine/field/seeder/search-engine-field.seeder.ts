@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 //
 import { SearchEngineCreateFieldsCommand } from '@app/search-engine/field';
-import { searchEngineFields } from '@app/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 
 @Injectable()
 export class SearchEngineFieldSeeder
@@ -16,7 +16,7 @@ export class SearchEngineFieldSeeder
     async main(): Promise<boolean>
     {
         await this.commandBus.dispatch(new SearchEngineCreateFieldsCommand(
-            searchEngineFields,
+            searchEngineMockFieldData,
             {
                 timezone: process.env.TZ ,
             },

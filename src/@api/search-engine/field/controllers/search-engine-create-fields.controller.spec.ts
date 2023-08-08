@@ -1,16 +1,10 @@
+import { SearchEngineCreateFieldsController, SearchEngineCreateFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineCreateFieldsController } from './search-engine-create-fields.controller';
-import { SearchEngineCreateFieldsHandler } from '../handlers/search-engine-create-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineCreateFieldsController', () =>
 {
     let controller: SearchEngineCreateFieldsController;
-    let handler: SearchEngineCreateFieldsHandler;
 
     beforeAll(async () =>
     {
@@ -30,7 +24,6 @@ describe('SearchEngineCreateFieldsController', () =>
             .compile();
 
         controller = module.get<SearchEngineCreateFieldsController>(SearchEngineCreateFieldsController);
-        handler = module.get<SearchEngineCreateFieldsHandler>(SearchEngineCreateFieldsHandler);
     });
 
     describe('main', () =>
@@ -40,9 +33,14 @@ describe('SearchEngineCreateFieldsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return an fields created', async () =>
+        test('should return an searchEngineMockFieldData created', async () =>
         {
-            expect(await controller.main(fields)).toBe(undefined);
+            expect(
+                await controller.main(
+                    searchEngineMockFieldData,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

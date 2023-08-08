@@ -1,3 +1,48 @@
+// export DTOs
+export { SearchEngineFieldDto } from './dto/search-engine-field.dto';
+export { SearchEngineCreateFieldDto } from './dto/search-engine-create-field.dto';
+export { SearchEngineUpdateFieldByIdDto } from './dto/search-engine-update-field-by-id.dto';
+export { SearchEngineUpdateFieldsDto } from './dto/search-engine-update-fields.dto';
+
+// export handlers
+export { SearchEngineCreateFieldHandler } from './handlers/search-engine-create-field.handler';
+export { SearchEngineCreateFieldsHandler } from './handlers/search-engine-create-fields.handler';
+export { SearchEnginePaginateFieldsHandler } from './handlers/search-engine-paginate-fields.handler';
+export { SearchEngineGetFieldsHandler } from './handlers/search-engine-get-fields.handler';
+export { SearchEngineFindFieldByIdHandler } from './handlers/search-engine-find-field-by-id.handler';
+export { SearchEngineFindFieldHandler } from './handlers/search-engine-find-field.handler';
+export { SearchEngineUpdateFieldByIdHandler } from './handlers/search-engine-update-field-by-id.handler';
+export { SearchEngineUpdateFieldsHandler } from './handlers/search-engine-update-fields.handler';
+export { SearchEngineUpsertFieldHandler } from './handlers/search-engine-upsert-field.handler';
+export { SearchEngineDeleteFieldByIdHandler } from './handlers/search-engine-delete-field-by-id.handler';
+export { SearchEngineDeleteFieldsHandler } from './handlers/search-engine-delete-fields.handler';
+
+// export controllers
+export { SearchEngineCreateFieldController } from './controllers/search-engine-create-field.controller';
+export { SearchEngineCreateFieldsController } from './controllers/search-engine-create-fields.controller';
+export { SearchEnginePaginateFieldsController } from './controllers/search-engine-paginate-fields.controller';
+export { SearchEngineGetFieldsController } from './controllers/search-engine-get-fields.controller';
+export { SearchEngineFindFieldByIdController } from './controllers/search-engine-find-field-by-id.controller';
+export { SearchEngineFindFieldController } from './controllers/search-engine-find-field.controller';
+export { SearchEngineUpdateFieldByIdController } from './controllers/search-engine-update-field-by-id.controller';
+export { SearchEngineUpdateFieldsController } from './controllers/search-engine-update-fields.controller';
+export { SearchEngineUpsertFieldController } from './controllers/search-engine-upsert-field.controller';
+export { SearchEngineDeleteFieldByIdController } from './controllers/search-engine-delete-field-by-id.controller';
+export { SearchEngineDeleteFieldsController } from './controllers/search-engine-delete-fields.controller';
+
+// exports resolvers
+export { SearchEngineCreateFieldResolver } from './resolvers/search-engine-create-field.resolver';
+export { SearchEngineCreateFieldsResolver } from './resolvers/search-engine-create-fields.resolver';
+export { SearchEnginePaginateFieldsResolver } from './resolvers/search-engine-paginate-fields.resolver';
+export { SearchEngineGetFieldsResolver } from './resolvers/search-engine-get-fields.resolver';
+export { SearchEngineFindFieldByIdResolver } from './resolvers/search-engine-find-field-by-id.resolver';
+export { SearchEngineFindFieldResolver } from './resolvers/search-engine-find-field.resolver';
+export { SearchEngineUpdateFieldByIdResolver } from './resolvers/search-engine-update-field-by-id.resolver';
+export { SearchEngineUpdateFieldsResolver } from './resolvers/search-engine-update-fields.resolver';
+export { SearchEngineUpsertFieldResolver } from './resolvers/search-engine-upsert-field.resolver';
+export { SearchEngineDeleteFieldByIdResolver } from './resolvers/search-engine-delete-field-by-id.resolver';
+export { SearchEngineDeleteFieldsResolver } from './resolvers/search-engine-delete-fields.resolver';
+
 // controllers
 import { SearchEngineCreateFieldController } from './controllers/search-engine-create-field.controller';
 import { SearchEngineCreateFieldsController } from './controllers/search-engine-create-fields.controller';

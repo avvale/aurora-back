@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineUpdateFieldsController, SearchEngineUpdateFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpdateFieldsController } from './search-engine-update-fields.controller';
-import { SearchEngineUpdateFieldsHandler } from '../handlers/search-engine-update-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineUpdateFieldsController', () =>
 {
@@ -45,8 +39,8 @@ describe('SearchEngineUpdateFieldsController', () =>
 
         test('should return a fields updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await controller.main(fields[0])).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await controller.main(searchEngineMockFieldData[0])).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

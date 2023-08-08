@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineFindFieldByIdHandler } from './search-engine-find-field-by-id.handler';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { SearchEngineFindFieldByIdHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineFindFieldByIdHandler', () =>
 {
     let handler: SearchEngineFindFieldByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('SearchEngineFindFieldByIdHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<SearchEngineFindFieldByIdHandler>(SearchEngineFindFieldByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineFindFieldByIdHandler should be defined', () =>
@@ -52,8 +44,15 @@ describe('SearchEngineFindFieldByIdHandler', () =>
 
         test('should return an field by id', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await handler.main(fields[0].id)).toBe(fields[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(
+                await handler.main(
+                    searchEngineMockFieldData[0].id,
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockFieldData[0]);
         });
     });
 });

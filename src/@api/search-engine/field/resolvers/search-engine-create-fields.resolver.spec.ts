@@ -1,17 +1,11 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineCreateFieldsResolver } from './search-engine-create-fields.resolver';
-import { SearchEngineCreateFieldsHandler } from '../handlers/search-engine-create-fields.handler';
 import { SearchEngineCreateFieldInput } from '@api/graphql';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { SearchEngineCreateFieldsHandler, SearchEngineCreateFieldsResolver } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineCreateFieldsResolver', () =>
 {
     let resolver: SearchEngineCreateFieldsResolver;
-    let handler: SearchEngineCreateFieldsHandler;
 
     beforeAll(async () =>
     {
@@ -29,7 +23,6 @@ describe('SearchEngineCreateFieldsResolver', () =>
             .compile();
 
         resolver = module.get<SearchEngineCreateFieldsResolver>(SearchEngineCreateFieldsResolver);
-        handler = module.get<SearchEngineCreateFieldsHandler>(SearchEngineCreateFieldsHandler);
     });
 
     test('SearchEngineCreateFieldsResolver should be defined', () =>
@@ -46,7 +39,7 @@ describe('SearchEngineCreateFieldsResolver', () =>
 
         test('should return an fields created', async () =>
         {
-            expect(await resolver.main(<SearchEngineCreateFieldInput[]>fields)).toBe(undefined);
+            expect(await resolver.main(<SearchEngineCreateFieldInput[]>searchEngineMockFieldData)).toBe(undefined);
         });
     });
 });

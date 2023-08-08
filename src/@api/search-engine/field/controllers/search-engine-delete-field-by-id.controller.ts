@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, Param, Delete } from '@nestjs/common';
-import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { SearchEngineFieldDto } from '../dto';
+import { SearchEngineDeleteFieldByIdHandler, SearchEngineFieldDto } from '@api/search-engine/field';
 import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineDeleteFieldByIdHandler } from '../handlers/search-engine-delete-field-by-id.handler';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Body, Controller, Delete, Param } from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[search-engine] field')
 @Controller('search-engine/field/delete')

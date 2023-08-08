@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 import { SearchEngineUpsertFieldService } from './search-engine-upsert-field.service';
 import {
     SearchEngineFieldId,
@@ -16,14 +16,12 @@ import {
     SearchEngineFieldDeletedAt,
 } from '../../domain/value-objects';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('UpsertFieldService', () =>
+describe('SearchEngineUpsertFieldService', () =>
 
 {
-    let service: UpsertFieldService;
-    let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let service: SearchEngineUpsertFieldService;
 
     beforeAll(async () =>
     {
@@ -32,8 +30,9 @@ describe('UpsertFieldService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                UpsertFieldService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineUpsertFieldService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -44,29 +43,30 @@ describe('UpsertFieldService', () =>
         })
             .compile();
 
-        service = module.get(UpsertFieldService);
-        repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        service = module.get(SearchEngineUpsertFieldService);
     });
 
     describe('main', () =>
     {
-        test('UpsertFieldService should be defined', () =>
+        test('SearchEngineUpsertFieldService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
         test('should upsert a field and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new SearchEngineFieldId(fields[0].id),
-                    collectionId: new SearchEngineFieldCollectionId(fields[0].collectionId),
-                    name: new SearchEngineFieldName(fields[0].name),
-                    type: new SearchEngineFieldType(fields[0].type),
-                    isNullable: new SearchEngineFieldIsNullable(fields[0].isNullable),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new SearchEngineFieldId(searchEngineMockFieldData[0].id),
+                        collectionId: new SearchEngineFieldCollectionId(searchEngineMockFieldData[0].collectionId),
+                        name: new SearchEngineFieldName(searchEngineMockFieldData[0].name),
+                        type: new SearchEngineFieldType(searchEngineMockFieldData[0].type),
+                        isNullable: new SearchEngineFieldIsNullable(searchEngineMockFieldData[0].isNullable),
+                    },
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

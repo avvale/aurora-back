@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 import { SearchEngineUpdateFieldsCommandHandler } from './search-engine-update-fields.command-handler';
 import { SearchEngineUpdateFieldsCommand } from './search-engine-update-fields.command';
 import { SearchEngineUpdateFieldsService } from './search-engine-update-fields.service';
 
-describe('UpdateFieldsCommandHandler', () =>
+describe('SearchEngineUpdateFieldsCommandHandler', () =>
 {
-    let commandHandler: UpdateFieldsCommandHandler;
-    let service: UpdateFieldsService;
+    let commandHandler: SearchEngineUpdateFieldsCommandHandler;
+    let service: SearchEngineUpdateFieldsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateFieldsCommandHandler,
+                SearchEngineUpdateFieldsCommandHandler,
                 {
-                    provide : UpdateFieldsService,
+                    provide : SearchEngineUpdateFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpdateFieldsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateFieldsCommandHandler>(UpdateFieldsCommandHandler);
-        service = module.get<UpdateFieldsService>(UpdateFieldsService);
+        commandHandler = module.get<SearchEngineUpdateFieldsCommandHandler>(SearchEngineUpdateFieldsCommandHandler);
+        service = module.get<SearchEngineUpdateFieldsService>(SearchEngineUpdateFieldsService);
     });
 
     describe('main', () =>
@@ -40,13 +40,13 @@ describe('UpdateFieldsCommandHandler', () =>
         test('should return an fields updated', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateFieldsCommand(
+                new SearchEngineUpdateFieldsCommand(
                     {
-                        id: fields[0].id,
-                        collectionId: fields[0].collectionId,
-                        name: fields[0].name,
-                        type: fields[0].type,
-                        isNullable: fields[0].isNullable,
+                        id: searchEngineMockFieldData[0].id,
+                        collectionId: searchEngineMockFieldData[0].collectionId,
+                        name: searchEngineMockFieldData[0].name,
+                        type: searchEngineMockFieldData[0].type,
+                        isNullable: searchEngineMockFieldData[0].isNullable,
                     },
                     {},
                     {},

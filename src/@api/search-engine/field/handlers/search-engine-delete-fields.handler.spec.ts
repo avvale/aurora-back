@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineDeleteFieldsHandler } from './search-engine-delete-fields.handler';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { SearchEngineDeleteFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('SearchEngineDeleteFieldsHandler', () =>
 {
     let handler: SearchEngineDeleteFieldsHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('SearchEngineDeleteFieldsHandler', () =>
 
         handler = module.get<SearchEngineDeleteFieldsHandler>(SearchEngineDeleteFieldsHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineDeleteFieldsHandler should be defined', () =>
@@ -50,10 +48,17 @@ describe('SearchEngineDeleteFieldsHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return an fields deleted', async () =>
+        test('should return an searchEngineMockFieldData deleted', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(fields)));
-            expect(await handler.main()).toBe(fields);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData)));
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockFieldData);
         });
     });
 });

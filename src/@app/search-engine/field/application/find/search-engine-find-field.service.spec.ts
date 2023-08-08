@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { FindFieldService } from './search-engine-find-field.service';
+import { SearchEngineFindFieldService } from './search-engine-find-field.service';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('FindFieldService', () =>
+describe('SearchEngineFindFieldService', () =>
 {
-    let service: FindFieldService;
+    let service: SearchEngineFindFieldService;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('FindFieldService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindFieldService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineFindFieldService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('FindFieldService', () =>
         })
             .compile();
 
-        service = module.get(FindFieldService);
+        service = module.get(SearchEngineFindFieldService);
         repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        mockRepository = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>
     {
-        test('FindFieldService should be defined', () =>
+        test('SearchEngineFindFieldService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

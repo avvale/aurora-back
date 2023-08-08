@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineFindFieldHandler, SearchEngineFindFieldResolver } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineFindFieldResolver } from './search-engine-find-field.resolver';
-import { SearchEngineFindFieldHandler } from '../handlers/search-engine-find-field.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineFindFieldResolver', () =>
 {
@@ -48,8 +43,8 @@ describe('SearchEngineFindFieldResolver', () =>
 
         test('should return a field', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await resolver.main()).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await resolver.main()).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

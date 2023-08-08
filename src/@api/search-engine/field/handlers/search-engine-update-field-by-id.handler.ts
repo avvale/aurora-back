@@ -1,7 +1,7 @@
-import { SearchEngineFieldDto, SearchEngineUpdateFieldByIdDto } from '../dto';
 import { SearchEngineField, SearchEngineUpdateFieldByIdInput } from '@api/graphql';
+import { SearchEngineFieldDto, SearchEngineUpdateFieldByIdDto } from '@api/search-engine/field';
 import { SearchEngineFindFieldByIdQuery, SearchEngineUpdateFieldByIdCommand } from '@app/search-engine/field';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
+import { ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

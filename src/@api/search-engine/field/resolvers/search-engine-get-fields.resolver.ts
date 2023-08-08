@@ -1,10 +1,8 @@
-import { Resolver, Args, Query } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineGetFieldsHandler } from '../handlers/search-engine-get-fields.handler';
 import { SearchEngineField } from '@api/graphql';
+import { SearchEngineGetFieldsHandler } from '@api/search-engine/field';
+import { Auth } from '@aurora/decorators';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.get')

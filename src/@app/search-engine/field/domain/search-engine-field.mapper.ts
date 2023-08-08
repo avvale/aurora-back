@@ -1,4 +1,4 @@
-import { IMapper, MapperOptions, CQMetadata, LiteralObject } from '@aurorajs.dev/core';
+import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
 import { SearchEngineField } from './search-engine-field.aggregate';
 import { SearchEngineFieldResponse } from './search-engine-field.response';
 import {

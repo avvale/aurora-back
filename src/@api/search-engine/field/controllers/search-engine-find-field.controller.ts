@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
-import { ApiTags, ApiOkResponse, ApiOperation, ApiBody, ApiQuery } from '@nestjs/swagger';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { SearchEngineFieldDto } from '../dto';
+import { SearchEngineFieldDto, SearchEngineFindFieldHandler } from '@api/search-engine/field';
 import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineFindFieldHandler } from '../handlers/search-engine-find-field.handler';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { ApiBody, ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[search-engine] field')
 @Controller('search-engine/field/find')

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 import { SearchEngineUpdateFieldByIdCommandHandler } from './search-engine-update-field-by-id.command-handler';
 import { SearchEngineUpdateFieldByIdCommand } from './search-engine-update-field-by-id.command';
 import { SearchEngineUpdateFieldByIdService } from './search-engine-update-field-by-id.service';
@@ -15,9 +15,9 @@ describe('SearchEngineUpdateFieldByIdCommandHandler', () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateFieldByIdCommandHandler,
+                SearchEngineUpdateFieldByIdCommandHandler,
                 {
-                    provide : UpdateFieldByIdService,
+                    provide : SearchEngineUpdateFieldByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('SearchEngineUpdateFieldByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateFieldByIdCommandHandler>(UpdateFieldByIdCommandHandler);
-        service = module.get<UpdateFieldByIdService>(UpdateFieldByIdService);
+        commandHandler = module.get<SearchEngineUpdateFieldByIdCommandHandler>(SearchEngineUpdateFieldByIdCommandHandler);
+        service = module.get<SearchEngineUpdateFieldByIdService>(SearchEngineUpdateFieldByIdService);
     });
 
     describe('main', () =>
@@ -40,13 +40,13 @@ describe('SearchEngineUpdateFieldByIdCommandHandler', () =>
         test('should return an field created', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateFieldByIdCommand(
+                new SearchEngineUpdateFieldByIdCommand(
                     {
-                        id: fields[0].id,
-                        collectionId: fields[0].collectionId,
-                        name: fields[0].name,
-                        type: fields[0].type,
-                        isNullable: fields[0].isNullable,
+                        id: searchEngineMockFieldData[0].id,
+                        collectionId: searchEngineMockFieldData[0].collectionId,
+                        name: searchEngineMockFieldData[0].name,
+                        type: searchEngineMockFieldData[0].type,
+                        isNullable: searchEngineMockFieldData[0].isNullable,
                     },
                     {},
                     { timezone: process.env.TZ },

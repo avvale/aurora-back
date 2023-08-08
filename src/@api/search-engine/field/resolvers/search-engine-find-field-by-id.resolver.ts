@@ -1,5 +1,5 @@
-import { SearchEngineFindFieldByIdHandler } from '../handlers/search-engine-find-field-by-id.handler';
 import { SearchEngineField } from '@api/graphql';
+import { SearchEngineFindFieldByIdHandler } from '@api/search-engine/field';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Query, Resolver } from '@nestjs/graphql';

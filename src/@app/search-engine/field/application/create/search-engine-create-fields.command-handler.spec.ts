@@ -2,23 +2,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
-import { CreateFieldsCommandHandler } from './create-fields.command-handler';
-import { CreateFieldsCommand } from './create-fields.command';
-import { CreateFieldsService } from './create-fields.service';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
+import { SearchEngineCreateFieldsCommandHandler } from './search-engine-create-fields.command-handler';
+import { SearchEngineCreateFieldsCommand } from './search-engine-create-fields.command';
+import { SearchEngineCreateFieldsService } from './search-engine-create-fields.service';
 
-describe('CreateFieldsCommandHandler', () =>
+describe('searchEngineCreateFieldsCommandHandler', () =>
 {
-    let commandHandler: CreateFieldsCommandHandler;
-    let service: CreateFieldsService;
+    let commandHandler: SearchEngineCreateFieldsCommandHandler;
+    let service: SearchEngineCreateFieldsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                CreateFieldsCommandHandler,
+                SearchEngineCreateFieldsCommandHandler,
                 {
-                    provide : CreateFieldsService,
+                    provide : SearchEngineCreateFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -27,22 +27,22 @@ describe('CreateFieldsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<CreateFieldsCommandHandler>(CreateFieldsCommandHandler);
-        service = module.get<CreateFieldsService>(CreateFieldsService);
+        commandHandler = module.get<SearchEngineCreateFieldsCommandHandler>(SearchEngineCreateFieldsCommandHandler);
+        service = module.get<SearchEngineCreateFieldsService>(SearchEngineCreateFieldsService);
     });
 
     describe('main', () =>
     {
-        test('CreateFieldsCommandHandler should be defined', () =>
+        test('SearchEngineCreateFieldsCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return fields createds', async () =>
+        test('should return SearchEngineMockFieldData createds', async () =>
         {
             expect(await commandHandler.execute(
-                new CreateFieldsCommand(
-                    fields,
+                new SearchEngineCreateFieldsCommand(
+                    searchEngineMockFieldData,
                     { timezone: process.env.TZ },
                 ),
             )).toBe(undefined);

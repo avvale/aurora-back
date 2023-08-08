@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineDeleteFieldByIdHandler, SearchEngineDeleteFieldByIdResolver } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteFieldByIdResolver } from './search-engine-delete-field-by-id.resolver';
-import { SearchEngineDeleteFieldByIdHandler } from '../handlers/search-engine-delete-field-by-id.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEngineDeleteFieldByIdResolver', () =>
 {
@@ -48,8 +43,8 @@ describe('SearchEngineDeleteFieldByIdResolver', () =>
 
         test('should return an field deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await resolver.main(fields[0].id)).toBe(fields[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(await resolver.main(searchEngineMockFieldData[0].id)).toBe(searchEngineMockFieldData[0]);
         });
     });
 });

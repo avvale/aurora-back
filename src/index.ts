@@ -58,7 +58,7 @@ export { SearchEngineField } from './@app/search-engine/field/domain/search-engi
 export { SearchEngineFieldModel } from './@app/search-engine/field';
 export { SearchEngineFieldResponse } from './@app/search-engine/field/domain/search-engine-field.response';
 export { SearchEngineFieldMapper } from './@app/search-engine/field/domain/search-engine-field.mapper';
-export { searchEngineFields } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
+export { searchEngineFields, searchEngineMockFieldData } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 export { QueueManagerQueueResponse } from './@app/queue-manager/queue/domain/queue-manager-queue.response';
 export { QueueManagerQueueMapper } from './@app/queue-manager/queue/domain/queue-manager-queue.mapper';
 export { queueManagerMockQueueData } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';

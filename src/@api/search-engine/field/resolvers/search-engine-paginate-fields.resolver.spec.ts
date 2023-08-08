@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEnginePaginateFieldsHandler, SearchEnginePaginateFieldsResolver } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEnginePaginateFieldsResolver } from './search-engine-paginate-fields.resolver';
-import { SearchEnginePaginateFieldsHandler } from '../handlers/search-engine-paginate-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEnginePaginateFieldsResolver', () =>
 {
@@ -46,17 +41,17 @@ describe('SearchEnginePaginateFieldsResolver', () =>
             expect(resolver).toBeDefined();
         });
 
-        test('should return a fields', async () =>
+        test('should return a searchEngineMockFieldData', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve({
                 total: 5,
                 count: 5,
-                rows : fields,
+                rows : searchEngineMockFieldData,
             })));
             expect(await resolver.main()).toStrictEqual({
                 total: 5,
                 count: 5,
-                rows : fields,
+                rows : searchEngineMockFieldData,
             });
         });
     });

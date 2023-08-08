@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
-import { FindFieldByIdService } from './search-engine-find-field-by-id.service';
+import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
+import { SearchEngineFindFieldByIdService } from './search-engine-find-field-by-id.service';
 import { SearchEngineFieldId } from '../../domain/value-objects';
 import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { MockFieldRepository } from '../../infrastructure/mock/mock-field.repository';
+import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
-describe('FindFieldByIdService', () =>
+describe('SearchEngineFindFieldByIdService', () =>
 {
-    let service: FindFieldByIdService;
+    let service: SearchEngineFindFieldByIdService;
     let repository: SearchEngineIFieldRepository;
-    let mockRepository: MockFieldRepository;
+    let mockRepository: SearchEngineMockFieldRepository;
 
     beforeAll(async () =>
     {
@@ -21,8 +21,9 @@ describe('FindFieldByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindFieldByIdService,
-                MockFieldRepository,
+                UnhandledExceptionBus,
+                SearchEngineFindFieldByIdService,
+                SearchEngineMockFieldRepository,
                 {
                     provide : SearchEngineIFieldRepository,
                     useValue: {
@@ -33,9 +34,9 @@ describe('FindFieldByIdService', () =>
         })
             .compile();
 
-        service = module.get(FindFieldByIdService);
+        service = module.get(SearchEngineFindFieldByIdService);
         repository = module.get(SearchEngineIFieldRepository);
-        mockRepository = module.get(MockFieldRepository);
+        mockRepository = module.get(SearchEngineMockFieldRepository);
     });
 
     describe('main', () =>
@@ -49,7 +50,7 @@ describe('FindFieldByIdService', () =>
         {
             jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
             expect(await service.main(
-                new FieldId(fields[0].id),
+                new SearchEngineFieldId(searchEngineMockFieldData[0].id),
             )).toBe(mockRepository.collectionSource[0]);
         });
     });

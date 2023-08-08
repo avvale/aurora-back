@@ -1,7 +1,7 @@
-import { SearchEngineUpdateFieldsHandler } from '../handlers/search-engine-update-fields.handler';
 import { SearchEngineField, SearchEngineUpdateFieldsInput } from '@api/graphql';
+import { SearchEngineUpdateFieldsHandler } from '@api/search-engine/field';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()

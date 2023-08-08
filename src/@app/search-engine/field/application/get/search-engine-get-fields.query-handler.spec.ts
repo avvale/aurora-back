@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { GetFieldsQueryHandler } from './get-fields.query-handler';
-import { MockFieldRepository } from '@app/search-engine/field/infrastructure/mock/mock-field.repository';
+import { SearchEngineGetFieldsQueryHandler } from './search-engine-get-fields.query-handler';
+import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
 import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
 import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { GetFieldsQuery } from './get-fields.query';
-import { GetFieldsService } from './get-fields.service';
+import { SearchEngineGetFieldsQuery } from './search-engine-get-fields.query';
+import { SearchEngineGetFieldsService } from './search-engine-get-fields.service';
 
 describe('GetFieldsQueryHandler', () =>
 {
-    let queryHandler: GetFieldsQueryHandler;
-    let service: GetFieldsService;
-    let repository: MockFieldRepository;
-    let mapper: FieldMapper;
+    let queryHandler: SearchEngineGetFieldsQueryHandler;
+    let service: SearchEngineGetFieldsService;
+    let repository: SearchEngineMockFieldRepository;
+    let mapper: SearchEngineFieldMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                GetFieldsQueryHandler,
+                SearchEngineGetFieldsQueryHandler,
                 {
                     provide : SearchEngineIFieldRepository,
-                    useClass: MockFieldRepository,
+                    useClass: SearchEngineMockFieldRepository,
                 },
                 {
-                    provide : GetFieldsService,
+                    provide : SearchEngineGetFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('GetFieldsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<GetFieldsQueryHandler>(GetFieldsQueryHandler);
-        service = module.get<GetFieldsService>(GetFieldsService);
-        repository = <MockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
-        mapper = new FieldMapper();
+        queryHandler = module.get<SearchEngineGetFieldsQueryHandler>(SearchEngineGetFieldsQueryHandler);
+        service = module.get<SearchEngineGetFieldsService>(SearchEngineGetFieldsService);
+        repository = <SearchEngineMockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
+        mapper = new SearchEngineFieldMapper();
     });
 
     describe('main', () =>
     {
-        test('GetFieldsQueryHandler should be defined', () =>
+        test('SearchEngineGetFieldsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('GetFieldsQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource)));
             expect(await queryHandler.execute(
-                new GetFieldsQuery(),
+                new SearchEngineGetFieldsQuery(),
             )).toStrictEqual(mapper.mapAggregatesToResponses(repository.collectionSource));
         });
     });

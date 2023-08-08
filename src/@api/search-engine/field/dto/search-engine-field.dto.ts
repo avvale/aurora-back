@@ -1,6 +1,6 @@
 /* eslint-disable indent */
+import { SearchEngineCollectionDto } from '@api/search-engine/collection';
 import { ApiProperty } from '@nestjs/swagger';
-import { SearchEngineCollectionDto } from '../../../search-engine/collection/dto/search-engine-collection.dto';
 
 export class SearchEngineFieldDto
 {

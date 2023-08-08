@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEnginePaginateFieldsController, SearchEnginePaginateFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEnginePaginateFieldsController } from './search-engine-paginate-fields.controller';
-import { SearchEnginePaginateFieldsHandler } from '../handlers/search-engine-paginate-fields.handler';
-
-// sources
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
 
 describe('SearchEnginePaginateFieldsController', () =>
 {
@@ -43,17 +37,17 @@ describe('SearchEnginePaginateFieldsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return a fields', async () =>
+        test('should return a searchEngineMockFieldData', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve({
                 total: 5,
                 count: 5,
-                rows : fields,
+                rows : searchEngineMockFieldData,
             })));
             expect(await controller.main()).toStrictEqual({
                 total: 5,
                 count: 5,
-                rows : fields,
+                rows : searchEngineMockFieldData,
             });
         });
     });

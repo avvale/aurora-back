@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { DeleteFieldsCommandHandler } from './delete-fields.command-handler';
-import { DeleteFieldsCommand } from './delete-fields.command';
-import { DeleteFieldsService } from './delete-fields.service';
+import { SearchEngineDeleteFieldsCommandHandler } from './search-engine-delete-fields.command-handler';
+import { SearchEngineDeleteFieldsCommand } from './search-engine-delete-fields.command';
+import { SearchEngineDeleteFieldsService } from './search-engine-delete-fields.service';
 
 describe('SearchEngineDeleteFieldsCommandHandler', () =>
 {
     let commandHandler: SearchEngineDeleteFieldsCommandHandler;
-    let service: DeleteFieldsService;
+    let service: SearchEngineDeleteFieldsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteFieldsCommandHandler,
+                SearchEngineDeleteFieldsCommandHandler,
                 {
-                    provide : DeleteFieldsService,
+                    provide : SearchEngineDeleteFieldsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -25,13 +25,13 @@ describe('SearchEngineDeleteFieldsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteFieldsCommandHandler>(DeleteFieldsCommandHandler);
-        service = module.get<DeleteFieldsService>(DeleteFieldsService);
+        commandHandler = module.get<SearchEngineDeleteFieldsCommandHandler>(SearchEngineDeleteFieldsCommandHandler);
+        service = module.get<SearchEngineDeleteFieldsService>(SearchEngineDeleteFieldsService);
     });
 
     describe('main', () =>
     {
-        test('DeleteFieldsCommandHandler should be defined', () =>
+        test('SearchEngineDeleteFieldsCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
@@ -39,7 +39,7 @@ describe('SearchEngineDeleteFieldsCommandHandler', () =>
         test('should return void', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteFieldsCommand(),
+                new SearchEngineDeleteFieldsCommand(),
             )).toBe(undefined);
         });
     });

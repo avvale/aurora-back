@@ -1,4 +1,4 @@
-// commands
+// export commands
 export { SearchEngineCreateFieldCommand } from './application/create/search-engine-create-field.command';
 export { SearchEngineCreateFieldsCommand } from './application/create/search-engine-create-fields.command';
 export { SearchEngineUpdateFieldByIdCommand } from './application/update/search-engine-update-field-by-id.command';
@@ -7,15 +7,32 @@ export { SearchEngineUpsertFieldCommand } from './application/upsert/search-engi
 export { SearchEngineDeleteFieldByIdCommand } from './application/delete/search-engine-delete-field-by-id.command';
 export { SearchEngineDeleteFieldsCommand } from './application/delete/search-engine-delete-fields.command';
 
-// queries
+// export queries
 export { SearchEnginePaginateFieldsQuery } from './application/paginate/search-engine-paginate-fields.query';
 export { SearchEngineGetFieldsQuery } from './application/get/search-engine-get-fields.query';
 export { SearchEngineFindFieldQuery } from './application/find/search-engine-find-field.query';
 export { SearchEngineFindFieldByIdQuery } from './application/find/search-engine-find-field-by-id.query';
 export { SearchEngineRawSQLFieldsQuery } from './application/raw-sql/search-engine-raw-sql-fields.query';
 
-// mocks
-export { searchEngineFields } from './infrastructure/mock/search-engine-mock-field.data';
+// export mocks
+export { searchEngineMockFieldData } from './infrastructure/mock/search-engine-mock-field.data';
+export { SearchEngineMockFieldSeeder } from './infrastructure/mock/search-engine-mock-field.seeder';
+export { SearchEngineMockFieldRepository } from './infrastructure/mock/search-engine-mock-field.repository';
+
+// export events
+export { SearchEngineAddFieldsContextEvent } from './application/events/search-engine-add-fields-context.event';
+export { SearchEngineCreatedFieldsEvent } from './application/events/search-engine-created-fields.event';
+export { SearchEngineCreatedFieldEvent } from './application/events/search-engine-created-field.event';
+export { SearchEngineDeletedFieldsEvent } from './application/events/search-engine-deleted-fields.event';
+export { SearchEngineDeletedFieldEvent } from './application/events/search-engine-deleted-field.event';
+export { SearchEngineUpdatedFieldsEvent } from './application/events/search-engine-updated-fields.event';
+export { SearchEngineUpdatedFieldEvent } from './application/events/search-engine-updated-field.event';
+
+// export command handlers
+// can not export application command handlers, because Nest can't resolve dependencies
+
+// export command services
+// can not export application services, because Nest can't resolve dependencies
 
 // domain
 export { SearchEngineField } from './domain/search-engine-field.aggregate';

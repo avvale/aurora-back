@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineUpdateFieldsHandler } from './search-engine-update-fields.handler';
 import { SearchEngineUpdateFieldsInput } from '@api/graphql';
-import { fields } from '@app/search-engine/field/infrastructure/mock/mock-field.data';
+import { SearchEngineUpdateFieldsHandler } from '@api/search-engine/field';
+import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -9,7 +9,6 @@ describe('SearchEngineUpdateFieldsHandler', () =>
 {
     let handler: SearchEngineUpdateFieldsHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('SearchEngineUpdateFieldsHandler', () =>
 
         handler = module.get<SearchEngineUpdateFieldsHandler>(SearchEngineUpdateFieldsHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineUpdateFieldsHandler should be defined', () =>
@@ -53,8 +51,16 @@ describe('SearchEngineUpdateFieldsHandler', () =>
 
         test('should return a fields updated', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(fields[0])));
-            expect(await handler.main(<SearchEngineUpdateFieldsInput>fields[0])).toBe(fields[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
+            expect(
+                await handler.main(
+                    <SearchEngineUpdateFieldsInput>searchEngineMockFieldData[0],
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockFieldData[0]);
         });
     });
 });
