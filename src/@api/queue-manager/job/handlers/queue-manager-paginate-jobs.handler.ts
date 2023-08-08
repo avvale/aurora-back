@@ -1,13 +1,10 @@
+import { Pagination } from '@api/graphql';
+import { QueueManagerFindQueueByIdQuery } from '@app/queue-manager';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { getQueueToken } from '@nestjs/bull';
 import { Injectable } from '@nestjs/common';
-import { Queue } from 'bull';
-
-// @app
-import { Pagination } from '@api/graphql';
 import { ModuleRef } from '@nestjs/core';
-import { QueueManagerFindQueueByIdQuery } from '@app/queue-manager';
-
+import { Queue } from 'bull';
 
 @Injectable()
 export class QueueManagerPaginateJobsHandler
