@@ -2,7 +2,6 @@
 import { CommonCreateCountryHandler, CommonCreateCountryResolver } from '@api/common/country';
 import { CommonCreateCountryInput } from '@api/graphql';
 import { commonMockCountryData } from '@app/common/country';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Test, TestingModule } from '@nestjs/testing';
 
