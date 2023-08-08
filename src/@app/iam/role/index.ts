@@ -6,6 +6,7 @@ export { IamUpdateRolesCommand } from './application/update/iam-update-roles.com
 export { IamUpsertRoleCommand } from './application/upsert/iam-upsert-role.command';
 export { IamDeleteRoleByIdCommand } from './application/delete/iam-delete-role-by-id.command';
 export { IamDeleteRolesCommand } from './application/delete/iam-delete-roles.command';
+export { IamCreateRolesAccountsCommand } from './application/create/iam-create-roles-accounts.command';
 
 // export queries
 export { IamPaginateRolesQuery } from './application/paginate/iam-paginate-roles.query';

@@ -1,8 +1,6 @@
-import { Injectable } from '@nestjs/common';
-
-// @app
-import { IamRoleResponse } from '@app/iam/role/domain/iam-role.response';
 import { AccountPermissions } from '@app/iam/iam.types';
+import { IamRoleResponse } from '@app/iam/role';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamCreatePermissionsFromRolesService

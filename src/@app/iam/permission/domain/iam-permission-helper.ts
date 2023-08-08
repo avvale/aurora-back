@@ -1,12 +1,10 @@
 import { ICommandBus, IQueryBus, SeederPermission } from '@aurorajs.dev/core';
 import { IamCreatePermissionsCommand } from '../application/create/iam-create-permissions.command';
-import { FindAccountByIdQuery } from '../../account/application/find/find-account-by-id.query';
-import { AccountResponse } from '../../account/domain/account.response';
-import { UpdateAccountByIdCommand } from '../../account/application/update/update-account-by-id.command';
+import { IamAccountResponse, IamFindAccountByIdQuery, IamUpdateAccountByIdCommand } from '@app/iam/account';
 import { AccountPermissions } from '../../iam.types';
 
 // ---- customizations ----
-import { CreatePermissionsRolesCommand } from '@app/iam/permission-role/application/create/create-permissions-roles.command';
+import { IamCreatePermissionsRolesCommand } from '@app/iam/permission-role';
 
 export class IamPermissionHelper
 {
@@ -28,7 +26,7 @@ export class IamPermissionHelper
     ): Promise<void>
     {
         // get administrator account
-        const administratorAccount = await queryBus.ask(new FindAccountByIdQuery(IamPermissionHelper.administratorAccountId));
+        const administratorAccount = await queryBus.ask(new IamFindAccountByIdQuery(IamPermissionHelper.administratorAccountId));
 
         // insert bounded contexts and permissions
         await commandBus.dispatch(new IamCreatePermissionsCommand(permissions));
@@ -41,7 +39,7 @@ export class IamPermissionHelper
                 roleId      : IamPermissionHelper.administratorRoleId,
             };
         });
-        await commandBus.dispatch(new CreatePermissionsRolesCommand(permissionsRoles));
+        await commandBus.dispatch(new IamCreatePermissionsRolesCommand(permissionsRoles));
 
         const accountPermissions = IamPermissionHelper.updateAccountPermissions(
             IamPermissionHelper.administratorRoleId,
@@ -50,7 +48,7 @@ export class IamPermissionHelper
         );
 
         // set all permissions denormalized to administration account
-        await commandBus.dispatch(new UpdateAccountByIdCommand({
+        await commandBus.dispatch(new IamUpdateAccountByIdCommand({
             id               : IamPermissionHelper.administratorAccountId,
             type             : undefined,
             email            : undefined,
@@ -72,7 +70,7 @@ export class IamPermissionHelper
      */
     static updateAccountPermissions(
         roleId: string,
-        account: AccountResponse,
+        account: IamAccountResponse,
         newPermissions: SeederPermission[],
         overwriteRolePermissions = false,
     ): AccountPermissions

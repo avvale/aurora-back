@@ -39,7 +39,6 @@ export { IamBoundedContext } from './domain/iam-bounded-context.aggregate';
 export { IamBoundedContextMapper } from './domain/iam-bounded-context.mapper';
 export { IamIBoundedContextRepository } from './domain/iam-bounded-context.repository';
 export { IamBoundedContextResponse } from './domain/iam-bounded-context.response';
-export { IamBoundedContextHelper } from './domain/iam-bounded-context-helper';
 
 // infrastructure
 export { IamBoundedContextModel } from './infrastructure/sequelize/iam-sequelize-bounded-context.model';
@@ -85,6 +84,9 @@ import { IamUpdateBoundedContextsService } from './application/update/iam-update
 import { IamUpsertBoundedContextService } from './application/upsert/iam-upsert-bounded-context.service';
 import { IamDeleteBoundedContextByIdService } from './application/delete/iam-delete-bounded-context-by-id.service';
 import { IamDeleteBoundedContextsService } from './application/delete/iam-delete-bounded-contexts.service';
+
+// ---- customizations ----
+export { IamBoundedContextHelper } from './domain/iam-bounded-context-helper';
 
 export const IamBoundedContextHandlers = [
     // commands

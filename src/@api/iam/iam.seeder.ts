@@ -6,12 +6,9 @@ import { accounts, boundedContexts, permissions, roles, users } from '@app/iam/i
 // sources
 import { IamBoundedContextHelper } from '@app/iam/bounded-context';
 import { IamPermissionHelper } from '@app/iam/permission';
-import { FindAccountByIdQuery } from '@app/iam/account/application/find/find-account-by-id.query';
-import { CreateAccountsCommand } from '@app/iam/account/application/create/create-accounts.command';
-import { CreateUsersCommand } from '@app/iam/user/application/create/create-users.command';
-import { IamCreateRolesCommand } from '@app/iam/role';
-import { IamCreateRolesAccountsCommand } from '@app/iam/role/application/create/iam-create-roles-accounts.command';
-import { IamAccount } from '@app/iam/account/domain/account.aggregate';
+import { IamAccount, IamCreateAccountsCommand, IamFindAccountByIdQuery } from '@app/iam/account';
+import { IamCreateUsersCommand } from '@app/iam/user';
+import { IamCreateRolesCommand, IamCreateRolesAccountsCommand } from '@app/iam/role';
 
 @Injectable()
 export class IamSeeder
@@ -27,7 +24,11 @@ export class IamSeeder
     {
         try
         {
-            this.administratorAccount = await this.queryBus.ask(new FindAccountByIdQuery(IamPermissionHelper.administratorAccountId));
+            this.administratorAccount = await this.queryBus.ask(
+                new IamFindAccountByIdQuery(
+                    IamPermissionHelper.administratorAccountId,
+                ),
+            );
         }
         catch (error)
         {
@@ -43,8 +44,8 @@ export class IamSeeder
         }
         else
         {
-            await this.commandBus.dispatch(new CreateAccountsCommand(accounts));
-            await this.commandBus.dispatch(new CreateUsersCommand(users));
+            await this.commandBus.dispatch(new IamCreateAccountsCommand(accounts));
+            await this.commandBus.dispatch(new IamCreateUsersCommand(users));
             await this.commandBus.dispatch(new IamCreateRolesCommand(roles));
 
             // set all roles to administration account
