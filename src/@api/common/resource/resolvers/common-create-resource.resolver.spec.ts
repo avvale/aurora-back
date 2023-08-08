@@ -2,7 +2,6 @@
 import { CommonCreateResourceHandler, CommonCreateResourceResolver } from '@api/common/resource';
 import { CommonCreateResourceInput } from '@api/graphql';
 import { commonMockResourceData } from '@app/common/resource';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateResourceResolver', () =>

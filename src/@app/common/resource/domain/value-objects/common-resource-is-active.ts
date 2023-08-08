@@ -2,12 +2,12 @@ import { BooleanValueObject, DataValueObject, ValidationRules } from '@aurorajs.
 
 export class CommonResourceIsActive extends BooleanValueObject
 {
-    public readonly type: string = 'ResourceIsActive';
+    public readonly type: string = 'CommonResourceIsActive';
 
     constructor(value: boolean, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'ResourceIsActive',
+            name       : 'CommonResourceIsActive',
             nullable   : false,
             undefinable: false,
         }, validationRules), data);

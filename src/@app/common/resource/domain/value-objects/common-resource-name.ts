@@ -2,12 +2,12 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class CommonResourceName extends StringValueObject
 {
-    public readonly type: string = 'ResourceName';
+    public readonly type: string = 'CommonResourceName';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'ResourceName',
+            name       : 'CommonResourceName',
             nullable   : false,
             undefinable: false,
             maxLength  : 100,
