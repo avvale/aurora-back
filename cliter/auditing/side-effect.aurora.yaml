@@ -117,6 +117,7 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
+aggregateI18nProperties: []
 additionalApis:
   - path: auditing/side-effect/rollback
     resolverType: mutation

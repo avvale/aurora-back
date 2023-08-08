@@ -1,10 +1,6 @@
 export { AuditingModule } from './@api/auditing/auditing.module';
 export { AuditingSideEffectDto } from './@api/auditing/side-effect/dto/auditing-side-effect.dto';
-export { AuditingSideEffect } from './@app/auditing/side-effect/domain/side-effect.aggregate';
 export { AuditingSideEffectModel } from './@app/auditing/side-effect';
-export { SideEffectResponse } from './@app/auditing/side-effect/domain/side-effect.response';
-export { SideEffectMapper } from './@app/auditing/side-effect/domain/side-effect.mapper';
-export { sideEffects } from './@app/auditing/side-effect/infrastructure/mock/mock-side-effect.data';
 export { AuditingHttpCommunicationDto } from './@api/auditing/http-communication/dto/auditing-http-communication.dto';
 export { AuditingHttpCommunicationModel } from './@app/auditing/http-communication';
 export { IamModule } from './@api/iam/iam.module';
@@ -142,3 +138,6 @@ export { OAuthRefreshToken } from './@app/o-auth/refresh-token/domain/o-auth-ref
 export { OAuthClient } from './@app/o-auth/client/domain/o-auth-client.aggregate';
 export { OAuthApplication } from './@app/o-auth/application/domain/o-auth-application.aggregate';
 export { AuditingHttpCommunication } from './@app/auditing/http-communication/domain/auditing-http-communication.aggregate';
+export { AuditingSideEffectResponse } from './@app/auditing/side-effect/domain/auditing-side-effect.response';
+export { AuditingSideEffectMapper } from './@app/auditing/side-effect/domain/auditing-side-effect.mapper';
+export { auditingMockSideEffectData } from './@app/auditing/side-effect/infrastructure/mock/auditing-mock-side-effect.data';
