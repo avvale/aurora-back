@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { FindCollectionService } from './search-engine-find-collection.service';
+import { SearchEngineFindCollectionService } from './search-engine-find-collection.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('FindCollectionService', () =>
+describe('SearchEngineFindCollectionService', () =>
 {
-    let service: FindCollectionService;
+    let service: SearchEngineFindCollectionService;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('FindCollectionService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindCollectionService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineFindCollectionService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('FindCollectionService', () =>
         })
             .compile();
 
-        service = module.get(FindCollectionService);
+        service = module.get(SearchEngineFindCollectionService);
         repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
+        mockRepository = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>
     {
-        test('FindCollectionService should be defined', () =>
+        test('SearchEngineFindCollectionService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

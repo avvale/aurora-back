@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineCreateCollectionHandler } from './search-engine-create-collection.handler';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineCreateCollectionHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('SearchEngineCreateCollectionHandler', () =>
 {
     let handler: SearchEngineCreateCollectionHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('SearchEngineCreateCollectionHandler', () =>
 
         handler = module.get<SearchEngineCreateCollectionHandler>(SearchEngineCreateCollectionHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -47,8 +45,14 @@ describe('SearchEngineCreateCollectionHandler', () =>
 
         test('should return an collection created', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await handler.main(collections[0])).toBe(collections[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(
+                await handler.main(
+                    searchEngineMockCollectionData[0],
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

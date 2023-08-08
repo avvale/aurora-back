@@ -2,12 +2,12 @@ import { DataValueObject, TimestampValueObject, ValidationRules } from '@auroraj
 
 export class SearchEngineCollectionCreatedAt extends TimestampValueObject
 {
-    public readonly type: string = 'CollectionCreatedAt';
+    public readonly type: string = 'SearchEngineCollectionCreatedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'CollectionCreatedAt',
+            name       : 'SearchEngineCollectionCreatedAt',
             nullable   : true,
             undefinable: true,
         }, validationRules), data);

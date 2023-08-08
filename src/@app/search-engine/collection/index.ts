@@ -1,4 +1,4 @@
-// commands
+// export commands
 export { SearchEngineCreateCollectionCommand } from './application/create/search-engine-create-collection.command';
 export { SearchEngineCreateCollectionsCommand } from './application/create/search-engine-create-collections.command';
 export { SearchEngineUpdateCollectionByIdCommand } from './application/update/search-engine-update-collection-by-id.command';
@@ -7,15 +7,32 @@ export { SearchEngineUpsertCollectionCommand } from './application/upsert/search
 export { SearchEngineDeleteCollectionByIdCommand } from './application/delete/search-engine-delete-collection-by-id.command';
 export { SearchEngineDeleteCollectionsCommand } from './application/delete/search-engine-delete-collections.command';
 
-// queries
+// export queries
 export { SearchEnginePaginateCollectionsQuery } from './application/paginate/search-engine-paginate-collections.query';
 export { SearchEngineGetCollectionsQuery } from './application/get/search-engine-get-collections.query';
 export { SearchEngineFindCollectionQuery } from './application/find/search-engine-find-collection.query';
 export { SearchEngineFindCollectionByIdQuery } from './application/find/search-engine-find-collection-by-id.query';
 export { SearchEngineRawSQLCollectionsQuery } from './application/raw-sql/search-engine-raw-sql-collections.query';
 
-// mocks
-export { searchEngineCollections } from './infrastructure/mock/search-engine-mock-collection.data';
+// export mocks
+export { searchEngineMockCollectionData } from './infrastructure/mock/search-engine-mock-collection.data';
+export { SearchEngineMockCollectionSeeder } from './infrastructure/mock/search-engine-mock-collection.seeder';
+export { SearchEngineMockCollectionRepository } from './infrastructure/mock/search-engine-mock-collection.repository';
+
+// export events
+export { SearchEngineAddCollectionsContextEvent } from './application/events/search-engine-add-collections-context.event';
+export { SearchEngineCreatedCollectionsEvent } from './application/events/search-engine-created-collections.event';
+export { SearchEngineCreatedCollectionEvent } from './application/events/search-engine-created-collection.event';
+export { SearchEngineDeletedCollectionsEvent } from './application/events/search-engine-deleted-collections.event';
+export { SearchEngineDeletedCollectionEvent } from './application/events/search-engine-deleted-collection.event';
+export { SearchEngineUpdatedCollectionsEvent } from './application/events/search-engine-updated-collections.event';
+export { SearchEngineUpdatedCollectionEvent } from './application/events/search-engine-updated-collection.event';
+
+// export command handlers
+// can not export application command handlers, because Nest can't resolve dependencies
+
+// export command services
+// can not export application services, because Nest can't resolve dependencies
 
 // domain
 export { SearchEngineCollection } from './domain/search-engine-collection.aggregate';

@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindCollectionQueryHandler } from './search-engine-find-collection.query-handler';
-import { MockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/mock-collection.repository';
+import { SearchEngineFindCollectionQueryHandler } from './search-engine-find-collection.query-handler';
+import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
 import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
 import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { FindCollectionQuery } from './search-engine-find-collection.query';
-import { FindCollectionService } from './search-engine-find-collection.service';
+import { SearchEngineFindCollectionQuery } from './search-engine-find-collection.query';
+import { SearchEngineFindCollectionService } from './search-engine-find-collection.service';
 
-describe('FindCollectionQueryHandler', () =>
+describe('SearchEngineFindCollectionQueryHandler', () =>
 {
-    let queryHandler: FindCollectionQueryHandler;
-    let service: FindCollectionService;
-    let repository: MockCollectionRepository;
-    let mapper: CollectionMapper;
+    let queryHandler: SearchEngineFindCollectionQueryHandler;
+    let service: SearchEngineFindCollectionService;
+    let repository: SearchEngineMockCollectionRepository;
+    let mapper: SearchEngineCollectionMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindCollectionQueryHandler,
+                SearchEngineFindCollectionQueryHandler,
                 {
                     provide : SearchEngineICollectionRepository,
-                    useClass: MockCollectionRepository,
+                    useClass: SearchEngineMockCollectionRepository,
                 },
                 {
-                    provide : FindCollectionService,
+                    provide : SearchEngineFindCollectionService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('FindCollectionQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<FindCollectionQueryHandler>(FindCollectionQueryHandler);
-        service = module.get<FindCollectionService>(FindCollectionService);
-        repository = <MockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
-        mapper = new CollectionMapper();
+        queryHandler = module.get<SearchEngineFindCollectionQueryHandler>(SearchEngineFindCollectionQueryHandler);
+        service = module.get<SearchEngineFindCollectionService>(SearchEngineFindCollectionService);
+        repository = <SearchEngineMockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
+        mapper = new SearchEngineCollectionMapper();
     });
 
     describe('main', () =>
     {
-        test('FindCollectionQueryHandler should be defined', () =>
+        test('SearchEngineFindCollectionQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('FindCollectionQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
             expect(await queryHandler.execute(
-                new FindCollectionQuery(),
+                new SearchEngineFindCollectionQuery(),
             )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
         });
     });

@@ -1,10 +1,8 @@
-import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineCreateCollectionsHandler } from '../handlers/search-engine-create-collections.handler';
 import { SearchEngineCreateCollectionInput } from '@api/graphql';
+import { SearchEngineCreateCollectionsHandler } from '@api/search-engine/collection';
+import { Auth } from '@aurora/decorators';
+import { Timezone } from '@aurorajs.dev/core';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.create')

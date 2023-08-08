@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
-import { ApiTags, ApiOkResponse, ApiOperation, ApiQuery } from '@nestjs/swagger';
-import { Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { SearchEnginePaginateCollectionsHandler } from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEnginePaginateCollectionsHandler } from '../handlers/search-engine-paginate-collections.handler';
+import { Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[search-engine] collection')
 @Controller('search-engine/collections/paginate')

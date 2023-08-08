@@ -951,6 +951,7 @@ export interface SearchEngineCreateCollectionInput {
     numMemoryShards?: Nullable<GraphQLInt>;
     timestampCreatedAt?: Nullable<GraphQLInt>;
     isEnableNestedFields: GraphQLBoolean;
+    status: SearchEngineCollectionStatus;
 }
 
 export interface SearchEngineUpdateCollectionByIdInput {
@@ -962,6 +963,7 @@ export interface SearchEngineUpdateCollectionByIdInput {
     numMemoryShards?: Nullable<GraphQLInt>;
     timestampCreatedAt?: Nullable<GraphQLInt>;
     isEnableNestedFields?: Nullable<GraphQLBoolean>;
+    status?: Nullable<SearchEngineCollectionStatus>;
 }
 
 export interface SearchEngineUpdateCollectionsInput {
@@ -973,6 +975,7 @@ export interface SearchEngineUpdateCollectionsInput {
     numMemoryShards?: Nullable<GraphQLInt>;
     timestampCreatedAt?: Nullable<GraphQLInt>;
     isEnableNestedFields?: Nullable<GraphQLBoolean>;
+    status?: Nullable<SearchEngineCollectionStatus>;
 }
 
 export interface SearchEngineCreateFieldInput {
@@ -1301,7 +1304,7 @@ export interface IMutation {
     searchEngineUpsertCollection(payload: SearchEngineUpdateCollectionByIdInput): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
     searchEngineDeleteCollectionById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection> | Promise<Nullable<SearchEngineCollection>>;
     searchEngineDeleteCollections(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineCollection>[] | Promise<Nullable<SearchEngineCollection>[]>;
-    searchEngineIndexCollection(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    searchEngineIndexCollection(id: string, constraint?: Nullable<QueryStatement>, payload: SearchEngineUpdateCollectionByIdInput): boolean | Promise<boolean>;
     searchEngineCreateField(payload: SearchEngineCreateFieldInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineCreateFields(payload: Nullable<SearchEngineCreateFieldInput>[]): boolean | Promise<boolean>;
     searchEngineUpdateFieldById(payload: SearchEngineUpdateFieldByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;

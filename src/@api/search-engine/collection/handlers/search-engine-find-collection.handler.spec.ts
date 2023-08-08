@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineFindCollectionHandler } from './search-engine-find-collection.handler';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { SearchEngineFindCollectionHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineFindCollectionHandler', () =>
 {
     let handler: SearchEngineFindCollectionHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('SearchEngineFindCollectionHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<SearchEngineFindCollectionHandler>(SearchEngineFindCollectionHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineFindCollectionHandler should be defined', () =>
@@ -52,8 +44,15 @@ describe('SearchEngineFindCollectionHandler', () =>
 
         test('should return a collection', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await handler.main()).toBe(collections[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

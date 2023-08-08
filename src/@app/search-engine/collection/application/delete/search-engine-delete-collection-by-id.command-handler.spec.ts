@@ -2,22 +2,22 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { SearchEngineDeleteCollectionByIdCommandHandler } from './search-engine-delete-collection-by-id.command-handler';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 import { SearchEngineDeleteCollectionByIdCommand } from './search-engine-delete-collection-by-id.command';
 import { SearchEngineDeleteCollectionByIdService } from './search-engine-delete-collection-by-id.service';
 
 describe('SearchEngineDeleteCollectionByIdCommandHandler', () =>
 {
-    let commandHandler: DeleteCollectionByIdCommandHandler;
-    let service: DeleteCollectionByIdService;
+    let commandHandler: SearchEngineDeleteCollectionByIdCommandHandler;
+    let service: SearchEngineDeleteCollectionByIdService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteCollectionByIdCommandHandler,
+                SearchEngineDeleteCollectionByIdCommandHandler,
                 {
-                    provide : DeleteCollectionByIdService,
+                    provide : SearchEngineDeleteCollectionByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,22 +26,22 @@ describe('SearchEngineDeleteCollectionByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteCollectionByIdCommandHandler>(DeleteCollectionByIdCommandHandler);
-        service = module.get<DeleteCollectionByIdService>(DeleteCollectionByIdService);
+        commandHandler = module.get<SearchEngineDeleteCollectionByIdCommandHandler>(SearchEngineDeleteCollectionByIdCommandHandler);
+        service = module.get<SearchEngineDeleteCollectionByIdService>(SearchEngineDeleteCollectionByIdService);
     });
 
     describe('main', () =>
     {
-        test('DeleteCollectionByIdCommandHandler should be defined', () =>
+        test('SearchEngineDeleteCollectionByIdCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the value object id and pass them as parameters to the DeleteCollectionByIdService', async () =>
+        test('should create the value object id and pass them as parameters to the SearchEngineDeleteCollectionByIdService', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteCollectionByIdCommand(
-                    collections[0].id,
+                new SearchEngineDeleteCollectionByIdCommand(
+                    searchEngineMockCollectionData[0].id,
                 ),
             )).toBe(undefined);
         });

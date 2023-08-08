@@ -3,30 +3,30 @@ import { PaginationResponse } from '@aurorajs.dev/core';
 
 // custom items
 import { SearchEnginePaginateCollectionsQueryHandler } from './search-engine-paginate-collections.query-handler';
-import { MockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
 import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
 import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
 import { SearchEnginePaginateCollectionsQuery } from './search-engine-paginate-collections.query';
 import { SearchEnginePaginateCollectionsService } from './search-engine-paginate-collections.service';
 
-describe('PaginateCollectionsQueryHandler', () =>
+describe('SearchEnginePaginateCollectionsQueryHandler', () =>
 {
-    let queryHandler: PaginateCollectionsQueryHandler;
-    let service: PaginateCollectionsService;
-    let repository: MockCollectionRepository;
-    let mapper: CollectionMapper;
+    let queryHandler: SearchEnginePaginateCollectionsQueryHandler;
+    let service: SearchEnginePaginateCollectionsService;
+    let repository: SearchEngineMockCollectionRepository;
+    let mapper: SearchEngineCollectionMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                PaginateCollectionsQueryHandler,
+                SearchEnginePaginateCollectionsQueryHandler,
                 {
                     provide : SearchEngineICollectionRepository,
-                    useClass: MockCollectionRepository,
+                    useClass: SearchEngineMockCollectionRepository,
                 },
                 {
-                    provide : PaginateCollectionsService,
+                    provide : SearchEnginePaginateCollectionsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,15 +35,15 @@ describe('PaginateCollectionsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<PaginateCollectionsQueryHandler>(PaginateCollectionsQueryHandler);
-        service = module.get<PaginateCollectionsService>(PaginateCollectionsService);
-        repository = <MockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
-        mapper = new CollectionMapper();
+        queryHandler = module.get<SearchEnginePaginateCollectionsQueryHandler>(SearchEnginePaginateCollectionsQueryHandler);
+        service = module.get<SearchEnginePaginateCollectionsService>(SearchEnginePaginateCollectionsService);
+        repository = <SearchEngineMockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
+        mapper = new SearchEngineCollectionMapper();
     });
 
     describe('main', () =>
     {
-        test('PaginateCollectionsQueryHandler should be defined', () =>
+        test('SearchEnginePaginateCollectionsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -58,7 +58,7 @@ describe('PaginateCollectionsQueryHandler', () =>
                 },
             )));
             expect(await queryHandler.execute(
-                new PaginateCollectionsQuery(
+                new SearchEnginePaginateCollectionsQuery(
                     {
                         offset: 0,
                         limit : 10,

@@ -52,7 +52,7 @@ export { SearchEngineCollection } from './@app/search-engine/collection/domain/s
 export { SearchEngineCollectionModel } from './@app/search-engine/collection';
 export { SearchEngineCollectionResponse } from './@app/search-engine/collection/domain/search-engine-collection.response';
 export { SearchEngineCollectionMapper } from './@app/search-engine/collection/domain/search-engine-collection.mapper';
-export { searchEngineCollections } from './@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
+export { searchEngineCollections, searchEngineMockCollectionData } from './@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 export { SearchEngineFieldDto } from './@api/search-engine/field/dto/search-engine-field.dto';
 export { SearchEngineField } from './@app/search-engine/field/domain/search-engine-field.aggregate';
 export { SearchEngineFieldModel } from './@app/search-engine/field';

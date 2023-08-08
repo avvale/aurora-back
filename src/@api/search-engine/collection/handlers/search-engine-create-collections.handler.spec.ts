@@ -1,27 +1,17 @@
+import { SearchEngineCreateCollectionsHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { ICommandBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-
-// custom items
-import { SearchEngineCreateCollectionsHandler } from './search-engine-create-collections.handler';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineCreateCollectionsHandler', () =>
 {
     let handler: SearchEngineCreateCollectionsHandler;
-    let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 SearchEngineCreateCollectionsHandler,
-                {
-                    provide : IQueryBus,
-                    useValue: {
-                        ask: () => { /**/ },
-                    },
-                },
                 {
                     provide : ICommandBus,
                     useValue: {
@@ -33,8 +23,6 @@ describe('SearchEngineCreateCollectionsHandler', () =>
             .compile();
 
         handler = module.get<SearchEngineCreateCollectionsHandler>(SearchEngineCreateCollectionsHandler);
-        queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -44,9 +32,9 @@ describe('SearchEngineCreateCollectionsHandler', () =>
             expect(handler).toBeDefined();
         });
 
-        test('should return an collections created', async () =>
+        test('should return an searchEngineMockCollectionData created', async () =>
         {
-            expect(await handler.main(collections)).toBe(true);
+            expect(await handler.main(searchEngineMockCollectionData)).toBe(true);
         });
     });
 });

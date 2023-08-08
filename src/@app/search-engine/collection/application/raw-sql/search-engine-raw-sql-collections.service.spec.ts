@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { RawSQLCollectionsService } from './raw-sql-collections.service';
+import { SearchEngineRawSQLCollectionsService } from './search-engine-raw-sql-collections.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('RawSQLCollectionsService', () =>
+describe('SearchEngineRawSQLCollectionsService ', () =>
 {
-    let service: RawSQLCollectionsService;
+    let service: SearchEngineRawSQLCollectionsService ;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('RawSQLCollectionsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                RawSQLCollectionsService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineRawSQLCollectionsService ,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('RawSQLCollectionsService', () =>
         })
             .compile();
 
-        service         = module.get(RawSQLCollectionsService);
+        service         = module.get(SearchEngineRawSQLCollectionsService );
         repository      = module.get(SearchEngineICollectionRepository);
-        mockRepository  = module.get(MockCollectionRepository);
+        mockRepository  = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>

@@ -1,7 +1,7 @@
-import { SearchEngineCreateCollectionDto } from '../dto';
 import { SearchEngineCollectionStatus, SearchEngineCreateCollectionInput } from '@api/graphql';
+import { SearchEngineCreateCollectionDto } from '@api/search-engine/collection';
 import { SearchEngineCreateCollectionsCommand } from '@app/search-engine/collection';
-import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';
+import { ICommandBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

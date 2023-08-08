@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineDeleteCollectionsHandler, SearchEngineDeleteCollectionsResolver } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteCollectionsResolver } from './search-engine-delete-collections.resolver';
-import { SearchEngineDeleteCollectionsHandler } from '../handlers/search-engine-delete-collections.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineDeleteCollectionsResolver', () =>
 {
@@ -46,10 +41,10 @@ describe('SearchEngineDeleteCollectionsResolver', () =>
             expect(resolver).toBeDefined();
         });
 
-        test('should return an collections deleted', async () =>
+        test('should return an searchEngineMockCollectionData deleted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections)));
-            expect(await resolver.main()).toBe(collections);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData)));
+            expect(await resolver.main()).toBe(searchEngineMockCollectionData);
         });
     });
 });

@@ -1,32 +1,32 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindCollectionByIdQueryHandler } from './search-engine-find-collection-by-id.query-handler';
-import { MockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/mock-collection.repository';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineFindCollectionByIdQueryHandler } from './search-engine-find-collection-by-id.query-handler';
+import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
 import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
 import { SearchEngineFindCollectionByIdQuery } from './search-engine-find-collection-by-id.query';
 import { SearchEngineFindCollectionByIdService } from './search-engine-find-collection-by-id.service';
 
-describe('FindCollectionByIdQueryHandler', () =>
+describe('SearchEngineFindCollectionByIdQueryHandler', () =>
 {
     let queryHandler: SearchEngineFindCollectionByIdQueryHandler;
     let service: SearchEngineFindCollectionByIdService;
-    let repository: MockCollectionRepository;
-    let mapper: CollectionMapper;
+    let repository: SearchEngineMockCollectionRepository;
+    let mapper: SearchEngineCollectionMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindCollectionByIdQueryHandler,
+                SearchEngineFindCollectionByIdQueryHandler,
                 {
                     provide : SearchEngineICollectionRepository,
-                    useClass: MockCollectionRepository,
+                    useClass: SearchEngineMockCollectionRepository,
                 },
                 {
-                    provide : FindCollectionByIdService,
+                    provide : SearchEngineFindCollectionByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,10 +35,10 @@ describe('FindCollectionByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<FindCollectionByIdQueryHandler>(FindCollectionByIdQueryHandler);
-        service = module.get<FindCollectionByIdService>(FindCollectionByIdService);
-        repository = <MockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
-        mapper = new CollectionMapper();
+        queryHandler = module.get<SearchEngineFindCollectionByIdQueryHandler>(SearchEngineFindCollectionByIdQueryHandler);
+        service = module.get<SearchEngineFindCollectionByIdService>(SearchEngineFindCollectionByIdService);
+        repository = <SearchEngineMockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
+        mapper = new SearchEngineCollectionMapper();
     });
 
     describe('main', () =>
@@ -52,8 +52,8 @@ describe('FindCollectionByIdQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
             expect(await queryHandler.execute(
-                new FindCollectionByIdQuery(
-                    collections[0].id,
+                new SearchEngineFindCollectionByIdQuery(
+                    searchEngineMockCollectionData[0].id,
 
                 ),
             )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));

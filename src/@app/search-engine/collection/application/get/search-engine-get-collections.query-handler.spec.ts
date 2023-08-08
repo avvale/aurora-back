@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { GetCollectionsQueryHandler } from './get-collections.query-handler';
-import { MockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/mock-collection.repository';
+import { SearchEngineGetCollectionsQueryHandler } from './search-engine-get-collections.query-handler';
+import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
 import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
 import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { GetCollectionsQuery } from './get-collections.query';
-import { GetCollectionsService } from './get-collections.service';
+import { SearchEngineGetCollectionsQuery } from './search-engine-get-collections.query';
+import { SearchEngineGetCollectionsService } from './search-engine-get-collections.service';
 
 describe('GetCollectionsQueryHandler', () =>
 {
-    let queryHandler: GetCollectionsQueryHandler;
-    let service: GetCollectionsService;
-    let repository: MockCollectionRepository;
-    let mapper: CollectionMapper;
+    let queryHandler: SearchEngineGetCollectionsQueryHandler;
+    let service: SearchEngineGetCollectionsService;
+    let repository: SearchEngineMockCollectionRepository;
+    let mapper: SearchEngineCollectionMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                GetCollectionsQueryHandler,
+                SearchEngineGetCollectionsQueryHandler,
                 {
                     provide : SearchEngineICollectionRepository,
-                    useClass: MockCollectionRepository,
+                    useClass: SearchEngineMockCollectionRepository,
                 },
                 {
-                    provide : GetCollectionsService,
+                    provide : SearchEngineGetCollectionsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('GetCollectionsQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<GetCollectionsQueryHandler>(GetCollectionsQueryHandler);
-        service = module.get<GetCollectionsService>(GetCollectionsService);
-        repository = <MockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
-        mapper = new CollectionMapper();
+        queryHandler = module.get<SearchEngineGetCollectionsQueryHandler>(SearchEngineGetCollectionsQueryHandler);
+        service = module.get<SearchEngineGetCollectionsService>(SearchEngineGetCollectionsService);
+        repository = <SearchEngineMockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
+        mapper = new SearchEngineCollectionMapper();
     });
 
     describe('main', () =>
     {
-        test('GetCollectionsQueryHandler should be defined', () =>
+        test('SearchEngineGetCollectionsQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('GetCollectionsQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource)));
             expect(await queryHandler.execute(
-                new GetCollectionsQuery(),
+                new SearchEngineGetCollectionsQuery(),
             )).toStrictEqual(mapper.mapAggregatesToResponses(repository.collectionSource));
         });
     });

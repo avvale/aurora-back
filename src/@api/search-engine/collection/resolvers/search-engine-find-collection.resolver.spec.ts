@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineFindCollectionHandler, SearchEngineFindCollectionResolver } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineFindCollectionResolver } from './search-engine-find-collection.resolver';
-import { SearchEngineFindCollectionHandler } from '../handlers/search-engine-find-collection.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineFindCollectionResolver', () =>
 {
@@ -48,8 +43,8 @@ describe('SearchEngineFindCollectionResolver', () =>
 
         test('should return a collection', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await resolver.main()).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await resolver.main()).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

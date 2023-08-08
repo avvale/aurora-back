@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 import { SearchEngineUpdateCollectionsCommandHandler } from './search-engine-update-collections.command-handler';
 import { SearchEngineUpdateCollectionsCommand } from './search-engine-update-collections.command';
 import { SearchEngineUpdateCollectionsService } from './search-engine-update-collections.service';
 
-describe('UpdateCollectionsCommandHandler', () =>
+describe('SearchEngineUpdateCollectionsCommandHandler', () =>
 {
-    let commandHandler: UpdateCollectionsCommandHandler;
-    let service: UpdateCollectionsService;
+    let commandHandler: SearchEngineUpdateCollectionsCommandHandler;
+    let service: SearchEngineUpdateCollectionsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateCollectionsCommandHandler,
+                SearchEngineUpdateCollectionsCommandHandler,
                 {
-                    provide : UpdateCollectionsService,
+                    provide : SearchEngineUpdateCollectionsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpdateCollectionsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateCollectionsCommandHandler>(UpdateCollectionsCommandHandler);
-        service = module.get<UpdateCollectionsService>(UpdateCollectionsService);
+        commandHandler = module.get<SearchEngineUpdateCollectionsCommandHandler>(SearchEngineUpdateCollectionsCommandHandler);
+        service = module.get<SearchEngineUpdateCollectionsService>(SearchEngineUpdateCollectionsService);
     });
 
     describe('main', () =>
@@ -40,17 +40,17 @@ describe('UpdateCollectionsCommandHandler', () =>
         test('should return an collections updated', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateCollectionsCommand(
+                new SearchEngineUpdateCollectionsCommand(
                     {
-                        id: collections[0].id,
-                        name: collections[0].name,
-                        alias: collections[0].alias,
-                        status: collections[0].status,
-                        documentsNumber: collections[0].documentsNumber,
-                        defaultSortingField: collections[0].defaultSortingField,
-                        numMemoryShards: collections[0].numMemoryShards,
-                        timestampCreatedAt: collections[0].timestampCreatedAt,
-                        isEnableNestedFields: collections[0].isEnableNestedFields,
+                        id: searchEngineMockCollectionData[0].id,
+                        name: searchEngineMockCollectionData[0].name,
+                        alias: searchEngineMockCollectionData[0].alias,
+                        status: searchEngineMockCollectionData[0].status,
+                        documentsNumber: searchEngineMockCollectionData[0].documentsNumber,
+                        defaultSortingField: searchEngineMockCollectionData[0].defaultSortingField,
+                        numMemoryShards: searchEngineMockCollectionData[0].numMemoryShards,
+                        timestampCreatedAt: searchEngineMockCollectionData[0].timestampCreatedAt,
+                        isEnableNestedFields: searchEngineMockCollectionData[0].isEnableNestedFields,
                     },
                     {},
                     {},

@@ -1,23 +1,20 @@
+import { SearchEngineCreateCollectionCommandHandler } from './search-engine-create-collection.command-handler';
+import { SearchEngineCreateCollectionService } from './search-engine-create-collection.service';
+import { SearchEngineCreateCollectionCommand, searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
-import { SearchEngineCreateCollectionCommandHandler } from './create-collection.command-handler';
-import { SearchEngineCreateCollectionCommand } from './create-collection.command';
-import { SearchEngineCreateCollectionService } from './create-collection.service';
 
 describe('SearchEngineCreateCollectionCommandHandler', () =>
 {
-    let commandHandler: CreateCollectionCommandHandler;
-    let service: CreateCollectionService;
+    let commandHandler: SearchEngineCreateCollectionCommandHandler;
+    let service: SearchEngineCreateCollectionService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                CreateCollectionCommandHandler,
+                SearchEngineCreateCollectionCommandHandler,
                 {
-                    provide : CreateCollectionService,
+                    provide : SearchEngineCreateCollectionService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +23,8 @@ describe('SearchEngineCreateCollectionCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<CreateCollectionCommandHandler>(CreateCollectionCommandHandler);
-        service = module.get<CreateCollectionService>(CreateCollectionService);
+        commandHandler = module.get<SearchEngineCreateCollectionCommandHandler>(SearchEngineCreateCollectionCommandHandler);
+        service = module.get<SearchEngineCreateCollectionService>(SearchEngineCreateCollectionService);
     });
 
     describe('main', () =>
@@ -37,20 +34,20 @@ describe('SearchEngineCreateCollectionCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the values objects and pass them as parameters to the CreateCollectionService', async () =>
+        test('should create the values objects and pass them as parameters to the SearchEngineCreateCollectionService', async () =>
         {
             expect(await commandHandler.execute(
-                new CreateCollectionCommand(
+                new SearchEngineCreateCollectionCommand(
                     {
-                        id: collections[0].id,
-                        name: collections[0].name,
-                        alias: collections[0].alias,
-                        status: collections[0].status,
-                        documentsNumber: collections[0].documentsNumber,
-                        defaultSortingField: collections[0].defaultSortingField,
-                        numMemoryShards: collections[0].numMemoryShards,
-                        timestampCreatedAt: collections[0].timestampCreatedAt,
-                        isEnableNestedFields: collections[0].isEnableNestedFields,
+                        id: searchEngineMockCollectionData[0].id,
+                        name: searchEngineMockCollectionData[0].name,
+                        alias: searchEngineMockCollectionData[0].alias,
+                        status: searchEngineMockCollectionData[0].status,
+                        documentsNumber: searchEngineMockCollectionData[0].documentsNumber,
+                        defaultSortingField: searchEngineMockCollectionData[0].defaultSortingField,
+                        numMemoryShards: searchEngineMockCollectionData[0].numMemoryShards,
+                        timestampCreatedAt: searchEngineMockCollectionData[0].timestampCreatedAt,
+                        isEnableNestedFields: searchEngineMockCollectionData[0].isEnableNestedFields,
                     },
                     { timezone: process.env.TZ },
                 ),

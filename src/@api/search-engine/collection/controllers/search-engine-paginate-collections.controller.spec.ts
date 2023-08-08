@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEnginePaginateCollectionsController, SearchEnginePaginateCollectionsHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEnginePaginateCollectionsController } from './search-engine-paginate-collections.controller';
-import { SearchEnginePaginateCollectionsHandler } from '../handlers/search-engine-paginate-collections.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEnginePaginateCollectionsController', () =>
 {
@@ -43,17 +37,17 @@ describe('SearchEnginePaginateCollectionsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return a collections', async () =>
+        test('should return a searchEngineMockCollectionData', async () =>
         {
             jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve({
                 total: 5,
                 count: 5,
-                rows : collections,
+                rows : searchEngineMockCollectionData,
             })));
             expect(await controller.main()).toStrictEqual({
                 total: 5,
                 count: 5,
-                rows : collections,
+                rows : searchEngineMockCollectionData,
             });
         });
     });

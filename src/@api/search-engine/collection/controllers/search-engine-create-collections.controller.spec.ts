@@ -1,16 +1,10 @@
+import { SearchEngineCreateCollectionsController, SearchEngineCreateCollectionsHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineCreateCollectionsController } from './search-engine-create-collections.controller';
-import { SearchEngineCreateCollectionsHandler } from '../handlers/search-engine-create-collections.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineCreateCollectionsController', () =>
 {
     let controller: SearchEngineCreateCollectionsController;
-    let handler: SearchEngineCreateCollectionsHandler;
 
     beforeAll(async () =>
     {
@@ -30,7 +24,6 @@ describe('SearchEngineCreateCollectionsController', () =>
             .compile();
 
         controller = module.get<SearchEngineCreateCollectionsController>(SearchEngineCreateCollectionsController);
-        handler = module.get<SearchEngineCreateCollectionsHandler>(SearchEngineCreateCollectionsHandler);
     });
 
     describe('main', () =>
@@ -40,9 +33,14 @@ describe('SearchEngineCreateCollectionsController', () =>
             expect(controller).toBeDefined();
         });
 
-        test('should return an collections created', async () =>
+        test('should return an searchEngineMockCollectionData created', async () =>
         {
-            expect(await controller.main(collections)).toBe(undefined);
+            expect(
+                await controller.main(
+                    searchEngineMockCollectionData,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

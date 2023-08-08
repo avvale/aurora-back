@@ -1,9 +1,9 @@
-import { SearchEngineCollectionDto } from '../dto';
 import { SearchEngineCollection } from '@api/graphql';
-import { SearchEngineDeleteCollectionByIdCommand, SearchEngineFindCollectionByIdQuery } from '@app/search-engine/collection';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { SearchEngineCollectionDto } from '@api/search-engine/collection';
 import { SearchEngineTypesenseImplementationService } from '@api/search-engine/shared';
+import { SearchEngineDeleteCollectionByIdCommand, SearchEngineFindCollectionByIdQuery } from '@app/search-engine/collection';
+import { ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SearchEngineDeleteCollectionByIdHandler
@@ -36,8 +36,8 @@ export class SearchEngineDeleteCollectionByIdHandler
             },
         ));
 
-        this.searchEngineService
-            .delete(collection.name);
+        // ---- customizations ----
+        this.searchEngineService.delete(collection.name);
 
         return collection;
     }

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SearchEngineUpdateCollectionByIdHandler } from './search-engine-update-collection-by-id.handler';
 import { SearchEngineUpdateCollectionByIdInput } from '@api/graphql';
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineUpdateCollectionByIdHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -9,7 +9,6 @@ describe('SearchEngineUpdateCollectionByIdHandler', () =>
 {
     let handler: SearchEngineUpdateCollectionByIdHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('SearchEngineUpdateCollectionByIdHandler', () =>
 
         handler = module.get<SearchEngineUpdateCollectionByIdHandler>(SearchEngineUpdateCollectionByIdHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('SearchEngineUpdateCollectionByIdHandler should be defined', () =>
@@ -53,8 +51,14 @@ describe('SearchEngineUpdateCollectionByIdHandler', () =>
 
         test('should return a collection updated', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await handler.main(<SearchEngineUpdateCollectionByIdInput>collections[0])).toBe(collections[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(
+                await handler.main(
+                    <SearchEngineUpdateCollectionByIdInput>searchEngineMockCollectionData[0],
+                    {},
+                    'Europe/Madrid',
+                ))
+                .toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

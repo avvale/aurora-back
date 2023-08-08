@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 import { SearchEngineUpsertCollectionCommandHandler } from './search-engine-upsert-collection.command-handler';
 import { SearchEngineUpsertCollectionCommand } from './search-engine-upsert-collection.command';
 import { SearchEngineUpsertCollectionService } from './search-engine-upsert-collection.service';
 
-describe('UpsertCollectionCommandHandler', () =>
+describe('SearchEngineUpsertCollectionCommandHandler', () =>
 {
-    let commandHandler: UpsertCollectionCommandHandler;
-    let service: UpsertCollectionService;
+    let commandHandler: SearchEngineUpsertCollectionCommandHandler;
+    let service: SearchEngineUpsertCollectionService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpsertCollectionCommandHandler,
+                SearchEngineUpsertCollectionCommandHandler,
                 {
-                    provide : UpsertCollectionService,
+                    provide : SearchEngineUpsertCollectionService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpsertCollectionCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpsertCollectionCommandHandler>(UpsertCollectionCommandHandler);
-        service = module.get<UpsertCollectionService>(UpsertCollectionService);
+        commandHandler = module.get<SearchEngineUpsertCollectionCommandHandler>(SearchEngineUpsertCollectionCommandHandler);
+        service = module.get<SearchEngineUpsertCollectionService>(SearchEngineUpsertCollectionService);
     });
 
     describe('main', () =>
@@ -37,20 +37,20 @@ describe('UpsertCollectionCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should upsert the values objects and pass them as parameters to the UpsertCollectionService', async () =>
+        test('should upsert the values objects and pass them as parameters to the SearchEngineUpsertCollectionService', async () =>
         {
             expect(await commandHandler.execute(
-                new UpsertCollectionCommand(
+                new SearchEngineUpsertCollectionCommand(
                     {
-                        id: collections[0].id,
-                        name: collections[0].name,
-                        alias: collections[0].alias,
-                        status: collections[0].status,
-                        documentsNumber: collections[0].documentsNumber,
-                        defaultSortingField: collections[0].defaultSortingField,
-                        numMemoryShards: collections[0].numMemoryShards,
-                        timestampCreatedAt: collections[0].timestampCreatedAt,
-                        isEnableNestedFields: collections[0].isEnableNestedFields,
+                        id: searchEngineMockCollectionData[0].id,
+                        name: searchEngineMockCollectionData[0].name,
+                        alias: searchEngineMockCollectionData[0].alias,
+                        status: searchEngineMockCollectionData[0].status,
+                        documentsNumber: searchEngineMockCollectionData[0].documentsNumber,
+                        defaultSortingField: searchEngineMockCollectionData[0].defaultSortingField,
+                        numMemoryShards: searchEngineMockCollectionData[0].numMemoryShards,
+                        timestampCreatedAt: searchEngineMockCollectionData[0].timestampCreatedAt,
+                        isEnableNestedFields: searchEngineMockCollectionData[0].isEnableNestedFields,
                     },
                     { timezone: process.env.TZ },
                 ),

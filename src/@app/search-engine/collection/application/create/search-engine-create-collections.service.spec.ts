@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { CreateCollectionsService } from './create-collections.service';
+import { SearchEngineCreateCollectionsService } from './search-engine-create-collections.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('CreateCollectionsService', () =>
+describe('SearchEngineCreateCollectionsService', () =>
 {
-    let service: CreateCollectionsService;
-    let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let service: SearchEngineCreateCollectionsService;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('CreateCollectionsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateCollectionsService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineCreateCollectionsService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -32,9 +32,8 @@ describe('CreateCollectionsService', () =>
         })
             .compile();
 
-        service = module.get(CreateCollectionsService);
-        repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
+        service = module.get(SearchEngineCreateCollectionsService);
+        mockRepository = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>
@@ -46,9 +45,12 @@ describe('CreateCollectionsService', () =>
 
         test('should create collections and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

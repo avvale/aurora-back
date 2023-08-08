@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { SearchEngineCollectionDto, SearchEngineUpdateCollectionsDto } from '../dto';
-import { SearchEngineUpdateCollectionsHandler } from '../handlers/search-engine-update-collections.handler';
+import { SearchEngineCollectionDto, SearchEngineUpdateCollectionsDto, SearchEngineUpdateCollectionsHandler } from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Put } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 

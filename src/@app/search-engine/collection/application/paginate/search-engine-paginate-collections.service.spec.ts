@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { SearchEnginePaginateCollectionsService } from './search-engine-paginate-collections.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('PaginateCollectionsService', () =>
+describe('SearchEnginePaginateCollectionsService', () =>
 {
-    let service: PaginateCollectionsService;
+    let service: SearchEnginePaginateCollectionsService;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('PaginateCollectionsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                PaginateCollectionsService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEnginePaginateCollectionsService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('PaginateCollectionsService', () =>
         })
             .compile();
 
-        service = module.get(PaginateCollectionsService);
+        service = module.get(SearchEnginePaginateCollectionsService);
         repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
+        mockRepository = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>
     {
-        test('PaginateCollectionsService should be defined', () =>
+        test('SearchEnginePaginateCollectionsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

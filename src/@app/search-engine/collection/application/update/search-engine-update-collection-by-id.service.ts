@@ -1,5 +1,4 @@
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
+import { SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
 import {
     SearchEngineCollectionAlias,
     SearchEngineCollectionCreatedAt,
@@ -13,7 +12,7 @@ import {
     SearchEngineCollectionStatus,
     SearchEngineCollectionTimestampCreatedAt,
     SearchEngineCollectionUpdatedAt,
-} from '../../domain/value-objects';
+} from '@app/search-engine/collection/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { GetCollectionsService } from './get-collections.service';
+import { SearchEngineGetCollectionsService } from './search-engine-get-collections.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('GetCollectionsService', () =>
+describe('SearchEngineGetCollectionsService', () =>
 {
-    let service: GetCollectionsService;
+    let service: SearchEngineGetCollectionsService;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('GetCollectionsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                GetCollectionsService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineGetCollectionsService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('GetCollectionsService', () =>
         })
             .compile();
 
-        service = module.get(GetCollectionsService);
+        service = module.get(SearchEngineGetCollectionsService);
         repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
+        mockRepository = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>

@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { DeleteCollectionsCommandHandler } from './delete-collections.command-handler';
-import { DeleteCollectionsCommand } from './delete-collections.command';
-import { DeleteCollectionsService } from './delete-collections.service';
+import { SearchEngineDeleteCollectionsCommandHandler } from './search-engine-delete-collections.command-handler';
+import { SearchEngineDeleteCollectionsCommand } from './search-engine-delete-collections.command';
+import { SearchEngineDeleteCollectionsService } from './search-engine-delete-collections.service';
 
 describe('SearchEngineDeleteCollectionsCommandHandler', () =>
 {
     let commandHandler: SearchEngineDeleteCollectionsCommandHandler;
-    let service: DeleteCollectionsService;
+    let service: SearchEngineDeleteCollectionsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteCollectionsCommandHandler,
+                SearchEngineDeleteCollectionsCommandHandler,
                 {
-                    provide : DeleteCollectionsService,
+                    provide : SearchEngineDeleteCollectionsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -25,13 +25,13 @@ describe('SearchEngineDeleteCollectionsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteCollectionsCommandHandler>(DeleteCollectionsCommandHandler);
-        service = module.get<DeleteCollectionsService>(DeleteCollectionsService);
+        commandHandler = module.get<SearchEngineDeleteCollectionsCommandHandler>(SearchEngineDeleteCollectionsCommandHandler);
+        service = module.get<SearchEngineDeleteCollectionsService>(SearchEngineDeleteCollectionsService);
     });
 
     describe('main', () =>
     {
-        test('DeleteCollectionsCommandHandler should be defined', () =>
+        test('SearchEngineDeleteCollectionsCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
@@ -39,7 +39,7 @@ describe('SearchEngineDeleteCollectionsCommandHandler', () =>
         test('should return void', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteCollectionsCommand(),
+                new SearchEngineDeleteCollectionsCommand(),
             )).toBe(undefined);
         });
     });

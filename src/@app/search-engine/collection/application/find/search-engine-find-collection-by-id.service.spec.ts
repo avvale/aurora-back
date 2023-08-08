@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
-import { FindCollectionByIdService } from './search-engine-find-collection-by-id.service';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
+import { SearchEngineFindCollectionByIdService } from './search-engine-find-collection-by-id.service';
 import { SearchEngineCollectionId } from '../../domain/value-objects';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
-describe('FindCollectionByIdService', () =>
+describe('SearchEngineFindCollectionByIdService', () =>
 {
-    let service: FindCollectionByIdService;
+    let service: SearchEngineFindCollectionByIdService;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
+    let mockRepository: SearchEngineMockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -21,8 +21,9 @@ describe('FindCollectionByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindCollectionByIdService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineFindCollectionByIdService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -33,9 +34,9 @@ describe('FindCollectionByIdService', () =>
         })
             .compile();
 
-        service = module.get(FindCollectionByIdService);
+        service = module.get(SearchEngineFindCollectionByIdService);
         repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
+        mockRepository = module.get(SearchEngineMockCollectionRepository);
     });
 
     describe('main', () =>
@@ -49,7 +50,7 @@ describe('FindCollectionByIdService', () =>
         {
             jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
             expect(await service.main(
-                new CollectionId(collections[0].id),
+                new SearchEngineCollectionId(searchEngineMockCollectionData[0].id),
             )).toBe(mockRepository.collectionSource[0]);
         });
     });

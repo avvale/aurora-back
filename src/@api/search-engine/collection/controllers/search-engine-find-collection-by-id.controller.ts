@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, HttpCode, Param, Post } from '@nestjs/common';
-import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { SearchEngineCollectionDto } from '../dto';
+import { SearchEngineCollectionDto, SearchEngineFindCollectionByIdHandler } from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineFindCollectionByIdHandler } from '../handlers/search-engine-find-collection-by-id.handler';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Body, Controller, HttpCode, Param, Post } from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[search-engine] collection')
 @Controller('search-engine/collection/find')

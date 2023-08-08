@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineUpsertCollectionController, SearchEngineUpsertCollectionHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpsertCollectionController } from './search-engine-upsert-collection.controller';
-import { SearchEngineUpsertCollectionHandler } from '../handlers/search-engine-upsert-collection.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineUpsertCollectionController', () =>
 {
@@ -45,8 +39,8 @@ describe('SearchEngineUpsertCollectionController', () =>
 
         test('should return an collection upserted', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await controller.main(collections[0])).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await controller.main(searchEngineMockCollectionData[0])).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

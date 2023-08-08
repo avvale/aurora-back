@@ -1,5 +1,5 @@
-import { SearchEngineCollectionDto } from '../dto';
 import { SearchEngineCollection } from '@api/graphql';
+import { SearchEngineCollectionDto } from '@api/search-engine/collection';
 import { SearchEngineGetCollectionsQuery } from '@app/search-engine/collection';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';

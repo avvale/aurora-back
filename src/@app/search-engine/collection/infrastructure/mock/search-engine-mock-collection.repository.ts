@@ -16,7 +16,7 @@ import {
     SearchEngineCollectionDeletedAt,
 } from '@app/search-engine/collection/domain/value-objects';
 import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { searchEngineCollections } from './search-engine-mock-collection.data';
+import { searchEngineMockCollectionData } from './search-engine-mock-collection.data';
 
 @Injectable()
 export class SearchEngineMockCollectionRepository extends MockRepository<SearchEngineCollection> implements SearchEngineICollectionRepository
@@ -42,7 +42,7 @@ export class SearchEngineMockCollectionRepository extends MockRepository<SearchE
         this.collectionSource = [];
         const now = Utils.nowTimestamp();
 
-        for (const itemCollection of <any[]>searchEngineCollections)
+        for (const itemCollection of <any[]>searchEngineMockCollectionData)
         {
             itemCollection['createdAt'] = now;
             itemCollection['updatedAt'] = now;

@@ -1,5 +1,5 @@
-import { SearchEngineFindCollectionByIdHandler } from '../handlers/search-engine-find-collection-by-id.handler';
 import { SearchEngineCollection } from '@api/graphql';
+import { SearchEngineFindCollectionByIdHandler } from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Query, Resolver } from '@nestjs/graphql';

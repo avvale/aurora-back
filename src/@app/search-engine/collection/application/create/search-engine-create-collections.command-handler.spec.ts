@@ -2,23 +2,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
-import { CreateCollectionsCommandHandler } from './create-collections.command-handler';
-import { CreateCollectionsCommand } from './create-collections.command';
-import { CreateCollectionsService } from './create-collections.service';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
+import { SearchEngineCreateCollectionsCommandHandler } from './search-engine-create-collections.command-handler';
+import { SearchEngineCreateCollectionsCommand } from './search-engine-create-collections.command';
+import { SearchEngineCreateCollectionsService } from './search-engine-create-collections.service';
 
-describe('CreateCollectionsCommandHandler', () =>
+describe('searchEngineCreateCollectionsCommandHandler', () =>
 {
-    let commandHandler: CreateCollectionsCommandHandler;
-    let service: CreateCollectionsService;
+    let commandHandler: SearchEngineCreateCollectionsCommandHandler;
+    let service: SearchEngineCreateCollectionsService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                CreateCollectionsCommandHandler,
+                SearchEngineCreateCollectionsCommandHandler,
                 {
-                    provide : CreateCollectionsService,
+                    provide : SearchEngineCreateCollectionsService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -27,22 +27,22 @@ describe('CreateCollectionsCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<CreateCollectionsCommandHandler>(CreateCollectionsCommandHandler);
-        service = module.get<CreateCollectionsService>(CreateCollectionsService);
+        commandHandler = module.get<SearchEngineCreateCollectionsCommandHandler>(SearchEngineCreateCollectionsCommandHandler);
+        service = module.get<SearchEngineCreateCollectionsService>(SearchEngineCreateCollectionsService);
     });
 
     describe('main', () =>
     {
-        test('CreateCollectionsCommandHandler should be defined', () =>
+        test('SearchEngineCreateCollectionsCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return collections createds', async () =>
+        test('should return SearchEngineMockCollectionData createds', async () =>
         {
             expect(await commandHandler.execute(
-                new CreateCollectionsCommand(
-                    collections,
+                new SearchEngineCreateCollectionsCommand(
+                    searchEngineMockCollectionData,
                     { timezone: process.env.TZ },
                 ),
             )).toBe(undefined);

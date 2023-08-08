@@ -2,7 +2,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
-
 // custom items
 import { SearchEngineIndexCollectionHandler } from './search-engine-index-collection.handler';
 

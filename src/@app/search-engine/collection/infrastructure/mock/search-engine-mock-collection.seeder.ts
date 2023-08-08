@@ -15,7 +15,7 @@ import {
     SearchEngineCollectionDeletedAt,
 } from '../../domain/value-objects';
 import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { searchEngineCollections } from './search-engine-mock-collection.data';
+import { searchEngineMockCollectionData } from './search-engine-mock-collection.data';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -33,7 +33,7 @@ export class SearchEngineMockCollectionSeeder extends MockSeeder<SearchEngineCol
     {
         this.collectionSource = [];
 
-        for (const collection of _.orderBy(searchEngineCollections, ['id']))
+        for (const collection of _.orderBy(searchEngineMockCollectionData, ['id']))
         {
             this.collectionSource.push(
                 SearchEngineCollection.register(

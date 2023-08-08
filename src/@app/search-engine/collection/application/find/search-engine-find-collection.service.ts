@@ -1,5 +1,4 @@
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
+import { SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 

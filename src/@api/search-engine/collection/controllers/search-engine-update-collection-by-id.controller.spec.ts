@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineUpdateCollectionByIdController, SearchEngineUpdateCollectionByIdHandler } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpdateCollectionByIdController } from './search-engine-update-collection-by-id.controller';
-import { SearchEngineUpdateCollectionByIdHandler } from '../handlers/search-engine-update-collection-by-id.handler';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
 
 describe('SearchEngineUpdateCollectionByIdController', () =>
 {
@@ -45,8 +39,8 @@ describe('SearchEngineUpdateCollectionByIdController', () =>
 
         test('should return a collection updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await controller.main(collections[0])).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await controller.main(searchEngineMockCollectionData[0])).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpdateCollectionByIdResolver } from './search-engine-update-collection-by-id.resolver';
-import { SearchEngineUpdateCollectionByIdHandler } from '../handlers/search-engine-update-collection-by-id.handler';
 import { SearchEngineUpdateCollectionByIdInput } from '@api/graphql';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineUpdateCollectionByIdHandler, SearchEngineUpdateCollectionByIdResolver } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineUpdateCollectionByIdResolver', () =>
 {
@@ -49,8 +44,8 @@ describe('SearchEngineUpdateCollectionByIdResolver', () =>
 
         test('should return a collection by id updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await resolver.main(<SearchEngineUpdateCollectionByIdInput>collections[0])).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await resolver.main(<SearchEngineUpdateCollectionByIdInput>searchEngineMockCollectionData[0])).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

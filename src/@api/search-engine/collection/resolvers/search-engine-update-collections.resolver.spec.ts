@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineUpdateCollectionsResolver } from './search-engine-update-collections.resolver';
-import { SearchEngineUpdateCollectionsHandler } from '../handlers/search-engine-update-collections.handler';
 import { SearchEngineUpdateCollectionsInput } from '@api/graphql';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineUpdateCollectionsHandler, SearchEngineUpdateCollectionsResolver } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineUpdateCollectionsResolver', () =>
 {
@@ -49,8 +44,8 @@ describe('SearchEngineUpdateCollectionsResolver', () =>
 
         test('should return a collections updated', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await resolver.main(<SearchEngineUpdateCollectionsInput>collections[0])).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await resolver.main(<SearchEngineUpdateCollectionsInput>searchEngineMockCollectionData[0])).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

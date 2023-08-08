@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { DeleteCollectionsService } from './delete-collections.service';
+import { SearchEngineDeleteCollectionsService } from './search-engine-delete-collections.service';
 import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { MockCollectionRepository } from '../../infrastructure/mock/mock-collection.repository';
+import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
 describe('SearchEngineDeleteCollectionsService', () =>
 {
-    let service: DeleteCollectionsService;
+    let service: SearchEngineDeleteCollectionsService;
     let repository: SearchEngineICollectionRepository;
-    let mockRepository: MockCollectionRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('SearchEngineDeleteCollectionsService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteCollectionsService,
-                MockCollectionRepository,
+                UnhandledExceptionBus,
+                SearchEngineDeleteCollectionsService,
+                SearchEngineMockCollectionRepository,
                 {
                     provide : SearchEngineICollectionRepository,
                     useValue: {
@@ -33,14 +33,13 @@ describe('SearchEngineDeleteCollectionsService', () =>
         })
             .compile();
 
-        service = module.get(DeleteCollectionsService);
+        service = module.get(SearchEngineDeleteCollectionsService);
         repository = module.get(SearchEngineICollectionRepository);
-        mockRepository = module.get(MockCollectionRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteCollectionsService should be defined', () =>
+        test('SearchEngineDeleteCollectionsService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
@@ -48,7 +47,13 @@ describe('SearchEngineDeleteCollectionsService', () =>
         test('should delete collection and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

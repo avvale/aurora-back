@@ -1,10 +1,8 @@
-import { Resolver, Args, Query } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineGetCollectionsHandler } from '../handlers/search-engine-get-collections.handler';
 import { SearchEngineCollection } from '@api/graphql';
+import { SearchEngineGetCollectionsHandler } from '@api/search-engine/collection';
+import { Auth } from '@aurora/decorators';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.get')

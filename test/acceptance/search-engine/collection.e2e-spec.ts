@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
-import { searchEngineCollections } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineMockCollectionSeeder } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.seeder';
+import { SearchEngineICollectionRepository, searchEngineMockCollectionData, SearchEngineMockCollectionSeeder } from '@app/search-engine/collection';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -65,7 +63,7 @@ describe('collection', () =>
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = searchEngineCollections;
+        mockData = searchEngineMockCollectionData;
         app = module.createNestApplication();
         collectionRepository = module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
         collectionSeeder = module.get<SearchEngineMockCollectionSeeder>(SearchEngineMockCollectionSeeder);

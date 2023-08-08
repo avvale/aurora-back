@@ -1,10 +1,8 @@
-import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
-import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineDeleteCollectionsHandler } from '../handlers/search-engine-delete-collections.handler';
 import { SearchEngineCollection } from '@api/graphql';
+import { SearchEngineDeleteCollectionsHandler } from '@api/search-engine/collection';
+import { Auth } from '@aurora/decorators';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.delete')

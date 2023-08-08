@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineCreateCollectionResolver } from './search-engine-create-collection.resolver';
-import { SearchEngineCreateCollectionHandler } from '../handlers/search-engine-create-collection.handler';
 import { SearchEngineCreateCollectionInput } from '@api/graphql';
-
-// sources
-import { collections } from '@app/search-engine/collection/infrastructure/mock/mock-collection.data';
+import { SearchEngineCreateCollectionHandler, SearchEngineCreateCollectionResolver } from '@api/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineCreateCollectionResolver', () =>
 {
@@ -49,8 +44,8 @@ describe('SearchEngineCreateCollectionResolver', () =>
 
         test('should return an collection created', async () =>
         {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(collections[0])));
-            expect(await resolver.main(<SearchEngineCreateCollectionInput>collections[0])).toBe(collections[0]);
+            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockCollectionData[0])));
+            expect(await resolver.main(<SearchEngineCreateCollectionInput>searchEngineMockCollectionData[0])).toBe(searchEngineMockCollectionData[0]);
         });
     });
 });

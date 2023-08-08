@@ -1,5 +1,4 @@
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineAddCollectionsContextEvent } from '../events/search-engine-add-collections-context.event';
+import { SearchEngineAddCollectionsContextEvent, SearchEngineICollectionRepository } from '@app/search-engine/collection';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

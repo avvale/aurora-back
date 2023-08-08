@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 //
 import { SearchEngineCreateCollectionsCommand } from '@app/search-engine/collection';
-import { searchEngineCollections } from '@app/search-engine/collection';
+import { searchEngineMockCollectionData } from '@app/search-engine/collection';
 
 @Injectable()
 export class SearchEngineCollectionSeeder
@@ -16,7 +16,7 @@ export class SearchEngineCollectionSeeder
     async main(): Promise<boolean>
     {
         await this.commandBus.dispatch(new SearchEngineCreateCollectionsCommand(
-            searchEngineCollections,
+            searchEngineMockCollectionData,
             {
                 timezone: process.env.TZ ,
             },
