@@ -2,7 +2,6 @@
 import { CommonCreateAdministrativeAreaLevel2Handler, CommonCreateAdministrativeAreaLevel2Resolver } from '@api/common/administrative-area-level-2';
 import { CommonCreateAdministrativeAreaLevel2Input } from '@api/graphql';
 import { commonMockAdministrativeAreaLevel2Data } from '@app/common/administrative-area-level-2';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateAdministrativeAreaLevel2Resolver', () =>
