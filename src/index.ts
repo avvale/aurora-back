@@ -52,13 +52,13 @@ export { SearchEngineCollection } from './@app/search-engine/collection/domain/s
 export { SearchEngineCollectionModel } from './@app/search-engine/collection';
 export { SearchEngineCollectionResponse } from './@app/search-engine/collection/domain/search-engine-collection.response';
 export { SearchEngineCollectionMapper } from './@app/search-engine/collection/domain/search-engine-collection.mapper';
-export { searchEngineCollections, searchEngineMockCollectionData } from './@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
+export { searchEngineMockCollectionData } from './@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
 export { SearchEngineFieldDto } from './@api/search-engine/field/dto/search-engine-field.dto';
 export { SearchEngineField } from './@app/search-engine/field/domain/search-engine-field.aggregate';
 export { SearchEngineFieldModel } from './@app/search-engine/field';
 export { SearchEngineFieldResponse } from './@app/search-engine/field/domain/search-engine-field.response';
 export { SearchEngineFieldMapper } from './@app/search-engine/field/domain/search-engine-field.mapper';
-export { searchEngineFields, searchEngineMockFieldData } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
+export { searchEngineMockFieldData } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 export { QueueManagerQueueResponse } from './@app/queue-manager/queue/domain/queue-manager-queue.response';
 export { QueueManagerQueueMapper } from './@app/queue-manager/queue/domain/queue-manager-queue.mapper';
 export { queueManagerMockQueueData } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
