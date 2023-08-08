@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/o-auth/application/infrastructure/mock/o-auth-mock-application.data.ts",
-            "integrity": "sha1:57102f0f0c56741b9e4be425420f80a8698cdcfc"
+            "integrity": "sha1:267a23a11885959a181457e05d5e994e774eda2f"
         },
         {
             "path": "src/@app/o-auth/application/infrastructure/mock/o-auth-mock-application.repository.ts",
@@ -691,7 +691,7 @@
         },
         {
             "path": "postman/o-auth/o-auth.application.postman.json",
-            "integrity": "sha1:8b9e267891ca24ffda97a887943c31c563a77054"
+            "integrity": "sha1:7b4f95f6801490418631bd10205ccc4a3c7eafa6"
         }
     ]
 }
