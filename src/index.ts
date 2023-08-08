@@ -61,10 +61,10 @@ export { SearchEngineFieldMapper } from './@app/search-engine/field/domain/searc
 export { searchEngineFields } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 export { QueueManagerQueueResponse } from './@app/queue-manager/queue/domain/queue-manager-queue.response';
 export { QueueManagerQueueMapper } from './@app/queue-manager/queue/domain/queue-manager-queue.mapper';
-export { queueManagerQueues, queueManagerMockQueueData } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
+export { queueManagerMockQueueData } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 export { QueueManagerJobRegistryResponse } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.response';
 export { QueueManagerJobRegistryMapper } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
-export { queueManagerJobsRegistry, queueManagerMockJobRegistryData } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
+export { queueManagerMockJobRegistryData } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';
 export { QueueManagerQueue } from './@app/queue-manager/queue/domain/queue-manager-queue.aggregate';
 export { QueueManagerJobRegistry } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.aggregate';
 export { CommonAdministrativeAreaLevel1Dto } from './@api/common/administrative-area-level-1/dto/common-administrative-area-level-1.dto';
