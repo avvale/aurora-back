@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { AuditingPaginateHttpCommunicationsHandler, AuditingPaginateHttpCommunicationsResolver } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingPaginateHttpCommunicationsResolver } from './auditing-paginate-http-communications.resolver';
-import { AuditingPaginateHttpCommunicationsHandler } from '../handlers/auditing-paginate-http-communications.handler';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingPaginateHttpCommunicationsResolver', () =>
 {

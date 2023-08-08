@@ -11,7 +11,6 @@ describe('AuditingDeleteHttpCommunicationsService', () =>
 {
     let service: AuditingDeleteHttpCommunicationsService;
     let repository: AuditingIHttpCommunicationRepository;
-    let mockRepository: AuditingMockHttpCommunicationRepository;
 
     beforeAll(async () =>
     {
@@ -36,7 +35,6 @@ describe('AuditingDeleteHttpCommunicationsService', () =>
 
         service = module.get(AuditingDeleteHttpCommunicationsService);
         repository = module.get(AuditingIHttpCommunicationRepository);
-        mockRepository = module.get(AuditingMockHttpCommunicationRepository);
     });
 
     describe('main', () =>
@@ -49,7 +47,13 @@ describe('AuditingDeleteHttpCommunicationsService', () =>
         test('should delete httpCommunication and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

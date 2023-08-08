@@ -1,4 +1,4 @@
-import { AuditingCreateHttpCommunicationDto } from '../dto';
+import { AuditingCreateHttpCommunicationDto } from '@api/auditing/http-communication';
 import { AuditingCreateHttpCommunicationInput } from '@api/graphql';
 import { AuditingCreateHttpCommunicationsCommand } from '@app/auditing/http-communication';
 import { ICommandBus } from '@aurorajs.dev/core';

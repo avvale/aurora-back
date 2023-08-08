@@ -1,5 +1,4 @@
-import { AuditingHttpCommunication } from '../../domain/auditing-http-communication.aggregate';
-import { AuditingIHttpCommunicationRepository } from '../../domain/auditing-http-communication.repository';
+import { AuditingHttpCommunication, AuditingIHttpCommunicationRepository } from '@app/auditing/http-communication';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 

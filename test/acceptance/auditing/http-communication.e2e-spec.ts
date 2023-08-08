@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { AuditingModule } from '@api/auditing/auditing.module';
-import { AuditingIHttpCommunicationRepository } from '@app/auditing/http-communication/domain/auditing-http-communication.repository';
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
-import { AuditingMockHttpCommunicationSeeder } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.seeder';
+import { AuditingIHttpCommunicationRepository, auditingMockHttpCommunicationData, AuditingMockHttpCommunicationSeeder } from '@app/auditing/http-communication';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';

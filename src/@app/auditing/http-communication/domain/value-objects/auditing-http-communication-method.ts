@@ -2,12 +2,12 @@ import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class AuditingHttpCommunicationMethod extends StringValueObject
 {
-    public readonly type: string = 'HttpCommunicationMethod';
+    public readonly type: string = 'AuditingHttpCommunicationMethod';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'HttpCommunicationMethod',
+            name       : 'AuditingHttpCommunicationMethod',
             nullable   : false,
             undefinable: false,
             maxLength  : 25,

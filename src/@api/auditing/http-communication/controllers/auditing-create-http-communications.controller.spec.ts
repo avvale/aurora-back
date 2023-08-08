@@ -1,16 +1,10 @@
+import { AuditingCreateHttpCommunicationsController, AuditingCreateHttpCommunicationsHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingCreateHttpCommunicationsController } from './auditing-create-http-communications.controller';
-import { AuditingCreateHttpCommunicationsHandler } from '../handlers/auditing-create-http-communications.handler';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingCreateHttpCommunicationsController', () =>
 {
     let controller: AuditingCreateHttpCommunicationsController;
-    let handler: AuditingCreateHttpCommunicationsHandler;
 
     beforeAll(async () =>
     {
@@ -30,7 +24,6 @@ describe('AuditingCreateHttpCommunicationsController', () =>
             .compile();
 
         controller = module.get<AuditingCreateHttpCommunicationsController>(AuditingCreateHttpCommunicationsController);
-        handler = module.get<AuditingCreateHttpCommunicationsHandler>(AuditingCreateHttpCommunicationsHandler);
     });
 
     describe('main', () =>
@@ -42,7 +35,12 @@ describe('AuditingCreateHttpCommunicationsController', () =>
 
         test('should return an auditingMockHttpCommunicationData created', async () =>
         {
-            expect(await controller.main(auditingMockHttpCommunicationData)).toBe(undefined);
+            expect(
+                await controller.main(
+                    auditingMockHttpCommunicationData,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

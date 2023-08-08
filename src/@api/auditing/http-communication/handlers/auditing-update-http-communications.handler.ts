@@ -1,4 +1,4 @@
-import { AuditingHttpCommunicationDto, AuditingUpdateHttpCommunicationsDto } from '../dto';
+import { AuditingHttpCommunicationDto, AuditingUpdateHttpCommunicationsDto } from '@api/auditing/http-communication';
 import { AuditingHttpCommunication, AuditingUpdateHttpCommunicationsInput } from '@api/graphql';
 import { AuditingGetHttpCommunicationsQuery, AuditingUpdateHttpCommunicationsCommand } from '@app/auditing/http-communication';
 import { ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';

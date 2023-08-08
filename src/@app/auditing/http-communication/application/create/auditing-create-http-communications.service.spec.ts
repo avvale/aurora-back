@@ -10,7 +10,6 @@ import { AuditingMockHttpCommunicationRepository } from '../../infrastructure/mo
 describe('AuditingCreateHttpCommunicationsService', () =>
 {
     let service: AuditingCreateHttpCommunicationsService;
-    let repository: AuditingIHttpCommunicationRepository;
     let mockRepository: AuditingMockHttpCommunicationRepository;
 
     beforeAll(async () =>
@@ -34,7 +33,6 @@ describe('AuditingCreateHttpCommunicationsService', () =>
             .compile();
 
         service = module.get(AuditingCreateHttpCommunicationsService);
-        repository = module.get(AuditingIHttpCommunicationRepository);
         mockRepository = module.get(AuditingMockHttpCommunicationRepository);
     });
 
@@ -47,9 +45,12 @@ describe('AuditingCreateHttpCommunicationsService', () =>
 
         test('should create httpCommunications and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

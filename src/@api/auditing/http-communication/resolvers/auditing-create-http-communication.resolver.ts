@@ -1,4 +1,4 @@
-import { AuditingCreateHttpCommunicationHandler } from '../handlers/auditing-create-http-communication.handler';
+import { AuditingCreateHttpCommunicationHandler } from '@api/auditing/http-communication';
 import { AuditingCreateHttpCommunicationInput, AuditingHttpCommunication } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
 import { Timezone } from '@aurorajs.dev/core';

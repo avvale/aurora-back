@@ -1,4 +1,4 @@
-import { AuditingUpdateHttpCommunicationByIdHandler } from '../handlers/auditing-update-http-communication-by-id.handler';
+import { AuditingUpdateHttpCommunicationByIdHandler } from '@api/auditing/http-communication';
 import { AuditingHttpCommunication, AuditingUpdateHttpCommunicationByIdInput } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';

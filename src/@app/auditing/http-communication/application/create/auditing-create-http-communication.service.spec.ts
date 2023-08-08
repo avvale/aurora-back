@@ -29,8 +29,6 @@ describe('AuditingCreateHttpCommunicationService', () =>
 
 {
     let service: AuditingCreateHttpCommunicationService;
-    let repository: AuditingIHttpCommunicationRepository;
-    let mockRepository: AuditingMockHttpCommunicationRepository;
 
     beforeAll(async () =>
     {
@@ -53,8 +51,6 @@ describe('AuditingCreateHttpCommunicationService', () =>
             .compile();
 
         service = module.get(AuditingCreateHttpCommunicationService);
-        repository = module.get(AuditingIHttpCommunicationRepository);
-        mockRepository = module.get(AuditingMockHttpCommunicationRepository);
     });
 
     describe('main', () =>
@@ -66,22 +62,25 @@ describe('AuditingCreateHttpCommunicationService', () =>
 
         test('should create a httpCommunication and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new AuditingHttpCommunicationId(auditingMockHttpCommunicationData[0].id),
-                    tags: new AuditingHttpCommunicationTags(auditingMockHttpCommunicationData[0].tags),
-                    event: new AuditingHttpCommunicationEvent(auditingMockHttpCommunicationData[0].event),
-                    status: new AuditingHttpCommunicationStatus(auditingMockHttpCommunicationData[0].status),
-                    method: new AuditingHttpCommunicationMethod(auditingMockHttpCommunicationData[0].method),
-                    url: new AuditingHttpCommunicationUrl(auditingMockHttpCommunicationData[0].url),
-                    httpRequest: new AuditingHttpCommunicationHttpRequest(auditingMockHttpCommunicationData[0].httpRequest),
-                    httpRequestRejected: new AuditingHttpCommunicationHttpRequestRejected(auditingMockHttpCommunicationData[0].httpRequestRejected),
-                    httpResponse: new AuditingHttpCommunicationHttpResponse(auditingMockHttpCommunicationData[0].httpResponse),
-                    httpResponseRejected: new AuditingHttpCommunicationHttpResponseRejected(auditingMockHttpCommunicationData[0].httpResponseRejected),
-                    isReprocessing: new AuditingHttpCommunicationIsReprocessing(auditingMockHttpCommunicationData[0].isReprocessing),
-                    reprocessingHttpCommunicationId: new AuditingHttpCommunicationReprocessingHttpCommunicationId(auditingMockHttpCommunicationData[0].reprocessingHttpCommunicationId),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new AuditingHttpCommunicationId(auditingMockHttpCommunicationData[0].id),
+                        tags: new AuditingHttpCommunicationTags(auditingMockHttpCommunicationData[0].tags),
+                        event: new AuditingHttpCommunicationEvent(auditingMockHttpCommunicationData[0].event),
+                        status: new AuditingHttpCommunicationStatus(auditingMockHttpCommunicationData[0].status),
+                        method: new AuditingHttpCommunicationMethod(auditingMockHttpCommunicationData[0].method),
+                        url: new AuditingHttpCommunicationUrl(auditingMockHttpCommunicationData[0].url),
+                        httpRequest: new AuditingHttpCommunicationHttpRequest(auditingMockHttpCommunicationData[0].httpRequest),
+                        httpRequestRejected: new AuditingHttpCommunicationHttpRequestRejected(auditingMockHttpCommunicationData[0].httpRequestRejected),
+                        httpResponse: new AuditingHttpCommunicationHttpResponse(auditingMockHttpCommunicationData[0].httpResponse),
+                        httpResponseRejected: new AuditingHttpCommunicationHttpResponseRejected(auditingMockHttpCommunicationData[0].httpResponseRejected),
+                        isReprocessing: new AuditingHttpCommunicationIsReprocessing(auditingMockHttpCommunicationData[0].isReprocessing),
+                        reprocessingHttpCommunicationId: new AuditingHttpCommunicationReprocessingHttpCommunicationId(auditingMockHttpCommunicationData[0].reprocessingHttpCommunicationId),
+                    },
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

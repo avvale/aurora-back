@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AuditingPaginateHttpCommunicationsHandler } from './auditing-paginate-http-communications.handler';
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { AuditingPaginateHttpCommunicationsHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingPaginateHttpCommunicationsHandler', () =>
 {
     let handler: AuditingPaginateHttpCommunicationsHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -23,19 +22,12 @@ describe('AuditingPaginateHttpCommunicationsHandler', () =>
                         ask: () => { /**/ },
                     },
                 },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
             ],
         })
             .compile();
 
         handler = module.get<AuditingPaginateHttpCommunicationsHandler>(AuditingPaginateHttpCommunicationsHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('AuditingPaginateHttpCommunicationsHandler should be defined', () =>
@@ -57,11 +49,17 @@ describe('AuditingPaginateHttpCommunicationsHandler', () =>
                 count: auditingMockHttpCommunicationData.length,
                 rows : auditingMockHttpCommunicationData,
             })));
-            expect(await handler.main()).toEqual({
-                total: auditingMockHttpCommunicationData.length,
-                count: auditingMockHttpCommunicationData.length,
-                rows : auditingMockHttpCommunicationData,
-            });
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                ),
+            )
+                .toEqual({
+                    total: auditingMockHttpCommunicationData.length,
+                    count: auditingMockHttpCommunicationData.length,
+                    rows : auditingMockHttpCommunicationData,
+                });
         });
     });
 });

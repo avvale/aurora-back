@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AuditingDeleteHttpCommunicationsHandler } from './auditing-delete-http-communications.handler';
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { AuditingDeleteHttpCommunicationsHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('AuditingDeleteHttpCommunicationsHandler', () =>
 {
     let handler: AuditingDeleteHttpCommunicationsHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('AuditingDeleteHttpCommunicationsHandler', () =>
 
         handler = module.get<AuditingDeleteHttpCommunicationsHandler>(AuditingDeleteHttpCommunicationsHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     test('AuditingDeleteHttpCommunicationsHandler should be defined', () =>
@@ -53,7 +51,14 @@ describe('AuditingDeleteHttpCommunicationsHandler', () =>
         test('should return an auditingMockHttpCommunicationData deleted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData)));
-            expect(await handler.main()).toBe(auditingMockHttpCommunicationData);
+            expect(
+                await handler.main(
+                    {},
+                    {},
+                    'Europe/Madrid',
+                ),
+            )
+                .toBe(auditingMockHttpCommunicationData);
         });
     });
 });

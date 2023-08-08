@@ -1,10 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 import { AuditingCreateHttpCommunicationCommandHandler } from './auditing-create-http-communication.command-handler';
-import { AuditingCreateHttpCommunicationCommand } from './auditing-create-http-communication.command';
 import { AuditingCreateHttpCommunicationService } from './auditing-create-http-communication.service';
+import { AuditingCreateHttpCommunicationCommand, auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingCreateHttpCommunicationCommandHandler', () =>
 {

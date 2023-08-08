@@ -1,12 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { AuditingUpdateHttpCommunicationByIdController, AuditingUpdateHttpCommunicationByIdHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingUpdateHttpCommunicationByIdController } from './auditing-update-http-communication-by-id.controller';
-import { AuditingUpdateHttpCommunicationByIdHandler } from '../handlers/auditing-update-http-communication-by-id.handler';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingUpdateHttpCommunicationByIdController', () =>
 {

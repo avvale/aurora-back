@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AuditingUpsertHttpCommunicationHandler } from './auditing-upsert-http-communication.handler';
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { AuditingUpsertHttpCommunicationHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('AuditingUpsertHttpCommunicationHandler', () =>
 {
     let handler: AuditingUpsertHttpCommunicationHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('AuditingUpsertHttpCommunicationHandler', () =>
 
         handler = module.get<AuditingUpsertHttpCommunicationHandler>(AuditingUpsertHttpCommunicationHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -48,7 +46,12 @@ describe('AuditingUpsertHttpCommunicationHandler', () =>
         test('should return an httpCommunication upserted', async () =>
         {
             jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(auditingMockHttpCommunicationData[0])));
-            expect(await handler.main(auditingMockHttpCommunicationData[0])).toBe(auditingMockHttpCommunicationData[0]);
+            expect(
+                await handler.main(
+                    auditingMockHttpCommunicationData[0],
+                    'Europe/Madrid',
+                ))
+                .toBe(auditingMockHttpCommunicationData[0]);
         });
     });
 });

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { AuditingDeleteHttpCommunicationByIdHandler } from '../handlers/auditing-delete-http-communication-by-id.handler';
-import { AuditingDeleteHttpCommunicationByIdController } from './auditing-delete-http-communication-by-id.controller';
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { AuditingDeleteHttpCommunicationByIdController, AuditingDeleteHttpCommunicationByIdHandler } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingDeleteHttpCommunicationByIdController', () =>

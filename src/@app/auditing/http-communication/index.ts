@@ -1,4 +1,4 @@
-// commands
+// export commands
 export { AuditingCreateHttpCommunicationCommand } from './application/create/auditing-create-http-communication.command';
 export { AuditingCreateHttpCommunicationsCommand } from './application/create/auditing-create-http-communications.command';
 export { AuditingUpdateHttpCommunicationByIdCommand } from './application/update/auditing-update-http-communication-by-id.command';
@@ -7,15 +7,32 @@ export { AuditingUpsertHttpCommunicationCommand } from './application/upsert/aud
 export { AuditingDeleteHttpCommunicationByIdCommand } from './application/delete/auditing-delete-http-communication-by-id.command';
 export { AuditingDeleteHttpCommunicationsCommand } from './application/delete/auditing-delete-http-communications.command';
 
-// queries
+// export queries
 export { AuditingPaginateHttpCommunicationsQuery } from './application/paginate/auditing-paginate-http-communications.query';
 export { AuditingGetHttpCommunicationsQuery } from './application/get/auditing-get-http-communications.query';
 export { AuditingFindHttpCommunicationQuery } from './application/find/auditing-find-http-communication.query';
 export { AuditingFindHttpCommunicationByIdQuery } from './application/find/auditing-find-http-communication-by-id.query';
 export { AuditingRawSQLHttpCommunicationsQuery } from './application/raw-sql/auditing-raw-sql-http-communications.query';
 
-// mocks
+// export mocks
 export { auditingMockHttpCommunicationData } from './infrastructure/mock/auditing-mock-http-communication.data';
+export { AuditingMockHttpCommunicationSeeder } from './infrastructure/mock/auditing-mock-http-communication.seeder';
+export { AuditingMockHttpCommunicationRepository } from './infrastructure/mock/auditing-mock-http-communication.repository';
+
+// export events
+export { AuditingAddHttpCommunicationsContextEvent } from './application/events/auditing-add-http-communications-context.event';
+export { AuditingCreatedHttpCommunicationsEvent } from './application/events/auditing-created-http-communications.event';
+export { AuditingCreatedHttpCommunicationEvent } from './application/events/auditing-created-http-communication.event';
+export { AuditingDeletedHttpCommunicationsEvent } from './application/events/auditing-deleted-http-communications.event';
+export { AuditingDeletedHttpCommunicationEvent } from './application/events/auditing-deleted-http-communication.event';
+export { AuditingUpdatedHttpCommunicationsEvent } from './application/events/auditing-updated-http-communications.event';
+export { AuditingUpdatedHttpCommunicationEvent } from './application/events/auditing-updated-http-communication.event';
+
+// export command handlers
+// can not export application command handlers, because Nest can't resolve dependencies
+
+// export command services
+// can not export application services, because Nest can't resolve dependencies
 
 // domain
 export { AuditingHttpCommunication } from './domain/auditing-http-communication.aggregate';

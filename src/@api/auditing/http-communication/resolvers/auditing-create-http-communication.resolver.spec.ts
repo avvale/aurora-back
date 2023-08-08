@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingCreateHttpCommunicationResolver } from './auditing-create-http-communication.resolver';
-import { AuditingCreateHttpCommunicationHandler } from '../handlers/auditing-create-http-communication.handler';
+import { AuditingCreateHttpCommunicationHandler, AuditingCreateHttpCommunicationResolver } from '@api/auditing/http-communication';
 import { AuditingCreateHttpCommunicationInput } from '@api/graphql';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingCreateHttpCommunicationResolver', () =>
 {

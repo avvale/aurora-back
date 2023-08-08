@@ -1,5 +1,4 @@
-import { AuditingIHttpCommunicationRepository } from '../../domain/auditing-http-communication.repository';
-import { AuditingAddHttpCommunicationsContextEvent } from '../events/auditing-add-http-communications-context.event';
+import { AuditingAddHttpCommunicationsContextEvent, AuditingIHttpCommunicationRepository } from '@app/auditing/http-communication';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

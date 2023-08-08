@@ -1,4 +1,4 @@
-import { AuditingFindHttpCommunicationByIdHandler } from '../handlers/auditing-find-http-communication-by-id.handler';
+import { AuditingFindHttpCommunicationByIdHandler } from '@api/auditing/http-communication';
 import { AuditingHttpCommunication } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';

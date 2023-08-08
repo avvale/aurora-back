@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { AuditingHttpCommunicationDto, AuditingUpdateHttpCommunicationsDto } from '../dto';
-import { AuditingUpdateHttpCommunicationsHandler } from '../handlers/auditing-update-http-communications.handler';
+import { AuditingHttpCommunicationDto, AuditingUpdateHttpCommunicationsDto, AuditingUpdateHttpCommunicationsHandler } from '@api/auditing/http-communication';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Put } from '@nestjs/common';

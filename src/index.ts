@@ -141,3 +141,4 @@ export { oAuthMockScopeData } from './@app/o-auth/scope/infrastructure/mock/o-au
 export { OAuthRefreshToken } from './@app/o-auth/refresh-token/domain/o-auth-refresh-token.aggregate';
 export { OAuthClient } from './@app/o-auth/client/domain/o-auth-client.aggregate';
 export { OAuthApplication } from './@app/o-auth/application/domain/o-auth-application.aggregate';
+export { AuditingHttpCommunication } from './@app/auditing/http-communication/domain/auditing-http-communication.aggregate';

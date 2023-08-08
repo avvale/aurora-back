@@ -1,5 +1,4 @@
-import { AuditingHttpCommunication } from '../../domain/auditing-http-communication.aggregate';
-import { AuditingIHttpCommunicationRepository } from '../../domain/auditing-http-communication.repository';
+import { AuditingHttpCommunication, AuditingIHttpCommunicationRepository } from '@app/auditing/http-communication';
 import {
     AuditingHttpCommunicationCreatedAt,
     AuditingHttpCommunicationDeletedAt,
@@ -16,7 +15,7 @@ import {
     AuditingHttpCommunicationTags,
     AuditingHttpCommunicationUpdatedAt,
     AuditingHttpCommunicationUrl,
-} from '../../domain/value-objects';
+} from '@app/auditing/http-communication/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingUpdateHttpCommunicationByIdResolver } from './auditing-update-http-communication-by-id.resolver';
-import { AuditingUpdateHttpCommunicationByIdHandler } from '../handlers/auditing-update-http-communication-by-id.handler';
+import { AuditingUpdateHttpCommunicationByIdHandler, AuditingUpdateHttpCommunicationByIdResolver } from '@api/auditing/http-communication';
 import { AuditingUpdateHttpCommunicationByIdInput } from '@api/graphql';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('AuditingUpdateHttpCommunicationByIdResolver', () =>
 {

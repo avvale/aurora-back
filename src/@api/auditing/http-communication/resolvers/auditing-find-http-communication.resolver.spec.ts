@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { AuditingFindHttpCommunicationHandler, AuditingFindHttpCommunicationResolver } from '@api/auditing/http-communication';
+import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { AuditingFindHttpCommunicationResolver } from './auditing-find-http-communication.resolver';
-import { AuditingFindHttpCommunicationHandler } from '../handlers/auditing-find-http-communication.handler';
-
-// sources
-import { auditingMockHttpCommunicationData } from '@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data';
 
 describe('AuditingFindHttpCommunicationResolver', () =>
 {

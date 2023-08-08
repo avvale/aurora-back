@@ -2,12 +2,12 @@ import { BooleanValueObject, DataValueObject, ValidationRules } from '@aurorajs.
 
 export class AuditingHttpCommunicationIsReprocessing extends BooleanValueObject
 {
-    public readonly type: string = 'HttpCommunicationIsReprocessing';
+    public readonly type: string = 'AuditingHttpCommunicationIsReprocessing';
 
     constructor(value: boolean, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'HttpCommunicationIsReprocessing',
+            name       : 'AuditingHttpCommunicationIsReprocessing',
             nullable   : false,
             undefinable: false,
         }, validationRules), data);
