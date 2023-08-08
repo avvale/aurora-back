@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { QueueManagerCreateQueueDto, QueueManagerQueueDto } from '../dto';
-import { QueueManagerCreateQueueHandler } from '../handlers/queue-manager-create-queue.handler';
+import { QueueManagerCreateQueueDto, QueueManagerCreateQueueHandler, QueueManagerQueueDto } from '@api/queue-manager/queue';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
+import { Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 

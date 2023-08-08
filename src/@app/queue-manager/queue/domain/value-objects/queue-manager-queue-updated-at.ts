@@ -2,12 +2,12 @@ import { DataValueObject, TimestampValueObject, ValidationRules } from '@auroraj
 
 export class QueueManagerQueueUpdatedAt extends TimestampValueObject
 {
-    public readonly type: string = 'QueueUpdatedAt';
+    public readonly type: string = 'QueueManagerQueueUpdatedAt';
 
     constructor(value: string | DataValueObject, validationRules: ValidationRules = {}, data: DataValueObject = {})
     {
         super(value, Object.assign({
-            name       : 'QueueUpdatedAt',
+            name       : 'QueueManagerQueueUpdatedAt',
             nullable   : true,
             undefinable: true,
         }, validationRules), data);

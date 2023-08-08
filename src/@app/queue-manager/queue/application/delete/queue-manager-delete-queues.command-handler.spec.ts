@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { DeleteQueuesCommandHandler } from './delete-queues.command-handler';
-import { DeleteQueuesCommand } from './delete-queues.command';
-import { DeleteQueuesService } from './delete-queues.service';
+import { QueueManagerDeleteQueuesCommandHandler } from './queue-manager-delete-queues.command-handler';
+import { QueueManagerDeleteQueuesCommand } from './queue-manager-delete-queues.command';
+import { QueueManagerDeleteQueuesService } from './queue-manager-delete-queues.service';
 
 describe('QueueManagerDeleteQueuesCommandHandler', () =>
 {
     let commandHandler: QueueManagerDeleteQueuesCommandHandler;
-    let service: DeleteQueuesService;
+    let service: QueueManagerDeleteQueuesService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteQueuesCommandHandler,
+                QueueManagerDeleteQueuesCommandHandler,
                 {
-                    provide : DeleteQueuesService,
+                    provide : QueueManagerDeleteQueuesService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -25,13 +25,13 @@ describe('QueueManagerDeleteQueuesCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteQueuesCommandHandler>(DeleteQueuesCommandHandler);
-        service = module.get<DeleteQueuesService>(DeleteQueuesService);
+        commandHandler = module.get<QueueManagerDeleteQueuesCommandHandler>(QueueManagerDeleteQueuesCommandHandler);
+        service = module.get<QueueManagerDeleteQueuesService>(QueueManagerDeleteQueuesService);
     });
 
     describe('main', () =>
     {
-        test('DeleteQueuesCommandHandler should be defined', () =>
+        test('QueueManagerDeleteQueuesCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
@@ -39,7 +39,7 @@ describe('QueueManagerDeleteQueuesCommandHandler', () =>
         test('should return void', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteQueuesCommand(),
+                new QueueManagerDeleteQueuesCommand(),
             )).toBe(undefined);
         });
     });

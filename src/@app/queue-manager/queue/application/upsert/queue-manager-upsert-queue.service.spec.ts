@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerUpsertQueueService } from './queue-manager-upsert-queue.service';
 import {
     QueueManagerQueueId,
@@ -14,14 +14,12 @@ import {
     QueueManagerQueueDeletedAt,
 } from '../../domain/value-objects';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('UpsertQueueService', () =>
+describe('QueueManagerUpsertQueueService', () =>
 
 {
-    let service: UpsertQueueService;
-    let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let service: QueueManagerUpsertQueueService;
 
     beforeAll(async () =>
     {
@@ -30,8 +28,9 @@ describe('UpsertQueueService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                UpsertQueueService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerUpsertQueueService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -42,27 +41,28 @@ describe('UpsertQueueService', () =>
         })
             .compile();
 
-        service = module.get(UpsertQueueService);
-        repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        service = module.get(QueueManagerUpsertQueueService);
     });
 
     describe('main', () =>
     {
-        test('UpsertQueueService should be defined', () =>
+        test('QueueManagerUpsertQueueService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
         test('should upsert a queue and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new QueueManagerQueueId(queues[0].id),
-                    prefix: new QueueManagerQueuePrefix(queues[0].prefix),
-                    name: new QueueManagerQueueName(queues[0].name),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new QueueManagerQueueId(queueManagerMockQueueData[0].id),
+                        prefix: new QueueManagerQueuePrefix(queueManagerMockQueueData[0].prefix),
+                        name: new QueueManagerQueueName(queueManagerMockQueueData[0].name),
+                    },
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

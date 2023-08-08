@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { CreateQueuesService } from './create-queues.service';
+import { QueueManagerCreateQueuesService } from './queue-manager-create-queues.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('CreateQueuesService', () =>
+describe('QueueManagerCreateQueuesService', () =>
 {
-    let service: CreateQueuesService;
-    let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let service: QueueManagerCreateQueuesService;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('CreateQueuesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateQueuesService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerCreateQueuesService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -32,9 +32,8 @@ describe('CreateQueuesService', () =>
         })
             .compile();
 
-        service = module.get(CreateQueuesService);
-        repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        service = module.get(QueueManagerCreateQueuesService);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
@@ -46,9 +45,12 @@ describe('CreateQueuesService', () =>
 
         test('should create queues and emit event', async () =>
         {
-            expect(await service.main(
-                mockRepository.collectionSource,
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    mockRepository.collectionSource,
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

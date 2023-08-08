@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerUpdateQueueByIdCommandHandler } from './queue-manager-update-queue-by-id.command-handler';
 import { QueueManagerUpdateQueueByIdCommand } from './queue-manager-update-queue-by-id.command';
 import { QueueManagerUpdateQueueByIdService } from './queue-manager-update-queue-by-id.service';
@@ -15,9 +15,9 @@ describe('QueueManagerUpdateQueueByIdCommandHandler', () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateQueueByIdCommandHandler,
+                QueueManagerUpdateQueueByIdCommandHandler,
                 {
-                    provide : UpdateQueueByIdService,
+                    provide : QueueManagerUpdateQueueByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('QueueManagerUpdateQueueByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateQueueByIdCommandHandler>(UpdateQueueByIdCommandHandler);
-        service = module.get<UpdateQueueByIdService>(UpdateQueueByIdService);
+        commandHandler = module.get<QueueManagerUpdateQueueByIdCommandHandler>(QueueManagerUpdateQueueByIdCommandHandler);
+        service = module.get<QueueManagerUpdateQueueByIdService>(QueueManagerUpdateQueueByIdService);
     });
 
     describe('main', () =>
@@ -40,11 +40,11 @@ describe('QueueManagerUpdateQueueByIdCommandHandler', () =>
         test('should return an queue created', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateQueueByIdCommand(
+                new QueueManagerUpdateQueueByIdCommand(
                     {
-                        id: queues[0].id,
-                        prefix: queues[0].prefix,
-                        name: queues[0].name,
+                        id: queueManagerMockQueueData[0].id,
+                        prefix: queueManagerMockQueueData[0].prefix,
+                        name: queueManagerMockQueueData[0].name,
                     },
                     {},
                     { timezone: process.env.TZ },

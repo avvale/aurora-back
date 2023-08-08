@@ -1,5 +1,4 @@
-import { QueueManagerQueue } from '../../domain/queue-manager-queue.aggregate';
-import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
+import { QueueManagerIQueueRepository, QueueManagerQueue } from '@app/queue-manager/queue';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 

@@ -2,22 +2,22 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
 import { QueueManagerDeleteQueueByIdCommandHandler } from './queue-manager-delete-queue-by-id.command-handler';
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerDeleteQueueByIdCommand } from './queue-manager-delete-queue-by-id.command';
 import { QueueManagerDeleteQueueByIdService } from './queue-manager-delete-queue-by-id.service';
 
 describe('QueueManagerDeleteQueueByIdCommandHandler', () =>
 {
-    let commandHandler: DeleteQueueByIdCommandHandler;
-    let service: DeleteQueueByIdService;
+    let commandHandler: QueueManagerDeleteQueueByIdCommandHandler;
+    let service: QueueManagerDeleteQueueByIdService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                DeleteQueueByIdCommandHandler,
+                QueueManagerDeleteQueueByIdCommandHandler,
                 {
-                    provide : DeleteQueueByIdService,
+                    provide : QueueManagerDeleteQueueByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,22 +26,22 @@ describe('QueueManagerDeleteQueueByIdCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<DeleteQueueByIdCommandHandler>(DeleteQueueByIdCommandHandler);
-        service = module.get<DeleteQueueByIdService>(DeleteQueueByIdService);
+        commandHandler = module.get<QueueManagerDeleteQueueByIdCommandHandler>(QueueManagerDeleteQueueByIdCommandHandler);
+        service = module.get<QueueManagerDeleteQueueByIdService>(QueueManagerDeleteQueueByIdService);
     });
 
     describe('main', () =>
     {
-        test('DeleteQueueByIdCommandHandler should be defined', () =>
+        test('QueueManagerDeleteQueueByIdCommandHandler should be defined', () =>
         {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the value object id and pass them as parameters to the DeleteQueueByIdService', async () =>
+        test('should create the value object id and pass them as parameters to the QueueManagerDeleteQueueByIdService', async () =>
         {
             expect(await commandHandler.execute(
-                new DeleteQueueByIdCommand(
-                    queues[0].id,
+                new QueueManagerDeleteQueueByIdCommand(
+                    queueManagerMockQueueData[0].id,
                 ),
             )).toBe(undefined);
         });

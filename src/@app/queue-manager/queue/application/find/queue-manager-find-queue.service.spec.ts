@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { FindQueueService } from './queue-manager-find-queue.service';
+import { QueueManagerFindQueueService } from './queue-manager-find-queue.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('FindQueueService', () =>
+describe('QueueManagerFindQueueService', () =>
 {
-    let service: FindQueueService;
+    let service: QueueManagerFindQueueService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('FindQueueService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindQueueService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerFindQueueService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('FindQueueService', () =>
         })
             .compile();
 
-        service = module.get(FindQueueService);
+        service = module.get(QueueManagerFindQueueService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
     {
-        test('FindQueueService should be defined', () =>
+        test('QueueManagerFindQueueService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

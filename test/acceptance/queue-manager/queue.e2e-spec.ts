@@ -2,9 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
-import { QueueManagerIQueueRepository } from '@app/queue-manager/queue/domain/queue-manager-queue.repository';
-import { queueManagerQueues } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
-import { QueueManagerMockQueueSeeder } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.seeder';
+import { QueueManagerIQueueRepository, queueManagerMockQueueData, QueueManagerMockQueueSeeder } from '@app/queue-manager/queue';
 import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
@@ -65,7 +63,7 @@ describe('queue', () =>
             .useValue({ canActivate: () => true })
             .compile();
 
-        mockData = queueManagerQueues;
+        mockData = queueManagerMockQueueData;
         app = module.createNestApplication();
         queueRepository = module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
         queueSeeder = module.get<QueueManagerMockQueueSeeder>(QueueManagerMockQueueSeeder);

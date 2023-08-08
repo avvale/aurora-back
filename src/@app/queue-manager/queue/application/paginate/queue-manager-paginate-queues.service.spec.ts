@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
 import { QueueManagerPaginateQueuesService } from './queue-manager-paginate-queues.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('PaginateQueuesService', () =>
+describe('QueueManagerPaginateQueuesService', () =>
 {
-    let service: PaginateQueuesService;
+    let service: QueueManagerPaginateQueuesService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('PaginateQueuesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                PaginateQueuesService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerPaginateQueuesService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -31,14 +32,14 @@ describe('PaginateQueuesService', () =>
         })
             .compile();
 
-        service = module.get(PaginateQueuesService);
+        service = module.get(QueueManagerPaginateQueuesService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
     {
-        test('PaginateQueuesService should be defined', () =>
+        test('QueueManagerPaginateQueuesService should be defined', () =>
         {
             expect(service).toBeDefined();
         });

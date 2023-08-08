@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueueManagerUpsertQueueHandler } from './queue-manager-upsert-queue.handler';
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { QueueManagerUpsertQueueHandler } from '@api/queue-manager/queue';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
@@ -8,7 +8,6 @@ describe('QueueManagerUpsertQueueHandler', () =>
 {
     let handler: QueueManagerUpsertQueueHandler;
     let queryBus: IQueryBus;
-    let commandBus: ICommandBus;
 
     beforeAll(async () =>
     {
@@ -35,7 +34,6 @@ describe('QueueManagerUpsertQueueHandler', () =>
 
         handler = module.get<QueueManagerUpsertQueueHandler>(QueueManagerUpsertQueueHandler);
         queryBus = module.get<IQueryBus>(IQueryBus);
-        commandBus = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
@@ -47,8 +45,13 @@ describe('QueueManagerUpsertQueueHandler', () =>
 
         test('should return an queue upserted', async () =>
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(queues[0])));
-            expect(await handler.main(queues[0])).toBe(queues[0]);
+            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(queueManagerMockQueueData[0])));
+            expect(
+                await handler.main(
+                    queueManagerMockQueueData[0],
+                    'Europe/Madrid',
+                ))
+                .toBe(queueManagerMockQueueData[0]);
         });
     });
 });

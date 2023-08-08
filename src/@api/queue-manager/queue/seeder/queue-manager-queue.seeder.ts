@@ -3,7 +3,7 @@ import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 
 //
 import { QueueManagerCreateQueuesCommand } from '@app/queue-manager/queue';
-import { queueManagerQueues } from '@app/queue-manager/queue';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue';
 
 @Injectable()
 export class QueueManagerQueueSeeder
@@ -16,7 +16,7 @@ export class QueueManagerQueueSeeder
     async main(): Promise<boolean>
     {
         await this.commandBus.dispatch(new QueueManagerCreateQueuesCommand(
-            queueManagerQueues,
+            queueManagerMockQueueData,
             {
                 timezone: process.env.TZ ,
             },

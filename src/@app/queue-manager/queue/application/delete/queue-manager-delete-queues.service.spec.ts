@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { DeleteQueuesService } from './delete-queues.service';
+import { QueueManagerDeleteQueuesService } from './queue-manager-delete-queues.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
 describe('QueueManagerDeleteQueuesService', () =>
 {
-    let service: DeleteQueuesService;
+    let service: QueueManagerDeleteQueuesService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -20,8 +19,9 @@ describe('QueueManagerDeleteQueuesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteQueuesService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerDeleteQueuesService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -33,14 +33,13 @@ describe('QueueManagerDeleteQueuesService', () =>
         })
             .compile();
 
-        service = module.get(DeleteQueuesService);
+        service = module.get(QueueManagerDeleteQueuesService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteQueuesService should be defined', () =>
+        test('QueueManagerDeleteQueuesService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
@@ -48,7 +47,13 @@ describe('QueueManagerDeleteQueuesService', () =>
         test('should delete queue and emit event', async () =>
         {
             jest.spyOn(repository, 'get').mockImplementation(() => new Promise(resolve => resolve([])));
-            expect(await service.main()).toBe(undefined);
+            expect(
+                await service.main(
+                    {},
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

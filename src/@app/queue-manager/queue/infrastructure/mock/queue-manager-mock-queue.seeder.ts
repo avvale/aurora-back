@@ -9,7 +9,7 @@ import {
     QueueManagerQueueDeletedAt,
 } from '../../domain/value-objects';
 import { QueueManagerQueue } from '../../domain/queue-manager-queue.aggregate';
-import { queueManagerQueues } from './queue-manager-mock-queue.data';
+import { queueManagerMockQueueData } from './queue-manager-mock-queue.data';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class QueueManagerMockQueueSeeder extends MockSeeder<QueueManagerQueue>
     {
         this.collectionSource = [];
 
-        for (const queue of _.orderBy(queueManagerQueues, ['id']))
+        for (const queue of _.orderBy(queueManagerMockQueueData, ['id']))
         {
             this.collectionSource.push(
                 QueueManagerQueue.register(

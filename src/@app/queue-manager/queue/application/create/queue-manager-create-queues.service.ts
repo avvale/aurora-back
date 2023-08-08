@@ -1,5 +1,4 @@
-import { QueueManagerQueue } from '../../domain/queue-manager-queue.aggregate';
-import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
+import { QueueManagerAddQueuesContextEvent, QueueManagerIQueueRepository, QueueManagerQueue } from '@app/queue-manager/queue';
 import {
     QueueManagerQueueCreatedAt,
     QueueManagerQueueDeletedAt,
@@ -7,8 +6,7 @@ import {
     QueueManagerQueueName,
     QueueManagerQueuePrefix,
     QueueManagerQueueUpdatedAt,
-} from '../../domain/value-objects';
-import { QueueManagerAddQueuesContextEvent } from '../events/queue-manager-add-queues-context.event';
+} from '@app/queue-manager/queue/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

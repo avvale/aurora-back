@@ -3,30 +3,30 @@ import { PaginationResponse } from '@aurorajs.dev/core';
 
 // custom items
 import { QueueManagerPaginateQueuesQueryHandler } from './queue-manager-paginate-queues.query-handler';
-import { MockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.repository';
 import { QueueManagerIQueueRepository } from '@app/queue-manager/queue/domain/queue-manager-queue.repository';
 import { QueueManagerQueueMapper } from '@app/queue-manager/queue/domain/queue-manager-queue.mapper';
 import { QueueManagerPaginateQueuesQuery } from './queue-manager-paginate-queues.query';
 import { QueueManagerPaginateQueuesService } from './queue-manager-paginate-queues.service';
 
-describe('PaginateQueuesQueryHandler', () =>
+describe('QueueManagerPaginateQueuesQueryHandler', () =>
 {
-    let queryHandler: PaginateQueuesQueryHandler;
-    let service: PaginateQueuesService;
-    let repository: MockQueueRepository;
-    let mapper: QueueMapper;
+    let queryHandler: QueueManagerPaginateQueuesQueryHandler;
+    let service: QueueManagerPaginateQueuesService;
+    let repository: QueueManagerMockQueueRepository;
+    let mapper: QueueManagerQueueMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                PaginateQueuesQueryHandler,
+                QueueManagerPaginateQueuesQueryHandler,
                 {
                     provide : QueueManagerIQueueRepository,
-                    useClass: MockQueueRepository,
+                    useClass: QueueManagerMockQueueRepository,
                 },
                 {
-                    provide : PaginateQueuesService,
+                    provide : QueueManagerPaginateQueuesService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,15 +35,15 @@ describe('PaginateQueuesQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<PaginateQueuesQueryHandler>(PaginateQueuesQueryHandler);
-        service = module.get<PaginateQueuesService>(PaginateQueuesService);
-        repository = <MockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
-        mapper = new QueueMapper();
+        queryHandler = module.get<QueueManagerPaginateQueuesQueryHandler>(QueueManagerPaginateQueuesQueryHandler);
+        service = module.get<QueueManagerPaginateQueuesService>(QueueManagerPaginateQueuesService);
+        repository = <QueueManagerMockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
+        mapper = new QueueManagerQueueMapper();
     });
 
     describe('main', () =>
     {
-        test('PaginateQueuesQueryHandler should be defined', () =>
+        test('QueueManagerPaginateQueuesQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -58,7 +58,7 @@ describe('PaginateQueuesQueryHandler', () =>
                 },
             )));
             expect(await queryHandler.execute(
-                new PaginateQueuesQuery(
+                new QueueManagerPaginateQueuesQuery(
                     {
                         offset: 0,
                         limit : 10,

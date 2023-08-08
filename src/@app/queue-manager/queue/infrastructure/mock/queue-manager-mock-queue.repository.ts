@@ -10,7 +10,7 @@ import {
     QueueManagerQueueDeletedAt,
 } from '@app/queue-manager/queue/domain/value-objects';
 import { QueueManagerQueue } from '../../domain/queue-manager-queue.aggregate';
-import { queueManagerQueues } from './queue-manager-mock-queue.data';
+import { queueManagerMockQueueData } from './queue-manager-mock-queue.data';
 
 @Injectable()
 export class QueueManagerMockQueueRepository extends MockRepository<QueueManagerQueue> implements QueueManagerIQueueRepository
@@ -36,7 +36,7 @@ export class QueueManagerMockQueueRepository extends MockRepository<QueueManager
         this.collectionSource = [];
         const now = Utils.nowTimestamp();
 
-        for (const itemCollection of <any[]>queueManagerQueues)
+        for (const itemCollection of <any[]>queueManagerMockQueueData)
         {
             itemCollection['createdAt'] = now;
             itemCollection['updatedAt'] = now;

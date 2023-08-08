@@ -1,5 +1,4 @@
-import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { QueueManagerAddQueuesContextEvent } from '../events/queue-manager-add-queues-context.event';
+import { QueueManagerAddQueuesContextEvent, QueueManagerIQueueRepository } from '@app/queue-manager/queue';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';

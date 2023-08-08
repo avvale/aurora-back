@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerUpsertQueueCommandHandler } from './queue-manager-upsert-queue.command-handler';
 import { QueueManagerUpsertQueueCommand } from './queue-manager-upsert-queue.command';
 import { QueueManagerUpsertQueueService } from './queue-manager-upsert-queue.service';
 
-describe('UpsertQueueCommandHandler', () =>
+describe('QueueManagerUpsertQueueCommandHandler', () =>
 {
-    let commandHandler: UpsertQueueCommandHandler;
-    let service: UpsertQueueService;
+    let commandHandler: QueueManagerUpsertQueueCommandHandler;
+    let service: QueueManagerUpsertQueueService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpsertQueueCommandHandler,
+                QueueManagerUpsertQueueCommandHandler,
                 {
-                    provide : UpsertQueueService,
+                    provide : QueueManagerUpsertQueueService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpsertQueueCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpsertQueueCommandHandler>(UpsertQueueCommandHandler);
-        service = module.get<UpsertQueueService>(UpsertQueueService);
+        commandHandler = module.get<QueueManagerUpsertQueueCommandHandler>(QueueManagerUpsertQueueCommandHandler);
+        service = module.get<QueueManagerUpsertQueueService>(QueueManagerUpsertQueueService);
     });
 
     describe('main', () =>
@@ -37,14 +37,14 @@ describe('UpsertQueueCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should upsert the values objects and pass them as parameters to the UpsertQueueService', async () =>
+        test('should upsert the values objects and pass them as parameters to the QueueManagerUpsertQueueService', async () =>
         {
             expect(await commandHandler.execute(
-                new UpsertQueueCommand(
+                new QueueManagerUpsertQueueCommand(
                     {
-                        id: queues[0].id,
-                        prefix: queues[0].prefix,
-                        name: queues[0].name,
+                        id: queueManagerMockQueueData[0].id,
+                        prefix: queueManagerMockQueueData[0].prefix,
+                        name: queueManagerMockQueueData[0].name,
                     },
                     { timezone: process.env.TZ },
                 ),

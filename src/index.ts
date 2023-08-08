@@ -61,7 +61,7 @@ export { SearchEngineFieldMapper } from './@app/search-engine/field/domain/searc
 export { searchEngineFields } from './@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
 export { QueueManagerQueueResponse } from './@app/queue-manager/queue/domain/queue-manager-queue.response';
 export { QueueManagerQueueMapper } from './@app/queue-manager/queue/domain/queue-manager-queue.mapper';
-export { queueManagerQueues } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
+export { queueManagerQueues, queueManagerMockQueueData } from './@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 export { QueueManagerJobRegistryResponse } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.response';
 export { QueueManagerJobRegistryMapper } from './@app/queue-manager/job-registry/domain/queue-manager-job-registry.mapper';
 export { queueManagerJobsRegistry, queueManagerMockJobRegistryData } from './@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data';

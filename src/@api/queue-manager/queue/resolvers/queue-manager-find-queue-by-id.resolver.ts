@@ -1,5 +1,5 @@
-import { QueueManagerFindQueueByIdHandler } from '../handlers/queue-manager-find-queue-by-id.handler';
 import { QueueManagerQueue } from '@api/graphql';
+import { QueueManagerFindQueueByIdHandler } from '@api/queue-manager/queue';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Query, Resolver } from '@nestjs/graphql';

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
-import { CreateQueueService } from './create-queue.service';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
+import { QueueManagerCreateQueueService } from './queue-manager-create-queue.service';
 import {
     QueueManagerQueueId,
     QueueManagerQueuePrefix,
@@ -14,14 +14,12 @@ import {
     QueueManagerQueueDeletedAt,
 } from '../../domain/value-objects';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
 describe('QueueManagerCreateQueueService', () =>
 
 {
-    let service: CreateQueueService;
-    let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let service: QueueManagerCreateQueueService;
 
     beforeAll(async () =>
     {
@@ -30,8 +28,9 @@ describe('QueueManagerCreateQueueService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                CreateQueueService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerCreateQueueService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -42,27 +41,28 @@ describe('QueueManagerCreateQueueService', () =>
         })
             .compile();
 
-        service = module.get(CreateQueueService);
-        repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        service = module.get(QueueManagerCreateQueueService);
     });
 
     describe('main', () =>
     {
-        test('CreateQueueService should be defined', () =>
+        test('QueueManagerCreateQueueService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
 
         test('should create a queue and emit event', async () =>
         {
-            expect(await service.main(
-                {
-                    id: new QueueManagerQueueId(queues[0].id),
-                    prefix: new QueueManagerQueuePrefix(queues[0].prefix),
-                    name: new QueueManagerQueueName(queues[0].name),
-                },
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    {
+                        id: new QueueManagerQueueId(queueManagerMockQueueData[0].id),
+                        prefix: new QueueManagerQueuePrefix(queueManagerMockQueueData[0].prefix),
+                        name: new QueueManagerQueueName(queueManagerMockQueueData[0].name),
+                    },
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

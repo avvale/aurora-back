@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { RawSQLQueuesService } from './raw-sql-queues.service';
+import { QueueManagerRawSQLQueuesService } from './queue-manager-raw-sql-queues.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('RawSQLQueuesService', () =>
+describe('QueueManagerRawSQLQueuesService ', () =>
 {
-    let service: RawSQLQueuesService;
+    let service: QueueManagerRawSQLQueuesService ;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('RawSQLQueuesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                RawSQLQueuesService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerRawSQLQueuesService ,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('RawSQLQueuesService', () =>
         })
             .compile();
 
-        service         = module.get(RawSQLQueuesService);
+        service         = module.get(QueueManagerRawSQLQueuesService );
         repository      = module.get(QueueManagerIQueueRepository);
-        mockRepository  = module.get(MockQueueRepository);
+        mockRepository  = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>

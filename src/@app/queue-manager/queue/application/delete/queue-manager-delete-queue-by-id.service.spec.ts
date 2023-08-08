@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerDeleteQueueByIdService } from './queue-manager-delete-queue-by-id.service';
 import { QueueManagerQueueId } from '../../domain/value-objects';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
 describe('QueueManagerDeleteQueueByIdService', () =>
 {
     let service: QueueManagerDeleteQueueByIdService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -22,8 +22,9 @@ describe('QueueManagerDeleteQueueByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                DeleteQueueByIdService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerDeleteQueueByIdService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -35,14 +36,14 @@ describe('QueueManagerDeleteQueueByIdService', () =>
         })
             .compile();
 
-        service = module.get(DeleteQueueByIdService);
+        service = module.get(QueueManagerDeleteQueueByIdService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
     {
-        test('DeleteQueueByIdService should be defined', () =>
+        test('QueueManagerDeleteQueueByIdService should be defined', () =>
         {
             expect(service).toBeDefined();
         });
@@ -50,9 +51,13 @@ describe('QueueManagerDeleteQueueByIdService', () =>
         test('should delete queue and emit event', async () =>
         {
             jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
-            expect(await service.main(
-                new QueueId(queues[0].id),
-            )).toBe(undefined);
+            expect(
+                await service.main(
+                    new QueueManagerQueueId(queueManagerMockQueueData[0].id),
+                    {},
+                ),
+            )
+                .toBe(undefined);
         });
     });
 });

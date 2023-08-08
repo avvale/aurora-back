@@ -1,10 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-
-// @app
-import { QueueRedisImplementationService } from '@api/queue-manager/shared/services';
-import { QueueManagerPaginateQueuesQuery } from '@app/queue-manager';
 import { Pagination } from '@api/graphql';
+import { QueueRedisImplementationService } from '@api/queue-manager/shared/services';
+import { QueueManagerPaginateQueuesQuery } from '@app/queue-manager/queue';
+import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class QueueManagerPaginateQueuesHandler

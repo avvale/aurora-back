@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerUpdateQueuesCommandHandler } from './queue-manager-update-queues.command-handler';
 import { QueueManagerUpdateQueuesCommand } from './queue-manager-update-queues.command';
 import { QueueManagerUpdateQueuesService } from './queue-manager-update-queues.service';
 
-describe('UpdateQueuesCommandHandler', () =>
+describe('QueueManagerUpdateQueuesCommandHandler', () =>
 {
-    let commandHandler: UpdateQueuesCommandHandler;
-    let service: UpdateQueuesService;
+    let commandHandler: QueueManagerUpdateQueuesCommandHandler;
+    let service: QueueManagerUpdateQueuesService;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                UpdateQueuesCommandHandler,
+                QueueManagerUpdateQueuesCommandHandler,
                 {
-                    provide : UpdateQueuesService,
+                    provide : QueueManagerUpdateQueuesService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -26,8 +26,8 @@ describe('UpdateQueuesCommandHandler', () =>
         })
             .compile();
 
-        commandHandler = module.get<UpdateQueuesCommandHandler>(UpdateQueuesCommandHandler);
-        service = module.get<UpdateQueuesService>(UpdateQueuesService);
+        commandHandler = module.get<QueueManagerUpdateQueuesCommandHandler>(QueueManagerUpdateQueuesCommandHandler);
+        service = module.get<QueueManagerUpdateQueuesService>(QueueManagerUpdateQueuesService);
     });
 
     describe('main', () =>
@@ -40,11 +40,11 @@ describe('UpdateQueuesCommandHandler', () =>
         test('should return an queues updated', async () =>
         {
             expect(await commandHandler.execute(
-                new UpdateQueuesCommand(
+                new QueueManagerUpdateQueuesCommand(
                     {
-                        id: queues[0].id,
-                        prefix: queues[0].prefix,
-                        name: queues[0].name,
+                        id: queueManagerMockQueueData[0].id,
+                        prefix: queueManagerMockQueueData[0].prefix,
+                        name: queueManagerMockQueueData[0].name,
                     },
                     {},
                     {},

@@ -1,18 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
-import { FindQueueByIdService } from './queue-manager-find-queue-by-id.service';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
+import { QueueManagerFindQueueByIdService } from './queue-manager-find-queue-by-id.service';
 import { QueueManagerQueueId } from '../../domain/value-objects';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('FindQueueByIdService', () =>
+describe('QueueManagerFindQueueByIdService', () =>
 {
-    let service: FindQueueByIdService;
+    let service: QueueManagerFindQueueByIdService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -21,8 +21,9 @@ describe('FindQueueByIdService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                FindQueueByIdService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerFindQueueByIdService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -33,9 +34,9 @@ describe('FindQueueByIdService', () =>
         })
             .compile();
 
-        service = module.get(FindQueueByIdService);
+        service = module.get(QueueManagerFindQueueByIdService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
@@ -49,7 +50,7 @@ describe('FindQueueByIdService', () =>
         {
             jest.spyOn(repository, 'findById').mockImplementation(() => new Promise(resolve => resolve(mockRepository.collectionSource[0])));
             expect(await service.main(
-                new QueueId(queues[0].id),
+                new QueueManagerQueueId(queueManagerMockQueueData[0].id),
             )).toBe(mockRepository.collectionSource[0]);
         });
     });

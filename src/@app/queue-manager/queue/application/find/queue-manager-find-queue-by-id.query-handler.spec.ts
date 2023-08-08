@@ -1,32 +1,32 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindQueueByIdQueryHandler } from './queue-manager-find-queue-by-id.query-handler';
-import { MockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.repository';
-import { queues } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.data';
+import { QueueManagerFindQueueByIdQueryHandler } from './queue-manager-find-queue-by-id.query-handler';
+import { QueueManagerMockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.repository';
+import { queueManagerMockQueueData } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.data';
 import { QueueManagerIQueueRepository } from '@app/queue-manager/queue/domain/queue-manager-queue.repository';
 import { QueueManagerQueueMapper } from '@app/queue-manager/queue/domain/queue-manager-queue.mapper';
 import { QueueManagerFindQueueByIdQuery } from './queue-manager-find-queue-by-id.query';
 import { QueueManagerFindQueueByIdService } from './queue-manager-find-queue-by-id.service';
 
-describe('FindQueueByIdQueryHandler', () =>
+describe('QueueManagerFindQueueByIdQueryHandler', () =>
 {
     let queryHandler: QueueManagerFindQueueByIdQueryHandler;
     let service: QueueManagerFindQueueByIdService;
-    let repository: MockQueueRepository;
-    let mapper: QueueMapper;
+    let repository: QueueManagerMockQueueRepository;
+    let mapper: QueueManagerQueueMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindQueueByIdQueryHandler,
+                QueueManagerFindQueueByIdQueryHandler,
                 {
                     provide : QueueManagerIQueueRepository,
-                    useClass: MockQueueRepository,
+                    useClass: QueueManagerMockQueueRepository,
                 },
                 {
-                    provide : FindQueueByIdService,
+                    provide : QueueManagerFindQueueByIdService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -35,10 +35,10 @@ describe('FindQueueByIdQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<FindQueueByIdQueryHandler>(FindQueueByIdQueryHandler);
-        service = module.get<FindQueueByIdService>(FindQueueByIdService);
-        repository = <MockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
-        mapper = new QueueMapper();
+        queryHandler = module.get<QueueManagerFindQueueByIdQueryHandler>(QueueManagerFindQueueByIdQueryHandler);
+        service = module.get<QueueManagerFindQueueByIdService>(QueueManagerFindQueueByIdService);
+        repository = <QueueManagerMockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
+        mapper = new QueueManagerQueueMapper();
     });
 
     describe('main', () =>
@@ -52,8 +52,8 @@ describe('FindQueueByIdQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
             expect(await queryHandler.execute(
-                new FindQueueByIdQuery(
-                    queues[0].id,
+                new QueueManagerFindQueueByIdQuery(
+                    queueManagerMockQueueData[0].id,
 
                 ),
             )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));

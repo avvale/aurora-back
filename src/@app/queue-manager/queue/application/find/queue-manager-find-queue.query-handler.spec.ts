@@ -1,31 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 // custom items
-import { FindQueueQueryHandler } from './queue-manager-find-queue.query-handler';
-import { MockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/mock-queue.repository';
+import { QueueManagerFindQueueQueryHandler } from './queue-manager-find-queue.query-handler';
+import { QueueManagerMockQueueRepository } from '@app/queue-manager/queue/infrastructure/mock/queue-manager-mock-queue.repository';
 import { QueueManagerIQueueRepository } from '@app/queue-manager/queue/domain/queue-manager-queue.repository';
 import { QueueManagerQueueMapper } from '@app/queue-manager/queue/domain/queue-manager-queue.mapper';
-import { FindQueueQuery } from './queue-manager-find-queue.query';
-import { FindQueueService } from './queue-manager-find-queue.service';
+import { QueueManagerFindQueueQuery } from './queue-manager-find-queue.query';
+import { QueueManagerFindQueueService } from './queue-manager-find-queue.service';
 
-describe('FindQueueQueryHandler', () =>
+describe('QueueManagerFindQueueQueryHandler', () =>
 {
-    let queryHandler: FindQueueQueryHandler;
-    let service: FindQueueService;
-    let repository: MockQueueRepository;
-    let mapper: QueueMapper;
+    let queryHandler: QueueManagerFindQueueQueryHandler;
+    let service: QueueManagerFindQueueService;
+    let repository: QueueManagerMockQueueRepository;
+    let mapper: QueueManagerQueueMapper;
 
     beforeAll(async () =>
     {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                FindQueueQueryHandler,
+                QueueManagerFindQueueQueryHandler,
                 {
                     provide : QueueManagerIQueueRepository,
-                    useClass: MockQueueRepository,
+                    useClass: QueueManagerMockQueueRepository,
                 },
                 {
-                    provide : FindQueueService,
+                    provide : QueueManagerFindQueueService,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -34,15 +34,15 @@ describe('FindQueueQueryHandler', () =>
         })
             .compile();
 
-        queryHandler = module.get<FindQueueQueryHandler>(FindQueueQueryHandler);
-        service = module.get<FindQueueService>(FindQueueService);
-        repository = <MockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
-        mapper = new QueueMapper();
+        queryHandler = module.get<QueueManagerFindQueueQueryHandler>(QueueManagerFindQueueQueryHandler);
+        service = module.get<QueueManagerFindQueueService>(QueueManagerFindQueueService);
+        repository = <QueueManagerMockQueueRepository>module.get<QueueManagerIQueueRepository>(QueueManagerIQueueRepository);
+        mapper = new QueueManagerQueueMapper();
     });
 
     describe('main', () =>
     {
-        test('FindQueueQueryHandler should be defined', () =>
+        test('QueueManagerFindQueueQueryHandler should be defined', () =>
         {
             expect(queryHandler).toBeDefined();
         });
@@ -51,7 +51,7 @@ describe('FindQueueQueryHandler', () =>
         {
             jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
             expect(await queryHandler.execute(
-                new FindQueueQuery(),
+                new QueueManagerFindQueueQuery(),
             )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
         });
     });

@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus } from '@nestjs/cqrs';
+import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
 
 // custom items
-import { GetQueuesService } from './get-queues.service';
+import { QueueManagerGetQueuesService } from './queue-manager-get-queues.service';
 import { QueueManagerIQueueRepository } from '../../domain/queue-manager-queue.repository';
-import { MockQueueRepository } from '../../infrastructure/mock/mock-queue.repository';
+import { QueueManagerMockQueueRepository } from '../../infrastructure/mock/queue-manager-mock-queue.repository';
 
-describe('GetQueuesService', () =>
+describe('QueueManagerGetQueuesService', () =>
 {
-    let service: GetQueuesService;
+    let service: QueueManagerGetQueuesService;
     let repository: QueueManagerIQueueRepository;
-    let mockRepository: MockQueueRepository;
+    let mockRepository: QueueManagerMockQueueRepository;
 
     beforeAll(async () =>
     {
@@ -19,8 +19,9 @@ describe('GetQueuesService', () =>
                 CommandBus,
                 EventBus,
                 EventPublisher,
-                GetQueuesService,
-                MockQueueRepository,
+                UnhandledExceptionBus,
+                QueueManagerGetQueuesService,
+                QueueManagerMockQueueRepository,
                 {
                     provide : QueueManagerIQueueRepository,
                     useValue: {
@@ -31,9 +32,9 @@ describe('GetQueuesService', () =>
         })
             .compile();
 
-        service = module.get(GetQueuesService);
+        service = module.get(QueueManagerGetQueuesService);
         repository = module.get(QueueManagerIQueueRepository);
-        mockRepository = module.get(MockQueueRepository);
+        mockRepository = module.get(QueueManagerMockQueueRepository);
     });
 
     describe('main', () =>
