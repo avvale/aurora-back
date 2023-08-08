@@ -2,7 +2,6 @@
 import { CommonCreateLangHandler, CommonCreateLangResolver } from '@api/common/lang';
 import { CommonCreateLangInput } from '@api/graphql';
 import { commonMockLangData } from '@app/common/lang';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonCreateLangResolver', () =>
