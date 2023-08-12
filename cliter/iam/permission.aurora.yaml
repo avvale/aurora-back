@@ -38,9 +38,8 @@ aggregateProperties:
       modulePath: iam/role
       avoidConstraint: false
       pivot:
-        aggregate: IamPermissionsRoles
+        aggregate: IamPermissionRole
         modulePath: iam/permission
-        fileName: permissions-roles
   - name: createdAt
     type: timestamp
     nullable: true

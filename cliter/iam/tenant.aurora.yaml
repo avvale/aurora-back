@@ -42,9 +42,8 @@ aggregateProperties:
       modulePath: iam/account
       avoidConstraint: false
       pivot:
-        aggregate: IamTenantsAccounts
+        aggregate: IamTenantAccount
         modulePath: iam/tenant
-        fileName: tenants-accounts
   - name: createdAt
     type: timestamp
     nullable: true

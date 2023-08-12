@@ -71,9 +71,9 @@ aggregateProperties:
       modulePath: iam/role
       avoidConstraint: false
       pivot:
-        aggregate: IamRolesAccounts
+        aggregate: IamRoleAccount
         modulePath: iam/role
-        fileName: roles-accounts
+        fileNames: roles-accounts
   - name: tenants
     type: relationship
     nullable: true
@@ -84,9 +84,9 @@ aggregateProperties:
       modulePath: iam/tenant
       avoidConstraint: false
       pivot:
-        aggregate: IamTenantsAccounts
+        aggregate: IamTenantAccount
         modulePath: iam/tenant
-        fileName: tenants-accounts
+        fileNames: tenants-accounts
   - name: user
     type: relationship
     nullable: true

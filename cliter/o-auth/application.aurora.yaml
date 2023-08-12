@@ -40,9 +40,8 @@ aggregateProperties:
       modulePath: o-auth/client
       avoidConstraint: true
       pivot:
-        aggregate: OAuthApplicationsClients
+        aggregate: OAuthApplicationClient
         modulePath: o-auth/application
-        fileName: applications-clients
   - name: createdAt
     type: timestamp
     nullable: true
