@@ -61,6 +61,7 @@ import { OAuthUpdateApplicationsCommandHandler } from './application/update/o-au
 import { OAuthUpsertApplicationCommandHandler } from './application/upsert/o-auth-upsert-application.command-handler';
 import { OAuthDeleteApplicationByIdCommandHandler } from './application/delete/o-auth-delete-application-by-id.command-handler';
 import { OAuthDeleteApplicationsCommandHandler } from './application/delete/o-auth-delete-applications.command-handler';
+import { OAuthCreateApplicationsClientsCommandHandler } from './application/create/o-auth-create-applications-clients.command-handler';
 
 // query handlers
 import { OAuthPaginateApplicationsQueryHandler } from './application/paginate/o-auth-paginate-applications.query-handler';
@@ -90,6 +91,7 @@ import { OAuthUpdateApplicationsService } from './application/update/o-auth-upda
 import { OAuthUpsertApplicationService } from './application/upsert/o-auth-upsert-application.service';
 import { OAuthDeleteApplicationByIdService } from './application/delete/o-auth-delete-application-by-id.service';
 import { OAuthDeleteApplicationsService } from './application/delete/o-auth-delete-applications.service';
+import { OAuthCreateApplicationsClientsService } from './application/create/o-auth-create-applications-clients.service';
 
 // ---- customizations ----
 export { OAuthFindApplicationByAuthorizationHeaderQuery } from './application/find/o-auth-find-application-by-authorization-header.query';
@@ -105,6 +107,7 @@ export const OAuthApplicationHandlers = [
     OAuthUpsertApplicationCommandHandler,
     OAuthDeleteApplicationByIdCommandHandler,
     OAuthDeleteApplicationsCommandHandler,
+    OAuthCreateApplicationsClientsCommandHandler,
 
     // queries
     OAuthPaginateApplicationsQueryHandler,
@@ -138,6 +141,7 @@ export const OAuthApplicationServices = [
     OAuthUpsertApplicationService,
     OAuthDeleteApplicationByIdService,
     OAuthDeleteApplicationsService,
+    OAuthCreateApplicationsClientsService,
 
     // ---- customizations ----
     OAuthFindApplicationByAuthorizationHeaderService,
