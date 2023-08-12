@@ -6,6 +6,7 @@ export { OAuthUpdateApplicationsCommand } from './application/update/o-auth-upda
 export { OAuthUpsertApplicationCommand } from './application/upsert/o-auth-upsert-application.command';
 export { OAuthDeleteApplicationByIdCommand } from './application/delete/o-auth-delete-application-by-id.command';
 export { OAuthDeleteApplicationsCommand } from './application/delete/o-auth-delete-applications.command';
+export { OAuthCreateApplicationsClientsCommand } from './application/create/o-auth-create-applications-clients.command';
 
 // export queries
 export { OAuthPaginateApplicationsQuery } from './application/paginate/o-auth-paginate-applications.query';
@@ -39,10 +40,13 @@ export { OAuthApplication } from './domain/o-auth-application.aggregate';
 export { OAuthApplicationMapper } from './domain/o-auth-application.mapper';
 export { OAuthIApplicationRepository } from './domain/o-auth-application.repository';
 export { OAuthApplicationResponse } from './domain/o-auth-application.response';
+export { OAuthApplicationClient } from './domain/o-auth-application-client.aggregate';
+export { OAuthApplicationClientMapper } from './domain/o-auth-application-client.mapper';
+export { OAuthIApplicationClientRepository } from './domain/o-auth-application-client.repository';
 
 // infrastructure
 export { OAuthApplicationModel } from './infrastructure/sequelize/o-auth-sequelize-application.model';
-export { OAuthApplicationsClientsModel } from './infrastructure/sequelize/o-auth-sequelize-applications-clients.model';
+export { OAuthApplicationClientModel } from './infrastructure/sequelize/o-auth-sequelize-application-client.model';
 export { OAuthSequelizeApplicationRepository } from './infrastructure/sequelize/o-auth-sequelize-application.repository';
 
 // sagas
@@ -108,9 +112,6 @@ export const OAuthApplicationHandlers = [
     OAuthFindApplicationByIdQueryHandler,
     OAuthRawSQLApplicationsQueryHandler,
 
-    // ---- customizations ----
-    OAuthFindApplicationByAuthorizationHeaderQueryHandler,
-
     // events
     OAuthCreatedApplicationEventHandler,
     OAuthCreatedApplicationsEventHandler,
@@ -118,6 +119,9 @@ export const OAuthApplicationHandlers = [
     OAuthUpdatedApplicationsEventHandler,
     OAuthDeletedApplicationEventHandler,
     OAuthDeletedApplicationsEventHandler,
+
+    // ---- customizations ----
+    OAuthFindApplicationByAuthorizationHeaderQueryHandler,
 ];
 
 export const OAuthApplicationServices = [

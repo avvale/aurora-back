@@ -4,7 +4,7 @@ import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/c
 import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 import { OAuthClientModel } from '@app/o-auth/client';
-import { OAuthApplicationsClientsModel } from '@app/o-auth/application';
+import { OAuthApplicationClientModel } from '@app/o-auth/application';
 
 @Table({
     modelName: 'OAuthApplication',
@@ -167,8 +167,8 @@ export class OAuthApplicationModel extends Model<OAuthApplicationModel>
 
 
     @BelongsToMany(() => OAuthClientModel, {
-        through: () => OAuthApplicationsClientsModel,
-        uniqueKey: 'Uq01OAuthApplicationsClients',
+        through: () => OAuthApplicationClientModel,
+        uniqueKey: 'Uq01OAuthApplicationClient',
         constraints: false,
     })
     clients: OAuthClientModel[];

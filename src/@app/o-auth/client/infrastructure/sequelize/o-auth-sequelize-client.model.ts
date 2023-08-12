@@ -5,7 +5,7 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 import { DataTypes } from 'sequelize';
 import { OAuthAccessTokenModel } from '@app/o-auth/access-token';
 import { OAuthApplicationModel } from '@app/o-auth/application';
-import { OAuthApplicationsClientsModel } from '@app/o-auth/application';
+import { OAuthApplicationClientModel } from '@app/o-auth/application';
 
 @Table({
     modelName: 'OAuthClient',
@@ -204,8 +204,8 @@ export class OAuthClientModel extends Model<OAuthClientModel>
 
 
     @BelongsToMany(() => OAuthApplicationModel, {
-        through: () => OAuthApplicationsClientsModel,
-        uniqueKey: 'Uq01OAuthApplicationsClients',
+        through: () => OAuthApplicationClientModel,
+        uniqueKey: 'Uq01OAuthApplicationClient',
         constraints: false,
     })
     applications: OAuthApplicationModel[];
