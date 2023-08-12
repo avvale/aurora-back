@@ -1,5 +1,5 @@
 import { OAuthAccessTokenHandlers, OAuthAccessTokenModel, OAuthAccessTokenSagas, OAuthAccessTokenServices, OAuthIAccessTokenRepository, OAuthSequelizeAccessTokenRepository } from './access-token';
-import { OAuthApplicationHandlers, OAuthApplicationModel, OAuthApplicationSagas, OAuthApplicationServices, OAuthIApplicationRepository, OAuthSequelizeApplicationRepository, OAuthApplicationClientModel } from './application';
+import { OAuthApplicationHandlers, OAuthApplicationModel, OAuthApplicationSagas, OAuthApplicationServices, OAuthIApplicationRepository, OAuthSequelizeApplicationRepository, OAuthApplicationClientModel, OAuthIApplicationClientRepository, OAuthSequelizeApplicationClientRepository } from './application';
 import { OAuthClientHandlers, OAuthClientModel, OAuthClientSagas, OAuthClientServices, OAuthIClientRepository, OAuthSequelizeClientRepository } from './client';
 import { OAuthIRefreshTokenRepository, OAuthRefreshTokenHandlers, OAuthRefreshTokenModel, OAuthRefreshTokenSagas, OAuthRefreshTokenServices, OAuthSequelizeRefreshTokenRepository } from './refresh-token';
 import { OAuthIScopeRepository, OAuthScopeHandlers, OAuthScopeModel, OAuthScopeSagas, OAuthScopeServices, OAuthSequelizeScopeRepository } from './scope';
@@ -46,6 +46,10 @@ export const OAuthRepositories = [
     {
         provide : OAuthIScopeRepository,
         useClass: OAuthSequelizeScopeRepository
+    },
+    {
+        provide : OAuthIApplicationClientRepository,
+        useClass: OAuthSequelizeApplicationClientRepository
     }
 ];
 export const OAuthSagas = [
