@@ -47,6 +47,7 @@ export { OAuthIApplicationClientRepository } from './domain/o-auth-application-c
 // infrastructure
 export { OAuthApplicationModel } from './infrastructure/sequelize/o-auth-sequelize-application.model';
 export { OAuthApplicationClientModel } from './infrastructure/sequelize/o-auth-sequelize-application-client.model';
+export { OAuthSequelizeApplicationClientRepository  } from './infrastructure/sequelize/o-auth-sequelize-application-client.repository';
 export { OAuthSequelizeApplicationRepository } from './infrastructure/sequelize/o-auth-sequelize-application.repository';
 
 // sagas
