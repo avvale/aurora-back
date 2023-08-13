@@ -40,8 +40,21 @@ aggregateProperties:
       modulePath: o-auth/client
       avoidConstraint: true
       pivot:
-        aggregate: OAuthApplicationClient
-        modulePath: o-auth/application
+        boundedContextName: o-auth
+        moduleName: application-client
+        moduleNames: applications-clients
+        aggregateName: OAuthApplicationClient
+        aggregateProperties:
+          - name: applicationId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+          - name: clientId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
   - name: createdAt
     type: timestamp
     nullable: true

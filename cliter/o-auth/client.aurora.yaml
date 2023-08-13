@@ -68,7 +68,7 @@ aggregateProperties:
       avoidConstraint: true
       pivot:
         aggregate: OAuthApplicationClient
-        modulePath: o-auth/application
+        modulePath: o-auth/application-client
   - name: accessTokens
     type: relationship
     nullable: true
