@@ -63,11 +63,11 @@ aggregateProperties:
     relationship:
       type: many-to-many
       singularName: application
-      aggregate: OAuthApplication
+      aggregateName: OAuthApplication
       modulePath: o-auth/application
       avoidConstraint: true
       pivot:
-        aggregate: OAuthApplicationClient
+        aggregateName: OAuthApplicationClient
         modulePath: o-auth/application-client
   - name: accessTokens
     type: relationship

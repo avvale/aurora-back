@@ -36,7 +36,7 @@ aggregateProperties:
     relationship:
       type: many-to-many
       singularName: client
-      aggregate: OAuthClient
+      aggregateName: OAuthClient
       modulePath: o-auth/client
       avoidConstraint: true
       pivot:
