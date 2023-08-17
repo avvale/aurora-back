@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.data.ts",
-            "integrity": "sha1:1a9a9a7c487eb5fc0a2aa1af8326c7f413229e31"
+            "integrity": "sha1:4c37b862781d55638129f92126216579a1858a2e"
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.repository.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.lang.postman.json",
-            "integrity": "sha1:c6979f382793ef922209318c658128a896f36e19"
+            "integrity": "sha1:6603c712dcb56476af8730818619625641cef569"
         }
     ]
 }
