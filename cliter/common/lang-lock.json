@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-langs.service.spec.ts",
-            "integrity": "sha1:9acba00459e1b4f5a28a7a3fce84aa50eecd38b7"
+            "integrity": "sha1:34ef30fb654a239a059911523ea8527aaa2023dd"
         },
         {
             "path": "src/@app/common/lang/application/delete/common-delete-langs.service.ts",
@@ -139,7 +139,7 @@
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang-by-id.query-handler.spec.ts",
-            "integrity": "sha1:f818ec6e87e38050890df19b689ee4c510fd3521"
+            "integrity": "sha1:6cb3afa3f6c72aeb953dd2f3691eaa029a9b0413"
         },
         {
             "path": "src/@app/common/lang/application/find/common-find-lang-by-id.query-handler.ts",
@@ -275,7 +275,7 @@
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-langs.service.spec.ts",
-            "integrity": "sha1:7d0775da45f75ed8da78a702bc6b53720e4eb770"
+            "integrity": "sha1:4d8e2f0caafe3c286a9a55ba19a8356d8ecd2cd8"
         },
         {
             "path": "src/@app/common/lang/application/update/common-update-langs.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.data.ts",
-            "integrity": "sha1:279cd8a8a82c3ded68e6751bef7e34f93511578e"
+            "integrity": "sha1:8599427e57a96174f3bf55f970086f3e2b054c7c"
         },
         {
             "path": "src/@app/common/lang/infrastructure/mock/common-mock-lang.repository.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.lang.postman.json",
-            "integrity": "sha1:3a3c1a66feb1e7ac1d0cb4c12400fd3734c72457"
+            "integrity": "sha1:25fde723362082fe676bd8ad4f10e78c2ca6ade2"
         }
     ]
 }
