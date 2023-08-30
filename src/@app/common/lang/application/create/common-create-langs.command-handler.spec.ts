@@ -32,7 +32,7 @@ describe('commonCreateLangsCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return CommonMockLangData createds', async () =>
+        test('should return CommonMockLangData created', async () =>
         {
             expect(await commandHandler.execute(
                 new CommonCreateLangsCommand(
