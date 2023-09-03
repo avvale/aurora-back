@@ -6,7 +6,7 @@ import { CommonSeeder } from './common.seeder';
 import { CommonCountryApiHandlers, CommonCountryApiControllers, CommonCountryApiResolvers, CommonCountryApiServices } from './country';
 import { CommonLangApiHandlers, CommonLangApiControllers, CommonLangApiResolvers, CommonLangApiServices } from './lang';
 import { CommonAdministrativeAreaLevel1ApiHandlers, CommonAdministrativeAreaLevel1ApiControllers, CommonAdministrativeAreaLevel1ApiResolvers, CommonAdministrativeAreaLevel1ApiServices } from './administrative-area-level-1';
-import { CommonAdministrativeAreaLevel2Controllers, CommonAdministrativeAreaLevel2Resolvers, CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLevel2Services } from './administrative-area-level-2';
+import { CommonAdministrativeAreaLevel2Controllers, CommonAdministrativeAreaLevel2Resolvers, CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLevel2Services, CommonAdministrativeAreaLevel2ApiControllers, CommonAdministrativeAreaLevel2ApiResolvers, CommonAdministrativeAreaLevel2ApiServices } from './administrative-area-level-2';
 import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLevel3Resolvers, CommonAdministrativeAreaLevel3ApiHandlers, CommonAdministrativeAreaLevel3Services } from './administrative-area-level-3';
 import { CommonResourceApiHandlers, CommonResourceApiControllers, CommonResourceApiResolvers, CommonResourceApiServices } from './resource';
 import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, CommonAttachmentFamilyApiHandlers, CommonAttachmentFamilyServices } from './attachment-family';
@@ -25,7 +25,8 @@ import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, Com
         ...CommonLangApiControllers,
         ...CommonResourceApiControllers,
         ...CommonCountryApiControllers,
-        ...CommonAdministrativeAreaLevel1ApiControllers
+        ...CommonAdministrativeAreaLevel1ApiControllers,
+        ...CommonAdministrativeAreaLevel2ApiControllers
     ],
     providers: [
         CommonSeeder,
@@ -53,7 +54,9 @@ import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, Com
         ...CommonCountryApiResolvers,
         ...CommonCountryApiServices,
         ...CommonAdministrativeAreaLevel1ApiResolvers,
-        ...CommonAdministrativeAreaLevel1ApiServices
+        ...CommonAdministrativeAreaLevel1ApiServices,
+        ...CommonAdministrativeAreaLevel2ApiResolvers,
+        ...CommonAdministrativeAreaLevel2ApiServices
     ],
 })
 export class CommonModule {}
