@@ -7,7 +7,7 @@ import { CommonCountryApiHandlers, CommonCountryApiControllers, CommonCountryApi
 import { CommonLangApiHandlers, CommonLangApiControllers, CommonLangApiResolvers, CommonLangApiServices } from './lang';
 import { CommonAdministrativeAreaLevel1ApiHandlers, CommonAdministrativeAreaLevel1ApiControllers, CommonAdministrativeAreaLevel1ApiResolvers, CommonAdministrativeAreaLevel1ApiServices } from './administrative-area-level-1';
 import { CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLevel2ApiControllers, CommonAdministrativeAreaLevel2ApiResolvers, CommonAdministrativeAreaLevel2ApiServices } from './administrative-area-level-2';
-import { CommonAdministrativeAreaLevel3Controllers, CommonAdministrativeAreaLevel3Resolvers, CommonAdministrativeAreaLevel3ApiHandlers, CommonAdministrativeAreaLevel3Services } from './administrative-area-level-3';
+import { CommonAdministrativeAreaLevel3ApiHandlers, CommonAdministrativeAreaLevel3ApiControllers, CommonAdministrativeAreaLevel3ApiResolvers, CommonAdministrativeAreaLevel3ApiServices } from './administrative-area-level-3';
 import { CommonResourceApiHandlers, CommonResourceApiControllers, CommonResourceApiResolvers, CommonResourceApiServices } from './resource';
 import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, CommonAttachmentFamilyApiHandlers, CommonAttachmentFamilyServices } from './attachment-family';
 
@@ -15,17 +15,17 @@ import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, Com
     imports: [
         SharedModule,
         SequelizeModule.forFeature([
-            ...CommonModels
-        ])
+            ...CommonModels,
+        ]),
     ],
     controllers: [
-        ...CommonAdministrativeAreaLevel3Controllers,
         ...CommonAttachmentFamilyControllers,
         ...CommonLangApiControllers,
         ...CommonResourceApiControllers,
         ...CommonCountryApiControllers,
         ...CommonAdministrativeAreaLevel1ApiControllers,
-        ...CommonAdministrativeAreaLevel2ApiControllers
+        ...CommonAdministrativeAreaLevel2ApiControllers,
+        ...CommonAdministrativeAreaLevel3ApiControllers
     ],
     providers: [
         CommonSeeder,
@@ -37,9 +37,7 @@ import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, Com
         ...CommonCountryApiHandlers,
         ...CommonAdministrativeAreaLevel1ApiHandlers,
         ...CommonAdministrativeAreaLevel2ApiHandlers,
-        ...CommonAdministrativeAreaLevel3Resolvers,
         ...CommonAdministrativeAreaLevel3ApiHandlers,
-        ...CommonAdministrativeAreaLevel3Services,
         ...CommonResourceApiHandlers,
         ...CommonAttachmentFamilyResolvers,
         ...CommonAttachmentFamilyApiHandlers,
@@ -53,7 +51,9 @@ import { CommonAttachmentFamilyControllers, CommonAttachmentFamilyResolvers, Com
         ...CommonAdministrativeAreaLevel1ApiResolvers,
         ...CommonAdministrativeAreaLevel1ApiServices,
         ...CommonAdministrativeAreaLevel2ApiResolvers,
-        ...CommonAdministrativeAreaLevel2ApiServices
+        ...CommonAdministrativeAreaLevel2ApiServices,
+        ...CommonAdministrativeAreaLevel3ApiResolvers,
+        ...CommonAdministrativeAreaLevel3ApiServices
     ],
 })
 export class CommonModule {}
