@@ -144,3 +144,4 @@ export { auditingMockSideEffectData } from './@app/auditing/side-effect/infrastr
 export { AuditingSideEffect } from './@app/auditing/side-effect/domain/auditing-side-effect.aggregate';
 export { OAuthAccessToken } from './@app/o-auth/access-token/domain/o-auth-access-token.aggregate';
 export { OAuthScope } from './@app/o-auth/scope/domain/o-auth-scope.aggregate';
+export { IamBoundedContext } from './@app/iam/bounded-context/domain/iam-bounded-context.aggregate';
