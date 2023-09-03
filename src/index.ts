@@ -142,3 +142,4 @@ export { AuditingSideEffectResponse } from './@app/auditing/side-effect/domain/a
 export { AuditingSideEffectMapper } from './@app/auditing/side-effect/domain/auditing-side-effect.mapper';
 export { auditingMockSideEffectData } from './@app/auditing/side-effect/infrastructure/mock/auditing-mock-side-effect.data';
 export { AuditingSideEffect } from './@app/auditing/side-effect/domain/auditing-side-effect.aggregate';
+export { OAuthAccessToken } from './@app/o-auth/access-token/domain/o-auth-access-token.aggregate';

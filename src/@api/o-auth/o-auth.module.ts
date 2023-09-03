@@ -5,7 +5,7 @@ import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
-import { OAuthAccessTokenControllers, OAuthAccessTokenResolvers, OAuthAccessTokenApiHandlers, OAuthAccessTokenServices } from './access-token';
+import { OAuthAccessTokenApiHandlers, OAuthAccessTokenApiControllers, OAuthAccessTokenApiResolvers, OAuthAccessTokenApiServices } from './access-token';
 import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers, OAuthRefreshTokenServices } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
 import { OAuthScopeControllers, OAuthScopeResolvers, OAuthScopeApiHandlers, OAuthScopeServices } from './scope';
@@ -15,16 +15,16 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
     imports: [
         SharedModule,
         SequelizeModule.forFeature([
-                ...OAuthModels
-            ])
+            ...OAuthModels,
+        ]),
     ],
     controllers: [
         ...OAuthApplicationControllers,
         ...OAuthClientControllers,
-        ...OAuthAccessTokenControllers,
+        ...OAuthAccessTokenApiControllers,
         ...OAuthRefreshTokenControllers,
         ...OAuthCredentialControllers,
-        ...OAuthScopeControllers
+        ...OAuthScopeControllers,
     ],
     providers: [
         OAuthSeeder,
@@ -36,22 +36,22 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthApplicationApiHandlers,
         ...OAuthClientResolvers,
         ...OAuthClientApiHandlers,
-        ...OAuthAccessTokenResolvers,
+        ...OAuthScopeApiHandlers,
         ...OAuthAccessTokenApiHandlers,
         ...OAuthRefreshTokenResolvers,
         ...OAuthRefreshTokenApiHandlers,
         ...OAuthCredentialResolvers,
         ...OAuthCredentialApiHandlers,
         ...OAuthScopeResolvers,
-        ...OAuthScopeApiHandlers,
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
-        ...OAuthAccessTokenServices,
+        ...OAuthAccessTokenApiServices,
         ...OAuthApplicationServices,
         ...OAuthClientServices,
         ...OAuthRefreshTokenServices,
-        ...OAuthScopeServices
+        ...OAuthScopeServices,
+        ...OAuthAccessTokenApiResolvers,
     ],
 })
 export class OAuthModule {}
