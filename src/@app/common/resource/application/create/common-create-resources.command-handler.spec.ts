@@ -32,7 +32,7 @@ describe('commonCreateResourcesCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return CommonMockResourceData createds', async () =>
+        test('should return CommonMockResourceData created', async () =>
         {
             expect(await commandHandler.execute(
                 new CommonCreateResourcesCommand(
