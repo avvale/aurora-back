@@ -1,12 +1,12 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { OAuthCreateRefreshTokenCommand } from './o-auth-create-refresh-token.command';
-import { OAuthCreateRefreshTokenService } from './o-auth-create-refresh-token.service';
+import { OAuthCreateRefreshTokenCommand } from '@app/o-auth/refresh-token';
+import { OAuthCreateRefreshTokenService } from '@app/o-auth/refresh-token/application/create/o-auth-create-refresh-token.service';
 import {
-    OAuthRefreshTokenId,
     OAuthRefreshTokenAccessTokenId,
+    OAuthRefreshTokenId,
     OAuthRefreshTokenExpiredRefreshToken,
-} from '../../domain/value-objects';
+} from '@app/o-auth/refresh-token/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(OAuthCreateRefreshTokenCommand)
 export class OAuthCreateRefreshTokenCommandHandler implements ICommandHandler<OAuthCreateRefreshTokenCommand>

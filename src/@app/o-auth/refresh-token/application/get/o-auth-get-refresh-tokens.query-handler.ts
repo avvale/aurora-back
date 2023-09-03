@@ -1,8 +1,6 @@
+import { OAuthGetRefreshTokensQuery, OAuthRefreshTokenMapper, OAuthRefreshTokenResponse } from '@app/o-auth/refresh-token';
+import { OAuthGetRefreshTokensService } from '@app/o-auth/refresh-token/application/get/o-auth-get-refresh-tokens.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { OAuthRefreshTokenResponse } from '../../domain/o-auth-refresh-token.response';
-import { OAuthRefreshTokenMapper } from '../../domain/o-auth-refresh-token.mapper';
-import { OAuthGetRefreshTokensQuery } from './o-auth-get-refresh-tokens.query';
-import { OAuthGetRefreshTokensService } from './o-auth-get-refresh-tokens.service';
 
 @QueryHandler(OAuthGetRefreshTokensQuery)
 export class OAuthGetRefreshTokensQueryHandler implements IQueryHandler<OAuthGetRefreshTokensQuery>

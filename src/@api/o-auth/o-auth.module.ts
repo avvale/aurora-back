@@ -6,7 +6,7 @@ import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSaga
 import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
 import { OAuthAccessTokenApiHandlers, OAuthAccessTokenApiControllers, OAuthAccessTokenApiResolvers, OAuthAccessTokenApiServices } from './access-token';
-import { OAuthRefreshTokenControllers, OAuthRefreshTokenResolvers, OAuthRefreshTokenApiHandlers, OAuthRefreshTokenServices } from './refresh-token';
+import { OAuthRefreshTokenApiHandlers, OAuthRefreshTokenApiControllers, OAuthRefreshTokenApiResolvers, OAuthRefreshTokenApiServices } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
 import { OAuthScopeApiHandlers, OAuthScopeApiControllers, OAuthScopeApiResolvers, OAuthScopeApiServices } from './scope';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
@@ -22,9 +22,9 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthApplicationControllers,
         ...OAuthClientControllers,
         ...OAuthAccessTokenApiControllers,
-        ...OAuthRefreshTokenControllers,
         ...OAuthCredentialControllers,
-        ...OAuthScopeApiControllers
+        ...OAuthScopeApiControllers,
+        ...OAuthRefreshTokenApiControllers
     ],
     providers: [
         OAuthSeeder,
@@ -38,17 +38,17 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthClientApiHandlers,
         ...OAuthScopeApiHandlers,
         ...OAuthAccessTokenApiHandlers,
-        ...OAuthRefreshTokenResolvers,
         ...OAuthRefreshTokenApiHandlers,
         ...OAuthCredentialResolvers,
         ...OAuthCredentialApiHandlers,
         ...OAuthAccessTokenApiServices,
         ...OAuthApplicationServices,
         ...OAuthClientServices,
-        ...OAuthRefreshTokenServices,
         ...OAuthAccessTokenApiResolvers,
         ...OAuthScopeApiResolvers,
         ...OAuthScopeApiServices,
+        ...OAuthRefreshTokenApiResolvers,
+        ...OAuthRefreshTokenApiServices,
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
