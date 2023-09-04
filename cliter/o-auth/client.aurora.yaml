@@ -67,8 +67,21 @@ aggregateProperties:
       modulePath: o-auth/application
       avoidConstraint: true
       pivot:
+        boundedContextName: o-auth
+        moduleName: application-client
+        moduleNames: applications-clients
         aggregateName: OAuthApplicationClient
-        modulePath: o-auth/application-client
+        aggregateProperties:
+          - name: applicationId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+          - name: clientId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
   - name: accessTokens
     type: relationship
     nullable: true
