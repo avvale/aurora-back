@@ -1,8 +1,6 @@
+import { OAuthApplicationMapper, OAuthApplicationResponse, OAuthGetApplicationsQuery } from '@app/o-auth/application';
+import { OAuthGetApplicationsService } from '@app/o-auth/application/application/get/o-auth-get-applications.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { OAuthApplicationResponse } from '../../domain/o-auth-application.response';
-import { OAuthApplicationMapper } from '../../domain/o-auth-application.mapper';
-import { OAuthGetApplicationsQuery } from './o-auth-get-applications.query';
-import { OAuthGetApplicationsService } from './o-auth-get-applications.service';
 
 @QueryHandler(OAuthGetApplicationsQuery)
 export class OAuthGetApplicationsQueryHandler implements IQueryHandler<OAuthGetApplicationsQuery>

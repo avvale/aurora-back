@@ -61,7 +61,7 @@ export class OAuthApplication extends AggregateRoot
         this.clients = clients;
     }
 
-    static register (
+    static register(
         id: OAuthApplicationId,
         code: OAuthApplicationCode,
         name: OAuthApplicationName,

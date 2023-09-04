@@ -3,7 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
 import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
-import { OAuthApplicationControllers, OAuthApplicationResolvers, OAuthApplicationApiHandlers, OAuthApplicationServices } from './application';
+import { OAuthApplicationApiHandlers, OAuthApplicationApiControllers, OAuthApplicationApiResolvers, OAuthApplicationApiServices } from './application';
 import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
 import { OAuthAccessTokenApiHandlers, OAuthAccessTokenApiControllers, OAuthAccessTokenApiResolvers, OAuthAccessTokenApiServices } from './access-token';
 import { OAuthRefreshTokenApiHandlers, OAuthRefreshTokenApiControllers, OAuthRefreshTokenApiResolvers, OAuthRefreshTokenApiServices } from './refresh-token';
@@ -19,12 +19,12 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ]),
     ],
     controllers: [
-        ...OAuthApplicationControllers,
         ...OAuthClientControllers,
         ...OAuthAccessTokenApiControllers,
         ...OAuthCredentialControllers,
         ...OAuthScopeApiControllers,
-        ...OAuthRefreshTokenApiControllers
+        ...OAuthRefreshTokenApiControllers,
+        ...OAuthApplicationApiControllers
     ],
     providers: [
         OAuthSeeder,
@@ -32,7 +32,6 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthServices,
         ...OAuthRepositories,
         ...OAuthSagas,
-        ...OAuthApplicationResolvers,
         ...OAuthApplicationApiHandlers,
         ...OAuthClientResolvers,
         ...OAuthClientApiHandlers,
@@ -42,13 +41,14 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthCredentialResolvers,
         ...OAuthCredentialApiHandlers,
         ...OAuthAccessTokenApiServices,
-        ...OAuthApplicationServices,
         ...OAuthClientServices,
         ...OAuthAccessTokenApiResolvers,
         ...OAuthScopeApiResolvers,
         ...OAuthScopeApiServices,
         ...OAuthRefreshTokenApiResolvers,
         ...OAuthRefreshTokenApiServices,
+        ...OAuthApplicationApiResolvers,
+        ...OAuthApplicationApiServices,
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
