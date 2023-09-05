@@ -89,7 +89,7 @@ export class OAuthClient extends AggregateRoot
         this.applications = applications;
     }
 
-    static register (
+    static register(
         id: OAuthClientId,
         grantType: OAuthClientGrantType,
         name: OAuthClientName,

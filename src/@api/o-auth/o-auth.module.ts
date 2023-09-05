@@ -4,7 +4,7 @@ import { SharedModule } from '@aurora/shared.module';
 import { OAuthSeeder } from './o-auth.seeder';
 import { OAuthModels, OAuthHandlers, OAuthServices, OAuthRepositories, OAuthSagas } from '@app/o-auth';
 import { OAuthApplicationApiHandlers, OAuthApplicationApiControllers, OAuthApplicationApiResolvers, OAuthApplicationApiServices } from './application';
-import { OAuthClientControllers, OAuthClientResolvers, OAuthClientApiHandlers, OAuthClientServices } from './client';
+import { OAuthClientApiHandlers, OAuthClientApiControllers, OAuthClientApiResolvers, OAuthClientApiServices } from './client';
 import { OAuthAccessTokenApiHandlers, OAuthAccessTokenApiControllers, OAuthAccessTokenApiResolvers, OAuthAccessTokenApiServices } from './access-token';
 import { OAuthRefreshTokenApiHandlers, OAuthRefreshTokenApiControllers, OAuthRefreshTokenApiResolvers, OAuthRefreshTokenApiServices } from './refresh-token';
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
@@ -20,13 +20,13 @@ import { OAuthApplicationClientApiControllers, OAuthApplicationClientApiResolver
         ]),
     ],
     controllers: [
-        ...OAuthClientControllers,
         ...OAuthAccessTokenApiControllers,
         ...OAuthCredentialControllers,
         ...OAuthScopeApiControllers,
         ...OAuthRefreshTokenApiControllers,
         ...OAuthApplicationApiControllers,
-        ...OAuthApplicationClientApiControllers
+        ...OAuthApplicationClientApiControllers,
+        ...OAuthClientApiControllers
     ],
     providers: [
         OAuthSeeder,
@@ -35,7 +35,6 @@ import { OAuthApplicationClientApiControllers, OAuthApplicationClientApiResolver
         ...OAuthRepositories,
         ...OAuthSagas,
         ...OAuthApplicationApiHandlers,
-        ...OAuthClientResolvers,
         ...OAuthClientApiHandlers,
         ...OAuthScopeApiHandlers,
         ...OAuthAccessTokenApiHandlers,
@@ -43,7 +42,6 @@ import { OAuthApplicationClientApiControllers, OAuthApplicationClientApiResolver
         ...OAuthCredentialResolvers,
         ...OAuthCredentialApiHandlers,
         ...OAuthAccessTokenApiServices,
-        ...OAuthClientServices,
         ...OAuthAccessTokenApiResolvers,
         ...OAuthScopeApiResolvers,
         ...OAuthScopeApiServices,
@@ -56,7 +54,9 @@ import { OAuthApplicationClientApiControllers, OAuthApplicationClientApiResolver
         IamCreatePermissionsFromRolesService,
         ...OAuthApplicationClientApiResolvers,
         ...OAuthApplicationClientApiHandlers,
-        ...OAuthApplicationClientApiServices
+        ...OAuthApplicationClientApiServices,
+        ...OAuthClientApiResolvers,
+        ...OAuthClientApiServices
     ],
 })
 export class OAuthModule {}

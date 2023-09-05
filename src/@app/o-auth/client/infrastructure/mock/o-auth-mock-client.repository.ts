@@ -27,7 +27,6 @@ export class OAuthMockClientRepository extends MockRepository<OAuthClient> imple
     public readonly repository: any;
     public readonly aggregateName: string = 'OAuthClient';
     public collectionSource: OAuthClient[];
-    public deletedAtInstance: OAuthClientDeletedAt = new OAuthClientDeletedAt(null);
 
     constructor()
     {

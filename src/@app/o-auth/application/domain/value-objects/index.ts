@@ -1,5 +1,3 @@
-export { OAuthApplicationApplicationApplicationId } from './o-auth-application-application-application-id';
-export { OAuthApplicationApplicationClientId } from './o-auth-application-application-client-id';
 export { OAuthApplicationClientIds } from './o-auth-application-client-ids';
 export { OAuthApplicationCode } from './o-auth-application-code';
 export { OAuthApplicationCreatedAt } from './o-auth-application-created-at';
