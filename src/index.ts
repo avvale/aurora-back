@@ -145,3 +145,9 @@ export { AuditingSideEffect } from './@app/auditing/side-effect/domain/auditing-
 export { OAuthAccessToken } from './@app/o-auth/access-token/domain/o-auth-access-token.aggregate';
 export { OAuthScope } from './@app/o-auth/scope/domain/o-auth-scope.aggregate';
 export { IamBoundedContext } from './@app/iam/bounded-context/domain/iam-bounded-context.aggregate';
+export { OAuthApplicationClientDto } from './@api/o-auth/application-client/dto/o-auth-application-client.dto';
+export { OAuthApplicationClient } from './@app/o-auth/application-client/domain/o-auth-application-client.aggregate';
+export { OAuthApplicationClientModel } from './@app/o-auth/application-client';
+export { OAuthApplicationClientResponse } from './@app/o-auth/application-client/domain/o-auth-application-client.response';
+export { OAuthApplicationClientMapper } from './@app/o-auth/application-client/domain/o-auth-application-client.mapper';
+export { oAuthMockApplicationClientData } from './@app/o-auth/application-client/infrastructure/mock/o-auth-mock-application-client.data';

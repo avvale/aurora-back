@@ -21,7 +21,6 @@ export class OAuthMockApplicationRepository extends MockRepository<OAuthApplicat
     public readonly repository: any;
     public readonly aggregateName: string = 'OAuthApplication';
     public collectionSource: OAuthApplication[];
-    public deletedAtInstance: OAuthApplicationDeletedAt = new OAuthApplicationDeletedAt(null);
 
     constructor()
     {

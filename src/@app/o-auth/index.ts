@@ -1,30 +1,33 @@
 import { OAuthAccessTokenHandlers, OAuthAccessTokenModel, OAuthAccessTokenSagas, OAuthAccessTokenServices, OAuthIAccessTokenRepository, OAuthSequelizeAccessTokenRepository } from './access-token';
-import { OAuthApplicationHandlers, OAuthApplicationModel, OAuthApplicationSagas, OAuthApplicationServices, OAuthIApplicationRepository, OAuthSequelizeApplicationRepository, OAuthApplicationClientModel, OAuthIApplicationClientRepository, OAuthSequelizeApplicationClientRepository } from './application';
+import { OAuthApplicationHandlers, OAuthApplicationModel, OAuthApplicationSagas, OAuthApplicationServices, OAuthIApplicationRepository, OAuthSequelizeApplicationRepository } from './application';
 import { OAuthClientHandlers, OAuthClientModel, OAuthClientSagas, OAuthClientServices, OAuthIClientRepository, OAuthSequelizeClientRepository } from './client';
 import { OAuthIRefreshTokenRepository, OAuthRefreshTokenHandlers, OAuthRefreshTokenModel, OAuthRefreshTokenSagas, OAuthRefreshTokenServices, OAuthSequelizeRefreshTokenRepository } from './refresh-token';
 import { OAuthIScopeRepository, OAuthScopeHandlers, OAuthScopeModel, OAuthScopeSagas, OAuthScopeServices, OAuthSequelizeScopeRepository } from './scope';
+import { OAuthApplicationClientHandlers, OAuthApplicationClientServices, OAuthApplicationClientModel, OAuthSequelizeApplicationClientRepository, OAuthApplicationClientSagas, OAuthIApplicationClientRepository } from './application-client';
 
 export const OAuthHandlers = [
     ...OAuthAccessTokenHandlers,
     ...OAuthApplicationHandlers,
     ...OAuthClientHandlers,
     ...OAuthRefreshTokenHandlers,
-    ...OAuthScopeHandlers
+    ...OAuthScopeHandlers,
+    ...OAuthApplicationClientHandlers
 ];
 export const OAuthServices = [
     ...OAuthAccessTokenServices,
     ...OAuthApplicationServices,
     ...OAuthClientServices,
     ...OAuthRefreshTokenServices,
-    ...OAuthScopeServices
+    ...OAuthScopeServices,
+    ...OAuthApplicationClientServices
 ];
 export const OAuthModels = [
     OAuthAccessTokenModel,
     OAuthApplicationModel,
-    OAuthApplicationClientModel,
     OAuthClientModel,
     OAuthRefreshTokenModel,
     OAuthScopeModel,
+    OAuthApplicationClientModel
 ];
 export const OAuthRepositories = [
     {
@@ -57,5 +60,6 @@ export const OAuthSagas = [
     OAuthApplicationSagas,
     OAuthClientSagas,
     OAuthRefreshTokenSagas,
-    OAuthScopeSagas
+    OAuthScopeSagas,
+    OAuthApplicationClientSagas
 ];

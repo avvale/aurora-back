@@ -1,4 +1,4 @@
-import { OAuthApplicationClient, OAuthApplicationClientMapper, OAuthApplicationClientModel, OAuthIApplicationClientRepository } from '@app/o-auth/application';
+import { OAuthApplicationClient, OAuthApplicationClientMapper, OAuthApplicationClientModel, OAuthIApplicationClientRepository } from '@app/o-auth/application-client';
 import { AuditingRunner, ICriteria, SequelizeRepository } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';

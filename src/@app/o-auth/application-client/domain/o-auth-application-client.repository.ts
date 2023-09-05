@@ -1,6 +1,5 @@
-import { OAuthApplicationClient } from '@app/o-auth/application';
-import { OAuthApplicationApplicationApplicationId } from '@app/o-auth/application/domain/value-objects';
 import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
+import { OAuthApplicationClient } from './o-auth-application-client.aggregate';
 
 export abstract class OAuthIApplicationClientRepository implements IRepository<OAuthApplicationClient>
 {
@@ -26,10 +25,12 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
 
     // find a single record by id
     abstract findById(
-        id: OAuthApplicationApplicationApplicationId,
+        id: undefined,
         options?: {
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            // if id is a composite key, pass find arguments, example: { key1: value1, key2: value2, ...}
+            findArguments?: LiteralObject;
         }
     ): Promise<OAuthApplicationClient | null>;
 
@@ -65,18 +66,18 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
 
     // create a single record
     abstract create(
-        roleClient: OAuthApplicationClient,
+        applicationClient: OAuthApplicationClient,
         options?: {
             createOptions?: LiteralObject;
             dataFactory?: (aggregate: OAuthApplicationClient) => LiteralObject;
             // arguments to find object and check if object is duplicated
-            finderQueryStatement: (aggregate: OAuthApplicationClient) => QueryStatement;
+            finderQueryStatement?: (aggregate: OAuthApplicationClient) => QueryStatement;
         }
     ): Promise<void>;
 
     // create a single or multiple records
     abstract insert(
-        rolesClients: OAuthApplicationClient[],
+        applicationsClients: OAuthApplicationClient[],
         options?: {
             insertOptions?: LiteralObject;
             dataFactory?: (aggregate: OAuthApplicationClient) => LiteralObject;
@@ -85,7 +86,7 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
 
     // update record by id
     abstract updateById(
-        permission: OAuthApplicationClient,
+        applicationClient: OAuthApplicationClient,
         options?: {
             updateByIdOptions?: LiteralObject;
             constraint?: QueryStatement;
@@ -98,7 +99,7 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
 
     // update records
     abstract update(
-        roleClient: OAuthApplicationClient,
+        applicationClient: OAuthApplicationClient,
         options?: {
             updateOptions?: LiteralObject;
             queryStatement?: QueryStatement;
@@ -108,9 +109,9 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
         }
     ): Promise<void>;
 
-    // insert or update key identification elements already existing in the table
+    // insert or update key identification element already existing in the table
     abstract upsert(
-        roleClient: OAuthApplicationClient,
+        applicationClient: OAuthApplicationClient,
         options?: {
             upsertOptions?: LiteralObject;
             dataFactory?: (aggregate: OAuthApplicationClient) => LiteralObject;
@@ -119,11 +120,13 @@ export abstract class OAuthIApplicationClientRepository implements IRepository<O
 
     // delete record
     abstract deleteById(
-        id: OAuthApplicationApplicationApplicationId,
+        id: undefined,
         options?: {
             deleteOptions?: LiteralObject;
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            // if id is a composite key, pass find arguments, example: { key1: value1, key2: value2, ...}
+            findArguments?: LiteralObject;
         }
     ): Promise<void>;
 

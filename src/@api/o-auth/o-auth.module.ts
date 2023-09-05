@@ -10,6 +10,7 @@ import { OAuthRefreshTokenApiHandlers, OAuthRefreshTokenApiControllers, OAuthRef
 import { OAuthCredentialControllers, OAuthCredentialResolvers, OAuthCredentialApiHandlers } from './credential';
 import { OAuthScopeApiHandlers, OAuthScopeApiControllers, OAuthScopeApiResolvers, OAuthScopeApiServices } from './scope';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
+import { OAuthApplicationClientApiControllers, OAuthApplicationClientApiResolvers, OAuthApplicationClientApiHandlers, OAuthApplicationClientApiServices } from './application-client';
 
 @Module({
     imports: [
@@ -24,7 +25,8 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...OAuthCredentialControllers,
         ...OAuthScopeApiControllers,
         ...OAuthRefreshTokenApiControllers,
-        ...OAuthApplicationApiControllers
+        ...OAuthApplicationApiControllers,
+        ...OAuthApplicationClientApiControllers
     ],
     providers: [
         OAuthSeeder,
@@ -52,6 +54,9 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
+        ...OAuthApplicationClientApiResolvers,
+        ...OAuthApplicationClientApiHandlers,
+        ...OAuthApplicationClientApiServices
     ],
 })
 export class OAuthModule {}

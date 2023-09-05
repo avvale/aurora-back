@@ -50,11 +50,15 @@ aggregateProperties:
             primaryKey: true
             length: 36
             nullable: false
+            aggregateName: OAuthApplication
+            modulePath: o-auth/application
           - name: clientId
             type: id
             primaryKey: true
             length: 36
             nullable: false
+            aggregateName: OAuthClient
+            modulePath: o-auth/client
   - name: createdAt
     type: timestamp
     nullable: true

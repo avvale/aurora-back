@@ -39,14 +39,9 @@ export { OAuthApplication } from './domain/o-auth-application.aggregate';
 export { OAuthApplicationMapper } from './domain/o-auth-application.mapper';
 export { OAuthIApplicationRepository } from './domain/o-auth-application.repository';
 export { OAuthApplicationResponse } from './domain/o-auth-application.response';
-export { OAuthApplicationClient } from './domain/o-auth-application-client.aggregate';
-export { OAuthApplicationClientMapper } from './domain/o-auth-application-client.mapper';
-export { OAuthIApplicationClientRepository } from './domain/o-auth-application-client.repository';
 
 // infrastructure
 export { OAuthApplicationModel } from './infrastructure/sequelize/o-auth-sequelize-application.model';
-export { OAuthApplicationClientModel } from './infrastructure/sequelize/o-auth-sequelize-application-client.model';
-export { OAuthSequelizeApplicationClientRepository  } from './infrastructure/sequelize/o-auth-sequelize-application-client.repository';
 export { OAuthSequelizeApplicationRepository } from './infrastructure/sequelize/o-auth-sequelize-application.repository';
 
 // sagas

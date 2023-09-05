@@ -6,8 +6,9 @@ import { applications, boundedContexts, clients, permissions } from '@app/o-auth
 // sources
 import { IamBoundedContextHelper } from '@app/iam/bounded-context';
 import { IamPermissionHelper } from '@app/iam/permission';
-import { OAuthCreateApplicationsClientsCommand, OAuthCreateApplicationsCommand } from '@app/o-auth/application';
+import { OAuthCreateApplicationsCommand } from '@app/o-auth/application';
 import { OAuthCreateClientsCommand } from '@app/o-auth/client';
+import { OAuthCreateApplicationsClientsCommand } from '@app/o-auth/application-client';
 
 @Injectable()
 export class OAuthSeeder

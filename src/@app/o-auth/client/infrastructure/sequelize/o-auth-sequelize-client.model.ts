@@ -5,7 +5,7 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 import { DataTypes } from 'sequelize';
 import { OAuthAccessTokenModel } from '@app/o-auth/access-token';
 import { OAuthApplicationModel } from '@app/o-auth/application';
-import { OAuthApplicationClientModel } from '@app/o-auth/application';
+import { OAuthApplicationClientModel } from '@app/o-auth/application-client';
 
 @Table({
     modelName: 'OAuthClient',
