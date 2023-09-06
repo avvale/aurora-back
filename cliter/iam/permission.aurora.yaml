@@ -42,6 +42,7 @@ aggregateProperties:
         moduleName: permission-role
         moduleNames: permissions-roles
         aggregateName: IamPermissionRole
+        hasOAuth: true
         hasAuditing: true
         aggregateProperties:
           - name: permissionId
