@@ -19,7 +19,6 @@ export class IamMockPermissionRepository extends MockRepository<IamPermission> i
     public readonly repository: any;
     public readonly aggregateName: string = 'IamPermission';
     public collectionSource: IamPermission[];
-    public deletedAtInstance: IamPermissionDeletedAt = new IamPermissionDeletedAt(null);
 
     constructor()
     {
