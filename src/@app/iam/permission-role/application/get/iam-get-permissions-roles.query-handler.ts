@@ -13,10 +13,12 @@ export class IamGetPermissionsRolesQueryHandler implements IQueryHandler<IamGetP
 
     async execute(query: IamGetPermissionsRolesQuery): Promise<IamPermissionRoleResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getPermissionsRolesService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getPermissionsRolesService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }

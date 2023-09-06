@@ -46,7 +46,6 @@ export class IamUpdatePermissionsService
             null, // deletedAt
         );
 
-
         // update
         await this.repository.update(
             permission,
