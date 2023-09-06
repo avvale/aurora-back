@@ -1,23 +1,23 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { IamGetPermissionsRolesHandler, IamPermissionRoleDto } from '@api/iam/permission-role';
+import { IamFindPermissionRoleHandler, IamPermissionRoleDto } from '@api/iam/permission-role';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[iam] permission-role')
-@Controller('iam/permissions-roles/get')
+@Controller('iam/permission-role/find')
 @Auth('iam.permissionRole.get')
-export class IamGetPermissionsRolesController
+export class IamFindPermissionRoleController
 {
     constructor(
-        private readonly handler: IamGetPermissionsRolesHandler,
+        private readonly handler: IamFindPermissionRoleHandler,
     ) {}
 
     @Post()
     @HttpCode(200)
-    @ApiOperation({ summary: 'Get permissions-roles according to query' })
-    @ApiOkResponse({ description: 'The records has been found successfully.', type: [IamPermissionRoleDto]})
+    @ApiOperation({ summary: 'Find permission-role according to query' })
+    @ApiOkResponse({ description: 'The record has been successfully created.', type: IamPermissionRoleDto })
     @ApiBody({ type: QueryStatement })
     @ApiQuery({ name: 'query', type: QueryStatement })
     async main(
