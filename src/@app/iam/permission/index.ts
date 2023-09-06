@@ -48,7 +48,6 @@ export { IamSequelizePermissionRepository } from './infrastructure/sequelize/iam
 export { IamPermissionSagas } from './application/sagas/iam-permission.sagas';
 
 // ---- customizations ----
-export { IamPermissionsRolesModel } from './infrastructure/sequelize/iam-sequelize-permissions-roles.model';
 export { IamPermissionHelper } from './domain/iam-permission-helper';
 
 // command handlers

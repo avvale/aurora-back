@@ -57,7 +57,7 @@ export class IamPermission extends AggregateRoot
         this.roles = roles;
     }
 
-    static register (
+    static register(
         id: IamPermissionId,
         name: IamPermissionName,
         boundedContextId: IamPermissionBoundedContextId,

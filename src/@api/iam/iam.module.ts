@@ -4,8 +4,8 @@ import { SharedModule } from '@aurora/shared.module';
 import { IamSeeder } from './iam.seeder';
 import { IamModels, IamHandlers, IamServices, IamRepositories, IamSagas } from '@app/iam';
 import { IamBoundedContextApiHandlers, IamBoundedContextApiControllers, IamBoundedContextApiResolvers, IamBoundedContextApiServices } from './bounded-context';
-import { IamPermissionControllers, IamPermissionResolvers, IamPermissionApiHandlers, IamPermissionServices } from './permission';
-import { IamPermissionRoleControllers, IamPermissionRoleResolvers, IamPermissionRoleApiHandlers } from './permission-role';
+import { IamPermissionApiHandlers, IamPermissionApiControllers, IamPermissionApiResolvers, IamPermissionApiServices } from './permission';
+import { IamPermissionRoleApiHandlers, IamPermissionRoleApiControllers, IamPermissionRoleApiResolvers, IamPermissionRoleApiServices } from './permission-role';
 import { IamTenantControllers, IamTenantResolvers, IamTenantApiHandlers, IamTenantServices } from './tenant';
 import { IamRoleControllers, IamRoleResolvers, IamRoleApiHandlers, IamRoleServices } from './role';
 import { IamAccountControllers, IamAccountResolvers, IamAccountApiHandlers, IamAccountServices } from './account';
@@ -22,13 +22,13 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
     ],
     controllers: [
         ...IamAccountControllers,
-        ...IamPermissionControllers,
-        ...IamPermissionRoleControllers,
         ...IamRoleControllers,
         ...IamTenantControllers,
         ...IamUserControllers,
         ...IamUserMetaControllers,
-        ...IamBoundedContextApiControllers
+        ...IamBoundedContextApiControllers,
+        ...IamPermissionApiControllers,
+        ...IamPermissionRoleApiControllers
     ],
     providers: [
         IamSeeder,
@@ -37,9 +37,7 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
         ...IamBoundedContextApiHandlers,
         ...IamHandlers,
         ...IamPermissionApiHandlers,
-        ...IamPermissionResolvers,
         ...IamPermissionRoleApiHandlers,
-        ...IamPermissionRoleResolvers,
         ...IamRepositories,
         ...IamRoleApiHandlers,
         ...IamRoleResolvers,
@@ -55,12 +53,15 @@ import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/a
 
         // ---- customizations ----
         IamCreatePermissionsFromRolesService,
-        ...IamPermissionServices,
         ...IamRoleServices,
         ...IamTenantServices,
         ...IamUserServices,
         ...IamBoundedContextApiResolvers,
-        ...IamBoundedContextApiServices
+        ...IamBoundedContextApiServices,
+        ...IamPermissionApiResolvers,
+        ...IamPermissionApiServices,
+        ...IamPermissionRoleApiResolvers,
+        ...IamPermissionRoleApiServices
     ],
 })
 export class IamModule {}

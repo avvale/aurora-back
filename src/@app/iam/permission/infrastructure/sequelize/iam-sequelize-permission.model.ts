@@ -5,7 +5,7 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 import { DataTypes } from 'sequelize';
 import { IamBoundedContextModel } from '@app/iam/bounded-context';
 import { IamRoleModel } from '@app/iam/role';
-import { IamPermissionsRolesModel } from '@app/iam/permission';
+import { IamPermissionRoleModel } from '@app/iam/permission-role';
 
 @Table({
     modelName: 'IamPermission',
@@ -160,8 +160,8 @@ export class IamPermissionModel extends Model<IamPermissionModel>
 
 
     @BelongsToMany(() => IamRoleModel, {
-        through: () => IamPermissionsRolesModel,
-        uniqueKey: 'Uq01IamPermissionsRoles',
+        through: () => IamPermissionRoleModel,
+        uniqueKey: 'Uq01IamPermissionRole',
     })
     roles: IamRoleModel[];
 

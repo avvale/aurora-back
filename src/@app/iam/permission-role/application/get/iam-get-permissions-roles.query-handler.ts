@@ -1,8 +1,6 @@
+import { IamGetPermissionsRolesQuery, IamPermissionRoleMapper, IamPermissionRoleResponse } from '@app/iam/permission-role';
+import { IamGetPermissionsRolesService } from '@app/iam/permission-role/application/get/iam-get-permissions-roles.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { IamPermissionRoleResponse } from '../../domain/iam-permission-role.response';
-import { IamPermissionRoleMapper } from '../../domain/iam-permission-role.mapper';
-import { IamGetPermissionsRolesQuery } from './iam-get-permissions-roles.query';
-import { IamGetPermissionsRolesService } from './iam-get-permissions-roles.service';
 
 @QueryHandler(IamGetPermissionsRolesQuery)
 export class IamGetPermissionsRolesQueryHandler implements IQueryHandler<IamGetPermissionsRolesQuery>
@@ -15,12 +13,10 @@ export class IamGetPermissionsRolesQueryHandler implements IQueryHandler<IamGetP
 
     async execute(query: IamGetPermissionsRolesQuery): Promise<IamPermissionRoleResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(
-            await this.getPermissionsRolesService.main(
-                query.queryStatement,
-                query.constraint,
-                query.cQMetadata,
-            ),
-        );
+        return this.mapper.mapAggregatesToResponses(await this.getPermissionsRolesService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
+        ));
     }
 }

@@ -1,51 +1,51 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
+import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
+import { DataTypes } from 'sequelize';
 import { IamPermissionModel } from '@app/iam/permission';
 import { IamRoleModel } from '@app/iam/role';
-import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
-import { DataTypes } from 'sequelize';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 
 @Table({
-    modelName: 'IamPermissionsRoles',
+    modelName: 'IamPermissionRole',
     freezeTableName: true,
     timestamps: false,
 })
-export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
+export class IamPermissionRoleModel extends Model<IamPermissionRoleModel>
 {
     @AfterCreate
-    static auditingCreate(instance: IamPermissionsRolesModel, options): void
+    static auditingCreate(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.CREATED,
-            '@app/iam/permission-role/infrastructure/sequelize/sequelize-permissions-roles.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @AfterBulkCreate
-    static auditingBulkCreate(instance: IamPermissionsRolesModel, options): void
+    static auditingBulkCreate(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.BULK_CREATED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @AfterUpdate
-    static auditingUpdate(instance: IamPermissionsRolesModel, options): void
+    static auditingUpdate(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.UPDATED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
@@ -56,20 +56,20 @@ export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
             null,
             options,
             AuditingSideEffectEvent.BULK_UPDATED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @AfterDestroy
-    static auditingDestroy(instance: IamPermissionsRolesModel, options): void
+    static auditingDestroy(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.DELETED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
@@ -80,20 +80,20 @@ export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
             null,
             options,
             AuditingSideEffectEvent.BULK_DELETED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @AfterRestore
-    static auditingRestore(instance: IamPermissionsRolesModel, options): void
+    static auditingRestore(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.RESTORED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
@@ -104,26 +104,28 @@ export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
             null,
             options,
             AuditingSideEffectEvent.BULK_RESTORED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @AfterUpsert
-    static auditingUpsert(instance: IamPermissionsRolesModel, options): void
+    static auditingUpsert(instance: IamPermissionRoleModel, options): void
     {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
             AuditingSideEffectEvent.UPSERTED,
-            '@app/iam/permission/infrastructure/sequelize/sequelize-permission.model',
-            'IamPermissionsRolesModel',
+            '@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model',
+            'IamPermissionRoleModel',
         );
     }
 
     @ForeignKey(() => IamPermissionModel)
     @Column({
         field: 'permissionId',
+        primaryKey: true,
+        allowNull: false,
         type: DataTypes.UUID,
     })
     permissionId: string;
@@ -137,6 +139,8 @@ export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
     @ForeignKey(() => IamRoleModel)
     @Column({
         field: 'roleId',
+        primaryKey: true,
+        allowNull: false,
         type: DataTypes.UUID,
     })
     roleId: string;
@@ -146,4 +150,5 @@ export class IamPermissionsRolesModel extends Model<IamPermissionsRolesModel>
         foreignKey: 'roleId',
     })
     role: IamRoleModel;
+
 }

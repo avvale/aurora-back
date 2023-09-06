@@ -4,7 +4,7 @@ import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/c
 import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 import { IamPermissionModel } from '@app/iam/permission';
-import { IamPermissionsRolesModel } from '@app/iam/permission';
+import { IamPermissionRoleModel } from '@app/iam/permission-role';
 import { IamAccountModel } from '@app/iam/account';
 import { IamRolesAccountsModel } from '@app/iam/role';
 
@@ -148,8 +148,8 @@ export class IamRoleModel extends Model<IamRoleModel>
 
 
     @BelongsToMany(() => IamPermissionModel, {
-        through: () => IamPermissionsRolesModel,
-        uniqueKey: 'Uq01IamPermissionsRoles',
+        through: () => IamPermissionRoleModel,
+        uniqueKey: 'Uq01IamPermissionRole',
     })
     permissions: IamPermissionModel[];
 
