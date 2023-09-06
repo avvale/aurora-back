@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/o-auth/application/infrastructure/mock/o-auth-mock-application.data.ts",
-            "integrity": "sha1:70a1aaa2c32d4ab4e2a63aa6d477936cbd052cd3"
+            "integrity": "sha1:833128b09c36a449ee80b20ea5e121a10d52381a"
         },
         {
             "path": "src/@app/o-auth/application/infrastructure/mock/o-auth-mock-application.repository.ts",
@@ -707,7 +707,7 @@
         },
         {
             "path": "src/@app/o-auth/application-client/infrastructure/mock/o-auth-mock-application-client.data.ts",
-            "integrity": "sha1:354018b354474c30817997ebcd0b6157f7281f7d"
+            "integrity": "sha1:b1be7449c86cd330c4f695d1c626c04665f21f6e"
         },
         {
             "path": "src/@app/o-auth/application-client/infrastructure/mock/o-auth-mock-application-client.repository.ts",
@@ -719,7 +719,7 @@
         },
         {
             "path": "src/@app/o-auth/application-client/infrastructure/sequelize/o-auth-sequelize-application-client.model.ts",
-            "integrity": "sha1:488c20958e7fcc754fcf121ecb6a87eea96b18da"
+            "integrity": "sha1:078ff7c44b44af7523a48a09b40858eadd833be5"
         },
         {
             "path": "src/@app/o-auth/application-client/infrastructure/sequelize/o-auth-sequelize-application-client.repository.ts",
@@ -1339,7 +1339,7 @@
         },
         {
             "path": "postman/o-auth/o-auth.application.postman.json",
-            "integrity": "sha1:0623f7f07591fe70cb6343cc60e81ae6e671980d"
+            "integrity": "sha1:7da9850997770b0143ff5acef7b748cfa8b01518"
         }
     ]
 }

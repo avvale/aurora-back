@@ -21,6 +21,12 @@ export class OAuthApplicationClientModel extends Model<OAuthApplicationClientMod
     })
     applicationId: string;
 
+    @BelongsTo(() => OAuthApplicationModel, {
+        constraints: false,
+        foreignKey: 'applicationId',
+    })
+    application: OAuthApplicationModel;
+
     @ForeignKey(() => OAuthClientModel)
     @Column({
         field: 'clientId',
@@ -29,5 +35,11 @@ export class OAuthApplicationClientModel extends Model<OAuthApplicationClientMod
         type: DataTypes.UUID,
     })
     clientId: string;
+
+    @BelongsTo(() => OAuthClientModel, {
+        constraints: false,
+        foreignKey: 'clientId',
+    })
+    client: OAuthClientModel;
 
 }
