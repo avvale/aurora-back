@@ -1,5 +1,6 @@
 /* eslint-disable key-spacing */
-import { IamUpsertPermissionCommand, IamUpsertPermissionService } from '@app/iam/permission';
+import { IamUpsertPermissionCommand } from '@app/iam/permission';
+import { IamUpsertPermissionService } from '@app/iam/permission/application/upsert/iam-upsert-permission.service';
 import {
     IamPermissionBoundedContextId,
     IamPermissionId,

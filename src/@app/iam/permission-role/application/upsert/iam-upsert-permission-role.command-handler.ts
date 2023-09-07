@@ -1,5 +1,6 @@
 /* eslint-disable key-spacing */
-import { IamUpsertPermissionRoleCommand, IamUpsertPermissionRoleService } from '@app/iam/permission-role';
+import { IamUpsertPermissionRoleCommand } from '@app/iam/permission-role';
+import { IamUpsertPermissionRoleService } from '@app/iam/permission-role/application/upsert/iam-upsert-permission-role.service';
 import {
     IamPermissionRolePermissionId,
     IamPermissionRoleRoleId,

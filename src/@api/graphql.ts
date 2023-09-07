@@ -615,8 +615,8 @@ export interface IamCreatePermissionRoleInput {
 }
 
 export interface IamUpdatePermissionRoleByIdInput {
-    permissionId?: Nullable<string>;
-    roleId?: Nullable<string>;
+    permissionId: string;
+    roleId: string;
 }
 
 export interface IamUpdatePermissionsRolesInput {

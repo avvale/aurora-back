@@ -15,8 +15,8 @@ input IamCreatePermissionRoleInput
 
 input IamUpdatePermissionRoleByIdInput
 {
-    permissionId: ID
-    roleId: ID
+    permissionId: ID!
+    roleId: ID!
 }
 
 input IamUpdatePermissionsRolesInput
