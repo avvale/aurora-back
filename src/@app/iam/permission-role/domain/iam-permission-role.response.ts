@@ -5,8 +5,8 @@ export class IamPermissionRoleResponse
 {
     constructor(
         public readonly permissionId: string,
-        public readonly permission: IamPermissionResponse,
         public readonly roleId: string,
+        public readonly permission: IamPermissionResponse,
         public readonly role: IamRoleResponse,
     ) {}
 }
