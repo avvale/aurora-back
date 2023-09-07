@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/iam/permission/infrastructure/mock/iam-mock-permission.data.ts",
-            "integrity": "sha1:579dfddfa8d3117fe5d5b88ae2d41cd85336c303"
+            "integrity": "sha1:44c0f9a444b6598026ec51b4aed7c50a433d9907"
         },
         {
             "path": "src/@app/iam/permission/infrastructure/mock/iam-mock-permission.repository.ts",
@@ -699,7 +699,7 @@
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.data.ts",
-            "integrity": "sha1:2f9dabb2a9a657a8a6696345b2a48587c5ef08fd"
+            "integrity": "sha1:d19c6ac593c94eb6581f014c928659a77bc3f0fa"
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.repository.ts",
@@ -1331,7 +1331,7 @@
         },
         {
             "path": "postman/iam/iam.permission.postman.json",
-            "integrity": "sha1:8d1b0ddaf2cf0066a46865cd86a12896db5811bd"
+            "integrity": "sha1:eb68b64552b723406dac1ac057b4d44cf66c58f9"
         }
     ]
 }
