@@ -25,8 +25,6 @@ export class IamPermission extends AggregateRoot
     createdAt: IamPermissionCreatedAt;
     updatedAt: IamPermissionUpdatedAt;
     deletedAt: IamPermissionDeletedAt;
-
-    // eager relationship
     boundedContext: IamBoundedContext;
     roles: IamRole[];
 
@@ -38,7 +36,6 @@ export class IamPermission extends AggregateRoot
         createdAt: IamPermissionCreatedAt,
         updatedAt: IamPermissionUpdatedAt,
         deletedAt: IamPermissionDeletedAt,
-
         boundedContext?: IamBoundedContext,
         roles?: IamRole[],
     )
@@ -51,8 +48,6 @@ export class IamPermission extends AggregateRoot
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
-
-        // eager relationship
         this.boundedContext = boundedContext;
         this.roles = roles;
     }
@@ -65,7 +60,6 @@ export class IamPermission extends AggregateRoot
         createdAt: IamPermissionCreatedAt,
         updatedAt: IamPermissionUpdatedAt,
         deletedAt: IamPermissionDeletedAt,
-
         boundedContext?: IamBoundedContext,
         roles?: IamRole[],
     ): IamPermission
@@ -78,7 +72,6 @@ export class IamPermission extends AggregateRoot
             createdAt,
             updatedAt,
             deletedAt,
-
             boundedContext,
             roles,
         );
@@ -139,8 +132,6 @@ export class IamPermission extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             boundedContext: this.boundedContext?.toDTO(),
             roles: this.roles?.map(item => item.toDTO()),
         };
@@ -157,8 +148,6 @@ export class IamPermission extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             boundedContext: this.boundedContext?.toDTO(),
             roles: this.roles?.map(item => item.toDTO()),
         };
