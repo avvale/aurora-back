@@ -1,10 +1,5 @@
+import { iamMockPermissionRoleData, IamUpsertPermissionRoleCommand, IamUpsertPermissionRoleCommandHandler, IamUpsertPermissionRoleService } from '@app/iam/permission-role';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { iamMockPermissionRoleData } from '@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.data';
-import { IamUpsertPermissionRoleCommandHandler } from './iam-upsert-permission-role.command-handler';
-import { IamUpsertPermissionRoleCommand } from './iam-upsert-permission-role.command';
-import { IamUpsertPermissionRoleService } from './iam-upsert-permission-role.service';
 
 describe('IamUpsertPermissionRoleCommandHandler', () =>
 {

@@ -1,16 +1,12 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { IamUpsertPermissionCommand } from './iam-upsert-permission.command';
-import { IamUpsertPermissionService } from './iam-upsert-permission.service';
+import { IamUpsertPermissionCommand, IamUpsertPermissionService } from '@app/iam/permission';
 import {
+    IamPermissionBoundedContextId,
     IamPermissionId,
     IamPermissionName,
-    IamPermissionBoundedContextId,
     IamPermissionRoleIds,
-    IamPermissionCreatedAt,
-    IamPermissionUpdatedAt,
-    IamPermissionDeletedAt,
-} from '../../domain/value-objects';
+} from '@app/iam/permission/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(IamUpsertPermissionCommand)
 export class IamUpsertPermissionCommandHandler implements ICommandHandler<IamUpsertPermissionCommand>

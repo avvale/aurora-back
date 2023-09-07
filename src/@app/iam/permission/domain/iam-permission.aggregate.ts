@@ -1,20 +1,18 @@
 /* eslint-disable key-spacing */
-import { AggregateRoot } from '@nestjs/cqrs';
-import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { IamBoundedContext } from '@app/iam/bounded-context';
+import { IamCreatedPermissionEvent, IamDeletedPermissionEvent, IamUpdatedPermissionEvent } from '@app/iam/permission';
 import {
+    IamPermissionBoundedContextId,
+    IamPermissionCreatedAt,
+    IamPermissionDeletedAt,
     IamPermissionId,
     IamPermissionName,
-    IamPermissionBoundedContextId,
     IamPermissionRoleIds,
-    IamPermissionCreatedAt,
     IamPermissionUpdatedAt,
-    IamPermissionDeletedAt,
-} from './value-objects';
-import { IamCreatedPermissionEvent } from '../application/events/iam-created-permission.event';
-import { IamUpdatedPermissionEvent } from '../application/events/iam-updated-permission.event';
-import { IamDeletedPermissionEvent } from '../application/events/iam-deleted-permission.event';
-import { IamBoundedContext } from '@app/iam/bounded-context';
+} from '@app/iam/permission/domain/value-objects';
 import { IamRole } from '@app/iam/role';
+import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { AggregateRoot } from '@nestjs/cqrs';
 
 export class IamPermission extends AggregateRoot
 {

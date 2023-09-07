@@ -1,21 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { iamMockPermissionData } from '@app/iam/permission/infrastructure/mock/iam-mock-permission.data';
-import { IamUpsertPermissionService } from './iam-upsert-permission.service';
+import { IamIPermissionRepository, iamMockPermissionData, IamMockPermissionRepository, IamUpsertPermissionService } from '@app/iam/permission';
 import {
+    IamPermissionBoundedContextId,
     IamPermissionId,
     IamPermissionName,
-    IamPermissionBoundedContextId,
     IamPermissionRoleIds,
-    IamPermissionCreatedAt,
-    IamPermissionUpdatedAt,
-    IamPermissionDeletedAt,
-} from '../../domain/value-objects';
-import { IamIPermissionRepository } from '../../domain/iam-permission.repository';
-import { IamMockPermissionRepository } from '../../infrastructure/mock/iam-mock-permission.repository';
+} from '@app/iam/permission/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('IamUpsertPermissionService', () =>
 

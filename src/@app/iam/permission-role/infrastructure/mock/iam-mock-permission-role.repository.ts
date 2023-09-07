@@ -1,12 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { MockRepository, Utils } from '@aurorajs.dev/core';
-import { IamIPermissionRoleRepository } from '@app/iam/permission-role/domain/iam-permission-role.repository';
+import { IamIPermissionRoleRepository, iamMockPermissionRoleData, IamPermissionRole } from '@app/iam/permission-role';
 import {
     IamPermissionRolePermissionId,
     IamPermissionRoleRoleId,
 } from '@app/iam/permission-role/domain/value-objects';
-import { IamPermissionRole } from '../../domain/iam-permission-role.aggregate';
-import { iamMockPermissionRoleData } from './iam-mock-permission-role.data';
+import { MockRepository, Utils } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamMockPermissionRoleRepository extends MockRepository<IamPermissionRole> implements IamIPermissionRoleRepository

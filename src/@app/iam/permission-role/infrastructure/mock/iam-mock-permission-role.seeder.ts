@@ -1,11 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { MockSeeder } from '@aurorajs.dev/core';
+import { iamMockPermissionRoleData, IamPermissionRole } from '@app/iam/permission-role';
 import {
     IamPermissionRolePermissionId,
     IamPermissionRoleRoleId,
-} from '../../domain/value-objects';
-import { IamPermissionRole } from '../../domain/iam-permission-role.aggregate';
-import { iamMockPermissionRoleData } from './iam-mock-permission-role.data';
+} from '@app/iam/permission-role/domain/value-objects';
+import { MockSeeder } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()
