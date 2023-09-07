@@ -614,6 +614,11 @@ export interface IamCreatePermissionRoleInput {
     roleId: string;
 }
 
+export interface IamDeletePermissionRoleInput {
+    permissionId: string;
+    roleId: string;
+}
+
 export interface IamUpdatePermissionRoleByIdInput {
     permissionId?: Nullable<string>;
     roleId?: Nullable<string>;
@@ -1095,10 +1100,10 @@ export interface IQuery {
     iamFindBoundedContextById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamGetBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext>[] | Promise<Nullable<IamBoundedContext>[]>;
     iamPaginateBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    iamFindPermissionRole(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
-    iamFindPermissionRoleById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
+    iamFindPermissionRoleById(permissionId?: Nullable<string>, roleId?: Nullable<string>, constraint?: Nullable<QueryStatement>, id?: Nullable<string>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamGetPermissionsRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
     iamPaginatePermissionsRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamFindPermissionRole(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamFindPermission(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamFindPermissionById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamGetPermissions(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission>[] | Promise<Nullable<IamPermission>[]>;
@@ -1245,11 +1250,11 @@ export interface IMutation {
     iamDeleteBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext>[] | Promise<Nullable<IamBoundedContext>[]>;
     iamCreatePermissionRole(payload: IamCreatePermissionRoleInput): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamCreatePermissionsRoles(payload: Nullable<IamCreatePermissionRoleInput>[]): boolean | Promise<boolean>;
+    iamDeletePermissionRoleById(payload: IamDeletePermissionRoleInput, constraint?: Nullable<QueryStatement>, id: string): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
+    iamDeletePermissionsRoles(payload: Nullable<IamDeletePermissionRoleInput>[], constraint?: Nullable<QueryStatement>, query?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
     iamUpdatePermissionRoleById(payload: IamUpdatePermissionRoleByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamUpdatePermissionsRoles(payload: IamUpdatePermissionsRolesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
     iamUpsertPermissionRole(payload: IamUpdatePermissionRoleByIdInput): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
-    iamDeletePermissionRoleById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
-    iamDeletePermissionsRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
     iamCreatePermission(payload: IamCreatePermissionInput): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamCreatePermissions(payload: Nullable<IamCreatePermissionInput>[]): boolean | Promise<boolean>;
     iamUpdatePermissionById(payload: IamUpdatePermissionByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
@@ -1535,7 +1540,9 @@ export interface IamBoundedContext {
 
 export interface IamPermissionRole {
     permissionId: string;
+    permission?: Nullable<IamPermission>;
     roleId: string;
+    role?: Nullable<IamRole>;
 }
 
 export interface IamPermission {
