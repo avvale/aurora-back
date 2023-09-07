@@ -36,7 +36,7 @@ export class IamCreatePermissionRoleService
                 finderQueryStatement: (aggregate: IamPermissionRole) => ({
                     where: {
                         permissionId: aggregate['permissionId']['value'],
-                        roleId      : aggregate['roleId']['value'],
+                        roleId: aggregate['roleId']['value'],
                     },
                 }),
             },
