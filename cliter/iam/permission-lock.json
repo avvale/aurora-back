@@ -311,7 +311,7 @@
         },
         {
             "path": "src/@app/iam/permission/domain/iam-permission.repository.ts",
-            "integrity": "sha1:67812810feeaa938ca902e844cf2a8e3f2119568"
+            "integrity": "sha1:8c5a82b2af4dfca10c2f5a51b16b9f8b93520566"
         },
         {
             "path": "src/@app/iam/permission/domain/iam-permission.response.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/iam/permission/infrastructure/mock/iam-mock-permission.data.ts",
-            "integrity": "sha1:b1355eb3dfe0d18fea667f25a4aa28083b18ef00"
+            "integrity": "sha1:466880f8d05bff6f57656feadcda4c80b0a75ca2"
         },
         {
             "path": "src/@app/iam/permission/infrastructure/mock/iam-mock-permission.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/iam/permission/infrastructure/sequelize/iam-sequelize-permission.model.ts",
-            "integrity": "sha1:36229c6ba05bb184c164d0548baca9041af67267"
+            "integrity": "sha1:83e692a2275207dad274b3249441676bb4b1e18d"
         },
         {
             "path": "src/@app/iam/permission/infrastructure/sequelize/iam-sequelize-permission.repository.ts",
@@ -683,7 +683,7 @@
         },
         {
             "path": "src/@app/iam/permission-role/domain/iam-permission-role.repository.ts",
-            "integrity": "sha1:d81b91beede559d67a087833156d93fbc90d282c"
+            "integrity": "sha1:5eb1d0acbb96c589b08b4822a405b24bd711015e"
         },
         {
             "path": "src/@app/iam/permission-role/domain/iam-permission-role.response.ts",
@@ -699,7 +699,7 @@
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.data.ts",
-            "integrity": "sha1:83bdba6392a352510851722e88f9b016310a8b07"
+            "integrity": "sha1:165a097e92827620cf99388db736adbf6762c2e1"
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.repository.ts",
@@ -711,7 +711,7 @@
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.model.ts",
-            "integrity": "sha1:7fbb439bab05b7d0cb9808efe9f3af5208504478"
+            "integrity": "sha1:4b329523ed5baa715a1b63d94be168bedf94669d"
         },
         {
             "path": "src/@app/iam/permission-role/infrastructure/sequelize/iam-sequelize-permission-role.repository.ts",
@@ -1331,7 +1331,7 @@
         },
         {
             "path": "postman/iam/iam.permission.postman.json",
-            "integrity": "sha1:12162d9509b0e094b5d13c333e549e4d4251ead5"
+            "integrity": "sha1:7a4d7faa26536344a91c593b15e7a790ed78fc58"
         }
     ]
 }

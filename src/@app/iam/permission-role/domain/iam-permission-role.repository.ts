@@ -1,5 +1,5 @@
+import { IamPermissionRole } from '@app/iam/permission-role';
 import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
-import { IamPermissionRole } from './iam-permission-role.aggregate';
 
 export abstract class IamIPermissionRoleRepository implements IRepository<IamPermissionRole>
 {

@@ -1,6 +1,6 @@
-import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
-import { IamPermission } from './iam-permission.aggregate';
 import { IamPermissionId } from './value-objects';
+import { IamPermission } from '@app/iam/permission';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 
 export abstract class IamIPermissionRepository implements IRepository<IamPermission>
 {
