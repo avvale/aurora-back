@@ -1,12 +1,11 @@
-import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
-import { IamPermissionRole } from './iam-permission-role.aggregate';
-import { IamPermissionRoleResponse } from './iam-permission-role.response';
+import { IamPermissionMapper } from '@app/iam/permission';
+import { IamPermissionRole, IamPermissionRoleResponse } from '@app/iam/permission-role';
 import {
     IamPermissionRolePermissionId,
     IamPermissionRoleRoleId,
-} from './value-objects';
-import { IamPermissionMapper } from '@app/iam/permission';
+} from '@app/iam/permission-role/domain/value-objects';
 import { IamRoleMapper } from '@app/iam/role';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
 export class IamPermissionRoleMapper implements IMapper
 {
