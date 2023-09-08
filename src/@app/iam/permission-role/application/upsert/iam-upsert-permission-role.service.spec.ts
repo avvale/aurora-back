@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { IamIPermissionRoleRepository, iamMockPermissionRoleData, IamMockPermissionRoleRepository, IamUpsertPermissionRoleService } from '@app/iam/permission-role';
+import { IamIPermissionRoleRepository, iamMockPermissionRoleData, IamMockPermissionRoleRepository } from '@app/iam/permission-role';
+import { IamUpsertPermissionRoleService } from '@app/iam/permission-role/application/upsert/iam-upsert-permission-role.service';
 import {
     IamPermissionRolePermissionId,
     IamPermissionRoleRoleId,

@@ -2,8 +2,9 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { IamModule } from '@api/iam/iam.module';
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { IamIPermissionRepository, iamMockPermissionData, IamMockPermissionSeeder } from '@app/iam/permission';
-import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -59,7 +60,9 @@ describe('permission', () =>
                 IamMockPermissionSeeder,
             ],
         })
-            .overrideGuard(Auth)
+            .overrideGuard(AuthenticationJwtGuard)
+            .useValue({ canActivate: () => true })
+            .overrideGuard(AuthorizationPermissionsGuard)
             .useValue({ canActivate: () => true })
             .compile();
 
@@ -86,7 +89,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamPermissionId must be defined, can not be null');
             });
     });
 
@@ -102,7 +105,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamPermissionName must be defined, can not be null');
             });
     });
 
@@ -118,7 +121,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionBoundedContextId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamPermissionBoundedContextId must be defined, can not be null');
             });
     });
 
@@ -134,7 +137,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamPermissionId must be defined, can not be undefined');
             });
     });
 
@@ -150,7 +153,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamPermissionName must be defined, can not be undefined');
             });
     });
 
@@ -166,7 +169,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionBoundedContextId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamPermissionBoundedContextId must be defined, can not be undefined');
             });
     });
 
@@ -182,7 +185,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for IamPermissionId is not allowed, must be a length of 36');
             });
     });
 
@@ -198,7 +201,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionBoundedContextId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for IamPermissionBoundedContextId is not allowed, must be a length of 36');
             });
     });
 
@@ -214,7 +217,7 @@ describe('permission', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for PermissionName is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for IamPermissionName is too large, has a maximum length of 255');
             });
     });
 
