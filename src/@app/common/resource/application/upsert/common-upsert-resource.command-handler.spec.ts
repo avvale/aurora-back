@@ -1,10 +1,5 @@
+import { commonMockResourceData, CommonUpsertResourceCommand, CommonUpsertResourceCommandHandler, CommonUpsertResourceService } from '@app/common/resource';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { commonMockResourceData } from '@app/common/resource/infrastructure/mock/common-mock-resource.data';
-import { CommonUpsertResourceCommandHandler } from './common-upsert-resource.command-handler';
-import { CommonUpsertResourceCommand } from './common-upsert-resource.command';
-import { CommonUpsertResourceService } from './common-upsert-resource.service';
 
 describe('CommonUpsertResourceCommandHandler', () =>
 {
