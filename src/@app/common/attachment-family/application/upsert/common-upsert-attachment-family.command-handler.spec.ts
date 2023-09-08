@@ -1,10 +1,5 @@
+import { commonMockAttachmentFamilyData, CommonUpsertAttachmentFamilyCommand, CommonUpsertAttachmentFamilyCommandHandler, CommonUpsertAttachmentFamilyService } from '@app/common/attachment-family';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { commonMockAttachmentFamilyData } from '@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data';
-import { CommonUpsertAttachmentFamilyCommandHandler } from './common-upsert-attachment-family.command-handler';
-import { CommonUpsertAttachmentFamilyCommand } from './common-upsert-attachment-family.command';
-import { CommonUpsertAttachmentFamilyService } from './common-upsert-attachment-family.service';
 
 describe('CommonUpsertAttachmentFamilyCommandHandler', () =>
 {
