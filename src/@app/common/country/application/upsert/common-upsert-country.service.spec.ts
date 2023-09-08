@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonICountryRepository, commonMockCountryData, CommonMockCountryRepository } from '@app/common/country';
+import { CommonICountryI18nRepository, CommonICountryRepository, commonMockCountryData, CommonMockCountryRepository } from '@app/common/country';
 import { CommonUpsertCountryService } from '@app/common/country/application/upsert/common-upsert-country.service';
 import {
     CommonCountryAdministrativeAreas,
