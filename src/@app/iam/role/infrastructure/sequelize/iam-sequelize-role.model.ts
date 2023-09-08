@@ -1,12 +1,12 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
-import { DataTypes } from 'sequelize';
+import { IamAccountModel } from '@app/iam/account';
 import { IamPermissionModel } from '@app/iam/permission';
 import { IamPermissionRoleModel } from '@app/iam/permission-role';
-import { IamAccountModel } from '@app/iam/account';
-import { IamRolesAccountsModel } from '@app/iam/role';
+import { IamRoleAccountModel } from '@app/iam/role-account';
+import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import { DataTypes } from 'sequelize';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, BelongsTo, BelongsToMany, Column, ForeignKey, HasMany, HasOne, Model, Table } from 'sequelize-typescript';
 
 @Table({
     modelName: 'IamRole',
@@ -155,8 +155,8 @@ export class IamRoleModel extends Model<IamRoleModel>
 
 
     @BelongsToMany(() => IamAccountModel, {
-        through: () => IamRolesAccountsModel,
-        uniqueKey: 'Uq01IamRolesAccounts',
+        through: () => IamRoleAccountModel,
+        uniqueKey: 'Uq01IamRoleAccount',
     })
     accounts: IamAccountModel[];
 

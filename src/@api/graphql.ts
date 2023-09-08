@@ -645,6 +645,21 @@ export interface IamUpdatePermissionsInput {
     roleIds?: Nullable<Nullable<string>[]>;
 }
 
+export interface IamCreateRoleAccountInput {
+    roleId: string;
+    accountId: string;
+}
+
+export interface IamUpdateRoleAccountByIdInput {
+    roleId: string;
+    accountId: string;
+}
+
+export interface IamUpdateRolesAccountsInput {
+    roleId?: Nullable<string>;
+    accountId?: Nullable<string>;
+}
+
 export interface IamCreateRoleInput {
     id: string;
     name: GraphQLString;
@@ -1103,6 +1118,10 @@ export interface IQuery {
     iamFindPermissionById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamGetPermissions(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission>[] | Promise<Nullable<IamPermission>[]>;
     iamPaginatePermissions(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamFindRoleAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamFindRoleAccountById(roleId?: Nullable<string>, accountId?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamGetRolesAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount>[] | Promise<Nullable<IamRoleAccount>[]>;
+    iamPaginateRolesAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindRole(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamFindRoleById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamGetRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
@@ -1257,6 +1276,13 @@ export interface IMutation {
     iamUpsertPermission(payload: IamUpdatePermissionByIdInput): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamDeletePermissionById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
     iamDeletePermissions(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermission>[] | Promise<Nullable<IamPermission>[]>;
+    iamCreateRoleAccount(payload: IamCreateRoleAccountInput): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamCreateRolesAccounts(payload: Nullable<IamCreateRoleAccountInput>[]): boolean | Promise<boolean>;
+    iamUpdateRoleAccountById(payload: IamUpdateRoleAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamUpdateRolesAccounts(payload: IamUpdateRolesAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount>[] | Promise<Nullable<IamRoleAccount>[]>;
+    iamUpsertRoleAccount(payload: IamUpdateRoleAccountByIdInput): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamDeleteRoleAccountById(roleId: string, accountId: string, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
+    iamDeleteRolesAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount>[] | Promise<Nullable<IamRoleAccount>[]>;
     iamCreateRole(payload: IamCreateRoleInput): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamCreateRoles(payload: Nullable<IamCreateRoleInput>[]): boolean | Promise<boolean>;
     iamUpdateRoleById(payload: IamUpdateRoleByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
@@ -1549,6 +1575,13 @@ export interface IamPermission {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface IamRoleAccount {
+    roleId: string;
+    accountId: string;
+    role?: Nullable<IamRole>;
+    account?: Nullable<IamAccount>;
 }
 
 export interface IamRole {

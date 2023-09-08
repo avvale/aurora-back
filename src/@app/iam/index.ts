@@ -2,9 +2,10 @@ import { IamBoundedContextHandlers, IamBoundedContextServices, IamBoundedContext
 import { IamPermissionHandlers, IamPermissionServices, IamPermissionModel, IamIPermissionRepository, IamSequelizePermissionRepository, IamPermissionSagas } from './permission';
 import { IamPermissionRoleHandlers, IamPermissionRoleServices, IamIPermissionRoleRepository, IamSequelizePermissionRoleRepository, IamPermissionRoleModel, IamPermissionRoleSagas } from './permission-role';
 import { IamTenantHandlers, IamTenantServices, IamTenantModel, IamTenantsAccountsModel, IamITenantRepository, IamSequelizeTenantRepository, IamTenantSagas } from './tenant';
-import { IamRoleHandlers, IamRoleServices, IamRoleModel, IamRolesAccountsModel, IamSequelizeRoleAccountRepository, IamIRoleAccountRepository, IamIRoleRepository, IamSequelizeRoleRepository, IamRoleSagas } from './role';
+import { IamRoleHandlers, IamRoleServices, IamRoleModel, IamIRoleRepository, IamSequelizeRoleRepository, IamRoleSagas } from './role';
 import { IamAccountHandlers, IamAccountServices, IamAccountModel, IamIAccountRepository, IamSequelizeAccountRepository, IamAccountSagas } from './account';
 import { IamUserHandlers, IamUserServices, IamUserModel, IamIUserRepository, IamSequelizeUserRepository, IamUserSagas } from './user';
+import { IamRoleAccountHandlers, IamRoleAccountServices, IamRoleAccountModel, IamRoleAccountSagas, IamIRoleAccountRepository, IamSequelizeRoleAccountRepository } from './role-account';
 
 export const IamHandlers = [
     ...IamBoundedContextHandlers,
@@ -13,7 +14,8 @@ export const IamHandlers = [
     ...IamTenantHandlers,
     ...IamRoleHandlers,
     ...IamAccountHandlers,
-    ...IamUserHandlers
+    ...IamUserHandlers,
+    ...IamRoleAccountHandlers
 ];
 export const IamServices = [
     ...IamBoundedContextServices,
@@ -22,7 +24,8 @@ export const IamServices = [
     ...IamTenantServices,
     ...IamRoleServices,
     ...IamAccountServices,
-    ...IamUserServices
+    ...IamUserServices,
+    ...IamRoleAccountServices
 ];
 export const IamModels = [
     IamBoundedContextModel,
@@ -30,10 +33,10 @@ export const IamModels = [
     IamTenantModel,
     IamTenantsAccountsModel,
     IamRoleModel,
-    IamRolesAccountsModel,
     IamAccountModel,
     IamUserModel,
-    IamPermissionRoleModel
+    IamPermissionRoleModel,
+    IamRoleAccountModel
 ];
 export const IamRepositories = [
     {
@@ -59,10 +62,6 @@ export const IamRepositories = [
         useClass: IamSequelizePermissionRoleRepository
     },
     {
-        provide : IamIRoleAccountRepository,
-        useClass: IamSequelizeRoleAccountRepository
-    },
-    {
         provide : IamIPermissionRepository,
         useClass: IamSequelizePermissionRepository
     },
@@ -73,6 +72,10 @@ export const IamRepositories = [
     {
         provide : IamIBoundedContextRepository,
         useClass: IamSequelizeBoundedContextRepository
+    },
+    {
+        provide : IamIRoleAccountRepository,
+        useClass: IamSequelizeRoleAccountRepository
     }
 ];
 export const IamSagas = [
@@ -83,5 +86,6 @@ export const IamSagas = [
     IamAccountSagas,
     IamUserSagas,
     IamTenantSagas,
-    IamPermissionRoleSagas
+    IamPermissionRoleSagas,
+    IamRoleAccountSagas
 ];

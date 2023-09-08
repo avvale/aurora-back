@@ -6,9 +6,9 @@ import { DataTypes } from 'sequelize';
 import { IamUserModel } from '@app/iam/user';
 import { OAuthClientModel } from '@app/o-auth/client';
 import { IamRoleModel } from '@app/iam/role';
-import { IamRolesAccountsModel } from '@app/iam/role';
 import { IamTenantModel } from '@app/iam/tenant';
 import { IamTenantsAccountsModel } from '@app/iam/tenant';
+import { IamRoleAccountModel } from '@app/iam/role-account';
 
 @Table({
     modelName: 'IamAccount',
@@ -224,7 +224,7 @@ export class IamAccountModel extends Model<IamAccountModel>
 
 
     @BelongsToMany(() => IamRoleModel, {
-        through: () => IamRolesAccountsModel,
+        through: () => IamRoleAccountModel,
         uniqueKey: 'Uq01IamRolesAccounts',
     })
     roles: IamRoleModel[];
