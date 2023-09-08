@@ -1,10 +1,5 @@
+import { commonMockAdministrativeAreaLevel1Data, CommonUpsertAdministrativeAreaLevel1Command, CommonUpsertAdministrativeAreaLevel1CommandHandler, CommonUpsertAdministrativeAreaLevel1Service } from '@app/common/administrative-area-level-1';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { commonMockAdministrativeAreaLevel1Data } from '@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
-import { CommonUpsertAdministrativeAreaLevel1CommandHandler } from './common-upsert-administrative-area-level-1.command-handler';
-import { CommonUpsertAdministrativeAreaLevel1Command } from './common-upsert-administrative-area-level-1.command';
-import { CommonUpsertAdministrativeAreaLevel1Service } from './common-upsert-administrative-area-level-1.service';
 
 describe('CommonUpsertAdministrativeAreaLevel1CommandHandler', () =>
 {
