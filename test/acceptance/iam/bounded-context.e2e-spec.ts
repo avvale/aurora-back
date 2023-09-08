@@ -2,8 +2,9 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { IamModule } from '@api/iam/iam.module';
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { IamIBoundedContextRepository, iamMockBoundedContextData, IamMockBoundedContextSeeder } from '@app/iam/bounded-context';
-import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -59,7 +60,9 @@ describe('bounded-context', () =>
                 IamMockBoundedContextSeeder,
             ],
         })
-            .overrideGuard(Auth)
+            .overrideGuard(AuthenticationJwtGuard)
+            .useValue({ canActivate: () => true })
+            .overrideGuard(AuthorizationPermissionsGuard)
             .useValue({ canActivate: () => true })
             .compile();
 
@@ -86,7 +89,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamBoundedContextId must be defined, can not be null');
             });
     });
 
@@ -102,7 +105,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamBoundedContextName must be defined, can not be null');
             });
     });
 
@@ -118,7 +121,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextRoot must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamBoundedContextRoot must be defined, can not be null');
             });
     });
 
@@ -134,7 +137,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextIsActive must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamBoundedContextIsActive must be defined, can not be null');
             });
     });
 
@@ -150,7 +153,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamBoundedContextId must be defined, can not be undefined');
             });
     });
 
@@ -166,7 +169,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamBoundedContextName must be defined, can not be undefined');
             });
     });
 
@@ -182,7 +185,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextRoot must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamBoundedContextRoot must be defined, can not be undefined');
             });
     });
 
@@ -198,7 +201,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextIsActive must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamBoundedContextIsActive must be defined, can not be undefined');
             });
     });
 
@@ -214,7 +217,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for IamBoundedContextId is not allowed, must be a length of 36');
             });
     });
 
@@ -230,7 +233,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextName is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for IamBoundedContextName is too large, has a maximum length of 255');
             });
     });
 
@@ -246,7 +249,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextRoot is too large, has a maximum length of 30');
+                expect(res.body.message).toContain('Value for IamBoundedContextRoot is too large, has a maximum length of 30');
             });
     });
 
@@ -262,7 +265,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextSort is too large, has a maximum length of 6');
+                expect(res.body.message).toContain('Value for IamBoundedContextSort is too large, has a maximum length of 6');
             });
     });
 
@@ -278,7 +281,7 @@ describe('bounded-context', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for BoundedContextIsActive has to be a boolean value');
+                expect(res.body.message).toContain('Value for IamBoundedContextIsActive has to be a boolean value');
             });
     });
 

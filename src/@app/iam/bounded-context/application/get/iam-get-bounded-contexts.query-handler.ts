@@ -13,10 +13,12 @@ export class IamGetBoundedContextsQueryHandler implements IQueryHandler<IamGetBo
 
     async execute(query: IamGetBoundedContextsQuery): Promise<IamBoundedContextResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getBoundedContextsService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getBoundedContextsService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }
