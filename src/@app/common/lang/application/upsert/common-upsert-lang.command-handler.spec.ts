@@ -1,4 +1,6 @@
-import { commonMockLangData, CommonUpsertLangCommand, CommonUpsertLangCommandHandler, CommonUpsertLangService } from '@app/common/lang';
+import { commonMockLangData, CommonUpsertLangCommand } from '@app/common/lang';
+import { CommonUpsertLangCommandHandler } from '@app/common/lang/application/upsert/common-upsert-lang.command-handler';
+import { CommonUpsertLangService } from '@app/common/lang/application/upsert/common-upsert-lang.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUpsertLangCommandHandler', () =>

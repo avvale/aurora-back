@@ -283,7 +283,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.command-handler.spec.ts",
-            "integrity": "sha1:8f0def04313b3059196951f606b1bc05156af7a9"
+            "integrity": "sha1:50ae627813e4b74f5ed3fa0cfe03e1aaebfc6adf"
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.command-handler.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.service.spec.ts",
-            "integrity": "sha1:dc79642e3ac35c1d4dcb6712c1d6dbdfd47687a8"
+            "integrity": "sha1:40d80a33f9972e0333aec09f395e1d6ceb4aeb08"
         },
         {
             "path": "src/@app/common/attachment-family/application/upsert/common-upsert-attachment-family.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data.ts",
-            "integrity": "sha1:04e95528d84ae1ba46ef22f81e88343bac7f4126"
+            "integrity": "sha1:55ef1a7281d7eef93e1f0fd458ad8015f9468d5c"
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.repository.ts",
@@ -699,7 +699,7 @@
         },
         {
             "path": "postman/common/common.attachment-family.postman.json",
-            "integrity": "sha1:3e1593c1f95f48a2304712b9f2861149a1ed5304"
+            "integrity": "sha1:21b8d9dd144575a8645b548d487638e93982316b"
         }
     ]
 }

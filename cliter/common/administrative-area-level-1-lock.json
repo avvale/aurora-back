@@ -283,7 +283,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.command-handler.spec.ts",
-            "integrity": "sha1:5847cbef7cedfed5665bbd44bb618584eeafcced"
+            "integrity": "sha1:30d8ef057e972a923312c9fa069b3998a6ce5de8"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.command-handler.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.service.spec.ts",
-            "integrity": "sha1:fd7be678235cf945b0bea07fef5aeb2de00479c7"
+            "integrity": "sha1:03a9580ce3f769e15bba0be11b33df2880b324d0"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/application/upsert/common-upsert-administrative-area-level-1.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data.ts",
-            "integrity": "sha1:40cb6db4f7f0dd1e36b40c1d6f6ccaf18bc16e7d"
+            "integrity": "sha1:875c9be9fdc237d003711c7dc4cbc44ba53af231"
         },
         {
             "path": "src/@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.repository.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.administrative-area-level-1.postman.json",
-            "integrity": "sha1:5e4db2aaa438b21e4028cc077be66673032787b8"
+            "integrity": "sha1:ff105f3473e7cd9a182c9d7773fe0a22800518c1"
         }
     ]
 }

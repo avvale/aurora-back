@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonIAdministrativeAreaLevel3Repository, commonMockAdministrativeAreaLevel3Data, CommonMockAdministrativeAreaLevel3Repository, CommonUpsertAdministrativeAreaLevel3Service } from '@app/common/administrative-area-level-3';
+import { CommonIAdministrativeAreaLevel3Repository, commonMockAdministrativeAreaLevel3Data, CommonMockAdministrativeAreaLevel3Repository } from '@app/common/administrative-area-level-3';
+import { CommonUpsertAdministrativeAreaLevel3Service } from '@app/common/administrative-area-level-3/application/upsert/common-upsert-administrative-area-level-3.service';
 import {
     CommonAdministrativeAreaLevel3AdministrativeAreaLevel1Id,
     CommonAdministrativeAreaLevel3AdministrativeAreaLevel2Id,

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonILangRepository, commonMockLangData, CommonMockLangRepository, CommonUpsertLangService } from '@app/common/lang';
+import { CommonILangRepository, commonMockLangData, CommonMockLangRepository } from '@app/common/lang';
+import { CommonUpsertLangService } from '@app/common/lang/application/upsert/common-upsert-lang.service';
 import {
     CommonLangCustomCode,
     CommonLangDir,

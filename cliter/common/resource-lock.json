@@ -283,7 +283,7 @@
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.command-handler.spec.ts",
-            "integrity": "sha1:b22abf0085f2bfeee2e44964839913932f91981e"
+            "integrity": "sha1:ec1c43e4c982d8f8be9f5dfb3ef2ae7525c939a7"
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.command-handler.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.service.spec.ts",
-            "integrity": "sha1:a8317cf8c2f45eb10af3c68d7e157afa6b8c8213"
+            "integrity": "sha1:c2f00aa24e922980264c04720964ecbf9071db33"
         },
         {
             "path": "src/@app/common/resource/application/upsert/common-upsert-resource.service.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.data.ts",
-            "integrity": "sha1:c1bd0cf9958ee166f7f98f48a8f2a14abb52a176"
+            "integrity": "sha1:17e64a459c65b1398a42f875ec0cf4670e434fcc"
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.repository.ts",
@@ -683,7 +683,7 @@
         },
         {
             "path": "postman/common/common.resource.postman.json",
-            "integrity": "sha1:1e7e6df3f78db8a3dcd6cf6d382cd3eef3aea4d3"
+            "integrity": "sha1:e5abd46a667e920808b7156f56d6446ecb4786bd"
         }
     ]
 }

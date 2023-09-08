@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonIResourceRepository, commonMockResourceData, CommonMockResourceRepository, CommonUpsertResourceService } from '@app/common/resource';
+import { CommonIResourceRepository, commonMockResourceData, CommonMockResourceRepository } from '@app/common/resource';
+import { CommonUpsertResourceService } from '@app/common/resource/application/upsert/common-upsert-resource.service';
 import {
     CommonResourceCode,
     CommonResourceHasAttachments,

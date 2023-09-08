@@ -1,4 +1,6 @@
-import { commonMockCountryData, CommonUpsertCountryCommand, CommonUpsertCountryCommandHandler, CommonUpsertCountryService } from '@app/common/country';
+import { commonMockCountryData, CommonUpsertCountryCommand } from '@app/common/country';
+import { CommonUpsertCountryCommandHandler } from '@app/common/country/application/upsert/common-upsert-country.command-handler';
+import { CommonUpsertCountryService } from '@app/common/country/application/upsert/common-upsert-country.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUpsertCountryCommandHandler', () =>
