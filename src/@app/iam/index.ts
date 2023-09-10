@@ -6,6 +6,7 @@ import { IamRoleHandlers, IamRoleServices, IamRoleModel, IamIRoleRepository, Iam
 import { IamAccountHandlers, IamAccountServices, IamAccountModel, IamIAccountRepository, IamSequelizeAccountRepository, IamAccountSagas } from './account';
 import { IamUserHandlers, IamUserServices, IamUserModel, IamIUserRepository, IamSequelizeUserRepository, IamUserSagas } from './user';
 import { IamRoleAccountHandlers, IamRoleAccountServices, IamRoleAccountModel, IamRoleAccountSagas, IamIRoleAccountRepository, IamSequelizeRoleAccountRepository } from './role-account';
+import { IamTenantAccountHandlers, IamTenantAccountServices, IamTenantAccountModel, IamITenantAccountRepository, IamSequelizeTenantAccountRepository, IamTenantAccountSagas } from './tenant-account';
 
 export const IamHandlers = [
     ...IamBoundedContextHandlers,
@@ -15,7 +16,8 @@ export const IamHandlers = [
     ...IamRoleHandlers,
     ...IamAccountHandlers,
     ...IamUserHandlers,
-    ...IamRoleAccountHandlers
+    ...IamRoleAccountHandlers,
+    ...IamTenantAccountHandlers
 ];
 export const IamServices = [
     ...IamBoundedContextServices,
@@ -25,7 +27,8 @@ export const IamServices = [
     ...IamRoleServices,
     ...IamAccountServices,
     ...IamUserServices,
-    ...IamRoleAccountServices
+    ...IamRoleAccountServices,
+    ...IamTenantAccountServices
 ];
 export const IamModels = [
     IamBoundedContextModel,
@@ -36,7 +39,8 @@ export const IamModels = [
     IamAccountModel,
     IamUserModel,
     IamPermissionRoleModel,
-    IamRoleAccountModel
+    IamRoleAccountModel,
+    IamTenantAccountModel
 ];
 export const IamRepositories = [
     {
@@ -76,6 +80,10 @@ export const IamRepositories = [
     {
         provide : IamIRoleAccountRepository,
         useClass: IamSequelizeRoleAccountRepository
+    },
+    {
+        provide : IamITenantAccountRepository,
+        useClass: IamSequelizeTenantAccountRepository
     }
 ];
 export const IamSagas = [
@@ -87,5 +95,6 @@ export const IamSagas = [
     IamUserSagas,
     IamTenantSagas,
     IamPermissionRoleSagas,
-    IamRoleAccountSagas
+    IamRoleAccountSagas,
+    IamTenantAccountSagas
 ];

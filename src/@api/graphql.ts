@@ -684,6 +684,21 @@ export interface IamUpdateRolesInput {
     accountIds?: Nullable<Nullable<string>[]>;
 }
 
+export interface IamCreateTenantAccountInput {
+    tenantId: string;
+    accountId: string;
+}
+
+export interface IamUpdateTenantAccountByIdInput {
+    tenantId: string;
+    accountId: string;
+}
+
+export interface IamUpdateTenantsAccountsInput {
+    tenantId?: Nullable<string>;
+    accountId?: Nullable<string>;
+}
+
 export interface IamCreateTenantInput {
     id: string;
     name: GraphQLString;
@@ -1126,6 +1141,10 @@ export interface IQuery {
     iamFindRoleById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamGetRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
     iamPaginateRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamFindTenantAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamFindTenantAccountById(tenantId?: Nullable<string>, accountId?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamGetTenantsAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
+    iamPaginateTenantsAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindTenant(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamFindTenantById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamGetTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant>[] | Promise<Nullable<IamTenant>[]>;
@@ -1290,6 +1309,13 @@ export interface IMutation {
     iamUpsertRole(payload: IamUpdateRoleByIdInput): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoleById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
+    iamCreateTenantAccount(payload: IamCreateTenantAccountInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamCreateTenantsAccounts(payload: Nullable<IamCreateTenantAccountInput>[]): boolean | Promise<boolean>;
+    iamUpdateTenantAccountById(payload: IamUpdateTenantAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamUpdateTenantsAccounts(payload: IamUpdateTenantsAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
+    iamUpsertTenantAccount(payload: IamUpdateTenantAccountByIdInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamDeleteTenantAccountById(tenantId: string, accountId: string, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
+    iamDeleteTenantsAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
     iamCreateTenant(payload: IamCreateTenantInput): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamCreateTenants(payload: Nullable<IamCreateTenantInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantById(payload: IamUpdateTenantByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
@@ -1593,6 +1619,13 @@ export interface IamRole {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface IamTenantAccount {
+    tenantId: string;
+    accountId: string;
+    tenant?: Nullable<IamTenant>;
+    account?: Nullable<IamAccount>;
 }
 
 export interface IamTenant {
