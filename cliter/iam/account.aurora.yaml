@@ -71,28 +71,64 @@ aggregateProperties:
       modulePath: iam/role
       avoidConstraint: false
       pivot:
+        boundedContextName: iam
+        moduleName: role-account
+        moduleNames: roles-accounts
         aggregateName: IamRoleAccount
-        modulePath: iam/role
-        fileNames: roles-accounts
+        hasOAuth: true
+        hasAuditing: true
+        aggregateProperties:
+          - name: roleId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+            aggregateName: IamRole
+            modulePath: iam/role
+          - name: accountId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+            aggregateName: IamAccount
+            modulePath: iam/account
   - name: tenants
     type: relationship
     nullable: true
     relationship:
       type: many-to-many
       singularName: tenant
-      aggregate: IamTenant
+      aggregateName: IamTenant
       modulePath: iam/tenant
       avoidConstraint: false
       pivot:
-        aggregate: IamTenantAccount
-        modulePath: iam/tenant
-        fileNames: tenants-accounts
+        boundedContextName: iam
+        moduleName: tenant-account
+        moduleNames: tenants-accounts
+        aggregateName: IamTenantAccount
+        hasOAuth: true
+        hasAuditing: true
+        aggregateProperties:
+          - name: tenantId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+            aggregateName: IamTenant
+            modulePath: iam/tenant
+          - name: accountId
+            type: id
+            primaryKey: true
+            length: 36
+            nullable: false
+            aggregateName: IamAccount
+            modulePath: iam/account
   - name: user
     type: relationship
     nullable: true
     relationship:
       type: one-to-one
-      aggregate: IamUser
+      aggregateName: IamUser
       modulePath: iam/user
   - name: createdAt
     type: timestamp
@@ -103,8 +139,6 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
-aggregateI18nProperties: []
-additionalApis: []
 excluded:
   - src/@api/iam/account/resolvers/iam-create-accounts.resolver.ts
   - src/@api/iam/account/resolvers/iam-create-accounts.resolver.spec.ts
