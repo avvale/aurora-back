@@ -7,12 +7,12 @@ export class OAuthUpdateApplicationClientByIdDto
         type       : String,
         description: 'applicationId [input here api field description]',
     })
-    applicationId?: string;
+    applicationId: string;
 
     @ApiProperty({
         type       : String,
         description: 'clientId [input here api field description]',
     })
-    clientId?: string;
+    clientId: string;
 
 }

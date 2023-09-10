@@ -4,8 +4,8 @@ export class OAuthUpdateApplicationClientByIdCommand
 {
     constructor(
         public readonly payload: {
-            applicationId?: string;
-            clientId?: string;
+            applicationId: string;
+            clientId: string;
         },
         public readonly constraint?: QueryStatement,
         public readonly cQMetadata?: CQMetadata,

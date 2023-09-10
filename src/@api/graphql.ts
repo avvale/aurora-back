@@ -813,8 +813,8 @@ export interface OAuthCreateApplicationClientInput {
 }
 
 export interface OAuthUpdateApplicationClientByIdInput {
-    applicationId?: Nullable<string>;
-    clientId?: Nullable<string>;
+    applicationId: string;
+    clientId: string;
 }
 
 export interface OAuthUpdateApplicationsClientsInput {
@@ -1159,7 +1159,7 @@ export interface IQuery {
     oAuthGetAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken>[] | Promise<Nullable<OAuthAccessToken>[]>;
     oAuthPaginateAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     oAuthFindApplicationClient(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
-    oAuthFindApplicationClientById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
+    oAuthFindApplicationClientById(applicationId?: Nullable<string>, clientId?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthGetApplicationsClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient>[] | Promise<Nullable<OAuthApplicationClient>[]>;
     oAuthPaginateApplicationsClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     oAuthFindApplication(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
@@ -1340,7 +1340,7 @@ export interface IMutation {
     oAuthUpdateApplicationClientById(payload: OAuthUpdateApplicationClientByIdInput, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthUpdateApplicationsClients(payload: OAuthUpdateApplicationsClientsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient>[] | Promise<Nullable<OAuthApplicationClient>[]>;
     oAuthUpsertApplicationClient(payload: OAuthUpdateApplicationClientByIdInput): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
-    oAuthDeleteApplicationClientById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
+    oAuthDeleteApplicationClientById(applicationId: string, clientId: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthDeleteApplicationsClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient>[] | Promise<Nullable<OAuthApplicationClient>[]>;
     oAuthCreateApplication(payload: OAuthCreateApplicationInput): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
     oAuthCreateApplications(payload: Nullable<OAuthCreateApplicationInput>[]): boolean | Promise<boolean>;
@@ -1689,6 +1689,8 @@ export interface OAuthAccessToken {
 export interface OAuthApplicationClient {
     applicationId: string;
     clientId: string;
+    application?: Nullable<OAuthApplication>;
+    client?: Nullable<OAuthClient>;
 }
 
 export interface OAuthApplication {

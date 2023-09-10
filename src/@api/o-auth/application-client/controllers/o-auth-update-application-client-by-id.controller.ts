@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { OAuthApplicationClientDto, OAuthUpdateApplicationClientByIdDto, OAuthUpdateApplicationClientByIdHandler } from '@api/o-auth/application-client';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auth } from '@aurora/decorators';
+import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Put } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[o-auth] application-client')
 @Controller('o-auth/application-client/update')
+@Auth('oAuth.applicationClient.update')
 export class OAuthUpdateApplicationClientByIdController
 {
     constructor(
@@ -19,12 +21,14 @@ export class OAuthUpdateApplicationClientByIdController
         @Body() payload: OAuthUpdateApplicationClientByIdDto,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
+        @Auditing() auditing?: AuditingMeta,
     )
     {
         return await this.handler.main(
             payload,
             constraint,
             timezone,
+            auditing,
         );
     }
 }

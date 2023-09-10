@@ -13,10 +13,12 @@ export class OAuthGetClientsQueryHandler implements IQueryHandler<OAuthGetClient
 
     async execute(query: OAuthGetClientsQuery): Promise<OAuthClientResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getClientsService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getClientsService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }

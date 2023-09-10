@@ -17,8 +17,8 @@ export class OAuthUpdateApplicationClientByIdService
 
     async main(
         payload: {
-            applicationId?: OAuthApplicationClientApplicationId;
-            clientId?: OAuthApplicationClientClientId;
+            applicationId: OAuthApplicationClientApplicationId;
+            clientId: OAuthApplicationClientClientId;
         },
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,

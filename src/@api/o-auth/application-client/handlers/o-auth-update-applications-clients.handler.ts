@@ -1,7 +1,7 @@
 import { OAuthApplicationClient, OAuthUpdateApplicationsClientsInput } from '@api/graphql';
 import { OAuthApplicationClientDto, OAuthUpdateApplicationsClientsDto } from '@api/o-auth/application-client';
 import { OAuthGetApplicationsClientsQuery, OAuthUpdateApplicationsClientsCommand } from '@app/o-auth/application-client';
-import { ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -17,6 +17,7 @@ export class OAuthUpdateApplicationsClientsHandler
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         timezone?: string,
+        auditing?: AuditingMeta,
     ): Promise<OAuthApplicationClient | OAuthApplicationClientDto>
     {
         await this.commandBus.dispatch(new OAuthUpdateApplicationsClientsCommand(
@@ -25,6 +26,9 @@ export class OAuthUpdateApplicationsClientsHandler
             constraint,
             {
                 timezone,
+                repositoryOptions: {
+                    auditing,
+                },
             },
         ));
 

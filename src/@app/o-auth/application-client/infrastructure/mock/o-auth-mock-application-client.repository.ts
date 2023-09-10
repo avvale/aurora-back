@@ -1,12 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { MockRepository, Utils } from '@aurorajs.dev/core';
-import { OAuthIApplicationClientRepository } from '@app/o-auth/application-client/domain/o-auth-application-client.repository';
+import { OAuthApplicationClient, OAuthIApplicationClientRepository, oAuthMockApplicationClientData } from '@app/o-auth/application-client';
 import {
     OAuthApplicationClientApplicationId,
     OAuthApplicationClientClientId,
 } from '@app/o-auth/application-client/domain/value-objects';
-import { OAuthApplicationClient } from '../../domain/o-auth-application-client.aggregate';
-import { oAuthMockApplicationClientData } from './o-auth-mock-application-client.data';
+import { MockRepository, Utils } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class OAuthMockApplicationClientRepository extends MockRepository<OAuthApplicationClient> implements OAuthIApplicationClientRepository

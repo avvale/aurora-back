@@ -19,8 +19,8 @@ export class OAuthUpdateApplicationClientByIdCommandHandler implements ICommandH
         // call to use case and implements ValueObjects
         await this.updateApplicationClientByIdService.main(
             {
-                applicationId: new OAuthApplicationClientApplicationId(command.payload.applicationId, { undefinable: true }),
-                clientId: new OAuthApplicationClientClientId(command.payload.clientId, { undefinable: true }),
+                applicationId: new OAuthApplicationClientApplicationId(command.payload.applicationId),
+                clientId: new OAuthApplicationClientClientId(command.payload.clientId),
             },
             command.constraint,
             command.cQMetadata,

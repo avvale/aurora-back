@@ -1,10 +1,11 @@
-import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
-import { OAuthApplicationClient } from './o-auth-application-client.aggregate';
-import { OAuthApplicationClientResponse } from './o-auth-application-client.response';
+import { OAuthApplicationMapper } from '@app/o-auth/application';
+import { OAuthApplicationClient, OAuthApplicationClientResponse } from '@app/o-auth/application-client';
 import {
     OAuthApplicationClientApplicationId,
     OAuthApplicationClientClientId,
-} from './value-objects';
+} from '@app/o-auth/application-client/domain/value-objects';
+import { OAuthClientMapper } from '@app/o-auth/client';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
 export class OAuthApplicationClientMapper implements IMapper
 {
@@ -59,6 +60,8 @@ export class OAuthApplicationClientMapper implements IMapper
         return OAuthApplicationClient.register(
             new OAuthApplicationClientApplicationId(applicationClient.applicationId, { undefinable: true }),
             new OAuthApplicationClientClientId(applicationClient.clientId, { undefinable: true }),
+            this.options.eagerLoading ? new OAuthApplicationMapper({ eagerLoading: true }).mapModelToAggregate(applicationClient.application, cQMetadata) : undefined,
+            this.options.eagerLoading ? new OAuthClientMapper({ eagerLoading: true }).mapModelToAggregate(applicationClient.client, cQMetadata) : undefined,
         );
     }
 
@@ -69,6 +72,8 @@ export class OAuthApplicationClientMapper implements IMapper
         return new OAuthApplicationClientResponse(
             applicationClient.applicationId.value,
             applicationClient.clientId.value,
+            this.options.eagerLoading ? new OAuthApplicationMapper({ eagerLoading: true }).mapAggregateToResponse(applicationClient.application) : undefined,
+            this.options.eagerLoading ? new OAuthClientMapper({ eagerLoading: true }).mapAggregateToResponse(applicationClient.client) : undefined,
         );
     }
 }

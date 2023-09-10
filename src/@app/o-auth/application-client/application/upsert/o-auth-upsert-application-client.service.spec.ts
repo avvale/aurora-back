@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { oAuthMockApplicationClientData } from '@app/o-auth/application-client/infrastructure/mock/o-auth-mock-application-client.data';
-import { OAuthUpsertApplicationClientService } from './o-auth-upsert-application-client.service';
+import { OAuthIApplicationClientRepository, oAuthMockApplicationClientData, OAuthMockApplicationClientRepository } from '@app/o-auth/application-client';
+import { OAuthUpsertApplicationClientService } from '@app/o-auth/application-client/application/upsert/o-auth-upsert-application-client.service';
 import {
     OAuthApplicationClientApplicationId,
     OAuthApplicationClientClientId,
-} from '../../domain/value-objects';
-import { OAuthIApplicationClientRepository } from '../../domain/o-auth-application-client.repository';
-import { OAuthMockApplicationClientRepository } from '../../infrastructure/mock/o-auth-mock-application-client.repository';
+} from '@app/o-auth/application-client/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('OAuthUpsertApplicationClientService', () =>
 

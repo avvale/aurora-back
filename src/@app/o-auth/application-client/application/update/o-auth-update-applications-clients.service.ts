@@ -1,14 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
+import { OAuthAddApplicationsClientsContextEvent, OAuthApplicationClient, OAuthIApplicationClientRepository } from '@app/o-auth/application-client';
 import {
     OAuthApplicationClientApplicationId,
     OAuthApplicationClientClientId,
-} from '../../domain/value-objects';
-import { OAuthIApplicationClientRepository } from '../../domain/o-auth-application-client.repository';
-import { OAuthApplicationClient } from '../../domain/o-auth-application-client.aggregate';
-import { OAuthAddApplicationsClientsContextEvent } from '../events/o-auth-add-applications-clients-context.event';
+} from '@app/o-auth/application-client/domain/value-objects';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
 export class OAuthUpdateApplicationsClientsService
@@ -33,7 +30,6 @@ export class OAuthUpdateApplicationsClientsService
             payload.applicationId,
             payload.clientId,
         );
-
 
         // update
         await this.repository.update(

@@ -33,6 +33,12 @@ export class OAuthCreateApplicationClientService
             applicationClient,
             {
                 createOptions: cQMetadata?.repositoryOptions,
+                finderQueryStatement: (aggregate: OAuthApplicationClient) => ({
+                    where: {
+                        applicationId: aggregate['applicationId']['value'],
+                        clientId: aggregate['clientId']['value'],
+                    },
+                }),
             },
         );
 

@@ -1,11 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { MockSeeder } from '@aurorajs.dev/core';
+import { OAuthApplicationClient, oAuthMockApplicationClientData } from '@app/o-auth/application-client';
 import {
     OAuthApplicationClientApplicationId,
     OAuthApplicationClientClientId,
-} from '../../domain/value-objects';
-import { OAuthApplicationClient } from '../../domain/o-auth-application-client.aggregate';
-import { oAuthMockApplicationClientData } from './o-auth-mock-application-client.data';
+} from '@app/o-auth/application-client/domain/value-objects';
+import { MockSeeder } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()

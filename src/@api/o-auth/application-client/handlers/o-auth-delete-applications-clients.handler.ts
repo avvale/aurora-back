@@ -1,7 +1,7 @@
 import { OAuthApplicationClient } from '@api/graphql';
 import { OAuthApplicationClientDto } from '@api/o-auth/application-client';
 import { OAuthDeleteApplicationsClientsCommand, OAuthGetApplicationsClientsQuery } from '@app/o-auth/application-client';
-import { ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -16,6 +16,7 @@ export class OAuthDeleteApplicationsClientsHandler
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         timezone?: string,
+        auditing?: AuditingMeta,
     ): Promise<OAuthApplicationClient[] | OAuthApplicationClientDto[]>
     {
         const applicationsClients = await this.queryBus.ask(new OAuthGetApplicationsClientsQuery(
@@ -31,6 +32,9 @@ export class OAuthDeleteApplicationsClientsHandler
             constraint,
             {
                 timezone,
+                repositoryOptions: {
+                    auditing,
+                },
             },
         ));
 

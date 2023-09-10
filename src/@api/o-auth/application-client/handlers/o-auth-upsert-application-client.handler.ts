@@ -1,7 +1,7 @@
 import { OAuthApplicationClient, OAuthUpdateApplicationClientByIdInput } from '@api/graphql';
 import { OAuthApplicationClientDto, OAuthUpdateApplicationClientByIdDto } from '@api/o-auth/application-client';
 import { OAuthFindApplicationClientByIdQuery, OAuthUpsertApplicationClientCommand } from '@app/o-auth/application-client';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { AuditingMeta, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -15,12 +15,16 @@ export class OAuthUpsertApplicationClientHandler
     async main(
         payload: OAuthUpdateApplicationClientByIdInput | OAuthUpdateApplicationClientByIdDto,
         timezone?: string,
+        auditing?: AuditingMeta,
     ): Promise<OAuthApplicationClient | OAuthApplicationClientDto>
     {
         await this.commandBus.dispatch(new OAuthUpsertApplicationClientCommand(
             payload,
             {
                 timezone,
+                repositoryOptions: {
+                    auditing,
+                },
             },
         ));
 

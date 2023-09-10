@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { OAuthApplicationClientDto, OAuthDeleteApplicationsClientsHandler } from '@api/o-auth/application-client';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auth } from '@aurora/decorators';
+import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Delete } from '@nestjs/common';
 import { ApiBody, ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[o-auth] application-client')
 @Controller('o-auth/applications-clients/delete')
+@Auth('oAuth.applicationClient.delete')
 export class OAuthDeleteApplicationsClientsController
 {
     constructor(
@@ -21,12 +23,14 @@ export class OAuthDeleteApplicationsClientsController
         @Body('query') queryStatement?: QueryStatement,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
+        @Auditing() auditing?: AuditingMeta,
     )
     {
         return await this.handler.main(
             queryStatement,
             constraint,
             timezone,
+            auditing,
         );
     }
 }

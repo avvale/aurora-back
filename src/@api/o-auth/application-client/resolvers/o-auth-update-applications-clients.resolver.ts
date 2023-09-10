@@ -1,9 +1,11 @@
 import { OAuthApplicationClient, OAuthUpdateApplicationsClientsInput } from '@api/graphql';
 import { OAuthUpdateApplicationsClientsHandler } from '@api/o-auth/application-client';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auth } from '@aurora/decorators';
+import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
+@Auth('oAuth.applicationClient.update')
 export class OAuthUpdateApplicationsClientsResolver
 {
     constructor(
@@ -16,6 +18,7 @@ export class OAuthUpdateApplicationsClientsResolver
         @Args('query') queryStatement?: QueryStatement,
         @Args('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
+        @Auditing() auditing?: AuditingMeta,
     ): Promise<OAuthApplicationClient>
     {
         return await this.handler.main(
@@ -23,6 +26,7 @@ export class OAuthUpdateApplicationsClientsResolver
             queryStatement,
             constraint,
             timezone,
+            auditing,
         );
     }
 }

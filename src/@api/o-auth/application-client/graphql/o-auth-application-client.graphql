@@ -3,6 +3,8 @@ type OAuthApplicationClient
 {
     applicationId: ID!
     clientId: ID!
+    application: OAuthApplication
+    client: OAuthClient
 }
 
 input OAuthCreateApplicationClientInput
@@ -13,8 +15,8 @@ input OAuthCreateApplicationClientInput
 
 input OAuthUpdateApplicationClientByIdInput
 {
-    applicationId: ID
-    clientId: ID
+    applicationId: ID!
+    clientId: ID!
 }
 
 input OAuthUpdateApplicationsClientsInput
@@ -31,7 +33,8 @@ type Query
     ): OAuthApplicationClient
 
     oAuthFindApplicationClientById(
-        id: ID
+        applicationId: ID
+        clientId: ID
         constraint: QueryStatement
     ): OAuthApplicationClient
 
@@ -73,7 +76,8 @@ type Mutation
     ): OAuthApplicationClient
 
     oAuthDeleteApplicationClientById(
-        id: ID!
+        applicationId: ID!
+        clientId: ID!
         constraint: QueryStatement
     ): OAuthApplicationClient
 
