@@ -6,6 +6,8 @@ aggregateName: OAuthClient
 hasOAuth: true
 hasTenant: false
 hasAuditing: true
+solidIcon: mat_solid:workspaces
+outlineIcon: mat_outline:workspaces
 aggregateProperties:
   - name: id
     type: id
