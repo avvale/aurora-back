@@ -44,6 +44,8 @@ aggregateProperties:
         moduleName: application-client
         moduleNames: applications-clients
         aggregateName: OAuthApplicationClient
+        hasOAuth: true
+        hasAuditing: true
         aggregateProperties:
           - name: applicationId
             type: id
