@@ -2,8 +2,9 @@
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
 import { IamModule } from '@api/iam/iam.module';
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { IamITenantRepository, iamMockTenantData, IamMockTenantSeeder } from '@app/iam/tenant';
-import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -11,7 +12,6 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as _ from 'lodash';
 import * as request from 'supertest';
-import { OAuthModule } from './../../../src/@api/o-auth/o-auth.module';
 
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
@@ -60,7 +60,9 @@ describe('tenant', () =>
                 IamMockTenantSeeder,
             ],
         })
-            .overrideGuard(Auth)
+            .overrideGuard(AuthenticationJwtGuard)
+            .useValue({ canActivate: () => true })
+            .overrideGuard(AuthorizationPermissionsGuard)
             .useValue({ canActivate: () => true })
             .compile();
 
@@ -87,7 +89,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamTenantId must be defined, can not be null');
             });
     });
 
@@ -103,7 +105,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamTenantName must be defined, can not be null');
             });
     });
 
@@ -119,7 +121,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantIsActive must be defined, can not be null');
+                expect(res.body.message).toContain('Value for IamTenantIsActive must be defined, can not be null');
             });
     });
 
@@ -135,7 +137,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamTenantId must be defined, can not be undefined');
             });
     });
 
@@ -151,7 +153,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamTenantName must be defined, can not be undefined');
             });
     });
 
@@ -167,7 +169,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantIsActive must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for IamTenantIsActive must be defined, can not be undefined');
             });
     });
 
@@ -183,7 +185,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for IamTenantId is not allowed, must be a length of 36');
             });
     });
 
@@ -199,7 +201,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantName is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for IamTenantName is too large, has a maximum length of 255');
             });
     });
 
@@ -215,7 +217,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantCode is too large, has a maximum length of 50');
+                expect(res.body.message).toContain('Value for IamTenantCode is too large, has a maximum length of 50');
             });
     });
 
@@ -231,7 +233,7 @@ describe('tenant', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for TenantIsActive has to be a boolean value');
+                expect(res.body.message).toContain('Value for IamTenantIsActive has to be a boolean value');
             });
     });
 

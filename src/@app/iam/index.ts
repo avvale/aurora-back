@@ -1,7 +1,7 @@
 import { IamBoundedContextHandlers, IamBoundedContextServices, IamBoundedContextModel, IamIBoundedContextRepository, IamSequelizeBoundedContextRepository, IamBoundedContextSagas } from './bounded-context';
 import { IamPermissionHandlers, IamPermissionServices, IamPermissionModel, IamIPermissionRepository, IamSequelizePermissionRepository, IamPermissionSagas } from './permission';
 import { IamPermissionRoleHandlers, IamPermissionRoleServices, IamIPermissionRoleRepository, IamSequelizePermissionRoleRepository, IamPermissionRoleModel, IamPermissionRoleSagas } from './permission-role';
-import { IamTenantHandlers, IamTenantServices, IamTenantModel, IamTenantsAccountsModel, IamITenantRepository, IamSequelizeTenantRepository, IamTenantSagas } from './tenant';
+import { IamTenantHandlers, IamTenantServices, IamTenantModel, IamITenantRepository, IamSequelizeTenantRepository, IamTenantSagas } from './tenant';
 import { IamRoleHandlers, IamRoleServices, IamRoleModel, IamIRoleRepository, IamSequelizeRoleRepository, IamRoleSagas } from './role';
 import { IamAccountHandlers, IamAccountServices, IamAccountModel, IamIAccountRepository, IamSequelizeAccountRepository, IamAccountSagas } from './account';
 import { IamUserHandlers, IamUserServices, IamUserModel, IamIUserRepository, IamSequelizeUserRepository, IamUserSagas } from './user';
@@ -34,7 +34,6 @@ export const IamModels = [
     IamBoundedContextModel,
     IamPermissionModel,
     IamTenantModel,
-    IamTenantsAccountsModel,
     IamRoleModel,
     IamAccountModel,
     IamUserModel,

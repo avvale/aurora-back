@@ -171,3 +171,4 @@ export { IamTenantAccountModel } from './@app/iam/tenant-account';
 export { IamTenantAccountResponse } from './@app/iam/tenant-account/domain/iam-tenant-account.response';
 export { IamTenantAccountMapper } from './@app/iam/tenant-account/domain/iam-tenant-account.mapper';
 export { iamMockTenantAccountData } from './@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.data';
+export { IamTenant } from './@app/iam/tenant/domain/iam-tenant.aggregate';
