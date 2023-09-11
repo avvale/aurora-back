@@ -13,10 +13,12 @@ export class OAuthGetApplicationsQueryHandler implements IQueryHandler<OAuthGetA
 
     async execute(query: OAuthGetApplicationsQuery): Promise<OAuthApplicationResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getApplicationsService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getApplicationsService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }

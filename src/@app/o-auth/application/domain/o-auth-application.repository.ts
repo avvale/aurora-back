@@ -1,6 +1,6 @@
-import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
-import { OAuthApplication } from './o-auth-application.aggregate';
 import { OAuthApplicationId } from './value-objects';
+import { OAuthApplication } from '@app/o-auth/application';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 
 export abstract class OAuthIApplicationRepository implements IRepository<OAuthApplication>
 {

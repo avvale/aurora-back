@@ -1,10 +1,10 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
-import { DataTypes } from 'sequelize';
-import { OAuthClientModel } from '@app/o-auth/client';
 import { OAuthApplicationClientModel } from '@app/o-auth/application-client';
+import { OAuthClientModel } from '@app/o-auth/client';
+import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import { DataTypes } from 'sequelize';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, BelongsTo, BelongsToMany, Column, ForeignKey, HasMany, HasOne, Model, Table } from 'sequelize-typescript';
 
 @Table({
     modelName: 'OAuthApplication',
