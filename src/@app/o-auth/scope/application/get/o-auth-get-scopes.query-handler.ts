@@ -13,10 +13,12 @@ export class OAuthGetScopesQueryHandler implements IQueryHandler<OAuthGetScopesQ
 
     async execute(query: OAuthGetScopesQuery): Promise<OAuthScopeResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getScopesService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getScopesService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }
