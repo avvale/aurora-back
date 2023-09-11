@@ -9,7 +9,7 @@ import { IamPermissionRoleApiHandlers, IamPermissionRoleApiControllers, IamPermi
 import { IamTenantApiHandlers, IamTenantApiControllers, IamTenantApiResolvers, IamTenantApiServices } from './tenant';
 import { IamRoleApiHandlers, IamRoleApiControllers, IamRoleApiResolvers, IamRoleApiServices } from './role';
 import { IamAccountApiHandlers, IamAccountApiControllers, IamAccountApiResolvers, IamAccountApiServices } from './account';
-import { IamUserControllers, IamUserResolvers, IamUserApiHandlers, IamUserServices } from './user';
+import { IamUserApiHandlers, IamUserApiControllers, IamUserApiResolvers, IamUserApiServices } from './user';
 import { IamUserMetaControllers, IamUserMetaResolvers, IamUserMetaApiHandlers } from './user-meta';
 import { IamCreatePermissionsFromRolesService } from '@app/iam/permission-role/application/services/iam-create-permissions-from-roles.service';
 import { IamRoleAccountApiControllers, IamRoleAccountApiResolvers, IamRoleAccountApiHandlers, IamRoleAccountApiServices } from './role-account';
@@ -23,7 +23,6 @@ import { IamTenantAccountApiControllers, IamTenantAccountApiResolvers, IamTenant
         ]),
     ],
     controllers: [
-        ...IamUserControllers,
         ...IamUserMetaControllers,
         ...IamBoundedContextApiControllers,
         ...IamPermissionApiControllers,
@@ -32,7 +31,8 @@ import { IamTenantAccountApiControllers, IamTenantAccountApiResolvers, IamTenant
         ...IamRoleAccountApiControllers,
         ...IamAccountApiControllers,
         ...IamTenantAccountApiControllers,
-        ...IamTenantApiControllers
+        ...IamTenantApiControllers,
+        ...IamUserApiControllers
     ],
     providers: [
         // ---- customizations ----
@@ -52,8 +52,6 @@ import { IamTenantAccountApiControllers, IamTenantAccountApiResolvers, IamTenant
         ...IamUserApiHandlers,
         ...IamUserMetaApiHandlers,
         ...IamUserMetaResolvers,
-        ...IamUserResolvers,
-        ...IamUserServices,
         ...IamBoundedContextApiResolvers,
         ...IamBoundedContextApiServices,
         ...IamPermissionApiResolvers,
@@ -71,7 +69,9 @@ import { IamTenantAccountApiControllers, IamTenantAccountApiResolvers, IamTenant
         ...IamTenantAccountApiHandlers,
         ...IamTenantAccountApiServices,
         ...IamTenantApiResolvers,
-        ...IamTenantApiServices
+        ...IamTenantApiServices,
+        ...IamUserApiResolvers,
+        ...IamUserApiServices
     ],
 })
 export class IamModule {}
