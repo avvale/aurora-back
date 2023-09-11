@@ -13,10 +13,12 @@ export class OAuthGetAccessTokensQueryHandler implements IQueryHandler<OAuthGetA
 
     async execute(query: OAuthGetAccessTokensQuery): Promise<OAuthAccessTokenResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getAccessTokensService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getAccessTokensService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }
