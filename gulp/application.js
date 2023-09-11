@@ -47,6 +47,14 @@ function copyApplication()
         );
 }
 
+async function createDirectories()
+{
+    fs.mkdirSync('publish/src/@api');
+    fs.openSync('publish/src/@api/.gitkeep', 'w');
+    fs.mkdirSync('publish/src/@app');
+    fs.openSync('publish/src/@app/.gitkeep', 'w');
+}
+
 /**
  * Clean dependencies that will not used in application
  */
@@ -244,6 +252,7 @@ async function clean()
 exports.publishApplication = series(
     cleanSourceDirectory,
     copyApplication,
+    createDirectories,
     editPackageJson,
     editNestCli,
     cleanAppModule,
