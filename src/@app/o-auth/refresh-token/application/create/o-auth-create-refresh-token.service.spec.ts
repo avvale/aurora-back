@@ -3,8 +3,10 @@ import { OAuthIRefreshTokenRepository, oAuthMockRefreshTokenData, OAuthMockRefre
 import { OAuthCreateRefreshTokenService } from '@app/o-auth/refresh-token/application/create/o-auth-create-refresh-token.service';
 import {
     OAuthRefreshTokenAccessTokenId,
+    OAuthRefreshTokenExpiresAt,
     OAuthRefreshTokenId,
-    OAuthRefreshTokenExpiredRefreshToken,
+    OAuthRefreshTokenIsRevoked,
+    OAuthRefreshTokenToken,
 } from '@app/o-auth/refresh-token/domain/value-objects';
 import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';

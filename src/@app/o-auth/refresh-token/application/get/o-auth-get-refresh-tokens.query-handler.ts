@@ -13,10 +13,12 @@ export class OAuthGetRefreshTokensQueryHandler implements IQueryHandler<OAuthGet
 
     async execute(query: OAuthGetRefreshTokensQuery): Promise<OAuthRefreshTokenResponse[]>
     {
-        return this.mapper.mapAggregatesToResponses(await this.getRefreshTokensService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        ));
+        return this.mapper.mapAggregatesToResponses(
+            await this.getRefreshTokensService.main(
+                query.queryStatement,
+                query.constraint,
+                query.cQMetadata,
+            ),
+        );
     }
 }

@@ -3,8 +3,11 @@ import { OAuthCreateRefreshTokenCommand } from '@app/o-auth/refresh-token';
 import { OAuthCreateRefreshTokenService } from '@app/o-auth/refresh-token/application/create/o-auth-create-refresh-token.service';
 import {
     OAuthRefreshTokenAccessTokenId,
-    OAuthRefreshTokenId,
     OAuthRefreshTokenExpiredRefreshToken,
+    OAuthRefreshTokenExpiresAt,
+    OAuthRefreshTokenId,
+    OAuthRefreshTokenIsRevoked,
+    OAuthRefreshTokenToken,
 } from '@app/o-auth/refresh-token/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
