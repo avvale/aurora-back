@@ -78,6 +78,12 @@ export enum CommonCountryMapType {
     TERRAIN = "TERRAIN"
 }
 
+export enum CommonAdministrativeArea {
+    ADMINISTRATIVE_AREA_LEVEL_1 = "ADMINISTRATIVE_AREA_LEVEL_1",
+    ADMINISTRATIVE_AREA_LEVEL_2 = "ADMINISTRATIVE_AREA_LEVEL_2",
+    ADMINISTRATIVE_AREA_LEVEL_3 = "ADMINISTRATIVE_AREA_LEVEL_3"
+}
+
 export enum CommonLangDir {
     LTR = "LTR",
     RTL = "RTL"
@@ -1108,6 +1114,7 @@ export interface IQuery {
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
     commonPaginateCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonAdministrativeAreasCountry(countryId: GraphQLString, administrativeAreaLevel1Id?: Nullable<GraphQLString>, administrativeAreaLevel2Id?: Nullable<GraphQLString>): Nullable<CommonAdministrativeAreasCountry> | Promise<Nullable<CommonAdministrativeAreasCountry>>;
     commonFindLang(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonFindLangById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonGetLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
@@ -1496,6 +1503,13 @@ export interface CommonAttachmentFamily {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAdministrativeAreasCountry {
+    commonCountry?: Nullable<CommonCountry>;
+    commonGetAdministrativeAreasLevel1?: Nullable<Nullable<CommonAdministrativeAreaLevel1>[]>;
+    commonGetAdministrativeAreasLevel2?: Nullable<Nullable<CommonAdministrativeAreaLevel2>[]>;
+    commonGetAdministrativeAreasLevel3?: Nullable<Nullable<CommonAdministrativeAreaLevel3>[]>;
 }
 
 export interface CommonCountry {
