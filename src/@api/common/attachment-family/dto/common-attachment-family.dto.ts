@@ -12,17 +12,10 @@ export class CommonAttachmentFamilyDto
     id: string;
 
     @ApiProperty({
-        type       : String,
-        description: 'resourceId [input here api field description]',
-        example    : '0a14256f-3caa-5783-909e-8ff8ff84fc16',
+        type       : () => [CommonResourceDto],
+        description: 'resources [input here api field description]',
     })
-    resourceId: string;
-
-    @ApiProperty({
-        type       : () => CommonResourceDto,
-        description: 'CommonResource [input here api field description]',
-    })
-    resource?: CommonResourceDto;
+    resources?: CommonResourceDto[];
 
     @ApiProperty({
         type       : String,

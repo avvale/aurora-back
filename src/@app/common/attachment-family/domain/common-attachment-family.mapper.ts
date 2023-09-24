@@ -8,7 +8,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceId,
+    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -68,7 +68,7 @@ export class CommonAttachmentFamilyMapper implements IMapper
     {
         return CommonAttachmentFamily.register(
             new CommonAttachmentFamilyId(attachmentFamily.id, { undefinable: true }),
-            new CommonAttachmentFamilyResourceId(attachmentFamily.resourceId, { undefinable: true }),
+            new CommonAttachmentFamilyResourceIds(attachmentFamily.resourceIds, { undefinable: true }),
             new CommonAttachmentFamilyName(attachmentFamily.name, { undefinable: true }),
             new CommonAttachmentFamilyWidth(attachmentFamily.width, { undefinable: true }),
             new CommonAttachmentFamilyHeight(attachmentFamily.height, { undefinable: true }),
@@ -79,7 +79,7 @@ export class CommonAttachmentFamilyMapper implements IMapper
             new CommonAttachmentFamilyCreatedAt(attachmentFamily.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new CommonAttachmentFamilyUpdatedAt(attachmentFamily.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new CommonAttachmentFamilyDeletedAt(attachmentFamily.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapModelToAggregate(attachmentFamily.resource, cQMetadata) : undefined,
+            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapModelsToAggregates(attachmentFamily.resources, cQMetadata) : undefined,
         );
     }
 
@@ -89,7 +89,7 @@ export class CommonAttachmentFamilyMapper implements IMapper
 
         return new CommonAttachmentFamilyResponse(
             attachmentFamily.id.value,
-            attachmentFamily.resourceId.value,
+            attachmentFamily.resourceIds.value,
             attachmentFamily.name.value,
             attachmentFamily.width.value,
             attachmentFamily.height.value,
@@ -100,7 +100,7 @@ export class CommonAttachmentFamilyMapper implements IMapper
             attachmentFamily.createdAt.value,
             attachmentFamily.updatedAt.value,
             attachmentFamily.deletedAt.value,
-            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapAggregateToResponse(attachmentFamily.resource) : undefined,
+            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapAggregatesToResponses(attachmentFamily.resources) : undefined,
         );
     }
 }

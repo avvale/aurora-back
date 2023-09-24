@@ -379,9 +379,24 @@ export interface CommonUpdateAdministrativeAreasLevel3Input {
     mapType?: Nullable<CommonAdministrativeAreaLevel3MapType>;
 }
 
+export interface CommonCreateAttachmentFamilyResourceInput {
+    attachmentFamilyId: string;
+    resourceId: string;
+}
+
+export interface CommonUpdateAttachmentFamilyResourceByIdInput {
+    attachmentFamilyId: string;
+    resourceId: string;
+}
+
+export interface CommonUpdateAttachmentFamiliesResourcesInput {
+    attachmentFamilyId?: Nullable<string>;
+    resourceId?: Nullable<string>;
+}
+
 export interface CommonCreateAttachmentFamilyInput {
     id: string;
-    resourceId: string;
+    resourceIds?: Nullable<Nullable<string>[]>;
     name: GraphQLString;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
@@ -393,7 +408,7 @@ export interface CommonCreateAttachmentFamilyInput {
 
 export interface CommonUpdateAttachmentFamilyByIdInput {
     id: string;
-    resourceId?: Nullable<string>;
+    resourceIds?: Nullable<Nullable<string>[]>;
     name?: Nullable<GraphQLString>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
@@ -405,7 +420,7 @@ export interface CommonUpdateAttachmentFamilyByIdInput {
 
 export interface CommonUpdateAttachmentFamiliesInput {
     id?: Nullable<string>;
-    resourceId?: Nullable<string>;
+    resourceIds?: Nullable<Nullable<string>[]>;
     name?: Nullable<GraphQLString>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
@@ -1106,6 +1121,10 @@ export interface IQuery {
     commonFindAdministrativeAreaLevel3ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonGetAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
     commonPaginateAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAttachmentFamilyResource(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonFindAttachmentFamilyResourceById(attachmentFamilyId?: Nullable<string>, resourceId?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonGetAttachmentFamiliesResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource>[] | Promise<Nullable<CommonAttachmentFamilyResource>[]>;
+    commonPaginateAttachmentFamiliesResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindAttachmentFamily(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonFindAttachmentFamilyById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonGetAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
@@ -1246,6 +1265,13 @@ export interface IMutation {
     commonUpsertAdministrativeAreaLevel3(payload: CommonUpdateAdministrativeAreaLevel3ByIdInput): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonDeleteAdministrativeAreaLevel3ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3> | Promise<Nullable<CommonAdministrativeAreaLevel3>>;
     commonDeleteAdministrativeAreasLevel3(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel3>[] | Promise<Nullable<CommonAdministrativeAreaLevel3>[]>;
+    commonCreateAttachmentFamilyResource(payload: CommonCreateAttachmentFamilyResourceInput): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonCreateAttachmentFamiliesResources(payload: Nullable<CommonCreateAttachmentFamilyResourceInput>[]): boolean | Promise<boolean>;
+    commonUpdateAttachmentFamilyResourceById(payload: CommonUpdateAttachmentFamilyResourceByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonUpdateAttachmentFamiliesResources(payload: CommonUpdateAttachmentFamiliesResourcesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource>[] | Promise<Nullable<CommonAttachmentFamilyResource>[]>;
+    commonUpsertAttachmentFamilyResource(payload: CommonUpdateAttachmentFamilyResourceByIdInput): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonDeleteAttachmentFamilyResourceById(attachmentFamilyId: string, resourceId: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource> | Promise<Nullable<CommonAttachmentFamilyResource>>;
+    commonDeleteAttachmentFamiliesResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamilyResource>[] | Promise<Nullable<CommonAttachmentFamilyResource>[]>;
     commonCreateAttachmentFamily(payload: CommonCreateAttachmentFamilyInput): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonCreateAttachmentFamilies(payload: Nullable<CommonCreateAttachmentFamilyInput>[]): boolean | Promise<boolean>;
     commonUpdateAttachmentFamilyById(payload: CommonUpdateAttachmentFamilyByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
@@ -1489,10 +1515,16 @@ export interface CommonAdministrativeAreaLevel3 {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface CommonAttachmentFamilyResource {
+    attachmentFamilyId: string;
+    resourceId: string;
+    attachmentFamily?: Nullable<CommonAttachmentFamily>;
+    resource?: Nullable<CommonResource>;
+}
+
 export interface CommonAttachmentFamily {
     id: string;
-    resourceId: string;
-    resource?: Nullable<CommonResource>;
+    resources?: Nullable<Nullable<CommonResource>[]>;
     name: GraphQLString;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;

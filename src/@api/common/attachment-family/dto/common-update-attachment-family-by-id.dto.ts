@@ -11,11 +11,10 @@ export class CommonUpdateAttachmentFamilyByIdDto
     id: string;
 
     @ApiProperty({
-        type       : String,
-        description: 'resourceId [input here api field description]',
-        example    : '0a14256f-3caa-5783-909e-8ff8ff84fc16',
+        type       : [String],
+        description: 'resources [input here api field description]',
     })
-    resourceId?: string;
+    resourceIds?: string[];
 
     @ApiProperty({
         type       : String,

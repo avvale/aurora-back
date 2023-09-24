@@ -8,7 +8,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceId,
+    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -28,7 +28,7 @@ export class CommonCreateAttachmentFamiliesService
     async main(
         payload: {
             id: CommonAttachmentFamilyId;
-            resourceId: CommonAttachmentFamilyResourceId;
+            resourceIds: CommonAttachmentFamilyResourceIds;
             name: CommonAttachmentFamilyName;
             width: CommonAttachmentFamilyWidth;
             height: CommonAttachmentFamilyHeight;
@@ -43,7 +43,7 @@ export class CommonCreateAttachmentFamiliesService
         // create aggregate with factory pattern
         const aggregateAttachmentFamilies = payload.map(attachmentFamily => CommonAttachmentFamily.register(
             attachmentFamily.id,
-            attachmentFamily.resourceId,
+            attachmentFamily.resourceIds,
             attachmentFamily.name,
             attachmentFamily.width,
             attachmentFamily.height,

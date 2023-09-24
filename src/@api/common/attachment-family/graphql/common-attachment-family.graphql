@@ -18,8 +18,7 @@ enum CommonAttachmentFamilyFormat {
 type CommonAttachmentFamily
 {
     id: ID!
-    resourceId: ID!
-    resource: CommonResource
+    resources: [CommonResource]
     name: GraphQLString!
     width: GraphQLInt
     height: GraphQLInt
@@ -35,7 +34,7 @@ type CommonAttachmentFamily
 input CommonCreateAttachmentFamilyInput
 {
     id: ID!
-    resourceId: ID!
+    resourceIds: [ID]
     name: GraphQLString!
     width: GraphQLInt
     height: GraphQLInt
@@ -48,7 +47,7 @@ input CommonCreateAttachmentFamilyInput
 input CommonUpdateAttachmentFamilyByIdInput
 {
     id: ID!
-    resourceId: ID
+    resourceIds: [ID]
     name: GraphQLString
     width: GraphQLInt
     height: GraphQLInt
@@ -61,7 +60,7 @@ input CommonUpdateAttachmentFamilyByIdInput
 input CommonUpdateAttachmentFamiliesInput
 {
     id: ID
-    resourceId: ID
+    resourceIds: [ID]
     name: GraphQLString
     width: GraphQLInt
     height: GraphQLInt

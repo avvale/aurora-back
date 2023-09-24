@@ -4,7 +4,7 @@ export class CommonAttachmentFamilyResponse
 {
     constructor(
         public readonly id: string,
-        public readonly resourceId: string,
+        public readonly resourceIds: string[],
         public readonly name: string,
         public readonly width: number,
         public readonly height: number,
@@ -15,6 +15,6 @@ export class CommonAttachmentFamilyResponse
         public readonly createdAt: string,
         public readonly updatedAt: string,
         public readonly deletedAt: string,
-        public readonly resource: CommonResourceResponse,
+        public readonly resources: CommonResourceResponse[],
     ) {}
 }

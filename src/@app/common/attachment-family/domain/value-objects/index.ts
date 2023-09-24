@@ -6,7 +6,7 @@ export { CommonAttachmentFamilyHeight } from './common-attachment-family-height'
 export { CommonAttachmentFamilyId } from './common-attachment-family-id';
 export { CommonAttachmentFamilyName } from './common-attachment-family-name';
 export { CommonAttachmentFamilyQuality } from './common-attachment-family-quality';
-export { CommonAttachmentFamilyResourceId } from './common-attachment-family-resource-id';
+export { CommonAttachmentFamilyResourceIds } from './common-attachment-family-resource-ids';
 export { CommonAttachmentFamilySizes } from './common-attachment-family-sizes';
 export { CommonAttachmentFamilyUpdatedAt } from './common-attachment-family-updated-at';
 export { CommonAttachmentFamilyWidth } from './common-attachment-family-width';

@@ -8,7 +8,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceId,
+    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -30,7 +30,7 @@ export class CommonCreateAttachmentFamiliesCommandHandler implements ICommandHan
                 {
                     return {
                         id: new CommonAttachmentFamilyId(attachmentFamily.id),
-                        resourceId: new CommonAttachmentFamilyResourceId(attachmentFamily.resourceId),
+                        resourceIds: new CommonAttachmentFamilyResourceIds(attachmentFamily.resourceIds),
                         name: new CommonAttachmentFamilyName(attachmentFamily.name),
                         width: new CommonAttachmentFamilyWidth(attachmentFamily.width),
                         height: new CommonAttachmentFamilyHeight(attachmentFamily.height),

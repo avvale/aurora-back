@@ -5,7 +5,7 @@ export class CommonCreateAttachmentFamilyCommand
     constructor(
         public readonly payload: {
             id: string;
-            resourceId: string;
+            resourceIds?: string[];
             name: string;
             width?: number;
             height?: number;

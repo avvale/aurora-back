@@ -40,7 +40,7 @@ describe('CommonUpsertAttachmentFamilyCommandHandler', () =>
                 new CommonUpsertAttachmentFamilyCommand(
                     {
                         id: commonMockAttachmentFamilyData[0].id,
-                        resourceId: commonMockAttachmentFamilyData[0].resourceId,
+                        resourceIds: commonMockAttachmentFamilyData[0].resourceIds,
                         name: commonMockAttachmentFamilyData[0].name,
                         width: commonMockAttachmentFamilyData[0].width,
                         height: commonMockAttachmentFamilyData[0].height,
