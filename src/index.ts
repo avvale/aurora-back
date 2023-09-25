@@ -173,9 +173,3 @@ export { IamTenantAccountMapper } from './@app/iam/tenant-account/domain/iam-ten
 export { iamMockTenantAccountData } from './@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.data';
 export { IamTenant } from './@app/iam/tenant/domain/iam-tenant.aggregate';
 export { IamUser } from './@app/iam/user/domain/iam-user.aggregate';
-export { CommonAttachmentFamilyResourceDto } from './@api/common/attachment-family-resource/dto/common-attachment-family-resource.dto';
-export { CommonAttachmentFamilyResource } from './@app/common/attachment-family-resource/domain/common-attachment-family-resource.aggregate';
-export { CommonAttachmentFamilyResourceModel } from './@app/common/attachment-family-resource';
-export { CommonAttachmentFamilyResourceResponse } from './@app/common/attachment-family-resource/domain/common-attachment-family-resource.response';
-export { CommonAttachmentFamilyResourceMapper } from './@app/common/attachment-family-resource/domain/common-attachment-family-resource.mapper';
-export { commonMockAttachmentFamilyResourceData } from './@app/common/attachment-family-resource/infrastructure/mock/common-mock-attachment-family-resource.data';

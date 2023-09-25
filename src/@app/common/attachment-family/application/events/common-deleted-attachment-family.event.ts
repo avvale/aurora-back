@@ -2,8 +2,8 @@ export class CommonDeletedAttachmentFamilyEvent
 {
     constructor(
         public readonly id: string,
-        public readonly resourceIds: string[],
         public readonly name: string,
+        public readonly code: string,
         public readonly width: number,
         public readonly height: number,
         public readonly fitType: string,

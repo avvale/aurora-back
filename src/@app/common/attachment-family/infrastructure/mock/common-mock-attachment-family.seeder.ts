@@ -1,5 +1,6 @@
 import { CommonAttachmentFamily, commonMockAttachmentFamilyData } from '@app/common/attachment-family';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyCreatedAt,
     CommonAttachmentFamilyDeletedAt,
     CommonAttachmentFamilyFitType,
@@ -8,7 +9,6 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -37,8 +37,8 @@ export class CommonMockAttachmentFamilySeeder extends MockSeeder<CommonAttachmen
             this.collectionSource.push(
                 CommonAttachmentFamily.register(
                     new CommonAttachmentFamilyId(attachmentFamily.id),
-                    new CommonAttachmentFamilyResourceIds(attachmentFamily.resourceIds),
                     new CommonAttachmentFamilyName(attachmentFamily.name),
+                    new CommonAttachmentFamilyCode(attachmentFamily.code),
                     new CommonAttachmentFamilyWidth(attachmentFamily.width),
                     new CommonAttachmentFamilyHeight(attachmentFamily.height),
                     new CommonAttachmentFamilyFitType(attachmentFamily.fitType),

@@ -1,11 +1,10 @@
-import { CommonResourceResponse } from '@app/common/resource';
 
 export class CommonAttachmentFamilyResponse
 {
     constructor(
         public readonly id: string,
-        public readonly resourceIds: string[],
         public readonly name: string,
+        public readonly code: string,
         public readonly width: number,
         public readonly height: number,
         public readonly fitType: string,
@@ -15,6 +14,5 @@ export class CommonAttachmentFamilyResponse
         public readonly createdAt: string,
         public readonly updatedAt: string,
         public readonly deletedAt: string,
-        public readonly resources: CommonResourceResponse[],
     ) {}
 }

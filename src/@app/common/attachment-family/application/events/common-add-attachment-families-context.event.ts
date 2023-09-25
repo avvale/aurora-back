@@ -22,8 +22,8 @@ export class CommonAddAttachmentFamiliesContextEvent extends AggregateRoot
                 this.aggregateRoots.map(attachmentFamily =>
                     new CommonCreatedAttachmentFamilyEvent(
                         attachmentFamily.id.value,
-                        attachmentFamily.resourceIds?.value,
                         attachmentFamily.name.value,
+                        attachmentFamily.code.value,
                         attachmentFamily.width?.value,
                         attachmentFamily.height?.value,
                         attachmentFamily.fitType?.value,
@@ -46,8 +46,8 @@ export class CommonAddAttachmentFamiliesContextEvent extends AggregateRoot
                 this.aggregateRoots.map(attachmentFamily =>
                     new CommonUpdatedAttachmentFamilyEvent(
                         attachmentFamily.id.value,
-                        attachmentFamily.resourceIds?.value,
                         attachmentFamily.name.value,
+                        attachmentFamily.code.value,
                         attachmentFamily.width?.value,
                         attachmentFamily.height?.value,
                         attachmentFamily.fitType?.value,
@@ -70,8 +70,8 @@ export class CommonAddAttachmentFamiliesContextEvent extends AggregateRoot
                 this.aggregateRoots.map(attachmentFamily =>
                     new CommonDeletedAttachmentFamilyEvent(
                         attachmentFamily.id.value,
-                        attachmentFamily.resourceIds?.value,
                         attachmentFamily.name.value,
+                        attachmentFamily.code.value,
                         attachmentFamily.width?.value,
                         attachmentFamily.height?.value,
                         attachmentFamily.fitType?.value,

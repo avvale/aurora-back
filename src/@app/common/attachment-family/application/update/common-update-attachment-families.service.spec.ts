@@ -2,13 +2,13 @@
 import { CommonIAttachmentFamilyRepository, commonMockAttachmentFamilyData, CommonMockAttachmentFamilyRepository } from '@app/common/attachment-family';
 import { CommonUpdateAttachmentFamiliesService } from '@app/common/attachment-family/application/update/common-update-attachment-families.service';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyFitType,
     CommonAttachmentFamilyFormat,
     CommonAttachmentFamilyHeight,
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -56,8 +56,8 @@ describe('CommonUpdateAttachmentFamiliesService', () =>
                 await service.main(
                     {
                         id: new CommonAttachmentFamilyId(commonMockAttachmentFamilyData[0].id),
-                        resourceIds: new CommonAttachmentFamilyResourceIds(commonMockAttachmentFamilyData[0].resourceIds),
                         name: new CommonAttachmentFamilyName(commonMockAttachmentFamilyData[0].name),
+                        code: new CommonAttachmentFamilyCode(commonMockAttachmentFamilyData[0].code),
                         width: new CommonAttachmentFamilyWidth(commonMockAttachmentFamilyData[0].width),
                         height: new CommonAttachmentFamilyHeight(commonMockAttachmentFamilyData[0].height),
                         fitType: new CommonAttachmentFamilyFitType(commonMockAttachmentFamilyData[0].fitType),

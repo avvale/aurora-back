@@ -109,6 +109,22 @@ describe('attachment-family', () =>
             });
     });
 
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyCode property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                code: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyCode must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyId property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -141,6 +157,22 @@ describe('attachment-family', () =>
             });
     });
 
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyCode property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                code: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyCode must be defined, can not be undefined');
+            });
+    });
+
     test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyId is not allowed, must be a length of 36', () =>
     {
         return request(app.getHttpServer())
@@ -170,6 +202,22 @@ describe('attachment-family', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CommonAttachmentFamilyName is too large, has a maximum length of 100');
+            });
+    });
+
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyCode is too large, has a maximum length of 25', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                code: '**************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyCode is too large, has a maximum length of 25');
             });
     });
 
@@ -279,7 +327,7 @@ describe('attachment-family', () =>
                 expect(res.body).toEqual({
                     total: attachmentFamilySeeder.collectionResponse.length,
                     count: attachmentFamilySeeder.collectionResponse.length,
-                    rows : attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt', 'resourceIds']))).slice(0, 5),
+                    rows : attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))).slice(0, 5),
                 });
             });
     });
@@ -293,7 +341,7 @@ describe('attachment-family', () =>
             .then(res =>
             {
                 expect(res.body).toEqual(
-                    attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt', 'resourceIds']))),
+                    attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))),
                 );
             });
     });
@@ -425,6 +473,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -480,7 +529,7 @@ describe('attachment-family', () =>
                 expect(res.body.data.commonPaginateAttachmentFamilies).toEqual({
                     total: attachmentFamilySeeder.collectionResponse.length,
                     count: attachmentFamilySeeder.collectionResponse.length,
-                    rows : attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt', 'resourceIds']))).slice(0, 5),
+                    rows : attachmentFamilySeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))).slice(0, 5),
                 });
             });
     });
@@ -498,6 +547,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -534,6 +584,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -570,6 +621,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -614,6 +666,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -656,6 +709,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -693,6 +747,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -728,6 +783,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -768,6 +824,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -806,6 +863,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -849,6 +907,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType
@@ -886,6 +945,7 @@ describe('attachment-family', () =>
                         {
                             id
                             name
+                            code
                             width
                             height
                             fitType

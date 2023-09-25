@@ -2,13 +2,13 @@
 import { CommonUpsertAttachmentFamilyCommand } from '@app/common/attachment-family';
 import { CommonUpsertAttachmentFamilyService } from '@app/common/attachment-family/application/upsert/common-upsert-attachment-family.service';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyFitType,
     CommonAttachmentFamilyFormat,
     CommonAttachmentFamilyHeight,
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -27,8 +27,8 @@ export class CommonUpsertAttachmentFamilyCommandHandler implements ICommandHandl
         await this.upsertAttachmentFamilyService.main(
             {
                 id: new CommonAttachmentFamilyId(command.payload.id),
-                resourceIds: new CommonAttachmentFamilyResourceIds(command.payload.resourceIds),
                 name: new CommonAttachmentFamilyName(command.payload.name),
+                code: new CommonAttachmentFamilyCode(command.payload.code),
                 width: new CommonAttachmentFamilyWidth(command.payload.width),
                 height: new CommonAttachmentFamilyHeight(command.payload.height),
                 fitType: new CommonAttachmentFamilyFitType(command.payload.fitType),

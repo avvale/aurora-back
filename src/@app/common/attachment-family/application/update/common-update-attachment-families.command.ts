@@ -5,8 +5,8 @@ export class CommonUpdateAttachmentFamiliesCommand
     constructor(
         public readonly payload: {
             id?: string;
-            resourceIds?: string[];
             name?: string;
+            code?: string;
             width?: number;
             height?: number;
             fitType?: string;

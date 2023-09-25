@@ -2,13 +2,13 @@
 import { CommonUpdateAttachmentFamilyByIdCommand } from '@app/common/attachment-family';
 import { CommonUpdateAttachmentFamilyByIdService } from '@app/common/attachment-family/application/update/common-update-attachment-family-by-id.service';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyFitType,
     CommonAttachmentFamilyFormat,
     CommonAttachmentFamilyHeight,
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -27,8 +27,8 @@ export class CommonUpdateAttachmentFamilyByIdCommandHandler implements ICommandH
         await this.updateAttachmentFamilyByIdService.main(
             {
                 id: new CommonAttachmentFamilyId(command.payload.id),
-                resourceIds: new CommonAttachmentFamilyResourceIds(command.payload.resourceIds),
                 name: new CommonAttachmentFamilyName(command.payload.name, { undefinable: true }),
+                code: new CommonAttachmentFamilyCode(command.payload.code, { undefinable: true }),
                 width: new CommonAttachmentFamilyWidth(command.payload.width),
                 height: new CommonAttachmentFamilyHeight(command.payload.height),
                 fitType: new CommonAttachmentFamilyFitType(command.payload.fitType),

@@ -2,13 +2,13 @@
 import { CommonCreateAttachmentFamilyCommand } from '@app/common/attachment-family';
 import { CommonCreateAttachmentFamilyService } from '@app/common/attachment-family/application/create/common-create-attachment-family.service';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyFitType,
     CommonAttachmentFamilyFormat,
     CommonAttachmentFamilyHeight,
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -27,8 +27,8 @@ export class CommonCreateAttachmentFamilyCommandHandler implements ICommandHandl
         await this.createAttachmentFamilyService.main(
             {
                 id: new CommonAttachmentFamilyId(command.payload.id),
-                resourceIds: new CommonAttachmentFamilyResourceIds(command.payload.resourceIds),
                 name: new CommonAttachmentFamilyName(command.payload.name),
+                code: new CommonAttachmentFamilyCode(command.payload.code),
                 width: new CommonAttachmentFamilyWidth(command.payload.width),
                 height: new CommonAttachmentFamilyHeight(command.payload.height),
                 fitType: new CommonAttachmentFamilyFitType(command.payload.fitType),

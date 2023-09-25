@@ -1,5 +1,6 @@
 import { CommonAttachmentFamily, CommonAttachmentFamilyResponse } from '@app/common/attachment-family';
 import {
+    CommonAttachmentFamilyCode,
     CommonAttachmentFamilyCreatedAt,
     CommonAttachmentFamilyDeletedAt,
     CommonAttachmentFamilyFitType,
@@ -8,12 +9,10 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
-    CommonAttachmentFamilyResourceIds,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
-import { CommonResourceMapper } from '@app/common/resource';
 import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
 export class CommonAttachmentFamilyMapper implements IMapper
@@ -68,8 +67,8 @@ export class CommonAttachmentFamilyMapper implements IMapper
     {
         return CommonAttachmentFamily.register(
             new CommonAttachmentFamilyId(attachmentFamily.id, { undefinable: true }),
-            new CommonAttachmentFamilyResourceIds(attachmentFamily.resourceIds, { undefinable: true }),
             new CommonAttachmentFamilyName(attachmentFamily.name, { undefinable: true }),
+            new CommonAttachmentFamilyCode(attachmentFamily.code, { undefinable: true }),
             new CommonAttachmentFamilyWidth(attachmentFamily.width, { undefinable: true }),
             new CommonAttachmentFamilyHeight(attachmentFamily.height, { undefinable: true }),
             new CommonAttachmentFamilyFitType(attachmentFamily.fitType, { undefinable: true }),
@@ -79,7 +78,6 @@ export class CommonAttachmentFamilyMapper implements IMapper
             new CommonAttachmentFamilyCreatedAt(attachmentFamily.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new CommonAttachmentFamilyUpdatedAt(attachmentFamily.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new CommonAttachmentFamilyDeletedAt(attachmentFamily.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapModelsToAggregates(attachmentFamily.resources, cQMetadata) : undefined,
         );
     }
 
@@ -89,8 +87,8 @@ export class CommonAttachmentFamilyMapper implements IMapper
 
         return new CommonAttachmentFamilyResponse(
             attachmentFamily.id.value,
-            attachmentFamily.resourceIds.value,
             attachmentFamily.name.value,
+            attachmentFamily.code.value,
             attachmentFamily.width.value,
             attachmentFamily.height.value,
             attachmentFamily.fitType.value,
@@ -100,7 +98,6 @@ export class CommonAttachmentFamilyMapper implements IMapper
             attachmentFamily.createdAt.value,
             attachmentFamily.updatedAt.value,
             attachmentFamily.deletedAt.value,
-            this.options.eagerLoading ? new CommonResourceMapper({ eagerLoading: true }).mapAggregatesToResponses(attachmentFamily.resources) : undefined,
         );
     }
 }

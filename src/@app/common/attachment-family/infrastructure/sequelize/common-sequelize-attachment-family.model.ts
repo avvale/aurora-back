@@ -1,15 +1,20 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { CommonAttachmentFamilyResourceModel } from '@app/common/attachment-family-resource';
-import { CommonResourceModel } from '@app/common/resource';
 import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
 import { DataTypes } from 'sequelize';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, BelongsToMany, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 
 @Table({
     modelName: 'CommonAttachmentFamily',
     freezeTableName: true,
     timestamps: false,
+    indexes: [
+		{
+			fields: ['code'],
+			unique: true,
+		},
+
+    ],
 })
 export class CommonAttachmentFamilyModel extends Model<CommonAttachmentFamilyModel>
 {
@@ -129,19 +134,19 @@ export class CommonAttachmentFamilyModel extends Model<CommonAttachmentFamilyMod
     })
     id: string;
 
-
-    @BelongsToMany(() => CommonResourceModel, {
-        through: () => CommonAttachmentFamilyResourceModel,
-        uniqueKey: 'Uq01CommonAttachmentFamilyResource',
-    })
-    resources: CommonResourceModel[];
-
     @Column({
         field: 'name',
         allowNull: false,
         type: DataTypes.STRING(100),
     })
     name: string;
+
+    @Column({
+        field: 'code',
+        allowNull: false,
+        type: DataTypes.STRING(25),
+    })
+    code: string;
 
     @Column({
         field: 'width',
