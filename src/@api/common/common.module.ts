@@ -10,6 +10,7 @@ import { CommonAdministrativeAreaLevel2ApiHandlers, CommonAdministrativeAreaLeve
 import { CommonAdministrativeAreaLevel3ApiHandlers, CommonAdministrativeAreaLevel3ApiControllers, CommonAdministrativeAreaLevel3ApiResolvers, CommonAdministrativeAreaLevel3ApiServices } from './administrative-area-level-3';
 import { CommonResourceApiHandlers, CommonResourceApiControllers, CommonResourceApiResolvers, CommonResourceApiServices } from './resource';
 import { CommonAttachmentFamilyApiHandlers, CommonAttachmentFamilyApiControllers, CommonAttachmentFamilyApiResolvers, CommonAttachmentFamilyApiServices } from './attachment-family';
+import { CommonAttachmentLibraryApiControllers, CommonAttachmentLibraryApiResolvers, CommonAttachmentLibraryApiHandlers, CommonAttachmentLibraryApiServices } from './attachment-library';
 
 @Module({
     imports: [
@@ -26,6 +27,7 @@ import { CommonAttachmentFamilyApiHandlers, CommonAttachmentFamilyApiControllers
         ...CommonAdministrativeAreaLevel2ApiControllers,
         ...CommonAdministrativeAreaLevel3ApiControllers,
         ...CommonAttachmentFamilyApiControllers,
+        ...CommonAttachmentLibraryApiControllers
     ],
     providers: [
         CommonSeeder,
@@ -54,6 +56,9 @@ import { CommonAttachmentFamilyApiHandlers, CommonAttachmentFamilyApiControllers
         ...CommonAdministrativeAreaLevel3ApiServices,
         ...CommonAttachmentFamilyApiResolvers,
         ...CommonAttachmentFamilyApiServices,
+        ...CommonAttachmentLibraryApiResolvers,
+        ...CommonAttachmentLibraryApiHandlers,
+        ...CommonAttachmentLibraryApiServices
     ],
 })
 export class CommonModule {}

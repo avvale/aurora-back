@@ -173,3 +173,9 @@ export { IamTenantAccountMapper } from './@app/iam/tenant-account/domain/iam-ten
 export { iamMockTenantAccountData } from './@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.data';
 export { IamTenant } from './@app/iam/tenant/domain/iam-tenant.aggregate';
 export { IamUser } from './@app/iam/user/domain/iam-user.aggregate';
+export { CommonAttachmentLibraryDto } from './@api/common/attachment-library/dto/common-attachment-library.dto';
+export { CommonAttachmentLibrary } from './@app/common/attachment-library/domain/common-attachment-library.aggregate';
+export { CommonAttachmentLibraryModel } from './@app/common/attachment-library';
+export { CommonAttachmentLibraryResponse } from './@app/common/attachment-library/domain/common-attachment-library.response';
+export { CommonAttachmentLibraryMapper } from './@app/common/attachment-library/domain/common-attachment-library.mapper';
+export { commonMockAttachmentLibraryData } from './@app/common/attachment-library/infrastructure/mock/common-mock-attachment-library.data';

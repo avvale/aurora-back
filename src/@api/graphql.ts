@@ -415,6 +415,48 @@ export interface CommonUpdateAttachmentFamiliesInput {
     format?: Nullable<CommonAttachmentFamilyFormat>;
 }
 
+export interface CommonCreateAttachmentLibraryInput {
+    id: string;
+    name: GraphQLString;
+    path: GraphQLString;
+    filename: GraphQLString;
+    url: GraphQLString;
+    mime: GraphQLString;
+    extension: GraphQLString;
+    size: GraphQLInt;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    meta?: Nullable<JSON>;
+}
+
+export interface CommonUpdateAttachmentLibraryByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+    path?: Nullable<GraphQLString>;
+    filename?: Nullable<GraphQLString>;
+    url?: Nullable<GraphQLString>;
+    mime?: Nullable<GraphQLString>;
+    extension?: Nullable<GraphQLString>;
+    size?: Nullable<GraphQLInt>;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    meta?: Nullable<JSON>;
+}
+
+export interface CommonUpdateAttachmentLibrariesInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    path?: Nullable<GraphQLString>;
+    filename?: Nullable<GraphQLString>;
+    url?: Nullable<GraphQLString>;
+    mime?: Nullable<GraphQLString>;
+    extension?: Nullable<GraphQLString>;
+    size?: Nullable<GraphQLInt>;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    meta?: Nullable<JSON>;
+}
+
 export interface CommonCreateCountryInput {
     id: string;
     iso3166Alpha2: GraphQLString;
@@ -1110,6 +1152,10 @@ export interface IQuery {
     commonFindAttachmentFamilyById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonGetAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
     commonPaginateAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    commonFindAttachmentLibrary(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonFindAttachmentLibraryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonGetAttachmentLibraries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary>[] | Promise<Nullable<CommonAttachmentLibrary>[]>;
+    commonPaginateAttachmentLibraries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     commonFindCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
@@ -1253,6 +1299,13 @@ export interface IMutation {
     commonUpsertAttachmentFamily(payload: CommonUpdateAttachmentFamilyByIdInput): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonDeleteAttachmentFamilyById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily> | Promise<Nullable<CommonAttachmentFamily>>;
     commonDeleteAttachmentFamilies(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentFamily>[] | Promise<Nullable<CommonAttachmentFamily>[]>;
+    commonCreateAttachmentLibrary(payload: CommonCreateAttachmentLibraryInput): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonCreateAttachmentLibraries(payload: Nullable<CommonCreateAttachmentLibraryInput>[]): boolean | Promise<boolean>;
+    commonUpdateAttachmentLibraryById(payload: CommonUpdateAttachmentLibraryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonUpdateAttachmentLibraries(payload: CommonUpdateAttachmentLibrariesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary>[] | Promise<Nullable<CommonAttachmentLibrary>[]>;
+    commonUpsertAttachmentLibrary(payload: CommonUpdateAttachmentLibraryByIdInput): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonDeleteAttachmentLibraryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary> | Promise<Nullable<CommonAttachmentLibrary>>;
+    commonDeleteAttachmentLibraries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachmentLibrary>[] | Promise<Nullable<CommonAttachmentLibrary>[]>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1499,6 +1552,23 @@ export interface CommonAttachmentFamily {
     quality?: Nullable<GraphQLInt>;
     sizes?: Nullable<JSON>;
     format?: Nullable<CommonAttachmentFamilyFormat>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface CommonAttachmentLibrary {
+    id: string;
+    name: GraphQLString;
+    path: GraphQLString;
+    filename: GraphQLString;
+    url: GraphQLString;
+    mime: GraphQLString;
+    extension: GraphQLString;
+    size: GraphQLInt;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
