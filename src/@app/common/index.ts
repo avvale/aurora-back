@@ -6,6 +6,7 @@ import { CommonAdministrativeAreaLevel3Handlers, CommonAdministrativeAreaLevel3S
 import { CommonResourceHandlers, CommonResourceServices, CommonResourceModel, CommonIResourceRepository, CommonSequelizeResourceRepository, CommonResourceSagas } from './resource';
 import { CommonAttachmentFamilyHandlers, CommonAttachmentFamilyServices, CommonAttachmentFamilyModel, CommonIAttachmentFamilyRepository, CommonSequelizeAttachmentFamilyRepository, CommonAttachmentFamilySagas } from './attachment-family';
 import { CommonAttachmentLibraryHandlers, CommonAttachmentLibraryServices, CommonAttachmentLibraryModel, CommonIAttachmentLibraryRepository, CommonSequelizeAttachmentLibraryRepository, CommonAttachmentLibrarySagas } from './attachment-library';
+import { CommonAttachmentHandlers, CommonAttachmentServices, CommonAttachmentModel, CommonIAttachmentRepository, CommonSequelizeAttachmentRepository, CommonAttachmentSagas } from './attachment';
 
 export const CommonHandlers = [
     ...CommonLangHandlers,
@@ -15,7 +16,8 @@ export const CommonHandlers = [
     ...CommonAdministrativeAreaLevel3Handlers,
     ...CommonResourceHandlers,
     ...CommonAttachmentFamilyHandlers,
-    ...CommonAttachmentLibraryHandlers
+    ...CommonAttachmentLibraryHandlers,
+    ...CommonAttachmentHandlers
 ];
 export const CommonServices = [
     ...CommonLangServices,
@@ -25,7 +27,8 @@ export const CommonServices = [
     ...CommonAdministrativeAreaLevel3Services,
     ...CommonResourceServices,
     ...CommonAttachmentFamilyServices,
-    ...CommonAttachmentLibraryServices
+    ...CommonAttachmentLibraryServices,
+    ...CommonAttachmentServices
 ];
 export const CommonModels = [
     CommonLangModel,
@@ -36,7 +39,8 @@ export const CommonModels = [
     CommonAdministrativeAreaLevel3Model,
     CommonResourceModel,
     CommonAttachmentFamilyModel,
-    CommonAttachmentLibraryModel
+    CommonAttachmentLibraryModel,
+    CommonAttachmentModel
 ];
 export const CommonRepositories = [
     {
@@ -74,6 +78,10 @@ export const CommonRepositories = [
     {
         provide : CommonIAttachmentLibraryRepository,
         useClass: CommonSequelizeAttachmentLibraryRepository
+    },
+    {
+        provide : CommonIAttachmentRepository,
+        useClass: CommonSequelizeAttachmentRepository
     }
 ];
 export const CommonSagas = [
@@ -84,6 +92,7 @@ export const CommonSagas = [
     CommonAdministrativeAreaLevel3Sagas,
     CommonResourceSagas,
     CommonAttachmentFamilySagas,
-    CommonAttachmentLibrarySagas
+    CommonAttachmentLibrarySagas,
+    CommonAttachmentSagas
 ];
 
