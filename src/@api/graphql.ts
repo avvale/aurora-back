@@ -874,11 +874,6 @@ export interface IamUpdateUsersInput {
     rememberToken?: Nullable<GraphQLString>;
 }
 
-export interface KitchenSinkFileUploaded {
-    id: string;
-    file: Upload;
-}
-
 export interface OAuthCreateAccessTokenInput {
     id: string;
     clientId: string;
@@ -1164,6 +1159,12 @@ export interface QueryStatement {
     offset?: Nullable<GraphQLInt>;
     distinct?: Nullable<GraphQLBoolean>;
     col?: Nullable<GraphQLString>;
+}
+
+export interface CoreFileUploaded {
+    id: string;
+    file: Upload;
+    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
 }
 
 export interface AuditingHttpCommunication {
@@ -1460,8 +1461,8 @@ export interface IMutation {
     iamUpsertUser(payload: IamUpdateUserByIdInput): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUserById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUsers(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser>[] | Promise<Nullable<IamUser>[]>;
-    kitchenSinkUploadFile(id: string, file: Upload): KitchenSinkFile | Promise<KitchenSinkFile>;
-    kitchenSinkUploadFiles(files: KitchenSinkFileUploaded[]): KitchenSinkFile[] | Promise<KitchenSinkFile[]>;
+    kitchenSinkUploadFile(file: CoreFileUploaded): CoreFile | Promise<CoreFile>;
+    kitchenSinkUploadFiles(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
     oAuthDeleteAccessTokenById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
     oAuthDeleteAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken>[] | Promise<Nullable<OAuthAccessToken>[]>;
     oAuthCreateApplicationClient(payload: OAuthCreateApplicationClientInput): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
@@ -1840,13 +1841,6 @@ export interface IamUser {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
-export interface KitchenSinkFile {
-    id: string;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    encoding: GraphQLString;
-}
-
 export interface OAuthAccessToken {
     id: string;
     clientId: string;
@@ -2018,6 +2012,13 @@ export interface Pagination {
     total: GraphQLInt;
     count: GraphQLInt;
     rows: Nullable<JSON>[];
+}
+
+export interface CoreFile {
+    id: string;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    encoding: GraphQLString;
 }
 
 export type JSON = any;
