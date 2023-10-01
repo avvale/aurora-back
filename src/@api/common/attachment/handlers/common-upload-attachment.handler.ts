@@ -1,41 +1,18 @@
-import { CommonUpdateAttachmentByIdDto } from '../dto';
-import { CommonUpdateAttachmentByIdInput } from '@api/graphql';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { CoreFile, CoreFileUploaded } from '@api/graphql';
+import { CoreFileUploaderService } from '@aurora/modules/file-uploader';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CommonUploadAttachmentHandler
 {
     constructor(
-        private readonly commandBus: ICommandBus,
-        private readonly queryBus: IQueryBus,
+        private readonly coreFileUploaderService: CoreFileUploaderService,
     ) {}
 
     async main(
-        payload: CommonUpdateAttachmentByIdInput | CommonUpdateAttachmentByIdDto,
-        constraint?: QueryStatement,
-        timezone?: string,
-        auditing?: AuditingMeta,
-    ): Promise<boolean>
+        files: CoreFileUploaded[],
+    ): Promise<CoreFile[]>
     {
-        // coding here
-        /* await this.commandBus.dispatch(new YourCommand(
-            payload,
-            {
-                timezone,
-                repositoryOptions: {
-                    auditing,
-                },
-            },
-        ));
-        await this.queryBus.ask(new YourQuery(
-            queryStatement,
-            constraint,
-            {
-                timezone,
-            },
-        )); */
-
-        return true;
+        return await this.coreFileUploaderService.uploadFiles(files);
     }
 }

@@ -1,7 +1,6 @@
 import { CommonUploadAttachmentHandler } from '@api/common/attachment';
-import { CommonUpdateAttachmentByIdInput } from '@api/graphql';
+import { CoreFile, CoreFileUploaded } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
@@ -14,17 +13,11 @@ export class CommonUploadAttachmentResolver
 
     @Mutation('commonUploadAttachment')
     async main(
-        @Args('payload') payload: CommonUpdateAttachmentByIdInput,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-        @Auditing() auditing?: AuditingMeta,
-    ): Promise<boolean>
+        @Args('files') files: CoreFileUploaded[],
+    ): Promise<CoreFile[]>
     {
         return await this.handler.main(
-            payload,
-            constraint,
-            timezone,
-            auditing,
+            files,
         );
     }
 }
