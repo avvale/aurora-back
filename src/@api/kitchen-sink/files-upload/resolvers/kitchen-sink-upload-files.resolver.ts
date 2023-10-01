@@ -1,4 +1,4 @@
-import { KitchenSinkFile, KitchenSinkFileUploaded } from '@api/graphql';
+import { CoreFile, CoreFileUploaded } from '@api/graphql';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { KitchenSinkUploadFilesHandler } from '../handlers/kitchen-sink-upload-files.handler';
 
@@ -11,8 +11,8 @@ export class KitchenSinkUploadFilesResolver
 
     @Mutation('kitchenSinkUploadFiles')
     async main(
-        @Args('files') files: KitchenSinkFileUploaded[],
-    ): Promise<KitchenSinkFile[]>
+        @Args('files') files: CoreFileUploaded[],
+    ): Promise<CoreFile[]>
     {
         return await this.handler.main(
             files,

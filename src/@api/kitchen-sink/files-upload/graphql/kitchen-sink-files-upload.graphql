@@ -1,25 +1,10 @@
-type KitchenSinkFile
-{
-    id: ID!
-    filename: GraphQLString!
-    mimetype: GraphQLString!
-    encoding: GraphQLString!
-}
-
-input KitchenSinkFileUploaded
-{
-    id: ID!
-    file: Upload!
-}
-
 type Mutation
 {
     kitchenSinkUploadFile(
-        id: ID!
-        file: Upload!
-    ): KitchenSinkFile!
+        file: CoreFileUploaded!
+    ): CoreFile!
 
     kitchenSinkUploadFiles(
-        files: [KitchenSinkFileUploaded!]!
-    ): [KitchenSinkFile!]!
+        files: [CoreFileUploaded!]!
+    ): [CoreFile!]!
 }

@@ -1,39 +1,18 @@
-import { KitchenSinkFile, KitchenSinkFileUploaded } from '@api/graphql';
-import { Utils } from '@aurorajs.dev/core';
+import { CoreFile, CoreFileUploaded } from '@api/graphql';
+import { CoreFileUploaderService } from '@aurora/modules/file-uploader';
 import { Injectable } from '@nestjs/common';
-import { join } from 'node:path';
 
 @Injectable()
 export class KitchenSinkUploadFilesHandler
 {
+    constructor(
+        private readonly coreFileUploaderService: CoreFileUploaderService,
+    ) { }
+
     async main(
-        files: KitchenSinkFileUploaded[],
-    ): Promise<KitchenSinkFile[]>
+        files: CoreFileUploaded[],
+    ): Promise<CoreFile[]>
     {
-        const uploadPromises = [];
-        const responses = [];
-
-        for (const file of files)
-        {
-            // eslint-disable-next-line no-await-in-loop
-            const { createReadStream, filename, mimetype, encoding } = await file.file;
-            const path = join(process.cwd(),'uploads',`${file.id}-${filename}`);
-
-            // Create readable stream
-            const stream = createReadStream();
-
-            // Store the file in the filesystem.
-            uploadPromises.push(Utils.storageStream(path, stream));
-
-            responses.push({
-                id: file.id,
-                filename,
-                mimetype,
-                encoding,
-            });
-
-        }
-
-        return responses;
+        return await this.coreFileUploaderService.uploadFiles(files);
     }
 }
