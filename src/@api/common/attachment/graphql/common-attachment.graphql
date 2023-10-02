@@ -146,8 +146,7 @@ type Mutation
 
     # additionalApis
     commonUploadAttachment(
-        payload: CommonUpdateAttachmentByIdInput!
-        constraint: QueryStatement
-    ): Boolean!
+        files: [CoreFileUploaded!]!
+    ): [CoreFile!]!
 
 }
