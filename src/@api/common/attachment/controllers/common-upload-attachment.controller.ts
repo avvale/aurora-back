@@ -7,7 +7,7 @@ import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachm
 
 @ApiTags('[common] attachment')
 @Controller('common/attachment/upload')
-@Auth('common.attachment.update')
+@Auth('common.attachment.upload')
 export class CommonUploadAttachmentController
 {
     constructor(

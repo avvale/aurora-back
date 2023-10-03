@@ -4,7 +4,7 @@ import { Auth } from '@aurora/decorators';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
-@Auth('common.attachment.update')
+@Auth('common.attachment.upload')
 export class CommonUploadAttachmentResolver
 {
     constructor(
