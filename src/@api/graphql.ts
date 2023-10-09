@@ -2019,6 +2019,7 @@ export interface CoreFile {
     filename: GraphQLString;
     mimetype: GraphQLString;
     encoding: GraphQLString;
+    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
 }
 
 export type JSON = any;

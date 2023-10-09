@@ -4,6 +4,7 @@ type CoreFile
     filename: GraphQLString!
     mimetype: GraphQLString!
     encoding: GraphQLString!
+    relativePathSegments: [GraphQLString]
 }
 
 input CoreFileUploaded

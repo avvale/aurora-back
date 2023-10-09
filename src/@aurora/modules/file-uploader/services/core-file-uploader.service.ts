@@ -1,12 +1,15 @@
 import { CoreFile, CoreFileUploaded } from '@api/graphql';
 import { Utils } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { join } from 'node:path';
-import * as fs from 'node:fs';
+import { join, extname } from 'node:path';
+import { existsSync, mkdirSync } from 'node:fs';
 
 @Injectable()
 export class CoreFileUploaderService
 {
+    // CoreFileUploaded has relativePathSegments, that is an array
+    // of strings that represents the path to the file will be stored.
+    // by default, the file will be stored in the tmp directory.
     async uploadFile(file: CoreFileUploaded): Promise<CoreFile>
     {
         const directoryPath = Array.isArray(file.relativePathSegments) &&  file.relativePathSegments.length > 0 ?
@@ -17,11 +20,11 @@ export class CoreFileUploaderService
         const { createReadStream, filename, mimetype, encoding } = await file.file;
         const path = join(
             directoryPath,
-            `${file.id}-${filename}`,
+            `${file.id}${extname(filename)}`,
         );
 
         // create directory if not exists
-        if (!fs.existsSync(directoryPath)) fs.mkdirSync(directoryPath, { recursive: true });
+        if (!existsSync(directoryPath)) mkdirSync(directoryPath, { recursive: true });
 
         // Create readable stream
         const stream = createReadStream();
@@ -31,10 +34,11 @@ export class CoreFileUploaderService
         Utils.storageStream(path, stream);
 
         return {
-            id: file.id,
+            id                  : file.id,
             filename,
             mimetype,
             encoding,
+            relativePathSegments: file.relativePathSegments,
         };
     }
 
