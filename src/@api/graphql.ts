@@ -1375,7 +1375,7 @@ export interface IMutation {
     commonUpsertAttachment(payload: CommonUpdateAttachmentByIdInput): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachmentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
-    commonUploadAttachment(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
+    commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -2016,9 +2016,11 @@ export interface Pagination {
 
 export interface CoreFile {
     id: string;
+    url: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     encoding: GraphQLString;
+    size: GraphQLInt;
     relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
 }
 

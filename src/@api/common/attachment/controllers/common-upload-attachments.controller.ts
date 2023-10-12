@@ -3,15 +3,15 @@ import { CoreFileUploaded } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachment.handler';
+import { CommonUploadAttachmentsHandler } from '../handlers/common-upload-attachments.handler';
 
 @ApiTags('[common] attachment')
-@Controller('common/attachment/upload')
+@Controller('common/attachments/upload')
 @Auth('common.attachment.upload')
-export class CommonUploadAttachmentController
+export class CommonUploadAttachmentsController
 {
     constructor(
-        private readonly handler: CommonUploadAttachmentHandler,
+        private readonly handler: CommonUploadAttachmentsHandler,
     ) {}
 
     @Post()

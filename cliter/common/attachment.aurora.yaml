@@ -98,6 +98,6 @@ aggregateProperties:
     type: timestamp
     nullable: true
 additionalApis:
-  - path: common/attachment/upload
+  - path: common/attachments/upload
     resolverType: mutation
     httpMethod: post

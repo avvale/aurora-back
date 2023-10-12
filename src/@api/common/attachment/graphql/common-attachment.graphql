@@ -145,7 +145,7 @@ type Mutation
 
 
     # additionalApis
-    commonUploadAttachment(
+    commonUploadAttachments(
         files: [CoreFileUploaded!]!
     ): [CoreFile!]!
 

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachment.handler';
-import { CommonUploadAttachmentResolver } from './common-upload-attachment.resolver';
+import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachments.handler';
+import { CommonUploadAttachmentResolver } from './common-upload-attachments.resolver';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('CommonUploadAttachmentResolver', () =>
+describe('CommonUploadAttachmentsResolver', () =>
 {
     let resolver: CommonUploadAttachmentResolver;
     let handler: CommonUploadAttachmentHandler;

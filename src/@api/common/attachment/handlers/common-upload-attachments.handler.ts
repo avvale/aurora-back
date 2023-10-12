@@ -3,7 +3,7 @@ import { CoreFileUploaderService } from '@aurora/modules/file-uploader';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class CommonUploadAttachmentHandler
+export class CommonUploadAttachmentsHandler
 {
     constructor(
         private readonly coreFileUploaderService: CoreFileUploaderService,

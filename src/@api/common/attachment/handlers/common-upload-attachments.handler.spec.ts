@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUploadAttachmentHandler } from './common-upload-attachment.handler';
+import { CommonUploadAttachmentHandler } from './common-upload-attachments.handler';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('CommonUploadAttachmentHandler', () =>
+describe('CommonUploadAttachmentsHandler', () =>
 {
     let handler: CommonUploadAttachmentHandler;
     let queryBus: IQueryBus;

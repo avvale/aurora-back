@@ -44,9 +44,9 @@ export { CommonDeleteAttachmentByIdResolver } from './resolvers/common-delete-at
 export { CommonDeleteAttachmentsResolver } from './resolvers/common-delete-attachments.resolver';
 
 // export additionalApis
-export { CommonUploadAttachmentController } from './controllers/common-upload-attachment.controller';
-export { CommonUploadAttachmentHandler } from './handlers/common-upload-attachment.handler';
-export { CommonUploadAttachmentResolver } from './resolvers/common-upload-attachment.resolver';
+export { CommonUploadAttachmentsController } from './controllers/common-upload-attachments.controller';
+export { CommonUploadAttachmentsHandler } from './handlers/common-upload-attachments.handler';
+export { CommonUploadAttachmentsResolver } from './resolvers/common-upload-attachments.resolver';
 
 // import controllers
 import { CommonCreateAttachmentController } from './controllers/common-create-attachment.controller';
@@ -91,9 +91,9 @@ import { CommonDeleteAttachmentsHandler } from './handlers/common-delete-attachm
 import { CommonAttachmentSeeder } from './seeder/common-attachment.seeder';
 
 // import additionalApis
-import { CommonUploadAttachmentController } from './controllers/common-upload-attachment.controller';
-import { CommonUploadAttachmentHandler } from './handlers/common-upload-attachment.handler';
-import { CommonUploadAttachmentResolver } from './resolvers/common-upload-attachment.resolver';
+import { CommonUploadAttachmentsController } from './controllers/common-upload-attachments.controller';
+import { CommonUploadAttachmentsHandler } from './handlers/common-upload-attachments.handler';
+import { CommonUploadAttachmentsResolver } from './resolvers/common-upload-attachments.resolver';
 
 export const CommonAttachmentApiControllers = [
     CommonCreateAttachmentController,
@@ -109,7 +109,7 @@ export const CommonAttachmentApiControllers = [
     CommonDeleteAttachmentsController,
 
     // additionalApis
-    CommonUploadAttachmentController,
+    CommonUploadAttachmentsController,
 ];
 
 export const CommonAttachmentApiResolvers = [
@@ -126,7 +126,7 @@ export const CommonAttachmentApiResolvers = [
     CommonDeleteAttachmentsResolver,
 
     // additionalApis
-    CommonUploadAttachmentResolver,
+    CommonUploadAttachmentsResolver,
 ];
 
 export const CommonAttachmentApiHandlers = [
@@ -143,7 +143,7 @@ export const CommonAttachmentApiHandlers = [
     CommonDeleteAttachmentsHandler,
 
     // additionalApis
-    CommonUploadAttachmentHandler,
+    CommonUploadAttachmentsHandler,
 ];
 
 export const CommonAttachmentApiServices = [

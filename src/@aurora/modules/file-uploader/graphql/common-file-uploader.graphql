@@ -1,9 +1,11 @@
 type CoreFile
 {
     id: ID!
+    url: GraphQLString!
     filename: GraphQLString!
     mimetype: GraphQLString!
     encoding: GraphQLString!
+    size: GraphQLInt!
     relativePathSegments: [GraphQLString]
 }
 
