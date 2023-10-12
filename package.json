@@ -40,6 +40,7 @@
         "@nestjs/passport": "^10.0.0",
         "@nestjs/platform-express": "^10.0.0",
         "@nestjs/schedule": "^3.0.1",
+        "@nestjs/serve-static": "^4.0.0",
         "@nestjs/swagger": "^7.0.12",
         "bull": "^4.10.4",
         "cache-manager": "^5.2.3",
