@@ -10,7 +10,7 @@ import { QueueManagerQueueApiHandlers, QueueManagerQueueApiControllers, QueueMan
 import { QueueManagerSeeder } from './queue-manager.seeder';
 import { QueueRedisImplementationService } from './shared/services';
 import { QueueManagerJobControllers, QueueManagerJobResolvers, QueueManagerJobApiHandlers, QueueManagerJobServices } from './job';
-import { QueueManagerJobRegistryControllers, QueueManagerJobRegistryResolvers, QueueManagerJobRegistryApiHandlers, QueueManagerJobRegistryServices } from './job-registry';
+import { QueueManagerJobRegistryApiHandlers, QueueManagerJobRegistryApiControllers, QueueManagerJobRegistryApiResolvers, QueueManagerJobRegistryApiServices } from './job-registry';
 import { appQueues } from 'src/app.queues';
 
 @Module({
@@ -45,8 +45,8 @@ import { appQueues } from 'src/app.queues';
     ],
     controllers: [
         ...QueueManagerJobControllers,
-        ...QueueManagerJobRegistryControllers,
-        ...QueueManagerQueueApiControllers
+        ...QueueManagerQueueApiControllers,
+        ...QueueManagerJobRegistryApiControllers
     ],
     providers: [
         {
@@ -72,11 +72,11 @@ import { appQueues } from 'src/app.queues';
         ...QueueManagerJobResolvers,
         ...QueueManagerJobApiHandlers,
         ...QueueManagerJobServices,
-        ...QueueManagerJobRegistryResolvers,
         ...QueueManagerJobRegistryApiHandlers,
-        ...QueueManagerJobRegistryServices,
         ...QueueManagerQueueApiResolvers,
-        ...QueueManagerQueueApiServices
+        ...QueueManagerQueueApiServices,
+        ...QueueManagerJobRegistryApiResolvers,
+        ...QueueManagerJobRegistryApiServices
     ],
 })
 export class QueueManagerModule {}
