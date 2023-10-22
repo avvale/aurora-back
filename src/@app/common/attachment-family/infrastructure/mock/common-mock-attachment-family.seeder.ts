@@ -9,6 +9,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -37,8 +38,9 @@ export class CommonMockAttachmentFamilySeeder extends MockSeeder<CommonAttachmen
             this.collectionSource.push(
                 CommonAttachmentFamily.register(
                     new CommonAttachmentFamilyId(attachmentFamily.id),
-                    new CommonAttachmentFamilyName(attachmentFamily.name),
+                    new CommonAttachmentFamilyResourceId(attachmentFamily.resourceId),
                     new CommonAttachmentFamilyCode(attachmentFamily.code),
+                    new CommonAttachmentFamilyName(attachmentFamily.name),
                     new CommonAttachmentFamilyWidth(attachmentFamily.width),
                     new CommonAttachmentFamilyHeight(attachmentFamily.height),
                     new CommonAttachmentFamilyFitType(attachmentFamily.fitType),

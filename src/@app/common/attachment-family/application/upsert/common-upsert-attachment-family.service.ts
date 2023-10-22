@@ -9,6 +9,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -28,8 +29,9 @@ export class CommonUpsertAttachmentFamilyService
     async main(
         payload: {
             id: CommonAttachmentFamilyId;
-            name: CommonAttachmentFamilyName;
+            resourceId: CommonAttachmentFamilyResourceId;
             code: CommonAttachmentFamilyCode;
+            name: CommonAttachmentFamilyName;
             width: CommonAttachmentFamilyWidth;
             height: CommonAttachmentFamilyHeight;
             fitType: CommonAttachmentFamilyFitType;
@@ -43,8 +45,9 @@ export class CommonUpsertAttachmentFamilyService
         // upsert aggregate with factory pattern
         const attachmentFamily = CommonAttachmentFamily.register(
             payload.id,
-            payload.name,
+            payload.resourceId,
             payload.code,
+            payload.name,
             payload.width,
             payload.height,
             payload.fitType,

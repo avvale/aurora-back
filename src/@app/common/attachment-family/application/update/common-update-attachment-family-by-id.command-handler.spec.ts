@@ -38,8 +38,9 @@ describe('CommonUpdateAttachmentFamilyByIdCommandHandler', () =>
                 new CommonUpdateAttachmentFamilyByIdCommand(
                     {
                         id: commonMockAttachmentFamilyData[0].id,
-                        name: commonMockAttachmentFamilyData[0].name,
+                        resourceId: commonMockAttachmentFamilyData[0].resourceId,
                         code: commonMockAttachmentFamilyData[0].code,
+                        name: commonMockAttachmentFamilyData[0].name,
                         width: commonMockAttachmentFamilyData[0].width,
                         height: commonMockAttachmentFamilyData[0].height,
                         fitType: commonMockAttachmentFamilyData[0].fitType,

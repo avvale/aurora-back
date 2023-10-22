@@ -93,19 +93,19 @@ describe('attachment-family', () =>
             });
     });
 
-    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName property can not to be null', () =>
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyResourceId property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment-family/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                name: null,
+                resourceId: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyResourceId must be defined, can not be null');
             });
     });
 
@@ -125,6 +125,22 @@ describe('attachment-family', () =>
             });
     });
 
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                name: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyId property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -141,19 +157,19 @@ describe('attachment-family', () =>
             });
     });
 
-    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName property can not to be undefined', () =>
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyResourceId property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment-family/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                name: undefined,
+                resourceId: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyResourceId must be defined, can not be undefined');
             });
     });
 
@@ -173,6 +189,22 @@ describe('attachment-family', () =>
             });
     });
 
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                name: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName must be defined, can not be undefined');
+            });
+    });
+
     test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyId is not allowed, must be a length of 36', () =>
     {
         return request(app.getHttpServer())
@@ -189,19 +221,19 @@ describe('attachment-family', () =>
             });
     });
 
-    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName is too large, has a maximum length of 100', () =>
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyResourceId is not allowed, must be a length of 36', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment-family/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                name: '*****************************************************************************************************',
+                resourceId: '*************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName is too large, has a maximum length of 100');
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyResourceId is not allowed, must be a length of 36');
             });
     });
 
@@ -218,6 +250,22 @@ describe('attachment-family', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CommonAttachmentFamilyCode is too large, has a maximum length of 25');
+            });
+    });
+
+    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyName is too large, has a maximum length of 100', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment-family/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                name: '*****************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentFamilyName is too large, has a maximum length of 100');
             });
     });
 
@@ -472,8 +520,9 @@ describe('attachment-family', () =>
                         commonCreateAttachmentFamily (payload:$payload)
                         {
                             id
-                            name
+                            resourceId
                             code
+                            name
                             width
                             height
                             fitType
@@ -546,8 +595,8 @@ describe('attachment-family', () =>
                         commonGetAttachmentFamilies (query:$query)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -583,8 +632,9 @@ describe('attachment-family', () =>
                         commonCreateAttachmentFamily (payload:$payload)
                         {
                             id
-                            name
+                            resourceId
                             code
+                            name
                             width
                             height
                             fitType
@@ -620,8 +670,8 @@ describe('attachment-family', () =>
                         commonFindAttachmentFamily (query:$query)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -665,8 +715,8 @@ describe('attachment-family', () =>
                         commonFindAttachmentFamily (query:$query)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -708,8 +758,8 @@ describe('attachment-family', () =>
                         commonFindAttachmentFamilyById (id:$id)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -746,8 +796,8 @@ describe('attachment-family', () =>
                         commonFindAttachmentFamilyById (id:$id)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -782,8 +832,8 @@ describe('attachment-family', () =>
                         commonUpdateAttachmentFamilyById (payload:$payload)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -823,8 +873,8 @@ describe('attachment-family', () =>
                         commonUpdateAttachmentFamilyById (payload:$payload)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -862,8 +912,8 @@ describe('attachment-family', () =>
                         commonUpdateAttachmentFamilies (payload:$payload query:$query)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -906,8 +956,8 @@ describe('attachment-family', () =>
                         commonDeleteAttachmentFamilyById (id:$id)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType
@@ -944,8 +994,8 @@ describe('attachment-family', () =>
                         commonDeleteAttachmentFamilyById (id:$id)
                         {
                             id
-                            name
                             code
+                            name
                             width
                             height
                             fitType

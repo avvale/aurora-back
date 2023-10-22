@@ -10,18 +10,21 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
+import { CommonResource } from '@app/common/resource';
 import { LiteralObject, Utils } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
 export class CommonAttachmentFamily extends AggregateRoot
 {
     id: CommonAttachmentFamilyId;
-    name: CommonAttachmentFamilyName;
+    resourceId: CommonAttachmentFamilyResourceId;
     code: CommonAttachmentFamilyCode;
+    name: CommonAttachmentFamilyName;
     width: CommonAttachmentFamilyWidth;
     height: CommonAttachmentFamilyHeight;
     fitType: CommonAttachmentFamilyFitType;
@@ -31,11 +34,13 @@ export class CommonAttachmentFamily extends AggregateRoot
     createdAt: CommonAttachmentFamilyCreatedAt;
     updatedAt: CommonAttachmentFamilyUpdatedAt;
     deletedAt: CommonAttachmentFamilyDeletedAt;
+    resource: CommonResource;
 
     constructor(
         id: CommonAttachmentFamilyId,
-        name: CommonAttachmentFamilyName,
+        resourceId: CommonAttachmentFamilyResourceId,
         code: CommonAttachmentFamilyCode,
+        name: CommonAttachmentFamilyName,
         width: CommonAttachmentFamilyWidth,
         height: CommonAttachmentFamilyHeight,
         fitType: CommonAttachmentFamilyFitType,
@@ -45,12 +50,14 @@ export class CommonAttachmentFamily extends AggregateRoot
         createdAt: CommonAttachmentFamilyCreatedAt,
         updatedAt: CommonAttachmentFamilyUpdatedAt,
         deletedAt: CommonAttachmentFamilyDeletedAt,
+        resource?: CommonResource,
     )
     {
         super();
         this.id = id;
-        this.name = name;
+        this.resourceId = resourceId;
         this.code = code;
+        this.name = name;
         this.width = width;
         this.height = height;
         this.fitType = fitType;
@@ -60,12 +67,14 @@ export class CommonAttachmentFamily extends AggregateRoot
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
+        this.resource = resource;
     }
 
     static register(
         id: CommonAttachmentFamilyId,
-        name: CommonAttachmentFamilyName,
+        resourceId: CommonAttachmentFamilyResourceId,
         code: CommonAttachmentFamilyCode,
+        name: CommonAttachmentFamilyName,
         width: CommonAttachmentFamilyWidth,
         height: CommonAttachmentFamilyHeight,
         fitType: CommonAttachmentFamilyFitType,
@@ -75,12 +84,14 @@ export class CommonAttachmentFamily extends AggregateRoot
         createdAt: CommonAttachmentFamilyCreatedAt,
         updatedAt: CommonAttachmentFamilyUpdatedAt,
         deletedAt: CommonAttachmentFamilyDeletedAt,
+        resource?: CommonResource,
     ): CommonAttachmentFamily
     {
         return new CommonAttachmentFamily(
             id,
-            name,
+            resourceId,
             code,
+            name,
             width,
             height,
             fitType,
@@ -90,6 +101,7 @@ export class CommonAttachmentFamily extends AggregateRoot
             createdAt,
             updatedAt,
             deletedAt,
+            resource,
         );
     }
 
@@ -98,8 +110,9 @@ export class CommonAttachmentFamily extends AggregateRoot
         this.apply(
             new CommonCreatedAttachmentFamilyEvent(
                 attachmentFamily.id.value,
-                attachmentFamily.name.value,
+                attachmentFamily.resourceId.value,
                 attachmentFamily.code.value,
+                attachmentFamily.name.value,
                 attachmentFamily.width?.value,
                 attachmentFamily.height?.value,
                 attachmentFamily.fitType?.value,
@@ -118,8 +131,9 @@ export class CommonAttachmentFamily extends AggregateRoot
         this.apply(
             new CommonUpdatedAttachmentFamilyEvent(
                 attachmentFamily.id?.value,
-                attachmentFamily.name?.value,
+                attachmentFamily.resourceId?.value,
                 attachmentFamily.code?.value,
+                attachmentFamily.name?.value,
                 attachmentFamily.width?.value,
                 attachmentFamily.height?.value,
                 attachmentFamily.fitType?.value,
@@ -138,8 +152,9 @@ export class CommonAttachmentFamily extends AggregateRoot
         this.apply(
             new CommonDeletedAttachmentFamilyEvent(
                 attachmentFamily.id.value,
-                attachmentFamily.name.value,
+                attachmentFamily.resourceId.value,
                 attachmentFamily.code.value,
+                attachmentFamily.name.value,
                 attachmentFamily.width?.value,
                 attachmentFamily.height?.value,
                 attachmentFamily.fitType?.value,
@@ -157,8 +172,9 @@ export class CommonAttachmentFamily extends AggregateRoot
     {
         return {
             id: this.id.value,
-            name: this.name.value,
+            resourceId: this.resourceId.value,
             code: this.code.value,
+            name: this.name.value,
             width: this.width?.value,
             height: this.height?.value,
             fitType: this.fitType?.value,
@@ -168,6 +184,7 @@ export class CommonAttachmentFamily extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
+            resource: this.resource?.toDTO(),
         };
     }
 
@@ -176,8 +193,9 @@ export class CommonAttachmentFamily extends AggregateRoot
     {
         return {
             id: this.id.value,
-            name: this.name.value,
+            resourceId: this.resourceId.value,
             code: this.code.value,
+            name: this.name.value,
             width: this.width?.value,
             height: this.height?.value,
             fitType: this.fitType?.value,
@@ -187,6 +205,7 @@ export class CommonAttachmentFamily extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
+            resource: this.resource?.toDTO(),
         };
     }
 }

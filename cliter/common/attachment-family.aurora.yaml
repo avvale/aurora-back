@@ -15,26 +15,29 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
-  - name: resources
-    type: relationship
-    nullable: true
+  - name: resourceId
+    type: id
+    length: 36
+    nullable: false
     relationship:
-      type: one-to-many
-      singularName: resource
+      type: many-to-one
       aggregateName: CommonResource
       modulePath: common/resource
+      key: id
+      field: resource
       avoidConstraint: true
+    index: index
     webComponent:
-      type: multiple-select
-  - name: name
-    type: varchar
-    maxLength: 100
-    nullable: false
+      type: select
   - name: code
     type: varchar
     maxLength: 25
     nullable: false
     index: unique
+  - name: name
+    type: varchar
+    maxLength: 100
+    nullable: false
   - name: width
     type: smallint.unsigned
     maxLength: 5

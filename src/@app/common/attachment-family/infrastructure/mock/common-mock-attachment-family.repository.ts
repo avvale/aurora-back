@@ -9,6 +9,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyUpdatedAt,
     CommonAttachmentFamilyWidth,
@@ -47,8 +48,9 @@ export class CommonMockAttachmentFamilyRepository extends MockRepository<CommonA
 
             this.collectionSource.push(CommonAttachmentFamily.register(
                 new CommonAttachmentFamilyId(itemCollection.id),
-                new CommonAttachmentFamilyName(itemCollection.name),
+                new CommonAttachmentFamilyResourceId(itemCollection.resourceId),
                 new CommonAttachmentFamilyCode(itemCollection.code),
+                new CommonAttachmentFamilyName(itemCollection.name),
                 new CommonAttachmentFamilyWidth(itemCollection.width),
                 new CommonAttachmentFamilyHeight(itemCollection.height),
                 new CommonAttachmentFamilyFitType(itemCollection.fitType),

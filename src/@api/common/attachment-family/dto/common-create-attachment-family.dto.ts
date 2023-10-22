@@ -12,15 +12,22 @@ export class CommonCreateAttachmentFamilyDto
 
     @ApiProperty({
         type       : String,
-        description: 'name [input here api field description]',
+        description: 'resourceId [input here api field description]',
+        example    : '0a14256f-3caa-5783-909e-8ff8ff84fc16',
     })
-    name: string;
+    resourceId: string;
 
     @ApiProperty({
         type       : String,
         description: 'code [input here api field description]',
     })
     code: string;
+
+    @ApiProperty({
+        type       : String,
+        description: 'name [input here api field description]',
+    })
+    name: string;
 
     @ApiProperty({
         type       : Number,

@@ -9,6 +9,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -56,8 +57,9 @@ describe('CommonCreateAttachmentFamilyService', () =>
                 await service.main(
                     {
                         id: new CommonAttachmentFamilyId(commonMockAttachmentFamilyData[0].id),
-                        name: new CommonAttachmentFamilyName(commonMockAttachmentFamilyData[0].name),
+                        resourceId: new CommonAttachmentFamilyResourceId(commonMockAttachmentFamilyData[0].resourceId),
                         code: new CommonAttachmentFamilyCode(commonMockAttachmentFamilyData[0].code),
+                        name: new CommonAttachmentFamilyName(commonMockAttachmentFamilyData[0].name),
                         width: new CommonAttachmentFamilyWidth(commonMockAttachmentFamilyData[0].width),
                         height: new CommonAttachmentFamilyHeight(commonMockAttachmentFamilyData[0].height),
                         fitType: new CommonAttachmentFamilyFitType(commonMockAttachmentFamilyData[0].fitType),

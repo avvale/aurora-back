@@ -381,8 +381,9 @@ export interface CommonUpdateAdministrativeAreasLevel3Input {
 
 export interface CommonCreateAttachmentFamilyInput {
     id: string;
-    name: GraphQLString;
+    resourceId: string;
     code: GraphQLString;
+    name: GraphQLString;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
     fitType?: Nullable<CommonAttachmentFamilyFitType>;
@@ -393,8 +394,9 @@ export interface CommonCreateAttachmentFamilyInput {
 
 export interface CommonUpdateAttachmentFamilyByIdInput {
     id: string;
-    name?: Nullable<GraphQLString>;
+    resourceId?: Nullable<string>;
     code?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
     fitType?: Nullable<CommonAttachmentFamilyFitType>;
@@ -405,8 +407,9 @@ export interface CommonUpdateAttachmentFamilyByIdInput {
 
 export interface CommonUpdateAttachmentFamiliesInput {
     id?: Nullable<string>;
-    name?: Nullable<GraphQLString>;
+    resourceId?: Nullable<string>;
     code?: Nullable<GraphQLString>;
+    name?: Nullable<GraphQLString>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
     fitType?: Nullable<CommonAttachmentFamilyFitType>;
@@ -1614,8 +1617,10 @@ export interface CommonAdministrativeAreaLevel3 {
 
 export interface CommonAttachmentFamily {
     id: string;
-    name: GraphQLString;
+    resourceId: string;
+    resource?: Nullable<CommonResource>;
     code: GraphQLString;
+    name: GraphQLString;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
     fitType?: Nullable<CommonAttachmentFamilyFitType>;
@@ -2015,13 +2020,17 @@ export interface Pagination {
 }
 
 export interface CoreFile {
-    id: string;
-    url: GraphQLString;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
+    alt?: Nullable<GraphQLString>;
     encoding: GraphQLString;
-    size: GraphQLInt;
+    familyId?: Nullable<string>;
+    filename: GraphQLString;
+    id: string;
+    mimetype: GraphQLString;
     relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
+    size: GraphQLInt;
+    sort?: Nullable<GraphQLInt>;
+    title?: Nullable<GraphQLString>;
+    url: GraphQLString;
 }
 
 export type JSON = any;

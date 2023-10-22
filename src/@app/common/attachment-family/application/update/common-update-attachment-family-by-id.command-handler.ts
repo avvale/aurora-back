@@ -9,6 +9,7 @@ import {
     CommonAttachmentFamilyId,
     CommonAttachmentFamilyName,
     CommonAttachmentFamilyQuality,
+    CommonAttachmentFamilyResourceId,
     CommonAttachmentFamilySizes,
     CommonAttachmentFamilyWidth,
 } from '@app/common/attachment-family/domain/value-objects';
@@ -27,8 +28,9 @@ export class CommonUpdateAttachmentFamilyByIdCommandHandler implements ICommandH
         await this.updateAttachmentFamilyByIdService.main(
             {
                 id: new CommonAttachmentFamilyId(command.payload.id),
-                name: new CommonAttachmentFamilyName(command.payload.name, { undefinable: true }),
+                resourceId: new CommonAttachmentFamilyResourceId(command.payload.resourceId, { undefinable: true }),
                 code: new CommonAttachmentFamilyCode(command.payload.code, { undefinable: true }),
+                name: new CommonAttachmentFamilyName(command.payload.name, { undefinable: true }),
                 width: new CommonAttachmentFamilyWidth(command.payload.width),
                 height: new CommonAttachmentFamilyHeight(command.payload.height),
                 fitType: new CommonAttachmentFamilyFitType(command.payload.fitType),
