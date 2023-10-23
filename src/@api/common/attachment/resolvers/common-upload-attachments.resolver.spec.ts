@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachments.handler';
-import { CommonUploadAttachmentResolver } from './common-upload-attachments.resolver';
+import { CommonUploadAttachmentsHandler } from '../handlers/common-upload-attachments.handler';
+import { CommonUploadAttachmentsResolver } from './common-upload-attachments.resolver';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUploadAttachmentsResolver', () =>
 {
-    let resolver: CommonUploadAttachmentResolver;
-    let handler: CommonUploadAttachmentHandler;
+    let resolver: CommonUploadAttachmentsResolver;
+    let handler: CommonUploadAttachmentsHandler;
 
     beforeAll(async () =>
     {
@@ -14,9 +14,9 @@ describe('CommonUploadAttachmentsResolver', () =>
             imports: [
             ],
             providers: [
-                CommonUploadAttachmentResolver,
+                CommonUploadAttachmentsResolver,
                 {
-                    provide : CommonUploadAttachmentHandler,
+                    provide : CommonUploadAttachmentsHandler,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -25,18 +25,18 @@ describe('CommonUploadAttachmentsResolver', () =>
         })
             .compile();
 
-        resolver = module.get<CommonUploadAttachmentResolver>(CommonUploadAttachmentResolver);
-        handler = module.get<CommonUploadAttachmentHandler>(CommonUploadAttachmentHandler);
+        resolver = module.get<CommonUploadAttachmentsResolver>(CommonUploadAttachmentsResolver);
+        handler = module.get<CommonUploadAttachmentsHandler>(CommonUploadAttachmentsHandler);
     });
 
-    test('CommonUploadAttachmentResolver should be defined', () =>
+    test('CommonUploadAttachmentsResolver should be defined', () =>
     {
         expect(resolver).toBeDefined();
     });
 
     describe('main', () =>
     {
-        test('CommonUploadAttachmentResolver should be defined', () =>
+        test('CommonUploadAttachmentsResolver should be defined', () =>
         {
             expect(resolver).toBeDefined();
         });

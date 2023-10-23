@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUploadAttachmentHandler } from '../handlers/common-upload-attachments.handler';
-import { CommonUploadAttachmentController } from './common-upload-attachments.controller';
+import { CommonUploadAttachmentsHandler } from '../handlers/common-upload-attachments.handler';
+import { CommonUploadAttachmentsController } from './common-upload-attachments.controller';
 import { Test, TestingModule } from '@nestjs/testing';
 
 describe('CommonUploadAttachmentsController', () =>
 {
-    let controller: CommonUploadAttachmentController;
-    let handler: CommonUploadAttachmentHandler;
+    let controller: CommonUploadAttachmentsController;
+    let handler: CommonUploadAttachmentsHandler;
 
     beforeAll(async () =>
     {
@@ -14,11 +14,11 @@ describe('CommonUploadAttachmentsController', () =>
             imports: [
             ],
             controllers: [
-                CommonUploadAttachmentController,
+                CommonUploadAttachmentsController,
             ],
             providers: [
                 {
-                    provide : CommonUploadAttachmentHandler,
+                    provide : CommonUploadAttachmentsHandler,
                     useValue: {
                         main: () => { /**/ },
                     },
@@ -27,13 +27,13 @@ describe('CommonUploadAttachmentsController', () =>
         })
             .compile();
 
-        controller = module.get<CommonUploadAttachmentController>(CommonUploadAttachmentController);
-        handler = module.get<CommonUploadAttachmentHandler>(CommonUploadAttachmentHandler);
+        controller = module.get<CommonUploadAttachmentsController>(CommonUploadAttachmentsController);
+        handler = module.get<CommonUploadAttachmentsHandler>(CommonUploadAttachmentsHandler);
     });
 
     describe('main', () =>
     {
-        test('CommonUploadAttachmentController should be defined', () =>
+        test('CommonUploadAttachmentsController should be defined', () =>
         {
             expect(controller).toBeDefined();
         });

@@ -101,3 +101,6 @@ additionalApis:
   - path: common/attachments/upload
     resolverType: mutation
     httpMethod: post
+  - path: common/attachment/crop
+    resolverType: mutation
+    httpMethod: post

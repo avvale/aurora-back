@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/attachment/infrastructure/mock/common-mock-attachment.data.ts",
-            "integrity": "sha1:498f93595929689ff5b5686e498ee2348c134ad5"
+            "integrity": "sha1:476280fc9d0d60a12b0a23da07b07a80bdc9edb4"
         },
         {
             "path": "src/@app/common/attachment/infrastructure/mock/common-mock-attachment.repository.ts",
@@ -535,7 +535,7 @@
         },
         {
             "path": "src/@api/common/attachment/graphql/common-attachment.graphql",
-            "integrity": "sha1:66d22baa15596b40cd858d81f3ac265717c82a5c"
+            "integrity": "sha1:41ede7a8fb6ee3c26b4d031693254ac47d0710f1"
         },
         {
             "path": "src/@api/common/attachment/handlers/common-create-attachment.handler.spec.ts",
@@ -627,7 +627,7 @@
         },
         {
             "path": "src/@api/common/attachment/index.ts",
-            "integrity": "sha1:268f959ede58a86e201d4a435956239ff61a2c46"
+            "integrity": "sha1:b5213ce31257cb0810693b7820103cc8aa2be8d9"
         },
         {
             "path": "src/@api/common/attachment/resolvers/common-create-attachment.resolver.spec.ts",
@@ -722,28 +722,52 @@
             "integrity": "sha1:ec85058c63860c1512c319e52579dea5eee759af"
         },
         {
-            "path": "src/@api/common/attachment/controllers/common-upload-attachment.controller.spec.ts",
-            "integrity": "sha1:33e093c8669f14950e872b716ec1b6c6374818af"
+            "path": "src/@api/common/attachment/controllers/common-upload-attachments.controller.spec.ts",
+            "integrity": "sha1:31d3506e136646599d61cfc0e878a5242762621b"
         },
         {
-            "path": "src/@api/common/attachment/controllers/common-upload-attachment.controller.ts",
-            "integrity": "sha1:d61ba860b6cf6b33a2bf0762494dfbe17f464f6f"
+            "path": "src/@api/common/attachment/controllers/common-upload-attachments.controller.ts",
+            "integrity": "sha1:497eefbe101fc8f29d136bd6c2c8ef4ed2118d85"
         },
         {
-            "path": "src/@api/common/attachment/handlers/common-upload-attachment.handler.spec.ts",
-            "integrity": "sha1:b7bb7bf5b5d3284281b81967f4155560319e4104"
+            "path": "src/@api/common/attachment/handlers/common-upload-attachments.handler.spec.ts",
+            "integrity": "sha1:4c17d96b7e42f7dc0fcf8e42a4355194a321d8a3"
         },
         {
-            "path": "src/@api/common/attachment/handlers/common-upload-attachment.handler.ts",
-            "integrity": "sha1:97033e1632598488d0947065b18c1a3254be861f"
+            "path": "src/@api/common/attachment/handlers/common-upload-attachments.handler.ts",
+            "integrity": "sha1:312aabe3c03c2160097324cf53b893b16fcd8635"
         },
         {
-            "path": "src/@api/common/attachment/resolvers/common-upload-attachment.resolver.spec.ts",
-            "integrity": "sha1:1e5469a1a2596ed8e6d893f28c8fe58f84816a9d"
+            "path": "src/@api/common/attachment/resolvers/common-upload-attachments.resolver.spec.ts",
+            "integrity": "sha1:7aa7df82a6a034c472d6c70797879c4588d232cc"
         },
         {
-            "path": "src/@api/common/attachment/resolvers/common-upload-attachment.resolver.ts",
-            "integrity": "sha1:701ec0e42ae5c070f6a0eb6add5d411520acbdef"
+            "path": "src/@api/common/attachment/resolvers/common-upload-attachments.resolver.ts",
+            "integrity": "sha1:08a8f8529665c32c3fd2285beb1f6a827703d380"
+        },
+        {
+            "path": "src/@api/common/attachment/controllers/common-crop-attachment.controller.spec.ts",
+            "integrity": "sha1:8ba6d096ebeb9ced2772b60d42f8e02d7d702a36"
+        },
+        {
+            "path": "src/@api/common/attachment/controllers/common-crop-attachment.controller.ts",
+            "integrity": "sha1:663b0f9617c7be15eaeff89eaa3d2d94056f0824"
+        },
+        {
+            "path": "src/@api/common/attachment/handlers/common-crop-attachment.handler.spec.ts",
+            "integrity": "sha1:8e1a7bf61387bca2e4986cffb7930da67612d5c7"
+        },
+        {
+            "path": "src/@api/common/attachment/handlers/common-crop-attachment.handler.ts",
+            "integrity": "sha1:22fb661d1d4a020fc0f8ef02f725ea10dacd8875"
+        },
+        {
+            "path": "src/@api/common/attachment/resolvers/common-crop-attachment.resolver.spec.ts",
+            "integrity": "sha1:803290957d60087309fdfc3dc6bc42f95605b6dc"
+        },
+        {
+            "path": "src/@api/common/attachment/resolvers/common-crop-attachment.resolver.ts",
+            "integrity": "sha1:cf89d459320e9f8bc75a0fa1fbb5b8468782ba21"
         },
         {
             "path": "test/acceptance/common/attachment.e2e-spec.ts",
@@ -751,7 +775,7 @@
         },
         {
             "path": "postman/common/common.attachment.postman.json",
-            "integrity": "sha1:2de22515c979277869ac68e0f46c2b3ff972f483"
+            "integrity": "sha1:463a54704702bceafb238e6f6c256b995afab77d"
         }
     ]
 }

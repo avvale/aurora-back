@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { CommonUploadAttachmentsHandler } from './common-upload-attachments.handler';
+import { CommonCropAttachmentHandler } from './common-crop-attachment.handler';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('CommonUploadAttachmentsHandler', () =>
+describe('CommonCropAttachmentHandler', () =>
 {
-    let handler: CommonUploadAttachmentsHandler;
+    let handler: CommonCropAttachmentHandler;
     let queryBus: IQueryBus;
     let commandBus: ICommandBus;
 
@@ -15,7 +15,7 @@ describe('CommonUploadAttachmentsHandler', () =>
             imports: [
             ],
             providers: [
-                CommonUploadAttachmentsHandler,
+                CommonCropAttachmentHandler,
                 {
                     provide : IQueryBus,
                     useValue: {
@@ -32,14 +32,14 @@ describe('CommonUploadAttachmentsHandler', () =>
         })
             .compile();
 
-        handler     = module.get<CommonUploadAttachmentsHandler>(CommonUploadAttachmentsHandler);
+        handler     = module.get<CommonCropAttachmentHandler>(CommonCropAttachmentHandler);
         queryBus    = module.get<IQueryBus>(IQueryBus);
         commandBus  = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
     {
-        test('CommonUploadAttachmentsHandler should be defined', () =>
+        test('CommonCropAttachmentHandler should be defined', () =>
         {
             expect(handler).toBeDefined();
         });

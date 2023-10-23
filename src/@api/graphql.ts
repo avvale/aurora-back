@@ -2031,6 +2031,11 @@ export interface CoreFile {
     sort?: Nullable<GraphQLInt>;
     title?: Nullable<GraphQLString>;
     url: GraphQLString;
+    library?: Nullable<CoreLibraryFile>;
+}
+
+export interface CoreLibraryFile {
+    url: GraphQLString;
 }
 
 export type JSON = any;

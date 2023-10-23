@@ -149,4 +149,9 @@ type Mutation
         files: [CoreFileUploaded!]!
     ): [CoreFile!]!
 
+    commonCropAttachment(
+        payload: CommonUpdateAttachmentByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
 }
