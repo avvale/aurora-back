@@ -191,7 +191,7 @@ export class CommonAttachmentFamilyModel extends Model<CommonAttachmentFamilyMod
     @Column({
         field: 'quality',
         allowNull: true,
-        type: DataTypes.TINYINT.UNSIGNED,
+        type: DataTypes.SMALLINT.UNSIGNED,
     })
     quality: number;
 

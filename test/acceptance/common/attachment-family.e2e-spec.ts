@@ -301,22 +301,6 @@ describe('attachment-family', () =>
             });
     });
 
-    test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyQuality is too large, has a maximum length of 3', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment-family/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                quality: 1111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentFamilyQuality is too large, has a maximum length of 3');
-            });
-    });
-
     test('/REST:POST common/attachment-family/create - Got 400 Conflict, AttachmentFamilyFitType has to be a enum option of FIT_CROP, FIT_WIDTH, FIT_HEIGHT, FIT_WIDTH_FREE_CROP, FIT_HEIGHT_FREE_CROP', () =>
     {
         return request(app.getHttpServer())

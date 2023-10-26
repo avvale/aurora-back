@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data.ts",
-            "integrity": "sha1:9aa2b69be7109023d3b6f3d828e72a510312339e"
+            "integrity": "sha1:c909b92da4e01ac14c1afbf4d402fb665d7d2d41"
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/sequelize/common-sequelize-attachment-family.model.ts",
-            "integrity": "sha1:89fc4f8e49b4e369955aa7aefb2a66c6bebf4648"
+            "integrity": "sha1:0739fd956817da4ef49d32666dc014322c0135cd"
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/sequelize/common-sequelize-attachment-family.repository.ts",
@@ -375,7 +375,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/domain/value-objects/common-attachment-family-quality.ts",
-            "integrity": "sha1:7c81b4250191dae6071b6b63388b27666a6cb563"
+            "integrity": "sha1:e0b7ae4d2562e391ae742267ebfd37252ae93fb0"
         },
         {
             "path": "src/@app/common/attachment-family/domain/value-objects/common-attachment-family-sizes.ts",
@@ -703,7 +703,7 @@
         },
         {
             "path": "postman/common/common.attachment-family.postman.json",
-            "integrity": "sha1:4557060653703a7c8d5c74af79db5508d26bef30"
+            "integrity": "sha1:3cf96d01c2aba510a2adfcd31de4666ef69d9417"
         }
     ]
 }
