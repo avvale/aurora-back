@@ -20,8 +20,8 @@ export class CoreFileUploaderService
     {
         // by default all files are saved in the tmp folder, so that after manipulation they are saved in the corresponding folder
         // if it is not necessary to manipulate the file, it can be saved directly in the corresponding folder.
-        const relativePathDirectory = Array.isArray(file.relativePathSegments) && file.relativePathSegments.length > 0 ? file.relativePathSegments : ['tmp'];
-        const absolutePathDirectory = join(process.cwd(), 'storage', 'app', ...relativePathDirectory);
+        const relativePathSegments = Array.isArray(file.relativePathSegments) && file.relativePathSegments.length > 0 ? file.relativePathSegments : ['tmp'];
+        const absolutePathDirectory = join(process.cwd(), 'storage', 'app', ...relativePathSegments);
 
         // eslint-disable-next-line no-await-in-loop
         const { createReadStream, filename, mimetype, encoding } = await file.file;
@@ -42,7 +42,7 @@ export class CoreFileUploaderService
         await Utils.storageStream(absolutePath, stream);
 
         // return the file url
-        const url = `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathDirectory.join('/')}/${file.id}${extname(filename)}`;
+        const url = `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathSegments.join('/')}/${file.id}${extname(filename)}`;
         const stats = statSync(absolutePath);
 
         // check if file can do a crop action
@@ -52,18 +52,19 @@ export class CoreFileUploaderService
         const metadata = await sharp(absolutePath).metadata();
 
         const coreFile: CoreFile = {
-            id                  : file.id,
+            id       : file.id,
             encoding,
             filename,
             mimetype,
-            extension           : extensionFile,
-            relativePathSegments: file.relativePathSegments,
-            size                : stats.size,
+            extension: extensionFile,
+            relativePathSegments,
+            size     : stats.size,
             url,
             isCropable,
-            meta                : metadata,
+            meta     : metadata,
         };
 
+        // add cropable properties
         if (isCropable)
         {
             const libraryId = Utils.uuid();
@@ -83,7 +84,7 @@ export class CoreFileUploaderService
             coreFile.height = coreFile.meta.height;
             coreFile.library = {
                 id                  : libraryId,
-                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathDirectory.join('/')}/${libraryId}${coreFile.extension}`,
+                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${coreFile.relativePathSegments.join('/')}/${libraryId}${coreFile.extension}`,
                 relativePathSegments: coreFile.relativePathSegments,
             };
         }
