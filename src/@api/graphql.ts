@@ -420,43 +420,43 @@ export interface CommonUpdateAttachmentFamiliesInput {
 
 export interface CommonCreateAttachmentLibraryInput {
     id: string;
-    name: GraphQLString;
-    path: GraphQLString;
     filename: GraphQLString;
-    url: GraphQLString;
-    mime: GraphQLString;
+    mimetype: GraphQLString;
     extension: GraphQLString;
-    size: GraphQLInt;
+    relativePathSegments: JSON;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
     meta?: Nullable<JSON>;
 }
 
 export interface CommonUpdateAttachmentLibraryByIdInput {
     id: string;
-    name?: Nullable<GraphQLString>;
-    path?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
-    url?: Nullable<GraphQLString>;
-    mime?: Nullable<GraphQLString>;
+    mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
-    size?: Nullable<GraphQLInt>;
+    relativePathSegments?: Nullable<JSON>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size?: Nullable<GraphQLInt>;
+    url?: Nullable<GraphQLString>;
+    isCropable?: Nullable<GraphQLBoolean>;
     meta?: Nullable<JSON>;
 }
 
 export interface CommonUpdateAttachmentLibrariesInput {
     id?: Nullable<string>;
-    name?: Nullable<GraphQLString>;
-    path?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
-    url?: Nullable<GraphQLString>;
-    mime?: Nullable<GraphQLString>;
+    mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
-    size?: Nullable<GraphQLInt>;
+    relativePathSegments?: Nullable<JSON>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size?: Nullable<GraphQLInt>;
+    url?: Nullable<GraphQLString>;
+    isCropable?: Nullable<GraphQLBoolean>;
     meta?: Nullable<JSON>;
 }
 
@@ -466,16 +466,17 @@ export interface CommonCreateAttachmentInput {
     sort?: Nullable<GraphQLInt>;
     alt: GraphQLString;
     title: GraphQLString;
-    path: GraphQLString;
     filename: GraphQLString;
-    url: GraphQLString;
-    mime: GraphQLString;
+    mimetype: GraphQLString;
     extension: GraphQLString;
-    size: GraphQLInt;
+    relativePathSegments: JSON;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
     libraryId?: Nullable<string>;
-    libraryFilename: GraphQLString;
+    libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
 }
 
@@ -485,14 +486,15 @@ export interface CommonUpdateAttachmentByIdInput {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
-    path?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
-    url?: Nullable<GraphQLString>;
-    mime?: Nullable<GraphQLString>;
+    mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
-    size?: Nullable<GraphQLInt>;
+    relativePathSegments?: Nullable<JSON>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size?: Nullable<GraphQLInt>;
+    url?: Nullable<GraphQLString>;
+    isCropable?: Nullable<GraphQLBoolean>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
@@ -504,17 +506,34 @@ export interface CommonUpdateAttachmentsInput {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
-    path?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
-    url?: Nullable<GraphQLString>;
-    mime?: Nullable<GraphQLString>;
+    mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
-    size?: Nullable<GraphQLInt>;
+    relativePathSegments?: Nullable<JSON>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size?: Nullable<GraphQLInt>;
+    url?: Nullable<GraphQLString>;
+    isCropable?: Nullable<GraphQLBoolean>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
+}
+
+export interface CommonCropInput {
+    x: GraphQLInt;
+    y: GraphQLInt;
+    width: GraphQLInt;
+    height: GraphQLInt;
+    rotate: GraphQLInt;
+    scaleX: GraphQLInt;
+    scaleY: GraphQLInt;
+}
+
+export interface CommonCropAndCreateAttachmentInput {
+    attachment: CommonCreateAttachmentInput;
+    attachmentFamily: CommonCreateAttachmentFamilyInput;
+    crop: CommonCropInput;
 }
 
 export interface CommonCreateCountryInput {
@@ -1379,6 +1398,7 @@ export interface IMutation {
     commonDeleteAttachmentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
     commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
+    commonCropAndCreateAttachment(payload: CommonCropAndCreateAttachmentInput): boolean | Promise<boolean>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1634,15 +1654,15 @@ export interface CommonAttachmentFamily {
 
 export interface CommonAttachmentLibrary {
     id: string;
-    name: GraphQLString;
-    path: GraphQLString;
     filename: GraphQLString;
-    url: GraphQLString;
-    mime: GraphQLString;
+    mimetype: GraphQLString;
     extension: GraphQLString;
-    size: GraphQLInt;
+    relativePathSegments: JSON;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
@@ -1656,17 +1676,18 @@ export interface CommonAttachment {
     sort?: Nullable<GraphQLInt>;
     alt: GraphQLString;
     title: GraphQLString;
-    path: GraphQLString;
     filename: GraphQLString;
-    url: GraphQLString;
-    mime: GraphQLString;
+    mimetype: GraphQLString;
     extension: GraphQLString;
-    size: GraphQLInt;
+    relativePathSegments: JSON;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
     libraryId?: Nullable<string>;
     library?: Nullable<CommonAttachmentLibrary>;
-    libraryFilename: GraphQLString;
+    libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
@@ -2020,22 +2041,25 @@ export interface Pagination {
 }
 
 export interface CoreFile {
-    alt?: Nullable<GraphQLString>;
-    encoding: GraphQLString;
-    familyId?: Nullable<string>;
-    filename: GraphQLString;
     id: string;
+    encoding: GraphQLString;
+    filename: GraphQLString;
     mimetype: GraphQLString;
-    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
+    extension: GraphQLString;
+    relativePathSegments: GraphQLString[];
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
     size: GraphQLInt;
-    sort?: Nullable<GraphQLInt>;
-    title?: Nullable<GraphQLString>;
     url: GraphQLString;
+    isCropable: GraphQLBoolean;
     library?: Nullable<CoreLibraryFile>;
+    meta?: Nullable<JSON>;
 }
 
 export interface CoreLibraryFile {
+    id: string;
     url: GraphQLString;
+    relativePathSegments: GraphQLString[];
 }
 
 export type JSON = any;

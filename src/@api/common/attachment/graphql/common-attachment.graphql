@@ -7,17 +7,18 @@ type CommonAttachment
     sort: GraphQLInt
     alt: GraphQLString!
     title: GraphQLString!
-    path: GraphQLString!
     filename: GraphQLString!
-    url: GraphQLString!
-    mime: GraphQLString!
+    mimetype: GraphQLString!
     extension: GraphQLString!
-    size: GraphQLInt!
+    relativePathSegments: JSON!
     width: GraphQLInt
     height: GraphQLInt
+    size: GraphQLInt!
+    url: GraphQLString!
+    isCropable: GraphQLBoolean!
     libraryId: ID
     library: CommonAttachmentLibrary
-    libraryFilename: GraphQLString!
+    libraryFilename: GraphQLString
     meta: JSON
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
@@ -31,16 +32,17 @@ input CommonCreateAttachmentInput
     sort: GraphQLInt
     alt: GraphQLString!
     title: GraphQLString!
-    path: GraphQLString!
     filename: GraphQLString!
-    url: GraphQLString!
-    mime: GraphQLString!
+    mimetype: GraphQLString!
     extension: GraphQLString!
-    size: GraphQLInt!
+    relativePathSegments: JSON!
     width: GraphQLInt
     height: GraphQLInt
+    size: GraphQLInt!
+    url: GraphQLString!
+    isCropable: GraphQLBoolean!
     libraryId: ID
-    libraryFilename: GraphQLString!
+    libraryFilename: GraphQLString
     meta: JSON
 }
 
@@ -51,14 +53,15 @@ input CommonUpdateAttachmentByIdInput
     sort: GraphQLInt
     alt: GraphQLString
     title: GraphQLString
-    path: GraphQLString
     filename: GraphQLString
-    url: GraphQLString
-    mime: GraphQLString
+    mimetype: GraphQLString
     extension: GraphQLString
-    size: GraphQLInt
+    relativePathSegments: JSON
     width: GraphQLInt
     height: GraphQLInt
+    size: GraphQLInt
+    url: GraphQLString
+    isCropable: GraphQLBoolean
     libraryId: ID
     libraryFilename: GraphQLString
     meta: JSON
@@ -71,17 +74,37 @@ input CommonUpdateAttachmentsInput
     sort: GraphQLInt
     alt: GraphQLString
     title: GraphQLString
-    path: GraphQLString
     filename: GraphQLString
-    url: GraphQLString
-    mime: GraphQLString
+    mimetype: GraphQLString
     extension: GraphQLString
-    size: GraphQLInt
+    relativePathSegments: JSON
     width: GraphQLInt
     height: GraphQLInt
+    size: GraphQLInt
+    url: GraphQLString
+    isCropable: GraphQLBoolean
     libraryId: ID
     libraryFilename: GraphQLString
     meta: JSON
+}
+
+# ---- customizations ----
+input CommonCropInput
+{
+    x: GraphQLInt!
+    y: GraphQLInt!
+    width: GraphQLInt!
+    height: GraphQLInt!
+    rotate: GraphQLInt!
+    scaleX: GraphQLInt!
+    scaleY: GraphQLInt!
+}
+
+input CommonCropAndCreateAttachmentInput
+{
+    attachment: CommonCreateAttachmentInput!
+    attachmentFamily: CommonCreateAttachmentFamilyInput!
+    crop: CommonCropInput!
 }
 
 type Query
@@ -149,9 +172,8 @@ type Mutation
         files: [CoreFileUploaded!]!
     ): [CoreFile!]!
 
-    commonCropAttachment(
-        payload: CommonUpdateAttachmentByIdInput!
-        constraint: QueryStatement
+    commonCropAndCreateAttachment(
+        payload: CommonCropAndCreateAttachmentInput!
     ): Boolean!
 
 }

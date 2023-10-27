@@ -125,22 +125,6 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentPath property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                path: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentPath must be defined, can not be null');
-            });
-    });
-
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentFilename property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -157,35 +141,19 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl property can not to be null', () =>
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMimetype property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                url: null,
+                mimetype: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentUrl must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMime property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                mime: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentMime must be defined, can not be null');
+                expect(res.body.message).toContain('Value for CommonAttachmentMimetype must be defined, can not be null');
             });
     });
 
@@ -205,6 +173,22 @@ describe('attachment', () =>
             });
     });
 
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentRelativePathSegments property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                relativePathSegments: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentRelativePathSegments must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentSize property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -221,19 +205,35 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentLibraryFilename property can not to be null', () =>
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                libraryFilename: null,
+                url: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentLibraryFilename must be defined, can not be null');
+                expect(res.body.message).toContain('Value for CommonAttachmentUrl must be defined, can not be null');
+            });
+    });
+
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentIsCropable property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isCropable: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentIsCropable must be defined, can not be null');
             });
     });
 
@@ -285,22 +285,6 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentPath property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                path: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentPath must be defined, can not be undefined');
-            });
-    });
-
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentFilename property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -317,35 +301,19 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl property can not to be undefined', () =>
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMimetype property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                url: undefined,
+                mimetype: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentUrl must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMime property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                mime: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentMime must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for CommonAttachmentMimetype must be defined, can not be undefined');
             });
     });
 
@@ -365,6 +333,22 @@ describe('attachment', () =>
             });
     });
 
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentRelativePathSegments property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                relativePathSegments: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentRelativePathSegments must be defined, can not be undefined');
+            });
+    });
+
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentSize property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -381,19 +365,35 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentLibraryFilename property can not to be undefined', () =>
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                libraryFilename: undefined,
+                url: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentLibraryFilename must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for CommonAttachmentUrl must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentIsCropable property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isCropable: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentIsCropable must be defined, can not be undefined');
             });
     });
 
@@ -493,22 +493,6 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentPath is too large, has a maximum length of 2047', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                path: '********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentPath is too large, has a maximum length of 2047');
-            });
-    });
-
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentFilename is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
@@ -525,35 +509,19 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl is too large, has a maximum length of 2047', () =>
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMimetype is too large, has a maximum length of 50', () =>
     {
         return request(app.getHttpServer())
             .post('/common/attachment/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                url: '********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
+                mimetype: '***************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonAttachmentUrl is too large, has a maximum length of 2047');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentMime is too large, has a maximum length of 50', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                mime: '***************************************************',
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentMime is too large, has a maximum length of 50');
+                expect(res.body.message).toContain('Value for CommonAttachmentMimetype is too large, has a maximum length of 50');
             });
     });
 
@@ -570,22 +538,6 @@ describe('attachment', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CommonAttachmentExtension is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentSize is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                size: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentSize is too large, has a maximum length of 10');
             });
     });
 
@@ -621,6 +573,38 @@ describe('attachment', () =>
             });
     });
 
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentSize is too large, has a maximum length of 10', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                size: 11111111111,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentSize is too large, has a maximum length of 10');
+            });
+    });
+
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentUrl is too large, has a maximum length of 2047', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                url: '********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentUrl is too large, has a maximum length of 2047');
+            });
+    });
+
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentLibraryFilename is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
@@ -650,6 +634,21 @@ describe('attachment', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('The numerical Value for CommonAttachmentSize must have a positive sign, this field does not accept negative values');
+            });
+    });
+    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentIsCropable has to be a boolean value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/common/attachment/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isCropable: 'true',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for CommonAttachmentIsCropable has to be a boolean value');
             });
     });
 
@@ -829,14 +828,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryId
                             libraryFilename
                             meta
@@ -909,14 +909,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -952,14 +953,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryId
                             libraryFilename
                             meta
@@ -995,14 +997,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1045,14 +1048,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1093,14 +1097,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1136,14 +1141,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1177,14 +1183,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1223,14 +1230,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1267,14 +1275,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1316,14 +1325,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt
@@ -1359,14 +1369,15 @@ describe('attachment', () =>
                             sort
                             alt
                             title
-                            path
                             filename
-                            url
-                            mime
+                            mimetype
                             extension
-                            size
+                            relativePathSegments
                             width
                             height
+                            size
+                            url
+                            isCropable
                             libraryFilename
                             meta
                             createdAt

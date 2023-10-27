@@ -36,27 +36,15 @@ export class CommonCreateAttachmentDto
 
     @ApiProperty({
         type       : String,
-        description: 'path [input here api field description]',
-    })
-    path: string;
-
-    @ApiProperty({
-        type       : String,
         description: 'filename [input here api field description]',
     })
     filename: string;
 
     @ApiProperty({
         type       : String,
-        description: 'url [input here api field description]',
+        description: 'mimetype [input here api field description]',
     })
-    url: string;
-
-    @ApiProperty({
-        type       : String,
-        description: 'mime [input here api field description]',
-    })
-    mime: string;
+    mimetype: string;
 
     @ApiProperty({
         type       : String,
@@ -65,10 +53,10 @@ export class CommonCreateAttachmentDto
     extension: string;
 
     @ApiProperty({
-        type       : Number,
-        description: 'size [input here api field description]',
+        type       : Object,
+        description: 'relativePathSegments [input here api field description]',
     })
-    size: number;
+    relativePathSegments: any;
 
     @ApiProperty({
         type       : Number,
@@ -83,6 +71,25 @@ export class CommonCreateAttachmentDto
     height?: number;
 
     @ApiProperty({
+        type       : Number,
+        description: 'size [input here api field description]',
+    })
+    size: number;
+
+    @ApiProperty({
+        type       : String,
+        description: 'url [input here api field description]',
+    })
+    url: string;
+
+    @ApiProperty({
+        type       : Boolean,
+        description: 'isCropable [input here api field description]',
+        example    : true,
+    })
+    isCropable: boolean;
+
+    @ApiProperty({
         type       : String,
         description: 'libraryId [input here api field description]',
         example    : 'e703e3d2-5509-5e86-8b55-58e9f0d4249a',
@@ -93,7 +100,7 @@ export class CommonCreateAttachmentDto
         type       : String,
         description: 'libraryFilename [input here api field description]',
     })
-    libraryFilename: string;
+    libraryFilename?: string;
 
     @ApiProperty({
         type       : Object,
