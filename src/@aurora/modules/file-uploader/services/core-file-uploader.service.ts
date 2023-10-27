@@ -2,8 +2,9 @@ import { CoreFile, CoreFileUploaded } from '@api/graphql';
 import { Utils } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { join, extname } from 'node:path';
-import { existsSync, mkdirSync, statSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { ConfigService } from '@nestjs/config';
+import * as sharp from 'sharp';
 
 @Injectable()
 export class CoreFileUploaderService
@@ -17,40 +18,77 @@ export class CoreFileUploaderService
     // by default, the file will be stored in the tmp directory.
     async uploadFile(file: CoreFileUploaded): Promise<CoreFile>
     {
-        const basePathDirectory = Array.isArray(file.relativePathSegments) &&  file.relativePathSegments.length > 0 ? file.relativePathSegments : ['tmp'];
-
-        const pathDirectory = join(process.cwd(), 'storage', 'app', ...basePathDirectory);
+        // by default all files are saved in the tmp folder, so that after manipulation they are saved in the corresponding folder
+        // if it is not necessary to manipulate the file, it can be saved directly in the corresponding folder.
+        const relativePathDirectory = Array.isArray(file.relativePathSegments) && file.relativePathSegments.length > 0 ? file.relativePathSegments : ['tmp'];
+        const absolutePathDirectory = join(process.cwd(), 'storage', 'app', ...relativePathDirectory);
 
         // eslint-disable-next-line no-await-in-loop
         const { createReadStream, filename, mimetype, encoding } = await file.file;
-        const path = join(
-            pathDirectory,
-            `${file.id}${extname(filename)}`,
+        const extensionFile = extname(filename);
+        const absolutePath = join(
+            absolutePathDirectory,
+            `${file.id}${extensionFile}`,
         );
 
         // create directory if not exists
-        if (!existsSync(pathDirectory)) mkdirSync(pathDirectory, { recursive: true });
+        if (!existsSync(absolutePathDirectory)) mkdirSync(absolutePathDirectory, { recursive: true });
 
         // Create readable stream
         const stream = createReadStream();
 
         // promise to store the file in the filesystem.
         // no await here to allow parallel uploads
-        await Utils.storageStream(path, stream);
+        await Utils.storageStream(absolutePath, stream);
 
         // return the file url
-        const url = `${this.configService.get('STORAGE_URL')}/storage/app/${basePathDirectory.join('/')}/${file.id}${extname(filename)}`;
-        const stats = statSync(path);
+        const url = `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathDirectory.join('/')}/${file.id}${extname(filename)}`;
+        const stats = statSync(absolutePath);
 
-        return {
+        // check if file can do a crop action
+        const isCropable = mimetype === 'image/jpeg' || mimetype === 'image/png' || mimetype === 'image/gif';
+
+        // set metadata for image
+        const metadata = await sharp(absolutePath).metadata();
+
+        const coreFile: CoreFile = {
             id                  : file.id,
-            url,
+            encoding,
             filename,
             mimetype,
-            encoding,
-            size                : stats.size,
+            extension           : extensionFile,
             relativePathSegments: file.relativePathSegments,
+            size                : stats.size,
+            url,
+            isCropable,
+            meta                : metadata,
         };
+
+        if (isCropable)
+        {
+            const libraryId = Utils.uuid();
+            const absoluteLibraryPath = join(
+                absolutePathDirectory,
+                `${libraryId}${coreFile.extension}`,
+            );
+
+            // copy file to create a library file
+            copyFileSync(
+                absolutePath,
+                absoluteLibraryPath,
+            );
+
+            // set coreFile properties from cropable file
+            coreFile.width = coreFile.meta.width;
+            coreFile.height = coreFile.meta.height;
+            coreFile.library = {
+                id                  : libraryId,
+                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathDirectory.join('/')}/${libraryId}${coreFile.extension}`,
+                relativePathSegments: coreFile.relativePathSegments,
+            };
+        }
+
+        return coreFile;
     }
 
     async uploadFiles(files: CoreFileUploaded[]): Promise<CoreFile[]>
