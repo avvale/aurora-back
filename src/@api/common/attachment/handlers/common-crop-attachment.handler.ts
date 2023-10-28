@@ -1,5 +1,5 @@
+import { CommonCropAndCreateAttachmentInput } from '@api/graphql';
 import { CommonUpdateAttachmentByIdDto } from '../dto';
-import { CommonUpdateAttachmentByIdInput } from '@api/graphql';
 import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -12,12 +12,14 @@ export class CommonCropAttachmentHandler
     ) {}
 
     async main(
-        payload: CommonUpdateAttachmentByIdInput | CommonUpdateAttachmentByIdDto,
+        payload: CommonCropAndCreateAttachmentInput | CommonUpdateAttachmentByIdDto,
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
     ): Promise<boolean>
     {
+
+        console.log(payload);
         // coding here
         /* await this.commandBus.dispatch(new YourCommand(
             payload,

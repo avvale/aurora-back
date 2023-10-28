@@ -33,11 +33,11 @@ aggregateProperties:
   - name: alt
     type: varchar
     maxLength: 255
-    nullable: false
+    nullable: true
   - name: title
     type: varchar
     maxLength: 255
-    nullable: false
+    nullable: true
   - name: filename
     type: varchar
     maxLength: 255

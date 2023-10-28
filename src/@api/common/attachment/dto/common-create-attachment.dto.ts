@@ -26,13 +26,13 @@ export class CommonCreateAttachmentDto
         type       : String,
         description: 'alt [input here api field description]',
     })
-    alt: string;
+    alt?: string;
 
     @ApiProperty({
         type       : String,
         description: 'title [input here api field description]',
     })
-    title: string;
+    title?: string;
 
     @ApiProperty({
         type       : String,

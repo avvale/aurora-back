@@ -152,14 +152,14 @@ export class CommonAttachmentModel extends Model<CommonAttachmentModel>
 
     @Column({
         field: 'alt',
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.STRING(255),
     })
     alt: string;
 
     @Column({
         field: 'title',
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.STRING(255),
     })
     title: string;

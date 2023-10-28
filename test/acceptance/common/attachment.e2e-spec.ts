@@ -93,38 +93,6 @@ describe('attachment', () =>
             });
     });
 
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentAlt property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                alt: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentAlt must be defined, can not be null');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentTitle property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                title: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentTitle must be defined, can not be null');
-            });
-    });
-
     test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentFilename property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -250,38 +218,6 @@ describe('attachment', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for CommonAttachmentId must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentAlt property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                alt: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentAlt must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST common/attachment/create - Got 400 Conflict, AttachmentTitle property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/common/attachment/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                title: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CommonAttachmentTitle must be defined, can not be undefined');
             });
     });
 

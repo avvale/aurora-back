@@ -7,8 +7,8 @@ export class CommonCreateAttachmentsCommand
             id: string;
             familyId?: string;
             sort?: number;
-            alt: string;
-            title: string;
+            alt?: string;
+            title?: string;
             filename: string;
             mimetype: string;
             extension: string;
