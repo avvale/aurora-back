@@ -535,11 +535,11 @@ export interface CommonCropAttachmentInput {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
-    isUploaded: GraphQLBoolean;
-    isChanged: GraphQLBoolean;
     library?: Nullable<CommonCropAttachmentLibraryInput>;
 }
 

@@ -105,11 +105,11 @@ input CommonCropAttachmentInput
     size: GraphQLInt!
     url: GraphQLString!
     isCropable: GraphQLBoolean!
+    isUploaded: GraphQLBoolean!
+    isChanged: GraphQLBoolean!
     libraryId: ID
     libraryFilename: GraphQLString
     meta: JSON
-    isUploaded: GraphQLBoolean!
-    isChanged: GraphQLBoolean!
     library: CommonCropAttachmentLibraryInput
 }
 
