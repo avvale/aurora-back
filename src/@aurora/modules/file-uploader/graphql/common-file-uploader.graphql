@@ -11,6 +11,7 @@ type CoreFile
     size: GraphQLInt!
     url: GraphQLString!
     isCropable: GraphQLBoolean!
+    isUploaded: GraphQLBoolean!
     library: CoreLibraryFile
     meta: JSON
 }
@@ -27,4 +28,5 @@ input CoreFileUploaded
     id: ID!
     file: Upload!
     relativePathSegments: [GraphQLString]
+    hasCreateLibrary: GraphQLBoolean
 }

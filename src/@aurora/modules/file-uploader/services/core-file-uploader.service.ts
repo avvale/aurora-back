@@ -52,20 +52,21 @@ export class CoreFileUploaderService
         const metadata = await sharp(absolutePath).metadata();
 
         const coreFile: CoreFile = {
-            id       : file.id,
+            id        : file.id,
             encoding,
             filename,
             mimetype,
-            extension: extensionFile,
+            extension : extensionFile,
             relativePathSegments,
-            size     : stats.size,
+            size      : stats.size,
             url,
             isCropable,
-            meta     : metadata,
+            isUploaded: true,
+            meta      : metadata,
         };
 
         // add cropable properties
-        if (isCropable)
+        if (isCropable && file.hasCreateLibrary)
         {
             const libraryId = Utils.uuid();
             const absoluteLibraryPath = join(
