@@ -2,7 +2,7 @@
 import { CommonCropAndCreateAttachmentDto } from '../dto';
 import { CommonCropAttachmentHandler } from '../handlers/common-crop-attachment.handler';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 

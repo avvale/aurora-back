@@ -53,7 +53,6 @@ export class CoreFileUploaderService
 
         const coreFile: CoreFile = {
             id        : file.id,
-            encoding,
             filename,
             mimetype,
             extension : extensionFile,
@@ -85,8 +84,15 @@ export class CoreFileUploaderService
             coreFile.height = coreFile.meta.height;
             coreFile.library = {
                 id                  : libraryId,
-                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${coreFile.relativePathSegments.join('/')}/${libraryId}${coreFile.extension}`,
+                filename,
+                mimetype,
+                extension           : extensionFile,
                 relativePathSegments: coreFile.relativePathSegments,
+                width               : coreFile.meta.width,
+                height              : coreFile.meta.height,
+                size                : coreFile.size,
+                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${coreFile.relativePathSegments.join('/')}/${libraryId}${coreFile.extension}`,
+                meta                : coreFile.meta,
             };
         }
 

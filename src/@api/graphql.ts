@@ -2076,7 +2076,6 @@ export interface Pagination {
 
 export interface CoreFile {
     id: string;
-    encoding: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
@@ -2093,8 +2092,15 @@ export interface CoreFile {
 
 export interface CoreLibraryFile {
     id: string;
-    url: GraphQLString;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    extension: GraphQLString;
     relativePathSegments: GraphQLString[];
+    width: GraphQLInt;
+    height: GraphQLInt;
+    size: GraphQLInt;
+    url: GraphQLString;
+    meta?: Nullable<JSON>;
 }
 
 export type JSON = any;

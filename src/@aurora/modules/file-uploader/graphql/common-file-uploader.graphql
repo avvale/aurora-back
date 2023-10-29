@@ -1,7 +1,6 @@
 type CoreFile
 {
     id: ID!
-    encoding: GraphQLString!
     filename: GraphQLString!
     mimetype: GraphQLString!
     extension: GraphQLString!
@@ -19,8 +18,15 @@ type CoreFile
 type CoreLibraryFile
 {
     id: ID!
-    url: GraphQLString!
+    filename: GraphQLString!
+    mimetype: GraphQLString!
+    extension: GraphQLString!
     relativePathSegments: [GraphQLString!]!
+    width: GraphQLInt!
+    height: GraphQLInt!
+    size: GraphQLInt!
+    url: GraphQLString!
+    meta: JSON
 }
 
 input CoreFileUploaded
