@@ -2,7 +2,6 @@
 import { CommonCropAndCreateAttachmentDto } from '../dto';
 import { CommonCropAttachmentHandler } from '../handlers/common-crop-attachment.handler';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
@@ -20,14 +19,10 @@ export class CommonCropAttachmentController
     @ApiCreatedResponse({ description: 'Defines the action performed', type: Boolean })
     async main(
         @Body() payload: CommonCropAndCreateAttachmentDto,
-        @Timezone() timezone?: string,
-        @Auditing() auditing?: AuditingMeta,
     )
     {
         return await this.handler.main(
             payload,
-            timezone,
-            auditing,
         );
     }
 }
