@@ -1,5 +1,5 @@
 import { CommonCropAttachmentHandler } from '@api/common/attachment';
-import { CommonCropAndCreateAttachmentInput } from '@api/graphql';
+import { CommonCropAndCreateAttachment, CommonCropAndCreateAttachmentInput } from '@api/graphql';
 import { Auth } from '@aurora/decorators';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
@@ -14,7 +14,7 @@ export class CommonCropAttachmentResolver
     @Mutation('commonCropAndCreateAttachment')
     async main(
         @Args('payload') payload: CommonCropAndCreateAttachmentInput,
-    ): Promise<boolean>
+    ): Promise<CommonCropAndCreateAttachment>
     {
         return await this.handler.main(
             payload,
