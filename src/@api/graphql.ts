@@ -463,6 +463,7 @@ export interface CommonUpdateAttachmentLibrariesInput {
 export interface CommonCreateAttachmentInput {
     id: string;
     familyId?: Nullable<string>;
+    attachableId: string;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -483,6 +484,7 @@ export interface CommonCreateAttachmentInput {
 export interface CommonUpdateAttachmentByIdInput {
     id: string;
     familyId?: Nullable<string>;
+    attachableId?: Nullable<string>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -503,6 +505,7 @@ export interface CommonUpdateAttachmentByIdInput {
 export interface CommonUpdateAttachmentsInput {
     id?: Nullable<string>;
     familyId?: Nullable<string>;
+    attachableId?: Nullable<string>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -1707,6 +1710,7 @@ export interface CommonAttachment {
     id: string;
     familyId?: Nullable<string>;
     family?: Nullable<CommonAttachmentFamily>;
+    attachableId: string;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;

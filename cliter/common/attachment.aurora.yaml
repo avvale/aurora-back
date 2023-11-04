@@ -26,6 +26,11 @@ aggregateProperties:
       key: id
       field: family
       avoidConstraint: true
+  - name: attachableId
+    type: id
+    length: 36
+    nullable: false
+    index: index
   - name: sort
     type: smallint.unsigned
     maxLength: 6
