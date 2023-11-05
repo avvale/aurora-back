@@ -47,10 +47,10 @@ input CommonCreateAttachmentInput
     isCropable: GraphQLBoolean!
     isUploaded: GraphQLBoolean!
     isChanged: GraphQLBoolean!
+    library: CommonCreateAttachmentLibraryInput
     libraryId: ID
     libraryFilename: GraphQLString
     meta: JSON
-    library: CommonCreateAttachmentLibraryInput
 }
 
 input CommonUpdateAttachmentByIdInput
