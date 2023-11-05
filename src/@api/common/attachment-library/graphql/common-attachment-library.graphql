@@ -24,11 +24,10 @@ input CommonCreateAttachmentLibraryInput
     mimetype: GraphQLString!
     extension: GraphQLString!
     relativePathSegments: JSON!
-    width: GraphQLInt
-    height: GraphQLInt
+    width: GraphQLInt!
+    height: GraphQLInt!
     size: GraphQLInt!
     url: GraphQLString!
-    isCropable: GraphQLBoolean!
     meta: JSON
 }
 

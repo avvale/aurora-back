@@ -424,11 +424,10 @@ export interface CommonCreateAttachmentLibraryInput {
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
+    width: GraphQLInt;
+    height: GraphQLInt;
     size: GraphQLInt;
     url: GraphQLString;
-    isCropable: GraphQLBoolean;
     meta?: Nullable<JSON>;
 }
 
@@ -476,9 +475,12 @@ export interface CommonCreateAttachmentInput {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
+    library?: Nullable<CommonCreateAttachmentLibraryInput>;
 }
 
 export interface CommonUpdateAttachmentByIdInput {
@@ -497,6 +499,9 @@ export interface CommonUpdateAttachmentByIdInput {
     size?: Nullable<GraphQLInt>;
     url?: Nullable<GraphQLString>;
     isCropable?: Nullable<GraphQLBoolean>;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
+    library?: Nullable<CommonCreateAttachmentLibraryInput>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
@@ -521,57 +526,6 @@ export interface CommonUpdateAttachmentsInput {
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
-}
-
-export interface CommonCropAndCreateAttachmentInput {
-    attachment: CommonCropAttachmentInput;
-    crop: CommonCropPropertiesInput;
-}
-
-export interface CommonCropAttachmentInput {
-    id: string;
-    familyId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    alt?: Nullable<GraphQLString>;
-    title?: Nullable<GraphQLString>;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    isCropable: GraphQLBoolean;
-    isUploaded: GraphQLBoolean;
-    isChanged: GraphQLBoolean;
-    libraryId?: Nullable<string>;
-    libraryFilename?: Nullable<GraphQLString>;
-    meta?: Nullable<JSON>;
-    library?: Nullable<CommonCropAttachmentLibraryInput>;
-}
-
-export interface CommonCropAttachmentLibraryInput {
-    id: string;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    meta?: Nullable<JSON>;
-}
-
-export interface CommonCropPropertiesInput {
-    x: GraphQLInt;
-    y: GraphQLInt;
-    width: GraphQLInt;
-    height: GraphQLInt;
-    rotate: GraphQLInt;
-    scaleX: GraphQLInt;
-    scaleY: GraphQLInt;
 }
 
 export interface CommonCreateCountryInput {
@@ -641,6 +595,16 @@ export interface CommonUpdateCountriesInput {
     administrativeAreaLevel1?: Nullable<GraphQLString>;
     administrativeAreaLevel2?: Nullable<GraphQLString>;
     administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonCropPropertiesInput {
+    x: GraphQLInt;
+    y: GraphQLInt;
+    width: GraphQLInt;
+    height: GraphQLInt;
+    rotate: GraphQLInt;
+    scaleX: GraphQLInt;
+    scaleY: GraphQLInt;
 }
 
 export interface CommonCreateLangInput {
@@ -1437,7 +1401,6 @@ export interface IMutation {
     commonDeleteAttachmentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
     commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
-    commonCropAndCreateAttachment(payload: CommonCropAndCreateAttachmentInput): CommonCropAndCreateAttachment | Promise<CommonCropAndCreateAttachment>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1445,6 +1408,7 @@ export interface IMutation {
     commonUpsertCountry(payload: CommonUpdateCountryByIdInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonDeleteCountryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonDeleteCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
+    commonCreateCrop(attachment: CommonCreateAttachmentInput, crop: CommonCropPropertiesInput): CommonCreatedCrop | Promise<CommonCreatedCrop>;
     commonCreateLang(payload: CommonCreateLangInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonCreateLangs(payload: Nullable<CommonCreateLangInput>[]): boolean | Promise<boolean>;
     commonUpdateLangById(payload: CommonUpdateLangByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
@@ -1723,6 +1687,8 @@ export interface CommonAttachment {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
     libraryId?: Nullable<string>;
     library?: Nullable<CommonAttachmentLibrary>;
     libraryFilename?: Nullable<GraphQLString>;
@@ -1730,57 +1696,6 @@ export interface CommonAttachment {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface CommonCropAndCreateAttachment {
-    attachment: CommonCropAttachment;
-    crop: CommonCropProperties;
-}
-
-export interface CommonCropAttachment {
-    id: string;
-    familyId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    alt?: Nullable<GraphQLString>;
-    title?: Nullable<GraphQLString>;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    isCropable: GraphQLBoolean;
-    isUploaded: GraphQLBoolean;
-    isChanged: GraphQLBoolean;
-    libraryId?: Nullable<string>;
-    libraryFilename?: Nullable<GraphQLString>;
-    meta?: Nullable<JSON>;
-    library?: Nullable<CommonCropAttachmentLibrary>;
-}
-
-export interface CommonCropAttachmentLibrary {
-    id: string;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    meta?: Nullable<JSON>;
-}
-
-export interface CommonCropProperties {
-    x: GraphQLInt;
-    y: GraphQLInt;
-    width: GraphQLInt;
-    height: GraphQLInt;
-    rotate: GraphQLInt;
-    scaleX: GraphQLInt;
-    scaleY: GraphQLInt;
 }
 
 export interface CommonAdministrativeAreasCountry {
@@ -1815,6 +1730,21 @@ export interface CommonCountry {
     administrativeAreaLevel1?: Nullable<GraphQLString>;
     administrativeAreaLevel2?: Nullable<GraphQLString>;
     administrativeAreaLevel3?: Nullable<GraphQLString>;
+}
+
+export interface CommonCropProperties {
+    x: GraphQLInt;
+    y: GraphQLInt;
+    width: GraphQLInt;
+    height: GraphQLInt;
+    rotate: GraphQLInt;
+    scaleX: GraphQLInt;
+    scaleY: GraphQLInt;
+}
+
+export interface CommonCreatedCrop {
+    attachment: CommonAttachment;
+    crop: CommonCropProperties;
 }
 
 export interface CommonLang {
