@@ -76,8 +76,8 @@ export class CoreFileUploaderService
         if (isCropable && file.hasCreateLibrary)
         {
             const libraryId = Utils.uuid();
-            const newLibraryFilename = `${libraryId}${coreFile.extension}`;
-            const absoluteLibraryPath = storagePublicAbsolutePath(relativePathSegments, newLibraryFilename);
+            const filename = `${libraryId}${coreFile.extension}`;
+            const absoluteLibraryPath = storagePublicAbsolutePath(relativePathSegments, filename);
 
             // copy file to create a library file
             copyFileSync(
@@ -98,7 +98,7 @@ export class CoreFileUploaderService
                 width               : coreFile.meta.width,
                 height              : coreFile.meta.height,
                 size                : coreFile.size,
-                url                 : storagePublicAbsoluteURL(relativePathSegments, newLibraryFilename),
+                url                 : storagePublicAbsoluteURL(relativePathSegments, filename),
                 meta                : coreFile.meta,
             };
         }
