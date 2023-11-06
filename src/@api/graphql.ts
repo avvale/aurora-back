@@ -421,6 +421,7 @@ export interface CommonUpdateAttachmentFamiliesInput {
 export interface CommonCreateAttachmentLibraryInput {
     id: string;
     filename: GraphQLString;
+    originFilename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: JSON;
@@ -434,6 +435,7 @@ export interface CommonCreateAttachmentLibraryInput {
 export interface CommonUpdateAttachmentLibraryByIdInput {
     id: string;
     filename?: Nullable<GraphQLString>;
+    originFilename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
     relativePathSegments?: Nullable<JSON>;
@@ -447,6 +449,7 @@ export interface CommonUpdateAttachmentLibraryByIdInput {
 export interface CommonUpdateAttachmentLibrariesInput {
     id?: Nullable<string>;
     filename?: Nullable<GraphQLString>;
+    originFilename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
     relativePathSegments?: Nullable<JSON>;
@@ -464,6 +467,7 @@ export interface CommonCreateAttachmentInput {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
+    originFilename: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
@@ -488,6 +492,7 @@ export interface CommonUpdateAttachmentByIdInput {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
+    originFilename?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
@@ -512,6 +517,7 @@ export interface CommonUpdateAttachmentsInput {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
+    originFilename?: Nullable<GraphQLString>;
     filename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
@@ -1654,6 +1660,7 @@ export interface CommonAttachmentFamily {
 export interface CommonAttachmentLibrary {
     id: string;
     filename: GraphQLString;
+    originFilename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: JSON;
@@ -1675,6 +1682,7 @@ export interface CommonAttachment {
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
+    originFilename: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
@@ -2058,6 +2066,7 @@ export interface Pagination {
 
 export interface CoreFile {
     id: string;
+    originFilename: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
@@ -2074,6 +2083,7 @@ export interface CoreFile {
 
 export interface CoreLibraryFile {
     id: string;
+    originFilename: GraphQLString;
     filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;

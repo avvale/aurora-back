@@ -33,10 +33,10 @@ export class CoreFileUploaderService
         const absoluteDirectoryPath = storagePublicAbsoluteDirectoryPath(relativePathSegments);
 
         // eslint-disable-next-line no-await-in-loop
-        const { createReadStream, filename, mimetype, encoding } = await file.file;
-        const extensionFile = extname(filename);
-        const newFilename = `${file.id}${extensionFile}`;
-        const absolutePath = storagePublicAbsolutePath(relativePathSegments, newFilename);
+        const { createReadStream, filename: originFilename, mimetype, encoding } = await file.file;
+        const extensionFile = extname(originFilename);
+        const filename = `${file.id}${extensionFile}`;
+        const absolutePath = storagePublicAbsolutePath(relativePathSegments, filename);
 
         // create directory if not exists
         if (!existsSync(absoluteDirectoryPath)) mkdirSync(absoluteDirectoryPath, { recursive: true });
@@ -49,7 +49,7 @@ export class CoreFileUploaderService
         await Utils.storageStream(absolutePath, stream);
 
         // return the file url
-        const url = storagePublicAbsoluteURL(relativePathSegments, newFilename);
+        const url = storagePublicAbsoluteURL(relativePathSegments, filename);
         const stats = statSync(absolutePath);
 
         // check if file can do a crop action
@@ -60,6 +60,7 @@ export class CoreFileUploaderService
 
         const coreFile: CoreFile = {
             id        : file.id,
+            originFilename,
             filename,
             mimetype,
             extension : extensionFile,
@@ -89,6 +90,7 @@ export class CoreFileUploaderService
             coreFile.height = coreFile.meta.height;
             coreFile.library = {
                 id                  : libraryId,
+                originFilename,
                 filename,
                 mimetype,
                 extension           : extensionFile,

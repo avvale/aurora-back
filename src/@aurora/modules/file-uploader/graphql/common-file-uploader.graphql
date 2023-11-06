@@ -1,6 +1,7 @@
 type CoreFile
 {
     id: ID!
+    originFilename: GraphQLString!
     filename: GraphQLString!
     mimetype: GraphQLString!
     extension: GraphQLString!
@@ -18,6 +19,7 @@ type CoreFile
 type CoreLibraryFile
 {
     id: ID!
+    originFilename: GraphQLString!
     filename: GraphQLString!
     mimetype: GraphQLString!
     extension: GraphQLString!
