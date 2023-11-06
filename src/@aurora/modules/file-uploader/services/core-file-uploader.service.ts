@@ -1,10 +1,19 @@
+/* eslint-disable max-len */
 import { CoreFile, CoreFileUploaded } from '@api/graphql';
-import { Utils } from '@aurorajs.dev/core';
+import { Utils, getRelativePathSegments, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { join, extname } from 'node:path';
-import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { ConfigService } from '@nestjs/config';
+import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
+import { extname } from 'node:path';
 import * as sharp from 'sharp';
+
+export const getRelativePathSegmentsAttachment = (
+    relativePathSegments: string[],
+    defaultRelativePathSegments: string[] = ['tmp'],
+): string[] =>
+{
+    return Array.isArray(relativePathSegments) && relativePathSegments.length > 0 ? relativePathSegments : defaultRelativePathSegments;
+};
 
 @Injectable()
 export class CoreFileUploaderService
@@ -20,19 +29,17 @@ export class CoreFileUploaderService
     {
         // by default all files are saved in the tmp folder, so that after manipulation they are saved in the corresponding folder
         // if it is not necessary to manipulate the file, it can be saved directly in the corresponding folder.
-        const relativePathSegments = Array.isArray(file.relativePathSegments) && file.relativePathSegments.length > 0 ? file.relativePathSegments : ['tmp'];
-        const absolutePathDirectory = join(process.cwd(), 'storage', 'app', ...relativePathSegments);
+        const relativePathSegments = getRelativePathSegments(file.relativePathSegments);
+        const absoluteDirectoryPath = storagePublicAbsoluteDirectoryPath(relativePathSegments);
 
         // eslint-disable-next-line no-await-in-loop
         const { createReadStream, filename, mimetype, encoding } = await file.file;
         const extensionFile = extname(filename);
-        const absolutePath = join(
-            absolutePathDirectory,
-            `${file.id}${extensionFile}`,
-        );
+        const newFilename = `${file.id}${extensionFile}`;
+        const absolutePath = storagePublicAbsolutePath(relativePathSegments, newFilename);
 
         // create directory if not exists
-        if (!existsSync(absolutePathDirectory)) mkdirSync(absolutePathDirectory, { recursive: true });
+        if (!existsSync(absoluteDirectoryPath)) mkdirSync(absoluteDirectoryPath, { recursive: true });
 
         // Create readable stream
         const stream = createReadStream();
@@ -42,7 +49,7 @@ export class CoreFileUploaderService
         await Utils.storageStream(absolutePath, stream);
 
         // return the file url
-        const url = `${this.configService.get('STORAGE_URL')}/storage/app/${relativePathSegments.join('/')}/${file.id}${extname(filename)}`;
+        const url = storagePublicAbsoluteURL(relativePathSegments, newFilename);
         const stats = statSync(absolutePath);
 
         // check if file can do a crop action
@@ -68,10 +75,8 @@ export class CoreFileUploaderService
         if (isCropable && file.hasCreateLibrary)
         {
             const libraryId = Utils.uuid();
-            const absoluteLibraryPath = join(
-                absolutePathDirectory,
-                `${libraryId}${coreFile.extension}`,
-            );
+            const newLibraryFilename = `${libraryId}${coreFile.extension}`;
+            const absoluteLibraryPath = storagePublicAbsolutePath(relativePathSegments, newLibraryFilename);
 
             // copy file to create a library file
             copyFileSync(
@@ -91,7 +96,7 @@ export class CoreFileUploaderService
                 width               : coreFile.meta.width,
                 height              : coreFile.meta.height,
                 size                : coreFile.size,
-                url                 : `${this.configService.get('STORAGE_URL')}/storage/app/${coreFile.relativePathSegments.join('/')}/${libraryId}${coreFile.extension}`,
+                url                 : storagePublicAbsoluteURL(relativePathSegments, newLibraryFilename),
                 meta                : coreFile.meta,
             };
         }
