@@ -12,6 +12,8 @@ type CoreFile
     url: GraphQLString!
     isCropable: GraphQLBoolean!
     isUploaded: GraphQLBoolean!
+    libraryId: ID
+    libraryFilename: GraphQLString
     library: CoreLibraryFile
     meta: JSON
 }

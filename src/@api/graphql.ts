@@ -2077,6 +2077,8 @@ export interface CoreFile {
     url: GraphQLString;
     isCropable: GraphQLBoolean;
     isUploaded: GraphQLBoolean;
+    libraryId?: Nullable<string>;
+    libraryFilename?: Nullable<GraphQLString>;
     library?: Nullable<CoreLibraryFile>;
     meta?: Nullable<JSON>;
 }
