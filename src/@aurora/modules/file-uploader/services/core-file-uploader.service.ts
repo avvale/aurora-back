@@ -77,6 +77,8 @@ export class CoreFileUploaderService
         {
             const libraryId = Utils.uuid();
             const filename = `${libraryId}${coreFile.extension}`;
+            coreFile.libraryId = libraryId;
+            coreFile.libraryFilename = filename;
             const absoluteLibraryPath = storagePublicAbsolutePath(relativePathSegments, filename);
 
             // copy file to create a library file
