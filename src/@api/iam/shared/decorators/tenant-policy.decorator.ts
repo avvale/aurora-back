@@ -20,7 +20,7 @@ export const TenantPolicy = (customProperties?: {
             {
                 const properties = Object.assign({}, {
                     targetProperty: 'tenantId',
-                    payloadIndex  : 1,
+                    payloadIndex  : 0,
                 }, customProperties);
 
                 // get account from arguments

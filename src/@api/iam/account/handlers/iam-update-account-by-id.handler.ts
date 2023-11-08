@@ -46,6 +46,11 @@ export class IamUpdateAccountByIdHandler
             dataToUpdate['dPermissions'] = this.createPermissionsFromRolesService.main(roles);
         }
 
+        if ('tenantIds' in dataToUpdate)
+        {
+            dataToUpdate['dTenants'] = dataToUpdate.tenantIds;
+        }
+
         const operationId = Utils.uuid();
 
         await this.commandBus.dispatch(new IamUpdateAccountByIdCommand(
