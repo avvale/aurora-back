@@ -47,7 +47,7 @@ export class IamCreateAccountHandler
             if (accounts.some(client => client.email === payload.email))
             {
                 throw new ConflictException({
-                    message   : `The email ${payload.code} already exists`,
+                    message   : `The email ${payload.email} already exists`,
                     statusCode: 102,
                 });
             }
