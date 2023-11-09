@@ -1,15 +1,18 @@
 import { CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
 import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
+import { CommonFindAttachmentFamilyByIdQuery } from '@app/common/attachment-family';
 import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
-import { ICommandBus, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
+import { ICommandBus, IQueryBus, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { copyFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs';
+import * as sharp from 'sharp';
 
 @Injectable()
 export class CommonAttachmentsService
 {
     constructor(
         private readonly commandBus: ICommandBus,
+        private readonly queryBus: IQueryBus,
     ) {}
 
     async createUploadedAttachments(
@@ -20,7 +23,6 @@ export class CommonAttachmentsService
     {
         const uploadedAttachmentLibraries = [];
         const uploadedAttachments = [];
-        // const attachments = [];
         for (const attachment of attachments)
         {
             if (!attachment.isUploaded) continue;
@@ -62,10 +64,12 @@ export class CommonAttachmentsService
             uploadedAttachments.push(attachment);
         }
 
-        if (uploadedAttachments.length > 0)
+        const uploadedAttachmentsWithSizes = await this.createAttachmentsSizes(uploadedAttachments);
+
+        if (uploadedAttachmentsWithSizes.length > 0)
         {
             await this.commandBus.dispatch(new CommonCreateAttachmentsCommand(
-                uploadedAttachments,
+                uploadedAttachmentsWithSizes,
             ));
         }
 
@@ -75,6 +79,65 @@ export class CommonAttachmentsService
                 uploadedAttachmentLibraries,
             ));
         }
+    }
+
+    async createAttachmentsSizes(
+        attachments: CommonCreateAttachmentInput[],
+    ): Promise<CommonCreateAttachmentInput[]>
+    {
+        for (const attachment of attachments)
+        {
+            if (!attachment.isUploaded) continue;
+            if (!attachment.isCropable) continue;
+            if (!attachment.familyId) continue;
+
+            // eslint-disable-next-line no-await-in-loop
+            const attachmentFamily = await this.queryBus.ask(new CommonFindAttachmentFamilyByIdQuery(
+                attachment.familyId,
+            ));
+
+            if (Array.isArray(attachmentFamily.sizes))
+            {
+                const sizes = [];
+                for (const size of attachmentFamily.sizes)
+                {
+                    // calculate percentage that we need from image
+                    const percentage = 100 - size;
+
+                    const width = attachment.width = Math.round(attachment.width * percentage / 100);
+                    const height = attachment.height = Math.round(attachment.height * percentage / 100);
+                    const absolutePath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
+
+                    // get paths for resized image
+                    const targetFilename = `${size}@_${attachment.filename}`;
+                    const targetAbsolutePathTarget = storagePublicAbsolutePath(attachment.relativePathSegments, targetFilename);
+
+                    // resize image
+                    const image = sharp(absolutePath)
+                        .resize({
+                            width,
+                            height,
+                        });
+
+                    // save to file
+                    // eslint-disable-next-line no-await-in-loop
+                    const imageResult = await image.toFile(targetAbsolutePathTarget);
+
+                    sizes.push({
+                        filename            : targetFilename,
+                        relativePathSegments: attachment.relativePathSegments,
+                        width               : imageResult.width,
+                        height              : imageResult.height,
+                        size                : imageResult.size,
+                        url                 : storagePublicAbsoluteURL(attachment.relativePathSegments, targetFilename),
+                    });
+                }
+
+                attachment.sizes = sizes;
+            }
+        }
+
+        return attachments;
     }
 
     updateAttachments(
