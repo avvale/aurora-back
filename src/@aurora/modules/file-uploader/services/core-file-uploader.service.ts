@@ -69,7 +69,9 @@ export class CoreFileUploaderService
             url,
             isCropable,
             isUploaded: true,
-            meta      : metadata,
+            meta      : {
+                imageMetadata: metadata,
+            },
         };
 
         // add cropable properties
@@ -101,7 +103,9 @@ export class CoreFileUploaderService
                 height              : coreFile.meta.height,
                 size                : coreFile.size,
                 url                 : storagePublicAbsoluteURL(relativePathSegments, filename),
-                meta                : coreFile.meta,
+                meta                : {
+                    imageMetadata: coreFile.meta.imageMetadata,
+                },
             };
         }
 
