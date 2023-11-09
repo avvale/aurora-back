@@ -130,6 +130,12 @@ export class CommonUpdateAttachmentByIdDto
 
     @ApiProperty({
         type       : Object,
+        description: 'sizes [input here api field description]',
+    })
+    sizes?: any;
+
+    @ApiProperty({
+        type       : Object,
         description: 'meta [input here api field description]',
     })
     meta?: any;
