@@ -90,8 +90,8 @@ export class CoreFileUploaderService
             );
 
             // set coreFile properties from cropable file
-            coreFile.width = coreFile.meta.width;
-            coreFile.height = coreFile.meta.height;
+            coreFile.width = coreFile.meta.imageMetadata.width;
+            coreFile.height = coreFile.meta.imageMetadata.height;
             coreFile.library = {
                 id                  : libraryId,
                 originFilename,
@@ -99,8 +99,8 @@ export class CoreFileUploaderService
                 mimetype,
                 extension           : extensionFile,
                 relativePathSegments: coreFile.relativePathSegments,
-                width               : coreFile.meta.width,
-                height              : coreFile.meta.height,
+                width               : coreFile.meta.imageMetadata.width,
+                height              : coreFile.meta.imageMetadata.height,
                 size                : coreFile.size,
                 url                 : storagePublicAbsoluteURL(relativePathSegments, filename),
                 meta                : {

@@ -1,6 +1,6 @@
 import { CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
 import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
-import { CommonFindAttachmentFamilyByIdQuery } from '@app/common/attachment-family';
+import { CommonFindAttachmentFamilyByIdQuery, CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
 import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
 import { ICommandBus, IQueryBus, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -85,6 +85,26 @@ export class CommonAttachmentsService
         attachments: CommonCreateAttachmentInput[],
     ): Promise<CommonCreateAttachmentInput[]>
     {
+        const attachmentFamilyIds = attachments
+            .filter(attachment => attachment.isUploaded)
+            .filter(attachment => attachment.isCropable)
+            .filter(attachment => Boolean(attachment.familyId))
+            .map(attachment => attachment.familyId);
+
+        // if there are no family attachments there can be no sizes
+        if (attachmentFamilyIds.length === 0) return attachments;
+
+        const attachmentFamilies = await this.queryBus.ask(new CommonGetAttachmentFamiliesQuery(
+            {
+                where: {
+                    id: attachmentFamilyIds,
+                },
+            },
+        ));
+
+        // checks that there is at least one attachment family with sizes
+        if (!attachmentFamilies.some(attachmentFamily => Array.isArray(attachmentFamily.sizes))) return attachments;
+
         for (const attachment of attachments)
         {
             if (!attachment.isUploaded) continue;
@@ -92,20 +112,15 @@ export class CommonAttachmentsService
             if (!attachment.familyId) continue;
 
             // eslint-disable-next-line no-await-in-loop
-            const attachmentFamily = await this.queryBus.ask(new CommonFindAttachmentFamilyByIdQuery(
-                attachment.familyId,
-            ));
+            const attachmentFamily = attachmentFamilies.find(attachmentFamily => attachmentFamily.id === attachment.familyId);
 
             if (Array.isArray(attachmentFamily.sizes))
             {
                 const sizes = [];
                 for (const size of attachmentFamily.sizes)
                 {
-                    // calculate percentage that we need from image
-                    const percentage = 100 - size;
-
-                    const width = attachment.width = Math.round(attachment.width * percentage / 100);
-                    const height = attachment.height = Math.round(attachment.height * percentage / 100);
+                    const width = Math.round(attachment.width * size / 100);
+                    const height = Math.round(attachment.height * size / 100);
                     const absolutePath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
 
                     // get paths for resized image
@@ -124,6 +139,7 @@ export class CommonAttachmentsService
                     const imageResult = await image.toFile(targetAbsolutePathTarget);
 
                     sizes.push({
+                        resizePercentage    : size,
                         filename            : targetFilename,
                         relativePathSegments: attachment.relativePathSegments,
                         width               : imageResult.width,

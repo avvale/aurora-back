@@ -482,6 +482,7 @@ export interface CommonCreateAttachmentInput {
     library?: Nullable<CommonCreateAttachmentLibraryInput>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
 }
 
@@ -507,6 +508,7 @@ export interface CommonUpdateAttachmentByIdInput {
     library?: Nullable<CommonCreateAttachmentLibraryInput>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
 }
 
@@ -529,6 +531,7 @@ export interface CommonUpdateAttachmentsInput {
     isCropable?: Nullable<GraphQLBoolean>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
 }
 
@@ -1697,6 +1700,7 @@ export interface CommonAttachment {
     libraryId?: Nullable<string>;
     library?: Nullable<CommonAttachmentLibrary>;
     libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
