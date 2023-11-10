@@ -1,6 +1,6 @@
 import { CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
 import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
-import { CommonFindAttachmentFamilyByIdQuery, CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
+import { CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
 import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
 import { ICommandBus, IQueryBus, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
