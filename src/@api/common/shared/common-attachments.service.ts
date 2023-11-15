@@ -1,4 +1,4 @@
-import { CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
+import { CommonAttachment, CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
 import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
 import { CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
 import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
@@ -174,5 +174,31 @@ export class CommonAttachmentsService
         }
 
         if (attachmentPromises.length > 0) Promise.all(attachmentPromises);
+    }
+
+    deleteAttachment(
+        attachment: CommonAttachment,
+    ): void
+    {
+        // delete sizes
+        if (Array.isArray(attachment.sizes))
+        {
+            for (const size of attachment.sizes)
+            {
+                const absoluteAttachmentSizePath = storagePublicAbsolutePath(size.relativePathSegments, size.filename);
+                if (existsSync(absoluteAttachmentSizePath)) unlinkSync(absoluteAttachmentSizePath);
+            }
+        }
+
+        // delete attachment
+        const absoluteAttachmentPath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
+        if (existsSync(absoluteAttachmentPath)) unlinkSync(absoluteAttachmentPath);
+
+        if (attachment.library)
+        {
+            // delete attachment library
+            const absoluteAttachmentLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, attachment.library.filename);
+            if (existsSync(absoluteAttachmentLibraryPath)) unlinkSync(absoluteAttachmentLibraryPath);
+        }
     }
 }

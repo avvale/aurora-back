@@ -2,7 +2,6 @@
 import { CoreFile, CoreFileUploaded } from '@api/graphql';
 import { Utils, getRelativePathSegments, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { copyFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { extname } from 'node:path';
 import * as sharp from 'sharp';
@@ -18,10 +17,6 @@ export const getRelativePathSegmentsAttachment = (
 @Injectable()
 export class CoreFileUploaderService
 {
-    constructor(
-        private readonly configService: ConfigService,
-    ) { }
-
     // CoreFileUploaded has relativePathSegments, that is an array
     // of strings that represents the path to the file will be stored.
     // by default, the file will be stored in the tmp directory.
@@ -53,7 +48,7 @@ export class CoreFileUploaderService
         const stats = statSync(absolutePath);
 
         // check if file can do a crop action
-        const isCropable = mimetype === 'image/jpeg' || mimetype === 'image/png' || mimetype === 'image/gif';
+        const isCropable = mimetype === 'image/jpeg' || mimetype === 'image/png' || mimetype === 'image/gif' || mimetype === 'image/webp';
 
         // set metadata for image
         const metadata = await sharp(absolutePath).metadata();
