@@ -205,6 +205,8 @@ async function cleanShareModule()
     codeWriter.removeImport(sourceFile, '@api/common/shared');
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetLangsService', 'CoreGetLangsFromJsonService');
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetFallbackLangService', 'CoreGetFallbackLangFromJsonService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'CommonAttachmentsService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'CommonAttachmentsService');
 
     // remove whatsapp service
     codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp-shared.module');

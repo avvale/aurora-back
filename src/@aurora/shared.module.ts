@@ -1,5 +1,5 @@
 import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
-import { CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
+import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
 import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
 import { CoreFileUploaderService } from '@aurora/modules/file-uploader';
@@ -25,9 +25,10 @@ import { CqrsConfigModule } from './cqrs-config.module';
         WhatsappSharedModule,
     ],
     providers: [
-        CoreFileUploaderService,
-        CoreAddI18nConstraintService,
         AuditingAxiosInterceptorService,
+        CommonAttachmentsService,
+        CoreAddI18nConstraintService,
+        CoreFileUploaderService,
         CoreGetContentLanguageObjectService,
         CoreGetSearchKeyLangService,
         {
@@ -48,6 +49,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
         AuroraMetadataModule,
         AuthJwtStrategyRegistryModule,
         CacheModule,
+        CommonAttachmentsService,
         ConfigModule,
         CoreAddI18nConstraintService,
         CoreFileUploaderService,
