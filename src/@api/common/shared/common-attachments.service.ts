@@ -163,7 +163,7 @@ export class CommonAttachmentsService
         const attachmentPromises = [];
         for (const attachment of attachments)
         {
-            if (attachment.isChanged)
+            if (attachment.isChanged && !attachment.isUploaded)
             {
                 attachmentPromises.push(
                     this.commandBus.dispatch(new CommonUpdateAttachmentByIdCommand(
