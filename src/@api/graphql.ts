@@ -464,6 +464,7 @@ export interface CommonCreateAttachmentInput {
     id: string;
     familyId?: Nullable<string>;
     attachableId: string;
+    langId?: Nullable<string>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -490,6 +491,7 @@ export interface CommonUpdateAttachmentByIdInput {
     id: string;
     familyId?: Nullable<string>;
     attachableId?: Nullable<string>;
+    langId?: Nullable<string>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -516,6 +518,7 @@ export interface CommonUpdateAttachmentsInput {
     id?: Nullable<string>;
     familyId?: Nullable<string>;
     attachableId?: Nullable<string>;
+    langId?: Nullable<string>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
@@ -529,6 +532,33 @@ export interface CommonUpdateAttachmentsInput {
     size?: Nullable<GraphQLInt>;
     url?: Nullable<GraphQLString>;
     isCropable?: Nullable<GraphQLBoolean>;
+    libraryId?: Nullable<string>;
+    libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
+export interface CommonAttachmentInput {
+    id: string;
+    familyId?: Nullable<string>;
+    attachableId: string;
+    langId?: Nullable<string>;
+    sort?: Nullable<GraphQLInt>;
+    alt?: Nullable<GraphQLString>;
+    title?: Nullable<GraphQLString>;
+    originFilename: GraphQLString;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    extension: GraphQLString;
+    relativePathSegments: JSON;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
+    library?: Nullable<CommonCreateAttachmentLibraryInput>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     sizes?: Nullable<JSON>;
@@ -1408,6 +1438,7 @@ export interface IMutation {
     commonDeleteAttachmentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
     commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
+    commonDeleteAttachment(payload: CommonAttachmentInput): CommonAttachment | Promise<CommonAttachment>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1682,6 +1713,8 @@ export interface CommonAttachment {
     familyId?: Nullable<string>;
     family?: Nullable<CommonAttachmentFamily>;
     attachableId: string;
+    langId?: Nullable<string>;
+    lang?: Nullable<CommonLang>;
     sort?: Nullable<GraphQLInt>;
     alt?: Nullable<GraphQLString>;
     title?: Nullable<GraphQLString>;
