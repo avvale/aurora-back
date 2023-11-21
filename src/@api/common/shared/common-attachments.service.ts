@@ -2,8 +2,10 @@ import { CommonAttachment, CommonCreateAttachmentInput, CommonUpdateAttachmentBy
 import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
 import { CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
 import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
-import { ICommandBus, IQueryBus, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement, Utils, getRelativePathSegments, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Inject, Injectable } from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { copyFileSync, existsSync, mkdirSync, unlinkSync } from 'node:fs';
 import * as sharp from 'sharp';
 
@@ -13,6 +15,8 @@ export class CommonAttachmentsService
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
+        private readonly coreGetSearchKeyLangService: CoreGetSearchKeyLangService,
+        @Inject(CACHE_MANAGER) private cacheManager: Cache,
     ) {}
 
     async createUploadedAttachments(
@@ -200,5 +204,95 @@ export class CommonAttachmentsService
             const absoluteAttachmentLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, attachment.library.filename);
             if (existsSync(absoluteAttachmentLibraryPath)) unlinkSync(absoluteAttachmentLibraryPath);
         }
+    }
+
+    async duplicateAttachmentsForNewI18nObject(
+        contentLanguage: string,
+        i18nRelationship: string,
+        constraint: QueryStatement,
+        attachments: CommonAttachment[],
+        tempRelativePathSegments: string[],
+    ): Promise<CommonAttachment[]>
+    {
+        // get langs from cache manager, previously
+        // loaded in coreGetLangs service
+        const langs: {
+            id: string;
+            iso6392: string;
+            iso6393: string;
+            ietf: string;
+        }[] = await this.cacheManager.get('common/langs') || [];
+
+        // try get lang from content-language header
+        const lang = langs.find(lang => lang[this.coreGetSearchKeyLangService.get()] === contentLanguage);
+        const i18nAssociation = constraint.include.find(include => include.association === i18nRelationship);
+
+        if (!(lang && i18nAssociation?.where?.langId && lang.id !== i18nAssociation.where.langId)) return [];
+
+        // *********************************************
+        // * duplicate attachments for new i18n object *
+        // *********************************************
+        const newAttachments = [];
+        const targetRelativePathSegments = getRelativePathSegments(tempRelativePathSegments);
+        const targetAbsoluteDirectoryPath = storagePublicAbsoluteDirectoryPath(targetRelativePathSegments);
+
+        // create directory if not exists
+        if (!existsSync(targetAbsoluteDirectoryPath)) mkdirSync(targetAbsoluteDirectoryPath, { recursive: true });
+
+        for (const attachment of attachments)
+        {
+            const newId = Utils.uuid();
+            const newFilename = `${newId}${attachment.extension}`;
+            const newUrl = storagePublicAbsoluteURL(tempRelativePathSegments, newFilename);
+            const newAttachment = {
+                ...attachment,
+                id                  : newId,
+                filename            : newFilename,
+                relativePathSegments: tempRelativePathSegments,
+                url                 : newUrl,
+                isUploaded          : true,
+                sizes               : null,
+            };
+
+            const sourceAbsoluteDirectoryAttachmentPath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
+            const tempAbsoluteAttachmentPath = storagePublicAbsolutePath(newAttachment.relativePathSegments, newAttachment.filename);
+
+            // copy attachment to temp directory
+            copyFileSync(
+                sourceAbsoluteDirectoryAttachmentPath,
+                tempAbsoluteAttachmentPath,
+            );
+
+            // add new attachment to array
+            newAttachments.push(newAttachment);
+
+            // check if attachment has to duplicate library
+            if (!attachment.library) continue;
+
+            const newLibraryId = Utils.uuid();
+            const newLibraryFilename = `${newLibraryId}${attachment.library.extension}`;
+            const newLibraryUrl = storagePublicAbsoluteURL(tempRelativePathSegments, newLibraryFilename);
+            const newAttachmentLibrary = {
+                ...attachment.library,
+                id                  : newLibraryId,
+                filename            : newLibraryFilename,
+                relativePathSegments: tempRelativePathSegments,
+                url                 : newLibraryUrl,
+            };
+
+            const sourceAbsoluteDirectoryAttachmentLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, attachment.library.filename);
+            const tempAbsoluteAttachmentLibraryPath = storagePublicAbsolutePath(newAttachmentLibrary.relativePathSegments, newAttachmentLibrary.filename);
+
+            // copy attachment to temp directory
+            copyFileSync(
+                sourceAbsoluteDirectoryAttachmentLibraryPath,
+                tempAbsoluteAttachmentLibraryPath,
+            );
+
+            // add library to new attachment by reference
+            newAttachment.library = newAttachmentLibrary;
+        }
+
+        return newAttachments;
     }
 }
