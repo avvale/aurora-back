@@ -1,7 +1,7 @@
 import { CommonAttachment, CommonCreateAttachmentInput, CommonUpdateAttachmentByIdInput } from '@api/graphql';
-import { CommonCreateAttachmentsCommand, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
+import { CommonCreateAttachmentsCommand, CommonDeleteAttachmentsCommand, CommonGetAttachmentsQuery, CommonUpdateAttachmentByIdCommand } from '@app/common/attachment';
 import { CommonGetAttachmentFamiliesQuery } from '@app/common/attachment-family';
-import { CommonCreateAttachmentLibrariesCommand } from '@app/common/attachment-library';
+import { CommonCreateAttachmentLibrariesCommand, CommonDeleteAttachmentLibrariesCommand } from '@app/common/attachment-library';
 import { CoreGetSearchKeyLangService, ICommandBus, IQueryBus, QueryStatement, Utils, getRelativePathSegments, storagePublicAbsoluteDirectoryPath, storagePublicAbsolutePath, storagePublicAbsoluteURL } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
@@ -180,32 +180,6 @@ export class CommonAttachmentsService
         if (attachmentPromises.length > 0) Promise.all(attachmentPromises);
     }
 
-    deleteAttachment(
-        attachment: CommonAttachment,
-    ): void
-    {
-        // delete sizes
-        if (Array.isArray(attachment.sizes))
-        {
-            for (const size of attachment.sizes)
-            {
-                const absoluteAttachmentSizePath = storagePublicAbsolutePath(size.relativePathSegments, size.filename);
-                if (existsSync(absoluteAttachmentSizePath)) unlinkSync(absoluteAttachmentSizePath);
-            }
-        }
-
-        // delete attachment
-        const absoluteAttachmentPath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
-        if (existsSync(absoluteAttachmentPath)) unlinkSync(absoluteAttachmentPath);
-
-        if (attachment.library)
-        {
-            // delete attachment library
-            const absoluteAttachmentLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, attachment.library.filename);
-            if (existsSync(absoluteAttachmentLibraryPath)) unlinkSync(absoluteAttachmentLibraryPath);
-        }
-    }
-
     async duplicateAttachmentsForNewI18nObject(
         contentLanguage: string,
         i18nRelationship: string,
@@ -291,8 +265,88 @@ export class CommonAttachmentsService
 
             // add library to new attachment by reference
             newAttachment.library = newAttachmentLibrary;
+            newAttachment.libraryId = newAttachmentLibrary.id;
+            newAttachment.libraryFilename = newAttachmentLibrary.filename;
+
         }
 
         return newAttachments;
+    }
+
+    deleteAttachmentFile(
+        attachment: CommonAttachment,
+    ): void
+    {
+        // delete sizes
+        if (Array.isArray(attachment.sizes))
+        {
+            for (const size of attachment.sizes)
+            {
+                const absoluteAttachmentSizePath = storagePublicAbsolutePath(size.relativePathSegments, size.filename);
+                if (existsSync(absoluteAttachmentSizePath)) unlinkSync(absoluteAttachmentSizePath);
+            }
+        }
+
+        // delete attachment
+        const absoluteAttachmentPath = storagePublicAbsolutePath(attachment.relativePathSegments, attachment.filename);
+        if (existsSync(absoluteAttachmentPath)) unlinkSync(absoluteAttachmentPath);
+
+        if (attachment.library)
+        {
+            // delete attachment library
+            const absoluteAttachmentLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, attachment.library.filename);
+            if (existsSync(absoluteAttachmentLibraryPath)) unlinkSync(absoluteAttachmentLibraryPath);
+        }
+    }
+
+    async deleteAttachments(
+        attachableId: string,
+        langId?: string,
+        fallbackLangId?: string,
+    ): Promise<void>
+    {
+        const whereStatement = {
+            attachableId,
+        };
+
+        if (langId && fallbackLangId && langId !== fallbackLangId)
+        {
+            // if the language is different from the default language,
+            // we only delete attachments in that language.
+            whereStatement['langId'] = langId;
+        }
+
+        const attachments = await this.queryBus.ask(new CommonGetAttachmentsQuery(
+            {
+                include: [
+                    {
+                        association: 'library',
+                    },
+                ],
+                where: whereStatement,
+            },
+        ));
+
+        // delete all attachments files and libraries files
+        for(const attachment of attachments)
+        {
+            this.deleteAttachmentFile(attachment);
+        }
+
+        // delete all attachments from database
+        await this.commandBus.dispatch(new CommonDeleteAttachmentsCommand(
+            {
+                where: whereStatement,
+            },
+        ));
+
+        // delete all attachment libraries from database
+        await this.commandBus.dispatch(new CommonDeleteAttachmentLibrariesCommand(
+            {
+                where: {
+                    id: attachments.map(attachment => attachment.libraryId),
+                },
+            },
+        ));
     }
 }

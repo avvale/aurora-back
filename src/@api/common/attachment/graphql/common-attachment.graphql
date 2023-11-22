@@ -211,4 +211,8 @@ type Mutation
         payload: CommonAttachmentInput!
     ): CommonAttachment!
 
+    commonCreateBlobAttachment(
+       payload: CommonAttachmentInput!
+    ): Any!
+
 }
