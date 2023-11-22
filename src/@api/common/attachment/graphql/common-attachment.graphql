@@ -213,6 +213,6 @@ type Mutation
 
     commonCreateBlobAttachment(
        payload: CommonAttachmentInput!
-    ): Any!
+    ): GraphQLString!
 
 }
