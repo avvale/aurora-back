@@ -2,7 +2,6 @@ import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationServ
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
 import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
-import { CoreFileUploaderService } from '@aurora/modules/file-uploader';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
 import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
@@ -28,7 +27,6 @@ import { CqrsConfigModule } from './cqrs-config.module';
         AuditingAxiosInterceptorService,
         CommonAttachmentsService,
         CoreAddI18nConstraintService,
-        CoreFileUploaderService,
         CoreGetContentLanguageObjectService,
         CoreGetSearchKeyLangService,
         {
@@ -52,7 +50,6 @@ import { CqrsConfigModule } from './cqrs-config.module';
         CommonAttachmentsService,
         ConfigModule,
         CoreAddI18nConstraintService,
-        CoreFileUploaderService,
         CoreGetContentLanguageObjectService,
         CoreGetFallbackLangService,
         CoreGetLangsService,

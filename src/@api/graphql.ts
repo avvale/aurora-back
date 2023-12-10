@@ -1439,6 +1439,7 @@ export interface IMutation {
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
     commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
     commonDeleteAttachment(payload: CommonAttachmentInput): CommonAttachment | Promise<CommonAttachment>;
+    commonCreateBlobAttachment(payload: CommonAttachmentInput): GraphQLString | Promise<GraphQLString>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -1728,8 +1729,8 @@ export interface CommonAttachment {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
-    isUploaded: GraphQLBoolean;
-    isChanged: GraphQLBoolean;
+    isUploaded?: Nullable<GraphQLBoolean>;
+    isChanged?: Nullable<GraphQLBoolean>;
     libraryId?: Nullable<string>;
     library?: Nullable<CommonAttachmentLibrary>;
     libraryFilename?: Nullable<GraphQLString>;
