@@ -28,7 +28,7 @@ services:
 
   db3:
     container_name: aurora-prostgres
-    image: postgres:15.2-alpine
+    image: postgres:14.10-alpine
     volumes:
       - postgres-vol:/var/lib/postgresql/data
     ports:
@@ -37,7 +37,23 @@ services:
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_SCHEMA}
+      POSTGRES_DB: postgres
+
+  odoo:
+    container_name: aurora-odoo
+    image: odoo:17.0
+    restart: always
+    ports:
+      - 8069:8069
+    volumes:
+      - ./odoo/config:/etc/odoo
+      - ./odoo/addons:/mnt/extra-addons
+    depends_on:
+      - db3
+    environment:
+      HOST: db3
+      USER: ${DATABASE_USER}
+      PASSWORD: ${DATABASE_PASSWORD}
 
   typesense:
     container_name: aurora-typesense
@@ -87,6 +103,8 @@ volumes:
   redis-vol:
     external: false
   typesense-data:
+    external: false
+  odoo-vol:
     external: false
   # elasticsearch-data:
   #  driver: local
