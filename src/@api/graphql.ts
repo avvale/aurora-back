@@ -1210,6 +1210,13 @@ export interface SearchEngineUpdateFieldsInput {
     isNullable?: Nullable<GraphQLBoolean>;
 }
 
+export interface CoreFileUploaded {
+    id: string;
+    file: Upload;
+    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
+    hasCreateLibrary?: Nullable<GraphQLBoolean>;
+}
+
 export interface QueryStatement {
     where?: Nullable<JSON>;
     attributes?: Nullable<JSON>;
@@ -1220,13 +1227,6 @@ export interface QueryStatement {
     offset?: Nullable<GraphQLInt>;
     distinct?: Nullable<GraphQLBoolean>;
     col?: Nullable<GraphQLString>;
-}
-
-export interface CoreFileUploaded {
-    id: string;
-    file: Upload;
-    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
-    hasCreateLibrary?: Nullable<GraphQLBoolean>;
 }
 
 export interface AuditingHttpCommunication {
@@ -2096,12 +2096,6 @@ export interface CoreLang {
     deletedAt?: Nullable<GraphQLString>;
 }
 
-export interface Pagination {
-    total: GraphQLInt;
-    count: GraphQLInt;
-    rows: Nullable<JSON>[];
-}
-
 export interface CoreFile {
     id: string;
     originFilename: GraphQLString;
@@ -2133,6 +2127,12 @@ export interface CoreLibraryFile {
     size: GraphQLInt;
     url: GraphQLString;
     meta?: Nullable<JSON>;
+}
+
+export interface Pagination {
+    total: GraphQLInt;
+    count: GraphQLInt;
+    rows: Nullable<JSON>[];
 }
 
 export type JSON = any;
