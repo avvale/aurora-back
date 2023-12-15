@@ -1114,7 +1114,7 @@ export interface QueueManagerCreateJobRegistryInput {
     state: QueueManagerJobRegistryState;
     jobId: GraphQLString;
     jobName?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
 }
 
 export interface QueueManagerUpdateJobRegistryByIdInput {
@@ -1123,7 +1123,7 @@ export interface QueueManagerUpdateJobRegistryByIdInput {
     state?: Nullable<QueueManagerJobRegistryState>;
     jobId?: Nullable<GraphQLString>;
     jobName?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
 }
 
 export interface QueueManagerUpdateJobsRegistryInput {
@@ -1132,7 +1132,7 @@ export interface QueueManagerUpdateJobsRegistryInput {
     state?: Nullable<QueueManagerJobRegistryState>;
     jobId?: Nullable<GraphQLString>;
     jobName?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
 }
 
 export interface QueueManagerCreateQueueInput {
@@ -2014,7 +2014,7 @@ export interface QueueManagerJobRegistry {
     state: QueueManagerJobRegistryState;
     jobId: GraphQLString;
     jobName?: Nullable<GraphQLString>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
