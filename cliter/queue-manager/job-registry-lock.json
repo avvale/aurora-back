@@ -15,7 +15,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/create/queue-manager-create-job-registry.command.ts",
-            "integrity": "sha1:5823eeb7db5a0c41703a3af534971b4d78eff02f"
+            "integrity": "sha1:713ca3a39c5952df265e0de35e09da5a24567c28"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/create/queue-manager-create-job-registry.service.spec.ts",
@@ -35,7 +35,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/create/queue-manager-create-jobs-registry.command.ts",
-            "integrity": "sha1:8df2a0037fdf2244ca6711e37408c2f271df2d8b"
+            "integrity": "sha1:8e9e91e0e811f0ccabdb32618988a61bbd84811b"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/create/queue-manager-create-jobs-registry.service.spec.ts",
@@ -95,7 +95,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-created-job-registry.event.ts",
-            "integrity": "sha1:9f8d8745d0a0a4ecafea98a0a016510ff11c7e72"
+            "integrity": "sha1:9031d5e4000cb2ac01a57099b2a8b8ef99f92b56"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-created-jobs-registry.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-deleted-job-registry.event.ts",
-            "integrity": "sha1:4b7f37b5facac4292c417fc686c0aaf302d6aba1"
+            "integrity": "sha1:8399a51671093cc67cf0885c9263322e27047e8d"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-deleted-jobs-registry.event-handler.ts",
@@ -127,7 +127,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-updated-job-registry.event.ts",
-            "integrity": "sha1:4e799e7550606daeb67a560e269506dac709f9ec"
+            "integrity": "sha1:1fafa3a5195b2a28242b2a475b2c8b8c1773040e"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/events/queue-manager-updated-jobs-registry.event-handler.ts",
@@ -251,7 +251,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/update/queue-manager-update-job-registry-by-id.command.ts",
-            "integrity": "sha1:66c3ffbac742ef5012d3129f15596448f48221d9"
+            "integrity": "sha1:6af91b95bf3e2aee59a00039acbafb4dc63de0c3"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/update/queue-manager-update-job-registry-by-id.service.spec.ts",
@@ -271,7 +271,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/update/queue-manager-update-jobs-registry.command.ts",
-            "integrity": "sha1:8171189f6467ee422e623552ce5cbfa652459da4"
+            "integrity": "sha1:00b1d2ccff43d430ac451b46d4b36abfe1aa87a1"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/update/queue-manager-update-jobs-registry.service.spec.ts",
@@ -291,7 +291,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/upsert/queue-manager-upsert-job-registry.command.ts",
-            "integrity": "sha1:661f49f344f87c64b19a742af61ba83ca3fec664"
+            "integrity": "sha1:e3d15a22592da2781a65227813911ea4da72e4dc"
         },
         {
             "path": "src/@app/queue-manager/job-registry/application/upsert/queue-manager-upsert-job-registry.service.spec.ts",
@@ -315,7 +315,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/domain/queue-manager-job-registry.response.ts",
-            "integrity": "sha1:469e563ce264562711a3b535e0f8c6cca9461f67"
+            "integrity": "sha1:dea46f943f83dc997069a965d2b29e50799a7254"
         },
         {
             "path": "src/@app/queue-manager/job-registry/domain/value-objects/index.ts",
@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.data.ts",
-            "integrity": "sha1:8253cda56a0a29bc81cd991b51033137de103a76"
+            "integrity": "sha1:f9d47bc5a2be6c357566dc34e3eef257e306112b"
         },
         {
             "path": "src/@app/queue-manager/job-registry/infrastructure/mock/queue-manager-mock-job-registry.repository.ts",
@@ -691,7 +691,7 @@
         },
         {
             "path": "postman/queue-manager/queue-manager.job-registry.postman.json",
-            "integrity": "sha1:9fed57fb4a92e286ba554eff1b1bc91b03d08008"
+            "integrity": "sha1:87a91d9748f999d89970a08370fe68282b6f53b5"
         }
     ]
 }
