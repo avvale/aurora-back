@@ -7,9 +7,10 @@ import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMeta
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { CqrsConfigModule } from './cqrs-config.module';
+import { SentryModule } from './modules';
 
 @Module({
     imports: [
@@ -21,6 +22,15 @@ import { CqrsConfigModule } from './cqrs-config.module';
         CqrsConfigModule,
         CqrsModule,
         HttpModule,
+        SentryModule.forRootAsync({
+            imports   : [ConfigModule],
+            inject    : [ConfigService],
+            useFactory: (configService: ConfigService) => ({
+                dsn        : configService.get('SENTRY_DSN'),
+                environment: configService.get('SENTRY_ENVIRONMENT'),
+                release    : configService.get('SENTRY_PROJECT') + '@' + process.env.npm_package_version,
+            }),
+        }),
         WhatsappSharedModule,
     ],
     providers: [
@@ -55,6 +65,7 @@ import { CqrsConfigModule } from './cqrs-config.module';
         CoreGetLangsService,
         CoreGetSearchKeyLangService,
         CqrsConfigModule,
+        SentryModule,
         WhatsappSharedModule,
     ],
 })
