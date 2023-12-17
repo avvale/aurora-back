@@ -42,6 +42,7 @@
         "@nestjs/schedule": "^3.0.1",
         "@nestjs/serve-static": "^4.0.0",
         "@nestjs/swagger": "^7.0.12",
+        "@sentry/node": "^7.88.0",
         "bull": "^4.10.4",
         "cache-manager": "^5.2.3",
         "chalk": "^4.1.2",
