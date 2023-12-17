@@ -10,7 +10,7 @@ import * as timezone from 'dayjs/plugin/timezone';
 import * as utc from 'dayjs/plugin/utc';
 import * as weekOfYear from 'dayjs/plugin/weekOfYear';
 import { json, urlencoded } from 'express';
-import { logger } from './@aurora';
+import { logger } from './@aurora/services';
 import { AppModule } from './app.module';
 
 // dayjs configuration
