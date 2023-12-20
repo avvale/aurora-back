@@ -22,12 +22,6 @@ export class CommonCreateCropHandler
             attachment.familyId,
         ));
 
-        // TODO, ver dodne ponemos el cambio de extension, posiblemente guardadeo de attachemtn
-        /*  if (Utils.mimeFromExtension(attachmentFamily.format.toLowerCase()) !== payload.attachment.mimetype)
-        {
-            console.log('mimetype not match');
-        } */
-
         // get library paths
         const libraryFilename = `${attachment.library.id}${attachment.library.extension}`;
         const absoluteLibraryPath = storagePublicAbsolutePath(attachment.library.relativePathSegments, libraryFilename);
