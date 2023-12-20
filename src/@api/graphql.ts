@@ -478,6 +478,7 @@ export interface CommonCreateAttachmentInput {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isCropped: GraphQLBoolean;
     isUploaded: GraphQLBoolean;
     isChanged: GraphQLBoolean;
     library?: Nullable<CommonCreateAttachmentLibraryInput>;
@@ -505,6 +506,7 @@ export interface CommonUpdateAttachmentByIdInput {
     size?: Nullable<GraphQLInt>;
     url?: Nullable<GraphQLString>;
     isCropable?: Nullable<GraphQLBoolean>;
+    isCropped: GraphQLBoolean;
     isUploaded: GraphQLBoolean;
     isChanged: GraphQLBoolean;
     library?: Nullable<CommonCreateAttachmentLibraryInput>;
@@ -556,6 +558,7 @@ export interface CommonAttachmentInput {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isCropped: GraphQLBoolean;
     isUploaded: GraphQLBoolean;
     isChanged: GraphQLBoolean;
     library?: Nullable<CommonCreateAttachmentLibraryInput>;
@@ -1729,6 +1732,7 @@ export interface CommonAttachment {
     size: GraphQLInt;
     url: GraphQLString;
     isCropable: GraphQLBoolean;
+    isCropped?: Nullable<GraphQLBoolean>;
     isUploaded?: Nullable<GraphQLBoolean>;
     isChanged?: Nullable<GraphQLBoolean>;
     libraryId?: Nullable<string>;

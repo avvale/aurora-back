@@ -56,10 +56,11 @@ export class CommonCreateCropHandler
         return {
             attachment: {
                 ...attachment,
-                width : imageResult.width,
-                height: imageResult.height,
-                size  : imageResult.size,
-                meta  : {
+                width    : imageResult.width,
+                height   : imageResult.height,
+                size     : imageResult.size,
+                isCropped: true,
+                meta     : {
                     imageMeta: meta,
                 },
             },

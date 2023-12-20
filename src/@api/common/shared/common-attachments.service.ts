@@ -74,12 +74,13 @@ export class CommonAttachmentsService
             uploadedAttachments.push(attachment);
         }
 
-        const uploadedAttachmentsWithSizes = await this.createAttachmentsSizes(uploadedAttachments);
+        // only create sizes if attachment has been cropped
+        await this.createAttachmentsSizes(uploadedAttachments) as CommonCreateAttachmentInput[];
 
-        if (uploadedAttachmentsWithSizes.length > 0)
+        if (uploadedAttachments.length > 0)
         {
             await this.commandBus.dispatch(new CommonCreateAttachmentsCommand(
-                uploadedAttachmentsWithSizes,
+                uploadedAttachments,
             ));
         }
 
@@ -156,12 +157,11 @@ export class CommonAttachmentsService
     }
 
     async createAttachmentsSizes(
-        attachments: CommonCreateAttachmentInput[],
-    ): Promise<CommonCreateAttachmentInput[]>
+        attachments: CommonCreateAttachmentInput[] | CommonUpdateAttachmentByIdInput[],
+    ): Promise<CommonCreateAttachmentInput[] | CommonUpdateAttachmentByIdInput[]>
     {
         // get all family ids from attachments
         const attachmentFamilyIds = attachments
-            .filter(attachment => attachment.isUploaded)
             .filter(attachment => attachment.isCropable)
             .filter(attachment => Boolean(attachment.familyId))
             .map(attachment => attachment.familyId);
@@ -182,8 +182,8 @@ export class CommonAttachmentsService
 
         for (const attachment of attachments)
         {
-            if (!attachment.isUploaded) continue;
             if (!attachment.isCropable) continue;
+            if (!attachment.isCropped) continue;
             if (!attachment.familyId) continue;
 
             const attachmentFamily = attachmentFamilies.find(attachmentFamily => attachmentFamily.id === attachment.familyId);
@@ -230,10 +230,13 @@ export class CommonAttachmentsService
     }
 
     // update attachments data, like alt, title, family, etc.
-    updateAttachments(
+    async updateAttachments(
         attachments: CommonUpdateAttachmentByIdInput[],
-    ): void
+    ): Promise<void>
     {
+        // only create sizes if attachment has been cropped
+        await this.createAttachmentsSizes(attachments) as CommonUpdateAttachmentByIdInput[];
+
         const attachmentPromises = [];
         for (const attachment of attachments)
         {
