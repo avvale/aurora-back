@@ -47,7 +47,7 @@ export class CommonCreateCropHandler
             });
         }
 
-        // save to file
+        // save to file, output format will be inferred from the extension
         const imageResult = await image.toFile(absolutePath);
 
         // set metadata for cropped image
@@ -59,7 +59,9 @@ export class CommonCreateCropHandler
                 width : imageResult.width,
                 height: imageResult.height,
                 size  : imageResult.size,
-                meta,
+                meta  : {
+                    imageMeta: meta,
+                },
             },
             crop,
         };
