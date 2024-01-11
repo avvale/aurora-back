@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.data.ts",
-            "integrity": "sha1:8a2dc85de7e69c74045e67778f3c555f9764b19b"
+            "integrity": "sha1:cb9ba6ce619f2d47eca5c46e3893b6c1d97c9dab"
         },
         {
             "path": "src/@app/common/attachment-family/infrastructure/mock/common-mock-attachment-family.repository.ts",
@@ -491,7 +491,7 @@
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-attachment-family.dto.ts",
-            "integrity": "sha1:9b67e0e176d4d9b67711b00fc73c3b38783428c7"
+            "integrity": "sha1:73281dfe92a0464981b51f4f4243a69f86bc02a5"
         },
         {
             "path": "src/@api/common/attachment-family/dto/common-create-attachment-family.dto.ts",
@@ -507,6 +507,10 @@
         },
         {
             "path": "src/@api/common/attachment-family/dto/index.ts",
+            "integrity": "sha1:0668bfe7d206f064143571f4c397ca726db8cdaf"
+        },
+        {
+            "path": "src/@api/common/attachment-family/dto/public-api.ts",
             "integrity": "sha1:e3042eb660d93d69b96e2d86305cc6ce522b4ba0"
         },
         {
@@ -703,7 +707,7 @@
         },
         {
             "path": "postman/common/common.attachment-family.postman.json",
-            "integrity": "sha1:147f2767f8bf282acfc65e8f2f07f17dd4f55c67"
+            "integrity": "sha1:a77d812f774da91397930581dd155a5b1a4e4cc6"
         }
     ]
 }
