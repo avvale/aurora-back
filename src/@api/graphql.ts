@@ -138,7 +138,7 @@ export enum CoreSearchKeyLang {
 
 export interface AuditingCreateHttpCommunicationInput {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     event: AuditingHttpCommunicationEvent;
     status?: Nullable<GraphQLInt>;
     method: GraphQLString;
@@ -153,7 +153,7 @@ export interface AuditingCreateHttpCommunicationInput {
 
 export interface AuditingUpdateHttpCommunicationByIdInput {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     event?: Nullable<AuditingHttpCommunicationEvent>;
     status?: Nullable<GraphQLInt>;
     method?: Nullable<GraphQLString>;
@@ -168,7 +168,7 @@ export interface AuditingUpdateHttpCommunicationByIdInput {
 
 export interface AuditingUpdateHttpCommunicationsInput {
     id?: Nullable<string>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     event?: Nullable<AuditingHttpCommunicationEvent>;
     status?: Nullable<GraphQLInt>;
     method?: Nullable<GraphQLString>;
@@ -183,7 +183,7 @@ export interface AuditingUpdateHttpCommunicationsInput {
 
 export interface AuditingCreateSideEffectInput {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     modelPath: GraphQLString;
     modelName: GraphQLString;
     operationId?: Nullable<string>;
@@ -207,7 +207,7 @@ export interface AuditingCreateSideEffectInput {
 
 export interface AuditingUpdateSideEffectByIdInput {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     modelPath?: Nullable<GraphQLString>;
     modelName?: Nullable<GraphQLString>;
     operationId?: Nullable<string>;
@@ -231,7 +231,7 @@ export interface AuditingUpdateSideEffectByIdInput {
 
 export interface AuditingUpdateSideEffectsInput {
     id?: Nullable<string>;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     modelPath?: Nullable<GraphQLString>;
     modelName?: Nullable<GraphQLString>;
     operationId?: Nullable<string>;
@@ -1234,7 +1234,7 @@ export interface QueryStatement {
 
 export interface AuditingHttpCommunication {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     event: AuditingHttpCommunicationEvent;
     status?: Nullable<GraphQLInt>;
     method: GraphQLString;
@@ -1596,7 +1596,7 @@ export interface IMutation {
 
 export interface AuditingSideEffect {
     id: string;
-    tags?: Nullable<JSON>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     modelPath: GraphQLString;
     modelName: GraphQLString;
     operationId?: Nullable<string>;

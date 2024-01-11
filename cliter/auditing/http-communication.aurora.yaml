@@ -13,7 +13,9 @@ aggregateProperties:
     length: 36
     nullable: false
   - name: tags
-    type: json
+    type: array
+    arrayOptions:
+      type: varchar
     nullable: true
     index: index
   - name: event

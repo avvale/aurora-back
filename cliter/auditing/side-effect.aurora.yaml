@@ -13,7 +13,9 @@ aggregateProperties:
     length: 36
     nullable: false
   - name: tags
-    type: json
+    type: array
+    arrayOptions:
+      type: varchar
     nullable: true
     index: index
   - name: modelPath
@@ -30,7 +32,7 @@ aggregateProperties:
     nullable: true
     index: index
   - name: operationSort
-    type: tinyint.unsigned
+    type: smallint
     maxLength: 2
     nullable: true
   - name: accountId
