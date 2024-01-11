@@ -72,7 +72,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'operationSort',
         allowNull: true,
-        type: DataTypes.SMALLINT,
+        type: DataTypes.TINYINT.UNSIGNED,
     })
     operationSort: number;
 

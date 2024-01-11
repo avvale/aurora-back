@@ -32,7 +32,7 @@ aggregateProperties:
     nullable: true
     index: index
   - name: operationSort
-    type: smallint
+    type: tinyint.unsigned
     maxLength: 2
     nullable: true
   - name: accountId
