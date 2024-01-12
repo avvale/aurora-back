@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.data.ts",
-            "integrity": "sha1:e535eb66acfca61a3c4da90a7d34d8e23b6d371b"
+            "integrity": "sha1:0acac8d5ee449343cbadfb407954f9f970a2daf4"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/mock/auditing-mock-http-communication.repository.ts",
@@ -339,7 +339,7 @@
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/sequelize/auditing-sequelize-http-communication.model.ts",
-            "integrity": "sha1:d5bacf4f79ac1f4da0596d486a5d12ea938ae963"
+            "integrity": "sha1:f34f99c0295f3aa57868a144358b38ea2a225d46"
         },
         {
             "path": "src/@app/auditing/http-communication/infrastructure/sequelize/auditing-sequelize-http-communication.repository.ts",
@@ -359,15 +359,15 @@
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/auditing-http-communication-status.ts",
-            "integrity": "sha1:2105f0beff9ef0e3dbaa43fd4f69404dc134dc9a"
+            "integrity": "sha1:615164a64d131c521da29175c952bb6c51eb452b"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/auditing-http-communication-method.ts",
-            "integrity": "sha1:f3387a71474d1368218c779fac61466291e06eb5"
+            "integrity": "sha1:dc864ed3145bc6fce316430c5996364f376f35f1"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/auditing-http-communication-url.ts",
-            "integrity": "sha1:3111235995e39722772e9cdeb510da47e4bfc2a6"
+            "integrity": "sha1:d03c6e169acd4f7924b6e37d2d96b879f34c3881"
         },
         {
             "path": "src/@app/auditing/http-communication/domain/value-objects/auditing-http-communication-http-request.ts",
@@ -711,11 +711,11 @@
         },
         {
             "path": "test/acceptance/auditing/http-communication.e2e-spec.ts",
-            "integrity": "sha1:1ef09775a48e57c2070b35c61135a2e5747b0089"
+            "integrity": "sha1:1991081631f5fa98d0cd94908297695f92769d32"
         },
         {
             "path": "postman/auditing/auditing.http-communication.postman.json",
-            "integrity": "sha1:ce766e85d2991dc38a33374ad847366a760fc40b"
+            "integrity": "sha1:0dd2f5c1f03af1c07e817e15fcb6ad1952e18f3d"
         }
     ]
 }

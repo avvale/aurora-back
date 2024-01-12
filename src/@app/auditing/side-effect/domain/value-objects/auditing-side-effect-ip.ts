@@ -10,7 +10,7 @@ export class AuditingSideEffectIp extends StringValueObject
             name       : 'AuditingSideEffectIp',
             nullable   : true,
             undefinable: true,
-            maxLength  : 50,
+            maxLength  : 63,
         }, validationRules));
     }
 }

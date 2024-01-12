@@ -28,16 +28,16 @@ aggregateProperties:
     nullable: false
     example: AuditingHttpCommunicationEvent.REQUEST_FULFILLED
   - name: status
-    type: smallint.unsigned
-    maxLength: 5
+    type: smallint
+    unsigned: true
     nullable: true
   - name: method
     type: varchar
-    maxLength: 25
+    maxLength: 63
     nullable: false
   - name: url
     type: varchar
-    maxLength: 2048
+    maxLength: 2046
     nullable: false
   - name: httpRequest
     type: json

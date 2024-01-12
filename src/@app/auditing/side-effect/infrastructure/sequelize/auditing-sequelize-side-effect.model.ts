@@ -51,7 +51,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'modelPath',
         allowNull: false,
-        type: DataTypes.STRING(1023),
+        type: DataTypes.STRING(1022),
     })
     modelPath: string;
 
@@ -72,7 +72,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'operationSort',
         allowNull: true,
-        type: DataTypes.TINYINT.UNSIGNED,
+        type: DataTypes.SMALLINT,
     })
     operationSort: number;
 
@@ -86,7 +86,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'email',
         allowNull: false,
-        type: DataTypes.STRING(120),
+        type: DataTypes.STRING(127),
     })
     email: string;
 
@@ -121,7 +121,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'ip',
         allowNull: true,
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(63),
     })
     ip: string;
 
@@ -135,7 +135,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'baseUrl',
         allowNull: true,
-        type: DataTypes.STRING(2047),
+        type: DataTypes.STRING(2046),
     })
     baseUrl: string;
 
@@ -163,7 +163,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'userAgent',
         allowNull: true,
-        type: DataTypes.STRING(1023),
+        type: DataTypes.STRING(1022),
     })
     userAgent: string;
 

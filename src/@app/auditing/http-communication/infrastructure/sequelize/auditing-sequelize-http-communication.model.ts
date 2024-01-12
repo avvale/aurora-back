@@ -50,21 +50,21 @@ export class AuditingHttpCommunicationModel extends Model<AuditingHttpCommunicat
     @Column({
         field: 'status',
         allowNull: true,
-        type: DataTypes.SMALLINT.UNSIGNED,
+        type: DataTypes.SMALLINT,
     })
     status: number;
 
     @Column({
         field: 'method',
         allowNull: false,
-        type: DataTypes.STRING(25),
+        type: DataTypes.STRING(63),
     })
     method: string;
 
     @Column({
         field: 'url',
         allowNull: false,
-        type: DataTypes.STRING(2048),
+        type: DataTypes.STRING(2046),
     })
     url: string;
 
