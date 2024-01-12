@@ -1,17 +1,14 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineUpsertFieldCommand } from './search-engine-upsert-field.command';
-import { SearchEngineUpsertFieldService } from './search-engine-upsert-field.service';
+import { SearchEngineUpsertFieldCommand } from '@app/search-engine/field';
+import { SearchEngineUpsertFieldService } from '@app/search-engine/field/application/upsert/search-engine-upsert-field.service';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
-    SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
+} from '@app/search-engine/field/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineUpsertFieldCommand)
 export class SearchEngineUpsertFieldCommandHandler implements ICommandHandler<SearchEngineUpsertFieldCommand>

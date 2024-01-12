@@ -1,21 +1,18 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineUpsertCollectionCommand } from './search-engine-upsert-collection.command';
-import { SearchEngineUpsertCollectionService } from './search-engine-upsert-collection.service';
+import { SearchEngineUpsertCollectionCommand } from '@app/search-engine/collection';
+import { SearchEngineUpsertCollectionService } from '@app/search-engine/collection/application/upsert/search-engine-upsert-collection.service';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
     SearchEngineCollectionIsEnableNestedFields,
-    SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
-    SearchEngineCollectionDeletedAt,
-} from '../../domain/value-objects';
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineUpsertCollectionCommand)
 export class SearchEngineUpsertCollectionCommandHandler implements ICommandHandler<SearchEngineUpsertCollectionCommand>

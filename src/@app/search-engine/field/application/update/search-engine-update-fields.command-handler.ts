@@ -1,17 +1,14 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineUpdateFieldsCommand } from './search-engine-update-fields.command';
-import { SearchEngineUpdateFieldsService } from './search-engine-update-fields.service';
+import { SearchEngineUpdateFieldsCommand } from '@app/search-engine/field';
+import { SearchEngineUpdateFieldsService } from '@app/search-engine/field/application/update/search-engine-update-fields.service';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
-    SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
+} from '@app/search-engine/field/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineUpdateFieldsCommand)
 export class SearchEngineUpdateFieldsCommandHandler implements ICommandHandler<SearchEngineUpdateFieldsCommand>

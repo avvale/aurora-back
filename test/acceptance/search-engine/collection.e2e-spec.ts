@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { SearchEngineICollectionRepository, searchEngineMockCollectionData, SearchEngineMockCollectionSeeder } from '@app/search-engine/collection';
-import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -59,7 +60,9 @@ describe('collection', () =>
                 SearchEngineMockCollectionSeeder,
             ],
         })
-            .overrideGuard(Auth)
+            .overrideGuard(AuthenticationJwtGuard)
+            .useValue({ canActivate: () => true })
+            .overrideGuard(AuthorizationPermissionsGuard)
             .useValue({ canActivate: () => true })
             .compile();
 
@@ -86,7 +89,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionId must be defined, can not be null');
             });
     });
 
@@ -102,7 +105,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionName must be defined, can not be null');
             });
     });
 
@@ -118,7 +121,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionStatus must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionStatus must be defined, can not be null');
             });
     });
 
@@ -134,7 +137,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionIsEnableNestedFields must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionIsEnableNestedFields must be defined, can not be null');
             });
     });
 
@@ -150,7 +153,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionId must be defined, can not be undefined');
             });
     });
 
@@ -166,7 +169,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionName must be defined, can not be undefined');
             });
     });
 
@@ -182,7 +185,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionStatus must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionStatus must be defined, can not be undefined');
             });
     });
 
@@ -198,7 +201,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionIsEnableNestedFields must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionIsEnableNestedFields must be defined, can not be undefined');
             });
     });
 
@@ -214,7 +217,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionId is not allowed, must be a length of 36');
             });
     });
 
@@ -230,7 +233,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionName is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionName is too large, has a maximum length of 255');
             });
     });
 
@@ -246,23 +249,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionAlias is too large, has a maximum length of 255');
-            });
-    });
-
-    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionDocumentsNumber is too large, has a maximum length of 10', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/search-engine/collection/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                documentsNumber: 11111111111,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for CollectionDocumentsNumber is too large, has a maximum length of 10');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionAlias is too large, has a maximum length of 255');
             });
     });
 
@@ -278,70 +265,38 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionDefaultSortingField is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionDefaultSortingField is too large, has a maximum length of 255');
             });
     });
 
-    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionNumMemoryShards is too large, has a maximum length of 5', () =>
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionDocumentsNumber has to be a integer value', () =>
     {
         return request(app.getHttpServer())
             .post('/search-engine/collection/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                numMemoryShards: 111111,
+                documentsNumber: 100.10,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionNumMemoryShards is too large, has a maximum length of 5');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionDocumentsNumber has to be a integer value');
             });
     });
-
-    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionTimestampCreatedAt is too large, has a maximum length of 10', () =>
+    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionTimestampCreatedAt has to be a integer value', () =>
     {
         return request(app.getHttpServer())
             .post('/search-engine/collection/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                timestampCreatedAt: 11111111111,
+                timestampCreatedAt: 100.10,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionTimestampCreatedAt is too large, has a maximum length of 10');
-            });
-    });
-
-    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionDocumentsNumber must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/search-engine/collection/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                documentsNumber: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for CollectionDocumentsNumber must have a positive sign, this field does not accept negative values');
-            });
-    });
-    test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionTimestampCreatedAt must have a positive sign', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/search-engine/collection/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                timestampCreatedAt: -1,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('The numerical value for CollectionTimestampCreatedAt must have a positive sign, this field does not accept negative values');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionTimestampCreatedAt has to be a integer value');
             });
     });
     test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionIsEnableNestedFields has to be a boolean value', () =>
@@ -356,7 +311,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionIsEnableNestedFields has to be a boolean value');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionIsEnableNestedFields has to be a boolean value');
             });
     });
     test('/REST:POST search-engine/collection/create - Got 400 Conflict, CollectionStatus has to be a enum option of CONSOLIDATED, INDEXING', () =>
@@ -371,7 +326,7 @@ describe('collection', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CollectionStatus has to be any of this options: CONSOLIDATED, INDEXING');
+                expect(res.body.message).toContain('Value for SearchEngineCollectionStatus has to be any of this options: CONSOLIDATED, INDEXING');
             });
     });
 

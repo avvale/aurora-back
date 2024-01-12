@@ -1,20 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
+import { SearchEngineAddFieldsContextEvent, SearchEngineField, SearchEngineIFieldRepository } from '@app/search-engine/field';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldCreatedAt,
+    SearchEngineFieldDeletedAt,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
     SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { SearchEngineAddFieldsContextEvent } from '../events/search-engine-add-fields-context.event';
+} from '@app/search-engine/field/domain/value-objects';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
+import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
 export class SearchEngineUpdateFieldsService
@@ -48,7 +45,6 @@ export class SearchEngineUpdateFieldsService
             new SearchEngineFieldUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt
         );
-
 
         // update
         await this.repository.update(

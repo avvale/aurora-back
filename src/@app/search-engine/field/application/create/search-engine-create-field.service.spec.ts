@@ -1,22 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineCreateFieldService } from './search-engine-create-field.service';
+import { SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEngineCreateFieldService } from '@app/search-engine/field/application/create/search-engine-create-field.service';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
-    SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
+} from '@app/search-engine/field/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineCreateFieldService', () =>
 

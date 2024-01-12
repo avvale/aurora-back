@@ -1,6 +1,6 @@
-import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
-import { SearchEngineField } from './search-engine-field.aggregate';
 import { SearchEngineFieldId } from './value-objects';
+import { SearchEngineField } from '@app/search-engine/field';
+import { CQMetadata, IRepository, LiteralObject, Pagination, QueryStatement } from '@aurorajs.dev/core';
 
 export abstract class SearchEngineIFieldRepository implements IRepository<SearchEngineField>
 {
@@ -30,6 +30,8 @@ export abstract class SearchEngineIFieldRepository implements IRepository<Search
         options?: {
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            // if id is a composite key, pass find arguments, example: { key1: value1, key2: value2, ...}
+            findArguments?: LiteralObject;
         }
     ): Promise<SearchEngineField | null>;
 
@@ -124,6 +126,8 @@ export abstract class SearchEngineIFieldRepository implements IRepository<Search
             deleteOptions?: LiteralObject;
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
+            // if id is a composite key, pass find arguments, example: { key1: value1, key2: value2, ...}
+            findArguments?: LiteralObject;
         }
     ): Promise<void>;
 

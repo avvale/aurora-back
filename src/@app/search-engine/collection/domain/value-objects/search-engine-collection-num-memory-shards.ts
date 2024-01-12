@@ -10,7 +10,6 @@ export class SearchEngineCollectionNumMemoryShards extends SmallintValueObject
             name       : 'SearchEngineCollectionNumMemoryShards',
             nullable   : true,
             undefinable: true,
-            maxLength  : 5,
             unsigned   : true,
         }, validationRules));
     }

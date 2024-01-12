@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable key-spacing */
+import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
+import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldSeeder } from '@app/search-engine/field';
-import { Auth } from '@aurora/decorators';
 import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -59,7 +60,9 @@ describe('field', () =>
                 SearchEngineMockFieldSeeder,
             ],
         })
-            .overrideGuard(Auth)
+            .overrideGuard(AuthenticationJwtGuard)
+            .useValue({ canActivate: () => true })
+            .overrideGuard(AuthorizationPermissionsGuard)
             .useValue({ canActivate: () => true })
             .compile();
 
@@ -86,7 +89,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineFieldId must be defined, can not be null');
             });
     });
 
@@ -102,7 +105,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldCollectionId must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineFieldCollectionId must be defined, can not be null');
             });
     });
 
@@ -118,7 +121,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldName must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineFieldName must be defined, can not be null');
             });
     });
 
@@ -134,7 +137,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldType must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineFieldType must be defined, can not be null');
             });
     });
 
@@ -150,7 +153,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldIsNullable must be defined, can not be null');
+                expect(res.body.message).toContain('Value for SearchEngineFieldIsNullable must be defined, can not be null');
             });
     });
 
@@ -166,7 +169,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineFieldId must be defined, can not be undefined');
             });
     });
 
@@ -182,7 +185,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldCollectionId must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineFieldCollectionId must be defined, can not be undefined');
             });
     });
 
@@ -198,7 +201,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldName must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineFieldName must be defined, can not be undefined');
             });
     });
 
@@ -214,7 +217,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldType must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineFieldType must be defined, can not be undefined');
             });
     });
 
@@ -230,7 +233,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldIsNullable must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for SearchEngineFieldIsNullable must be defined, can not be undefined');
             });
     });
 
@@ -246,7 +249,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for SearchEngineFieldId is not allowed, must be a length of 36');
             });
     });
 
@@ -262,7 +265,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldCollectionId is not allowed, must be a length of 36');
+                expect(res.body.message).toContain('Value for SearchEngineFieldCollectionId is not allowed, must be a length of 36');
             });
     });
 
@@ -278,23 +281,23 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldName is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for SearchEngineFieldName is too large, has a maximum length of 255');
             });
     });
 
-    test('/REST:POST search-engine/field/create - Got 400 Conflict, FieldType is too large, has a maximum length of 20', () =>
+    test('/REST:POST search-engine/field/create - Got 400 Conflict, FieldType is too large, has a maximum length of 63', () =>
     {
         return request(app.getHttpServer())
             .post('/search-engine/field/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                type: '*********************',
+                type: '****************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldType is too large, has a maximum length of 20');
+                expect(res.body.message).toContain('Value for SearchEngineFieldType is too large, has a maximum length of 63');
             });
     });
 
@@ -310,7 +313,7 @@ describe('field', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for FieldIsNullable has to be a boolean value');
+                expect(res.body.message).toContain('Value for SearchEngineFieldIsNullable has to be a boolean value');
             });
     });
 

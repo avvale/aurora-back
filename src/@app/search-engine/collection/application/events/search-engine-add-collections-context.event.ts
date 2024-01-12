@@ -1,11 +1,5 @@
+import { SearchEngineCollection, SearchEngineCreatedCollectionEvent, SearchEngineCreatedCollectionsEvent, SearchEngineDeletedCollectionEvent, SearchEngineDeletedCollectionsEvent, SearchEngineUpdatedCollectionEvent, SearchEngineUpdatedCollectionsEvent } from '@app/search-engine/collection';
 import { AggregateRoot } from '@nestjs/cqrs';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { SearchEngineCreatedCollectionEvent } from './search-engine-created-collection.event';
-import { SearchEngineCreatedCollectionsEvent } from './search-engine-created-collections.event';
-import { SearchEngineUpdatedCollectionEvent } from './search-engine-updated-collection.event';
-import { SearchEngineUpdatedCollectionsEvent } from './search-engine-updated-collections.event';
-import { SearchEngineDeletedCollectionEvent } from './search-engine-deleted-collection.event';
-import { SearchEngineDeletedCollectionsEvent } from './search-engine-deleted-collections.event';
 
 export class SearchEngineAddCollectionsContextEvent extends AggregateRoot
 {

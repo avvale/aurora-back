@@ -1,10 +1,7 @@
+import { searchEngineMockCollectionData, SearchEngineUpsertCollectionCommand } from '@app/search-engine/collection';
+import { SearchEngineUpsertCollectionCommandHandler } from '@app/search-engine/collection/application/upsert/search-engine-upsert-collection.command-handler';
+import { SearchEngineUpsertCollectionService } from '@app/search-engine/collection/application/upsert/search-engine-upsert-collection.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineUpsertCollectionCommandHandler } from './search-engine-upsert-collection.command-handler';
-import { SearchEngineUpsertCollectionCommand } from './search-engine-upsert-collection.command';
-import { SearchEngineUpsertCollectionService } from './search-engine-upsert-collection.service';
 
 describe('SearchEngineUpsertCollectionCommandHandler', () =>
 {

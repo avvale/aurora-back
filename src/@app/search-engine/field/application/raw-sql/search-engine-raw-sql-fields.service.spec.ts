@@ -1,10 +1,7 @@
+import { SearchEngineIFieldRepository, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEngineRawSQLFieldsService } from '@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.service';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { SearchEngineRawSQLFieldsService } from './search-engine-raw-sql-fields.service';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
 describe('SearchEngineRawSQLFieldsService ', () =>
 {

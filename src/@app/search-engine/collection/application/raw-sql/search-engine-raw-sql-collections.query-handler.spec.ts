@@ -1,12 +1,7 @@
+import { SearchEngineCollectionMapper, SearchEngineICollectionRepository, SearchEngineMockCollectionRepository, SearchEngineRawSQLCollectionsQuery } from '@app/search-engine/collection';
+import { SearchEngineRawSQLCollectionsQueryHandler } from '@app/search-engine/collection/application/raw-sql/search-engine-raw-sql-collections.query-handler';
+import { SearchEngineRawSQLCollectionsService } from '@app/search-engine/collection/application/raw-sql/search-engine-raw-sql-collections.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
-import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { SearchEngineRawSQLCollectionsQueryHandler } from './search-engine-raw-sql-collections.query-handler';
-import { SearchEngineRawSQLCollectionsQuery } from './search-engine-raw-sql-collections.query';
-import { SearchEngineRawSQLCollectionsService } from './search-engine-raw-sql-collections.service';
 
 describe('RawSQLCollectionsQueryHandler', () =>
 {

@@ -7,11 +7,11 @@
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-field.command-handler.spec.ts",
-            "integrity": "sha1:87281a2e9f51f81e8a127a040d5e4e8b9df69cf9"
+            "integrity": "sha1:d1746c5747c76d256165b69beabb1aaf54793c63"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-field.command-handler.ts",
-            "integrity": "sha1:7d3acd285b1a966fa5f3e84689a6f72b07a79b74"
+            "integrity": "sha1:0025b1e9a36398de298966352cd8195a7121de0d"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-field.command.ts",
@@ -19,7 +19,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-field.service.spec.ts",
-            "integrity": "sha1:5acecf6ced158a4b4a9012f468011afc72a980e8"
+            "integrity": "sha1:605238b1aa17e640ffca7d23c5c80de96fefecad"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-field.service.ts",
@@ -27,31 +27,31 @@
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-fields.command-handler.spec.ts",
-            "integrity": "sha1:b39f65eb6faeb8e9cb380ec2e2e8c97da6910562"
+            "integrity": "sha1:3972f0aeb40294821d10797b01d11c22a6c45742"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-fields.command-handler.ts",
-            "integrity": "sha1:5e3f3b3922cbe059d818901b412173fdb03774db"
+            "integrity": "sha1:3fd16b55f685070de3664aa5b879830a000052ba"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-fields.command.ts",
-            "integrity": "sha1:5e867f70576fe7e299b4b1729d773e1aa6606b6e"
+            "integrity": "sha1:53f356c5f8a9e3f429930e1bbe3f62bf8ef9711f"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-fields.service.spec.ts",
-            "integrity": "sha1:12ab43edb6805fd28caa505a529b37aecb80fcae"
+            "integrity": "sha1:d433b7bb357419781387782a60af3237dcb57305"
         },
         {
             "path": "src/@app/search-engine/field/application/create/search-engine-create-fields.service.ts",
-            "integrity": "sha1:45b7778350bea1181f9a783fe7e9848d570b3bba"
+            "integrity": "sha1:9bdf08c8749c09362cfcbdea3b71161ffad47c12"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-field-by-id.command-handler.spec.ts",
-            "integrity": "sha1:c626d39ce275629cdc535cd832ab37f9ddc39130"
+            "integrity": "sha1:f01af12857db65f7a5d74717416cc2f8e7b3fc58"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-field-by-id.command-handler.ts",
-            "integrity": "sha1:4010d37d9edb9f3a7193837f9957c6dcb1304192"
+            "integrity": "sha1:1f44f97a7c72b8eedababd0d47861e296a4f7f59"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-field-by-id.command.ts",
@@ -59,7 +59,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-field-by-id.service.spec.ts",
-            "integrity": "sha1:7a82256f78bf88fe15c6d571588b782c341ab487"
+            "integrity": "sha1:06bc0c71aa2e5af6dea80a46d2020269538f4f63"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-field-by-id.service.ts",
@@ -67,19 +67,19 @@
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-fields.command-handler.spec.ts",
-            "integrity": "sha1:5d382111184f423b1b8c498728ebb588cff3baac"
+            "integrity": "sha1:e74b6a84707a3105ea9de2b0d63b04b7f33a27b8"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-fields.command-handler.ts",
-            "integrity": "sha1:1ab31dc6e14167c47fce83b79982c8e5ab947d35"
+            "integrity": "sha1:72052a5d0c6ba5907db86e2f533150fceb77c149"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-fields.command.ts",
-            "integrity": "sha1:e488e92888b0b05d5022e93de92cd6a259bd437d"
+            "integrity": "sha1:929b9b27816eb1a5c9d9380dfb9c25de416f7000"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-fields.service.spec.ts",
-            "integrity": "sha1:08337c98803606b0c4220e0526660d8b8306f49c"
+            "integrity": "sha1:f7624eacc7dd3472d1cca11fcd4a8dde00eeee04"
         },
         {
             "path": "src/@app/search-engine/field/application/delete/search-engine-delete-fields.service.ts",
@@ -87,11 +87,11 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-add-fields-context.event.ts",
-            "integrity": "sha1:e12d306f44087482eef78a64c3d0045dad9c361f"
+            "integrity": "sha1:a8f87e5d3708aa09f56461771f7f526d3e7150ab"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-created-field.event-handler.ts",
-            "integrity": "sha1:f2960b9e35a9d247e8971c204269cc49bc3026ec"
+            "integrity": "sha1:2e411e1326fe05b585fa5d4fb29706414c3a4d39"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-created-field.event.ts",
@@ -99,7 +99,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-created-fields.event-handler.ts",
-            "integrity": "sha1:fb608d980d4ca01c71850a466284ef8e91cba89a"
+            "integrity": "sha1:89bd0ef1708c3315ef33e08a4cb9c3db93067211"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-created-fields.event.ts",
@@ -107,7 +107,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-deleted-field.event-handler.ts",
-            "integrity": "sha1:1e860b9cd2143ef9bcc36c1d3bcee6feaf5287bc"
+            "integrity": "sha1:aa07570dd001c406a1544dfc049aa7b399fc063d"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-deleted-field.event.ts",
@@ -115,7 +115,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-deleted-fields.event-handler.ts",
-            "integrity": "sha1:3a2996513a99e7b5965e31cc8cb27c2382a1f9dc"
+            "integrity": "sha1:3bfc7f8ba5e99bd91d796f9337628b52ac6d4cf4"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-deleted-fields.event.ts",
@@ -123,7 +123,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-updated-field.event-handler.ts",
-            "integrity": "sha1:837c42a9ec8f2d96e5e3ec7eecf8339f862a6483"
+            "integrity": "sha1:82f1a3be2449c2839b418d82ce204b2d62dd7e29"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-updated-field.event.ts",
@@ -131,7 +131,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-updated-fields.event-handler.ts",
-            "integrity": "sha1:7cc91a61d6cf893509b36ec2707f2dd25dc15d6b"
+            "integrity": "sha1:76140c31a3ccaf7e91958a81e4c13c1a85c66937"
         },
         {
             "path": "src/@app/search-engine/field/application/events/search-engine-updated-fields.event.ts",
@@ -139,39 +139,39 @@
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field-by-id.query-handler.spec.ts",
-            "integrity": "sha1:46630f43691834e4b231c8eb736e0f03954eb36b"
+            "integrity": "sha1:fa7e7fac02eda117cc815b1cc90167ed39b0e91e"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field-by-id.query-handler.ts",
-            "integrity": "sha1:29871dbdc276ae2d056afc832dbfe610698f29c7"
+            "integrity": "sha1:0b373ef4342d9d762a764c864d29d1aab68fd313"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field-by-id.query.ts",
-            "integrity": "sha1:4c972065e37889118b5dc68ff775684cbb40924e"
+            "integrity": "sha1:466c1b363faa70e9f136308482308bcfe1a523d2"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field-by-id.service.spec.ts",
-            "integrity": "sha1:38744179a36bd0856d34024899c50672020ce8df"
+            "integrity": "sha1:4fd5e6200f3d2391eafad0cf55f44eb7a813760a"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field-by-id.service.ts",
-            "integrity": "sha1:28e631510fb861f560bad64f2f9067ac18f1aea4"
+            "integrity": "sha1:35226998ca0c7960c599185bdb433c89fb4e1317"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field.query-handler.spec.ts",
-            "integrity": "sha1:6f2c2a1d618322fb28a4af0ce94ab49dda87c2c1"
+            "integrity": "sha1:f54e48abe2472c152dcdeddb556458d0dedce404"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field.query-handler.ts",
-            "integrity": "sha1:90131bceaa0500660901a1a816b0c9c7402f04e9"
+            "integrity": "sha1:3b423f6b7937b5f830cd9482b0b9ceb01484f651"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field.query.ts",
-            "integrity": "sha1:1acac4f68c0d1d4c72025d3352cacbd506b49547"
+            "integrity": "sha1:d99ef7991c956f58dbb51e18995de6ab98721799"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field.service.spec.ts",
-            "integrity": "sha1:9f14d612951b50fcfb2733e8d0b74202cf41980c"
+            "integrity": "sha1:5bb386f7ca161ef56c43fab8fc442847e912a6a1"
         },
         {
             "path": "src/@app/search-engine/field/application/find/search-engine-find-field.service.ts",
@@ -179,51 +179,51 @@
         },
         {
             "path": "src/@app/search-engine/field/application/get/search-engine-get-fields.query-handler.spec.ts",
-            "integrity": "sha1:6c093a57bf08158f660348431fc32d5ae1d77b4a"
+            "integrity": "sha1:2dada1beb39c234a8c85d534b1c3fcaadac2aaa2"
         },
         {
             "path": "src/@app/search-engine/field/application/get/search-engine-get-fields.query-handler.ts",
-            "integrity": "sha1:036383b105806429654af54f3b4371cd1475adb0"
+            "integrity": "sha1:a59b9cd4273561865f7f2f3ca55bffa7665c91d9"
         },
         {
             "path": "src/@app/search-engine/field/application/get/search-engine-get-fields.query.ts",
-            "integrity": "sha1:0d08b6e099d0157a4d598e5e56a33aa5ccd5763e"
+            "integrity": "sha1:ab0b30b9f6f23fa52f46d9202483b15aa66f5cc9"
         },
         {
             "path": "src/@app/search-engine/field/application/get/search-engine-get-fields.service.spec.ts",
-            "integrity": "sha1:37f6075c566e7f297a593f0c52221591eff4da22"
+            "integrity": "sha1:ffb56f9da85b55ef44b056205d3409613e8057e3"
         },
         {
             "path": "src/@app/search-engine/field/application/get/search-engine-get-fields.service.ts",
-            "integrity": "sha1:e7228d25a58a04bc4eb9ea38eb2a870d2447fee1"
+            "integrity": "sha1:f1ff15855b9813cc29b00ceb934d17e356110ed7"
         },
         {
             "path": "src/@app/search-engine/field/application/paginate/search-engine-paginate-fields.query-handler.spec.ts",
-            "integrity": "sha1:bea45141b2fd0295aee71c60ea1e6f0222484fd2"
+            "integrity": "sha1:42d2bd8500c46a7ad1fd0e6835b67dc9d9f8aa6f"
         },
         {
             "path": "src/@app/search-engine/field/application/paginate/search-engine-paginate-fields.query-handler.ts",
-            "integrity": "sha1:af3bb9673af9136badaaf2de5fc9c7b3d8b81918"
+            "integrity": "sha1:d6756cb61556a3c943e67f1e180f0034c09bb3f5"
         },
         {
             "path": "src/@app/search-engine/field/application/paginate/search-engine-paginate-fields.query.ts",
-            "integrity": "sha1:91e16d657a4add78fd5a846ab9f7562e9302251a"
+            "integrity": "sha1:10c336b05c3a1333552de47e654acf07095f8190"
         },
         {
             "path": "src/@app/search-engine/field/application/paginate/search-engine-paginate-fields.service.spec.ts",
-            "integrity": "sha1:fa5df16372a91ddde14c7404c277a0503d7958f8"
+            "integrity": "sha1:dc64c9ef6d2ff5c4aaa1b7b724e68bbd41636d83"
         },
         {
             "path": "src/@app/search-engine/field/application/paginate/search-engine-paginate-fields.service.ts",
-            "integrity": "sha1:94d35a180e6f9a369f6416afa49b4bc25e7c593d"
+            "integrity": "sha1:469b1080675d32d23a29ea3cbcbb752fa792d170"
         },
         {
             "path": "src/@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.query-handler.spec.ts",
-            "integrity": "sha1:a88c55f58cc8370879010916bab970ee8c209006"
+            "integrity": "sha1:4f2933a5de0c6fc99abd79743cab8a4ec4f9b3fc"
         },
         {
             "path": "src/@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.query-handler.ts",
-            "integrity": "sha1:74f1aac08d3747c3191fc450c2d05afd3339404b"
+            "integrity": "sha1:053bc2fb03d103ba676fa16b95a926791876ddf1"
         },
         {
             "path": "src/@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.query.ts",
@@ -231,31 +231,31 @@
         },
         {
             "path": "src/@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.service.spec.ts",
-            "integrity": "sha1:69666ce1b6a5c4ce2657428296d02cd7fca9517c"
+            "integrity": "sha1:a9886f077dae2d204e2a5662f2b012e4ef5bdbd9"
         },
         {
             "path": "src/@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.service.ts",
-            "integrity": "sha1:1948890554b586e8f65ff0be1a6c3014377a7a4b"
+            "integrity": "sha1:eeec9ddbb3149fe5600a33d021cc6bc3364d72cb"
         },
         {
             "path": "src/@app/search-engine/field/application/sagas/search-engine-field.sagas.ts",
-            "integrity": "sha1:c427ae4711b0f38401adf629da4582205de3fe02"
+            "integrity": "sha1:2b5faa9e58878d88a9a6b60ba63abd0b7a2cdb1d"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-field-by-id.command-handler.spec.ts",
-            "integrity": "sha1:22d166aba0cd4fa77e76470294611c76a33b4c94"
+            "integrity": "sha1:6d9c6892ac18d9f729f7fdb8d564e45c578ae21a"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-field-by-id.command-handler.ts",
-            "integrity": "sha1:549af00c2b92281d985598a62968f4bed80d2244"
+            "integrity": "sha1:bc5ac0b355c085d8305ea1cb84ef10d23bd2fc34"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-field-by-id.command.ts",
-            "integrity": "sha1:f271f36a93af406633d402e923827092e73453bf"
+            "integrity": "sha1:5782382ac15c381cfc8454c609376784d4e8108c"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-field-by-id.service.spec.ts",
-            "integrity": "sha1:08a964ec5360f47a780018ff3bafc9870fad2258"
+            "integrity": "sha1:77860068fba9d7c8c18695429504eba50883a3fe"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-field-by-id.service.ts",
@@ -263,31 +263,31 @@
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-fields.command-handler.spec.ts",
-            "integrity": "sha1:5bc379dcaae01fe9ebaee4d114be0fceb0c48421"
+            "integrity": "sha1:32f19f31993c21150803ec18d18f77ddd334b815"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-fields.command-handler.ts",
-            "integrity": "sha1:46513c39e94af2babb131fcc85a30c9ae1ecb088"
+            "integrity": "sha1:884d6b6b7f048280d3ad9d8d96acc1d72cd40958"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-fields.command.ts",
-            "integrity": "sha1:c61fa162d6f54306983dc76e8715665c500b7b5b"
+            "integrity": "sha1:53b1588edd3e77469a6e8334ffc217e2b2e84a00"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-fields.service.spec.ts",
-            "integrity": "sha1:c916b7b10a0510142510fbee182ad2ae72055e5a"
+            "integrity": "sha1:de4cd2bbc7ef629ce7f838b57e63d85335fd8293"
         },
         {
             "path": "src/@app/search-engine/field/application/update/search-engine-update-fields.service.ts",
-            "integrity": "sha1:90d2a3086b3049ecda25e3bcc8cfa5ecd55b8bba"
+            "integrity": "sha1:9779ff6cdb3d2cb2d48bd72662e079158936621a"
         },
         {
             "path": "src/@app/search-engine/field/application/upsert/search-engine-upsert-field.command-handler.spec.ts",
-            "integrity": "sha1:15198c3f7fa45521ab4334921586b9e36985ccd5"
+            "integrity": "sha1:fefbf0749fe5e526cc8325ab3c322ef3cabdccd3"
         },
         {
             "path": "src/@app/search-engine/field/application/upsert/search-engine-upsert-field.command-handler.ts",
-            "integrity": "sha1:79a622e731de71172283dc26ab19a0565f805b42"
+            "integrity": "sha1:ce7324cdd6241f800116eb3819135a51468bb09c"
         },
         {
             "path": "src/@app/search-engine/field/application/upsert/search-engine-upsert-field.command.ts",
@@ -295,7 +295,7 @@
         },
         {
             "path": "src/@app/search-engine/field/application/upsert/search-engine-upsert-field.service.spec.ts",
-            "integrity": "sha1:ab15d44be9f70d188d384c759a07997c222e1543"
+            "integrity": "sha1:c779999f0699d61c231dfd91ba64559f959da706"
         },
         {
             "path": "src/@app/search-engine/field/application/upsert/search-engine-upsert-field.service.ts",
@@ -303,15 +303,15 @@
         },
         {
             "path": "src/@app/search-engine/field/domain/search-engine-field.aggregate.ts",
-            "integrity": "sha1:5db9003ba75e829f374e1c2d17b90bd88098963d"
+            "integrity": "sha1:d2d1274d02ec613d75f79b8e6ea567d5032fc366"
         },
         {
             "path": "src/@app/search-engine/field/domain/search-engine-field.mapper.ts",
-            "integrity": "sha1:f50e4f865f5b698beaf4d79d62773f073aa0c2e6"
+            "integrity": "sha1:6bb453e5c83c6b9ec020abcd3cffd3229175c02f"
         },
         {
             "path": "src/@app/search-engine/field/domain/search-engine-field.repository.ts",
-            "integrity": "sha1:f0d2f2e6854b495f5ecdd4ae58918707a7422487"
+            "integrity": "sha1:cf361e5ccc5988464eaa62c07b87b0fa26173d57"
         },
         {
             "path": "src/@app/search-engine/field/domain/search-engine-field.response.ts",
@@ -319,7 +319,7 @@
         },
         {
             "path": "src/@app/search-engine/field/domain/value-objects/index.ts",
-            "integrity": "sha1:b9401bc5ecefb0df6008cfc5ca7ebe0edc00d6a3"
+            "integrity": "sha1:a7490564d1dd3c1c0fc9c1948d5e656fc1733e7a"
         },
         {
             "path": "src/@app/search-engine/field/index.ts",
@@ -327,19 +327,19 @@
         },
         {
             "path": "src/@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data.ts",
-            "integrity": "sha1:a735f72482cc313affecd1f5d580431aaf9b34a4"
+            "integrity": "sha1:9db088d716281276a5f2371ea3898ab7609ea1b0"
         },
         {
             "path": "src/@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository.ts",
-            "integrity": "sha1:b97a21eb196471ebaa535d1a26c45421b9891a8f"
+            "integrity": "sha1:41456932335867f9f041b014408878f0108a5fa4"
         },
         {
             "path": "src/@app/search-engine/field/infrastructure/mock/search-engine-mock-field.seeder.ts",
-            "integrity": "sha1:8b257474f9750e53583dc74592b5203f403cc011"
+            "integrity": "sha1:0d99c2467a7d1b20ef546c5225e7734b0336ee8c"
         },
         {
             "path": "src/@app/search-engine/field/infrastructure/sequelize/search-engine-sequelize-field.model.ts",
-            "integrity": "sha1:60d3ed46952b08231a7cd531a69ad14a47581ac6"
+            "integrity": "sha1:443cc833f6e23e15524c13296d2296d008367cb1"
         },
         {
             "path": "src/@app/search-engine/field/infrastructure/sequelize/search-engine-sequelize-field.repository.ts",
@@ -359,7 +359,7 @@
         },
         {
             "path": "src/@app/search-engine/field/domain/value-objects/search-engine-field-type.ts",
-            "integrity": "sha1:bd8be02b8bf33e6dc0f904c8c9e272b51497c963"
+            "integrity": "sha1:11e79f36d1cce466a227b87bf3893ea980a88189"
         },
         {
             "path": "src/@app/search-engine/field/domain/value-objects/search-engine-field-is-nullable.ts",
@@ -379,7 +379,7 @@
         },
         {
             "path": "src/@api/search-engine/search-engine.seeder.ts",
-            "integrity": "sha1:3f51fd40c21ba43fb423841360fa2d15e37d6a44"
+            "integrity": "sha1:2f85dc60dafcabfa26c73987c51d8d58d52ade86"
         },
         {
             "path": "src/@api/search-engine/field/controllers/search-engine-create-field.controller.spec.ts",
@@ -487,6 +487,10 @@
         },
         {
             "path": "src/@api/search-engine/field/dto/index.ts",
+            "integrity": "sha1:0668bfe7d206f064143571f4c397ca726db8cdaf"
+        },
+        {
+            "path": "src/@api/search-engine/field/dto/public-api.ts",
             "integrity": "sha1:e6162f270516c94c072441fad705ba3194e8efb0"
         },
         {
@@ -583,7 +587,7 @@
         },
         {
             "path": "src/@api/search-engine/field/index.ts",
-            "integrity": "sha1:d25c6474bef1ff2b4934638766791ed2f93c3a4b"
+            "integrity": "sha1:d21e6b3f0f86153b5694f7ce2112551a7df15e77"
         },
         {
             "path": "src/@api/search-engine/field/resolvers/search-engine-create-field.resolver.spec.ts",
@@ -679,11 +683,11 @@
         },
         {
             "path": "test/acceptance/search-engine/field.e2e-spec.ts",
-            "integrity": "sha1:046a85d778ff9d852f028490a4d1a6d01cffefab"
+            "integrity": "sha1:58834d03c19a8de16ee753c5eae8b3fd2c5c41ab"
         },
         {
             "path": "postman/search-engine/search-engine.field.postman.json",
-            "integrity": "sha1:c8fbac03f92ab1041d87fd2659073df6dbaebf05"
+            "integrity": "sha1:63c3221f39501a665785ee1023d0dac6fb493216"
         }
     ]
 }

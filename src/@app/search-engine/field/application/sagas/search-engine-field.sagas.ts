@@ -1,8 +1,8 @@
+import { SearchEngineCreatedFieldEvent } from '@app/search-engine/field';
 import { Injectable } from '@nestjs/common';
 import { ICommand, ofType, Saga } from '@nestjs/cqrs';
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
-import { SearchEngineCreatedFieldEvent } from '../events/search-engine-created-field.event';
 
 @Injectable()
 export class SearchEngineFieldSagas

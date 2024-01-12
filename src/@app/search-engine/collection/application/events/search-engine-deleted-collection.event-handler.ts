@@ -1,5 +1,5 @@
+import { SearchEngineDeletedCollectionEvent } from '@app/search-engine/collection';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
-import { SearchEngineDeletedCollectionEvent } from './search-engine-deleted-collection.event';
 
 @EventsHandler(SearchEngineDeletedCollectionEvent)
 export class SearchEngineDeletedCollectionEventHandler implements IEventHandler<SearchEngineDeletedCollectionEvent>

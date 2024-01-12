@@ -1,17 +1,16 @@
-import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
-import { SearchEngineField } from './search-engine-field.aggregate';
-import { SearchEngineFieldResponse } from './search-engine-field.response';
+import { SearchEngineCollectionMapper } from '@app/search-engine/collection';
+import { SearchEngineField, SearchEngineFieldResponse } from '@app/search-engine/field';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldCreatedAt,
+    SearchEngineFieldDeletedAt,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
     SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from './value-objects';
-import { SearchEngineCollectionMapper } from '@app/search-engine/collection';
+} from '@app/search-engine/field/domain/value-objects';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
 export class SearchEngineFieldMapper implements IMapper
 {

@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineIndexCollectionController } from './search-engine-index-collection.controller';
 import { SearchEngineIndexCollectionHandler } from '../handlers/search-engine-index-collection.handler';
+import { SearchEngineIndexCollectionController } from './search-engine-index-collection.controller';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineIndexCollectionController', () =>
 {

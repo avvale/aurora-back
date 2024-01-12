@@ -30,7 +30,7 @@ export { SearchEngineUpsertFieldController } from './controllers/search-engine-u
 export { SearchEngineDeleteFieldByIdController } from './controllers/search-engine-delete-field-by-id.controller';
 export { SearchEngineDeleteFieldsController } from './controllers/search-engine-delete-fields.controller';
 
-// exports resolvers
+// export resolvers
 export { SearchEngineCreateFieldResolver } from './resolvers/search-engine-create-field.resolver';
 export { SearchEngineCreateFieldsResolver } from './resolvers/search-engine-create-fields.resolver';
 export { SearchEnginePaginateFieldsResolver } from './resolvers/search-engine-paginate-fields.resolver';
@@ -43,7 +43,7 @@ export { SearchEngineUpsertFieldResolver } from './resolvers/search-engine-upser
 export { SearchEngineDeleteFieldByIdResolver } from './resolvers/search-engine-delete-field-by-id.resolver';
 export { SearchEngineDeleteFieldsResolver } from './resolvers/search-engine-delete-fields.resolver';
 
-// controllers
+// import controllers
 import { SearchEngineCreateFieldController } from './controllers/search-engine-create-field.controller';
 import { SearchEngineCreateFieldsController } from './controllers/search-engine-create-fields.controller';
 import { SearchEnginePaginateFieldsController } from './controllers/search-engine-paginate-fields.controller';
@@ -56,7 +56,7 @@ import { SearchEngineUpsertFieldController } from './controllers/search-engine-u
 import { SearchEngineDeleteFieldByIdController } from './controllers/search-engine-delete-field-by-id.controller';
 import { SearchEngineDeleteFieldsController } from './controllers/search-engine-delete-fields.controller';
 
-// resolvers
+// import resolvers
 import { SearchEngineCreateFieldResolver } from './resolvers/search-engine-create-field.resolver';
 import { SearchEngineCreateFieldsResolver } from './resolvers/search-engine-create-fields.resolver';
 import { SearchEnginePaginateFieldsResolver } from './resolvers/search-engine-paginate-fields.resolver';
@@ -69,7 +69,7 @@ import { SearchEngineUpsertFieldResolver } from './resolvers/search-engine-upser
 import { SearchEngineDeleteFieldByIdResolver } from './resolvers/search-engine-delete-field-by-id.resolver';
 import { SearchEngineDeleteFieldsResolver } from './resolvers/search-engine-delete-fields.resolver';
 
-// handlers
+// import handlers
 import { SearchEngineCreateFieldHandler } from './handlers/search-engine-create-field.handler';
 import { SearchEngineCreateFieldsHandler } from './handlers/search-engine-create-fields.handler';
 import { SearchEnginePaginateFieldsHandler } from './handlers/search-engine-paginate-fields.handler';
@@ -82,10 +82,10 @@ import { SearchEngineUpsertFieldHandler } from './handlers/search-engine-upsert-
 import { SearchEngineDeleteFieldByIdHandler } from './handlers/search-engine-delete-field-by-id.handler';
 import { SearchEngineDeleteFieldsHandler } from './handlers/search-engine-delete-fields.handler';
 
-// seeder
+// import seeder
 import { SearchEngineFieldSeeder } from './seeder/search-engine-field.seeder';
 
-export const SearchEngineFieldControllers = [
+export const SearchEngineFieldApiControllers = [
     SearchEngineCreateFieldController,
     SearchEngineCreateFieldsController,
     SearchEnginePaginateFieldsController,
@@ -99,7 +99,7 @@ export const SearchEngineFieldControllers = [
     SearchEngineDeleteFieldsController,
 ];
 
-export const SearchEngineFieldResolvers = [
+export const SearchEngineFieldApiResolvers = [
     SearchEngineCreateFieldResolver,
     SearchEngineCreateFieldsResolver,
     SearchEnginePaginateFieldsResolver,
@@ -127,6 +127,6 @@ export const SearchEngineFieldApiHandlers = [
     SearchEngineDeleteFieldsHandler,
 ];
 
-export const SearchEngineFieldServices = [
+export const SearchEngineFieldApiServices = [
     SearchEngineFieldSeeder,
 ];

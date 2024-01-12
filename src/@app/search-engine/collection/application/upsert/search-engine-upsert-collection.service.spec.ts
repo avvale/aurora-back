@@ -1,26 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineUpsertCollectionService } from './search-engine-upsert-collection.service';
+import { SearchEngineICollectionRepository, searchEngineMockCollectionData, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineUpsertCollectionService } from '@app/search-engine/collection/application/upsert/search-engine-upsert-collection.service';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
     SearchEngineCollectionIsEnableNestedFields,
-    SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
-    SearchEngineCollectionDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineUpsertCollectionService', () =>
 

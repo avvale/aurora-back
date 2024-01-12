@@ -1,12 +1,7 @@
+import { SearchEngineFieldMapper, SearchEngineGetFieldsQuery, SearchEngineIFieldRepository, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEngineGetFieldsQueryHandler } from '@app/search-engine/field/application/get/search-engine-get-fields.query-handler';
+import { SearchEngineGetFieldsService } from '@app/search-engine/field/application/get/search-engine-get-fields.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineGetFieldsQueryHandler } from './search-engine-get-fields.query-handler';
-import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
-import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { SearchEngineGetFieldsQuery } from './search-engine-get-fields.query';
-import { SearchEngineGetFieldsService } from './search-engine-get-fields.service';
 
 describe('GetFieldsQueryHandler', () =>
 {

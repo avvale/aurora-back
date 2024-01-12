@@ -1,10 +1,7 @@
+import { SearchEngineICollectionRepository, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineGetCollectionsService } from '@app/search-engine/collection/application/get/search-engine-get-collections.service';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { SearchEngineGetCollectionsService } from './search-engine-get-collections.service';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
 describe('SearchEngineGetCollectionsService', () =>
 {

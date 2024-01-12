@@ -1,10 +1,7 @@
+import { SearchEngineICollectionRepository, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEnginePaginateCollectionsService } from '@app/search-engine/collection/application/paginate/search-engine-paginate-collections.service';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { SearchEnginePaginateCollectionsService } from './search-engine-paginate-collections.service';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
 describe('SearchEnginePaginateCollectionsService', () =>
 {

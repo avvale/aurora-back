@@ -1,15 +1,11 @@
+import { SearchEngineDeleteFieldByIdCommand, searchEngineMockFieldData } from '@app/search-engine/field';
+import { SearchEngineDeleteFieldByIdCommandHandler } from '@app/search-engine/field/application/delete/search-engine-delete-field-by-id.command-handler';
+import { SearchEngineDeleteFieldByIdService } from '@app/search-engine/field/application/delete/search-engine-delete-field-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteFieldByIdCommandHandler } from './search-engine-delete-field-by-id.command-handler';
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineDeleteFieldByIdCommand } from './search-engine-delete-field-by-id.command';
-import { SearchEngineDeleteFieldByIdService } from './search-engine-delete-field-by-id.service';
 
 describe('SearchEngineDeleteFieldByIdCommandHandler', () =>
 {
     let commandHandler: SearchEngineDeleteFieldByIdCommandHandler;
-    let service: SearchEngineDeleteFieldByIdService;
 
     beforeAll(async () =>
     {
@@ -27,7 +23,6 @@ describe('SearchEngineDeleteFieldByIdCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineDeleteFieldByIdCommandHandler>(SearchEngineDeleteFieldByIdCommandHandler);
-        service = module.get<SearchEngineDeleteFieldByIdService>(SearchEngineDeleteFieldByIdService);
     });
 
     describe('main', () =>

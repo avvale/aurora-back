@@ -10,7 +10,6 @@ export class SearchEngineCollectionDocumentsNumber extends IntValueObject
             name       : 'SearchEngineCollectionDocumentsNumber',
             nullable   : true,
             undefinable: true,
-            maxLength  : 10,
             unsigned   : true,
         }, validationRules));
     }

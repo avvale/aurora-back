@@ -1,12 +1,8 @@
+import { SearchEngineICollectionRepository, searchEngineMockCollectionData, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineFindCollectionByIdService } from '@app/search-engine/collection/application/find/search-engine-find-collection-by-id.service';
+import { SearchEngineCollectionId } from '@app/search-engine/collection/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineFindCollectionByIdService } from './search-engine-find-collection-by-id.service';
-import { SearchEngineCollectionId } from '../../domain/value-objects';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineMockCollectionRepository } from '../../infrastructure/mock/search-engine-mock-collection.repository';
 
 describe('SearchEngineFindCollectionByIdService', () =>
 {

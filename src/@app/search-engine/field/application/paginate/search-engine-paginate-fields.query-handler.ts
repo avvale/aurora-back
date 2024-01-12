@@ -1,7 +1,7 @@
-import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { SearchEnginePaginateFieldsQuery } from '@app/search-engine/field';
+import { SearchEnginePaginateFieldsService } from '@app/search-engine/field/application/paginate/search-engine-paginate-fields.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
-import { SearchEnginePaginateFieldsQuery } from './search-engine-paginate-fields.query';
-import { SearchEnginePaginateFieldsService } from './search-engine-paginate-fields.service';
+import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 @QueryHandler(SearchEnginePaginateFieldsQuery)
 export class SearchEnginePaginateFieldsQueryHandler implements IQueryHandler<SearchEnginePaginateFieldsQuery>

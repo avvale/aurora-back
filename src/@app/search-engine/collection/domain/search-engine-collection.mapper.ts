@@ -1,21 +1,20 @@
-import { IMapper, LiteralObject, MapperOptions, CQMetadata } from '@aurorajs.dev/core';
-import { SearchEngineCollection } from './search-engine-collection.aggregate';
-import { SearchEngineCollectionResponse } from './search-engine-collection.response';
+import { SearchEngineCollection, SearchEngineCollectionResponse } from '@app/search-engine/collection';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionIsEnableNestedFields,
     SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
+    SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionDeletedAt,
-} from './value-objects';
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
 import { SearchEngineFieldMapper } from '@app/search-engine/field';
+import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
 export class SearchEngineCollectionMapper implements IMapper
 {

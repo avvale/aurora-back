@@ -1,6 +1,6 @@
+import { SearchEngineDeleteFieldsCommand } from '@app/search-engine/field';
+import { SearchEngineDeleteFieldsService } from '@app/search-engine/field/application/delete/search-engine-delete-fields.service';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineDeleteFieldsCommand } from './search-engine-delete-fields.command';
-import { SearchEngineDeleteFieldsService } from './search-engine-delete-fields.service';
 
 @CommandHandler(SearchEngineDeleteFieldsCommand)
 export class SearchEngineDeleteFieldsCommandHandler implements ICommandHandler<SearchEngineDeleteFieldsCommand>

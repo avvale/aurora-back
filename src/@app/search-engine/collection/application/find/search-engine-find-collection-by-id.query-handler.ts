@@ -1,9 +1,7 @@
+import { SearchEngineCollectionMapper, SearchEngineCollectionResponse, SearchEngineFindCollectionByIdQuery } from '@app/search-engine/collection';
+import { SearchEngineFindCollectionByIdService } from '@app/search-engine/collection/application/find/search-engine-find-collection-by-id.service';
+import { SearchEngineCollectionId } from '@app/search-engine/collection/domain/value-objects';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { SearchEngineCollectionResponse } from '../../domain/search-engine-collection.response';
-import { SearchEngineCollectionMapper } from '../../domain/search-engine-collection.mapper';
-import { SearchEngineCollectionId } from '../../domain/value-objects';
-import { SearchEngineFindCollectionByIdQuery } from './search-engine-find-collection-by-id.query';
-import { SearchEngineFindCollectionByIdService } from './search-engine-find-collection-by-id.service';
 
 @QueryHandler(SearchEngineFindCollectionByIdQuery)
 export class SearchEngineFindCollectionByIdQueryHandler implements IQueryHandler<SearchEngineFindCollectionByIdQuery>

@@ -10,7 +10,7 @@ export class SearchEngineFieldType extends StringValueObject
             name       : 'SearchEngineFieldType',
             nullable   : false,
             undefinable: false,
-            maxLength  : 20,
+            maxLength  : 63,
         }, validationRules));
     }
 }

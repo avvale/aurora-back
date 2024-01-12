@@ -1,16 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineCreateFieldsCommand, searchEngineMockFieldData } from '@app/search-engine/field';
+import { SearchEngineCreateFieldsCommandHandler } from '@app/search-engine/field/application/create/search-engine-create-fields.command-handler';
+import { SearchEngineCreateFieldsService } from '@app/search-engine/field/application/create/search-engine-create-fields.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineCreateFieldsCommandHandler } from './search-engine-create-fields.command-handler';
-import { SearchEngineCreateFieldsCommand } from './search-engine-create-fields.command';
-import { SearchEngineCreateFieldsService } from './search-engine-create-fields.service';
 
 describe('searchEngineCreateFieldsCommandHandler', () =>
 {
     let commandHandler: SearchEngineCreateFieldsCommandHandler;
-    let service: SearchEngineCreateFieldsService;
 
     beforeAll(async () =>
     {
@@ -28,7 +23,6 @@ describe('searchEngineCreateFieldsCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineCreateFieldsCommandHandler>(SearchEngineCreateFieldsCommandHandler);
-        service = module.get<SearchEngineCreateFieldsService>(SearchEngineCreateFieldsService);
     });
 
     describe('main', () =>
@@ -38,7 +32,7 @@ describe('searchEngineCreateFieldsCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return SearchEngineMockFieldData createds', async () =>
+        test('should return SearchEngineMockFieldData created', async () =>
         {
             expect(await commandHandler.execute(
                 new SearchEngineCreateFieldsCommand(

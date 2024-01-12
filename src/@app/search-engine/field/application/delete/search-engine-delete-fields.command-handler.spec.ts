@@ -1,14 +1,11 @@
+import { SearchEngineDeleteFieldsCommand } from '@app/search-engine/field';
+import { SearchEngineDeleteFieldsCommandHandler } from '@app/search-engine/field/application/delete/search-engine-delete-fields.command-handler';
+import { SearchEngineDeleteFieldsService } from '@app/search-engine/field/application/delete/search-engine-delete-fields.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteFieldsCommandHandler } from './search-engine-delete-fields.command-handler';
-import { SearchEngineDeleteFieldsCommand } from './search-engine-delete-fields.command';
-import { SearchEngineDeleteFieldsService } from './search-engine-delete-fields.service';
 
 describe('SearchEngineDeleteFieldsCommandHandler', () =>
 {
     let commandHandler: SearchEngineDeleteFieldsCommandHandler;
-    let service: SearchEngineDeleteFieldsService;
 
     beforeAll(async () =>
     {
@@ -26,7 +23,6 @@ describe('SearchEngineDeleteFieldsCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineDeleteFieldsCommandHandler>(SearchEngineDeleteFieldsCommandHandler);
-        service = module.get<SearchEngineDeleteFieldsService>(SearchEngineDeleteFieldsService);
     });
 
     describe('main', () =>

@@ -1,18 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { MockRepository, Utils } from '@aurorajs.dev/core';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
+import { SearchEngineField, SearchEngineIFieldRepository, searchEngineMockFieldData } from '@app/search-engine/field';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldCreatedAt,
+    SearchEngineFieldDeletedAt,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
     SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
 } from '@app/search-engine/field/domain/value-objects';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { searchEngineMockFieldData } from './search-engine-mock-field.data';
+import { MockRepository, Utils } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SearchEngineMockFieldRepository extends MockRepository<SearchEngineField> implements SearchEngineIFieldRepository
@@ -20,7 +18,6 @@ export class SearchEngineMockFieldRepository extends MockRepository<SearchEngine
     public readonly repository: any;
     public readonly aggregateName: string = 'SearchEngineField';
     public collectionSource: SearchEngineField[];
-    public deletedAtInstance: SearchEngineFieldDeletedAt = new SearchEngineFieldDeletedAt(null);
 
     constructor()
     {

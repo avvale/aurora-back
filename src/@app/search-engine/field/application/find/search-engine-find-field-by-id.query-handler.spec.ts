@@ -1,13 +1,7 @@
+import { SearchEngineFieldMapper, SearchEngineFindFieldByIdQuery, SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEngineFindFieldByIdQueryHandler } from '@app/search-engine/field/application/find/search-engine-find-field-by-id.query-handler';
+import { SearchEngineFindFieldByIdService } from '@app/search-engine/field/application/find/search-engine-find-field-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineFindFieldByIdQueryHandler } from './search-engine-find-field-by-id.query-handler';
-import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
-import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { SearchEngineFindFieldByIdQuery } from './search-engine-find-field-by-id.query';
-import { SearchEngineFindFieldByIdService } from './search-engine-find-field-by-id.service';
 
 describe('SearchEngineFindFieldByIdQueryHandler', () =>
 {

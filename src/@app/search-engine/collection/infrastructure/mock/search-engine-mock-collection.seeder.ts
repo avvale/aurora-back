@@ -1,21 +1,20 @@
-import { Injectable } from '@nestjs/common';
-import { MockSeeder } from '@aurorajs.dev/core';
+import { SearchEngineCollection, searchEngineMockCollectionData } from '@app/search-engine/collection';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionIsEnableNestedFields,
     SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
+    SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { searchEngineMockCollectionData } from './search-engine-mock-collection.data';
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
+import { MockSeeder } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()

@@ -1,12 +1,7 @@
+import { SearchEngineCollectionMapper, SearchEngineGetCollectionsQuery, SearchEngineICollectionRepository, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineGetCollectionsQueryHandler } from '@app/search-engine/collection/application/get/search-engine-get-collections.query-handler';
+import { SearchEngineGetCollectionsService } from '@app/search-engine/collection/application/get/search-engine-get-collections.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineGetCollectionsQueryHandler } from './search-engine-get-collections.query-handler';
-import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
-import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { SearchEngineGetCollectionsQuery } from './search-engine-get-collections.query';
-import { SearchEngineGetCollectionsService } from './search-engine-get-collections.service';
 
 describe('GetCollectionsQueryHandler', () =>
 {

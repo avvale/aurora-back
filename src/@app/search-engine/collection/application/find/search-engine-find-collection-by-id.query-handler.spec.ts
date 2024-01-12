@@ -1,13 +1,7 @@
+import { SearchEngineCollectionMapper, SearchEngineFindCollectionByIdQuery, SearchEngineICollectionRepository, searchEngineMockCollectionData, SearchEngineMockCollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineFindCollectionByIdQueryHandler } from '@app/search-engine/collection/application/find/search-engine-find-collection-by-id.query-handler';
+import { SearchEngineFindCollectionByIdService } from '@app/search-engine/collection/application/find/search-engine-find-collection-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineFindCollectionByIdQueryHandler } from './search-engine-find-collection-by-id.query-handler';
-import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
-import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { SearchEngineFindCollectionByIdQuery } from './search-engine-find-collection-by-id.query';
-import { SearchEngineFindCollectionByIdService } from './search-engine-find-collection-by-id.service';
 
 describe('SearchEngineFindCollectionByIdQueryHandler', () =>
 {

@@ -22,7 +22,7 @@ export class SearchEngineCreateFieldsService
     ) {}
 
     async main(
-        fields: {
+        payload: {
             id: SearchEngineFieldId;
             collectionId: SearchEngineFieldCollectionId;
             name: SearchEngineFieldName;
@@ -33,7 +33,7 @@ export class SearchEngineCreateFieldsService
     ): Promise<void>
     {
         // create aggregate with factory pattern
-        const aggregateFields = fields.map(field => SearchEngineField.register(
+        const aggregateFields = payload.map(field => SearchEngineField.register(
             field.id,
             field.collectionId,
             field.name,

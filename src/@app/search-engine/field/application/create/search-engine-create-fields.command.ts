@@ -1,6 +1,6 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class  SearchEngineCreateFieldsCommand
+export class SearchEngineCreateFieldsCommand
 {
     constructor(
         public readonly payload: {

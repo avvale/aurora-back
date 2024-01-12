@@ -1,12 +1,7 @@
+import { SearchEngineFieldMapper, SearchEngineIFieldRepository, SearchEngineMockFieldRepository, SearchEngineRawSQLFieldsQuery } from '@app/search-engine/field';
+import { SearchEngineRawSQLFieldsQueryHandler } from '@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.query-handler';
+import { SearchEngineRawSQLFieldsService } from '@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
-import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { SearchEngineRawSQLFieldsQueryHandler } from './search-engine-raw-sql-fields.query-handler';
-import { SearchEngineRawSQLFieldsQuery } from './search-engine-raw-sql-fields.query';
-import { SearchEngineRawSQLFieldsService } from './search-engine-raw-sql-fields.service';
 
 describe('RawSQLFieldsQueryHandler', () =>
 {

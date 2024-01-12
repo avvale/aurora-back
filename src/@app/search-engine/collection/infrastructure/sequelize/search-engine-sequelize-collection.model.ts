@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
-import { DataTypes } from 'sequelize';
 import { SearchEngineFieldModel } from '@app/search-engine/field';
+import { DataTypes } from 'sequelize';
+import { Column, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
 
 @Table({
     modelName: 'SearchEngineCollection',
@@ -55,7 +55,7 @@ export class SearchEngineCollectionModel extends Model<SearchEngineCollectionMod
     @Column({
         field: 'documentsNumber',
         allowNull: true,
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
     })
     documentsNumber: number;
 
@@ -69,14 +69,14 @@ export class SearchEngineCollectionModel extends Model<SearchEngineCollectionMod
     @Column({
         field: 'numMemoryShards',
         allowNull: true,
-        type: DataTypes.SMALLINT.UNSIGNED,
+        type: DataTypes.SMALLINT,
     })
     numMemoryShards: number;
 
     @Column({
         field: 'timestampCreatedAt',
         allowNull: true,
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
     })
     timestampCreatedAt: number;
 
@@ -90,7 +90,6 @@ export class SearchEngineCollectionModel extends Model<SearchEngineCollectionMod
 
 
     @HasMany(() => SearchEngineFieldModel, {
-        foreignKey: 'collectionId',
         constraints: false,
     })
     fields: SearchEngineFieldModel[];

@@ -1,12 +1,8 @@
+import { SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEngineFindFieldByIdService } from '@app/search-engine/field/application/find/search-engine-find-field-by-id.service';
+import { SearchEngineFieldId } from '@app/search-engine/field/domain/value-objects';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineFindFieldByIdService } from './search-engine-find-field-by-id.service';
-import { SearchEngineFieldId } from '../../domain/value-objects';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
 describe('SearchEngineFindFieldByIdService', () =>
 {

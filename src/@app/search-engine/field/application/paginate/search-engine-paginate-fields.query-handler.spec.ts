@@ -1,20 +1,14 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { SearchEngineIFieldRepository, SearchEngineMockFieldRepository, SearchEnginePaginateFieldsQuery } from '@app/search-engine/field';
+import { SearchEnginePaginateFieldsQueryHandler } from '@app/search-engine/field/application/paginate/search-engine-paginate-fields.query-handler';
+import { SearchEnginePaginateFieldsService } from '@app/search-engine/field/application/paginate/search-engine-paginate-fields.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
-
-// custom items
-import { SearchEnginePaginateFieldsQueryHandler } from './search-engine-paginate-fields.query-handler';
-import { SearchEngineMockFieldRepository } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.repository';
-import { SearchEngineIFieldRepository } from '@app/search-engine/field/domain/search-engine-field.repository';
-import { SearchEngineFieldMapper } from '@app/search-engine/field/domain/search-engine-field.mapper';
-import { SearchEnginePaginateFieldsQuery } from './search-engine-paginate-fields.query';
-import { SearchEnginePaginateFieldsService } from './search-engine-paginate-fields.service';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEnginePaginateFieldsQueryHandler', () =>
 {
     let queryHandler: SearchEnginePaginateFieldsQueryHandler;
     let service: SearchEnginePaginateFieldsService;
     let repository: SearchEngineMockFieldRepository;
-    let mapper: SearchEngineFieldMapper;
 
     beforeAll(async () =>
     {
@@ -38,7 +32,6 @@ describe('SearchEnginePaginateFieldsQueryHandler', () =>
         queryHandler = module.get<SearchEnginePaginateFieldsQueryHandler>(SearchEnginePaginateFieldsQueryHandler);
         service = module.get<SearchEnginePaginateFieldsService>(SearchEnginePaginateFieldsService);
         repository = <SearchEngineMockFieldRepository>module.get<SearchEngineIFieldRepository>(SearchEngineIFieldRepository);
-        mapper = new SearchEngineFieldMapper();
     });
 
     describe('main', () =>

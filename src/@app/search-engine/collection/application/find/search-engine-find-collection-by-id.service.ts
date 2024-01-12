@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
+import { SearchEngineCollectionId } from '@app/search-engine/collection/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { SearchEngineCollectionId } from '../../domain/value-objects';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SearchEngineFindCollectionByIdService

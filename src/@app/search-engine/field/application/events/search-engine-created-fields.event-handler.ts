@@ -1,5 +1,5 @@
+import { SearchEngineCreatedFieldsEvent } from '@app/search-engine/field';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
-import { SearchEngineCreatedFieldsEvent } from './search-engine-created-fields.event';
 
 @EventsHandler(SearchEngineCreatedFieldsEvent)
 export class SearchEngineCreatedFieldsEventHandler implements IEventHandler<SearchEngineCreatedFieldsEvent>

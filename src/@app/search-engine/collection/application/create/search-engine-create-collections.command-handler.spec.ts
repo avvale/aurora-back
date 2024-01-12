@@ -1,16 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { SearchEngineCreateCollectionsCommand, searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { SearchEngineCreateCollectionsCommandHandler } from '@app/search-engine/collection/application/create/search-engine-create-collections.command-handler';
+import { SearchEngineCreateCollectionsService } from '@app/search-engine/collection/application/create/search-engine-create-collections.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineCreateCollectionsCommandHandler } from './search-engine-create-collections.command-handler';
-import { SearchEngineCreateCollectionsCommand } from './search-engine-create-collections.command';
-import { SearchEngineCreateCollectionsService } from './search-engine-create-collections.service';
 
 describe('searchEngineCreateCollectionsCommandHandler', () =>
 {
     let commandHandler: SearchEngineCreateCollectionsCommandHandler;
-    let service: SearchEngineCreateCollectionsService;
 
     beforeAll(async () =>
     {
@@ -28,7 +23,6 @@ describe('searchEngineCreateCollectionsCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineCreateCollectionsCommandHandler>(SearchEngineCreateCollectionsCommandHandler);
-        service = module.get<SearchEngineCreateCollectionsService>(SearchEngineCreateCollectionsService);
     });
 
     describe('main', () =>
@@ -38,7 +32,7 @@ describe('searchEngineCreateCollectionsCommandHandler', () =>
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return SearchEngineMockCollectionData createds', async () =>
+        test('should return SearchEngineMockCollectionData created', async () =>
         {
             expect(await commandHandler.execute(
                 new SearchEngineCreateCollectionsCommand(

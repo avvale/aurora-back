@@ -1,10 +1,7 @@
+import { SearchEngineIFieldRepository, SearchEngineMockFieldRepository } from '@app/search-engine/field';
+import { SearchEnginePaginateFieldsService } from '@app/search-engine/field/application/paginate/search-engine-paginate-fields.service';
+import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
-import { EventPublisher, EventBus, CommandBus, UnhandledExceptionBus } from '@nestjs/cqrs';
-
-// custom items
-import { SearchEnginePaginateFieldsService } from './search-engine-paginate-fields.service';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineMockFieldRepository } from '../../infrastructure/mock/search-engine-mock-field.repository';
 
 describe('SearchEnginePaginateFieldsService', () =>
 {

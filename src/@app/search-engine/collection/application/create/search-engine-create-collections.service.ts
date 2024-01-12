@@ -26,7 +26,7 @@ export class SearchEngineCreateCollectionsService
     ) {}
 
     async main(
-        collections: {
+        payload: {
             id: SearchEngineCollectionId;
             name: SearchEngineCollectionName;
             alias: SearchEngineCollectionAlias;
@@ -41,7 +41,7 @@ export class SearchEngineCreateCollectionsService
     ): Promise<void>
     {
         // create aggregate with factory pattern
-        const aggregateCollections = collections.map(collection => SearchEngineCollection.register(
+        const aggregateCollections = payload.map(collection => SearchEngineCollection.register(
             collection.id,
             collection.name,
             collection.alias,

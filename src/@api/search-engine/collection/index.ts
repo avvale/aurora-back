@@ -30,7 +30,7 @@ export { SearchEngineUpsertCollectionController } from './controllers/search-eng
 export { SearchEngineDeleteCollectionByIdController } from './controllers/search-engine-delete-collection-by-id.controller';
 export { SearchEngineDeleteCollectionsController } from './controllers/search-engine-delete-collections.controller';
 
-// exports resolvers
+// export resolvers
 export { SearchEngineCreateCollectionResolver } from './resolvers/search-engine-create-collection.resolver';
 export { SearchEngineCreateCollectionsResolver } from './resolvers/search-engine-create-collections.resolver';
 export { SearchEnginePaginateCollectionsResolver } from './resolvers/search-engine-paginate-collections.resolver';
@@ -43,7 +43,12 @@ export { SearchEngineUpsertCollectionResolver } from './resolvers/search-engine-
 export { SearchEngineDeleteCollectionByIdResolver } from './resolvers/search-engine-delete-collection-by-id.resolver';
 export { SearchEngineDeleteCollectionsResolver } from './resolvers/search-engine-delete-collections.resolver';
 
-// controllers
+// export additionalApis
+export { SearchEngineIndexCollectionController } from './controllers/search-engine-index-collection.controller';
+export { SearchEngineIndexCollectionHandler } from './handlers/search-engine-index-collection.handler';
+export { SearchEngineIndexCollectionResolver } from './resolvers/search-engine-index-collection.resolver';
+
+// import controllers
 import { SearchEngineCreateCollectionController } from './controllers/search-engine-create-collection.controller';
 import { SearchEngineCreateCollectionsController } from './controllers/search-engine-create-collections.controller';
 import { SearchEnginePaginateCollectionsController } from './controllers/search-engine-paginate-collections.controller';
@@ -56,10 +61,7 @@ import { SearchEngineUpsertCollectionController } from './controllers/search-eng
 import { SearchEngineDeleteCollectionByIdController } from './controllers/search-engine-delete-collection-by-id.controller';
 import { SearchEngineDeleteCollectionsController } from './controllers/search-engine-delete-collections.controller';
 
-// additionalApis
-import { SearchEngineIndexCollectionController } from './controllers/search-engine-index-collection.controller';
-
-// resolvers
+// import resolvers
 import { SearchEngineCreateCollectionResolver } from './resolvers/search-engine-create-collection.resolver';
 import { SearchEngineCreateCollectionsResolver } from './resolvers/search-engine-create-collections.resolver';
 import { SearchEnginePaginateCollectionsResolver } from './resolvers/search-engine-paginate-collections.resolver';
@@ -72,10 +74,7 @@ import { SearchEngineUpsertCollectionResolver } from './resolvers/search-engine-
 import { SearchEngineDeleteCollectionByIdResolver } from './resolvers/search-engine-delete-collection-by-id.resolver';
 import { SearchEngineDeleteCollectionsResolver } from './resolvers/search-engine-delete-collections.resolver';
 
-// additionalApis
-import { SearchEngineIndexCollectionResolver } from './resolvers/search-engine-index-collection.resolver';
-
-// handlers
+// import handlers
 import { SearchEngineCreateCollectionHandler } from './handlers/search-engine-create-collection.handler';
 import { SearchEngineCreateCollectionsHandler } from './handlers/search-engine-create-collections.handler';
 import { SearchEnginePaginateCollectionsHandler } from './handlers/search-engine-paginate-collections.handler';
@@ -88,13 +87,15 @@ import { SearchEngineUpsertCollectionHandler } from './handlers/search-engine-up
 import { SearchEngineDeleteCollectionByIdHandler } from './handlers/search-engine-delete-collection-by-id.handler';
 import { SearchEngineDeleteCollectionsHandler } from './handlers/search-engine-delete-collections.handler';
 
-// seeder
+// import seeder
 import { SearchEngineCollectionSeeder } from './seeder/search-engine-collection.seeder';
 
-// additionalApis
+// import additionalApis
+import { SearchEngineIndexCollectionController } from './controllers/search-engine-index-collection.controller';
 import { SearchEngineIndexCollectionHandler } from './handlers/search-engine-index-collection.handler';
+import { SearchEngineIndexCollectionResolver } from './resolvers/search-engine-index-collection.resolver';
 
-export const SearchEngineCollectionControllers = [
+export const SearchEngineCollectionApiControllers = [
     SearchEngineCreateCollectionController,
     SearchEngineCreateCollectionsController,
     SearchEnginePaginateCollectionsController,
@@ -111,7 +112,7 @@ export const SearchEngineCollectionControllers = [
     SearchEngineIndexCollectionController,
 ];
 
-export const SearchEngineCollectionResolvers = [
+export const SearchEngineCollectionApiResolvers = [
     SearchEngineCreateCollectionResolver,
     SearchEngineCreateCollectionsResolver,
     SearchEnginePaginateCollectionsResolver,
@@ -145,6 +146,6 @@ export const SearchEngineCollectionApiHandlers = [
     SearchEngineIndexCollectionHandler,
 ];
 
-export const SearchEngineCollectionServices = [
+export const SearchEngineCollectionApiServices = [
     SearchEngineCollectionSeeder,
 ];

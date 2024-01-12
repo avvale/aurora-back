@@ -1,15 +1,11 @@
+import { searchEngineMockCollectionData, SearchEngineUpdateCollectionByIdCommand } from '@app/search-engine/collection';
+import { SearchEngineUpdateCollectionByIdCommandHandler } from '@app/search-engine/collection/application/update/search-engine-update-collection-by-id.command-handler';
+import { SearchEngineUpdateCollectionByIdService } from '@app/search-engine/collection/application/update/search-engine-update-collection-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineUpdateCollectionByIdCommandHandler } from './search-engine-update-collection-by-id.command-handler';
-import { SearchEngineUpdateCollectionByIdCommand } from './search-engine-update-collection-by-id.command';
-import { SearchEngineUpdateCollectionByIdService } from './search-engine-update-collection-by-id.service';
 
 describe('SearchEngineUpdateCollectionByIdCommandHandler', () =>
 {
     let commandHandler: SearchEngineUpdateCollectionByIdCommandHandler;
-    let service: SearchEngineUpdateCollectionByIdService;
 
     beforeAll(async () =>
     {
@@ -27,7 +23,6 @@ describe('SearchEngineUpdateCollectionByIdCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineUpdateCollectionByIdCommandHandler>(SearchEngineUpdateCollectionByIdCommandHandler);
-        service = module.get<SearchEngineUpdateCollectionByIdService>(SearchEngineUpdateCollectionByIdService);
     });
 
     describe('main', () =>

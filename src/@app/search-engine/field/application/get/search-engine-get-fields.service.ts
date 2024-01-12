@@ -1,8 +1,6 @@
+import { SearchEngineField, SearchEngineIFieldRepository } from '@app/search-engine/field';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { SearchEngineIFieldRepository } from '../../domain/search-engine-field.repository';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
 
 @Injectable()
 export class SearchEngineGetFieldsService

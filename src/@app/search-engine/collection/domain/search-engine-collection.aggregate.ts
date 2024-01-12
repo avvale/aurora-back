@@ -1,24 +1,22 @@
 /* eslint-disable key-spacing */
-import { AggregateRoot } from '@nestjs/cqrs';
-import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { SearchEngineCreatedCollectionEvent, SearchEngineDeletedCollectionEvent, SearchEngineUpdatedCollectionEvent } from '@app/search-engine/collection';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionIsEnableNestedFields,
     SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
+    SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionDeletedAt,
-} from './value-objects';
-import { SearchEngineCreatedCollectionEvent } from '../application/events/search-engine-created-collection.event';
-import { SearchEngineUpdatedCollectionEvent } from '../application/events/search-engine-updated-collection.event';
-import { SearchEngineDeletedCollectionEvent } from '../application/events/search-engine-deleted-collection.event';
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
 import { SearchEngineField } from '@app/search-engine/field';
+import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { AggregateRoot } from '@nestjs/cqrs';
 
 export class SearchEngineCollection extends AggregateRoot
 {
@@ -34,8 +32,6 @@ export class SearchEngineCollection extends AggregateRoot
     createdAt: SearchEngineCollectionCreatedAt;
     updatedAt: SearchEngineCollectionUpdatedAt;
     deletedAt: SearchEngineCollectionDeletedAt;
-
-    // eager relationship
     fields: SearchEngineField[];
 
     constructor(
@@ -51,7 +47,6 @@ export class SearchEngineCollection extends AggregateRoot
         createdAt: SearchEngineCollectionCreatedAt,
         updatedAt: SearchEngineCollectionUpdatedAt,
         deletedAt: SearchEngineCollectionDeletedAt,
-
         fields?: SearchEngineField[],
     )
     {
@@ -68,12 +63,10 @@ export class SearchEngineCollection extends AggregateRoot
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
-
-        // eager relationship
         this.fields = fields;
     }
 
-    static register (
+    static register(
         id: SearchEngineCollectionId,
         name: SearchEngineCollectionName,
         alias: SearchEngineCollectionAlias,
@@ -86,7 +79,6 @@ export class SearchEngineCollection extends AggregateRoot
         createdAt: SearchEngineCollectionCreatedAt,
         updatedAt: SearchEngineCollectionUpdatedAt,
         deletedAt: SearchEngineCollectionDeletedAt,
-
         fields?: SearchEngineField[],
     ): SearchEngineCollection
     {
@@ -103,7 +95,6 @@ export class SearchEngineCollection extends AggregateRoot
             createdAt,
             updatedAt,
             deletedAt,
-
             fields,
         );
     }
@@ -183,8 +174,6 @@ export class SearchEngineCollection extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             fields: this.fields?.map(item => item.toDTO()),
         };
     }
@@ -205,8 +194,6 @@ export class SearchEngineCollection extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             fields: this.fields?.map(item => item.toDTO()),
         };
     }

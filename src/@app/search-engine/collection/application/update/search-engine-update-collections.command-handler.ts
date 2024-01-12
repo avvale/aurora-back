@@ -1,21 +1,18 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineUpdateCollectionsCommand } from './search-engine-update-collections.command';
-import { SearchEngineUpdateCollectionsService } from './search-engine-update-collections.service';
+import { SearchEngineUpdateCollectionsCommand } from '@app/search-engine/collection';
+import { SearchEngineUpdateCollectionsService } from '@app/search-engine/collection/application/update/search-engine-update-collections.service';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
     SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
     SearchEngineCollectionIsEnableNestedFields,
-    SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
-    SearchEngineCollectionDeletedAt,
-} from '../../domain/value-objects';
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineUpdateCollectionsCommand)
 export class SearchEngineUpdateCollectionsCommandHandler implements ICommandHandler<SearchEngineUpdateCollectionsCommand>

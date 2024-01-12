@@ -6,8 +6,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { appQueues } from 'src/app.queues';
 import { SearchEngineHandlers, SearchEngineModels, SearchEngineRepositories, SearchEngineSagas, SearchEngineServices } from '../../@app/search-engine';
-import { SearchEngineCollectionApiHandlers, SearchEngineCollectionControllers, SearchEngineCollectionResolvers, SearchEngineCollectionServices } from './collection';
-import { SearchEngineFieldApiHandlers, SearchEngineFieldControllers, SearchEngineFieldResolvers, SearchEngineFieldServices } from './field';
+import { SearchEngineCollectionApiHandlers, SearchEngineCollectionApiControllers, SearchEngineCollectionApiResolvers, SearchEngineCollectionApiServices } from './collection';
+import { SearchEngineFieldApiHandlers,SearchEngineFieldApiControllers, SearchEngineFieldApiResolvers, SearchEngineFieldApiServices } from './field';
 import { SearchEngineSeeder } from './search-engine.seeder';
 import { IndexCollectionSearchEngineConsumer } from './shared/consumers/index-collection-search-engine.consumer';
 import { SearchEngineTypesenseImplementationService } from './shared/services/search-engine-typesense-implementation.service';
@@ -39,8 +39,8 @@ import { QueueManagerJobService } from '@api/queue-manager/shared/services';
         ),
     ],
     controllers: [
-        ...SearchEngineCollectionControllers,
-        ...SearchEngineFieldControllers,
+        ...SearchEngineCollectionApiControllers,
+        ...SearchEngineFieldApiControllers
     ],
     providers: [
         SearchEngineSeeder,
@@ -49,12 +49,12 @@ import { QueueManagerJobService } from '@api/queue-manager/shared/services';
         ...SearchEngineServices,
         ...SearchEngineRepositories,
         ...SearchEngineSagas,
-        ...SearchEngineCollectionResolvers,
         ...SearchEngineCollectionApiHandlers,
-        ...SearchEngineCollectionServices,
-        ...SearchEngineFieldResolvers,
         ...SearchEngineFieldApiHandlers,
-        ...SearchEngineFieldServices,
+        ...SearchEngineCollectionApiResolvers,
+        ...SearchEngineCollectionApiServices,
+        ...SearchEngineFieldApiResolvers,
+        ...SearchEngineFieldApiServices,
 
         // services
         QueueManagerJobService,

@@ -1,5 +1,5 @@
+import { SearchEngineCreatedCollectionsEvent } from '@app/search-engine/collection';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
-import { SearchEngineCreatedCollectionsEvent } from './search-engine-created-collections.event';
 
 @EventsHandler(SearchEngineCreatedCollectionsEvent)
 export class SearchEngineCreatedCollectionsEventHandler implements IEventHandler<SearchEngineCreatedCollectionsEvent>

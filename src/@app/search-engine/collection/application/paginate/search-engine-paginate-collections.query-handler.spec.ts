@@ -1,20 +1,14 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { SearchEngineICollectionRepository, SearchEngineMockCollectionRepository, SearchEnginePaginateCollectionsQuery } from '@app/search-engine/collection';
+import { SearchEnginePaginateCollectionsQueryHandler } from '@app/search-engine/collection/application/paginate/search-engine-paginate-collections.query-handler';
+import { SearchEnginePaginateCollectionsService } from '@app/search-engine/collection/application/paginate/search-engine-paginate-collections.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
-
-// custom items
-import { SearchEnginePaginateCollectionsQueryHandler } from './search-engine-paginate-collections.query-handler';
-import { SearchEngineMockCollectionRepository } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.repository';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
-import { SearchEngineCollectionMapper } from '@app/search-engine/collection/domain/search-engine-collection.mapper';
-import { SearchEnginePaginateCollectionsQuery } from './search-engine-paginate-collections.query';
-import { SearchEnginePaginateCollectionsService } from './search-engine-paginate-collections.service';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEnginePaginateCollectionsQueryHandler', () =>
 {
     let queryHandler: SearchEnginePaginateCollectionsQueryHandler;
     let service: SearchEnginePaginateCollectionsService;
     let repository: SearchEngineMockCollectionRepository;
-    let mapper: SearchEngineCollectionMapper;
 
     beforeAll(async () =>
     {
@@ -38,7 +32,6 @@ describe('SearchEnginePaginateCollectionsQueryHandler', () =>
         queryHandler = module.get<SearchEnginePaginateCollectionsQueryHandler>(SearchEnginePaginateCollectionsQueryHandler);
         service = module.get<SearchEnginePaginateCollectionsService>(SearchEnginePaginateCollectionsService);
         repository = <SearchEngineMockCollectionRepository>module.get<SearchEngineICollectionRepository>(SearchEngineICollectionRepository);
-        mapper = new SearchEngineCollectionMapper();
     });
 
     describe('main', () =>

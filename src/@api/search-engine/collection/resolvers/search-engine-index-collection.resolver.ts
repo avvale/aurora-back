@@ -1,9 +1,7 @@
-import { Resolver, Args, Mutation } from '@nestjs/graphql';
-import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { SearchEngineIndexCollectionHandler } from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
-
-// @app
-import { SearchEngineIndexCollectionHandler } from '../handlers/search-engine-index-collection.handler';
+import { QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Resolver, Args, Mutation } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.update')

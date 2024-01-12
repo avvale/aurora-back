@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Test, TestingModule } from '@nestjs/testing';
-
-
-// custom items
-import { SearchEngineIndexCollectionResolver } from './search-engine-index-collection.resolver';
 import { SearchEngineIndexCollectionHandler } from '../handlers/search-engine-index-collection.handler';
+import { SearchEngineIndexCollectionResolver } from './search-engine-index-collection.resolver';
+import { Test, TestingModule } from '@nestjs/testing';
 
 describe('SearchEngineIndexCollectionResolver', () =>
 {

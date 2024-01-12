@@ -1,22 +1,20 @@
-import { Injectable } from '@nestjs/common';
-import { MockRepository, Utils } from '@aurorajs.dev/core';
-import { SearchEngineICollectionRepository } from '@app/search-engine/collection/domain/search-engine-collection.repository';
+import { SearchEngineCollection, SearchEngineICollectionRepository, searchEngineMockCollectionData } from '@app/search-engine/collection';
 import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
     SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionIsEnableNestedFields,
     SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
+    SearchEngineCollectionDefaultSortingField,
     SearchEngineCollectionDeletedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
 } from '@app/search-engine/collection/domain/value-objects';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { searchEngineMockCollectionData } from './search-engine-mock-collection.data';
+import { MockRepository, Utils } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class SearchEngineMockCollectionRepository extends MockRepository<SearchEngineCollection> implements SearchEngineICollectionRepository
@@ -24,7 +22,6 @@ export class SearchEngineMockCollectionRepository extends MockRepository<SearchE
     public readonly repository: any;
     public readonly aggregateName: string = 'SearchEngineCollection';
     public collectionSource: SearchEngineCollection[];
-    public deletedAtInstance: SearchEngineCollectionDeletedAt = new SearchEngineCollectionDeletedAt(null);
 
     constructor()
     {

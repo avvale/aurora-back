@@ -1,8 +1,6 @@
+import { SearchEngineFieldMapper, SearchEngineFieldResponse, SearchEngineFindFieldQuery } from '@app/search-engine/field';
+import { SearchEngineFindFieldService } from '@app/search-engine/field/application/find/search-engine-find-field.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { SearchEngineFieldResponse } from '../../domain/search-engine-field.response';
-import { SearchEngineFieldMapper } from '../../domain/search-engine-field.mapper';
-import { SearchEngineFindFieldQuery } from './search-engine-find-field.query';
-import { SearchEngineFindFieldService } from './search-engine-find-field.service';
 
 @QueryHandler(SearchEngineFindFieldQuery)
 export class SearchEngineFindFieldQueryHandler implements IQueryHandler<SearchEngineFindFieldQuery>

@@ -1,15 +1,11 @@
+import { searchEngineMockFieldData, SearchEngineUpdateFieldByIdCommand } from '@app/search-engine/field';
+import { SearchEngineUpdateFieldByIdCommandHandler } from '@app/search-engine/field/application/update/search-engine-update-field-by-id.command-handler';
+import { SearchEngineUpdateFieldByIdService } from '@app/search-engine/field/application/update/search-engine-update-field-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineUpdateFieldByIdCommandHandler } from './search-engine-update-field-by-id.command-handler';
-import { SearchEngineUpdateFieldByIdCommand } from './search-engine-update-field-by-id.command';
-import { SearchEngineUpdateFieldByIdService } from './search-engine-update-field-by-id.service';
 
 describe('SearchEngineUpdateFieldByIdCommandHandler', () =>
 {
     let commandHandler: SearchEngineUpdateFieldByIdCommandHandler;
-    let service: SearchEngineUpdateFieldByIdService;
 
     beforeAll(async () =>
     {
@@ -27,7 +23,6 @@ describe('SearchEngineUpdateFieldByIdCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineUpdateFieldByIdCommandHandler>(SearchEngineUpdateFieldByIdCommandHandler);
-        service = module.get<SearchEngineUpdateFieldByIdService>(SearchEngineUpdateFieldByIdService);
     });
 
     describe('main', () =>

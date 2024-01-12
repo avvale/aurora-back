@@ -1,8 +1,6 @@
+import { SearchEngineFieldMapper, SearchEngineFieldResponse, SearchEngineRawSQLFieldsQuery } from '@app/search-engine/field';
+import { SearchEngineRawSQLFieldsService } from '@app/search-engine/field/application/raw-sql/search-engine-raw-sql-fields.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { SearchEngineFieldResponse } from '../../domain/search-engine-field.response';
-import { SearchEngineFieldMapper } from '../../domain/search-engine-field.mapper';
-import { SearchEngineRawSQLFieldsQuery } from './search-engine-raw-sql-fields.query';
-import { SearchEngineRawSQLFieldsService } from './search-engine-raw-sql-fields.service';
 
 @QueryHandler(SearchEngineRawSQLFieldsQuery)
 export class SearchEngineRawSQLFieldsQueryHandler implements IQueryHandler<SearchEngineRawSQLFieldsQuery>

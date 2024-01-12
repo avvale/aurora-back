@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { Column, Model, Table, ForeignKey, BelongsTo, HasMany, BelongsToMany, HasOne } from 'sequelize-typescript';
-import { DataTypes } from 'sequelize';
 import { SearchEngineCollectionModel } from '@app/search-engine/collection';
+import { DataTypes } from 'sequelize';
+import { BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
 
 @Table({
     modelName: 'SearchEngineField',
@@ -43,7 +43,7 @@ export class SearchEngineFieldModel extends Model<SearchEngineFieldModel>
     @Column({
         field: 'type',
         allowNull: false,
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(63),
     })
     type: string;
 

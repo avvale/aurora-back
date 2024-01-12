@@ -1,11 +1,5 @@
+import { SearchEngineCreatedFieldEvent, SearchEngineCreatedFieldsEvent, SearchEngineDeletedFieldEvent, SearchEngineDeletedFieldsEvent, SearchEngineField, SearchEngineUpdatedFieldEvent, SearchEngineUpdatedFieldsEvent } from '@app/search-engine/field';
 import { AggregateRoot } from '@nestjs/cqrs';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { SearchEngineCreatedFieldEvent } from './search-engine-created-field.event';
-import { SearchEngineCreatedFieldsEvent } from './search-engine-created-fields.event';
-import { SearchEngineUpdatedFieldEvent } from './search-engine-updated-field.event';
-import { SearchEngineUpdatedFieldsEvent } from './search-engine-updated-fields.event';
-import { SearchEngineDeletedFieldEvent } from './search-engine-deleted-field.event';
-import { SearchEngineDeletedFieldsEvent } from './search-engine-deleted-fields.event';
 
 export class SearchEngineAddFieldsContextEvent extends AggregateRoot
 {

@@ -1,15 +1,11 @@
+import { SearchEngineDeleteCollectionByIdCommand, searchEngineMockCollectionData } from '@app/search-engine/collection';
+import { SearchEngineDeleteCollectionByIdCommandHandler } from '@app/search-engine/collection/application/delete/search-engine-delete-collection-by-id.command-handler';
+import { SearchEngineDeleteCollectionByIdService } from '@app/search-engine/collection/application/delete/search-engine-delete-collection-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { SearchEngineDeleteCollectionByIdCommandHandler } from './search-engine-delete-collection-by-id.command-handler';
-import { searchEngineMockCollectionData } from '@app/search-engine/collection/infrastructure/mock/search-engine-mock-collection.data';
-import { SearchEngineDeleteCollectionByIdCommand } from './search-engine-delete-collection-by-id.command';
-import { SearchEngineDeleteCollectionByIdService } from './search-engine-delete-collection-by-id.service';
 
 describe('SearchEngineDeleteCollectionByIdCommandHandler', () =>
 {
     let commandHandler: SearchEngineDeleteCollectionByIdCommandHandler;
-    let service: SearchEngineDeleteCollectionByIdService;
 
     beforeAll(async () =>
     {
@@ -27,7 +23,6 @@ describe('SearchEngineDeleteCollectionByIdCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineDeleteCollectionByIdCommandHandler>(SearchEngineDeleteCollectionByIdCommandHandler);
-        service = module.get<SearchEngineDeleteCollectionByIdService>(SearchEngineDeleteCollectionByIdService);
     });
 
     describe('main', () =>

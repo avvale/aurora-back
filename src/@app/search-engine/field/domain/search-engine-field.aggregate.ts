@@ -1,20 +1,18 @@
 /* eslint-disable key-spacing */
-import { AggregateRoot } from '@nestjs/cqrs';
-import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { SearchEngineCollection } from '@app/search-engine/collection';
+import { SearchEngineCreatedFieldEvent, SearchEngineDeletedFieldEvent, SearchEngineUpdatedFieldEvent } from '@app/search-engine/field';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldCreatedAt,
+    SearchEngineFieldDeletedAt,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
     SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from './value-objects';
-import { SearchEngineCreatedFieldEvent } from '../application/events/search-engine-created-field.event';
-import { SearchEngineUpdatedFieldEvent } from '../application/events/search-engine-updated-field.event';
-import { SearchEngineDeletedFieldEvent } from '../application/events/search-engine-deleted-field.event';
-import { SearchEngineCollection } from '@app/search-engine/collection';
+} from '@app/search-engine/field/domain/value-objects';
+import { LiteralObject, Utils } from '@aurorajs.dev/core';
+import { AggregateRoot } from '@nestjs/cqrs';
 
 export class SearchEngineField extends AggregateRoot
 {
@@ -26,8 +24,6 @@ export class SearchEngineField extends AggregateRoot
     createdAt: SearchEngineFieldCreatedAt;
     updatedAt: SearchEngineFieldUpdatedAt;
     deletedAt: SearchEngineFieldDeletedAt;
-
-    // eager relationship
     collection: SearchEngineCollection;
 
     constructor(
@@ -39,7 +35,6 @@ export class SearchEngineField extends AggregateRoot
         createdAt: SearchEngineFieldCreatedAt,
         updatedAt: SearchEngineFieldUpdatedAt,
         deletedAt: SearchEngineFieldDeletedAt,
-
         collection?: SearchEngineCollection,
     )
     {
@@ -52,12 +47,10 @@ export class SearchEngineField extends AggregateRoot
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
-
-        // eager relationship
         this.collection = collection;
     }
 
-    static register (
+    static register(
         id: SearchEngineFieldId,
         collectionId: SearchEngineFieldCollectionId,
         name: SearchEngineFieldName,
@@ -66,7 +59,6 @@ export class SearchEngineField extends AggregateRoot
         createdAt: SearchEngineFieldCreatedAt,
         updatedAt: SearchEngineFieldUpdatedAt,
         deletedAt: SearchEngineFieldDeletedAt,
-
         collection?: SearchEngineCollection,
     ): SearchEngineField
     {
@@ -79,7 +71,6 @@ export class SearchEngineField extends AggregateRoot
             createdAt,
             updatedAt,
             deletedAt,
-
             collection,
         );
     }
@@ -143,8 +134,6 @@ export class SearchEngineField extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             collection: this.collection?.toDTO(),
         };
     }
@@ -161,8 +150,6 @@ export class SearchEngineField extends AggregateRoot
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
-
-            // eager relationship
             collection: this.collection?.toDTO(),
         };
     }

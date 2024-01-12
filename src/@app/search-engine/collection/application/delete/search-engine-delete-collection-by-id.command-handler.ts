@@ -1,9 +1,7 @@
+import { SearchEngineDeleteCollectionByIdCommand } from '@app/search-engine/collection';
+import { SearchEngineDeleteCollectionByIdService } from '@app/search-engine/collection/application/delete/search-engine-delete-collection-by-id.service';
+import { SearchEngineCollectionId } from '@app/search-engine/collection/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineDeleteCollectionByIdCommand } from './search-engine-delete-collection-by-id.command';
-import { SearchEngineDeleteCollectionByIdService } from './search-engine-delete-collection-by-id.service';
-import {
-    SearchEngineCollectionId
-} from '../../domain/value-objects';
 
 @CommandHandler(SearchEngineDeleteCollectionByIdCommand)
 export class SearchEngineDeleteCollectionByIdCommandHandler implements ICommandHandler<SearchEngineDeleteCollectionByIdCommand>

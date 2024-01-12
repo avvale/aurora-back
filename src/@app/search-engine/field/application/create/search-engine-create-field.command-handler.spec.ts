@@ -6,7 +6,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 describe('SearchEngineCreateFieldCommandHandler', () =>
 {
     let commandHandler: SearchEngineCreateFieldCommandHandler;
-    let service: SearchEngineCreateFieldService;
 
     beforeAll(async () =>
     {
@@ -24,7 +23,6 @@ describe('SearchEngineCreateFieldCommandHandler', () =>
             .compile();
 
         commandHandler = module.get<SearchEngineCreateFieldCommandHandler>(SearchEngineCreateFieldCommandHandler);
-        service = module.get<SearchEngineCreateFieldService>(SearchEngineCreateFieldService);
     });
 
     describe('main', () =>

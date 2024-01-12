@@ -13,8 +13,8 @@ aggregateProperties:
     length: 36
     nullable: false
   - name: apiKeyId
-    type: smallint.unsigned
-    maxLength: 5
+    type: smallint
+    unsigned: true
     nullable: false
   - name: actions
     type: json
@@ -41,5 +41,3 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
-aggregateI18nProperties: []
-additionalApis: []

@@ -1,24 +1,21 @@
+import { SearchEngineAddCollectionsContextEvent, SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
+import {
+    SearchEngineCollectionAlias,
+    SearchEngineCollectionCreatedAt,
+    SearchEngineCollectionDefaultSortingField,
+    SearchEngineCollectionDeletedAt,
+    SearchEngineCollectionDocumentsNumber,
+    SearchEngineCollectionId,
+    SearchEngineCollectionIsEnableNestedFields,
+    SearchEngineCollectionName,
+    SearchEngineCollectionNumMemoryShards,
+    SearchEngineCollectionStatus,
+    SearchEngineCollectionTimestampCreatedAt,
+    SearchEngineCollectionUpdatedAt,
+} from '@app/search-engine/collection/domain/value-objects';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
-import {
-    SearchEngineCollectionId,
-    SearchEngineCollectionName,
-    SearchEngineCollectionAlias,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionIsEnableNestedFields,
-    SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionUpdatedAt,
-    SearchEngineCollectionDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
-import { SearchEngineAddCollectionsContextEvent } from '../events/search-engine-add-collections-context.event';
 
 @Injectable()
 export class SearchEngineUpdateCollectionsService
@@ -60,7 +57,6 @@ export class SearchEngineUpdateCollectionsService
             new SearchEngineCollectionUpdatedAt({ currentTimestamp: true }),
             null, // deletedAt
         );
-
 
         // update
         await this.repository.update(

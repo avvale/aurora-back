@@ -1,17 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { MockSeeder } from '@aurorajs.dev/core';
+import { SearchEngineField, searchEngineMockFieldData } from '@app/search-engine/field';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldCreatedAt,
+    SearchEngineFieldDeletedAt,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
     SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
-import { SearchEngineField } from '../../domain/search-engine-field.aggregate';
-import { searchEngineMockFieldData } from './search-engine-mock-field.data';
+} from '@app/search-engine/field/domain/value-objects';
+import { MockSeeder } from '@aurorajs.dev/core';
+import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()

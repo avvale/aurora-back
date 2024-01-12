@@ -1,6 +1,6 @@
+import { SearchEngineDeleteCollectionsCommand } from '@app/search-engine/collection';
+import { SearchEngineDeleteCollectionsService } from '@app/search-engine/collection/application/delete/search-engine-delete-collections.service';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineDeleteCollectionsCommand } from './search-engine-delete-collections.command';
-import { SearchEngineDeleteCollectionsService } from './search-engine-delete-collections.service';
 
 @CommandHandler(SearchEngineDeleteCollectionsCommand)
 export class SearchEngineDeleteCollectionsCommandHandler implements ICommandHandler<SearchEngineDeleteCollectionsCommand>

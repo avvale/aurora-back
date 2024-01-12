@@ -1,8 +1,6 @@
+import { SearchEngineCollectionMapper, SearchEngineCollectionResponse, SearchEngineFindCollectionQuery } from '@app/search-engine/collection';
+import { SearchEngineFindCollectionService } from '@app/search-engine/collection/application/find/search-engine-find-collection.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { SearchEngineCollectionResponse } from '../../domain/search-engine-collection.response';
-import { SearchEngineCollectionMapper } from '../../domain/search-engine-collection.mapper';
-import { SearchEngineFindCollectionQuery } from './search-engine-find-collection.query';
-import { SearchEngineFindCollectionService } from './search-engine-find-collection.service';
 
 @QueryHandler(SearchEngineFindCollectionQuery)
 export class SearchEngineFindCollectionQueryHandler implements IQueryHandler<SearchEngineFindCollectionQuery>

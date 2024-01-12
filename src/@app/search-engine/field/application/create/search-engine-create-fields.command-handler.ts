@@ -1,17 +1,14 @@
 /* eslint-disable key-spacing */
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SearchEngineCreateFieldsCommand } from './search-engine-create-fields.command';
-import { SearchEngineCreateFieldsService } from './search-engine-create-fields.service';
+import { SearchEngineCreateFieldsCommand } from '@app/search-engine/field';
+import { SearchEngineCreateFieldsService } from '@app/search-engine/field/application/create/search-engine-create-fields.service';
 import {
-    SearchEngineFieldId,
     SearchEngineFieldCollectionId,
+    SearchEngineFieldId,
+    SearchEngineFieldIsNullable,
     SearchEngineFieldName,
     SearchEngineFieldType,
-    SearchEngineFieldIsNullable,
-    SearchEngineFieldCreatedAt,
-    SearchEngineFieldUpdatedAt,
-    SearchEngineFieldDeletedAt,
-} from '../../domain/value-objects';
+} from '@app/search-engine/field/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineCreateFieldsCommand)
 export class SearchEngineCreateFieldsCommandHandler implements ICommandHandler<SearchEngineCreateFieldsCommand>

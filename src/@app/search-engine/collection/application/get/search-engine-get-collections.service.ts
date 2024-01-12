@@ -1,8 +1,6 @@
+import { SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
+import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { QueryStatement } from '@aurorajs.dev/core';
-import { CQMetadata } from '@aurorajs.dev/core';
-import { SearchEngineICollectionRepository } from '../../domain/search-engine-collection.repository';
-import { SearchEngineCollection } from '../../domain/search-engine-collection.aggregate';
 
 @Injectable()
 export class SearchEngineGetCollectionsService

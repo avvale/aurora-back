@@ -10,7 +10,6 @@ export class SearchEngineCollectionTimestampCreatedAt extends IntValueObject
             name       : 'SearchEngineCollectionTimestampCreatedAt',
             nullable   : true,
             undefinable: true,
-            maxLength  : 10,
             unsigned   : true,
         }, validationRules));
     }

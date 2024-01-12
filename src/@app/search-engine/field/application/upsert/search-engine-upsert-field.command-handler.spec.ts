@@ -1,10 +1,7 @@
+import { searchEngineMockFieldData, SearchEngineUpsertFieldCommand } from '@app/search-engine/field';
+import { SearchEngineUpsertFieldCommandHandler } from '@app/search-engine/field/application/upsert/search-engine-upsert-field.command-handler';
+import { SearchEngineUpsertFieldService } from '@app/search-engine/field/application/upsert/search-engine-upsert-field.service';
 import { Test, TestingModule } from '@nestjs/testing';
-
-// custom items
-import { searchEngineMockFieldData } from '@app/search-engine/field/infrastructure/mock/search-engine-mock-field.data';
-import { SearchEngineUpsertFieldCommandHandler } from './search-engine-upsert-field.command-handler';
-import { SearchEngineUpsertFieldCommand } from './search-engine-upsert-field.command';
-import { SearchEngineUpsertFieldService } from './search-engine-upsert-field.service';
 
 describe('SearchEngineUpsertFieldCommandHandler', () =>
 {
