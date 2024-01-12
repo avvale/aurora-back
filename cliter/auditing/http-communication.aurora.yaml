@@ -33,7 +33,7 @@ aggregateProperties:
     nullable: true
   - name: method
     type: varchar
-    maxLength: 63
+    maxLength: 25
     nullable: false
   - name: url
     type: varchar

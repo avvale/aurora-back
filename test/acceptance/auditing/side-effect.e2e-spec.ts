@@ -461,19 +461,19 @@ describe('side-effect', () =>
             });
     });
 
-    test('/REST:POST auditing/side-effect/create - Got 400 Conflict, SideEffectIp is too large, has a maximum length of 63', () =>
+    test('/REST:POST auditing/side-effect/create - Got 400 Conflict, SideEffectIp is too large, has a maximum length of 19', () =>
     {
         return request(app.getHttpServer())
             .post('/auditing/side-effect/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                ip: '****************************************************************',
+                ip: '********************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for AuditingSideEffectIp is too large, has a maximum length of 63');
+                expect(res.body.message).toContain('Value for AuditingSideEffectIp is too large, has a maximum length of 19');
             });
     });
 

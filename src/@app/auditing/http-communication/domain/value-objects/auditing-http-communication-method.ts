@@ -10,7 +10,7 @@ export class AuditingHttpCommunicationMethod extends StringValueObject
             name       : 'AuditingHttpCommunicationMethod',
             nullable   : false,
             undefinable: false,
-            maxLength  : 63,
+            maxLength  : 25,
         }, validationRules));
     }
 }

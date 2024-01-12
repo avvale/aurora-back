@@ -121,7 +121,7 @@ export class AuditingSideEffectModel extends Model<AuditingSideEffectModel>
     @Column({
         field: 'ip',
         allowNull: true,
-        type: DataTypes.STRING(63),
+        type: DataTypes.STRING(19),
     })
     ip: string;
 

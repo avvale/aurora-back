@@ -269,19 +269,19 @@ describe('http-communication', () =>
             });
     });
 
-    test('/REST:POST auditing/http-communication/create - Got 400 Conflict, HttpCommunicationMethod is too large, has a maximum length of 63', () =>
+    test('/REST:POST auditing/http-communication/create - Got 400 Conflict, HttpCommunicationMethod is too large, has a maximum length of 25', () =>
     {
         return request(app.getHttpServer())
             .post('/auditing/http-communication/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                method: '****************************************************************',
+                method: '**************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for AuditingHttpCommunicationMethod is too large, has a maximum length of 63');
+                expect(res.body.message).toContain('Value for AuditingHttpCommunicationMethod is too large, has a maximum length of 25');
             });
     });
 

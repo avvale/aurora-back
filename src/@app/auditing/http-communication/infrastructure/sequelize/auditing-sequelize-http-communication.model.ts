@@ -57,7 +57,7 @@ export class AuditingHttpCommunicationModel extends Model<AuditingHttpCommunicat
     @Column({
         field: 'method',
         allowNull: false,
-        type: DataTypes.STRING(63),
+        type: DataTypes.STRING(25),
     })
     method: string;
 

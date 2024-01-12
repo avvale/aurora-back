@@ -71,7 +71,7 @@ aggregateProperties:
     nullable: true
   - name: ip
     type: varchar
-    maxLength: 63
+    maxLength: 19
     nullable: true
   - name: method
     type: enum
