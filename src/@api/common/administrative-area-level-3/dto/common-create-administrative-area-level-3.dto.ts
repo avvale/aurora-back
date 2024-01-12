@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { CommonAdministrativeAreaLevel3MapType } from '@api/graphql';
+import { CommonAdministrativeAreaLevel1MapType, CommonAdministrativeAreaLevel3MapType } from '@api/graphql';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CommonCreateAdministrativeAreaLevel3Dto

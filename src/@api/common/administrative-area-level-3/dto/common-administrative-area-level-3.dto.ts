@@ -2,7 +2,7 @@
 import { CommonAdministrativeAreaLevel1Dto } from '@api/common/administrative-area-level-1';
 import { CommonAdministrativeAreaLevel2Dto } from '@api/common/administrative-area-level-2';
 import { CommonCountryDto } from '@api/common/country';
-import { CommonAdministrativeAreaLevel3MapType } from '@api/graphql';
+import { CommonAdministrativeAreaLevel1MapType, CommonAdministrativeAreaLevel3MapType } from '@api/graphql';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CommonAdministrativeAreaLevel3Dto
