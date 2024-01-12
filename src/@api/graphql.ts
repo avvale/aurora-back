@@ -420,8 +420,8 @@ export interface CommonUpdateAttachmentFamiliesInput {
 
 export interface CommonCreateAttachmentLibraryInput {
     id: string;
-    filename: GraphQLString;
     originFilename: GraphQLString;
+    filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: JSON;
@@ -434,8 +434,8 @@ export interface CommonCreateAttachmentLibraryInput {
 
 export interface CommonUpdateAttachmentLibraryByIdInput {
     id: string;
-    filename?: Nullable<GraphQLString>;
     originFilename?: Nullable<GraphQLString>;
+    filename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
     relativePathSegments?: Nullable<JSON>;
@@ -448,8 +448,8 @@ export interface CommonUpdateAttachmentLibraryByIdInput {
 
 export interface CommonUpdateAttachmentLibrariesInput {
     id?: Nullable<string>;
-    filename?: Nullable<GraphQLString>;
     originFilename?: Nullable<GraphQLString>;
+    filename?: Nullable<GraphQLString>;
     mimetype?: Nullable<GraphQLString>;
     extension?: Nullable<GraphQLString>;
     relativePathSegments?: Nullable<JSON>;
@@ -581,7 +581,7 @@ export interface CommonCreateCountryInput {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonCountryMapType;
+    mapType?: Nullable<CommonCountryMapType>;
     availableLangs?: Nullable<JSON>;
     langId: string;
     name: GraphQLString;
@@ -1697,8 +1697,8 @@ export interface CommonAttachmentFamily {
 
 export interface CommonAttachmentLibrary {
     id: string;
-    filename: GraphQLString;
     originFilename: GraphQLString;
+    filename: GraphQLString;
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: JSON;
@@ -1765,7 +1765,7 @@ export interface CommonCountry {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonCountryMapType;
+    mapType?: Nullable<CommonCountryMapType>;
     availableLangs?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
