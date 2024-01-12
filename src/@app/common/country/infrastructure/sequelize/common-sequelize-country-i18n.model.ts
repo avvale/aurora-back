@@ -178,7 +178,7 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
     @Column({
         field: 'name',
         allowNull: false,
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(127),
     })
     name: string;
 
@@ -192,21 +192,21 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
     @Column({
         field: 'administrativeAreaLevel1',
         allowNull: true,
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(63),
     })
     administrativeAreaLevel1: string;
 
     @Column({
         field: 'administrativeAreaLevel2',
         allowNull: true,
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(63),
     })
     administrativeAreaLevel2: string;
 
     @Column({
         field: 'administrativeAreaLevel3',
         allowNull: true,
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(63),
     })
     administrativeAreaLevel3: string;
 
