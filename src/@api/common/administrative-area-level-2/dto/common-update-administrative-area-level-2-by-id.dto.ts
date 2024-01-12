@@ -70,7 +70,7 @@ export class CommonUpdateAdministrativeAreaLevel2ByIdDto
         type       : CommonAdministrativeAreaLevel2MapType,
         enum       : ['ROADMAP','SATELLITE','HYBRID','TERRAIN'],
         description: 'mapType [input here api field description]',
-        example    : CommonAdministrativeAreaLevel2MapType.TERRAIN,
+        example    : CommonAdministrativeAreaLevel1MapType.TERRAIN,
     })
     mapType?: CommonAdministrativeAreaLevel2MapType;
 

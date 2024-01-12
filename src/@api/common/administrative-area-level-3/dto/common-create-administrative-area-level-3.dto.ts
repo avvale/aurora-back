@@ -77,8 +77,8 @@ export class CommonCreateAdministrativeAreaLevel3Dto
         type       : CommonAdministrativeAreaLevel3MapType,
         enum       : ['ROADMAP','SATELLITE','HYBRID','TERRAIN'],
         description: 'mapType [input here api field description]',
-        example    : CommonAdministrativeAreaLevel3MapType.TERRAIN,
+        example    : CommonAdministrativeAreaLevel1MapType.TERRAIN,
     })
-    mapType: CommonAdministrativeAreaLevel3MapType;
+    mapType?: CommonAdministrativeAreaLevel3MapType;
 
 }

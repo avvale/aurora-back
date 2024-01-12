@@ -263,7 +263,7 @@ export interface CommonCreateAdministrativeAreaLevel1Input {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel1MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel1MapType>;
 }
 
 export interface CommonUpdateAdministrativeAreaLevel1ByIdInput {
@@ -303,7 +303,7 @@ export interface CommonCreateAdministrativeAreaLevel2Input {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel2MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel2MapType>;
 }
 
 export interface CommonUpdateAdministrativeAreaLevel2ByIdInput {
@@ -346,7 +346,7 @@ export interface CommonCreateAdministrativeAreaLevel3Input {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel3MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel3MapType>;
 }
 
 export interface CommonUpdateAdministrativeAreaLevel3ByIdInput {
@@ -1632,7 +1632,7 @@ export interface CommonAdministrativeAreaLevel1 {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel1MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel1MapType>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
@@ -1651,7 +1651,7 @@ export interface CommonAdministrativeAreaLevel2 {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel2MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel2MapType>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
@@ -1672,7 +1672,7 @@ export interface CommonAdministrativeAreaLevel3 {
     latitude?: Nullable<GraphQLFloat>;
     longitude?: Nullable<GraphQLFloat>;
     zoom?: Nullable<GraphQLInt>;
-    mapType: CommonAdministrativeAreaLevel3MapType;
+    mapType?: Nullable<CommonAdministrativeAreaLevel3MapType>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
