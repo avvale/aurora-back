@@ -1097,18 +1097,21 @@ export interface OAuthCreateScopeInput {
     id: string;
     code: GraphQLString;
     name: GraphQLString;
+    roleIds?: Nullable<Nullable<string>[]>;
 }
 
 export interface OAuthUpdateScopeByIdInput {
     id: string;
     code?: Nullable<GraphQLString>;
     name?: Nullable<GraphQLString>;
+    roleIds?: Nullable<Nullable<string>[]>;
 }
 
 export interface OAuthUpdateScopesInput {
     id?: Nullable<string>;
     code?: Nullable<GraphQLString>;
     name?: Nullable<GraphQLString>;
+    roleIds?: Nullable<Nullable<string>[]>;
 }
 
 export interface QueueManagerCreateJobRegistryInput {
@@ -2007,6 +2010,7 @@ export interface OAuthScope {
     id: string;
     code: GraphQLString;
     name: GraphQLString;
+    roleIds?: Nullable<Nullable<string>[]>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
