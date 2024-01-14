@@ -24,7 +24,7 @@ aggregateProperties:
     index: index
   - name: name
     type: varchar
-    maxLength: 255
+    maxLength: 127
     nullable: false
   - name: surname
     type: varchar
@@ -36,7 +36,7 @@ aggregateProperties:
     nullable: true
   - name: mobile
     type: varchar
-    maxLength: 60
+    maxLength: 63
     nullable: true
   - name: langId
     type: id
@@ -44,7 +44,7 @@ aggregateProperties:
     nullable: true
   - name: username
     type: varchar
-    maxLength: 120
+    maxLength: 127
     nullable: false
     index: unique
   - name: password
