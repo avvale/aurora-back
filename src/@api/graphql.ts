@@ -912,8 +912,6 @@ export interface IamCreateUserInput {
     username: GraphQLString;
     password: GraphQLString;
     rememberToken?: Nullable<GraphQLString>;
-    accountId: string;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserByIdInput {
@@ -926,8 +924,6 @@ export interface IamUpdateUserByIdInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUsersInput {
@@ -940,8 +936,6 @@ export interface IamUpdateUsersInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface OAuthCreateAccessTokenInput {
