@@ -327,7 +327,7 @@
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/common-mock-country.data.ts",
-            "integrity": "sha1:62baec204907590784e384b0b14d51f43e7c331f"
+            "integrity": "sha1:59dd14e4204daa6b9f12b531284951f0f29d4789"
         },
         {
             "path": "src/@app/common/country/infrastructure/mock/common-mock-country.repository.ts",
@@ -431,7 +431,7 @@
         },
         {
             "path": "src/@app/common/country/domain/value-objects/common-country-i18n-slug.ts",
-            "integrity": "sha1:abc0b0aa843257e12930fb175141ec65480e3abc"
+            "integrity": "sha1:d08c5e7219af8d28a6ca72c57e72280f4b008772"
         },
         {
             "path": "src/@app/common/country/domain/value-objects/common-country-i18n-administrative-area-level-1.ts",
@@ -483,7 +483,7 @@
         },
         {
             "path": "src/@app/common/country/infrastructure/sequelize/common-sequelize-country-i18n.model.ts",
-            "integrity": "sha1:01601b3971cde9d0e7a6a5c0b73be05f015a0ad2"
+            "integrity": "sha1:bb48a9e9ee8746b201f21518becede138590d867"
         },
         {
             "path": "src/@app/common/country/infrastructure/sequelize/common-sequelize-country-i18n.repository.ts",
@@ -819,11 +819,11 @@
         },
         {
             "path": "test/acceptance/common/country.e2e-spec.ts",
-            "integrity": "sha1:35f80aa1ec8d2d45026c3bcb36b74e7bde123887"
+            "integrity": "sha1:e9e6c72e1e28feb490b3d57b173bb8fefd3ae70c"
         },
         {
             "path": "postman/common/common.country.postman.json",
-            "integrity": "sha1:1c3422b1e2b9b1e4432c3ff44a44e26bb6ff1d7b"
+            "integrity": "sha1:8b03854859ff05f48bd2143eafd918c204b21910"
         }
     ]
 }

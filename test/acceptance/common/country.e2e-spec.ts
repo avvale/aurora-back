@@ -460,19 +460,19 @@ describe('country', () =>
             });
     });
 
-    test('/REST:POST common/country/create - Got 400 Conflict, CountryI18nSlug is too large, has a maximum length of 100', () =>
+    test('/REST:POST common/country/create - Got 400 Conflict, CountryI18nSlug is too large, has a maximum length of 127', () =>
     {
         return request(app.getHttpServer())
             .post('/common/country/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                slug: '*****************************************************************************************************',
+                slug: '********************************************************************************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for CommonCountryI18nSlug is too large, has a maximum length of 100');
+                expect(res.body.message).toContain('Value for CommonCountryI18nSlug is too large, has a maximum length of 127');
             });
     });
 

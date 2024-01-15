@@ -185,7 +185,7 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel>
     @Column({
         field: 'slug',
         allowNull: false,
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING(127),
     })
     slug: string;
 

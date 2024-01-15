@@ -129,7 +129,7 @@ aggregateProperties:
   - name: slug
     isI18n: true
     type: varchar
-    maxLength: 100
+    maxLength: 127
     nullable: false
     index: index
   - name: administrativeAreaLevel1
