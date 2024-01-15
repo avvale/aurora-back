@@ -33,6 +33,7 @@ function copyApplication()
             '!node_modules/**',
             '!oauth-private.key',
             '!oauth-public.key',
+            '!odoo/**',
             '!package.json',
             '!package-lock.json',
             '!postman/**',
