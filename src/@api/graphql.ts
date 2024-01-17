@@ -717,7 +717,7 @@ export interface IamCreateAccountInput {
     email: GraphQLString;
     isActive: GraphQLBoolean;
     clientId?: Nullable<string>;
-    scopes?: Nullable<JSON>;
+    scopes?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
@@ -731,7 +731,7 @@ export interface IamUpdateAccountByIdInput {
     email?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
-    scopes?: Nullable<JSON>;
+    scopes?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
@@ -745,8 +745,8 @@ export interface IamUpdateAccountsInput {
     email?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
-    scopes?: Nullable<JSON>;
-    dApplicationCodes?: Nullable<JSON>;
+    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    dApplicationCodes?: Nullable<Nullable<GraphQLString>[]>;
     dPermissions?: Nullable<JSON>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
@@ -1832,10 +1832,10 @@ export interface IamAccount {
     isActive: GraphQLBoolean;
     clientId: string;
     client?: Nullable<OAuthClient>;
-    scopes?: Nullable<JSON>;
-    dApplicationCodes: JSON;
+    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    dApplicationCodes: Nullable<GraphQLString>[];
     dPermissions: JSON;
-    dTenants: JSON;
+    dTenants: Nullable<string>[];
     meta?: Nullable<JSON>;
     roles?: Nullable<Nullable<IamRole>[]>;
     tenants?: Nullable<Nullable<IamTenant>[]>;
