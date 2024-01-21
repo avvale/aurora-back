@@ -12,6 +12,19 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
+  - name: parentId
+    type: id
+    length: 36
+    nullable: true
+    relationship:
+      type: many-to-one
+      aggregateName: IamTenant
+      modulePath: iam/tenant
+      key: id
+      field: parent
+      avoidConstraint: true
+    webComponent:
+      type: select
   - name: name
     type: varchar
     maxLength: 127
