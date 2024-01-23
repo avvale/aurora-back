@@ -721,6 +721,7 @@ export interface IamCreateAccountInput {
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
+    hasAddChildTenants?: Nullable<GraphQLBoolean>;
     user?: Nullable<IamCreateUserInput>;
 }
 
@@ -735,6 +736,7 @@ export interface IamUpdateAccountByIdInput {
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
+    hasAddChildTenants?: Nullable<GraphQLBoolean>;
     user?: Nullable<IamUpdateUserByIdInput>;
 }
 
