@@ -1,7 +1,7 @@
 import { SearchEngineCollection, SearchEngineUpdateCollectionByIdInput } from '@api/graphql';
 import { SearchEngineCollectionDto, SearchEngineUpdateCollectionByIdDto } from '@api/search-engine/collection';
 import { SearchEngineFindCollectionByIdQuery, SearchEngineUpdateCollectionByIdCommand } from '@app/search-engine/collection';
-import { ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
+import { ICommandBus, IQueryBus, QueryStatement, diff } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class SearchEngineUpdateCollectionByIdHandler
             },
         ));
 
-        const dataToUpdate = Utils.diff(payload, collection);
+        const dataToUpdate = diff(payload, collection);
 
         await this.commandBus.dispatch(new SearchEngineUpdateCollectionByIdCommand(
             {
