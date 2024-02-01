@@ -19,13 +19,7 @@ aggregateProperties:
     type: id
     length: 36
     nullable: false
-    relationship:
-      type: many-to-one
-      aggregateName: IamAccount
-      modulePath: iam/account
-      key: id
-      field: account
-      avoidConstraint: true
+    index: unique
   - name: sort
     type: int
     nullable: false

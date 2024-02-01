@@ -23,13 +23,7 @@ aggregateProperties:
     type: id
     length: 36
     nullable: true
-    relationship:
-      type: many-to-one
-      aggregateName: IamTenant
-      modulePath: iam/tenant
-      key: id
-      field: tenant
-      avoidConstraint: true
+    index: index
   - name: accountIds
     type: array
     arrayOptions:
