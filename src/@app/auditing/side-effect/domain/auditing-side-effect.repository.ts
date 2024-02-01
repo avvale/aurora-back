@@ -141,8 +141,8 @@ export abstract class AuditingISideEffectRepository implements IRepository<Audit
         }
     ): Promise<void>;
 
-     // increment records
-     abstract increment(
+    // increment records
+    abstract increment(
         sideEffect: AuditingSideEffect,
         options?: {
             incrementOptions?: LiteralObject;
