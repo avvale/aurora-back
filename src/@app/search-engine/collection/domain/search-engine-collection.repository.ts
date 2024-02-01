@@ -140,4 +140,16 @@ export abstract class SearchEngineICollectionRepository implements IRepository<S
             cQMetadata?: CQMetadata;
         }
     ): Promise<void>;
+
+    // increment records
+    abstract increment(
+        collection: SearchEngineCollection,
+        options?: {
+            incrementOptions?: LiteralObject;
+            queryStatement?: QueryStatement;
+            constraint?: QueryStatement;
+            cQMetadata?: CQMetadata;
+            dataFactory?: (aggregate: SearchEngineCollection) => LiteralObject;
+        }
+    ): Promise<void>;
 }
