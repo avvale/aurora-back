@@ -110,6 +110,18 @@ export abstract class SearchEngineICollectionRepository implements IRepository<S
         }
     ): Promise<void>;
 
+    // update and increment records
+    abstract updateAndIncrement(
+        collection: SearchEngineCollection,
+        options?: {
+            updateAndIncrementOptions?: LiteralObject;
+            queryStatement?: QueryStatement;
+            constraint?: QueryStatement;
+            cQMetadata?: CQMetadata;
+            dataFactory?: (aggregate: SearchEngineCollection) => LiteralObject;
+        }
+    ): Promise<void>;
+
     // insert or update key identification element already existing in the table
     abstract upsert(
         collection: SearchEngineCollection,
@@ -138,18 +150,6 @@ export abstract class SearchEngineICollectionRepository implements IRepository<S
             queryStatement?: QueryStatement;
             constraint?: QueryStatement;
             cQMetadata?: CQMetadata;
-        }
-    ): Promise<void>;
-
-    // increment records
-    abstract increment(
-        collection: SearchEngineCollection,
-        options?: {
-            incrementOptions?: LiteralObject;
-            queryStatement?: QueryStatement;
-            constraint?: QueryStatement;
-            cQMetadata?: CQMetadata;
-            dataFactory?: (aggregate: SearchEngineCollection) => LiteralObject;
         }
     ): Promise<void>;
 }
