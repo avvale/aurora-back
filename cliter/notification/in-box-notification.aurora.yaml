@@ -1,8 +1,8 @@
 version: 0.0.1
 boundedContextName: notification
-moduleName: account
-moduleNames: accounts
-aggregateName: NotificationAccount
+moduleName: in-box-notification
+moduleNames: in-box-notifications
+aggregateName: NotificationInBoxNotification
 hasOAuth: true
 hasTenant: false
 hasAuditing: true
@@ -15,16 +15,32 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
+  - name: sort
+    type: int
+    nullable: false
   - name: accountId
     type: id
     length: 36
     nullable: false
-    index: unique
-  - name: sort
-    type: int
+    index: index
+  - name: isImportant
+    type: boolean
     nullable: false
-  - name: checkedAt
-    type: timestamp
+  - name: subject
+    type: varchar
+    maxLength: 255
+    nullable: false
+  - name: body
+    type: text
+    nullable: false
+  - name: attachments
+    type: json
+    nullable: true
+  - name: isRead
+    type: boolean
+    nullable: false
+  - name: meta
+    type: json
     nullable: true
   - name: createdAt
     type: timestamp

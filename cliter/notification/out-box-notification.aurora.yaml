@@ -1,8 +1,8 @@
 version: 0.0.1
-boundedContextName: notification
-moduleName: notification
-moduleNames: notifications
-aggregateName: NotificationNotification
+boundedContextName: out-box-notification
+moduleName: out-box-notification
+moduleNames: out-box-notifications
+aggregateName: NotificationOutBoxNotification
 hasOAuth: true
 hasTenant: false
 hasAuditing: true
