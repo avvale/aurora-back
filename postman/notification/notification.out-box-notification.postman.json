@@ -1,0 +1,561 @@
+{
+    "info": {
+		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+		"name"          : "@app - notification/out-box-notification",
+		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+			"name": "GraphQL - notificationCreateOutBoxNotification",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:NotificationCreateOutBoxNotificationInput!)\n{\n\tnotificationCreateOutBoxNotification (payload:$payload)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 367144, \n\t\t\"tenantId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"4tpai94pntot00g7icv370k6qq1ib1r451r9zn9ymn63ccde8kpz6xhhrl72n3jy22vig174wqz6h6c73ewo8wpzz1da9fckprashud22wnt48jjb97xqu66uz0ryyqjtgqpye7ak68o4h1mp5uveht2vunx5kw177l3v8pgbu5mwlnndnm5c7tkc0qylscs1wb85dljj5peue82y15rgvq4thljn5tzd57snfihckzodmqupb7b78i9i6h8p7\", \n\t\t\"body\": \"Soluta natus ullam voluptas autem non ipsa qui. Sapiente doloribus explicabo placeat maxime nobis possimus minus. Fugit dolores perferendis tenetur nostrum nulla optio aperiam eius. Quia necessitatibus doloremque ea fugit ad. Blanditiis quos mollitia animi. Ipsum veritatis quo voluptas.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationCreateOutBoxNotifications",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:[NotificationCreateOutBoxNotificationInput]!)\n{\n\tnotificationCreateOutBoxNotifications (payload:$payload)\n}",
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"992a8565-0d3e-4520-8e12-d24081a66230\", \n\t\t\t\"sort\": 766302, \n\t\t\t\"tenantId\": \"8bc15493-29d4-4103-875b-262c2a31bf98\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"vsse9w0c0svpk0i5kyyf66frdxazrkk8q10qykokdt6s9m5n3yw1olxh710a80utvq4s4qp4nrwig62k36ndjb1gnv91bia1jhgeyiy0ijnz32eroxxypsuqpkd77pk2p7zk3q4xhi5pepdga3x5jnjvcyiyk8q5sfyhq7utqqefveku5rhppu3btc4bylw5cp0381jcpan43nmnc5nxct0pj6ydo4pmixkymj2ry8p5xc2nf83ai4z67ni1c6\", \n\t\t\t\"body\": \"Ut et soluta vero sunt. Voluptatem eligendi et et quia officia vel esse qui voluptates. Vero sint dolorem omnis voluptas delectus. Voluptatibus ut veritatis eum enim a vitae dolorum. Deserunt aliquam numquam quae voluptas vel.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"9cd0343b-8333-4322-9d46-6c85ca6c432c\", \n\t\t\t\"sort\": 620357, \n\t\t\t\"tenantId\": \"dbe0e636-7f19-4794-af2f-76fca15f987e\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'OR', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"i33kvleo8uvngjd1rfiqbly366g2t7cssgrtnzivraqjd7v80xnkoogj4r6xjxul82ujaoz2sea9jyxvg50e8j2nzi8rpojsflevcpv32fsduo27lw25jnv71somcbdgmipbe14btix1v4niijw8idk3lc5v4ju033sywn918yy54ueh13vfxofkyput5a0dnjtaburz6fid37iyd0orjfl86bp1xz7wcrvyxuravu1cgfzd4hzs2jkaxtxsri\", \n\t\t\t\"body\": \"Ut assumenda repellat ad est ex quae. Nulla facilis dicta molestiae. Optio quae quasi possimus quos. Ducimus molestias nam molestiae voluptatum perferendis iusto. Nisi et quis aut sunt. Esse soluta dolor sint dolore quia.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f94bdfe4-915c-4bbf-8d7b-bc854315ddbf\", \n\t\t\t\"sort\": 236346, \n\t\t\t\"tenantId\": \"02005cb5-55fb-4adf-9449-54bb1dd57854\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'OR', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"zbpvpvsjhcn94194egvspzaatcdzy3nwnuj0o7mtjqlggpz6m16ionwxyd5wx19igycpphkrc2d52ofp5iz7f1zrobfmvatuj1z4f9gswkqk5uhlxxiibw5pmkgd13j9h63q0d9viktw2ttudf0wdyj19dmt6lkt0834xnmcvqmy5iouwtdkbf74nrjnc7mz0q8gwsjcovnsdlzydbqcw8jz42hpq400hdraki3s4anyh1m4v9dc8927nmmm9s\", \n\t\t\t\"body\": \"Quia occaecati eum omnis dicta. Distinctio consequatur iusto. Sit dignissimos atque ut doloremque necessitatibus rerum accusamus. Harum rem debitis quas reprehenderit. Voluptates officia asperiores.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"a76e5447-3a5d-4824-8efc-06866d51506c\", \n\t\t\t\"sort\": 231022, \n\t\t\t\"tenantId\": \"185408ad-d693-4a61-b6d7-7bf706df4a9c\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"7cs14o72mnjaobiw41txl9ellvvk7w007x6qaxk3pe1ee8hwkz4uusjzlvemy7e59y2365m0oxnt9ylzvdgkfqvmbcl0pf78wc9j6kl28fd5cuxf6jjmyud0groy9h9c9kc4moz2p4ffnearz7qr7tkf1ul0ah38ztqn3cjxqlij46nf0k6eh2dgk43zze0kae8lm1zwukep9443h3u5hw6xiefzfbyshkxmmp2zc933vaesuj5lewwemohjvx\", \n\t\t\t\"body\": \"Ut quasi fugiat voluptatibus iusto vitae itaque. Molestiae optio consequuntur impedit voluptatem quidem similique alias eveniet. Iste numquam exercitationem magnam repellendus alias suscipit. Ad doloremque reprehenderit ullam aliquid vel itaque tenetur. Rerum qui est quod quibusdam dolorum. Qui et doloribus est eaque.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f58a4b06-915d-4783-bfc7-56370ec2919c\", \n\t\t\t\"sort\": 720563, \n\t\t\t\"tenantId\": \"a6f2357b-a7af-4515-a596-e05c782aceb6\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"9hpb0kb61qh8malw59nyssucq1f5basgpuwswbzb2fc2hkcghacf5u2rkv38u2bltitwwnk2p41ozzqz426dg00i24p9jkqvns2uaf8jafdzdhqmya3vibu7f1rqf2njli13czf937gk8gmr5h36hiqb8wsqf09bo5mh3f4ostkd2ol62eedhulhrdkodiprxca14g0klvchwegtfmh6dzzxe04uplg3cbpvpmk8m42o4m0xzlp28u0m86cx3i\", \n\t\t\t\"body\": \"Animi fugit vero dolores maxime. Iste sapiente neque repudiandae cumque ipsa ipsam blanditiis. Deserunt eligendi aut distinctio. Beatae rem optio itaque repellat rerum fuga sit nemo dolores. Excepturi error eum. Illum excepturi reiciendis.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"33651e8b-71dc-4cd3-8d78-4c0e48c08772\", \n\t\t\t\"sort\": 392347, \n\t\t\t\"tenantId\": \"b83e2af1-8f94-4d03-8e3d-a4a581852cb0\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"5t713fdcmrbvl96b7tt53iv4lycn5ok1oi0nzkqseywgzj1brh6j070xla315rfje64rmrxvfid7w04v71g6ht3gh08s8e3f3wq28aurzirt0ustb001t1tz9zx6d4q58rn548iv77r44l6h6i04uyu1y4mgjgydthm4b9nd2f6zk96y4e6csf1fevvtmsnbks2ggl81gwj0iuxsz98iu7dn2cub8u1bqt14bw9fn565jw1zofhcpotwpkl3vk\", \n\t\t\t\"body\": \"Et autem id. Consequatur sed similique nihil iure facere voluptas. Iusto dolore hic. Perspiciatis dolorum temporibus officiis amet enim ea nihil aperiam.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"fa4373b9-3eac-4648-a243-cbd62aba7032\", \n\t\t\t\"sort\": 446789, \n\t\t\t\"tenantId\": \"d52dc6ac-3b84-4340-b8dc-5694263d36d6\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"p3oo0anic1h9ot96a800uzu9ddx9t136i0dcza98epggu4ncdj5cotm6ua5sxcq6poqoxwra2u5yrsznibh508ewu21bo4e230o7ueue19sa6j0wxo14kkd4fwck0995y9xakxth0l27kkh4tcsfr3tjtny0zkgkn691o2p0bvg4qadeiekf3967mpchqvwbpeclf61ppyzeqbafjwf38xa8hkhl4fu1mfwpthx1o2mh5ta4mn37dpg4xtf63d\", \n\t\t\t\"body\": \"Et cupiditate id similique ut nobis ipsum consequatur. Quod mollitia et ut aspernatur itaque. Molestiae quod facilis. Vel dolorem minus rerum sint repudiandae et aspernatur nemo.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"3ab5da3d-8205-4d55-8667-38277e431f78\", \n\t\t\t\"sort\": 995303, \n\t\t\t\"tenantId\": \"6127ecab-626f-4074-99c7-b9071f3cf9be\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'OR', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"k7imu7anm1cw1kv3ivraq6icpz2pneahl1eqe2rlnxh9tebp4ntyh3pt3ph2b6fgklxcg5y5uvhyiwbxxpy30wr1rstug8g8csx3a0s08uh1k1bjknr7cbn8okad9n2p8o7svovuesq7ec772bimilwuux5qkdz1fq10eu4qljmrkd4nz3ao1usbh7fr2k1wf60vxu4pj9jvq0fh0ms3bppr01ufuuexp45d0inobd7mg3l9v4p0flnurqle99\", \n\t\t\t\"body\": \"Est explicabo repellat est. Reiciendis est quis labore ducimus molestiae delectus illo aut minus. Aut deleniti soluta ut doloribus a vitae adipisci molestiae. Officia non aliquid aut aut aut ut quia eum eius. Perferendis consequuntur sed.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"7dd1f263-5fce-45a0-a274-edcd59b2934f\", \n\t\t\t\"sort\": 158788, \n\t\t\t\"tenantId\": \"53626eb9-6aa4-4a2f-b924-92c1eb6bb5fa\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"8c130q0xmuj71nsc8hz1tpod7g1mvom2o666ui19h35nq49ecr1ghac7ehqbvqyb1cugjkbqghd03y2scn3949zd3leicma7334d4615xssg64caok7qkwdt9zydnlkcavlhcx347q8zsz4e7xcalef1wpieu4paeu6vgc9x54mshnui3z4i78jxlnxhoqy954xjr2rsw4391pxuip9kmg36fcwun9gx4wgxi34vp38lbn3wd5er1iro8ta01t\", \n\t\t\t\"body\": \"Et in voluptatem corporis. Non aut debitis maiores cumque id aliquid. Quaerat hic accusantium molestiae laborum tenetur quam magni.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"5fa8aacb-4fdd-4946-9ecf-e06216b32900\", \n\t\t\t\"sort\": 410010, \n\t\t\t\"tenantId\": \"3bae571f-a56d-4f31-adc1-5a14df4914c0\", \n\t\t\t\"accountIds\": [], \n\t\t\t\"accountTenantOperator\": 'AND', \n\t\t\t\"tenantIds\": [], \n\t\t\t\"scopes\": [], \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"zlh3bfderkxmrjh4n51zow0dzfsi7j5ck6g67naod2oadw0ffadee1tq1svrqehs45eygh12i8og176h5lu1w0d4zi5dznighxz214y59snn6aekyv5avx3sroyutg2s88n87lun5f2qyqmrj6hyd7tkyvkjugsjfybczzl44fvfg10rfn1x50t1618aw8j7065nphdpt72go3mdgfbw66x2bqyleeynfxkyd2bebjg7vsnlo0063doavh4hlp\", \n\t\t\t\"body\": \"Laboriosam quam in iure illum rerum eaque voluptates suscipit inventore. Voluptas perspiciatis voluptatem nisi. Vel eos illo aut est.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}\n\t]\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationPaginateOutBoxNotifications",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tnotificationPaginateOutBoxNotifications (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationGetOutBoxNotifications",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tnotificationGetOutBoxNotifications (query: $query)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationFindOutBoxNotification",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tnotificationFindOutBoxNotification (query: $query)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationFindOutBoxNotificationById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id:ID)\n{\n\tnotificationFindOutBoxNotificationById (id:$id)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationUpdateOutBoxNotification",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:NotificationUpdateOutBoxNotificationInput!)\n{\n\tnotificationUpdateOutBoxNotification (payload:$payload)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 193623, \n\t\t\"tenantId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'OR', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"jp1ue3fruplvshdduu8m5pkk461bpvottx8ledy4907f0dihfcn9ke9u5tba9topymitamrjcz88rn2zkoubf7ow8cw20t4mrurj11id0425y2oskf2nhc4k2ypj821yfygn60l5xx7pkyq5xnfeslm7uyl0b5yusi9y4o4l7w24yc063xs2sooy55kghk4f2x2w2ceegf770e8cduoiuw0zq7i833cdpbxmmjrh46v0ftxwpecueeqpyo213h\", \n\t\t\"body\": \"Corporis aut beatae. Occaecati et sint fugit alias amet nemo minima totam ut. Sed error eligendi et nostrum necessitatibus nostrum consectetur perferendis. Vel placeat dolorem qui libero rerum. Non culpa ipsa. Qui incidunt vero et veritatis rem.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationDeleteOutBoxNotificationById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($id:ID!)\n{\n\tnotificationDeleteOutBoxNotificationById (id:$id)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - notificationDeleteOutBoxNotifications",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($query:QueryStatement)\n{\n\tnotificationDeleteOutBoxNotifications (query: $query)\n\t{\n\t\tid\n\t\tsort\n\t\ttenantId\n\t\taccountIds\n\t\taccountTenantOperator\n\t\ttenantIds\n\t\tscopes\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notification/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 475313, \n\t\"tenantId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountIds\": [], \n\t\"accountTenantOperator\": 'AND', \n\t\"tenantIds\": [], \n\t\"scopes\": [], \n\t\"isImportant\": true, \n\t\"subject\": \"ttq5g004gk8iw19pbl62fks4wtpae19irwvoqydkbdn96bss4ay2ekdkrkb9ckx13yt4i73inq0dsnttxkl19etoakqbgl5y8i19lqstgpe85mobxrlbu8y5je1ucb4neb0ukhxojpibphrj0oj5lvr9jdfaod9c7ikn7vut7jqy09vj7oz0nm9pp5lkr63tup0mfriijy2amfxah697lk6j4mahy4jg0vtazyqzwut5vy8yevhtzzkx3sdik9\", \n\t\"body\": \"Quae cum sint explicabo consequatur non sed facere. Quas voluptatibus repellat. Libero dolores voluptatem vel eveniet aperiam et aut.\", \n\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notification/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notification",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notifications/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"576ac1ac-75d4-4e5b-8010-b2a888c41f49\", \n\t\t\"sort\": 893420, \n\t\t\"tenantId\": \"b45e4876-3987-4850-8f38-7e55f49d988c\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"vr7a8c4zg7hyrvd5zchkieftm4bpjjce5b5gjsxatz14opp9wsjbhqx0lkeyt5k716hdz4bsvb84bfqjssj00pgxsg4bk6aiusj8hz0tvvkc5xxebwi7ujapkxip7juhozqg7niityn2w9aw4iax6ez5fd9aarh8nqwdc8w4j4f1qeuwteoaehwxke3cvb838ssqwu6j8epis5okpk98wnswgac9a59q2hh9erj1bedqism21n5y5qdy2sqr94\", \n\t\t\"body\": \"Culpa id est. Qui in eligendi nobis. Velit totam nostrum vitae quo ab consectetur eum eum ipsam. Et cum consequatur quibusdam sapiente quo dolor magnam explicabo. Dolorem architecto beatae aspernatur doloribus aliquid.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"40eacfd4-c44d-448e-be8e-37e4e7d86d1e\", \n\t\t\"sort\": 889646, \n\t\t\"tenantId\": \"386ce278-ab1b-499e-accb-c454f3f5d126\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'OR', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"gwulk9sxsoth2or0qma9zm8xhd1nnzi5t7qqqswz4b8ikbzrhlbyzpm9m8cz7d09154c3q2gk2vou8xq95pjdiwqr39pdjetuhztjz3wcy4n4z9m6ok8l5a6gf9hr6nob0m9ssb05wor0ok6zao9dpp6mlesdq6ashhymszn2ckjfba245gk5r3vsy8oud38rqf1jie64rv0ddozpilam3mn53ocfzby403p896ggtp1mz43j5fp1gc22qwxv1\", \n\t\t\"body\": \"Qui excepturi placeat ducimus rem iste ipsum. Quia ut et labore libero aperiam alias aspernatur sequi quia. Quos adipisci illum.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"a8f45499-7ad7-4a89-bd7e-5f1e14cb697f\", \n\t\t\"sort\": 205538, \n\t\t\"tenantId\": \"4482ad03-901d-45d9-b924-57758ae2c20e\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"somms1v0s34xd1rgozwlt0a4ftm0fjxaceurrt322gs6ci12m4md022kz33pop75084ekk69q2oacfapayffwst53cp43px9s3dx7rh7wdgl74p7c1l0gatzrudd759hy8u0miskrpwwolslcgzr95hgnqe4laj1logv9m5wzai5cihasxsqvgouw9c7wlctk4ivgouflnmdd7slpeylcxk8cmkg4wjufwprep3s5bk89bvo0fe30o4wzdi1kr\", \n\t\t\"body\": \"Debitis magnam tempora ad necessitatibus vel voluptatem quam. Laboriosam optio beatae quas. Praesentium voluptatum libero dolorem mollitia voluptate aut adipisci eius omnis. Non reprehenderit commodi totam pariatur consequuntur. Qui voluptas blanditiis error eos et quis sed.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"034f71fd-c8ce-430b-94ef-4f5885f7f846\", \n\t\t\"sort\": 499061, \n\t\t\"tenantId\": \"9b6c3572-3246-47e3-931c-2b92e926b0d8\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"l6ypw01kcrw135ch1cn2edsx1vy2xm5zk0l10csuym1i7t56ht4d4dfwokob37hshwjnfwmstl79z102le6nhkdybi3t5h5qsnjq5fb1t0btt5jsclhywq6ldlucw9m5atksam4fbplvhmf0jrt8u0lfzzmhie7pq06ffclltbfdkx9hnefge5n92frxijcnqhhmab3fst3tyr4uyss6o2s8ov5t5g3f2clbpipzlz4xdgopkezplxfg238itc\", \n\t\t\"body\": \"Omnis vel rerum quis repudiandae magni atque. Libero aut voluptatem sed repudiandae eos eum est sed omnis. Repudiandae aut alias quia est inventore veritatis. Aspernatur dolores ut nihil aut qui reiciendis sunt.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"7cc13e86-7464-4e31-88a9-9906f1f919a8\", \n\t\t\"sort\": 563474, \n\t\t\"tenantId\": \"a64fb22b-a4f7-4665-b8a5-ff0dc8f96304\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'OR', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"lgvuukl41ix2bjsep5bcqb9z6epsxbriq8zguyzc1lb1bpeh4rk8631chl4zcjo23xncu01tqboobf2vni8ahr79f1ebknttr60si8rhgtl1hyktu89kqu45625eayi92ah1pqks97ito9zxopyalwuj1wc44oxp7dgobznwk99allp09npbz9zwhwuy40529on1vk8wznwtsnggetenf4slrpi6ch4dubcec89n4uhc9pe2y5ygyxdwd72zjb\", \n\t\t\"body\": \"Voluptas laborum consequatur dolor ut. Harum et praesentium. Est sed quis recusandae cum et. Qui velit et et sed. Quia suscipit fugiat non fugiat eos nobis.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"6bf5860a-fa46-4441-a658-fec815fa2650\", \n\t\t\"sort\": 680533, \n\t\t\"tenantId\": \"2d8c184a-9367-480b-9146-e268899da903\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"iuow0arqe0vj12l5npv5ay1mfq8ppcgkm0u49t2aod9t7q9l3jhw89jh4obulqnskpk3ks380oj3l7o9adyejpd40kpb7f1z9bsuagc55y9wop3d1xshtapt65s1xatjz1l1ggg2x6m9ahcimgltjnse39yvowuadcxn35mo2t20150oc8emdi7uqnahtmt8q3cyyu16upoxdjfr5dhzk68avyybidrw9u8082dykk4kat4mbpthd5v5j9hrrr\", \n\t\t\"body\": \"Ea magnam inventore. Recusandae quia consequatur. Libero esse rem quos mollitia rerum neque provident consequatur et. Recusandae veritatis sed officiis qui voluptates odio. Veniam dolor facilis et recusandae illum.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"706a2a16-441f-4c52-ba20-a9ab23170a67\", \n\t\t\"sort\": 863778, \n\t\t\"tenantId\": \"b08efedc-a713-4518-9386-5966a0bd331a\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"vvr1msb7pf6cv6kk60ovprpxaq6au9gnitcmg7rwtfbcfiv112vaerufp5x3y28pwkr55omutq8c4sljmoc962jfyz4v0yv5h8x9bjrup9qultawn6ql6rb5e10uwut8lqf16s9fj79ykwnubhq2ubvx144ixlmrmy7xjrjfqn9j7cdjl69vz4bozule13ewiagr78wzew8chbt2qjrtgdeohwpzrgqyz9bdyo0p1bfo5ffhm8glf5n1r6z2h5\", \n\t\t\"body\": \"Debitis velit voluptas molestiae doloribus ut dignissimos deserunt. Eum fugiat suscipit rerum nemo optio eos libero commodi. Nobis voluptas error corrupti consectetur fugiat amet laboriosam et molestiae. Ut aut provident dolores enim voluptatem recusandae officia est temporibus. Nulla nisi ut dolorem autem atque corrupti ad corrupti.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"8ec735bc-e7eb-4191-977f-1c6531cb07dd\", \n\t\t\"sort\": 354757, \n\t\t\"tenantId\": \"32c8b77d-f56f-4706-83fa-1ca12dd5ce81\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"cq648n87pw9fr1qh94fc1l236ptkcpqi4fkrq3ornircntg46fnj3tvcfan9b9x43toj8upz4u4hf9j0rh77cqiimrfi2h8gyah6erdxo9rfh1miifahhypnslgq23t10pmxr6g8917wljrj7wp4q2pkhl2ciz78csayu00ty9dwfua4t2s7wx2nvzcdjprvfv10f37jrktvtr7ax0mglznbzpooqa5j6aa368k7xl9nq8b8gsy407j4xxnnrr\", \n\t\t\"body\": \"Qui asperiores aut sit maxime maiores distinctio dolore nesciunt. Voluptatem et modi molestiae dolores quo accusantium. Consequatur blanditiis qui odit consequatur facere dolores. Non quo nulla eos quisquam perspiciatis repudiandae.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"5f50aad1-606d-43c6-868d-0cd2a90514c5\", \n\t\t\"sort\": 335620, \n\t\t\"tenantId\": \"609465ea-085c-4e59-85f9-a62914f03713\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"1fb2huche4rp091v4g1hmtiv30yc748geeemmryxubs1xdo3jld5hujeox8s3gsmf415w2rr9orcxjk9fidmlc14zfs28gn7vphtga59qxx5130r2jqyg18g37jwkplmdw8mxcpz7n7shitbu1w5595dj1nse2wmjm7kkr9nrz7avl8jb151mew7cg67ka34fyw1ckcjdpg6uc7w9u3afgqn0sm1ia464gkc9su6otg27q4gxpudwla5jjx86f\", \n\t\t\"body\": \"Sunt blanditiis sit fuga tempore recusandae. Aut et excepturi qui. Suscipit in a dolorem. Doloribus sed sint. Molestiae vel quae vero sint tempora repellendus excepturi nam amet.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"1ceb5bf6-506f-4005-9266-f2b9cedc5a3b\", \n\t\t\"sort\": 209729, \n\t\t\"tenantId\": \"94bcc4e7-7c34-432c-b789-dfd310ee472a\", \n\t\t\"accountIds\": [], \n\t\t\"accountTenantOperator\": 'AND', \n\t\t\"tenantIds\": [], \n\t\t\"scopes\": [], \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"7dyt6j2tyzz727lwidugo7bjlurjg40gmmfys7n3m58810toy8cqrmi8trw4dyuekozffxs364swlqui6ethilyv0t55ln472i4yclog0zrsbndt0a7s3y16ikels7ni9lwwtfmzbe1ch8e70ea68rzpe8m5gkqqqvgigawfz9k9epvyuhho1gjthq0qg5375pvpw1z0i88kwme1aywz1sk33dbt0ax9p83d73dtt8a03x897z8zr2buwpwi75\", \n\t\t\"body\": \"Alias culpa voluptate eligendi soluta aliquid. Optio veritatis ut aperiam natus asperiores qui temporibus. Odio atque consequatur ut qui dolorem minima numquam.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notifications/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notifications",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notifications/paginate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notifications/paginate",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+                        "out-box-notifications",
+                        "paginate"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notifications/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notifications/get",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notifications",
+                        "get"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notification/find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notification/find",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notification",
+                        "find"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notification/find/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notification/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notification",
+                        "find",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notification/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 427688, \n\t\"tenantId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountIds\": [], \n\t\"accountTenantOperator\": 'AND', \n\t\"tenantIds\": [], \n\t\"scopes\": [], \n\t\"isImportant\": true, \n\t\"subject\": \"2b9pi5oqjjz64vkhq6he8y125jvcsl54d43vk6ivnulkbvyst3g8kfqwv16a23dq8w1wgfen5sb94jcghogyejvifj8okqm2vquf1lqs0hd8wki6fzksl0uinq8w313qyefs92701shh19rkjyice5zjslpg7kt6kelnb05cbp45lsz3gv3ylg7p2hv69vprsczt8wq4aixl10npxuva20kcwnvugu2wzxmoodyqb5xgand0ocoq6zucg066ps\", \n\t\"body\": \"Optio excepturi voluptas et aut repellendus. Ex corporis esse. Voluptate omnis veniam in.\", \n\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notification/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notification",
+                        "update"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - notification/out-box-notification/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notification/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notification",
+                        "delete",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "REST - notification/out-box-notifications/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/notification/out-box-notifications/delete",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"notification",
+						"out-box-notifications",
+                        "delete"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+    "variable": [
+		{
+			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

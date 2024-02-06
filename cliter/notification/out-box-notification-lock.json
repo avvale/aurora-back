@@ -1,0 +1,761 @@
+{
+    "version": "0.0.1",
+    "files": [
+        {
+            "path": "src/@app/notification/notification.seed.ts",
+            "integrity": "sha1:ba26a65ed1b80661e61844564a5f6677033e91b7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notification.command-handler.spec.ts",
+            "integrity": "sha1:aa6acdab46444113697c12706bfeaddb391cb98d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notification.command-handler.ts",
+            "integrity": "sha1:5c07e0d07681c19398806c4e8ca65cd7cfb91b98"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notification.command.ts",
+            "integrity": "sha1:53a35a3a4a3e7f919d91f2d239a1a2bf19c6e29a"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notification.service.spec.ts",
+            "integrity": "sha1:7a03eaa41ae41a66f37059ae1a4a4049cf6c1a8c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notification.service.ts",
+            "integrity": "sha1:719c215b2a363c5178c4deee64162f839efa4a54"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notifications.command-handler.spec.ts",
+            "integrity": "sha1:873a868890715594a77b11de9f99541ee095f44a"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notifications.command-handler.ts",
+            "integrity": "sha1:fec5679eb73b16d8b693e8d117219fd66f3cd81c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notifications.command.ts",
+            "integrity": "sha1:e864ed910acbbf3a7ba9303073cec082941f5dea"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:07c5a029b2c0ee1f19141b9134ffe0b6399429b7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/create/notification-create-out-box-notifications.service.ts",
+            "integrity": "sha1:7170301568618823d236c2673fc5bed1d1cd416a"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notification-by-id.command-handler.spec.ts",
+            "integrity": "sha1:20ec0cc261f3ebbf7c6f7e9e0d7d4ea7d87ccda6"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notification-by-id.command-handler.ts",
+            "integrity": "sha1:0bfb061b3b95cde1bcc5e2efb461378617372ca2"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notification-by-id.command.ts",
+            "integrity": "sha1:4c0cd084448340adb0064d318a0d67f0bc2148e2"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notification-by-id.service.spec.ts",
+            "integrity": "sha1:5d8674c1a0985ee2307e56a0d1ae1ecae92f22aa"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notification-by-id.service.ts",
+            "integrity": "sha1:84d8135ea20c71ae2372c57398121e6efbb099e5"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notifications.command-handler.spec.ts",
+            "integrity": "sha1:8e54fd6928057c3afde2b3f006f2c355ab77d914"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notifications.command-handler.ts",
+            "integrity": "sha1:0ec8dc98f7b1b9325fe52643e39b2941254b6865"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notifications.command.ts",
+            "integrity": "sha1:81889a0b8438a394197fad9caf7a3b5602a6a762"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:5c6340734e089507925fcf74f436f3688ba41fd4"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/delete/notification-delete-out-box-notifications.service.ts",
+            "integrity": "sha1:2f7c9e5f76ec8e74baba77527a297f45e10b0050"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-add-out-box-notifications-context.event.ts",
+            "integrity": "sha1:1184e1526db8a4cf1478dff9c2dcb9a811d29e62"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-created-out-box-notification.event-handler.ts",
+            "integrity": "sha1:4978d9e786dc8362c0af4277735da56950189c8c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-created-out-box-notification.event.ts",
+            "integrity": "sha1:2869e7433bbef6580fc601dfe940732591ea8785"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-created-out-box-notifications.event-handler.ts",
+            "integrity": "sha1:fe33673bf7c58258f49c29a6b01a7a8b35420ee7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-created-out-box-notifications.event.ts",
+            "integrity": "sha1:fd376e3683ef15616d3b61a5abaaa06372952a49"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-deleted-out-box-notification.event-handler.ts",
+            "integrity": "sha1:137a24ff4af02ec65c6296f4ece78ddc6de9f287"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-deleted-out-box-notification.event.ts",
+            "integrity": "sha1:d05372dc13d82fb0007708275efd024b175a3f89"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-deleted-out-box-notifications.event-handler.ts",
+            "integrity": "sha1:a19232828ce9f277f877c8de04e4d29e52c0b451"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-deleted-out-box-notifications.event.ts",
+            "integrity": "sha1:4de217b1095bca3106d14ba1de42d17e06ba2268"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-out-box-notification.event-handler.ts",
+            "integrity": "sha1:9c5489bfd233c11e23f09ceb6a0f97a9dd32d4cb"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-out-box-notification.event.ts",
+            "integrity": "sha1:c0d4275c34044deec20fe596da4d204473895ffe"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-out-box-notifications.event-handler.ts",
+            "integrity": "sha1:07bde7780486ca89da98e5e0a4926c9f6b0a8674"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-out-box-notifications.event.ts",
+            "integrity": "sha1:7b0bc1cb1e4a0ebc1f1b47249f2acd0c96ec9aea"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-and-incremented-out-box-notification.event.ts",
+            "integrity": "sha1:19b6d5877a4423d41e63d55c07727bb4faa74d39"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-and-incremented-out-box-notifications.event-handler.ts",
+            "integrity": "sha1:393619e38bdb5a5d89b5bb86eb341f3419f9f43e"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/events/notification-updated-and-incremented-out-box-notifications.event.ts",
+            "integrity": "sha1:025b8bc5755152bdd87794e8b689e0fc8aed32c5"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification-by-id.query-handler.spec.ts",
+            "integrity": "sha1:ee1c13f9396e52a3a767db8ee041d71ff7f8da5f"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification-by-id.query-handler.ts",
+            "integrity": "sha1:fcc37a3ede4d404947effff92e0ead5f58c6253c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification-by-id.query.ts",
+            "integrity": "sha1:be996226d7800681f0cbe06efcb0c9c3fd660caf"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification-by-id.service.spec.ts",
+            "integrity": "sha1:ca97b4e4703bc970b1c3669a7614670ab5345f73"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification-by-id.service.ts",
+            "integrity": "sha1:6529576372bf2a5bd864b5444f4af1310695e47f"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification.query-handler.spec.ts",
+            "integrity": "sha1:bfe3c905d78b37891acd5fea970796f831a17897"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification.query-handler.ts",
+            "integrity": "sha1:5920e6c6d4ae323d782adca3678b4dbfab37690f"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification.query.ts",
+            "integrity": "sha1:c31fb9df18b0dfc39bf1b5d79eea43cd06462043"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification.service.spec.ts",
+            "integrity": "sha1:8a6bfe600999529abac38815c16d011853635902"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/find/notification-find-out-box-notification.service.ts",
+            "integrity": "sha1:7116466b2825fae69eff9e68384159c3ecfc71dc"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/get/notification-get-out-box-notifications.query-handler.spec.ts",
+            "integrity": "sha1:a81f60945d13582a424e7149dcf502a1765920d8"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/get/notification-get-out-box-notifications.query-handler.ts",
+            "integrity": "sha1:3774ecc646ec16a39e59b69fd27f0a933dea4358"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/get/notification-get-out-box-notifications.query.ts",
+            "integrity": "sha1:f9d9cf32604bb00fa593161fee29599878bdbc8e"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/get/notification-get-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:3b7f7d13394d4e51446ca9fdde77c621240aacb8"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/get/notification-get-out-box-notifications.service.ts",
+            "integrity": "sha1:5894916c020660d307ba24529bf1f3edd51f34b5"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/paginate/notification-paginate-out-box-notifications.query-handler.spec.ts",
+            "integrity": "sha1:0a46fbc82c48fde2ce7f33fa38c487ffd87f8c73"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/paginate/notification-paginate-out-box-notifications.query-handler.ts",
+            "integrity": "sha1:ef85cb221eaf6739c0a0b859551834458fbad221"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/paginate/notification-paginate-out-box-notifications.query.ts",
+            "integrity": "sha1:61f56c87f6e1d8d22dad58aeb8fa2797fb367ad7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/paginate/notification-paginate-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:8ddb088ec0ffc6ecc44a2ce4b085b25b796f1ee3"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/paginate/notification-paginate-out-box-notifications.service.ts",
+            "integrity": "sha1:b5dd2f869a6fd3cb443589efd0616a682012427b"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/raw-sql/notification-raw-sql-out-box-notifications.query-handler.spec.ts",
+            "integrity": "sha1:37f649c7f870a4162b5b4f70c561c1f9d0a30113"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/raw-sql/notification-raw-sql-out-box-notifications.query-handler.ts",
+            "integrity": "sha1:18ece00e72e8e56459442d98fc0fc78c89cef07d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/raw-sql/notification-raw-sql-out-box-notifications.query.ts",
+            "integrity": "sha1:3eb5334e898591209e16bdb5645ca7dc2a1da12c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/raw-sql/notification-raw-sql-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:b2e620c0faf15e7c939fcb0ca8f4a5a3671abc0f"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/raw-sql/notification-raw-sql-out-box-notifications.service.ts",
+            "integrity": "sha1:72190e357daa8047e58cb1b3c311f62a4f6ffcd6"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/sagas/notification-out-box-notification.sagas.ts",
+            "integrity": "sha1:17c6d36dd01ec5044b9d8153f35f51d6c9c1562d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notification-by-id.command-handler.spec.ts",
+            "integrity": "sha1:0370540a52000a070cda2dedde3a34c8eedfe9b9"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notification-by-id.command-handler.ts",
+            "integrity": "sha1:ae46bc42f14dec3155aa18da3e0ef7599ba9fc7b"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notification-by-id.command.ts",
+            "integrity": "sha1:04dc04c4a5cf4f46e60b7c644c47c2fafb0724ad"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notification-by-id.service.spec.ts",
+            "integrity": "sha1:c84ebd1edc071c2d145a66ad68b1099a8d29f5b8"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notification-by-id.service.ts",
+            "integrity": "sha1:ca219e7538885f2a83373d8f05afb5663d1dce89"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notifications.command-handler.spec.ts",
+            "integrity": "sha1:d6a35e29e8264b67328527b8160338958c63eadb"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notifications.command-handler.ts",
+            "integrity": "sha1:123fd3c9eb9cd847c61de96bac1f94984e833ada"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notifications.command.ts",
+            "integrity": "sha1:623833ac3bb288ce4a4ddff1017e8938ec5c198a"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:f865982638a9a905d9f0d00604fee8e5d997189d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-out-box-notifications.service.ts",
+            "integrity": "sha1:6e6f2ddf2d1a6b4bb869c209776b30855928aea5"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-and-increment-out-box-notifications.command-handler.spec.ts",
+            "integrity": "sha1:4ef67b1b72417f7d3b0a493e319a878e51ae035d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-and-increment-out-box-notifications.command-handler.ts",
+            "integrity": "sha1:9f8827c8a34cfa82874c6bbd921f04bfa91e712f"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-and-increment-out-box-notifications.command.ts",
+            "integrity": "sha1:ed73a3827557f8b8ff1743e633ac569322902846"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-and-increment-out-box-notifications.service.spec.ts",
+            "integrity": "sha1:3cd46658f07492bcb2b14caa1b5f9c3b88c80146"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/update/notification-update-and-increment-out-box-notifications.service.ts",
+            "integrity": "sha1:79681bda485f821cee628cdfb978e6c8cad10eaa"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/upsert/notification-upsert-out-box-notification.command-handler.spec.ts",
+            "integrity": "sha1:52a056e85860be19271d0bb71e4bebae3c74cd5c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/upsert/notification-upsert-out-box-notification.command-handler.ts",
+            "integrity": "sha1:9cfb3871f865301ee8c50bcf2e7ec7ee46a24d04"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/upsert/notification-upsert-out-box-notification.command.ts",
+            "integrity": "sha1:b13ff5a898dc5a0753f04043c87e4875532fc107"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/upsert/notification-upsert-out-box-notification.service.spec.ts",
+            "integrity": "sha1:d0a65487f7886fdd73a41f3251a640e5cab83e55"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/application/upsert/notification-upsert-out-box-notification.service.ts",
+            "integrity": "sha1:5a254acfc06c72a0c1d8f32a6a5e7cf98cefe745"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/notification-out-box-notification.aggregate.ts",
+            "integrity": "sha1:af3142a90359608f98ec1b8fd1d470bb2ba82997"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/notification-out-box-notification.mapper.ts",
+            "integrity": "sha1:06ed995832e01b67dbd4366a5e8643f5fcd1f8d6"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/notification-out-box-notification.repository.ts",
+            "integrity": "sha1:0c06f96a48b0b28691ff6739f0a917f42e84caab"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/notification-out-box-notification.response.ts",
+            "integrity": "sha1:2513ccba5736b9263bc2683b692fc5ddf378ae27"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/index.ts",
+            "integrity": "sha1:c29e04026187f199f4a16d9fec0ace9e896544d5"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/index.ts",
+            "integrity": "sha1:6a410fb242bad9399ad64020195962eceab61aee"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/infrastructure/mock/notification-mock-out-box-notification.data.ts",
+            "integrity": "sha1:3a3f9c679e0567ea3e059d6541cb9daeacfbe621"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/infrastructure/mock/notification-mock-out-box-notification.repository.ts",
+            "integrity": "sha1:71c04a7e19cf1e134f10df546ea2fa9fb148d3ca"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/infrastructure/mock/notification-mock-out-box-notification.seeder.ts",
+            "integrity": "sha1:4744c07ba1c146529bb40c62ba9d669b760b02b7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/infrastructure/sequelize/notification-sequelize-out-box-notification.model.ts",
+            "integrity": "sha1:9fa40b1fe8bf5b319e35565b062b7203b7686db4"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/infrastructure/sequelize/notification-sequelize-out-box-notification.repository.ts",
+            "integrity": "sha1:597659cf968f411c6fb162010ad9dc7667d6e74d"
+        },
+        {
+            "path": "src/@app/notification/index.ts",
+            "integrity": "sha1:6a0e3855ff45a6cc819f3c72591a2d4901fdf016"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-id.ts",
+            "integrity": "sha1:4d8055e43dde695a90d1caa93023c9d989609680"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-sort.ts",
+            "integrity": "sha1:23d3c6745afa9417329b004a814b0bffa92b7df7"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-tenant-id.ts",
+            "integrity": "sha1:b39336d09d11c30c46fd84f0a87e9dcd7620eb72"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-account-ids.ts",
+            "integrity": "sha1:9c3ddd49a2d63068d26c6baac04741d0ca06d351"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-account-tenant-operator.ts",
+            "integrity": "sha1:492054404484ea601cbfc9156e5215a176c478b3"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-tenant-ids.ts",
+            "integrity": "sha1:24c80399111185f7d3008b41c4d89d631024ad5c"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-scopes.ts",
+            "integrity": "sha1:785a344af0f6f55231228d7cbae624fee1086c9d"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-is-important.ts",
+            "integrity": "sha1:9593f0d19e54ef52baf1145db516bd5e870eb683"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-subject.ts",
+            "integrity": "sha1:73d9d5e40f577711a78e5e0cc9044b35db2cebb8"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-body.ts",
+            "integrity": "sha1:e813231dcc3878e1b17d46682a73664102ce15ed"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-attachments.ts",
+            "integrity": "sha1:7a2464df7e0b87eeed5a5fff64b46d6ce8b7ddfc"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-meta.ts",
+            "integrity": "sha1:33d94141219b38792313cc05d5993cd84ae627cc"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-created-at.ts",
+            "integrity": "sha1:3b0bd6d79c99eaafe231037fabb514d7221bf994"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-updated-at.ts",
+            "integrity": "sha1:268477339ef08e3858a731a1350fab7d85417d84"
+        },
+        {
+            "path": "src/@app/notification/out-box-notification/domain/value-objects/notification-out-box-notification-deleted-at.ts",
+            "integrity": "sha1:f35646ae629061ffb72b73d0d5954485098381c5"
+        },
+        {
+            "path": "src/@api/notification/notification.module.ts",
+            "integrity": "sha1:4dfeda09d8d9c70b748748e7fa0341f80ee1fa3e"
+        },
+        {
+            "path": "src/@api/notification/notification.seeder.ts",
+            "integrity": "sha1:156c286cbd7333c6e268ea06a20c99f22b811735"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-create-out-box-notification.controller.spec.ts",
+            "integrity": "sha1:f46e38fa273c2b13638b6440986642784e013963"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-create-out-box-notification.controller.ts",
+            "integrity": "sha1:53a2500b843f3f19f35a9b4890963683c897a98c"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-create-out-box-notifications.controller.spec.ts",
+            "integrity": "sha1:edd27e3acfd3a370ac80f6993fcaa6291ff14af2"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-create-out-box-notifications.controller.ts",
+            "integrity": "sha1:dc4995ef9fb1791df792bd15c39abc00f22a8dfa"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-delete-out-box-notification-by-id.controller.spec.ts",
+            "integrity": "sha1:04097a8899a950d7660300e531ad978098ebd958"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-delete-out-box-notification-by-id.controller.ts",
+            "integrity": "sha1:7e7c6c4bcc78618298edd590394975620552c709"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-delete-out-box-notifications.controller.spec.ts",
+            "integrity": "sha1:5e5e959eddffd0ef911625be10ccf0b642803698"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-delete-out-box-notifications.controller.ts",
+            "integrity": "sha1:07a77d846c32c509019442c97f620fd18fb296a7"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-find-out-box-notification-by-id.controller.spec.ts",
+            "integrity": "sha1:791eecc580ccc21a4a47bd54d4bf74018a495dbb"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-find-out-box-notification-by-id.controller.ts",
+            "integrity": "sha1:a5bb86bdc424e8759b96a1b2abcf3a2d535a7421"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-find-out-box-notification.controller.spec.ts",
+            "integrity": "sha1:84ffb4ee69573604a0ad0994b701a13cfbd26351"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-find-out-box-notification.controller.ts",
+            "integrity": "sha1:9c317556e671e871b37c720d142d6ff91a65582d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-get-out-box-notifications.controller.spec.ts",
+            "integrity": "sha1:c5a2e0ec44508cd43795f645472b79ca2f49803d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-get-out-box-notifications.controller.ts",
+            "integrity": "sha1:a73904d83687c9ac0f8728f23a067330c6a61047"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-paginate-out-box-notifications.controller.spec.ts",
+            "integrity": "sha1:522f40b115953ee995da1468362f6b48dde02f6d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-paginate-out-box-notifications.controller.ts",
+            "integrity": "sha1:27a8fb77eef41565cb76b84453add97bfc1a55e1"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-update-out-box-notification-by-id.controller.spec.ts",
+            "integrity": "sha1:1b158afbe788e7e5c19be5c4ac8794bdbe21bd74"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-update-out-box-notification-by-id.controller.ts",
+            "integrity": "sha1:77a0939285770abde38c27ca5cc975d74f0dfc6b"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-update-out-box-notifications.controller.spec.ts",
+            "integrity": "sha1:5ec5cac469691d884f65d580001b94fdabc5ff16"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-update-out-box-notifications.controller.ts",
+            "integrity": "sha1:10e73f684dc533df8ea363c69fa29f6c88e0d664"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-upsert-out-box-notification.controller.spec.ts",
+            "integrity": "sha1:f1bf6cd571ccc150a57a28bcabdb2f34f8ccee85"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/controllers/notification-upsert-out-box-notification.controller.ts",
+            "integrity": "sha1:0404c501b25ec0a4b9f9ac74aa3cb3635b229d83"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/notification-out-box-notification.dto.ts",
+            "integrity": "sha1:28e91e3b93a24d0887d37605fdc7ef0fc24fd129"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/notification-create-out-box-notification.dto.ts",
+            "integrity": "sha1:f6f2d15a79e6c640cff4cbba7ee2d7e38036842b"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/notification-update-out-box-notification-by-id.dto.ts",
+            "integrity": "sha1:bf2e963b9e47a425afabce28fc35cd805cff5a98"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/notification-update-out-box-notifications.dto.ts",
+            "integrity": "sha1:c772e5d0ff64805cf95263cc9ab3bf16d4979377"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/index.ts",
+            "integrity": "sha1:0668bfe7d206f064143571f4c397ca726db8cdaf"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/dto/public-api.ts",
+            "integrity": "sha1:907d69ed0d887173e3aebc4557adc999259f9651"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/graphql/notification-out-box-notification.graphql",
+            "integrity": "sha1:75cd8ac6d6c569f003625fd28c7b5ff3469d1da3"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-create-out-box-notification.handler.spec.ts",
+            "integrity": "sha1:27a77e1ef8cb83938c3290d8e52f262860c0b37c"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-create-out-box-notification.handler.ts",
+            "integrity": "sha1:fb69f898fc7e05689d849c3c37d1d2b5782a3a1f"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-create-out-box-notifications.handler.spec.ts",
+            "integrity": "sha1:7a51fe7e994d996d2fb91528876f674096afebf7"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-create-out-box-notifications.handler.ts",
+            "integrity": "sha1:393976ad7723a3960317e3ba970da446c1e9a381"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-delete-out-box-notification-by-id.handler.spec.ts",
+            "integrity": "sha1:11153b7ea22a883a83a2f01bb2ccd3d3893c9a82"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-delete-out-box-notification-by-id.handler.ts",
+            "integrity": "sha1:b916686a70e70ebaf344186535c1ad53d712f04a"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-delete-out-box-notifications.handler.spec.ts",
+            "integrity": "sha1:d7865e850fb0380ebdc70e88633789d5ee418cc6"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-delete-out-box-notifications.handler.ts",
+            "integrity": "sha1:9ff753c9a6d70519352732ba7a463b464e47a1ac"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-find-out-box-notification-by-id.handler.spec.ts",
+            "integrity": "sha1:0b289be774840967a452fdd42ad942c24dd641b7"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-find-out-box-notification-by-id.handler.ts",
+            "integrity": "sha1:36ac34c6797d829b69820cdf99d883d6772bc329"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-find-out-box-notification.handler.spec.ts",
+            "integrity": "sha1:68852d24953bf1d40531087997f35cad3381f6f9"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-find-out-box-notification.handler.ts",
+            "integrity": "sha1:5f2585b2b8c99ea7bfcc8e144f60846941153af0"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-get-out-box-notifications.handler.spec.ts",
+            "integrity": "sha1:c86301d73865557f53b378bce300ad3d0d6dcb0f"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-get-out-box-notifications.handler.ts",
+            "integrity": "sha1:e3abfb20f99e2e54ad6a4bfeba97d246c350ffbf"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-paginate-out-box-notifications.handler.spec.ts",
+            "integrity": "sha1:63bbf8bdec035d114d8407158aa0701cc4c474fd"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-paginate-out-box-notifications.handler.ts",
+            "integrity": "sha1:b47f0c22279b3a565d7134ead0c23e8f42b4207f"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-update-out-box-notification-by-id.handler.spec.ts",
+            "integrity": "sha1:be6afd94174ecf706302cf92636d470a9db81e45"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-update-out-box-notification-by-id.handler.ts",
+            "integrity": "sha1:6560fc8f3f184f96d72a2012e43da6e493784e7d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-update-out-box-notifications.handler.spec.ts",
+            "integrity": "sha1:4b9dce88f90e61ca2a4df660324b02745fea425d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-update-out-box-notifications.handler.ts",
+            "integrity": "sha1:69485817230c57587d7e1654d5716fc5f7a76c07"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-upsert-out-box-notification.handler.spec.ts",
+            "integrity": "sha1:da1dba2cee9b24d684c6cbb1d8acf0ecd4ac31a7"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/handlers/notification-upsert-out-box-notification.handler.ts",
+            "integrity": "sha1:f6c3c537972e65a5134fa60f4db1d1858df117c8"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/index.ts",
+            "integrity": "sha1:72b5a8c7f08ef79473c7b9bb2c805f193358ff30"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-create-out-box-notification.resolver.spec.ts",
+            "integrity": "sha1:d848f2b7155db369fa09237b30747652c4dd1f22"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-create-out-box-notification.resolver.ts",
+            "integrity": "sha1:b7b2c2d0e64040fbc809fe1ddd7de2fb74fa340a"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-create-out-box-notifications.resolver.spec.ts",
+            "integrity": "sha1:3ddb4b2e9b14dc1d629b134e559f0425754059ae"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-create-out-box-notifications.resolver.ts",
+            "integrity": "sha1:b9e108c54aa27bc9bd25dddab6e8b2c79661d028"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-delete-out-box-notification-by-id.resolver.spec.ts",
+            "integrity": "sha1:cc19d8636a82633e0971056b5e649f9829f3a592"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-delete-out-box-notification-by-id.resolver.ts",
+            "integrity": "sha1:b5d3ecfe29ec7c1130be9b0419281d33c98aa6ab"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-delete-out-box-notifications.resolver.spec.ts",
+            "integrity": "sha1:12ff784b6edfc115f2bbab575fc14807ae8ef39f"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-delete-out-box-notifications.resolver.ts",
+            "integrity": "sha1:5a17567e7f720d4b6b44061055d6c77649dc1824"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-find-out-box-notification-by-id.resolver.spec.ts",
+            "integrity": "sha1:6f09dee5c937bfb3751d641e789729dcd7520ea2"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-find-out-box-notification-by-id.resolver.ts",
+            "integrity": "sha1:3321a4aed696ec83889422c154487aa033609ef6"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-find-out-box-notification.resolver.spec.ts",
+            "integrity": "sha1:63fea389329e09a39ec7db44524e585f2d4b796d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-find-out-box-notification.resolver.ts",
+            "integrity": "sha1:d6af152d8153345a56ad7d2b4d6b84e6f4e42038"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-get-out-box-notifications.resolver.spec.ts",
+            "integrity": "sha1:e6819f43254343d027ab3bf25a038f72e06c8693"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-get-out-box-notifications.resolver.ts",
+            "integrity": "sha1:8304006f42007479d56f943e426bfe4809ed156d"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-paginate-out-box-notifications.resolver.spec.ts",
+            "integrity": "sha1:fe9b22c6108ffd15e1bb26a294dcb6665edcfab3"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-paginate-out-box-notifications.resolver.ts",
+            "integrity": "sha1:a5753efd0ce78a3b0c2c02bb992d4eeceac033a2"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-update-out-box-notification-by-id.resolver.spec.ts",
+            "integrity": "sha1:68a945bbf31d0fab59f9cbf98598863ff390e257"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-update-out-box-notification-by-id.resolver.ts",
+            "integrity": "sha1:686459ce51ab7fcaa87ce1bba16c15e9b4869797"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-update-out-box-notifications.resolver.spec.ts",
+            "integrity": "sha1:2e9e668e2bd98dd62b893f09eed6f82665d7dc86"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-update-out-box-notifications.resolver.ts",
+            "integrity": "sha1:3d3fd4323522c53dad488cd6cd8f0c08d284e652"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-upsert-out-box-notification.resolver.spec.ts",
+            "integrity": "sha1:d67d2ba820e7b27afa6f1c49a58868b72e50bef4"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/resolvers/notification-upsert-out-box-notification.resolver.ts",
+            "integrity": "sha1:b52a2bc986741e072f513bae3930a4e85b49d749"
+        },
+        {
+            "path": "src/@api/notification/out-box-notification/seeder/notification-out-box-notification.seeder.ts",
+            "integrity": "sha1:47b7bd38fa2b3c361412c4d59de88fa104e019c1"
+        },
+        {
+            "path": "test/acceptance/notification/out-box-notification.e2e-spec.ts",
+            "integrity": "sha1:294142aacfe5cf169e0c84f21273017ad0ee3516"
+        },
+        {
+            "path": "postman/notification/notification.out-box-notification.postman.json",
+            "integrity": "sha1:30190220b2b1ef7a0e4a691465409808f787e7bb"
+        }
+    ]
+}

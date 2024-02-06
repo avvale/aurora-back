@@ -1,5 +1,5 @@
 version: 0.0.1
-boundedContextName: out-box-notification
+boundedContextName: notification
 moduleName: out-box-notification
 moduleNames: out-box-notifications
 aggregateName: NotificationOutBoxNotification

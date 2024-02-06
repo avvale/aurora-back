@@ -1,0 +1,130 @@
+enum NotificationOutBoxNotificationAccountTenantOperator {
+    AND
+    OR
+}
+
+
+type NotificationOutBoxNotification
+{
+    id: ID!
+    sort: GraphQLInt!
+    tenantId: ID
+    accountIds: [ID]
+    accountTenantOperator: NotificationOutBoxNotificationAccountTenantOperator
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    meta: JSON
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input NotificationCreateOutBoxNotificationInput
+{
+    id: ID!
+    tenantId: ID
+    accountIds: [ID]
+    accountTenantOperator: NotificationOutBoxNotificationAccountTenantOperator
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    meta: JSON
+}
+
+input NotificationUpdateOutBoxNotificationByIdInput
+{
+    id: ID!
+    tenantId: ID
+    accountIds: [ID]
+    accountTenantOperator: NotificationOutBoxNotificationAccountTenantOperator
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    meta: JSON
+}
+
+input NotificationUpdateOutBoxNotificationsInput
+{
+    id: ID
+    tenantId: ID
+    accountIds: [ID]
+    accountTenantOperator: NotificationOutBoxNotificationAccountTenantOperator
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    meta: JSON
+}
+
+type Query
+{
+    notificationFindOutBoxNotification(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): NotificationOutBoxNotification
+
+    notificationFindOutBoxNotificationById(
+        id: ID
+        constraint: QueryStatement
+    ): NotificationOutBoxNotification
+
+    notificationGetOutBoxNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutBoxNotification]!
+
+    notificationPaginateOutBoxNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    notificationCreateOutBoxNotification(
+        payload: NotificationCreateOutBoxNotificationInput!
+    ): NotificationOutBoxNotification
+
+    notificationCreateOutBoxNotifications(
+        payload: [NotificationCreateOutBoxNotificationInput]!
+    ): Boolean!
+
+    notificationUpdateOutBoxNotificationById(
+        payload: NotificationUpdateOutBoxNotificationByIdInput!
+        constraint: QueryStatement
+    ): NotificationOutBoxNotification
+
+    notificationUpdateOutBoxNotifications(
+        payload: NotificationUpdateOutBoxNotificationsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutBoxNotification]!
+
+    notificationUpsertOutBoxNotification(
+        payload: NotificationUpdateOutBoxNotificationByIdInput!
+    ): NotificationOutBoxNotification
+
+    notificationDeleteOutBoxNotificationById(
+        id: ID!
+        constraint: QueryStatement
+    ): NotificationOutBoxNotification
+
+    notificationDeleteOutBoxNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutBoxNotification]!
+
+}
