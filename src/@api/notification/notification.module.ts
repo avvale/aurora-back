@@ -3,7 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
 import { NotificationSeeder } from './notification.seeder';
 import { NotificationModels, NotificationHandlers, NotificationServices, NotificationRepositories, NotificationSagas } from '../../@app/notification';
-import { NotificationOutBoxNotificationApiControllers, NotificationOutBoxNotificationApiResolvers, NotificationOutBoxNotificationApiHandlers, NotificationOutBoxNotificationApiServices } from './out-box-notification';
+import { NotificationNotificationApiControllers, NotificationNotificationApiResolvers, NotificationNotificationApiHandlers, NotificationNotificationApiServices } from './notification';
 
 @Module({
     imports: [
@@ -13,7 +13,7 @@ import { NotificationOutBoxNotificationApiControllers, NotificationOutBoxNotific
             ])
     ],
     controllers: [
-        ...NotificationOutBoxNotificationApiControllers
+        ...NotificationNotificationApiControllers
     ],
     providers: [
         NotificationSeeder,
@@ -21,9 +21,9 @@ import { NotificationOutBoxNotificationApiControllers, NotificationOutBoxNotific
         ...NotificationServices,
         ...NotificationRepositories,
         ...NotificationSagas,
-        ...NotificationOutBoxNotificationApiResolvers,
-        ...NotificationOutBoxNotificationApiHandlers,
-        ...NotificationOutBoxNotificationApiServices
+        ...NotificationNotificationApiResolvers,
+        ...NotificationNotificationApiHandlers,
+        ...NotificationNotificationApiServices
     ],
 })
 export class NotificationModule {}

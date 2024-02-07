@@ -1,0 +1,142 @@
+enum NotificationNotificationStatus {
+    DRAFT
+    PENDING
+    SENT
+}
+
+
+type NotificationNotification
+{
+    id: ID!
+    tenantId: ID
+    status: NotificationNotificationStatus!
+    accountIds: [ID]
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    sendAt: GraphQLTimestamp
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    totalRecipients: GraphQLInt!
+    reads: GraphQLInt!
+    meta: JSON
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input NotificationCreateNotificationInput
+{
+    id: ID!
+    tenantId: ID
+    status: NotificationNotificationStatus!
+    accountIds: [ID]
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    sendAt: GraphQLTimestamp
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    totalRecipients: GraphQLInt!
+    reads: GraphQLInt!
+    meta: JSON
+}
+
+input NotificationUpdateNotificationByIdInput
+{
+    id: ID!
+    tenantId: ID
+    status: NotificationNotificationStatus
+    accountIds: [ID]
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    sendAt: GraphQLTimestamp
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    totalRecipients: GraphQLInt
+    reads: GraphQLInt
+    meta: JSON
+}
+
+input NotificationUpdateNotificationsInput
+{
+    id: ID
+    tenantId: ID
+    status: NotificationNotificationStatus
+    accountIds: [ID]
+    tenantIds: [ID]
+    scopes: [GraphQLString]
+    sendAt: GraphQLTimestamp
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    totalRecipients: GraphQLInt
+    reads: GraphQLInt
+    meta: JSON
+}
+
+type Query
+{
+    notificationFindNotification(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): NotificationNotification
+
+    notificationFindNotificationById(
+        id: ID
+        constraint: QueryStatement
+    ): NotificationNotification
+
+    notificationGetNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationNotification]!
+
+    notificationPaginateNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    notificationCreateNotification(
+        payload: NotificationCreateNotificationInput!
+    ): NotificationNotification
+
+    notificationCreateNotifications(
+        payload: [NotificationCreateNotificationInput]!
+    ): Boolean!
+
+    notificationUpdateNotificationById(
+        payload: NotificationUpdateNotificationByIdInput!
+        constraint: QueryStatement
+    ): NotificationNotification
+
+    notificationUpdateNotifications(
+        payload: NotificationUpdateNotificationsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationNotification]!
+
+    notificationUpsertNotification(
+        payload: NotificationUpdateNotificationByIdInput!
+    ): NotificationNotification
+
+    notificationDeleteNotificationById(
+        id: ID!
+        constraint: QueryStatement
+    ): NotificationNotification
+
+    notificationDeleteNotifications(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationNotification]!
+
+}

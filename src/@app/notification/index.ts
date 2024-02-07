@@ -1,20 +1,20 @@
-import { NotificationOutBoxNotificationHandlers, NotificationOutBoxNotificationServices, NotificationOutBoxNotificationModel, NotificationIOutBoxNotificationRepository, NotificationSequelizeOutBoxNotificationRepository, NotificationOutBoxNotificationSagas } from './out-box-notification';
+import { NotificationNotificationHandlers, NotificationNotificationServices, NotificationNotificationModel, NotificationINotificationRepository, NotificationSequelizeNotificationRepository, NotificationNotificationSagas } from './notification';
 
 export const NotificationHandlers = [
-    ...NotificationOutBoxNotificationHandlers
+    ...NotificationNotificationHandlers
 ];
 export const NotificationServices = [
-    ...NotificationOutBoxNotificationServices
+    ...NotificationNotificationServices
 ];
 export const NotificationModels = [
-    NotificationOutBoxNotificationModel
+    NotificationNotificationModel
 ];
 export const NotificationRepositories = [
     {
-        provide : NotificationIOutBoxNotificationRepository,
-        useClass: NotificationSequelizeOutBoxNotificationRepository
+        provide : NotificationINotificationRepository,
+        useClass: NotificationSequelizeNotificationRepository
     }
 ];
 export const NotificationSagas = [
-    NotificationOutBoxNotificationSagas
+    NotificationNotificationSagas
 ];
