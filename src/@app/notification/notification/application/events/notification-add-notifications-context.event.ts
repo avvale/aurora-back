@@ -22,11 +22,11 @@ export class NotificationAddNotificationsContextEvent extends AggregateRoot
                 this.aggregateRoots.map(notification =>
                     new NotificationCreatedNotificationEvent(
                         notification.id.value,
-                        notification.tenantId?.value,
-                        notification.status.value,
-                        notification.accountIds?.value,
                         notification.tenantIds?.value,
-                        notification.scopes?.value,
+                        notification.status.value,
+                        notification.accountRecipientIds?.value,
+                        notification.tenantRecipientIds?.value,
+                        notification.scopeRecipientIds?.value,
                         notification.sendAt?.value,
                         notification.isImportant.value,
                         notification.subject.value,
@@ -51,11 +51,11 @@ export class NotificationAddNotificationsContextEvent extends AggregateRoot
                 this.aggregateRoots.map(notification =>
                     new NotificationUpdatedNotificationEvent(
                         notification.id.value,
-                        notification.tenantId?.value,
-                        notification.status.value,
-                        notification.accountIds?.value,
                         notification.tenantIds?.value,
-                        notification.scopes?.value,
+                        notification.status.value,
+                        notification.accountRecipientIds?.value,
+                        notification.tenantRecipientIds?.value,
+                        notification.scopeRecipientIds?.value,
                         notification.sendAt?.value,
                         notification.isImportant.value,
                         notification.subject.value,
@@ -80,11 +80,11 @@ export class NotificationAddNotificationsContextEvent extends AggregateRoot
                 this.aggregateRoots.map(notification =>
                     new NotificationUpdatedAndIncrementedNotificationEvent(
                         notification.id.value,
-                        notification.tenantId?.value,
-                        notification.status.value,
-                        notification.accountIds?.value,
                         notification.tenantIds?.value,
-                        notification.scopes?.value,
+                        notification.status.value,
+                        notification.accountRecipientIds?.value,
+                        notification.tenantRecipientIds?.value,
+                        notification.scopeRecipientIds?.value,
                         notification.sendAt?.value,
                         notification.isImportant.value,
                         notification.subject.value,
@@ -109,11 +109,11 @@ export class NotificationAddNotificationsContextEvent extends AggregateRoot
                 this.aggregateRoots.map(notification =>
                     new NotificationDeletedNotificationEvent(
                         notification.id.value,
-                        notification.tenantId?.value,
-                        notification.status.value,
-                        notification.accountIds?.value,
                         notification.tenantIds?.value,
-                        notification.scopes?.value,
+                        notification.status.value,
+                        notification.accountRecipientIds?.value,
+                        notification.tenantRecipientIds?.value,
+                        notification.scopeRecipientIds?.value,
                         notification.sendAt?.value,
                         notification.isImportant.value,
                         notification.subject.value,

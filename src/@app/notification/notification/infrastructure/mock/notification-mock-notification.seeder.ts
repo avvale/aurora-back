@@ -1,6 +1,6 @@
 import { notificationMockNotificationData, NotificationNotification } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -9,12 +9,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -42,11 +42,11 @@ export class NotificationMockNotificationSeeder extends MockSeeder<NotificationN
             this.collectionSource.push(
                 NotificationNotification.register(
                     new NotificationNotificationId(notification.id),
-                    new NotificationNotificationTenantId(notification.tenantId),
-                    new NotificationNotificationStatus(notification.status),
-                    new NotificationNotificationAccountIds(notification.accountIds),
                     new NotificationNotificationTenantIds(notification.tenantIds),
-                    new NotificationNotificationScopes(notification.scopes),
+                    new NotificationNotificationStatus(notification.status),
+                    new NotificationNotificationAccountRecipientIds(notification.accountRecipientIds),
+                    new NotificationNotificationTenantRecipientIds(notification.tenantRecipientIds),
+                    new NotificationNotificationScopeRecipientIds(notification.scopeRecipientIds),
                     new NotificationNotificationSendAt(notification.sendAt),
                     new NotificationNotificationIsImportant(notification.isImportant),
                     new NotificationNotificationSubject(notification.subject),

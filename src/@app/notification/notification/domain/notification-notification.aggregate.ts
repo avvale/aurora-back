@@ -1,7 +1,7 @@
 /* eslint-disable key-spacing */
 import { NotificationCreatedNotificationEvent, NotificationDeletedNotificationEvent, NotificationUpdatedNotificationEvent } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -10,12 +10,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -25,11 +25,11 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class NotificationNotification extends AggregateRoot
 {
     id: NotificationNotificationId;
-    tenantId: NotificationNotificationTenantId;
-    status: NotificationNotificationStatus;
-    accountIds: NotificationNotificationAccountIds;
     tenantIds: NotificationNotificationTenantIds;
-    scopes: NotificationNotificationScopes;
+    status: NotificationNotificationStatus;
+    accountRecipientIds: NotificationNotificationAccountRecipientIds;
+    tenantRecipientIds: NotificationNotificationTenantRecipientIds;
+    scopeRecipientIds: NotificationNotificationScopeRecipientIds;
     sendAt: NotificationNotificationSendAt;
     isImportant: NotificationNotificationIsImportant;
     subject: NotificationNotificationSubject;
@@ -44,11 +44,11 @@ export class NotificationNotification extends AggregateRoot
 
     constructor(
         id: NotificationNotificationId,
-        tenantId: NotificationNotificationTenantId,
-        status: NotificationNotificationStatus,
-        accountIds: NotificationNotificationAccountIds,
         tenantIds: NotificationNotificationTenantIds,
-        scopes: NotificationNotificationScopes,
+        status: NotificationNotificationStatus,
+        accountRecipientIds: NotificationNotificationAccountRecipientIds,
+        tenantRecipientIds: NotificationNotificationTenantRecipientIds,
+        scopeRecipientIds: NotificationNotificationScopeRecipientIds,
         sendAt: NotificationNotificationSendAt,
         isImportant: NotificationNotificationIsImportant,
         subject: NotificationNotificationSubject,
@@ -64,11 +64,11 @@ export class NotificationNotification extends AggregateRoot
     {
         super();
         this.id = id;
-        this.tenantId = tenantId;
-        this.status = status;
-        this.accountIds = accountIds;
         this.tenantIds = tenantIds;
-        this.scopes = scopes;
+        this.status = status;
+        this.accountRecipientIds = accountRecipientIds;
+        this.tenantRecipientIds = tenantRecipientIds;
+        this.scopeRecipientIds = scopeRecipientIds;
         this.sendAt = sendAt;
         this.isImportant = isImportant;
         this.subject = subject;
@@ -84,11 +84,11 @@ export class NotificationNotification extends AggregateRoot
 
     static register(
         id: NotificationNotificationId,
-        tenantId: NotificationNotificationTenantId,
-        status: NotificationNotificationStatus,
-        accountIds: NotificationNotificationAccountIds,
         tenantIds: NotificationNotificationTenantIds,
-        scopes: NotificationNotificationScopes,
+        status: NotificationNotificationStatus,
+        accountRecipientIds: NotificationNotificationAccountRecipientIds,
+        tenantRecipientIds: NotificationNotificationTenantRecipientIds,
+        scopeRecipientIds: NotificationNotificationScopeRecipientIds,
         sendAt: NotificationNotificationSendAt,
         isImportant: NotificationNotificationIsImportant,
         subject: NotificationNotificationSubject,
@@ -104,11 +104,11 @@ export class NotificationNotification extends AggregateRoot
     {
         return new NotificationNotification(
             id,
-            tenantId,
-            status,
-            accountIds,
             tenantIds,
-            scopes,
+            status,
+            accountRecipientIds,
+            tenantRecipientIds,
+            scopeRecipientIds,
             sendAt,
             isImportant,
             subject,
@@ -128,11 +128,11 @@ export class NotificationNotification extends AggregateRoot
         this.apply(
             new NotificationCreatedNotificationEvent(
                 notification.id.value,
-                notification.tenantId?.value,
-                notification.status.value,
-                notification.accountIds?.value,
                 notification.tenantIds?.value,
-                notification.scopes?.value,
+                notification.status.value,
+                notification.accountRecipientIds?.value,
+                notification.tenantRecipientIds?.value,
+                notification.scopeRecipientIds?.value,
                 notification.sendAt?.value,
                 notification.isImportant.value,
                 notification.subject.value,
@@ -153,11 +153,11 @@ export class NotificationNotification extends AggregateRoot
         this.apply(
             new NotificationUpdatedNotificationEvent(
                 notification.id?.value,
-                notification.tenantId?.value,
-                notification.status?.value,
-                notification.accountIds?.value,
                 notification.tenantIds?.value,
-                notification.scopes?.value,
+                notification.status?.value,
+                notification.accountRecipientIds?.value,
+                notification.tenantRecipientIds?.value,
+                notification.scopeRecipientIds?.value,
                 notification.sendAt?.value,
                 notification.isImportant?.value,
                 notification.subject?.value,
@@ -178,11 +178,11 @@ export class NotificationNotification extends AggregateRoot
         this.apply(
             new NotificationDeletedNotificationEvent(
                 notification.id.value,
-                notification.tenantId?.value,
-                notification.status.value,
-                notification.accountIds?.value,
                 notification.tenantIds?.value,
-                notification.scopes?.value,
+                notification.status.value,
+                notification.accountRecipientIds?.value,
+                notification.tenantRecipientIds?.value,
+                notification.scopeRecipientIds?.value,
                 notification.sendAt?.value,
                 notification.isImportant.value,
                 notification.subject.value,
@@ -202,11 +202,11 @@ export class NotificationNotification extends AggregateRoot
     {
         return {
             id: this.id.value,
-            tenantId: this.tenantId?.value,
-            status: this.status.value,
-            accountIds: this.accountIds?.value,
             tenantIds: this.tenantIds?.value,
-            scopes: this.scopes?.value,
+            status: this.status.value,
+            accountRecipientIds: this.accountRecipientIds?.value,
+            tenantRecipientIds: this.tenantRecipientIds?.value,
+            scopeRecipientIds: this.scopeRecipientIds?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
             subject: this.subject.value,
@@ -226,11 +226,11 @@ export class NotificationNotification extends AggregateRoot
     {
         return {
             id: this.id.value,
-            tenantId: this.tenantId?.value,
-            status: this.status.value,
-            accountIds: this.accountIds?.value,
             tenantIds: this.tenantIds?.value,
-            scopes: this.scopes?.value,
+            status: this.status.value,
+            accountRecipientIds: this.accountRecipientIds?.value,
+            tenantRecipientIds: this.tenantRecipientIds?.value,
+            scopeRecipientIds: this.scopeRecipientIds?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
             subject: this.subject.value,

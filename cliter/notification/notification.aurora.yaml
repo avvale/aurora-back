@@ -15,9 +15,10 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
-  - name: tenantId
-    type: id
-    length: 36
+  - name: tenantIds
+    type: array
+    arrayOptions:
+      type: id
     nullable: true
     index: index
   - name: status
@@ -27,19 +28,19 @@ aggregateProperties:
       - PENDING
       - SENT
     nullable: false
-  - name: accountIds
+  - name: accountRecipientIds
     type: array
     arrayOptions:
       type: id
     nullable: true
     index: index
-  - name: tenantIds
+  - name: tenantRecipientIds
     type: array
     arrayOptions:
       type: id
     nullable: true
     index: index
-  - name: scopes
+  - name: scopeRecipientIds
     type: array
     arrayOptions:
       type: varchar

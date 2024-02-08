@@ -956,11 +956,11 @@ export interface IamUpdateUsersInput {
 
 export interface NotificationCreateNotificationInput {
     id: string;
-    tenantId?: Nullable<string>;
-    status: NotificationNotificationStatus;
-    accountIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
-    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    status: NotificationNotificationStatus;
+    accountRecipientIds?: Nullable<Nullable<string>[]>;
+    tenantRecipientIds?: Nullable<Nullable<string>[]>;
+    scopeRecipientIds?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
     subject: GraphQLString;
@@ -973,11 +973,11 @@ export interface NotificationCreateNotificationInput {
 
 export interface NotificationUpdateNotificationByIdInput {
     id: string;
-    tenantId?: Nullable<string>;
-    status?: Nullable<NotificationNotificationStatus>;
-    accountIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
-    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    status?: Nullable<NotificationNotificationStatus>;
+    accountRecipientIds?: Nullable<Nullable<string>[]>;
+    tenantRecipientIds?: Nullable<Nullable<string>[]>;
+    scopeRecipientIds?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
     subject?: Nullable<GraphQLString>;
@@ -990,11 +990,11 @@ export interface NotificationUpdateNotificationByIdInput {
 
 export interface NotificationUpdateNotificationsInput {
     id?: Nullable<string>;
-    tenantId?: Nullable<string>;
-    status?: Nullable<NotificationNotificationStatus>;
-    accountIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
-    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    status?: Nullable<NotificationNotificationStatus>;
+    accountRecipientIds?: Nullable<Nullable<string>[]>;
+    tenantRecipientIds?: Nullable<Nullable<string>[]>;
+    scopeRecipientIds?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
     subject?: Nullable<GraphQLString>;
@@ -2019,11 +2019,11 @@ export interface IamUser {
 
 export interface NotificationNotification {
     id: string;
-    tenantId?: Nullable<string>;
-    status: NotificationNotificationStatus;
-    accountIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
-    scopes?: Nullable<Nullable<GraphQLString>[]>;
+    status: NotificationNotificationStatus;
+    accountRecipientIds?: Nullable<Nullable<string>[]>;
+    tenantRecipientIds?: Nullable<Nullable<string>[]>;
+    scopeRecipientIds?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
     subject: GraphQLString;

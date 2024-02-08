@@ -1,6 +1,6 @@
 import { NotificationNotification, NotificationNotificationResponse } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -9,12 +9,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -72,11 +72,11 @@ export class NotificationNotificationMapper implements IMapper
     {
         return NotificationNotification.register(
             new NotificationNotificationId(notification.id, { undefinable: true }),
-            new NotificationNotificationTenantId(notification.tenantId, { undefinable: true }),
-            new NotificationNotificationStatus(notification.status, { undefinable: true }),
-            new NotificationNotificationAccountIds(notification.accountIds, { undefinable: true }),
             new NotificationNotificationTenantIds(notification.tenantIds, { undefinable: true }),
-            new NotificationNotificationScopes(notification.scopes, { undefinable: true }),
+            new NotificationNotificationStatus(notification.status, { undefinable: true }),
+            new NotificationNotificationAccountRecipientIds(notification.accountRecipientIds, { undefinable: true }),
+            new NotificationNotificationTenantRecipientIds(notification.tenantRecipientIds, { undefinable: true }),
+            new NotificationNotificationScopeRecipientIds(notification.scopeRecipientIds, { undefinable: true }),
             new NotificationNotificationSendAt(notification.sendAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new NotificationNotificationIsImportant(notification.isImportant, { undefinable: true }),
             new NotificationNotificationSubject(notification.subject, { undefinable: true }),
@@ -97,11 +97,11 @@ export class NotificationNotificationMapper implements IMapper
 
         return new NotificationNotificationResponse(
             notification.id.value,
-            notification.tenantId.value,
-            notification.status.value,
-            notification.accountIds.value,
             notification.tenantIds.value,
-            notification.scopes.value,
+            notification.status.value,
+            notification.accountRecipientIds.value,
+            notification.tenantRecipientIds.value,
+            notification.scopeRecipientIds.value,
             notification.sendAt.value,
             notification.isImportant.value,
             notification.subject.value,

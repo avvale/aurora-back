@@ -11,10 +11,10 @@ export class NotificationNotificationDto
     id: string;
 
     @ApiProperty({
-        type       : String,
-        description: 'tenantId [input here api field description]',
+        type       : Array,
+        description: 'tenantIds [input here api field description]',
     })
-    tenantId?: string;
+    tenantIds?: string[];
 
     @ApiProperty({
         type       : NotificationNotificationStatus,
@@ -25,21 +25,21 @@ export class NotificationNotificationDto
 
     @ApiProperty({
         type       : Array,
-        description: 'accountIds [input here api field description]',
+        description: 'accountRecipientIds [input here api field description]',
     })
-    accountIds?: string[];
+    accountRecipientIds?: string[];
 
     @ApiProperty({
         type       : Array,
-        description: 'tenantIds [input here api field description]',
+        description: 'tenantRecipientIds [input here api field description]',
     })
-    tenantIds?: string[];
+    tenantRecipientIds?: string[];
 
     @ApiProperty({
         type       : Array,
-        description: 'scopes [input here api field description]',
+        description: 'scopeRecipientIds [input here api field description]',
     })
-    scopes?: string[];
+    scopeRecipientIds?: string[];
 
     @ApiProperty({
         type       : String,

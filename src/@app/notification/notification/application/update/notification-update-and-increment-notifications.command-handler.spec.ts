@@ -39,11 +39,11 @@ describe('NotificationUpdateAndIncrementNotificationsCommandHandler', () =>
                 new NotificationUpdateAndIncrementNotificationsCommand(
                     {
                         id: notificationMockNotificationData[0].id,
-                        tenantId: notificationMockNotificationData[0].tenantId,
-                        status: notificationMockNotificationData[0].status,
-                        accountIds: notificationMockNotificationData[0].accountIds,
                         tenantIds: notificationMockNotificationData[0].tenantIds,
-                        scopes: notificationMockNotificationData[0].scopes,
+                        status: notificationMockNotificationData[0].status,
+                        accountRecipientIds: notificationMockNotificationData[0].accountRecipientIds,
+                        tenantRecipientIds: notificationMockNotificationData[0].tenantRecipientIds,
+                        scopeRecipientIds: notificationMockNotificationData[0].scopeRecipientIds,
                         sendAt: notificationMockNotificationData[0].sendAt,
                         isImportant: notificationMockNotificationData[0].isImportant,
                         subject: notificationMockNotificationData[0].subject,

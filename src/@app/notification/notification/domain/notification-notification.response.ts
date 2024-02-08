@@ -3,11 +3,11 @@ export class NotificationNotificationResponse
 {
     constructor(
         public readonly id: string,
-        public readonly tenantId: string,
-        public readonly status: string,
-        public readonly accountIds: string[],
         public readonly tenantIds: string[],
-        public readonly scopes: string[],
+        public readonly status: string,
+        public readonly accountRecipientIds: string[],
+        public readonly tenantRecipientIds: string[],
+        public readonly scopeRecipientIds: string[],
         public readonly sendAt: string,
         public readonly isImportant: boolean,
         public readonly subject: string,

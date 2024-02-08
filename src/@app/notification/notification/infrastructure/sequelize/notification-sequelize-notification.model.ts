@@ -10,19 +10,19 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
     timestamps: false,
     indexes: [
 		{
-			fields: ['tenantId'],
-			unique: false,
-		},
-		{
-			fields: ['accountIds'],
-			unique: false,
-		},
-		{
 			fields: ['tenantIds'],
 			unique: false,
 		},
 		{
-			fields: ['scopes'],
+			fields: ['accountRecipientIds'],
+			unique: false,
+		},
+		{
+			fields: ['tenantRecipientIds'],
+			unique: false,
+		},
+		{
+			fields: ['scopeRecipientIds'],
 			unique: false,
 		},
 
@@ -147,11 +147,11 @@ export class NotificationNotificationModel extends Model<NotificationNotificatio
     id: string;
 
     @Column({
-        field: 'tenantId',
+        field: 'tenantIds',
         allowNull: true,
-        type: DataTypes.UUID,
+        type: DataTypes.ARRAY(DataTypes.UUID),
     })
-    tenantId: string;
+    tenantIds: string[];
 
     @Column({
         field: 'status',
@@ -161,25 +161,25 @@ export class NotificationNotificationModel extends Model<NotificationNotificatio
     status: string;
 
     @Column({
-        field: 'accountIds',
+        field: 'accountRecipientIds',
         allowNull: true,
         type: DataTypes.ARRAY(DataTypes.UUID),
     })
-    accountIds: string[];
+    accountRecipientIds: string[];
 
     @Column({
-        field: 'tenantIds',
+        field: 'tenantRecipientIds',
         allowNull: true,
         type: DataTypes.ARRAY(DataTypes.UUID),
     })
-    tenantIds: string[];
+    tenantRecipientIds: string[];
 
     @Column({
-        field: 'scopes',
+        field: 'scopeRecipientIds',
         allowNull: true,
         type: DataTypes.ARRAY(DataTypes.STRING()),
     })
-    scopes: string[];
+    scopeRecipientIds: string[];
 
     @Column({
         field: 'sendAt',

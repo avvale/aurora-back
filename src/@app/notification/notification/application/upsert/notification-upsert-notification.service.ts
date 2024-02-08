@@ -1,6 +1,6 @@
 import { NotificationINotificationRepository, NotificationNotification } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -9,12 +9,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -33,11 +33,11 @@ export class NotificationUpsertNotificationService
     async main(
         payload: {
             id: NotificationNotificationId;
-            tenantId: NotificationNotificationTenantId;
-            status: NotificationNotificationStatus;
-            accountIds: NotificationNotificationAccountIds;
             tenantIds: NotificationNotificationTenantIds;
-            scopes: NotificationNotificationScopes;
+            status: NotificationNotificationStatus;
+            accountRecipientIds: NotificationNotificationAccountRecipientIds;
+            tenantRecipientIds: NotificationNotificationTenantRecipientIds;
+            scopeRecipientIds: NotificationNotificationScopeRecipientIds;
             sendAt: NotificationNotificationSendAt;
             isImportant: NotificationNotificationIsImportant;
             subject: NotificationNotificationSubject;
@@ -53,11 +53,11 @@ export class NotificationUpsertNotificationService
         // upsert aggregate with factory pattern
         const notification = NotificationNotification.register(
             payload.id,
-            payload.tenantId,
-            payload.status,
-            payload.accountIds,
             payload.tenantIds,
-            payload.scopes,
+            payload.status,
+            payload.accountRecipientIds,
+            payload.tenantRecipientIds,
+            payload.scopeRecipientIds,
             payload.sendAt,
             payload.isImportant,
             payload.subject,

@@ -2,19 +2,19 @@
 import { NotificationINotificationRepository, notificationMockNotificationData, NotificationMockNotificationRepository } from '@app/notification/notification';
 import { NotificationUpdateNotificationsService } from '@app/notification/notification/application/update/notification-update-notifications.service';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationId,
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
 } from '@app/notification/notification/domain/value-objects';
 import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
@@ -61,11 +61,11 @@ describe('NotificationUpdateNotificationsService', () =>
                 await service.main(
                     {
                         id: new NotificationNotificationId(notificationMockNotificationData[0].id),
-                        tenantId: new NotificationNotificationTenantId(notificationMockNotificationData[0].tenantId),
-                        status: new NotificationNotificationStatus(notificationMockNotificationData[0].status),
-                        accountIds: new NotificationNotificationAccountIds(notificationMockNotificationData[0].accountIds),
                         tenantIds: new NotificationNotificationTenantIds(notificationMockNotificationData[0].tenantIds),
-                        scopes: new NotificationNotificationScopes(notificationMockNotificationData[0].scopes),
+                        status: new NotificationNotificationStatus(notificationMockNotificationData[0].status),
+                        accountRecipientIds: new NotificationNotificationAccountRecipientIds(notificationMockNotificationData[0].accountRecipientIds),
+                        tenantRecipientIds: new NotificationNotificationTenantRecipientIds(notificationMockNotificationData[0].tenantRecipientIds),
+                        scopeRecipientIds: new NotificationNotificationScopeRecipientIds(notificationMockNotificationData[0].scopeRecipientIds),
                         sendAt: new NotificationNotificationSendAt(notificationMockNotificationData[0].sendAt),
                         isImportant: new NotificationNotificationIsImportant(notificationMockNotificationData[0].isImportant),
                         subject: new NotificationNotificationSubject(notificationMockNotificationData[0].subject),

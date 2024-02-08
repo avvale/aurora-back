@@ -320,22 +320,6 @@ describe('notification', () =>
             });
     });
 
-    test('/REST:POST notification/notification/create - Got 400 Conflict, NotificationTenantId is not allowed, must be a length of 36', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/notification/notification/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                tenantId: '*************************************',
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for NotificationNotificationTenantId is not allowed, must be a length of 36');
-            });
-    });
-
     test('/REST:POST notification/notification/create - Got 400 Conflict, NotificationSubject is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
@@ -630,11 +614,11 @@ describe('notification', () =>
                         notificationCreateNotification (payload:$payload)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -709,11 +693,11 @@ describe('notification', () =>
                         notificationGetNotifications (query:$query)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -751,11 +735,11 @@ describe('notification', () =>
                         notificationCreateNotification (payload:$payload)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -793,11 +777,11 @@ describe('notification', () =>
                         notificationFindNotification (query:$query)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -843,11 +827,11 @@ describe('notification', () =>
                         notificationFindNotification (query:$query)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -891,11 +875,11 @@ describe('notification', () =>
                         notificationFindNotificationById (id:$id)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -934,11 +918,11 @@ describe('notification', () =>
                         notificationFindNotificationById (id:$id)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -975,11 +959,11 @@ describe('notification', () =>
                         notificationUpdateNotificationById (payload:$payload)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -1021,11 +1005,11 @@ describe('notification', () =>
                         notificationUpdateNotificationById (payload:$payload)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -1065,11 +1049,11 @@ describe('notification', () =>
                         notificationUpdateNotifications (payload:$payload query:$query)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -1114,11 +1098,11 @@ describe('notification', () =>
                         notificationDeleteNotificationById (id:$id)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject
@@ -1157,11 +1141,11 @@ describe('notification', () =>
                         notificationDeleteNotificationById (id:$id)
                         {
                             id
-                            tenantId
-                            status
-                            accountIds
                             tenantIds
-                            scopes
+                            status
+                            accountRecipientIds
+                            tenantRecipientIds
+                            scopeRecipientIds
                             sendAt
                             isImportant
                             subject

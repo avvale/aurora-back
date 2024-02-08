@@ -2,19 +2,19 @@
 import { NotificationUpdateNotificationByIdCommand } from '@app/notification/notification';
 import { NotificationUpdateNotificationByIdService } from '@app/notification/notification/application/update/notification-update-notification-by-id.service';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationId,
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
 } from '@app/notification/notification/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -32,11 +32,11 @@ export class NotificationUpdateNotificationByIdCommandHandler implements IComman
         await this.updateNotificationByIdService.main(
             {
                 id: new NotificationNotificationId(command.payload.id),
-                tenantId: new NotificationNotificationTenantId(command.payload.tenantId),
-                status: new NotificationNotificationStatus(command.payload.status, { undefinable: true }),
-                accountIds: new NotificationNotificationAccountIds(command.payload.accountIds),
                 tenantIds: new NotificationNotificationTenantIds(command.payload.tenantIds),
-                scopes: new NotificationNotificationScopes(command.payload.scopes),
+                status: new NotificationNotificationStatus(command.payload.status, { undefinable: true }),
+                accountRecipientIds: new NotificationNotificationAccountRecipientIds(command.payload.accountRecipientIds),
+                tenantRecipientIds: new NotificationNotificationTenantRecipientIds(command.payload.tenantRecipientIds),
+                scopeRecipientIds: new NotificationNotificationScopeRecipientIds(command.payload.scopeRecipientIds),
                 sendAt: new NotificationNotificationSendAt(command.payload.sendAt, {}, { removeTimezone: command.cQMetadata.timezone }),
                 isImportant: new NotificationNotificationIsImportant(command.payload.isImportant, { undefinable: true }),
                 subject: new NotificationNotificationSubject(command.payload.subject, { undefinable: true }),

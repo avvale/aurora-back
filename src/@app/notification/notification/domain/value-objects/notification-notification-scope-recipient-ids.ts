@@ -1,13 +1,13 @@
 import { JsonValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class NotificationNotificationScopes extends JsonValueObject
+export class NotificationNotificationScopeRecipientIds extends JsonValueObject
 {
-    public readonly type: string = 'NotificationNotificationScopes';
+    public readonly type: string = 'NotificationNotificationScopeRecipientIds';
 
     constructor(value: any[], validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'NotificationNotificationScopes',
+            name       : 'NotificationNotificationScopeRecipientIds',
             nullable   : true,
             undefinable: true,
         }, validationRules));

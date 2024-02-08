@@ -2,19 +2,19 @@
 import { NotificationCreateNotificationsCommand } from '@app/notification/notification';
 import { NotificationCreateNotificationsService } from '@app/notification/notification/application/create/notification-create-notifications.service';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationId,
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
 } from '@app/notification/notification/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -35,11 +35,11 @@ export class NotificationCreateNotificationsCommandHandler implements ICommandHa
                 {
                     return {
                         id: new NotificationNotificationId(notification.id),
-                        tenantId: new NotificationNotificationTenantId(notification.tenantId),
-                        status: new NotificationNotificationStatus(notification.status),
-                        accountIds: new NotificationNotificationAccountIds(notification.accountIds),
                         tenantIds: new NotificationNotificationTenantIds(notification.tenantIds),
-                        scopes: new NotificationNotificationScopes(notification.scopes),
+                        status: new NotificationNotificationStatus(notification.status),
+                        accountRecipientIds: new NotificationNotificationAccountRecipientIds(notification.accountRecipientIds),
+                        tenantRecipientIds: new NotificationNotificationTenantRecipientIds(notification.tenantRecipientIds),
+                        scopeRecipientIds: new NotificationNotificationScopeRecipientIds(notification.scopeRecipientIds),
                         sendAt: new NotificationNotificationSendAt(notification.sendAt, {}, { removeTimezone: command.cQMetadata.timezone }),
                         isImportant: new NotificationNotificationIsImportant(notification.isImportant),
                         subject: new NotificationNotificationSubject(notification.subject),

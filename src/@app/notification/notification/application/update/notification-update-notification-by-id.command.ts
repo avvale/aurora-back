@@ -5,11 +5,11 @@ export class NotificationUpdateNotificationByIdCommand
     constructor(
         public readonly payload: {
             id: string;
-            tenantId?: string;
-            status?: string;
-            accountIds?: string[];
             tenantIds?: string[];
-            scopes?: string[];
+            status?: string;
+            accountRecipientIds?: string[];
+            tenantRecipientIds?: string[];
+            scopeRecipientIds?: string[];
             sendAt?: string;
             isImportant?: boolean;
             subject?: string;

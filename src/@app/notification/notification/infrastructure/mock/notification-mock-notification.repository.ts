@@ -1,6 +1,6 @@
 import { NotificationINotificationRepository, notificationMockNotificationData, NotificationNotification } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -9,12 +9,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -52,11 +52,11 @@ export class NotificationMockNotificationRepository extends MockRepository<Notif
 
             this.collectionSource.push(NotificationNotification.register(
                 new NotificationNotificationId(itemCollection.id),
-                new NotificationNotificationTenantId(itemCollection.tenantId),
-                new NotificationNotificationStatus(itemCollection.status),
-                new NotificationNotificationAccountIds(itemCollection.accountIds),
                 new NotificationNotificationTenantIds(itemCollection.tenantIds),
-                new NotificationNotificationScopes(itemCollection.scopes),
+                new NotificationNotificationStatus(itemCollection.status),
+                new NotificationNotificationAccountRecipientIds(itemCollection.accountRecipientIds),
+                new NotificationNotificationTenantRecipientIds(itemCollection.tenantRecipientIds),
+                new NotificationNotificationScopeRecipientIds(itemCollection.scopeRecipientIds),
                 new NotificationNotificationSendAt(itemCollection.sendAt),
                 new NotificationNotificationIsImportant(itemCollection.isImportant),
                 new NotificationNotificationSubject(itemCollection.subject),

@@ -1,6 +1,6 @@
 import { NotificationAddNotificationsContextEvent, NotificationINotificationRepository, NotificationNotification } from '@app/notification/notification';
 import {
-    NotificationNotificationAccountIds,
+    NotificationNotificationAccountRecipientIds,
     NotificationNotificationAttachments,
     NotificationNotificationBody,
     NotificationNotificationCreatedAt,
@@ -9,12 +9,12 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopes,
+    NotificationNotificationScopeRecipientIds,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
-    NotificationNotificationTenantId,
     NotificationNotificationTenantIds,
+    NotificationNotificationTenantRecipientIds,
     NotificationNotificationTotalRecipients,
     NotificationNotificationUpdatedAt,
 } from '@app/notification/notification/domain/value-objects';
@@ -33,11 +33,11 @@ export class NotificationCreateNotificationsService
     async main(
         payload: {
             id: NotificationNotificationId;
-            tenantId: NotificationNotificationTenantId;
-            status: NotificationNotificationStatus;
-            accountIds: NotificationNotificationAccountIds;
             tenantIds: NotificationNotificationTenantIds;
-            scopes: NotificationNotificationScopes;
+            status: NotificationNotificationStatus;
+            accountRecipientIds: NotificationNotificationAccountRecipientIds;
+            tenantRecipientIds: NotificationNotificationTenantRecipientIds;
+            scopeRecipientIds: NotificationNotificationScopeRecipientIds;
             sendAt: NotificationNotificationSendAt;
             isImportant: NotificationNotificationIsImportant;
             subject: NotificationNotificationSubject;
@@ -53,11 +53,11 @@ export class NotificationCreateNotificationsService
         // create aggregate with factory pattern
         const aggregateNotifications = payload.map(notification => NotificationNotification.register(
             notification.id,
-            notification.tenantId,
-            notification.status,
-            notification.accountIds,
             notification.tenantIds,
-            notification.scopes,
+            notification.status,
+            notification.accountRecipientIds,
+            notification.tenantRecipientIds,
+            notification.scopeRecipientIds,
             notification.sendAt,
             notification.isImportant,
             notification.subject,

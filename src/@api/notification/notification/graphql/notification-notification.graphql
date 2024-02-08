@@ -8,11 +8,11 @@ enum NotificationNotificationStatus {
 type NotificationNotification
 {
     id: ID!
-    tenantId: ID
-    status: NotificationNotificationStatus!
-    accountIds: [ID]
     tenantIds: [ID]
-    scopes: [GraphQLString]
+    status: NotificationNotificationStatus!
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipientIds: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     subject: GraphQLString!
@@ -29,11 +29,11 @@ type NotificationNotification
 input NotificationCreateNotificationInput
 {
     id: ID!
-    tenantId: ID
-    status: NotificationNotificationStatus!
-    accountIds: [ID]
     tenantIds: [ID]
-    scopes: [GraphQLString]
+    status: NotificationNotificationStatus!
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipientIds: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     subject: GraphQLString!
@@ -47,11 +47,11 @@ input NotificationCreateNotificationInput
 input NotificationUpdateNotificationByIdInput
 {
     id: ID!
-    tenantId: ID
-    status: NotificationNotificationStatus
-    accountIds: [ID]
     tenantIds: [ID]
-    scopes: [GraphQLString]
+    status: NotificationNotificationStatus
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipientIds: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     subject: GraphQLString
@@ -65,11 +65,11 @@ input NotificationUpdateNotificationByIdInput
 input NotificationUpdateNotificationsInput
 {
     id: ID
-    tenantId: ID
-    status: NotificationNotificationStatus
-    accountIds: [ID]
     tenantIds: [ID]
-    scopes: [GraphQLString]
+    status: NotificationNotificationStatus
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipientIds: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     subject: GraphQLString
