@@ -37,9 +37,9 @@ export class NotificationUpdateNotificationsDto
 
     @ApiProperty({
         type       : Array,
-        description: 'scopeRecipientIds [input here api field description]',
+        description: 'scopeRecipients [input here api field description]',
     })
-    scopeRecipientIds?: string[];
+    scopeRecipients?: string[];
 
     @ApiProperty({
         type       : String,

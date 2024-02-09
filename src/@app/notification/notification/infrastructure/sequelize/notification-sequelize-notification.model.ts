@@ -22,7 +22,7 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 			unique: false,
 		},
 		{
-			fields: ['scopeRecipientIds'],
+			fields: ['scopeRecipients'],
 			unique: false,
 		},
 
@@ -175,11 +175,11 @@ export class NotificationNotificationModel extends Model<NotificationNotificatio
     tenantRecipientIds: string[];
 
     @Column({
-        field: 'scopeRecipientIds',
+        field: 'scopeRecipients',
         allowNull: true,
         type: DataTypes.ARRAY(DataTypes.STRING()),
     })
-    scopeRecipientIds: string[];
+    scopeRecipients: string[];
 
     @Column({
         field: 'sendAt',

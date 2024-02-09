@@ -6,7 +6,7 @@ export class NotificationUpdatedNotificationEvent
         public readonly status: string,
         public readonly accountRecipientIds: string[],
         public readonly tenantRecipientIds: string[],
-        public readonly scopeRecipientIds: string[],
+        public readonly scopeRecipients: string[],
         public readonly sendAt: string,
         public readonly isImportant: boolean,
         public readonly subject: string,

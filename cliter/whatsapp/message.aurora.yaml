@@ -12,7 +12,7 @@ aggregateProperties:
     primaryKey: true
     length: 36
     nullable: false
-  
+
   - name: createdAt
     type: timestamp
     nullable: true
@@ -22,4 +22,3 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
-additionalApis: []

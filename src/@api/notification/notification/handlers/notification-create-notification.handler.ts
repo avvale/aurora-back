@@ -21,7 +21,11 @@ export class NotificationCreateNotificationHandler
     ): Promise<NotificationNotification | NotificationNotificationDto>
     {
         await this.commandBus.dispatch(new NotificationCreateNotificationCommand(
-            payload,
+            {
+                ...payload,
+                totalRecipients: 0,
+                reads          : 0,
+            },
             {
                 timezone,
                 repositoryOptions: {

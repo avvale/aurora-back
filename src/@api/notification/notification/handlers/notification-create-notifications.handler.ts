@@ -20,7 +20,11 @@ export class NotificationCreateNotificationsHandler
     ): Promise<boolean>
     {
         await this.commandBus.dispatch(new NotificationCreateNotificationsCommand(
-            payload,
+            payload.map((notification: NotificationCreateNotificationInput | NotificationCreateNotificationDto) => ({
+                ...notification,
+                totalRecipients: 0,
+                reads          : 0,
+            })),
             {
                 timezone,
                 repositoryOptions: {

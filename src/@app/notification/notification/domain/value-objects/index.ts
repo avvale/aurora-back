@@ -7,7 +7,7 @@ export { NotificationNotificationId } from './notification-notification-id';
 export { NotificationNotificationIsImportant } from './notification-notification-is-important';
 export { NotificationNotificationMeta } from './notification-notification-meta';
 export { NotificationNotificationReads } from './notification-notification-reads';
-export { NotificationNotificationScopeRecipientIds } from './notification-notification-scope-recipient-ids';
+export { NotificationNotificationScopeRecipients } from './notification-notification-scope-recipients';
 export { NotificationNotificationSendAt } from './notification-notification-send-at';
 export { NotificationNotificationStatus } from './notification-notification-status';
 export { NotificationNotificationSubject } from './notification-notification-subject';

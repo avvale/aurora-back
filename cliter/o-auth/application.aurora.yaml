@@ -73,4 +73,3 @@ aggregateProperties:
   - name: deletedAt
     type: timestamp
     nullable: true
-additionalApis: []

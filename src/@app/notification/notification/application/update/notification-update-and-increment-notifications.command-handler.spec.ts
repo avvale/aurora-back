@@ -43,7 +43,7 @@ describe('NotificationUpdateAndIncrementNotificationsCommandHandler', () =>
                         status: notificationMockNotificationData[0].status,
                         accountRecipientIds: notificationMockNotificationData[0].accountRecipientIds,
                         tenantRecipientIds: notificationMockNotificationData[0].tenantRecipientIds,
-                        scopeRecipientIds: notificationMockNotificationData[0].scopeRecipientIds,
+                        scopeRecipients: notificationMockNotificationData[0].scopeRecipients,
                         sendAt: notificationMockNotificationData[0].sendAt,
                         isImportant: notificationMockNotificationData[0].isImportant,
                         subject: notificationMockNotificationData[0].subject,

@@ -37,9 +37,9 @@ export class NotificationUpdateNotificationByIdDto
 
     @ApiProperty({
         type       : Array,
-        description: 'scopeRecipientIds [input here api field description]',
+        description: 'scopeRecipients [input here api field description]',
     })
-    scopeRecipientIds?: string[];
+    scopeRecipients?: string[];
 
     @ApiProperty({
         type       : String,
@@ -70,18 +70,6 @@ export class NotificationUpdateNotificationByIdDto
         description: 'attachments [input here api field description]',
     })
     attachments?: any;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'totalRecipients [input here api field description]',
-    })
-    totalRecipients?: number;
-
-    @ApiProperty({
-        type       : Number,
-        description: 'reads [input here api field description]',
-    })
-    reads?: number;
 
     @ApiProperty({
         type       : Object,

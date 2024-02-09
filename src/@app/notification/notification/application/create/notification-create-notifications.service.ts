@@ -9,7 +9,7 @@ import {
     NotificationNotificationIsImportant,
     NotificationNotificationMeta,
     NotificationNotificationReads,
-    NotificationNotificationScopeRecipientIds,
+    NotificationNotificationScopeRecipients,
     NotificationNotificationSendAt,
     NotificationNotificationStatus,
     NotificationNotificationSubject,
@@ -37,7 +37,7 @@ export class NotificationCreateNotificationsService
             status: NotificationNotificationStatus;
             accountRecipientIds: NotificationNotificationAccountRecipientIds;
             tenantRecipientIds: NotificationNotificationTenantRecipientIds;
-            scopeRecipientIds: NotificationNotificationScopeRecipientIds;
+            scopeRecipients: NotificationNotificationScopeRecipients;
             sendAt: NotificationNotificationSendAt;
             isImportant: NotificationNotificationIsImportant;
             subject: NotificationNotificationSubject;
@@ -57,7 +57,7 @@ export class NotificationCreateNotificationsService
             notification.status,
             notification.accountRecipientIds,
             notification.tenantRecipientIds,
-            notification.scopeRecipientIds,
+            notification.scopeRecipients,
             notification.sendAt,
             notification.isImportant,
             notification.subject,

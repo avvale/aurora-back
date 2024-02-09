@@ -12,7 +12,7 @@ type NotificationNotification
     status: NotificationNotificationStatus!
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
-    scopeRecipientIds: [GraphQLString]
+    scopeRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     subject: GraphQLString!
@@ -33,14 +33,12 @@ input NotificationCreateNotificationInput
     status: NotificationNotificationStatus!
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
-    scopeRecipientIds: [GraphQLString]
+    scopeRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     subject: GraphQLString!
     body: GraphQLString!
     attachments: JSON
-    totalRecipients: GraphQLInt!
-    reads: GraphQLInt!
     meta: JSON
 }
 
@@ -51,14 +49,12 @@ input NotificationUpdateNotificationByIdInput
     status: NotificationNotificationStatus
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
-    scopeRecipientIds: [GraphQLString]
+    scopeRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     subject: GraphQLString
     body: GraphQLString
     attachments: JSON
-    totalRecipients: GraphQLInt
-    reads: GraphQLInt
     meta: JSON
 }
 
@@ -69,7 +65,7 @@ input NotificationUpdateNotificationsInput
     status: NotificationNotificationStatus
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
-    scopeRecipientIds: [GraphQLString]
+    scopeRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     subject: GraphQLString

@@ -7,23 +7,23 @@
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notification.command-handler.spec.ts",
-            "integrity": "sha1:c41a305ca304d0d72915ccc8f7f196876b88d664"
+            "integrity": "sha1:6323c10dd9ad4c770052667166fd09bd5721b02b"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notification.command-handler.ts",
-            "integrity": "sha1:1e238578bdb29d1c90875bc869379e9e480b0f5b"
+            "integrity": "sha1:b6c8d086b376cec7707615541ab6876f127ff167"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notification.command.ts",
-            "integrity": "sha1:1daaebba065b7767cb909a1d7a6db93d0281b49e"
+            "integrity": "sha1:ed00d2a26461cd81e48ed8ac4ddb4a1cf9b628da"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notification.service.spec.ts",
-            "integrity": "sha1:0ff627dbbc5d8cf56f24f94608af83592a51ac6b"
+            "integrity": "sha1:83953fa07412a188a37c39b504adff3396987b57"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notification.service.ts",
-            "integrity": "sha1:4f4b54c939c4c86b8f27f065edaf9679368c3e45"
+            "integrity": "sha1:cfc3d2e1cea854198794a8a770d92c4bb477b001"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notifications.command-handler.spec.ts",
@@ -31,11 +31,11 @@
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notifications.command-handler.ts",
-            "integrity": "sha1:8f96d32d61730a70799fdb768381665e65129039"
+            "integrity": "sha1:40406dbcb4b265331d862bbc482fcd5b5269b0c8"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notifications.command.ts",
-            "integrity": "sha1:f885348ec4a26cbd8e9941514363208fba576bbc"
+            "integrity": "sha1:b7dbc3238006136735cfe517f71e5e89a12374f4"
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notifications.service.spec.ts",
@@ -43,7 +43,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/create/notification-create-notifications.service.ts",
-            "integrity": "sha1:77c7a55708ae8b83d6d371d711f11e7a0dd1559a"
+            "integrity": "sha1:f1e9769bade261469ea48690ab7a22c306afc629"
         },
         {
             "path": "src/@app/notification/notification/application/delete/notification-delete-notification-by-id.command-handler.spec.ts",
@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-add-notifications-context.event.ts",
-            "integrity": "sha1:2554437bcfcce1102cd23b557bc72df3ddf552ce"
+            "integrity": "sha1:9c835bd519499de88c53d0d519af8c4b73c8b6b3"
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-created-notification.event-handler.ts",
@@ -95,7 +95,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-created-notification.event.ts",
-            "integrity": "sha1:1da06f1d0936d0545355a37d24cd11e09f229758"
+            "integrity": "sha1:3d057183a8a886399ae1bf08daf1fd5738a5b3d3"
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-created-notifications.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-deleted-notification.event.ts",
-            "integrity": "sha1:5ae4221271a949c3a0775def09ab018e75908e79"
+            "integrity": "sha1:52990fef254a87ecce3e9a8cf21378c830cb19c1"
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-deleted-notifications.event-handler.ts",
@@ -127,7 +127,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-updated-notification.event.ts",
-            "integrity": "sha1:e4fa55012bc2afdfd7cd768a3a3a3dc0a55b3bdb"
+            "integrity": "sha1:7ff8155afb30458aba5150d1b4b9cb3a7cf9270f"
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-updated-notifications.event-handler.ts",
@@ -139,7 +139,7 @@
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-updated-and-incremented-notification.event.ts",
-            "integrity": "sha1:6a9e21c0cecb25399da51d8a7acd8dfec7cb893c"
+            "integrity": "sha1:e2f5fa6d370c3680a4137880329575c9a8e3fb01"
         },
         {
             "path": "src/@app/notification/notification/application/events/notification-updated-and-incremented-notifications.event-handler.ts",
@@ -255,91 +255,91 @@
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notification-by-id.command-handler.spec.ts",
-            "integrity": "sha1:fc40a488a99663dfee02e3cb3d337fd38b0521f1"
+            "integrity": "sha1:13fa60e2a314782e581e4d24552f7238e6873de3"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notification-by-id.command-handler.ts",
-            "integrity": "sha1:13405783a3d14b4056a245994bab46bbc6f532b7"
+            "integrity": "sha1:8683c6c12cb22f91dbda03cd712f91ae0bb29b8c"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notification-by-id.command.ts",
-            "integrity": "sha1:812b483e9ec3e07666462b18e4fe633af89a92ac"
+            "integrity": "sha1:6350b3da0ca89dbe76b2af5255df86c12224c53a"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notification-by-id.service.spec.ts",
-            "integrity": "sha1:4cc5a5e8d77e4eafdf70630eb454e7fd8bd08023"
+            "integrity": "sha1:0a177ddcd88337cfd80edbbd6e404400041d5184"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notification-by-id.service.ts",
-            "integrity": "sha1:c537338a18dcd16e2d2feee6e243dc26f0dd1ef8"
+            "integrity": "sha1:c39b1ed3d178016db341bd129f276f0847472674"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notifications.command-handler.spec.ts",
-            "integrity": "sha1:ec746553e45196acc17a465e2cad553764f47845"
+            "integrity": "sha1:5933ac2e9e6209b8a58b1cb5f11a16f3bf422b9e"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notifications.command-handler.ts",
-            "integrity": "sha1:18680ea921fb477383258ea5f0561998643c3703"
+            "integrity": "sha1:e047636017a5c8da6afbbc66cc1ebe762dbba273"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notifications.command.ts",
-            "integrity": "sha1:afe90aae5c983397a0283f10dec14c118213016d"
+            "integrity": "sha1:e2034a35b9803bfd2b2cc34427101421d707770e"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notifications.service.spec.ts",
-            "integrity": "sha1:d1954dab2bdcd786f12570f12cbf54d8a4cfbded"
+            "integrity": "sha1:8b1750a893c985cebf4379cd39c3fb246a481fdc"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-notifications.service.ts",
-            "integrity": "sha1:09ce168580eb82f9a5edfa6a34dc16dcbf68caa8"
+            "integrity": "sha1:53f4b74b4085dbd113d90ac62ba0443c1b944405"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-and-increment-notifications.command-handler.spec.ts",
-            "integrity": "sha1:3865d08d52b48891e235ef88d48de2d483380769"
+            "integrity": "sha1:b20cceb5ce6ff14f2aeef120bb931fae7f1751f5"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-and-increment-notifications.command-handler.ts",
-            "integrity": "sha1:21ad6fd6b8715c41a8612970641b679dbf1b2c05"
+            "integrity": "sha1:0a062e7792cc1cfdfcb2c56fb392e12b23b74b50"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-and-increment-notifications.command.ts",
-            "integrity": "sha1:7b435b5ad41dca41b5b899a6c71b40a96de796db"
+            "integrity": "sha1:b84b68a475d25030575954597593fc0e8efb5cb6"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-and-increment-notifications.service.spec.ts",
-            "integrity": "sha1:9d0c9df4a27e7d52e9febb17c445b9f41f9a324d"
+            "integrity": "sha1:ed7205fbb8e94b483cd57af6f47108af64654e41"
         },
         {
             "path": "src/@app/notification/notification/application/update/notification-update-and-increment-notifications.service.ts",
-            "integrity": "sha1:0d63a7c066e1465eb7e246d6eceaf3399f01c540"
+            "integrity": "sha1:692b5673ce7b83fbfb9907f8cabb5c908822084a"
         },
         {
             "path": "src/@app/notification/notification/application/upsert/notification-upsert-notification.command-handler.spec.ts",
-            "integrity": "sha1:b22c9764ad52b0210fecc527b49640645e241053"
+            "integrity": "sha1:0fb5751952d13bc4d51ba32a15777046262f00e1"
         },
         {
             "path": "src/@app/notification/notification/application/upsert/notification-upsert-notification.command-handler.ts",
-            "integrity": "sha1:cc50ff426fbe663db26c574901ecbdf765497c8f"
+            "integrity": "sha1:df490e257fa25cf295f18111e28e43d76cebbeaa"
         },
         {
             "path": "src/@app/notification/notification/application/upsert/notification-upsert-notification.command.ts",
-            "integrity": "sha1:1af38bd2f104e92f0ed7550345845a38d903bd8e"
+            "integrity": "sha1:62f0424258516f5ec32f539794eb43c4c2586c53"
         },
         {
             "path": "src/@app/notification/notification/application/upsert/notification-upsert-notification.service.spec.ts",
-            "integrity": "sha1:f19d43e9d2b5ac86b77b699e69170ff0205ca0b0"
+            "integrity": "sha1:5653409f40e6b9f46570a46d5a61fd0e3b20b18c"
         },
         {
             "path": "src/@app/notification/notification/application/upsert/notification-upsert-notification.service.ts",
-            "integrity": "sha1:2394a845ad55c9db3be6613b451a96e40f318dfe"
+            "integrity": "sha1:b85ba74cb6119461468a86c640d52c727bda1c4c"
         },
         {
             "path": "src/@app/notification/notification/domain/notification-notification.aggregate.ts",
-            "integrity": "sha1:cda96141fa6e6f0bc9a88387c749edc1e7cb2935"
+            "integrity": "sha1:cdf5e612e00abff24b7a5b5ee545283fb718f6f6"
         },
         {
             "path": "src/@app/notification/notification/domain/notification-notification.mapper.ts",
-            "integrity": "sha1:1c0cefd36ad0b593a8f6e86456fd8d48711263e3"
+            "integrity": "sha1:6a5270954ed6010865c02d2c5435b77f0f477d24"
         },
         {
             "path": "src/@app/notification/notification/domain/notification-notification.repository.ts",
@@ -347,11 +347,11 @@
         },
         {
             "path": "src/@app/notification/notification/domain/notification-notification.response.ts",
-            "integrity": "sha1:57539d0fae0c703b4774e440f4758eac4cb2653d"
+            "integrity": "sha1:7b6dac548dce6fd973adc620443873eb2c7f629b"
         },
         {
             "path": "src/@app/notification/notification/domain/value-objects/index.ts",
-            "integrity": "sha1:7bfcf042d64aab2b16a48e73021beafe24bcd9c2"
+            "integrity": "sha1:2f8d6aabdbbeae85df420db3edab6661b92bb8a4"
         },
         {
             "path": "src/@app/notification/notification/index.ts",
@@ -359,19 +359,19 @@
         },
         {
             "path": "src/@app/notification/notification/infrastructure/mock/notification-mock-notification.data.ts",
-            "integrity": "sha1:5e036c1c599e8ccffc1424250015a3d4d2a2acde"
+            "integrity": "sha1:aa69f163f79cc8dde1b3ff68a616ef04723d2002"
         },
         {
             "path": "src/@app/notification/notification/infrastructure/mock/notification-mock-notification.repository.ts",
-            "integrity": "sha1:e380f0f38c1847707393d37bb1bd6d7556ee3278"
+            "integrity": "sha1:f2b2da02b676218fcf6460b8133cdd563370f811"
         },
         {
             "path": "src/@app/notification/notification/infrastructure/mock/notification-mock-notification.seeder.ts",
-            "integrity": "sha1:073008a2a18e5166629f29877b5d85af2e716737"
+            "integrity": "sha1:81c2a9b2421fb6bc3352ae9ee23fc05b5916f0d1"
         },
         {
             "path": "src/@app/notification/notification/infrastructure/sequelize/notification-sequelize-notification.model.ts",
-            "integrity": "sha1:d67f9ed7b6aa6632359608cfe07b9d5a25f6464a"
+            "integrity": "sha1:849e46d6dbe5a2ae28bb59fa04ee4883b05688e6"
         },
         {
             "path": "src/@app/notification/notification/infrastructure/sequelize/notification-sequelize-notification.repository.ts",
@@ -398,8 +398,8 @@
             "integrity": "sha1:7b5e2c3e24a7aee6b4b73c8dea42e3cf1b10c363"
         },
         {
-            "path": "src/@app/notification/notification/domain/value-objects/notification-notification-scope-recipient-ids.ts",
-            "integrity": "sha1:dc59d8afd8f2babcdf2dc43f060f63b915e43b49"
+            "path": "src/@app/notification/notification/domain/value-objects/notification-notification-scope-recipients.ts",
+            "integrity": "sha1:eabc0c81781ccd1c2a12c7a955043cba2b7be96d"
         },
         {
             "path": "src/@app/notification/notification/domain/value-objects/notification-notification-send-at.ts",
@@ -539,19 +539,19 @@
         },
         {
             "path": "src/@api/notification/notification/dto/notification-notification.dto.ts",
-            "integrity": "sha1:48142e60a0b18274166dde4cdfd64d5e8cbadf68"
+            "integrity": "sha1:687d1ab3d2ef41bc250d7fb395afd1a81e87d3cf"
         },
         {
             "path": "src/@api/notification/notification/dto/notification-create-notification.dto.ts",
-            "integrity": "sha1:fa64dfe835b33d233a4c504aabdb6df867be1a8e"
+            "integrity": "sha1:de4346154178efcb8df11f071dc5b938cb8ecbb8"
         },
         {
             "path": "src/@api/notification/notification/dto/notification-update-notification-by-id.dto.ts",
-            "integrity": "sha1:6c28e3ab55c1a6e8385aed4555b4fe69e8ee947b"
+            "integrity": "sha1:e05245d7983752bc63ae03b5ecad4259994a709a"
         },
         {
             "path": "src/@api/notification/notification/dto/notification-update-notifications.dto.ts",
-            "integrity": "sha1:6ba170a310a7749d80de95f0b65eeb677c74bf3b"
+            "integrity": "sha1:869222515603e3a93d2787e51448c4eacc8e0be2"
         },
         {
             "path": "src/@api/notification/notification/dto/index.ts",
@@ -563,7 +563,7 @@
         },
         {
             "path": "src/@api/notification/notification/graphql/notification-notification.graphql",
-            "integrity": "sha1:d221ab3a10dc38d5952623f8d50fb30cf797863d"
+            "integrity": "sha1:e4155550a7e83178ddd6c4318a4da9ac6cf0f61a"
         },
         {
             "path": "src/@api/notification/notification/handlers/notification-create-notification.handler.spec.ts",
@@ -751,11 +751,11 @@
         },
         {
             "path": "test/acceptance/notification/notification.e2e-spec.ts",
-            "integrity": "sha1:025a2c80bd723320f78eec9394547e9385f77508"
+            "integrity": "sha1:f6539829c7a479b6389f2c93bb20bc72c70a8902"
         },
         {
             "path": "postman/notification/notification.notification.postman.json",
-            "integrity": "sha1:875181f209c546f529da4e6d88ab9828d70ceeb0"
+            "integrity": "sha1:da356c03694579347fda961181094a5ab05c4bd4"
         }
     ]
 }

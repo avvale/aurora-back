@@ -1,0 +1,139 @@
+
+type NotificationInbox
+{
+    id: ID!
+    tenantIds: [ID]
+    notificationId: ID!
+    notification: NotificationNotification
+    sort: GraphQLInt!
+    accountId: ID!
+    accountCode: GraphQLString
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    isRead: GraphQLBoolean!
+    isReadAtLeastOnce: GraphQLBoolean!
+    meta: JSON
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input NotificationCreateInboxInput
+{
+    id: ID!
+    tenantIds: [ID]
+    notificationId: ID!
+    sort: GraphQLInt!
+    accountId: ID!
+    accountCode: GraphQLString
+    isImportant: GraphQLBoolean!
+    subject: GraphQLString!
+    body: GraphQLString!
+    attachments: JSON
+    isRead: GraphQLBoolean!
+    isReadAtLeastOnce: GraphQLBoolean!
+    meta: JSON
+}
+
+input NotificationUpdateInboxByIdInput
+{
+    id: ID!
+    tenantIds: [ID]
+    notificationId: ID
+    sort: GraphQLInt
+    accountId: ID
+    accountCode: GraphQLString
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    isRead: GraphQLBoolean
+    isReadAtLeastOnce: GraphQLBoolean
+    meta: JSON
+}
+
+input NotificationUpdateInboxesInput
+{
+    id: ID
+    tenantIds: [ID]
+    notificationId: ID
+    sort: GraphQLInt
+    accountId: ID
+    accountCode: GraphQLString
+    isImportant: GraphQLBoolean
+    subject: GraphQLString
+    body: GraphQLString
+    attachments: JSON
+    isRead: GraphQLBoolean
+    isReadAtLeastOnce: GraphQLBoolean
+    meta: JSON
+}
+
+type Query
+{
+    notificationFindInbox(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): NotificationInbox
+
+    notificationFindInboxById(
+        id: ID
+        constraint: QueryStatement
+    ): NotificationInbox
+
+    notificationGetInboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationInbox]!
+
+    notificationPaginateInboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    notificationCreateInbox(
+        payload: NotificationCreateInboxInput!
+    ): NotificationInbox
+
+    notificationCreateInboxes(
+        payload: [NotificationCreateInboxInput]!
+    ): Boolean!
+
+    notificationUpdateInboxById(
+        payload: NotificationUpdateInboxByIdInput!
+        constraint: QueryStatement
+    ): NotificationInbox
+
+    notificationUpdateInboxes(
+        payload: NotificationUpdateInboxesInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationInbox]!
+
+    notificationUpsertInbox(
+        payload: NotificationUpdateInboxByIdInput!
+    ): NotificationInbox
+
+    notificationDeleteInboxById(
+        id: ID!
+        constraint: QueryStatement
+    ): NotificationInbox
+
+    notificationDeleteInboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationInbox]!
+
+
+    # additionalApis
+    notificationCheckNotificationsInbox(
+        query: QueryStatement
+    ): Boolean!
+
+}

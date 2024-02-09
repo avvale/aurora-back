@@ -1,0 +1,109 @@
+
+type NotificationOutbox
+{
+    id: ID!
+    notificationId: ID!
+    notification: NotificationNotification
+    sort: GraphQLInt!
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipients: [GraphQLString]
+    meta: JSON
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input NotificationCreateOutboxInput
+{
+    id: ID!
+    notificationId: ID!
+    sort: GraphQLInt!
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipients: [GraphQLString]
+    meta: JSON
+}
+
+input NotificationUpdateOutboxByIdInput
+{
+    id: ID!
+    notificationId: ID
+    sort: GraphQLInt
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipients: [GraphQLString]
+    meta: JSON
+}
+
+input NotificationUpdateOutboxesInput
+{
+    id: ID
+    notificationId: ID
+    sort: GraphQLInt
+    accountRecipientIds: [ID]
+    tenantRecipientIds: [ID]
+    scopeRecipients: [GraphQLString]
+    meta: JSON
+}
+
+type Query
+{
+    notificationFindOutbox(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): NotificationOutbox
+
+    notificationFindOutboxById(
+        id: ID
+        constraint: QueryStatement
+    ): NotificationOutbox
+
+    notificationGetOutboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutbox]!
+
+    notificationPaginateOutboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    notificationCreateOutbox(
+        payload: NotificationCreateOutboxInput!
+    ): NotificationOutbox
+
+    notificationCreateOutboxes(
+        payload: [NotificationCreateOutboxInput]!
+    ): Boolean!
+
+    notificationUpdateOutboxById(
+        payload: NotificationUpdateOutboxByIdInput!
+        constraint: QueryStatement
+    ): NotificationOutbox
+
+    notificationUpdateOutboxes(
+        payload: NotificationUpdateOutboxesInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutbox]!
+
+    notificationUpsertOutbox(
+        payload: NotificationUpdateOutboxByIdInput!
+    ): NotificationOutbox
+
+    notificationDeleteOutboxById(
+        id: ID!
+        constraint: QueryStatement
+    ): NotificationOutbox
+
+    notificationDeleteOutboxes(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [NotificationOutbox]!
+
+}

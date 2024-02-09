@@ -9,7 +9,7 @@ export class NotificationUpdateNotificationsCommand
             status?: string;
             accountRecipientIds?: string[];
             tenantRecipientIds?: string[];
-            scopeRecipientIds?: string[];
+            scopeRecipients?: string[];
             sendAt?: string;
             isImportant?: boolean;
             subject?: string;

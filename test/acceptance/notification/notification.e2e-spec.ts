@@ -618,7 +618,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -697,7 +697,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -739,7 +739,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -781,7 +781,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -831,7 +831,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -879,7 +879,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -922,7 +922,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -963,7 +963,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -1009,7 +1009,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -1053,7 +1053,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -1102,7 +1102,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject
@@ -1145,7 +1145,7 @@ describe('notification', () =>
                             status
                             accountRecipientIds
                             tenantRecipientIds
-                            scopeRecipientIds
+                            scopeRecipients
                             sendAt
                             isImportant
                             subject

@@ -27,7 +27,7 @@ import { NotificationModule } from './@api/notification/notification.module';
         ScheduleModule.forRoot(),
         SearchEngineModule,
         ServerStaticModule,
-        NotificationModule
+        NotificationModule,
     ],
     controllers: [
         AppController,
