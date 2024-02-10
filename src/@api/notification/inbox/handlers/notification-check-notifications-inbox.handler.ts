@@ -154,19 +154,19 @@ export class NotificationCheckNotificationsInboxHandler
             ));
         }
 
-        // get last notification
-        const lastNotification = await this.queryBus.ask(new NotificationFindOutboxQuery(
-            {
-                order: [['sort', 'DESC']],
-            },
-        ));
+        // **********************************************************
+        // * if no existing inbox setting, create new inbox setting *
+        // **********************************************************
+
+        // get max sort
+        const maxSort = await this.queryBus.ask(new NotificationMaxInboxQuery('sort'));
 
         // create inbox setting
         await this.commandBus.dispatch(new NotificationCreateInboxSettingCommand(
             {
                 id       : uuid(),
                 accountId: account.id,
-                sort     : lastNotification ? lastNotification.sort : 0,
+                sort     : maxSort || 0,
             },
             {
                 timezone,
