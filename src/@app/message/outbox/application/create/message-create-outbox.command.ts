@@ -6,7 +6,6 @@ export class MessageCreateOutboxCommand
         public readonly payload: {
             id: string;
             messageId: string;
-            sort: number;
             accountRecipientIds?: string[];
             tenantRecipientIds?: string[];
             scopeRecipients?: string[];

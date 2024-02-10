@@ -26,7 +26,6 @@ export class MessageCreateOutboxCommandHandler implements ICommandHandler<Messag
             {
                 id: new MessageOutboxId(command.payload.id),
                 messageId: new MessageOutboxMessageId(command.payload.messageId),
-                sort: new MessageOutboxSort(command.payload.sort),
                 accountRecipientIds: new MessageOutboxAccountRecipientIds(command.payload.accountRecipientIds),
                 tenantRecipientIds: new MessageOutboxTenantRecipientIds(command.payload.tenantRecipientIds),
                 scopeRecipients: new MessageOutboxScopeRecipients(command.payload.scopeRecipients),

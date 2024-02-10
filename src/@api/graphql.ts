@@ -1076,7 +1076,6 @@ export interface MessageUpdateMessagesInput {
 export interface MessageCreateOutboxInput {
     id: string;
     messageId: string;
-    sort: GraphQLInt;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
@@ -1086,7 +1085,6 @@ export interface MessageCreateOutboxInput {
 export interface MessageUpdateOutboxByIdInput {
     id: string;
     messageId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
@@ -1096,7 +1094,6 @@ export interface MessageUpdateOutboxByIdInput {
 export interface MessageUpdateOutboxesInput {
     id?: Nullable<string>;
     messageId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;

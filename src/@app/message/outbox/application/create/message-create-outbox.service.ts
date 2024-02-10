@@ -27,7 +27,6 @@ export class MessageCreateOutboxService
         payload: {
             id: MessageOutboxId;
             messageId: MessageOutboxMessageId;
-            sort: MessageOutboxSort;
             accountRecipientIds: MessageOutboxAccountRecipientIds;
             tenantRecipientIds: MessageOutboxTenantRecipientIds;
             scopeRecipients: MessageOutboxScopeRecipients;
@@ -40,7 +39,7 @@ export class MessageCreateOutboxService
         const outbox = MessageOutbox.register(
             payload.id,
             payload.messageId,
-            payload.sort,
+            new MessageOutboxSort(undefined, { undefinable: true }), // sort is auto increment
             payload.accountRecipientIds,
             payload.tenantRecipientIds,
             payload.scopeRecipients,

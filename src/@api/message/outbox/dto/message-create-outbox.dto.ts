@@ -17,12 +17,6 @@ export class MessageCreateOutboxDto
     messageId: string;
 
     @ApiProperty({
-        type       : Number,
-        description: 'sort [input here api field description]',
-    })
-    sort: number;
-
-    @ApiProperty({
         type       : Array,
         description: 'accountRecipientIds [input here api field description]',
     })
