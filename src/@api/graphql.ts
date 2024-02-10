@@ -1722,7 +1722,7 @@ export interface IMutation {
     notificationUpsertInbox(payload: NotificationUpdateInboxByIdInput): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
     notificationDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
     notificationDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox>[] | Promise<Nullable<NotificationInbox>[]>;
-    notificationCheckNotificationsInbox(query?: Nullable<QueryStatement>, payload: NotificationUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    notificationCheckNotificationsInbox(query?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     notificationCreateNotification(payload: NotificationCreateNotificationInput): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
     notificationCreateNotifications(payload: Nullable<NotificationCreateNotificationInput>[]): boolean | Promise<boolean>;
     notificationUpdateNotificationById(payload: NotificationUpdateNotificationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
