@@ -1,4 +1,4 @@
-import { NotificationMaxInboxQuery, NotificationIInboxRepository, NotificationMockInboxRepository } from '@app/notification/inbox';
+import { NotificationIInboxRepository, NotificationMaxInboxQuery, NotificationMockInboxRepository } from '@app/notification/inbox';
 import { NotificationMaxInboxQueryHandler } from '@app/notification/inbox/application/max/notification-max-inbox.query-handler';
 import { NotificationMaxInboxService } from '@app/notification/inbox/application/max/notification-max-inbox.service';
 import { Test, TestingModule } from '@nestjs/testing';

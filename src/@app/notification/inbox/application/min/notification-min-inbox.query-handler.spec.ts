@@ -1,4 +1,4 @@
-import { NotificationMinInboxQuery, NotificationIInboxRepository, NotificationMockInboxRepository } from '@app/notification/inbox';
+import { NotificationIInboxRepository, NotificationMinInboxQuery, NotificationMockInboxRepository } from '@app/notification/inbox';
 import { NotificationMinInboxQueryHandler } from '@app/notification/inbox/application/min/notification-min-inbox.query-handler';
 import { NotificationMinInboxService } from '@app/notification/inbox/application/min/notification-min-inbox.service';
 import { Test, TestingModule } from '@nestjs/testing';

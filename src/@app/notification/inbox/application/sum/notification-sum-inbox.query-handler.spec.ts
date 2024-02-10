@@ -1,4 +1,4 @@
-import { NotificationSumInboxQuery, NotificationIInboxRepository, NotificationMockInboxRepository } from '@app/notification/inbox';
+import { NotificationIInboxRepository, NotificationMockInboxRepository, NotificationSumInboxQuery } from '@app/notification/inbox';
 import { NotificationSumInboxQueryHandler } from '@app/notification/inbox/application/sum/notification-sum-inbox.query-handler';
 import { NotificationSumInboxService } from '@app/notification/inbox/application/sum/notification-sum-inbox.service';
 import { Test, TestingModule } from '@nestjs/testing';

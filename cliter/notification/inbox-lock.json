@@ -6,6 +6,26 @@
             "integrity": "sha1:ba26a65ed1b80661e61844564a5f6677033e91b7"
         },
         {
+            "path": "src/@app/notification/inbox/application/count/notification-count-inbox.query-handler.spec.ts",
+            "integrity": "sha1:6ff606a7d9462960858754d4b342fbcd46fa2f7a"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/count/notification-count-inbox.query-handler.ts",
+            "integrity": "sha1:35b8f99c2f9b053a1af7fa5aeb40547e149d962a"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/count/notification-count-inbox.query.ts",
+            "integrity": "sha1:9b503f2f8b66632cbe9c52e1665a8dd707c2b873"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/count/notification-count-inbox.service.spec.ts",
+            "integrity": "sha1:4d9938594e98da471503a509fb92e4bf7a9555ee"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/count/notification-count-inbox.service.ts",
+            "integrity": "sha1:dbbce6ef702b244fd9067d836599be4138f256e8"
+        },
+        {
             "path": "src/@app/notification/inbox/application/create/notification-create-inbox.command-handler.spec.ts",
             "integrity": "sha1:d91ff0bdc218ff08dc151572893f889d9af3f00f"
         },
@@ -210,6 +230,46 @@
             "integrity": "sha1:12db4458cc5c71eb230f2f93df70f2c89dac71da"
         },
         {
+            "path": "src/@app/notification/inbox/application/max/notification-max-inbox.query-handler.spec.ts",
+            "integrity": "sha1:2dd442178589cf561f215f2cfaa03b2b5bd2d97b"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/max/notification-max-inbox.query-handler.ts",
+            "integrity": "sha1:e03dbd1fcec17ceda0a77daf49b7cb21178d7beb"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/max/notification-max-inbox.query.ts",
+            "integrity": "sha1:b8c8a3906abda3b75d98c54f3812667bcf10f57e"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/max/notification-max-inbox.service.spec.ts",
+            "integrity": "sha1:3f013bec1509909f049330444e3981a6ce620355"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/max/notification-max-inbox.service.ts",
+            "integrity": "sha1:da9e5aae0b7ece6eebbdeb9d66d5533e7663c47d"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/min/notification-min-inbox.query-handler.spec.ts",
+            "integrity": "sha1:27b14844dcd1799c556dbdba1ada9fd0f3750049"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/min/notification-min-inbox.query-handler.ts",
+            "integrity": "sha1:85042f815ebdb49e88559e8285817738f1aef8b3"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/min/notification-min-inbox.query.ts",
+            "integrity": "sha1:e395f746f22b52a1c5bc06471dc46af8d8133d64"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/min/notification-min-inbox.service.spec.ts",
+            "integrity": "sha1:46fe4857828dd2ee41812b7c19d12bf809f91808"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/min/notification-min-inbox.service.ts",
+            "integrity": "sha1:f135a68f1d3198d5a174ad3b9ee7e1eb477c9467"
+        },
+        {
             "path": "src/@app/notification/inbox/application/paginate/notification-paginate-inboxes.query-handler.spec.ts",
             "integrity": "sha1:2fe7d7940aefe0a81c4eaa9f520eb7790ce60b2f"
         },
@@ -252,6 +312,26 @@
         {
             "path": "src/@app/notification/inbox/application/sagas/notification-inbox.sagas.ts",
             "integrity": "sha1:e50cf15a02e4ef2dd6ab7e4c5c9a615079cd144e"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/sum/notification-sum-inbox.query-handler.spec.ts",
+            "integrity": "sha1:2c28c865c5c99cfb852b96aba965f5d3c3ba044d"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/sum/notification-sum-inbox.query-handler.ts",
+            "integrity": "sha1:df4f68d5bc5662916ef266d74c056900fba4c3cf"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/sum/notification-sum-inbox.query.ts",
+            "integrity": "sha1:342179be9f46ab686a8149606a7dea040075c38f"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/sum/notification-sum-inbox.service.spec.ts",
+            "integrity": "sha1:c0f2c996a97c81f16c5b1fd014eca422a10c258a"
+        },
+        {
+            "path": "src/@app/notification/inbox/application/sum/notification-sum-inbox.service.ts",
+            "integrity": "sha1:81f462f389fadcc604a03a8d4dbf5b53a8d1fb8d"
         },
         {
             "path": "src/@app/notification/inbox/application/update/notification-update-inbox-by-id.command-handler.spec.ts",
@@ -343,7 +423,7 @@
         },
         {
             "path": "src/@app/notification/inbox/domain/notification-inbox.repository.ts",
-            "integrity": "sha1:f7a60534547f6ddd95f50cb3e8a896fb9dfef7dd"
+            "integrity": "sha1:a6f659bfae06c83c4c88b693ff4f8ba48ee43a0c"
         },
         {
             "path": "src/@app/notification/inbox/domain/notification-inbox.response.ts",
@@ -355,11 +435,11 @@
         },
         {
             "path": "src/@app/notification/inbox/index.ts",
-            "integrity": "sha1:24962060a0564c04285802f684a6ccafa69ce693"
+            "integrity": "sha1:7e26086d5d69bb4d7d0cb99de3d16a0e41599fad"
         },
         {
             "path": "src/@app/notification/inbox/infrastructure/mock/notification-mock-inbox.data.ts",
-            "integrity": "sha1:d20208a76d923cdd6ea35fe95dace03408bf33cf"
+            "integrity": "sha1:18484f4381fbbf19b136b6a820c4d941b7218621"
         },
         {
             "path": "src/@app/notification/inbox/infrastructure/mock/notification-mock-inbox.repository.ts",
@@ -775,7 +855,7 @@
         },
         {
             "path": "postman/notification/notification.inbox.postman.json",
-            "integrity": "sha1:39d0cb8fcf24a9d64f0993909d0a04a82dfd66db"
+            "integrity": "sha1:a4dbb1ee53388dcb5e48cac459edbe8249f1ab11"
         }
     ]
 }
