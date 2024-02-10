@@ -1,0 +1,861 @@
+{
+    "version": "0.0.1",
+    "files": [
+        {
+            "path": "src/@app/message/message.seed.ts",
+            "integrity": "sha1:8761f5f8f92d0cd317e68672942b07541bddeebd"
+        },
+        {
+            "path": "src/@app/message/inbox/application/count/message-count-inbox.query-handler.spec.ts",
+            "integrity": "sha1:820e424a1393229c3e86f22c7a17da1ba80aee4e"
+        },
+        {
+            "path": "src/@app/message/inbox/application/count/message-count-inbox.query-handler.ts",
+            "integrity": "sha1:cfe3842ef4d81c3f1f26fd15e8970d6f93782a52"
+        },
+        {
+            "path": "src/@app/message/inbox/application/count/message-count-inbox.query.ts",
+            "integrity": "sha1:b2c5b6c12a5085bad3c90582ff2109478697bcda"
+        },
+        {
+            "path": "src/@app/message/inbox/application/count/message-count-inbox.service.spec.ts",
+            "integrity": "sha1:f0ab619645fc031c32b84f6efc31ed46496f529c"
+        },
+        {
+            "path": "src/@app/message/inbox/application/count/message-count-inbox.service.ts",
+            "integrity": "sha1:e0a8676a9c74c36f257253d113228747382b8948"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inbox.command-handler.spec.ts",
+            "integrity": "sha1:965eba1c51f8efc1f2586a214f047eaf3702ce84"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inbox.command-handler.ts",
+            "integrity": "sha1:0e68cc7856413a088f810db2d2d2d419fd4acb22"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inbox.command.ts",
+            "integrity": "sha1:9324ad7b20b1c0bf9afb465f4cacb26968ffe40d"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inbox.service.spec.ts",
+            "integrity": "sha1:2edf04314c992fce02f78940e24a90955c7f53c9"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inbox.service.ts",
+            "integrity": "sha1:286bf8a881f78dff5fb0662f0724136400f3f76b"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inboxes.command-handler.spec.ts",
+            "integrity": "sha1:33ee985427d3032ad84a22456dd656a5009aafb7"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inboxes.command-handler.ts",
+            "integrity": "sha1:3b0c95a9669d40aabfd4fe2a637a3f6fdc6ded63"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inboxes.command.ts",
+            "integrity": "sha1:329bd2edae956eff2f2ed4d76714fa2949c99fd4"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inboxes.service.spec.ts",
+            "integrity": "sha1:9acc24e24afcfe0d7b73f0ab8f6e51421cf65dec"
+        },
+        {
+            "path": "src/@app/message/inbox/application/create/message-create-inboxes.service.ts",
+            "integrity": "sha1:4fd88583fd33f3555b5e41ab29dfdb0d00698b43"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inbox-by-id.command-handler.spec.ts",
+            "integrity": "sha1:6d7dcbf681ba936663771240061fb3c8748d6a34"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inbox-by-id.command-handler.ts",
+            "integrity": "sha1:381a497233a21909953b96bb44075ac02d19b8f5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inbox-by-id.command.ts",
+            "integrity": "sha1:e02e81e52d39d4eb2a9e60de66048863ffb567b5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inbox-by-id.service.spec.ts",
+            "integrity": "sha1:892eb563952b6e65fe95c0d00881d359c9882b69"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inbox-by-id.service.ts",
+            "integrity": "sha1:8f55c7f1fce235726b585bb1f11ce6edccb414c2"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inboxes.command-handler.spec.ts",
+            "integrity": "sha1:8cd36bbf28e2e63fa64b2fa20a4d81ec7ddf6c0a"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inboxes.command-handler.ts",
+            "integrity": "sha1:3f94c6aaacdf963e8b020c788955a2b8b18baaf0"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inboxes.command.ts",
+            "integrity": "sha1:b5b247057179aa02607bc9bee20bbce67533a511"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inboxes.service.spec.ts",
+            "integrity": "sha1:b030c29072883eb82592e91fdeeb0ce01712c304"
+        },
+        {
+            "path": "src/@app/message/inbox/application/delete/message-delete-inboxes.service.ts",
+            "integrity": "sha1:b09966900c20794104675f7f0abfe8969c8ab478"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-add-inboxes-context.event.ts",
+            "integrity": "sha1:beb04bdcc3342d5f41719693319d9a69f05befec"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-created-inbox.event-handler.ts",
+            "integrity": "sha1:afcffab0a67265698313adfd86b21c9a50ca935f"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-created-inbox.event.ts",
+            "integrity": "sha1:792903b1aecdd0f6194e6a447cae8538be1e8cd2"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-created-inboxes.event-handler.ts",
+            "integrity": "sha1:b857285894c58b95557728ef346edd58cb6e97bc"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-created-inboxes.event.ts",
+            "integrity": "sha1:d40e6a37467cacf908704d6b90497bda6857a255"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-deleted-inbox.event-handler.ts",
+            "integrity": "sha1:8ca3607a3f5f848dbc9e73b6300f4d298a20b3a5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-deleted-inbox.event.ts",
+            "integrity": "sha1:cad93e6b3e3045e996397616438ceeb7d8dd80d4"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-deleted-inboxes.event-handler.ts",
+            "integrity": "sha1:475eabf52de34b0ef7cfd5b17c03b9bdd296d2bf"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-deleted-inboxes.event.ts",
+            "integrity": "sha1:7c911c729a85da36added95490444eb45e46ea65"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-inbox.event-handler.ts",
+            "integrity": "sha1:7de966c6e097bc975ffa6072dfe63867ef640797"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-inbox.event.ts",
+            "integrity": "sha1:25d5f5933c69620fc20fc7cb1a034a18a50ac2c1"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-inboxes.event-handler.ts",
+            "integrity": "sha1:b1822808fabc5326a6f8f47c9331e6fe333f92e8"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-inboxes.event.ts",
+            "integrity": "sha1:4bc1de4f210f4c8e13041caa60cbeb2807a69154"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-and-incremented-inbox.event.ts",
+            "integrity": "sha1:da6cf16b9b2fb2ba591a5efb9ca730f61c7e187c"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-and-incremented-inboxes.event-handler.ts",
+            "integrity": "sha1:e457da2920277d722c46cf1d72cce75f460b0ef7"
+        },
+        {
+            "path": "src/@app/message/inbox/application/events/message-updated-and-incremented-inboxes.event.ts",
+            "integrity": "sha1:1e8404c339979d182ea9d357cbb8d2b6e0b633a2"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox-by-id.query-handler.spec.ts",
+            "integrity": "sha1:fede6116ac11e7f8f5a44139496edb400dfb8d4d"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox-by-id.query-handler.ts",
+            "integrity": "sha1:2902615e0d1c0a96168bd23fbf400ea43c9102e8"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox-by-id.query.ts",
+            "integrity": "sha1:c397eadb8804ae9e866bd11c826715a506e71f93"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox-by-id.service.spec.ts",
+            "integrity": "sha1:0d64850bfb034e6e5ed6c20b944debf1f78e1ea0"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox-by-id.service.ts",
+            "integrity": "sha1:289e5f8f8272c639f2988e08c9078b4bdc0bc8fa"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox.query-handler.spec.ts",
+            "integrity": "sha1:90c4ab70e1cd0c9a574b2ae2f4877b14e9493959"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox.query-handler.ts",
+            "integrity": "sha1:b940bb87e5def93f4d06231e536cc33d5d362cef"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox.query.ts",
+            "integrity": "sha1:f923281368e4c08f085d9fac4ae2e9a5d6f4721d"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox.service.spec.ts",
+            "integrity": "sha1:f06b2a9db8bbc5c360e874ccc5119ff611b58a14"
+        },
+        {
+            "path": "src/@app/message/inbox/application/find/message-find-inbox.service.ts",
+            "integrity": "sha1:fcc7fc95afceff7f7ba6589c83b743669c4e88f1"
+        },
+        {
+            "path": "src/@app/message/inbox/application/get/message-get-inboxes.query-handler.spec.ts",
+            "integrity": "sha1:bea3b9dd855556ff76297c14c1531c95c3d42d1f"
+        },
+        {
+            "path": "src/@app/message/inbox/application/get/message-get-inboxes.query-handler.ts",
+            "integrity": "sha1:f983001d85de18f57addacf4585b48e6bc3a3d03"
+        },
+        {
+            "path": "src/@app/message/inbox/application/get/message-get-inboxes.query.ts",
+            "integrity": "sha1:63625a4b2464125bc70178ad0fe85c16ff3d067c"
+        },
+        {
+            "path": "src/@app/message/inbox/application/get/message-get-inboxes.service.spec.ts",
+            "integrity": "sha1:299f973cbdc70127c5ce762c9eb7b62fb3d3ea67"
+        },
+        {
+            "path": "src/@app/message/inbox/application/get/message-get-inboxes.service.ts",
+            "integrity": "sha1:469cb9447c933f8c927166ffbdbbe20878bdd518"
+        },
+        {
+            "path": "src/@app/message/inbox/application/max/message-max-inbox.query-handler.spec.ts",
+            "integrity": "sha1:0acc3fea9ce470b1b76408b910a3f9aaeb4b3536"
+        },
+        {
+            "path": "src/@app/message/inbox/application/max/message-max-inbox.query-handler.ts",
+            "integrity": "sha1:4ddd19c1b86dfba92abaca585885edf9be67c291"
+        },
+        {
+            "path": "src/@app/message/inbox/application/max/message-max-inbox.query.ts",
+            "integrity": "sha1:eb6733304a980092dd2fc644fd012125b07a6530"
+        },
+        {
+            "path": "src/@app/message/inbox/application/max/message-max-inbox.service.spec.ts",
+            "integrity": "sha1:1d8e050ce8b143f7c02d4af8590577c4f56d500b"
+        },
+        {
+            "path": "src/@app/message/inbox/application/max/message-max-inbox.service.ts",
+            "integrity": "sha1:9437360955f9b69262168e47f46905648f2d6b9c"
+        },
+        {
+            "path": "src/@app/message/inbox/application/min/message-min-inbox.query-handler.spec.ts",
+            "integrity": "sha1:8141fbdcb50c0763f2b179a6a9917a23144d37f5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/min/message-min-inbox.query-handler.ts",
+            "integrity": "sha1:243ebc8d76691aeb6533a3d093fa9e6bb7bcbbd1"
+        },
+        {
+            "path": "src/@app/message/inbox/application/min/message-min-inbox.query.ts",
+            "integrity": "sha1:dee9fb1c514895c945ea1b268acb8e4b6c8cba84"
+        },
+        {
+            "path": "src/@app/message/inbox/application/min/message-min-inbox.service.spec.ts",
+            "integrity": "sha1:d21e6dea5bce7cff862499b8f2190e7aae3c0b3e"
+        },
+        {
+            "path": "src/@app/message/inbox/application/min/message-min-inbox.service.ts",
+            "integrity": "sha1:57f8e87fbc446207f863a03b37b8ba3275a425b3"
+        },
+        {
+            "path": "src/@app/message/inbox/application/paginate/message-paginate-inboxes.query-handler.spec.ts",
+            "integrity": "sha1:606be3c1d324956c48ce6551e98e3e207db199a5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/paginate/message-paginate-inboxes.query-handler.ts",
+            "integrity": "sha1:8b757c6b02b5a02fc440266a078494a64e8bb702"
+        },
+        {
+            "path": "src/@app/message/inbox/application/paginate/message-paginate-inboxes.query.ts",
+            "integrity": "sha1:92adf660a0d9d032203bbd0eb4a4aac34a25168f"
+        },
+        {
+            "path": "src/@app/message/inbox/application/paginate/message-paginate-inboxes.service.spec.ts",
+            "integrity": "sha1:200c7750f0b381ede3e00e87e77a3c6147c14529"
+        },
+        {
+            "path": "src/@app/message/inbox/application/paginate/message-paginate-inboxes.service.ts",
+            "integrity": "sha1:198063401ddfc080bacfbdef4de172b3c4b99b97"
+        },
+        {
+            "path": "src/@app/message/inbox/application/raw-sql/message-raw-sql-inboxes.query-handler.spec.ts",
+            "integrity": "sha1:9b6b17027662bb444c2e82a895dcd00792b09987"
+        },
+        {
+            "path": "src/@app/message/inbox/application/raw-sql/message-raw-sql-inboxes.query-handler.ts",
+            "integrity": "sha1:e3f54ae4b71cf99bffe9f8fcc3a7014279674e45"
+        },
+        {
+            "path": "src/@app/message/inbox/application/raw-sql/message-raw-sql-inboxes.query.ts",
+            "integrity": "sha1:fdffc086dc82b0df4d10e4134a3686e29206d6ce"
+        },
+        {
+            "path": "src/@app/message/inbox/application/raw-sql/message-raw-sql-inboxes.service.spec.ts",
+            "integrity": "sha1:afe3f7db6e8fecd30be49bd6db518c46465c3016"
+        },
+        {
+            "path": "src/@app/message/inbox/application/raw-sql/message-raw-sql-inboxes.service.ts",
+            "integrity": "sha1:360485af07b100213096fd075045b7d55aef4bab"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sagas/message-inbox.sagas.ts",
+            "integrity": "sha1:9db9018093cd3c6b5d6add5fad0da4bf641264c5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sum/message-sum-inbox.query-handler.spec.ts",
+            "integrity": "sha1:b64fcf4851914f932515ee0c4556245721d3c03d"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sum/message-sum-inbox.query-handler.ts",
+            "integrity": "sha1:5b84e44e07026915948ad25c9be74e62999738e1"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sum/message-sum-inbox.query.ts",
+            "integrity": "sha1:f841ffe5c0df610b8cb7789d061bfa89bac80431"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sum/message-sum-inbox.service.spec.ts",
+            "integrity": "sha1:62cccf3bac996cb0d728a789cd11b26503db4a39"
+        },
+        {
+            "path": "src/@app/message/inbox/application/sum/message-sum-inbox.service.ts",
+            "integrity": "sha1:a84ce92e7ec4b6858ee48a37693342b958416ce5"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inbox-by-id.command-handler.spec.ts",
+            "integrity": "sha1:06d0c2d9b641b01edee74b38ed3dc0408b56e6ba"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inbox-by-id.command-handler.ts",
+            "integrity": "sha1:c9feb761de738a9e2983ed2d644916db96093268"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inbox-by-id.command.ts",
+            "integrity": "sha1:e20b71e675db3a108e2f2e6127999a2a052fe5d8"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inbox-by-id.service.spec.ts",
+            "integrity": "sha1:849d59404ec7a94e818d628486c66d364d31165e"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inbox-by-id.service.ts",
+            "integrity": "sha1:9f03287bb3d3569b1f2e308afd8b4b9305936233"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inboxes.command-handler.spec.ts",
+            "integrity": "sha1:d07de7f4577e8fbfcaa69c630cf8737070c5fb4d"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inboxes.command-handler.ts",
+            "integrity": "sha1:fd806f89a19a9663e15a9cae16145b726c887b9e"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inboxes.command.ts",
+            "integrity": "sha1:a0eccef617321d3cdc41624e8516ac8707cbe058"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inboxes.service.spec.ts",
+            "integrity": "sha1:b2fd1b0509a3b4ad90c8bfddf08cf35482dcd041"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-inboxes.service.ts",
+            "integrity": "sha1:2c7620f73f3541492da7c4da08169e8a0ded3786"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-and-increment-inboxes.command-handler.spec.ts",
+            "integrity": "sha1:828e5656a6b3ab35932cc4727a5603edea730025"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-and-increment-inboxes.command-handler.ts",
+            "integrity": "sha1:b17fe3ba89338f51327cfe3811f70160116a646c"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-and-increment-inboxes.command.ts",
+            "integrity": "sha1:7a6d5082cd2acfa816772b966488bbc7db024e56"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-and-increment-inboxes.service.spec.ts",
+            "integrity": "sha1:31f5955abc7e5be3a1cf1c1e03092808ba1be6df"
+        },
+        {
+            "path": "src/@app/message/inbox/application/update/message-update-and-increment-inboxes.service.ts",
+            "integrity": "sha1:2c9197fe6379e49cf66ce6d61343a2514f971201"
+        },
+        {
+            "path": "src/@app/message/inbox/application/upsert/message-upsert-inbox.command-handler.spec.ts",
+            "integrity": "sha1:e1a96b27f177ad90cbf15136ea7ced957a949d57"
+        },
+        {
+            "path": "src/@app/message/inbox/application/upsert/message-upsert-inbox.command-handler.ts",
+            "integrity": "sha1:c78cc2fddad50bd58e18d38bb83156dfe8212d68"
+        },
+        {
+            "path": "src/@app/message/inbox/application/upsert/message-upsert-inbox.command.ts",
+            "integrity": "sha1:a33622a3273f79ca5003c6eca453d1b647fc6c75"
+        },
+        {
+            "path": "src/@app/message/inbox/application/upsert/message-upsert-inbox.service.spec.ts",
+            "integrity": "sha1:52436a655d694d9ce0cd925a96be48e4358a8fe8"
+        },
+        {
+            "path": "src/@app/message/inbox/application/upsert/message-upsert-inbox.service.ts",
+            "integrity": "sha1:95f45609ce0717fa96010a24f6978bbda7b87c91"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/message-inbox.aggregate.ts",
+            "integrity": "sha1:14b4f04bc8493b63c13e668c7a7db41db290db01"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/message-inbox.mapper.ts",
+            "integrity": "sha1:b34697a92bba3e543eff6e77cdb5cae7369b2f75"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/message-inbox.repository.ts",
+            "integrity": "sha1:2cf0d27cd347c05389ff239759463c2de6dc2f17"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/message-inbox.response.ts",
+            "integrity": "sha1:12712ecd876e1974899c02675208fa6b1d539d87"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/index.ts",
+            "integrity": "sha1:0b4c717d12281f91e769df014d135643a4971de3"
+        },
+        {
+            "path": "src/@app/message/inbox/index.ts",
+            "integrity": "sha1:5e095b0da09d990d25a8b88ede47bda67b77e1f1"
+        },
+        {
+            "path": "src/@app/message/inbox/infrastructure/mock/message-mock-inbox.data.ts",
+            "integrity": "sha1:2a9ffc4b4a948112fa385cba607b609bf705b9c1"
+        },
+        {
+            "path": "src/@app/message/inbox/infrastructure/mock/message-mock-inbox.repository.ts",
+            "integrity": "sha1:1e38d23459c92db30a518d7da91ff5566426bd48"
+        },
+        {
+            "path": "src/@app/message/inbox/infrastructure/mock/message-mock-inbox.seeder.ts",
+            "integrity": "sha1:9cb41c1426809ee0761dcd6c8d1f579f8ad3901b"
+        },
+        {
+            "path": "src/@app/message/inbox/infrastructure/sequelize/message-sequelize-inbox.model.ts",
+            "integrity": "sha1:a45a63cb987bac31743511046072637813ba22e0"
+        },
+        {
+            "path": "src/@app/message/inbox/infrastructure/sequelize/message-sequelize-inbox.repository.ts",
+            "integrity": "sha1:94a71d88cd303ba8a090c7d1a1b8aa9619885441"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-id.ts",
+            "integrity": "sha1:4c2dfa972a2a04d6561ba51f0670e65b5d655352"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-tenant-ids.ts",
+            "integrity": "sha1:619f8ddc375cd4e677650c4c6fa42a4f98540186"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-message-id.ts",
+            "integrity": "sha1:8de2b0c12967954d9c6e0336f6e2bfe5ebef639f"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-sort.ts",
+            "integrity": "sha1:2742a2f80cc33049d3e5bf10e67d0d20a632ac1d"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-account-id.ts",
+            "integrity": "sha1:16b2feb7d73f46e72a581da4bfab24574a9dd77c"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-account-code.ts",
+            "integrity": "sha1:aa8b6e129c1bcd9ada4b576d3a9b987cf309dcf2"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-is-important.ts",
+            "integrity": "sha1:8489856c67c47ff6b91cf802a68257e1297f7b30"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-subject.ts",
+            "integrity": "sha1:14c07cd7b3c091a32affc86dbcea5e399a4575cf"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-body.ts",
+            "integrity": "sha1:16ce82037d1454b34d9ba6f3aa794c180c57cee9"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-attachments.ts",
+            "integrity": "sha1:e68949bf8d7b478acfbddbbc10b99ef019289485"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-is-read.ts",
+            "integrity": "sha1:0fc4595a9f31d01d24d7f503714415df6d986c90"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-is-read-at-least-once.ts",
+            "integrity": "sha1:4bd3e1f125c982bfe9eba400e66f038eeb989d43"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-meta.ts",
+            "integrity": "sha1:e89c2692df9e55c5b6af897e2a71c4987db67adc"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-created-at.ts",
+            "integrity": "sha1:91fdf99213d66f48effd83507c41d41c99574096"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-updated-at.ts",
+            "integrity": "sha1:df6320caff6dae1a71884144c07895dead214c9b"
+        },
+        {
+            "path": "src/@app/message/inbox/domain/value-objects/message-inbox-deleted-at.ts",
+            "integrity": "sha1:04c9815018806f9f8ebb4facf1f8f4f13a49c3dd"
+        },
+        {
+            "path": "src/@api/message/message.seeder.ts",
+            "integrity": "sha1:5539cc0b1ec4b3a699f17c585eec7113a0f669b5"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-create-inbox.controller.spec.ts",
+            "integrity": "sha1:808bddd1a269a7721228e0ea47a4e08b19f5dc25"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-create-inbox.controller.ts",
+            "integrity": "sha1:d080361a9e748d5e8b847c864b7ced085a162586"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-create-inboxes.controller.spec.ts",
+            "integrity": "sha1:79cdcd60109b5cd06d5707198dfc4d0ec034d998"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-create-inboxes.controller.ts",
+            "integrity": "sha1:0be8120c830f59b8e0e24576000685ec593804a1"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-delete-inbox-by-id.controller.spec.ts",
+            "integrity": "sha1:8af24332c19e2f22c3806763cfe63d5c9409f36f"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-delete-inbox-by-id.controller.ts",
+            "integrity": "sha1:9ce878e159dedecdeeebe0e71ea06d85e7ab97d2"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-delete-inboxes.controller.spec.ts",
+            "integrity": "sha1:cdbee3ed229c3e9f343129d1ae70015dbd185f35"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-delete-inboxes.controller.ts",
+            "integrity": "sha1:3390a98c88f4bf1d24dc13659b21a98ce0f0ee53"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-find-inbox-by-id.controller.spec.ts",
+            "integrity": "sha1:4a86a46e7a3c33bf73a73aae57c134afb2b50b4f"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-find-inbox-by-id.controller.ts",
+            "integrity": "sha1:95ebf15fb91d8760c2f227f73125f611b224754d"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-find-inbox.controller.spec.ts",
+            "integrity": "sha1:4926e26070f4ab64580fa141cc930f5e8dfb61fd"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-find-inbox.controller.ts",
+            "integrity": "sha1:2e76ddfe2d0d3142a3cd26e61122ef75c446ca7d"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-get-inboxes.controller.spec.ts",
+            "integrity": "sha1:f2cb575a70e1b032bedfb80a25d3aa919d6f6eb5"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-get-inboxes.controller.ts",
+            "integrity": "sha1:af1fdef6f61f761ccfb2310e895c0028b877def8"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-paginate-inboxes.controller.spec.ts",
+            "integrity": "sha1:ba6b6a1791f72b18de289f0cabb07189a68a683e"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-paginate-inboxes.controller.ts",
+            "integrity": "sha1:6684f9bd743ae909d4ae6fab0cc9c7af65ddd5d0"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-update-inbox-by-id.controller.spec.ts",
+            "integrity": "sha1:701ceb84523d9ded10932255cd244882d1a6397a"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-update-inbox-by-id.controller.ts",
+            "integrity": "sha1:d5f6981916e9a9535f3ad7722a41e75d0cf4fa8d"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-update-inboxes.controller.spec.ts",
+            "integrity": "sha1:f49aad5a0544fcffd5f4a7408c09c879c942578a"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-update-inboxes.controller.ts",
+            "integrity": "sha1:5e688cbd8c9cf4e325d8cd348aa26e7e9d4367cf"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-upsert-inbox.controller.spec.ts",
+            "integrity": "sha1:bb15cfaa2161937cf74c62b31e5492077b0ca519"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-upsert-inbox.controller.ts",
+            "integrity": "sha1:81f5441fdd294161ea0933388ec0eaa224121d7b"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/message-inbox.dto.ts",
+            "integrity": "sha1:cf069951bb10c2b5678d6e24f36991e054722bbd"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/message-create-inbox.dto.ts",
+            "integrity": "sha1:b26dca6f4264a9d5eb7ae2c13cc483837cbc4b4e"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/message-update-inbox-by-id.dto.ts",
+            "integrity": "sha1:2796bc3aa0331f28d719b54ab05b3a7730ecbcdc"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/message-update-inboxes.dto.ts",
+            "integrity": "sha1:5495a104acd595ebd2089e3507f897a262936155"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/index.ts",
+            "integrity": "sha1:0668bfe7d206f064143571f4c397ca726db8cdaf"
+        },
+        {
+            "path": "src/@api/message/inbox/dto/public-api.ts",
+            "integrity": "sha1:699fabc50f1a58ab2af53d5d17a26231242ce811"
+        },
+        {
+            "path": "src/@api/message/inbox/graphql/message-inbox.graphql",
+            "integrity": "sha1:1ee1d09fc64e5ba97adbb7a7e3f5d366b943ad36"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-create-inbox.handler.spec.ts",
+            "integrity": "sha1:1a15bf90492b9b2392d60c710ea583749089b44e"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-create-inbox.handler.ts",
+            "integrity": "sha1:6e03b66dd5d0fe93562690423100f9b1498787ac"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-create-inboxes.handler.spec.ts",
+            "integrity": "sha1:285b354e335afbabeec9add9caffeac93aff7a08"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-create-inboxes.handler.ts",
+            "integrity": "sha1:ae73b033ae8621eed5e055a27f093e629bd65fc2"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-delete-inbox-by-id.handler.spec.ts",
+            "integrity": "sha1:2e91698db83306dd0bb1da77fb5a1f86b99fcbfe"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-delete-inbox-by-id.handler.ts",
+            "integrity": "sha1:9ea67a0049c657958e774cce79bff5f5ea5ccc20"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-delete-inboxes.handler.spec.ts",
+            "integrity": "sha1:fb9b852f1fee2eaf9b2710b35e77c821c5d6a188"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-delete-inboxes.handler.ts",
+            "integrity": "sha1:b27e25d10b60326947364929d519963b1deb646c"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-find-inbox-by-id.handler.spec.ts",
+            "integrity": "sha1:f10c40a792fb9d58400cdba7f640eabb1239b853"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-find-inbox-by-id.handler.ts",
+            "integrity": "sha1:ed774edabf3bae8ea0381329a1686a1084ab15ef"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-find-inbox.handler.spec.ts",
+            "integrity": "sha1:ccf884c573c8431211e66d261954977f2bb3aa4e"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-find-inbox.handler.ts",
+            "integrity": "sha1:8db348f4ae5f6958887d4f7a26edfc0fa408ab00"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-get-inboxes.handler.spec.ts",
+            "integrity": "sha1:5831ef5340d9c00ac75eb2fc054ff33119355138"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-get-inboxes.handler.ts",
+            "integrity": "sha1:21b12ed2e56df05f7df055a7eb0dcd823398f976"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-paginate-inboxes.handler.spec.ts",
+            "integrity": "sha1:5e0419ae09eda7b2f432d1c42c7463b2be8c044e"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-paginate-inboxes.handler.ts",
+            "integrity": "sha1:4beec5930e434369e0d866b3a6339f1448d15a7c"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-update-inbox-by-id.handler.spec.ts",
+            "integrity": "sha1:61afc3efa6f92ca8284418f610eb4c6a68192a50"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-update-inbox-by-id.handler.ts",
+            "integrity": "sha1:4b07b04fd0873dbd2262306011b8557fb78346e6"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-update-inboxes.handler.spec.ts",
+            "integrity": "sha1:cca1ced1d5a12d133f60c8908030b9539c4d2bde"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-update-inboxes.handler.ts",
+            "integrity": "sha1:57d5504cdb624badf970deb21280fb6a9854aaa4"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-upsert-inbox.handler.spec.ts",
+            "integrity": "sha1:d3215a89380a02bac222f33b722484ebb5688151"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-upsert-inbox.handler.ts",
+            "integrity": "sha1:3db12ead0e4304880757223c33109eb4cf30632b"
+        },
+        {
+            "path": "src/@api/message/inbox/index.ts",
+            "integrity": "sha1:7ac6d0ba1e3e8d6dcbfdc625e035c77e03ddef1d"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-create-inbox.resolver.spec.ts",
+            "integrity": "sha1:65efa6faf2f2d4f49194d6ccce95866f0acd2551"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-create-inbox.resolver.ts",
+            "integrity": "sha1:ab9bfa123402c74948d6e286158b1a6f1ac5c70f"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-create-inboxes.resolver.spec.ts",
+            "integrity": "sha1:2ea2b4930827e16766cff69e9924bba0caef5867"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-create-inboxes.resolver.ts",
+            "integrity": "sha1:b4caa33f6dd65ccf0e8b925fea139afffc495856"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-delete-inbox-by-id.resolver.spec.ts",
+            "integrity": "sha1:6e1cbedb13a706342dfdd7506300bf8eda657c28"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-delete-inbox-by-id.resolver.ts",
+            "integrity": "sha1:97e1d350e202068af55d0afa6b3163d10b479fe5"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-delete-inboxes.resolver.spec.ts",
+            "integrity": "sha1:5c89f93a7fc80690de154c8a8330f3365b26b33a"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-delete-inboxes.resolver.ts",
+            "integrity": "sha1:5dcda6efebd568cda06f9334bff1c9e201b11fd0"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-find-inbox-by-id.resolver.spec.ts",
+            "integrity": "sha1:c0b5b4bb7114b017aed9019c306a109d37ff5cc5"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-find-inbox-by-id.resolver.ts",
+            "integrity": "sha1:770d7252862f79ecd6e09cfc6591dfe48e6c349c"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-find-inbox.resolver.spec.ts",
+            "integrity": "sha1:36a46183c304d5bf610d67c5619d2ba6413ee535"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-find-inbox.resolver.ts",
+            "integrity": "sha1:a442151e72f71e7d6cbf579b90d3864011029a51"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-get-inboxes.resolver.spec.ts",
+            "integrity": "sha1:b9ea0f390e09121096b251f48a880bdf8969788c"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-get-inboxes.resolver.ts",
+            "integrity": "sha1:6967a71053d5dae52a03b257eb34be6fa5a4c257"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-paginate-inboxes.resolver.spec.ts",
+            "integrity": "sha1:6590960ae7a29c8c80fa976fa12191d66d4f4e52"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-paginate-inboxes.resolver.ts",
+            "integrity": "sha1:7add3193b2859b6f37538e97b396b3fc99f3d200"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-update-inbox-by-id.resolver.spec.ts",
+            "integrity": "sha1:a8f8cd0b2e285a263652933acbbfa619850d90a8"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-update-inbox-by-id.resolver.ts",
+            "integrity": "sha1:ec08f14ba0c52bb308f8bc84d1a228ccd0f13ba4"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-update-inboxes.resolver.spec.ts",
+            "integrity": "sha1:2c6aada8403ebdd488c3b3e5c979c034ea34bd9a"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-update-inboxes.resolver.ts",
+            "integrity": "sha1:fcc7ceee7e4a8103101e12309b78934074c3bc03"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-upsert-inbox.resolver.spec.ts",
+            "integrity": "sha1:849e80c1695ad5ac8f6be4787c5538e8ee955037"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-upsert-inbox.resolver.ts",
+            "integrity": "sha1:21be1310cbfe0a82519b7dca263d6f3ac21be9b4"
+        },
+        {
+            "path": "src/@api/message/inbox/seeder/message-inbox.seeder.ts",
+            "integrity": "sha1:4a2c0cfa04dc11eec1cecb47b20059447dcfe5a5"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-check-messages-inbox.controller.spec.ts",
+            "integrity": "sha1:3f53ddf44e6f53b2667768e21a8e986060b4914b"
+        },
+        {
+            "path": "src/@api/message/inbox/controllers/message-check-messages-inbox.controller.ts",
+            "integrity": "sha1:a43da8843eaff3205218b1111872dbaa83f0942d"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-check-messages-inbox.handler.spec.ts",
+            "integrity": "sha1:be2abc1bc38ec81b47854f5d9276a164c30860e5"
+        },
+        {
+            "path": "src/@api/message/inbox/handlers/message-check-messages-inbox.handler.ts",
+            "integrity": "sha1:5ca165089be2a18dd8ae34d8a6195aee2312a8c1"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-check-messages-inbox.resolver.spec.ts",
+            "integrity": "sha1:3bfcabe352f1409fe72230b2779e36b476b86c9d"
+        },
+        {
+            "path": "src/@api/message/inbox/resolvers/message-check-messages-inbox.resolver.ts",
+            "integrity": "sha1:983d20597400db7defc387aa6987eb24cafe83e7"
+        },
+        {
+            "path": "test/acceptance/message/inbox.e2e-spec.ts",
+            "integrity": "sha1:f172d5a731f194908e27c42eff2fd9115aa95b55"
+        },
+        {
+            "path": "postman/message/message.inbox.postman.json",
+            "integrity": "sha1:a7f9404a28f3e7541f9b389b631d737130d609f1"
+        }
+    ]
+}

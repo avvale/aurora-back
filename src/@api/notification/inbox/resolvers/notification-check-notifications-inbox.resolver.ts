@@ -1,5 +1,4 @@
 import { Pagination } from '@api/graphql';
-import { TenantPolicy } from '@api/iam/shared';
 import { NotificationCheckNotificationsInboxHandler } from '@api/notification/inbox';
 import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
@@ -7,7 +6,7 @@ import { Auditing, AuditingMeta, CurrentAccount, QueryStatement, Timezone } from
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
-@Auth('notification.inbox.update')
+@Auth('notification.notification.access')
 export class NotificationCheckNotificationsInboxResolver
 {
     constructor(
@@ -15,7 +14,6 @@ export class NotificationCheckNotificationsInboxResolver
     ) {}
 
     @Mutation('notificationCheckNotificationsInbox')
-    @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
         @Args('query') query?: QueryStatement,

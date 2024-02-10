@@ -4,7 +4,7 @@ import { NotificationCreateInboxesCommand, NotificationMaxInboxQuery, Notificati
 import { NotificationCreateInboxSettingCommand, NotificationFindInboxSettingQuery, NotificationUpdateInboxSettingByIdCommand } from '@app/notification/inbox-setting';
 import { NotificationGetOutboxesQuery } from '@app/notification/outbox';
 import { AuditingMeta, ICommandBus, IQueryBus, Operator, QueryStatement, uuid } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class NotificationCheckNotificationsInboxHandler
@@ -21,20 +21,32 @@ export class NotificationCheckNotificationsInboxHandler
         auditing?: AuditingMeta,
     ): Promise<Pagination>
     {
-        const inboxSetting = await this.queryBus.ask(new NotificationFindInboxSettingQuery(
-            {
-                where: {
-                    accountId: account.id,
+        let inboxSetting;
+
+        try
+        {
+            inboxSetting = await this.queryBus.ask(new NotificationFindInboxSettingQuery(
+                {
+                    where: {
+                        accountId: account.id,
+                    },
                 },
-            },
-            {},
-            {
-                timezone,
-            },
-        ));
+                {},
+                {
+                    timezone,
+                },
+            ));
+        }
+        catch (error)
+        {
+            if (!(error instanceof NotFoundException)) throw error;
+        }
 
         if (inboxSetting)
         {
+
+            console.log('inboxSetting', inboxSetting);
+
             // get new notifications
             const outboxNotifications = await this.queryBus.ask(new NotificationGetOutboxesQuery(
                 {
@@ -47,7 +59,7 @@ export class NotificationCheckNotificationsInboxHandler
                             {
                                 // query notifications for account
                                 accountRecipientIds: {
-                                    [Operator.contains]: account.id,
+                                    [Operator.contains]: [account.id],
                                 },
                             },
                             {
@@ -97,6 +109,9 @@ export class NotificationCheckNotificationsInboxHandler
                     order: [['sort', 'ASC']],
                 },
             ));
+
+
+            console.log('outboxNotifications', outboxNotifications);
 
             // create new notifications in inbox
             if (outboxNotifications.length > 0)

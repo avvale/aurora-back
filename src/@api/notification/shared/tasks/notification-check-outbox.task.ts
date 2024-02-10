@@ -71,7 +71,8 @@ export class NotificationCheckOutboxTask
         }
         catch (error)
         {
-            this.logger.error('Error to check notifications outbox');
+            console.log(error);
+            this.logger.error('Error to check notifications outbox', error);
         }
     }
 }

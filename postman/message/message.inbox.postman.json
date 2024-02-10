@@ -1,0 +1,561 @@
+{
+    "info": {
+		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+		"name"          : "@app - message/inbox",
+		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+			"name": "GraphQL - messageCreateInbox",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:MessageCreateInboxInput!)\n{\n\tmessageCreateInbox (payload:$payload)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tmessageId\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 463122, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountCode\": \"b\", \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"tzaoelmqevl70qklxss17farp8qlbi1noc6qgqny6k6vwgw66jokubdvx2eoc5u3pygrhljim2qzzto4qpwgqt3e283a4sskxfw1fdjjvepwakc45wpo3dxw29ensbw1zf1k3ndw8l2iwu1e8xqc0o84oww64sc08pycszgoc15uo0gjkhmj9djvpafci1b65852swqtonsta723cgm8ine4gx58q875scjao32zbtvdadnhveuk08jyv7lqah\", \n\t\t\"body\": \"Velit non sed. Consequatur et qui. Exercitationem ut expedita. Non et est enim beatae incidunt ipsum molestiae. Molestias veritatis est officia ut. Quis veniam exercitationem aut enim voluptas.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": true, \n\t\t\"isReadAtLeastOnce\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageCreateInboxes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:[MessageCreateInboxInput]!)\n{\n\tmessageCreateInboxes (payload:$payload)\n}",
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"f77ba650-8824-4feb-aa61-8cd2c6e00e5d\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"e2d6c7d6-0bd2-4021-a92c-f871208dc7c3\", \n\t\t\t\"sort\": 983165, \n\t\t\t\"accountId\": \"d5b2f658-f0b4-4127-bfc7-7cfa723b126a\", \n\t\t\t\"accountCode\": \"p\", \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"4rogxfzqnvfndj7v29tokn64zy219kad9sp0umdtrqmbgzikfx9iazuzqdq9gw8gnmkqbpcg41yvbqubha072f2ffr4y3a41nh9e5g0d220zxrngcnwgk8vys09fyqglw2vl6zxu5yd5ldye0veva4wskey705s8jgew17a6atckvfuij0x6trghdlk7cbsk9cwu9vim34vrmwhxh2hbmcculfyfinj3rjskxfuo2rvraizk65metx5ls270w6\", \n\t\t\t\"body\": \"Quis eius aut eos sed est earum ut temporibus ea. Qui in repudiandae dolorem et. Voluptatum sint saepe sapiente tempore excepturi qui sunt vel. Odio numquam quod occaecati omnis.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"a74a1b67-6579-48c0-9f15-29a53a4b47e0\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"212a5747-55b7-45d3-b2ab-dc774411f18e\", \n\t\t\t\"sort\": 508478, \n\t\t\t\"accountId\": \"f5128156-56c7-4ef1-9fcf-ad4a29e11380\", \n\t\t\t\"accountCode\": \"p\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"dcrlr5q76soflpzhbu4axofd4tjnkxhzxk212p21hule9pnuz8d3imkevcgzl9dsuhr08f8pknq3egzbtm1770x3t1qiiic2spbq1ji0s7j9in4n0wpioo5srovlxm8jpk40oxsse157msy3afj1ng4ks67imys1kueas1qlgfv1xtgnya8gftf4eud77fkxcwsnqp38dtz5pxyjfcvgr8v2i2iud69175whk4appaowx023ux9ciio8jjnx9a\", \n\t\t\t\"body\": \"Sint sit omnis qui et deserunt et. Non voluptas perspiciatis mollitia aspernatur aut velit nesciunt. Enim sed dicta quibusdam et totam vero adipisci adipisci. Reprehenderit et quam quia eos. Eaque sint corporis sint tenetur accusamus ullam et.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"6dfa7c55-fd04-4d44-8eab-1fe0aa21bbf8\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"92af1200-5d28-4332-b053-3f7dfcdfd610\", \n\t\t\t\"sort\": 106840, \n\t\t\t\"accountId\": \"a1a045f5-ae35-4f39-9b73-85032434ba8d\", \n\t\t\t\"accountCode\": \"1\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"1ibbr190xjtgwbk6u7k3aa785vswv2hy5qu3mcdapjf4fg6ocw10j9x4dq5xe2acucsm6k63gsl4ao7h2jf6tfak3upzoledfkw1m6z4zrad2prl1zxw9m3ot3s5kiwfxbqv9k7i144sb60dsqszhax8ikjr7o1g04eo8678jib9pzj4x7u8hpgg16xacun6gxek9awzprluafsib1dmnmvqxuhzoymidc0wqsl8xzksjytmxvx9r4ow45m7oz\", \n\t\t\t\"body\": \"Autem sequi at. Voluptate ducimus sit accusamus ut ut harum tenetur. Iusto eos aut quis occaecati facere. Id deleniti cum voluptate eum soluta quia unde distinctio. Temporibus maxime sunt. Praesentium voluptas qui.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"04a0ea1f-24aa-4b71-9bbc-d98e83c54168\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"915a792e-6d34-4206-a879-107cedc4af7d\", \n\t\t\t\"sort\": 691946, \n\t\t\t\"accountId\": \"f876628f-f036-47ef-9daf-5c3a5d81da88\", \n\t\t\t\"accountCode\": \"1\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"ogs2gmapkrapwf4q68fag22ot8uv4fdg6oxz5u20n0xxsv3n9m1htjgdhpmouheld2i0sliriengzxut3qnlxpv9xh193e5jcaup8s6ga5jk1p6bv6as82913r6u1e2ywoqp0i8d118hcsi54xotkvd4rrfk88aj7djoh8nqf6yvlcoxfysp69il6b96d6j5qlps1ungsqhl90t70yce3hpsxr2ttt83hmqtg5jf38rbq7pmcwnonsds6x5ymm\", \n\t\t\t\"body\": \"Possimus omnis libero maiores nulla et autem. Omnis aperiam qui cumque asperiores vel. Consequatur dolores dolorem et. Quis aut voluptas perferendis quod non excepturi et perferendis. Et blanditiis magni quis architecto ut fuga.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"4eb7647b-4a49-4f47-984d-5ce5f2d55a85\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"25951326-d7cb-43f2-a718-1e34c1c82560\", \n\t\t\t\"sort\": 420464, \n\t\t\t\"accountId\": \"9da70874-86a9-4ac5-a17f-6a4bbfac2918\", \n\t\t\t\"accountCode\": \"g\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"71emqywvi0o4z92wopoxw0ylil18elshfwo85f0nogwl10m3fke1vkrx6zi2ybg4a5ufjud967qrippjx8bidbdl4ees4yxejyjydouxejqr1mzz8ja2ylfucfnjoikw3sswiryef8lpkv14a7g0a4s05uemu30k10pxexur6vtlo86e1zc7muffojqc65j8iif14k0in6ec0hzofx2l0s9w58fs6k24k8xrj57b0sey9mjwzbyimlddk2nim9\", \n\t\t\t\"body\": \"Sit sit error eligendi. Libero beatae distinctio. Voluptatem nulla blanditiis. Voluptas ut in excepturi asperiores ex esse quia fuga. Enim asperiores et accusantium suscipit totam et quo eligendi aliquid. Aut aliquid officia voluptatem ab cum nesciunt.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": true, \n\t\t\t\"isReadAtLeastOnce\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c57e3507-2a55-40a7-a325-c86d88d8b580\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"554ae8bd-2235-4d63-bf90-01bee3eed518\", \n\t\t\t\"sort\": 451434, \n\t\t\t\"accountId\": \"5feec533-8b07-4221-91af-407120b33b2b\", \n\t\t\t\"accountCode\": \"n\", \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"uggw9a36up2ib7cifudiyauacxqou87rah8p9uqixedxkm4sijzmfucwd1zroznjwrz2fhq1skyh8kyvh35kzdiiviosdz8zi1gm5dpggz6dyncnabc7gr1u6abka2l8lwhma5ulkzy2cdf9panl1lwx0o12ddzsta0ot157uh86pekqgmz1bmwge88tgzkhqfne6guh8e0m26qwpbzzbf1lemt1oy5r0pmcyij36lj1lsdy8c0or2dwi1fsfa\", \n\t\t\t\"body\": \"Sed delectus unde. Ab reprehenderit doloribus aut natus vero expedita id molestias. Dolore vel enim perspiciatis laudantium illum aliquam architecto fugit. Qui repellat provident sint sit totam laboriosam quam quisquam aut. Fugit id alias eaque aperiam suscipit voluptate dolorum.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": true, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"32577308-ce9a-4efa-85d9-3ed0a3e397dc\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"4588dc0e-a7c5-4bf1-a033-44cb12a2e7da\", \n\t\t\t\"sort\": 130450, \n\t\t\t\"accountId\": \"a01d6e89-a3c1-45f8-bfe4-1d9a356e9326\", \n\t\t\t\"accountCode\": \"r\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"y0xsq3w5ujkrc6mgvxl6n3wyzpo3onkul2nllh196muljx95l34wc1y9sece9dfla4tnqd78uhat3cnkj8niqgtgijd1smnjmhyady52a7xpvast08l62e2et9bi2qz2oy5pl0hg0merm128y9irt5o4jn7b30mjbfod0dpd926e8w09lstqa7ep1kbxmp4ay5uhlkm7r81w2nwt495ajrxu12gpaoyjoif3h7h5gpecw1cbx8izieyq6gycds\", \n\t\t\t\"body\": \"Voluptatem dolorem sequi qui accusantium est facilis. Maxime omnis provident autem aut architecto. Animi et error ab placeat et veniam dolorem iste. Animi explicabo et aut voluptatem excepturi voluptatem illo perspiciatis veniam.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": true, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"afd4e5e1-2b77-41b9-9f51-2a52a9d77ac0\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"9a8c3dbc-51dc-41d8-9f4e-15912400cf66\", \n\t\t\t\"sort\": 997872, \n\t\t\t\"accountId\": \"2d00a360-4c36-4c14-b522-63a9f9f9186a\", \n\t\t\t\"accountCode\": \"4\", \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"rz5kxm3nckt717b72q52wx9mq6c1bzxf6ghonolxevdbua6w8xxvlloauqm5cuhv3f7q8e1hohbrufoyd98bs1wf8il9vwovi6pfxt19qjg5tynijagm7gg3033fzc0zv89kfzrmmzhp2bm80pwpmln9h5ecnq3nlh08o4lo2eypgcm5056sx7463io5mm5nwsoivgcenmp841rh411c4efbyp5w8283sv00ou3h4ocrun3p0gq0xjbtwj4b86\", \n\t\t\t\"body\": \"Vero dolorem quaerat. Enim vitae omnis repellat itaque in. Possimus et voluptatem tenetur ut sunt et pariatur eveniet in. Nesciunt natus nemo in. Repellendus error qui aperiam dolores.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": true, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"bd93f2a3-6820-469f-a88c-97d2e01c16eb\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"a2d58388-8451-4a48-97ac-24879cc4f4d8\", \n\t\t\t\"sort\": 709501, \n\t\t\t\"accountId\": \"d1b1a275-eb27-44b1-9d5e-90d102899391\", \n\t\t\t\"accountCode\": \"h\", \n\t\t\t\"isImportant\": true, \n\t\t\t\"subject\": \"0sjjky7vd8qezexdf76eua6rh7h49crbpl455dxy9912nhlov30gcfqtm66gcdbzznhj6vk4syqv4bip545vk5k85wsjbwf0t6ejejcwu0kwdcg6so7v75gstq1713avpt3b3vonc21sn3gex4oyast95xhig26n0fh7ykp419413ribxnbxhgnac7z3wjkoi2vg0uifjt2o0439sndr84ljmxdw116diyjr9u23mwutkdjmgw18bruhh1ms1c\", \n\t\t\t\"body\": \"Odit labore ut necessitatibus nihil magni sunt quam ipsa enim. Velit est aut fugiat dolores odio earum tempora. Similique quaerat sed. Officia dignissimos mollitia voluptatibus minima qui porro amet minus et. Officiis qui aut.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e57a0320-88fc-44ea-89e2-5da6a186a55f\", \n\t\t\t\"tenantIds\": [], \n\t\t\t\"messageId\": \"4d645069-1801-425e-95b4-97222999aa17\", \n\t\t\t\"sort\": 688055, \n\t\t\t\"accountId\": \"b2da1e9b-fefe-4f94-8505-43f33d358a86\", \n\t\t\t\"accountCode\": \"m\", \n\t\t\t\"isImportant\": false, \n\t\t\t\"subject\": \"uvytqoyfee1z7kyke8vce3yozdl3io76euxszr8x2phqejdun3ypfnpvr5q6c48t67741opaqytz20ir1syfi95whc4j6rksrk13h21yqz034k91u9dn89tgpzzt5zxvutf8baltb3m0vp5e53normqzpkawzv9pj68ivx2h2nygiqhxtb8plogqwfpekcemdm4vsw8mjn62vamfh88wbmilxkfoyt2jvrpx0tbdynfcqmhyf53xx1j75ytct2\", \n\t\t\t\"body\": \"Impedit non magni culpa qui qui tempore et ut ut. Aliquid dolores in vitae placeat ut suscipit. Praesentium quidem ut delectus vel enim amet. Dolores odio dignissimos non non. Accusantium omnis aspernatur sequi atque tempore iusto dolores. Quis asperiores cupiditate voluptas accusantium aut dolor iste.\", \n\t\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\t\"isRead\": false, \n\t\t\t\"isReadAtLeastOnce\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}\n\t]\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messagePaginateInboxes",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tmessagePaginateInboxes (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageGetInboxes",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tmessageGetInboxes (query: $query)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageFindInbox",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tmessageFindInbox (query: $query)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageFindInboxById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id:ID)\n{\n\tmessageFindInboxById (id:$id)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageUpdateInbox",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:MessageUpdateInboxInput!)\n{\n\tmessageUpdateInbox (payload:$payload)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 875432, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountCode\": \"z\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"o09s6ijgul46zuwlezd7inw7s5z3dpvqhwvzyl43d1ap5ovf6ovhlrfrhyry2dabn5v2wbkb405z30bcrnf7l9rwz6qvya4j6a219jeg45047q6x1a9rnjlqbr6a3sbucq6ib87ow5vyq16p13fqir7a1xmr3rkzn3cc5do2qwct26ief526n91gmq87eo5kminmd7wnn2gkqc1rm13fhjaa2h8qsyshednuvj94tyksuhhyw3zzk0k83zgj1s\", \n\t\t\"body\": \"Eveniet reiciendis ex. Est maxime est voluptas ipsam qui. Eum consequatur maiores enim placeat sunt minima pariatur. Consectetur iusto maxime voluptatibus eveniet omnis. Ducimus nulla expedita illo vel facilis consequuntur. Error quis aliquam.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageDeleteInboxById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($id:ID!)\n{\n\tmessageDeleteInboxById (id:$id)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageDeleteInboxes",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($query:QueryStatement)\n{\n\tmessageDeleteInboxes (query: $query)\n\t{\n\t\tid\n\t\ttenantIds\n\t\tsort\n\t\taccountId\n\t\taccountCode\n\t\tisImportant\n\t\tsubject\n\t\tbody\n\t\tattachments\n\t\tisRead\n\t\tisReadAtLeastOnce\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"tenantIds\": [], \n\t\"messageId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 690362, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountCode\": \"6\", \n\t\"isImportant\": true, \n\t\"subject\": \"edq0oevg4mte1o0a6jr6kzg09x0t6yj3x61ml9ry19ggjsbx9el5plexy7y29ufyzefv3cpgy1n5mquyr17fpcrpudyff3k31dtgfelqbgnznf50ju3x94essjahpvu1xseez8787ty6rjdbj85est3bs7ef503ui3dn6sfks1h6yq430bkobepy5o7hgntphziuzi0eifofuu21jroojrttq2ts5vyxnncld9auc630cwn41bpohgbukm1ozb\", \n\t\"body\": \"Ducimus doloribus blanditiis. Accusantium dolor quia. Repudiandae veniam illum eum ratione.\", \n\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\"isRead\": true, \n\t\"isReadAtLeastOnce\": false, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inboxes/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"18c28969-d860-46b6-af8d-f8f38c0c6a87\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"3f144fc0-1a5a-40fc-bb4b-d3c88bb1dd12\", \n\t\t\"sort\": 499744, \n\t\t\"accountId\": \"275c68de-3814-4068-b931-d6e743311d90\", \n\t\t\"accountCode\": \"e\", \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"yypphruycu2hs0m2y96nn8crh1jhb184j0ym4jmlc9qwfg2gy7s24cez5r9g8te9ljsvvucnrv88n9s3gwpkfqhfmzusa3m73t96dzzctt1iour3s9h8kur1tnwkycrnthvripp0td0fr2d4z6789pdv0qtdd68g4b4nswxr6b31isnh2qwzau945cqvrkk5w5cmwp8oz5zhhgabqerr5s5h7lnhjcajv4sqfptv07bqearzctgp8qpiau5vjv\", \n\t\t\"body\": \"Recusandae deserunt at. Sunt cumque quisquam ut iusto qui nostrum alias eligendi. Quo ipsam qui sapiente placeat tenetur.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"f754b797-2d54-4cb1-947f-26fac88ee55c\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"e486c270-dcf9-471f-b94b-bf810ee556c2\", \n\t\t\"sort\": 429782, \n\t\t\"accountId\": \"445ccafe-c310-413a-bb92-01cb70e15e5a\", \n\t\t\"accountCode\": \"f\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"ug39hebgm2vqkgz91hq3zm8za9ld1yso44ecxsc43hfxss48h05rz6riik0j5el124d0j2ems2s057pjc5irututjsu23ywdy04yw1d2gjfyfd8l2s074dyhggi4gf3saxl2xj93pmn1y6qlr9sgt8dlg2d1qmwub64b3ifaed4o5vevy1yq20m5085tcof5vdmr4j49d0igrbj0b87mfgxgyi2wqzmxxb9lcgi3zvgdab5gg51htw6w4ft1dt\", \n\t\t\"body\": \"Voluptatem vitae nemo ipsum consequuntur id distinctio similique esse. Perspiciatis ad provident ipsam magni ratione nisi assumenda voluptatem. Nostrum est et ut nemo voluptate. Dolorem ut culpa vitae quia maxime. Est enim aut voluptatibus molestiae commodi quia. Alias deleniti maxime voluptas quo.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"e7269cf2-0eb1-4d8a-b505-cde692863d08\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"37fd2612-f27e-40af-b2a1-b4338129477f\", \n\t\t\"sort\": 862886, \n\t\t\"accountId\": \"b8dec711-274f-4d02-9f65-a2227c43b0ec\", \n\t\t\"accountCode\": \"q\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"zm8cl3lyjr3icc7o4thi1oieuqtsizwzaywhl0dr92cncz1o6kdyf15to67w291ujwra90sc43is8bgnj2ezclzbjl1btj38eh25bddlcw0q2cllqmfcx4dtnqi4wi8eugnu6vicii47ea0yguuu118u8abeph9jvyzfslg4vua4hudj3e0inwvcgzv6lcyn1yg1oeqkje0iq7dz0d5g4p0mjqbbnqavyldzsor8889kb5fr7txurqxwfm3vtx\", \n\t\t\"body\": \"Reiciendis nihil ipsum ipsa sequi commodi eum nemo repellendus perferendis. Et impedit veniam consequatur est aut quia sit. In non et quos voluptatibus nobis ipsa tempora libero quisquam. Aut rerum qui harum ipsum rem sunt sit a reprehenderit. Perferendis saepe neque architecto et cum dicta consequuntur repellat. Aut et nihil aperiam illo tempora.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": true, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"b539a41f-eb51-438d-8621-33aaed8dd34f\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"b85af5b0-698a-425b-bc70-b62b5aba4c7d\", \n\t\t\"sort\": 135904, \n\t\t\"accountId\": \"44db55cf-6b96-4dae-9156-bdd28b64e029\", \n\t\t\"accountCode\": \"o\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"gqwawu4q7mhii1mqfj32cgk7uo1weja046eegjvl9tpvcke061oshkk19d4pbndmevwh2wqpctqsop004v17lfxfmx6z072cce7f7523113ab93vjsfm958i8oqmz2xihc8zpfu4jgsqem0rqjju6dq1zi1b1rc7nmjkz26hnc2axhpkfqbpq8ysg3ggv3huw8ppk8vcvmx2ny4souz9xck1774b7amqoww6ax5jhipwo0mxnrb16ks67sb3bu\", \n\t\t\"body\": \"Iure sed sint fugit sequi repudiandae molestiae. Dolores enim reiciendis ipsa illum quaerat qui qui eligendi. Et animi rerum. Neque maxime consectetur nesciunt aut. Sunt laborum sint. Porro et voluptates sed corporis earum et et.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"bdab2ab0-db1f-460c-a869-4b800abfa4ca\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"29a30bea-99b1-451b-9474-0ddbb0308d6c\", \n\t\t\"sort\": 238717, \n\t\t\"accountId\": \"e9b73b1a-ed09-44ae-927c-de100d736b40\", \n\t\t\"accountCode\": \"c\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"ebcmixwz70krxhzzkkigkm3cy4sg3ydwl8sjpb8gtzu2kvn77hb6ogilr0auruklerxzv3i2tuk2re1ju5y0s2e6lvgzrfaqk13e8qmqfhsaiblm5fd59romjlapzdt8zdcbrezecn6asiktichy2gvayfz5jczi1tenx5p1g0l32x3xahtwqsaongz540jvyzyx3g2oni6jm9t0z78f0kd91x0m8p84myvj6u5frmfaoex4j05o909g5s5hze\", \n\t\t\"body\": \"Cum doloremque perferendis itaque suscipit voluptas. Accusamus quas odio mollitia earum enim voluptatem quo est. Reiciendis nisi laborum tempore ut sed et. Et beatae id autem beatae.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"0dba8b8d-1665-425f-9cdd-3724e29912b2\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"ac6bbf84-c63d-42ca-981a-637ccc23c4fd\", \n\t\t\"sort\": 905444, \n\t\t\"accountId\": \"fa6d0cb9-e909-40c5-8bd2-a0690e204a9e\", \n\t\t\"accountCode\": \"6\", \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"y0j03fz67wzxi2ywwr4ayj55mrf1vmvbmql1895kgfb43v879ho3jqr0stndvrj0vfrc5qafdmdhq11915fs0h31ne0lbu6ypmeuoibpydeej8ysyscp2lhkcyl74nj089pwcmz3tmhopna0lhz8mn5w74wllkp49n64qpkkyfo3squ4tc0y8m1fq9iawe5drv372jrdjg54gmhsa3a2z72hc13xros1spmggml4lpripav1dbk7ykpgbpgxac\", \n\t\t\"body\": \"Aut iure earum assumenda quo sunt sed modi. Illo omnis qui enim et enim sit enim. Porro occaecati qui in id libero ducimus dolorem et nisi. Nihil eos qui dolor pariatur eaque.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": true, \n\t\t\"isReadAtLeastOnce\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"c3bd0091-df92-4be3-bcb0-e1cd25036d19\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"163eea83-97df-40f7-a296-be4cc2b36381\", \n\t\t\"sort\": 294845, \n\t\t\"accountId\": \"db4b2365-68ed-4fd7-922b-a3ae9b594ab7\", \n\t\t\"accountCode\": \"t\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"9d358uhj07h2iy8767if2kkqrmvbyquqfss2n8b1n0xzbp897jbj8ckxhjmrhdubiggqny0y4cxyugtqpzzy7bos6r5z5znk98ibgd8ayrlogf8rylw1r6dydmfh3sf2inr8la0mg2j04qhqffkvjiafin21x6msym5nfa9bdlwl9fdjk3rch24587hwnnachcckbnj4wb4p3d430ff3iopqfc3aocg3nic05ii2myef3hf49dsg6ztt3ad0fd\", \n\t\t\"body\": \"Adipisci dolorem nihil praesentium cumque quam sequi nostrum. Repudiandae modi recusandae. Quia minima ut velit a ut repudiandae sapiente optio dolorem. In exercitationem sequi delectus quia ut quia non voluptatem. Et omnis saepe veniam.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"0c4bfe75-26d3-4f3d-8b50-0e38c775fdff\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"45746220-947c-44e1-8ac9-82ab9ef2e2ac\", \n\t\t\"sort\": 776425, \n\t\t\"accountId\": \"ed855563-bf83-4275-b3e3-735e88544023\", \n\t\t\"accountCode\": \"f\", \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"vex2bncyf0jres6tsjj18kithfwecla80xkh0dmjdij7cmgctida832n7pq81ykehy76sbi9qkgwpjsob68ok1fm3pkb2x4g30fu5phmsu48c99luvrz0uqx7zxv3fhld99w4b54saomawyb8ptazqr82hhmn38uqi9xugaf8bciucgvbzx9quzd56hcpqek9xb9ujopzhshl30b7wu2sn4iz5feogewruprxec5wwm3tlg0vsx19eosqq5eji\", \n\t\t\"body\": \"Odit at adipisci rerum delectus. Possimus et est commodi cupiditate. Veniam aut exercitationem necessitatibus minima est error mollitia. Veniam voluptas pariatur officia recusandae harum assumenda velit repellat quam. Molestias reprehenderit error aut occaecati.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": true, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"812697f6-2072-420b-adc4-d66b6be36b71\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"f7f9dfb6-8df7-4e19-abb5-fb1a9cb15075\", \n\t\t\"sort\": 145534, \n\t\t\"accountId\": \"0207a479-358d-4881-b2cd-d9c0049b0bfb\", \n\t\t\"accountCode\": \"7\", \n\t\t\"isImportant\": false, \n\t\t\"subject\": \"cssoneng2vps7d9u1g9vcypm9q2pxq6us7wna2767x42v082l4rtu5972zgg9ru3nk255q3xqhv4mpxnq5qvnr2m16dfm324zb71rihpvl2xg4pw1shopowqqm5c65o5vnzk14fun92zt0vbngn3tic87lj9913975z2kuli26onw6zasarltmwfagle92leh0pqxwin63m0u3zmnrqw4f4tqazyhbc6on13466k1ibygnk8o970t1k8zfhxm8\", \n\t\t\"body\": \"Amet dolorem optio fuga explicabo quo ut. Aliquam magnam aut sint quas vero. Qui delectus iure minus. Consequatur quia accusantium aperiam dolor qui nostrum. Dolore laudantium enim ut. Aliquam provident non rerum delectus est quae.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": true, \n\t\t\"isReadAtLeastOnce\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"92db2452-0a4c-455c-bdad-4e631198f65e\", \n\t\t\"tenantIds\": [], \n\t\t\"messageId\": \"03d7e57c-e345-43eb-ae16-8a95139ce011\", \n\t\t\"sort\": 270086, \n\t\t\"accountId\": \"9d35e66a-7cd1-4aa6-9a20-fb38090fc311\", \n\t\t\"accountCode\": \"4\", \n\t\t\"isImportant\": true, \n\t\t\"subject\": \"vlbrb3h5irsgmypt3wamkg33e9lefmc7zt9hrghtbvgauybzud62f6gv7p9fys5c9zzr5g3vi8kxjnxyr2trwtu8wm6novktknx2gz9vbfjcc4g2wv5lwtiijq6chusbir0u1d0cv1zikz9u3twuenuk7bn3y31srcpq82txz4ci1mpx5fqo052ji420edmrv43upgpu91h1pff0c09k8sto15kooox591akatmkl9jflbvatvfrcg91db89h5\", \n\t\t\"body\": \"Ut aliquid distinctio praesentium est id aut et. Dolor tenetur ut voluptas accusamus molestias laboriosam quos consequuntur. Ab quam maiores quo excepturi est occaecati. Ipsum aut cumque.\", \n\t\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\t\"isRead\": false, \n\t\t\"isReadAtLeastOnce\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inboxes/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inboxes",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inboxes/paginate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inboxes/paginate",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+                        "inboxes",
+                        "paginate"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inboxes/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inboxes/get",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inboxes",
+                        "get"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox/find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox/find",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox",
+                        "find"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox/find/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox",
+                        "find",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"tenantIds\": [], \n\t\"messageId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 770175, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountCode\": \"t\", \n\t\"isImportant\": true, \n\t\"subject\": \"7482m99wgh1oj66myvs3djeumlk33ip1ojfnz2hkkae3gxb3or2907sydn92dkwe49o90a5rmrpi6izzdap1jm78x8bypxrhtk6awla0p3jl68t59yf88p3rw6afm5e3j4ytpgb4gj530ooyed5p529y6w4u76rhc6dzu517djlv8j2dg5va6dmcectvxyg1i2vncx2r7hw6pio8zam9icbsc5au2xg99l9113t3ey0pdq34y93fssfnm8c581\", \n\t\"body\": \"Voluptatem quia modi. Laudantium aut consequatur ut sit est. Facere fugit ea. Velit ratione quam. Ducimus et quibusdam. Esse molestiae ea qui dolores repellat accusamus.\", \n\t\"attachments\": { \"foo\" : \"bar\" }, \n\t\"isRead\": true, \n\t\"isReadAtLeastOnce\": false, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox",
+                        "update"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox",
+                        "delete",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "REST - message/inboxes/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inboxes/delete",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inboxes",
+                        "delete"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+    "variable": [
+		{
+			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

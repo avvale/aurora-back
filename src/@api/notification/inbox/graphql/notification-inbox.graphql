@@ -134,6 +134,6 @@ type Mutation
     # additionalApis
     notificationCheckNotificationsInbox(
         query: QueryStatement
-    ): Boolean!
+    ): Pagination!
 
 }

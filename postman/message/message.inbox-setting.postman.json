@@ -1,0 +1,561 @@
+{
+    "info": {
+		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+		"name"          : "@app - message/inbox-setting",
+		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+			"name": "GraphQL - messageCreateInboxSetting",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:MessageCreateInboxSettingInput!)\n{\n\tmessageCreateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 806088\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageCreateInboxSettings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:[MessageCreateInboxSettingInput]!)\n{\n\tmessageCreateInboxSettings (payload:$payload)\n}",
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"4ab37ae1-b65b-4d5f-a3d5-10eefa32ec72\", \n\t\t\t\"accountId\": \"3a99d724-b761-4173-8829-029d69da08b6\", \n\t\t\t\"sort\": 482316\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c3ef2f5c-707d-4147-aa43-274bdb88b492\", \n\t\t\t\"accountId\": \"93f946fe-3644-4bbf-a805-439cf8786d68\", \n\t\t\t\"sort\": 289606\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"8603b3eb-1525-4c67-8fcb-7f01ccfa1abd\", \n\t\t\t\"accountId\": \"81d35879-f805-45e5-94b1-2ded0d0c15e0\", \n\t\t\t\"sort\": 793046\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ad97e006-7633-4176-9c11-351388135c73\", \n\t\t\t\"accountId\": \"487b71a3-cf2b-4199-aa6b-7d7879644cfc\", \n\t\t\t\"sort\": 123924\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"3b7f705a-9663-43ed-b185-586da2ff71d3\", \n\t\t\t\"accountId\": \"4142d423-e0f4-47e3-b820-cf6c96140083\", \n\t\t\t\"sort\": 158922\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"80ea568f-a89a-4ef7-bfcc-a8d908340636\", \n\t\t\t\"accountId\": \"8f725a7f-974e-430c-b7f7-b25a858216ba\", \n\t\t\t\"sort\": 536964\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"1689e2a8-966f-43f0-9ad1-874a805d90a5\", \n\t\t\t\"accountId\": \"90efe5b6-0a79-4b5f-b79a-ae556d84499f\", \n\t\t\t\"sort\": 912494\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"802aec3f-7298-4602-939a-e3de96cf2e19\", \n\t\t\t\"accountId\": \"34791bba-7e45-4ce4-af25-b93207ed6248\", \n\t\t\t\"sort\": 296494\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"49bf5771-e57f-4130-ae3b-866a88fc601a\", \n\t\t\t\"accountId\": \"d5226561-e942-400e-a22e-348ec81e02e6\", \n\t\t\t\"sort\": 512550\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0d2c8330-dbb0-42c5-bed3-899201cf84c0\", \n\t\t\t\"accountId\": \"cff24914-5943-4a28-9f18-c7b8a13a2476\", \n\t\t\t\"sort\": 635208\n\t\t}\n\t]\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messagePaginateInboxSettings",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tmessagePaginateInboxSettings (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageGetInboxSettings",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tmessageGetInboxSettings (query: $query)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageFindInboxSetting",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($query:QueryStatement)\n{\n\tmessageFindInboxSetting (query: $query)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageFindInboxSettingById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id:ID)\n{\n\tmessageFindInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageUpdateInboxSetting",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($payload:MessageUpdateInboxSettingInput!)\n{\n\tmessageUpdateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 320800\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageDeleteInboxSettingById",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($id:ID!)\n{\n\tmessageDeleteInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "GraphQL - messageDeleteInboxSettings",
+			"request": {
+				"method": "POST",
+				"header": [
+                ],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation ($query:QueryStatement)\n{\n\tmessageDeleteInboxSettings (query: $query)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/graphql",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-setting/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 254067\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-setting/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-setting",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-settings/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key"   : "Content-Type",
+						"name"  : "Content-Type",
+						"type"  : "text",
+						"value" : "application/json"
+					}				],
+				"body": {
+					"mode"  : "raw",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"7f0082a6-64f1-4a1f-b54a-935b95f4c1d5\", \n\t\t\"accountId\": \"f77b4aac-8042-4a22-aa18-84f0ea3c6441\", \n\t\t\"sort\": 943750\n\t}, \n\t{\n\t\t\"id\": \"3938e11a-3182-4a9b-8cd5-553f6a6b9fd2\", \n\t\t\"accountId\": \"a6f7ebb1-bd48-462e-b595-404cce92de49\", \n\t\t\"sort\": 677333\n\t}, \n\t{\n\t\t\"id\": \"d8cde488-f092-4530-81d4-3b58bff337c9\", \n\t\t\"accountId\": \"cabe17dd-44fd-41ff-ac5f-687ce2296fdb\", \n\t\t\"sort\": 899210\n\t}, \n\t{\n\t\t\"id\": \"0ebb2f60-cf41-4041-b4c8-30e9833564bc\", \n\t\t\"accountId\": \"da8315aa-4fa0-454f-8d46-851748d0a42d\", \n\t\t\"sort\": 339649\n\t}, \n\t{\n\t\t\"id\": \"2ff90e93-7a09-4a93-ae78-6e4f87ba3208\", \n\t\t\"accountId\": \"6bb709b6-a375-461b-b5ab-903e57b15285\", \n\t\t\"sort\": 385246\n\t}, \n\t{\n\t\t\"id\": \"691d109d-e98d-4f67-9316-ec0def4a220c\", \n\t\t\"accountId\": \"b4a325af-7b07-4c59-b03d-e84d30a53ab2\", \n\t\t\"sort\": 195032\n\t}, \n\t{\n\t\t\"id\": \"34800cf3-c75d-40a0-9e34-d9817118579f\", \n\t\t\"accountId\": \"7d90e0d4-8aa0-4e4c-9576-75a1dac46034\", \n\t\t\"sort\": 439219\n\t}, \n\t{\n\t\t\"id\": \"3006a512-d4b3-4e68-915e-35233f5c8c0a\", \n\t\t\"accountId\": \"529ccec2-5b27-47d8-a2e7-0f6e3f10d774\", \n\t\t\"sort\": 114651\n\t}, \n\t{\n\t\t\"id\": \"bb5fc6cf-56d8-47bc-a167-ef9acb85918a\", \n\t\t\"accountId\": \"90bc1a42-1b53-4ff7-af9a-d6f61607116f\", \n\t\t\"sort\": 464078\n\t}, \n\t{\n\t\t\"id\": \"d6f3219c-13ea-484a-970b-2e66e28a8438\", \n\t\t\"accountId\": \"ab0554fd-12e0-4c5f-abfa-6060fda28bdf\", \n\t\t\"sort\": 399702\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-settings/create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-settings",
+                        "create"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-settings/paginate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-settings/paginate",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+                        "inbox-settings",
+                        "paginate"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-settings/get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-settings/get",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-settings",
+                        "get"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-setting/find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-setting/find",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-setting",
+                        "find"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-setting/find/{id}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-setting/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-setting",
+                        "find",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-setting/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 884306\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-setting/update",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-setting",
+                        "update"
+					]
+				}
+			},
+			"response": []
+        },
+        {
+			"name": "REST - message/inbox-setting/delete/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-setting/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-setting",
+                        "delete",
+						"5b19d6ac-4081-573b-96b3-56964d5326a8"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "REST - message/inbox-settings/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/message/inbox-settings/delete",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"message",
+						"inbox-settings",
+                        "delete"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+    "variable": [
+		{
+			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
