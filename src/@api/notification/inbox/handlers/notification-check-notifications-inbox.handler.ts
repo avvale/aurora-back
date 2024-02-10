@@ -4,7 +4,7 @@ import { NotificationFindOutboxQuery, NotificationGetOutboxesQuery } from '@app/
 import { AuditingMeta, ICommandBus, IQueryBus, Operator, QueryStatement, nowTimestamp, uuid } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { Pagination } from '@api/graphql';
-import { NotificationCreateInboxesCommand, NotificationFindInboxQuery, NotificationPaginateInboxesQuery } from '@app/notification/inbox';
+import { NotificationCreateInboxesCommand, NotificationFindInboxQuery, NotificationMaxInboxQuery, NotificationPaginateInboxesQuery } from '@app/notification/inbox';
 
 @Injectable()
 export class NotificationCheckNotificationsInboxHandler
@@ -125,25 +125,14 @@ export class NotificationCheckNotificationsInboxHandler
                     },
                 ));
 
-                const lastNotification = await this.queryBus.ask(new NotificationFindInboxQuery(
-                    {
-                        order: [['sort', 'DESC']],
-                    },
-                ));
-
-
-                // get last notification according sort column
-                /* const lastNotification = notificationsInbox.rows
-                    .reduce(
-                        (lastNotification, currentNOtification) => (lastNotification.sort > currentNOtification.sort ? lastNotification : currentNOtification),
-                        notificationsInbox[0],
-                    ); */
+                // get max sort
+                const maxSort = await this.queryBus.ask(new NotificationMaxInboxQuery('sort'));
 
                 // update inbox setting
                 await this.commandBus.dispatch(new NotificationUpdateInboxSettingByIdCommand(
                     {
                         id  : inboxSetting.id,
-                        sort: lastNotification.sort,
+                        sort: maxSort,
                     },
                     {},
                     {
@@ -156,7 +145,7 @@ export class NotificationCheckNotificationsInboxHandler
             }
 
             // get notifications according to the query
-            const notificationsInbox = await this.queryBus.ask(new NotificationPaginateInboxesQuery(
+            return await this.queryBus.ask(new NotificationPaginateInboxesQuery(
                 query,
                 {},
                 {
