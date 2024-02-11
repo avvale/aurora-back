@@ -2,19 +2,23 @@ import { MessageAddMessagesContextEvent, MessageIMessageRepository, MessageMessa
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageBody,
     MessageMessageCreatedAt,
     MessageMessageDeletedAt,
+    MessageMessageDescription,
+    MessageMessageIcon,
     MessageMessageId,
+    MessageMessageImage,
     MessageMessageIsImportant,
+    MessageMessageIsInternalLink,
+    MessageMessageLink,
     MessageMessageMeta,
     MessageMessageReads,
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
-    MessageMessageSubject,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
+    MessageMessageTitle,
     MessageMessageTotalRecipients,
     MessageMessageUpdatedAt,
 } from '@app/message/message/domain/value-objects';
@@ -40,8 +44,12 @@ export class MessageUpdateAndIncrementMessagesService
             scopeRecipients?: MessageMessageScopeRecipients;
             sendAt?: MessageMessageSendAt;
             isImportant?: MessageMessageIsImportant;
-            subject?: MessageMessageSubject;
-            body?: MessageMessageBody;
+            title?: MessageMessageTitle;
+            description?: MessageMessageDescription;
+            link?: MessageMessageLink;
+            isInternalLink?: MessageMessageIsInternalLink;
+            image?: MessageMessageImage;
+            icon?: MessageMessageIcon;
             attachments?: MessageMessageAttachments;
             totalRecipients?: MessageMessageTotalRecipients;
             reads?: MessageMessageReads;
@@ -62,8 +70,12 @@ export class MessageUpdateAndIncrementMessagesService
             payload.scopeRecipients,
             payload.sendAt,
             payload.isImportant,
-            payload.subject,
-            payload.body,
+            payload.title,
+            payload.description,
+            payload.link,
+            payload.isInternalLink,
+            payload.image,
+            payload.icon,
             payload.attachments,
             payload.totalRecipients,
             payload.reads,

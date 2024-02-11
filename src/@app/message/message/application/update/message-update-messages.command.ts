@@ -12,8 +12,12 @@ export class MessageUpdateMessagesCommand
             scopeRecipients?: string[];
             sendAt?: string;
             isImportant?: boolean;
-            subject?: string;
-            body?: string;
+            title?: string;
+            description?: string;
+            link?: string;
+            isInternalLink?: boolean;
+            image?: any;
+            icon?: string;
             attachments?: any;
             totalRecipients?: number;
             reads?: number;

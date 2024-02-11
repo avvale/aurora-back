@@ -55,15 +55,39 @@ export class MessageUpdateMessagesDto
 
     @ApiProperty({
         type       : String,
-        description: 'subject [input here api field description]',
+        description: 'title [input here api field description]',
     })
-    subject?: string;
+    title?: string;
 
     @ApiProperty({
         type       : String,
-        description: 'body [input here api field description]',
+        description: 'description [input here api field description]',
     })
-    body?: string;
+    description?: string;
+
+    @ApiProperty({
+        type       : String,
+        description: 'link [input here api field description]',
+    })
+    link?: string;
+
+    @ApiProperty({
+        type       : Boolean,
+        description: 'isInternalLink [input here api field description]',
+    })
+    isInternalLink?: boolean;
+
+    @ApiProperty({
+        type       : Object,
+        description: 'image [input here api field description]',
+    })
+    image?: any;
+
+    @ApiProperty({
+        type       : String,
+        description: 'icon [input here api field description]',
+    })
+    icon?: string;
 
     @ApiProperty({
         type       : Object,

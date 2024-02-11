@@ -2,19 +2,23 @@ import { MessageAddMessagesContextEvent, MessageIMessageRepository, MessageMessa
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageBody,
     MessageMessageCreatedAt,
     MessageMessageDeletedAt,
+    MessageMessageDescription,
+    MessageMessageIcon,
     MessageMessageId,
+    MessageMessageImage,
     MessageMessageIsImportant,
+    MessageMessageIsInternalLink,
+    MessageMessageLink,
     MessageMessageMeta,
     MessageMessageReads,
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
-    MessageMessageSubject,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
+    MessageMessageTitle,
     MessageMessageTotalRecipients,
     MessageMessageUpdatedAt,
 } from '@app/message/message/domain/value-objects';
@@ -40,8 +44,12 @@ export class MessageCreateMessagesService
             scopeRecipients: MessageMessageScopeRecipients;
             sendAt: MessageMessageSendAt;
             isImportant: MessageMessageIsImportant;
-            subject: MessageMessageSubject;
-            body: MessageMessageBody;
+            title: MessageMessageTitle;
+            description: MessageMessageDescription;
+            link: MessageMessageLink;
+            isInternalLink: MessageMessageIsInternalLink;
+            image: MessageMessageImage;
+            icon: MessageMessageIcon;
             attachments: MessageMessageAttachments;
             totalRecipients: MessageMessageTotalRecipients;
             reads: MessageMessageReads;
@@ -60,8 +68,12 @@ export class MessageCreateMessagesService
             message.scopeRecipients,
             message.sendAt,
             message.isImportant,
-            message.subject,
-            message.body,
+            message.title,
+            message.description,
+            message.link,
+            message.isInternalLink,
+            message.image,
+            message.icon,
             message.attachments,
             message.totalRecipients,
             message.reads,

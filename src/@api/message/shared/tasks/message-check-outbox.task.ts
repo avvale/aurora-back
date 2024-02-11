@@ -72,7 +72,6 @@ export class MessageCheckOutboxTask
         }
         catch (error)
         {
-            console.log(error);
             this.logger.error('Error to check messages outbox', error);
         }
     }

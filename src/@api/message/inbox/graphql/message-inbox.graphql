@@ -9,8 +9,13 @@ type MessageInbox
     accountId: ID!
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
-    subject: GraphQLString!
-    body: GraphQLString!
+    sentAt: GraphQLTimestamp!
+    title: GraphQLString!
+    description: GraphQLString!
+    link: GraphQLString
+    isInternalLink: GraphQLBoolean
+    image: JSON
+    icon: GraphQLString
     attachments: JSON
     isRead: GraphQLBoolean!
     isReadAtLeastOnce: GraphQLBoolean!
@@ -29,8 +34,13 @@ input MessageCreateInboxInput
     accountId: ID!
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
-    subject: GraphQLString!
-    body: GraphQLString!
+    sentAt: GraphQLTimestamp!
+    title: GraphQLString!
+    description: GraphQLString!
+    link: GraphQLString
+    isInternalLink: GraphQLBoolean
+    image: JSON
+    icon: GraphQLString
     attachments: JSON
     isRead: GraphQLBoolean!
     isReadAtLeastOnce: GraphQLBoolean!
@@ -46,8 +56,13 @@ input MessageUpdateInboxByIdInput
     accountId: ID
     accountCode: GraphQLString
     isImportant: GraphQLBoolean
-    subject: GraphQLString
-    body: GraphQLString
+    sentAt: GraphQLTimestamp
+    title: GraphQLString
+    description: GraphQLString
+    link: GraphQLString
+    isInternalLink: GraphQLBoolean
+    image: JSON
+    icon: GraphQLString
     attachments: JSON
     isRead: GraphQLBoolean
     isReadAtLeastOnce: GraphQLBoolean
@@ -63,8 +78,13 @@ input MessageUpdateInboxesInput
     accountId: ID
     accountCode: GraphQLString
     isImportant: GraphQLBoolean
-    subject: GraphQLString
-    body: GraphQLString
+    sentAt: GraphQLTimestamp
+    title: GraphQLString
+    description: GraphQLString
+    link: GraphQLString
+    isInternalLink: GraphQLBoolean
+    image: JSON
+    icon: GraphQLString
     attachments: JSON
     isRead: GraphQLBoolean
     isReadAtLeastOnce: GraphQLBoolean
@@ -91,6 +111,12 @@ type Query
     messagePaginateInboxes(
         query: QueryStatement
         constraint: QueryStatement
+    ): Pagination!
+
+
+    # additionalApis
+    messageCheckMessagesInbox(
+        query: QueryStatement
     ): Pagination!
 
 }
@@ -129,11 +155,5 @@ type Mutation
         query: QueryStatement
         constraint: QueryStatement
     ): [MessageInbox]!
-
-
-    # additionalApis
-    messageCheckMessagesInbox(
-        query: QueryStatement
-    ): Pagination!
 
 }

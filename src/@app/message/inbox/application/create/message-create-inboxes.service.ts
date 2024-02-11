@@ -3,18 +3,23 @@ import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
-    MessageInboxBody,
     MessageInboxCreatedAt,
     MessageInboxDeletedAt,
+    MessageInboxDescription,
+    MessageInboxIcon,
     MessageInboxId,
+    MessageInboxImage,
     MessageInboxIsImportant,
+    MessageInboxIsInternalLink,
     MessageInboxIsRead,
     MessageInboxIsReadAtLeastOnce,
+    MessageInboxLink,
     MessageInboxMessageId,
     MessageInboxMeta,
+    MessageInboxSentAt,
     MessageInboxSort,
-    MessageInboxSubject,
     MessageInboxTenantIds,
+    MessageInboxTitle,
     MessageInboxUpdatedAt,
 } from '@app/message/inbox/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
@@ -38,8 +43,13 @@ export class MessageCreateInboxesService
             accountId: MessageInboxAccountId;
             accountCode: MessageInboxAccountCode;
             isImportant: MessageInboxIsImportant;
-            subject: MessageInboxSubject;
-            body: MessageInboxBody;
+            sentAt: MessageInboxSentAt;
+            title: MessageInboxTitle;
+            description: MessageInboxDescription;
+            link: MessageInboxLink;
+            isInternalLink: MessageInboxIsInternalLink;
+            image: MessageInboxImage;
+            icon: MessageInboxIcon;
             attachments: MessageInboxAttachments;
             isRead: MessageInboxIsRead;
             isReadAtLeastOnce: MessageInboxIsReadAtLeastOnce;
@@ -57,8 +67,13 @@ export class MessageCreateInboxesService
             inbox.accountId,
             inbox.accountCode,
             inbox.isImportant,
-            inbox.subject,
-            inbox.body,
+            inbox.sentAt,
+            inbox.title,
+            inbox.description,
+            inbox.link,
+            inbox.isInternalLink,
+            inbox.image,
+            inbox.icon,
             inbox.attachments,
             inbox.isRead,
             inbox.isReadAtLeastOnce,

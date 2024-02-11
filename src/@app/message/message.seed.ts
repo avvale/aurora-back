@@ -1,3 +1,4 @@
+// ignored file
 export const boundedContexts = [
     {
         id      : '3575595d-1c67-4ed1-b753-19e55cabb2b2',

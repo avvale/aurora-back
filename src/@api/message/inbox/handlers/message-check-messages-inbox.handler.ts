@@ -46,9 +46,6 @@ export class MessageCheckMessagesInboxHandler
 
         if (inboxSetting)
         {
-
-            console.log('inboxSetting', inboxSetting);
-
             // get new messages
             const outboxMessages = await this.queryBus.ask(new MessageGetOutboxesQuery(
                 {
@@ -112,9 +109,6 @@ export class MessageCheckMessagesInboxHandler
                 },
             ));
 
-
-            console.log('outboxMessages', outboxMessages);
-
             // create new messages in inbox
             if (outboxMessages.length > 0)
             {
@@ -126,10 +120,15 @@ export class MessageCheckMessagesInboxHandler
                         messageId        : outboxMessage.messageId,
                         sort             : outboxMessage.sort,
                         accountId        : account.id,
-                        accountCode      : account.user,
+                        accountCode      : account.user.username,
                         isImportant      : outboxMessage.message.isImportant,
-                        subject          : outboxMessage.message.subject,
-                        body             : outboxMessage.message.body,
+                        sentAt           : outboxMessage.createdAt,
+                        title            : outboxMessage.message.title,
+                        description      : outboxMessage.message.description,
+                        link             : outboxMessage.message.link,
+                        isInternalLink   : outboxMessage.message.isInternalLink,
+                        image            : outboxMessage.message.image,
+                        icon             : outboxMessage.message.icon,
                         attachments      : outboxMessage.message.attachments,
                         isRead           : false,
                         isReadAtLeastOnce: false,

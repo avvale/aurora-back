@@ -11,8 +11,13 @@ export class MessageUpdateInboxesCommand
             accountId?: string;
             accountCode?: string;
             isImportant?: boolean;
-            subject?: string;
-            body?: string;
+            sentAt?: string;
+            title?: string;
+            description?: string;
+            link?: string;
+            isInternalLink?: boolean;
+            image?: any;
+            icon?: string;
             attachments?: any;
             isRead?: boolean;
             isReadAtLeastOnce?: boolean;

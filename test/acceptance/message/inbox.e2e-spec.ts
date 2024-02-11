@@ -160,35 +160,51 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject property can not to be null', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSentAt property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: null,
+                sentAt: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxSubject must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageInboxSentAt must be defined, can not be null');
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxBody property can not to be null', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                body: null,
+                title: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxBody must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageInboxTitle must be defined, can not be null');
+            });
+    });
+
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxDescription property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                description: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxDescription must be defined, can not be null');
             });
     });
 
@@ -304,35 +320,51 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject property can not to be undefined', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSentAt property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: undefined,
+                sentAt: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxSubject must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageInboxSentAt must be defined, can not be undefined');
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxBody property can not to be undefined', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                body: undefined,
+                title: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxBody must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageInboxTitle must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxDescription property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                description: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxDescription must be defined, can not be undefined');
             });
     });
 
@@ -432,19 +464,51 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject is too large, has a maximum length of 255', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: '****************************************************************************************************************************************************************************************************************************************************************',
+                title: '****************************************************************************************************************************************************************************************************************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxSubject is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for MessageInboxTitle is too large, has a maximum length of 255');
+            });
+    });
+
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxLink is too large, has a maximum length of 2046', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                link: '*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxLink is too large, has a maximum length of 2046');
+            });
+    });
+
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIcon is too large, has a maximum length of 63', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                icon: '****************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxIcon is too large, has a maximum length of 63');
             });
     });
 
@@ -478,6 +542,21 @@ describe('inbox', () =>
                 expect(res.body.message).toContain('Value for MessageInboxIsImportant has to be a boolean value');
             });
     });
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIsInternalLink has to be a boolean value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isInternalLink: 'true',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxIsInternalLink has to be a boolean value');
+            });
+    });
     test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIsRead has to be a boolean value', () =>
     {
         return request(app.getHttpServer())
@@ -506,6 +585,21 @@ describe('inbox', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for MessageInboxIsReadAtLeastOnce has to be a boolean value');
+            });
+    });
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSentAt has to be a timestamp value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/inbox/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                sentAt: '****',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageInboxSentAt has to be a timestamp value');
             });
     });
 
@@ -687,8 +781,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -764,8 +863,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -805,8 +909,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -845,8 +954,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -893,8 +1007,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -939,8 +1058,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -980,8 +1104,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -1019,8 +1148,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -1063,8 +1197,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -1105,8 +1244,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -1152,8 +1296,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce
@@ -1193,8 +1342,13 @@ describe('inbox', () =>
                             accountId
                             accountCode
                             isImportant
-                            subject
-                            body
+                            sentAt
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             isRead
                             isReadAtLeastOnce

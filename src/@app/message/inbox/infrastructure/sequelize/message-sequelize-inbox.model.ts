@@ -193,18 +193,53 @@ export class MessageInboxModel extends Model<MessageInboxModel>
     isImportant: boolean;
 
     @Column({
-        field: 'subject',
+        field: 'sentAt',
+        allowNull: false,
+        type: DataTypes.DATE,
+    })
+    sentAt: string;
+
+    @Column({
+        field: 'title',
         allowNull: false,
         type: DataTypes.STRING(255),
     })
-    subject: string;
+    title: string;
 
     @Column({
-        field: 'body',
+        field: 'description',
         allowNull: false,
         type: DataTypes.TEXT,
     })
-    body: string;
+    description: string;
+
+    @Column({
+        field: 'link',
+        allowNull: true,
+        type: DataTypes.STRING(2046),
+    })
+    link: string;
+
+    @Column({
+        field: 'isInternalLink',
+        allowNull: true,
+        type: DataTypes.BOOLEAN,
+    })
+    isInternalLink: boolean;
+
+    @Column({
+        field: 'image',
+        allowNull: true,
+        type: DataTypes.JSON,
+    })
+    image: any;
+
+    @Column({
+        field: 'icon',
+        allowNull: true,
+        type: DataTypes.STRING(63),
+    })
+    icon: string;
 
     @Column({
         field: 'attachments',

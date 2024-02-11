@@ -128,35 +128,35 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject property can not to be null', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: null,
+                title: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageSubject must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageMessageTitle must be defined, can not be null');
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageBody property can not to be null', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageDescription property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                body: null,
+                description: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageBody must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageMessageDescription must be defined, can not be null');
             });
     });
 
@@ -240,35 +240,35 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject property can not to be undefined', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: undefined,
+                title: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageSubject must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageMessageTitle must be defined, can not be undefined');
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageBody property can not to be undefined', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageDescription property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                body: undefined,
+                description: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageBody must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageMessageDescription must be defined, can not be undefined');
             });
     });
 
@@ -320,19 +320,51 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject is too large, has a maximum length of 255', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: '****************************************************************************************************************************************************************************************************************************************************************',
+                title: '****************************************************************************************************************************************************************************************************************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageSubject is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for MessageMessageTitle is too large, has a maximum length of 255');
+            });
+    });
+
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageLink is too large, has a maximum length of 2046', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/message/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                link: '*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageMessageLink is too large, has a maximum length of 2046');
+            });
+    });
+
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageIcon is too large, has a maximum length of 63', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/message/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                icon: '****************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageMessageIcon is too large, has a maximum length of 63');
             });
     });
 
@@ -409,6 +441,21 @@ describe('message', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for MessageMessageIsImportant has to be a boolean value');
+            });
+    });
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageIsInternalLink has to be a boolean value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/message/message/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isInternalLink: 'true',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for MessageMessageIsInternalLink has to be a boolean value');
             });
     });
     test('/REST:POST message/message/create - Got 400 Conflict, MessageStatus has to be a enum option of DRAFT, PENDING, SENT', () =>
@@ -621,8 +668,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -700,8 +751,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -742,8 +797,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -784,8 +843,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -834,8 +897,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -882,8 +949,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -925,8 +996,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -966,8 +1041,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -1012,8 +1091,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -1056,8 +1139,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -1105,8 +1192,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads
@@ -1148,8 +1239,12 @@ describe('message', () =>
                             scopeRecipients
                             sendAt
                             isImportant
-                            subject
-                            body
+                            title
+                            description
+                            link
+                            isInternalLink
+                            image
+                            icon
                             attachments
                             totalRecipients
                             reads

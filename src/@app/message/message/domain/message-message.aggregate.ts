@@ -3,19 +3,23 @@ import { MessageCreatedMessageEvent, MessageDeletedMessageEvent, MessageUpdatedM
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageBody,
     MessageMessageCreatedAt,
     MessageMessageDeletedAt,
+    MessageMessageDescription,
+    MessageMessageIcon,
     MessageMessageId,
+    MessageMessageImage,
     MessageMessageIsImportant,
+    MessageMessageIsInternalLink,
+    MessageMessageLink,
     MessageMessageMeta,
     MessageMessageReads,
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
-    MessageMessageSubject,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
+    MessageMessageTitle,
     MessageMessageTotalRecipients,
     MessageMessageUpdatedAt,
 } from '@app/message/message/domain/value-objects';
@@ -32,8 +36,12 @@ export class MessageMessage extends AggregateRoot
     scopeRecipients: MessageMessageScopeRecipients;
     sendAt: MessageMessageSendAt;
     isImportant: MessageMessageIsImportant;
-    subject: MessageMessageSubject;
-    body: MessageMessageBody;
+    title: MessageMessageTitle;
+    description: MessageMessageDescription;
+    link: MessageMessageLink;
+    isInternalLink: MessageMessageIsInternalLink;
+    image: MessageMessageImage;
+    icon: MessageMessageIcon;
     attachments: MessageMessageAttachments;
     totalRecipients: MessageMessageTotalRecipients;
     reads: MessageMessageReads;
@@ -51,8 +59,12 @@ export class MessageMessage extends AggregateRoot
         scopeRecipients: MessageMessageScopeRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
-        subject: MessageMessageSubject,
-        body: MessageMessageBody,
+        title: MessageMessageTitle,
+        description: MessageMessageDescription,
+        link: MessageMessageLink,
+        isInternalLink: MessageMessageIsInternalLink,
+        image: MessageMessageImage,
+        icon: MessageMessageIcon,
         attachments: MessageMessageAttachments,
         totalRecipients: MessageMessageTotalRecipients,
         reads: MessageMessageReads,
@@ -71,8 +83,12 @@ export class MessageMessage extends AggregateRoot
         this.scopeRecipients = scopeRecipients;
         this.sendAt = sendAt;
         this.isImportant = isImportant;
-        this.subject = subject;
-        this.body = body;
+        this.title = title;
+        this.description = description;
+        this.link = link;
+        this.isInternalLink = isInternalLink;
+        this.image = image;
+        this.icon = icon;
         this.attachments = attachments;
         this.totalRecipients = totalRecipients;
         this.reads = reads;
@@ -91,8 +107,12 @@ export class MessageMessage extends AggregateRoot
         scopeRecipients: MessageMessageScopeRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
-        subject: MessageMessageSubject,
-        body: MessageMessageBody,
+        title: MessageMessageTitle,
+        description: MessageMessageDescription,
+        link: MessageMessageLink,
+        isInternalLink: MessageMessageIsInternalLink,
+        image: MessageMessageImage,
+        icon: MessageMessageIcon,
         attachments: MessageMessageAttachments,
         totalRecipients: MessageMessageTotalRecipients,
         reads: MessageMessageReads,
@@ -111,8 +131,12 @@ export class MessageMessage extends AggregateRoot
             scopeRecipients,
             sendAt,
             isImportant,
-            subject,
-            body,
+            title,
+            description,
+            link,
+            isInternalLink,
+            image,
+            icon,
             attachments,
             totalRecipients,
             reads,
@@ -135,8 +159,12 @@ export class MessageMessage extends AggregateRoot
                 message.scopeRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
-                message.subject.value,
-                message.body.value,
+                message.title.value,
+                message.description.value,
+                message.link?.value,
+                message.isInternalLink?.value,
+                message.image?.value,
+                message.icon?.value,
                 message.attachments?.value,
                 message.totalRecipients.value,
                 message.reads.value,
@@ -160,8 +188,12 @@ export class MessageMessage extends AggregateRoot
                 message.scopeRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant?.value,
-                message.subject?.value,
-                message.body?.value,
+                message.title?.value,
+                message.description?.value,
+                message.link?.value,
+                message.isInternalLink?.value,
+                message.image?.value,
+                message.icon?.value,
                 message.attachments?.value,
                 message.totalRecipients?.value,
                 message.reads?.value,
@@ -185,8 +217,12 @@ export class MessageMessage extends AggregateRoot
                 message.scopeRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
-                message.subject.value,
-                message.body.value,
+                message.title.value,
+                message.description.value,
+                message.link?.value,
+                message.isInternalLink?.value,
+                message.image?.value,
+                message.icon?.value,
                 message.attachments?.value,
                 message.totalRecipients.value,
                 message.reads.value,
@@ -209,8 +245,12 @@ export class MessageMessage extends AggregateRoot
             scopeRecipients: this.scopeRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
-            subject: this.subject.value,
-            body: this.body.value,
+            title: this.title.value,
+            description: this.description.value,
+            link: this.link?.value,
+            isInternalLink: this.isInternalLink?.value,
+            image: this.image?.value,
+            icon: this.icon?.value,
             attachments: this.attachments?.value,
             totalRecipients: this.totalRecipients.value,
             reads: this.reads.value,
@@ -233,8 +273,12 @@ export class MessageMessage extends AggregateRoot
             scopeRecipients: this.scopeRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
-            subject: this.subject.value,
-            body: this.body.value,
+            title: this.title.value,
+            description: this.description.value,
+            link: this.link?.value,
+            isInternalLink: this.isInternalLink?.value,
+            image: this.image?.value,
+            icon: this.icon?.value,
             attachments: this.attachments?.value,
             totalRecipients: this.totalRecipients.value,
             reads: this.reads.value,

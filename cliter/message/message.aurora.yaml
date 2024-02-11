@@ -54,13 +54,27 @@ aggregateProperties:
   - name: isImportant
     type: boolean
     nullable: false
-  - name: subject
+  - name: title
     type: varchar
     maxLength: 255
     nullable: false
-  - name: body
+  - name: description
     type: text
     nullable: false
+  - name: link
+    type: varchar
+    maxLength: 2046
+    nullable: true
+  - name: isInternalLink
+    type: boolean
+    nullable: true
+  - name: image
+    type: json
+    nullable: true
+  - name: icon
+    type: varchar
+    maxLength: 63
+    nullable: true
   - name: attachments
     type: json
     nullable: true

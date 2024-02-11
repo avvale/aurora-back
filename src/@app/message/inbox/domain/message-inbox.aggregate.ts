@@ -4,18 +4,23 @@ import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
-    MessageInboxBody,
     MessageInboxCreatedAt,
     MessageInboxDeletedAt,
+    MessageInboxDescription,
+    MessageInboxIcon,
     MessageInboxId,
+    MessageInboxImage,
     MessageInboxIsImportant,
+    MessageInboxIsInternalLink,
     MessageInboxIsRead,
     MessageInboxIsReadAtLeastOnce,
+    MessageInboxLink,
     MessageInboxMessageId,
     MessageInboxMeta,
+    MessageInboxSentAt,
     MessageInboxSort,
-    MessageInboxSubject,
     MessageInboxTenantIds,
+    MessageInboxTitle,
     MessageInboxUpdatedAt,
 } from '@app/message/inbox/domain/value-objects';
 import { MessageMessage } from '@app/message/message';
@@ -31,8 +36,13 @@ export class MessageInbox extends AggregateRoot
     accountId: MessageInboxAccountId;
     accountCode: MessageInboxAccountCode;
     isImportant: MessageInboxIsImportant;
-    subject: MessageInboxSubject;
-    body: MessageInboxBody;
+    sentAt: MessageInboxSentAt;
+    title: MessageInboxTitle;
+    description: MessageInboxDescription;
+    link: MessageInboxLink;
+    isInternalLink: MessageInboxIsInternalLink;
+    image: MessageInboxImage;
+    icon: MessageInboxIcon;
     attachments: MessageInboxAttachments;
     isRead: MessageInboxIsRead;
     isReadAtLeastOnce: MessageInboxIsReadAtLeastOnce;
@@ -50,8 +60,13 @@ export class MessageInbox extends AggregateRoot
         accountId: MessageInboxAccountId,
         accountCode: MessageInboxAccountCode,
         isImportant: MessageInboxIsImportant,
-        subject: MessageInboxSubject,
-        body: MessageInboxBody,
+        sentAt: MessageInboxSentAt,
+        title: MessageInboxTitle,
+        description: MessageInboxDescription,
+        link: MessageInboxLink,
+        isInternalLink: MessageInboxIsInternalLink,
+        image: MessageInboxImage,
+        icon: MessageInboxIcon,
         attachments: MessageInboxAttachments,
         isRead: MessageInboxIsRead,
         isReadAtLeastOnce: MessageInboxIsReadAtLeastOnce,
@@ -70,8 +85,13 @@ export class MessageInbox extends AggregateRoot
         this.accountId = accountId;
         this.accountCode = accountCode;
         this.isImportant = isImportant;
-        this.subject = subject;
-        this.body = body;
+        this.sentAt = sentAt;
+        this.title = title;
+        this.description = description;
+        this.link = link;
+        this.isInternalLink = isInternalLink;
+        this.image = image;
+        this.icon = icon;
         this.attachments = attachments;
         this.isRead = isRead;
         this.isReadAtLeastOnce = isReadAtLeastOnce;
@@ -90,8 +110,13 @@ export class MessageInbox extends AggregateRoot
         accountId: MessageInboxAccountId,
         accountCode: MessageInboxAccountCode,
         isImportant: MessageInboxIsImportant,
-        subject: MessageInboxSubject,
-        body: MessageInboxBody,
+        sentAt: MessageInboxSentAt,
+        title: MessageInboxTitle,
+        description: MessageInboxDescription,
+        link: MessageInboxLink,
+        isInternalLink: MessageInboxIsInternalLink,
+        image: MessageInboxImage,
+        icon: MessageInboxIcon,
         attachments: MessageInboxAttachments,
         isRead: MessageInboxIsRead,
         isReadAtLeastOnce: MessageInboxIsReadAtLeastOnce,
@@ -110,8 +135,13 @@ export class MessageInbox extends AggregateRoot
             accountId,
             accountCode,
             isImportant,
-            subject,
-            body,
+            sentAt,
+            title,
+            description,
+            link,
+            isInternalLink,
+            image,
+            icon,
             attachments,
             isRead,
             isReadAtLeastOnce,
@@ -134,8 +164,13 @@ export class MessageInbox extends AggregateRoot
                 inbox.accountId.value,
                 inbox.accountCode?.value,
                 inbox.isImportant.value,
-                inbox.subject.value,
-                inbox.body.value,
+                inbox.sentAt.value,
+                inbox.title.value,
+                inbox.description.value,
+                inbox.link?.value,
+                inbox.isInternalLink?.value,
+                inbox.image?.value,
+                inbox.icon?.value,
                 inbox.attachments?.value,
                 inbox.isRead.value,
                 inbox.isReadAtLeastOnce.value,
@@ -158,8 +193,13 @@ export class MessageInbox extends AggregateRoot
                 inbox.accountId?.value,
                 inbox.accountCode?.value,
                 inbox.isImportant?.value,
-                inbox.subject?.value,
-                inbox.body?.value,
+                inbox.sentAt?.value,
+                inbox.title?.value,
+                inbox.description?.value,
+                inbox.link?.value,
+                inbox.isInternalLink?.value,
+                inbox.image?.value,
+                inbox.icon?.value,
                 inbox.attachments?.value,
                 inbox.isRead?.value,
                 inbox.isReadAtLeastOnce?.value,
@@ -182,8 +222,13 @@ export class MessageInbox extends AggregateRoot
                 inbox.accountId.value,
                 inbox.accountCode?.value,
                 inbox.isImportant.value,
-                inbox.subject.value,
-                inbox.body.value,
+                inbox.sentAt.value,
+                inbox.title.value,
+                inbox.description.value,
+                inbox.link?.value,
+                inbox.isInternalLink?.value,
+                inbox.image?.value,
+                inbox.icon?.value,
                 inbox.attachments?.value,
                 inbox.isRead.value,
                 inbox.isReadAtLeastOnce.value,
@@ -205,8 +250,13 @@ export class MessageInbox extends AggregateRoot
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,
             isImportant: this.isImportant.value,
-            subject: this.subject.value,
-            body: this.body.value,
+            sentAt: this.sentAt.value,
+            title: this.title.value,
+            description: this.description.value,
+            link: this.link?.value,
+            isInternalLink: this.isInternalLink?.value,
+            image: this.image?.value,
+            icon: this.icon?.value,
             attachments: this.attachments?.value,
             isRead: this.isRead.value,
             isReadAtLeastOnce: this.isReadAtLeastOnce.value,
@@ -229,8 +279,13 @@ export class MessageInbox extends AggregateRoot
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,
             isImportant: this.isImportant.value,
-            subject: this.subject.value,
-            body: this.body.value,
+            sentAt: this.sentAt.value,
+            title: this.title.value,
+            description: this.description.value,
+            link: this.link?.value,
+            isInternalLink: this.isInternalLink?.value,
+            image: this.image?.value,
+            icon: this.icon?.value,
             attachments: this.attachments?.value,
             isRead: this.isRead.value,
             isReadAtLeastOnce: this.isReadAtLeastOnce.value,

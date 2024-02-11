@@ -100,12 +100,6 @@ export enum MessageMessageStatus {
     SENT = "SENT"
 }
 
-export enum NotificationNotificationStatus {
-    DRAFT = "DRAFT",
-    PENDING = "PENDING",
-    SENT = "SENT"
-}
-
 export enum OAuthClientGrantType {
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
@@ -986,8 +980,13 @@ export interface MessageCreateInboxInput {
     accountId: string;
     accountCode?: Nullable<GraphQLString>;
     isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
+    sentAt: GraphQLTimestamp;
+    title: GraphQLString;
+    description: GraphQLString;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     isRead: GraphQLBoolean;
     isReadAtLeastOnce: GraphQLBoolean;
@@ -1002,8 +1001,13 @@ export interface MessageUpdateInboxByIdInput {
     accountId?: Nullable<string>;
     accountCode?: Nullable<GraphQLString>;
     isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
+    sentAt?: Nullable<GraphQLTimestamp>;
+    title?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     isRead?: Nullable<GraphQLBoolean>;
     isReadAtLeastOnce?: Nullable<GraphQLBoolean>;
@@ -1018,8 +1022,13 @@ export interface MessageUpdateInboxesInput {
     accountId?: Nullable<string>;
     accountCode?: Nullable<GraphQLString>;
     isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
+    sentAt?: Nullable<GraphQLTimestamp>;
+    title?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     isRead?: Nullable<GraphQLBoolean>;
     isReadAtLeastOnce?: Nullable<GraphQLBoolean>;
@@ -1035,8 +1044,12 @@ export interface MessageCreateMessageInput {
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
+    title: GraphQLString;
+    description: GraphQLString;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     meta?: Nullable<JSON>;
 }
@@ -1050,8 +1063,12 @@ export interface MessageUpdateMessageByIdInput {
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
+    title?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     meta?: Nullable<JSON>;
 }
@@ -1065,8 +1082,12 @@ export interface MessageUpdateMessagesInput {
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
+    title?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     totalRecipients?: Nullable<GraphQLInt>;
     reads?: Nullable<GraphQLInt>;
@@ -1094,149 +1115,6 @@ export interface MessageUpdateOutboxByIdInput {
 export interface MessageUpdateOutboxesInput {
     id?: Nullable<string>;
     messageId?: Nullable<string>;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationCreateInboxSettingInput {
-    id: string;
-    accountId: string;
-    sort: GraphQLInt;
-}
-
-export interface NotificationUpdateInboxSettingByIdInput {
-    id: string;
-    accountId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-}
-
-export interface NotificationUpdateInboxSettingsInput {
-    id?: Nullable<string>;
-    accountId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-}
-
-export interface NotificationCreateInboxInput {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    notificationId: string;
-    sort: GraphQLInt;
-    accountId: string;
-    accountCode?: Nullable<GraphQLString>;
-    isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
-    attachments?: Nullable<JSON>;
-    isRead: GraphQLBoolean;
-    isReadAtLeastOnce: GraphQLBoolean;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateInboxByIdInput {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    notificationId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    accountId?: Nullable<string>;
-    accountCode?: Nullable<GraphQLString>;
-    isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    isRead?: Nullable<GraphQLBoolean>;
-    isReadAtLeastOnce?: Nullable<GraphQLBoolean>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateInboxesInput {
-    id?: Nullable<string>;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    notificationId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    accountId?: Nullable<string>;
-    accountCode?: Nullable<GraphQLString>;
-    isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    isRead?: Nullable<GraphQLBoolean>;
-    isReadAtLeastOnce?: Nullable<GraphQLBoolean>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationCreateNotificationInput {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    status: NotificationNotificationStatus;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    sendAt?: Nullable<GraphQLTimestamp>;
-    isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
-    attachments?: Nullable<JSON>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateNotificationByIdInput {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    status?: Nullable<NotificationNotificationStatus>;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    sendAt?: Nullable<GraphQLTimestamp>;
-    isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateNotificationsInput {
-    id?: Nullable<string>;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    status?: Nullable<NotificationNotificationStatus>;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    sendAt?: Nullable<GraphQLTimestamp>;
-    isImportant?: Nullable<GraphQLBoolean>;
-    subject?: Nullable<GraphQLString>;
-    body?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    totalRecipients?: Nullable<GraphQLInt>;
-    reads?: Nullable<GraphQLInt>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationCreateOutboxInput {
-    id: string;
-    notificationId: string;
-    sort: GraphQLInt;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateOutboxByIdInput {
-    id: string;
-    notificationId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    meta?: Nullable<JSON>;
-}
-
-export interface NotificationUpdateOutboxesInput {
-    id?: Nullable<string>;
-    notificationId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
@@ -1650,6 +1528,7 @@ export interface IQuery {
     messageFindInboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageGetInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messagePaginateInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    messageCheckMessagesInbox(query?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     messageFindMessage(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
@@ -1658,22 +1537,6 @@ export interface IQuery {
     messageFindOutboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageGetOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox>[] | Promise<Nullable<MessageOutbox>[]>;
     messagePaginateOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    notificationFindInboxSetting(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationFindInboxSettingById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationGetInboxSettings(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting>[] | Promise<Nullable<NotificationInboxSetting>[]>;
-    notificationPaginateInboxSettings(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    notificationFindInbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationFindInboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationGetInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox>[] | Promise<Nullable<NotificationInbox>[]>;
-    notificationPaginateInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    notificationFindNotification(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationFindNotificationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationGetNotifications(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification>[] | Promise<Nullable<NotificationNotification>[]>;
-    notificationPaginateNotifications(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    notificationFindOutbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationFindOutboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationGetOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox>[] | Promise<Nullable<NotificationOutbox>[]>;
-    notificationPaginateOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     oAuthFindAccessToken(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
     oAuthFindAccessTokenById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
     oAuthGetAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken>[] | Promise<Nullable<OAuthAccessToken>[]>;
@@ -1884,7 +1747,6 @@ export interface IMutation {
     messageUpsertInbox(payload: MessageUpdateInboxByIdInput): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
-    messageCheckMessagesInbox(query?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     messageCreateMessage(payload: MessageCreateMessageInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageCreateMessages(payload: Nullable<MessageCreateMessageInput>[]): boolean | Promise<boolean>;
     messageUpdateMessageById(payload: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
@@ -1899,35 +1761,6 @@ export interface IMutation {
     messageUpsertOutbox(payload: MessageUpdateOutboxByIdInput): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageDeleteOutboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageDeleteOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox>[] | Promise<Nullable<MessageOutbox>[]>;
-    notificationCreateInboxSetting(payload: NotificationCreateInboxSettingInput): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationCreateInboxSettings(payload: Nullable<NotificationCreateInboxSettingInput>[]): boolean | Promise<boolean>;
-    notificationUpdateInboxSettingById(payload: NotificationUpdateInboxSettingByIdInput, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationUpdateInboxSettings(payload: NotificationUpdateInboxSettingsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting>[] | Promise<Nullable<NotificationInboxSetting>[]>;
-    notificationUpsertInboxSetting(payload: NotificationUpdateInboxSettingByIdInput): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationDeleteInboxSettingById(id: string, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting> | Promise<Nullable<NotificationInboxSetting>>;
-    notificationDeleteInboxSettings(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInboxSetting>[] | Promise<Nullable<NotificationInboxSetting>[]>;
-    notificationCreateInbox(payload: NotificationCreateInboxInput): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationCreateInboxes(payload: Nullable<NotificationCreateInboxInput>[]): boolean | Promise<boolean>;
-    notificationUpdateInboxById(payload: NotificationUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationUpdateInboxes(payload: NotificationUpdateInboxesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox>[] | Promise<Nullable<NotificationInbox>[]>;
-    notificationUpsertInbox(payload: NotificationUpdateInboxByIdInput): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox> | Promise<Nullable<NotificationInbox>>;
-    notificationDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationInbox>[] | Promise<Nullable<NotificationInbox>[]>;
-    notificationCheckNotificationsInbox(query?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    notificationCreateNotification(payload: NotificationCreateNotificationInput): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationCreateNotifications(payload: Nullable<NotificationCreateNotificationInput>[]): boolean | Promise<boolean>;
-    notificationUpdateNotificationById(payload: NotificationUpdateNotificationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationUpdateNotifications(payload: NotificationUpdateNotificationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification>[] | Promise<Nullable<NotificationNotification>[]>;
-    notificationUpsertNotification(payload: NotificationUpdateNotificationByIdInput): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationDeleteNotificationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification> | Promise<Nullable<NotificationNotification>>;
-    notificationDeleteNotifications(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationNotification>[] | Promise<Nullable<NotificationNotification>[]>;
-    notificationCreateOutbox(payload: NotificationCreateOutboxInput): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationCreateOutboxes(payload: Nullable<NotificationCreateOutboxInput>[]): boolean | Promise<boolean>;
-    notificationUpdateOutboxById(payload: NotificationUpdateOutboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationUpdateOutboxes(payload: NotificationUpdateOutboxesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox>[] | Promise<Nullable<NotificationOutbox>[]>;
-    notificationUpsertOutbox(payload: NotificationUpdateOutboxByIdInput): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationDeleteOutboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox> | Promise<Nullable<NotificationOutbox>>;
-    notificationDeleteOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<NotificationOutbox>[] | Promise<Nullable<NotificationOutbox>[]>;
     oAuthDeleteAccessTokenById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
     oAuthDeleteAccessTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken>[] | Promise<Nullable<OAuthAccessToken>[]>;
     oAuthCreateApplicationClient(payload: OAuthCreateApplicationClientInput): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
@@ -2352,8 +2185,13 @@ export interface MessageInbox {
     accountId: string;
     accountCode?: Nullable<GraphQLString>;
     isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
+    sentAt: GraphQLTimestamp;
+    title: GraphQLString;
+    description: GraphQLString;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     isRead: GraphQLBoolean;
     isReadAtLeastOnce: GraphQLBoolean;
@@ -2372,8 +2210,12 @@ export interface MessageMessage {
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
+    title: GraphQLString;
+    description: GraphQLString;
+    link?: Nullable<GraphQLString>;
+    isInternalLink?: Nullable<GraphQLBoolean>;
+    image?: Nullable<JSON>;
+    icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     totalRecipients: GraphQLInt;
     reads: GraphQLInt;
@@ -2387,69 +2229,6 @@ export interface MessageOutbox {
     id: string;
     messageId: string;
     message?: Nullable<MessageMessage>;
-    sort: GraphQLInt;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    meta?: Nullable<JSON>;
-    createdAt?: Nullable<GraphQLTimestamp>;
-    updatedAt?: Nullable<GraphQLTimestamp>;
-    deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface NotificationInboxSetting {
-    id: string;
-    accountId: string;
-    sort: GraphQLInt;
-    createdAt?: Nullable<GraphQLTimestamp>;
-    updatedAt?: Nullable<GraphQLTimestamp>;
-    deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface NotificationInbox {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    notificationId: string;
-    notification?: Nullable<NotificationNotification>;
-    sort: GraphQLInt;
-    accountId: string;
-    accountCode?: Nullable<GraphQLString>;
-    isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
-    attachments?: Nullable<JSON>;
-    isRead: GraphQLBoolean;
-    isReadAtLeastOnce: GraphQLBoolean;
-    meta?: Nullable<JSON>;
-    createdAt?: Nullable<GraphQLTimestamp>;
-    updatedAt?: Nullable<GraphQLTimestamp>;
-    deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface NotificationNotification {
-    id: string;
-    tenantIds?: Nullable<Nullable<string>[]>;
-    status: NotificationNotificationStatus;
-    accountRecipientIds?: Nullable<Nullable<string>[]>;
-    tenantRecipientIds?: Nullable<Nullable<string>[]>;
-    scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
-    sendAt?: Nullable<GraphQLTimestamp>;
-    isImportant: GraphQLBoolean;
-    subject: GraphQLString;
-    body: GraphQLString;
-    attachments?: Nullable<JSON>;
-    totalRecipients: GraphQLInt;
-    reads: GraphQLInt;
-    meta?: Nullable<JSON>;
-    createdAt?: Nullable<GraphQLTimestamp>;
-    updatedAt?: Nullable<GraphQLTimestamp>;
-    deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface NotificationOutbox {
-    id: string;
-    notificationId: string;
-    notification?: Nullable<NotificationNotification>;
     sort: GraphQLInt;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
