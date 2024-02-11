@@ -96,22 +96,6 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxMessageId property can not to be null', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/message/inbox/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                messageId: null,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for MessageInboxMessageId must be defined, can not be null');
-            });
-    });
-
     test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSort property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -253,22 +237,6 @@ describe('inbox', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for MessageInboxId must be defined, can not be undefined');
-            });
-    });
-
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxMessageId property can not to be undefined', () =>
-    {
-        return request(app.getHttpServer())
-            .post('/message/inbox/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                messageId: undefined,
-            })
-            .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for MessageInboxMessageId must be defined, can not be undefined');
             });
     });
 

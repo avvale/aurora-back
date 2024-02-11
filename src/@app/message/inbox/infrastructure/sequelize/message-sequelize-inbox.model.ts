@@ -153,7 +153,7 @@ export class MessageInboxModel extends Model<MessageInboxModel>
     @ForeignKey(() => MessageMessageModel)
     @Column({
         field: 'messageId',
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.UUID,
     })
     messageId: string;

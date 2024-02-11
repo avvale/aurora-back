@@ -6,7 +6,7 @@ export class MessageCreateInboxesCommand
         public readonly payload: {
             id: string;
             tenantIds?: string[];
-            messageId: string;
+            messageId?: string;
             sort: number;
             accountId: string;
             accountCode?: string;

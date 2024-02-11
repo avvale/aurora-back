@@ -159,7 +159,7 @@ export class MessageInbox extends AggregateRoot
             new MessageCreatedInboxEvent(
                 inbox.id.value,
                 inbox.tenantIds?.value,
-                inbox.messageId.value,
+                inbox.messageId?.value,
                 inbox.sort.value,
                 inbox.accountId.value,
                 inbox.accountCode?.value,
@@ -217,7 +217,7 @@ export class MessageInbox extends AggregateRoot
             new MessageDeletedInboxEvent(
                 inbox.id.value,
                 inbox.tenantIds?.value,
-                inbox.messageId.value,
+                inbox.messageId?.value,
                 inbox.sort.value,
                 inbox.accountId.value,
                 inbox.accountCode?.value,
@@ -245,7 +245,7 @@ export class MessageInbox extends AggregateRoot
         return {
             id: this.id.value,
             tenantIds: this.tenantIds?.value,
-            messageId: this.messageId.value,
+            messageId: this.messageId?.value,
             sort: this.sort.value,
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,
@@ -274,7 +274,7 @@ export class MessageInbox extends AggregateRoot
         return {
             id: this.id.value,
             tenantIds: this.tenantIds?.value,
-            messageId: this.messageId.value,
+            messageId: this.messageId?.value,
             sort: this.sort.value,
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,

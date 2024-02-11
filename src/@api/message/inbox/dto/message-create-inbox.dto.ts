@@ -20,7 +20,7 @@ export class MessageCreateInboxDto
         description: 'messageId [input here api field description]',
         example    : '9174ad7d-6337-5e08-8614-987435969064',
     })
-    messageId: string;
+    messageId?: string;
 
     @ApiProperty({
         type       : Number,

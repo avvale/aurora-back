@@ -8,8 +8,8 @@ export class MessageInboxMessageId extends UuidValueObject
     {
         super(value, Object.assign({
             name       : 'MessageInboxMessageId',
-            nullable   : false,
-            undefinable: false,
+            nullable   : true,
+            undefinable: true,
             length     : 36,
         }, validationRules), data);
     }

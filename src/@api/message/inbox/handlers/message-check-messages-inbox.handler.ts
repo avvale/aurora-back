@@ -1,9 +1,8 @@
-import { Pagination } from '@api/graphql';
 import { IamAccountResponse } from '@app/iam/account';
-import { MessageCreateInboxesCommand, MessageMaxInboxQuery, MessagePaginateInboxesQuery } from '@app/message/inbox';
+import { MessageCreateInboxesCommand, MessageMaxInboxQuery } from '@app/message/inbox';
 import { MessageCreateInboxSettingCommand, MessageFindInboxSettingQuery, MessageUpdateInboxSettingByIdCommand } from '@app/message/inbox-setting';
 import { MessageGetOutboxesQuery } from '@app/message/outbox';
-import { AuditingMeta, ICommandBus, IQueryBus, Operator, QueryStatement, uuid } from '@aurorajs.dev/core';
+import { AuditingMeta, ICommandBus, IQueryBus, Operator, uuid } from '@aurorajs.dev/core';
 import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 
 @Injectable()
@@ -16,10 +15,9 @@ export class MessageCheckMessagesInboxHandler
 
     async main(
         account: IamAccountResponse,
-        query?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<Pagination>
+    ): Promise<boolean>
     {
         if (!account) throw new UnauthorizedException('You are not authorized to access messages');
 
@@ -160,14 +158,7 @@ export class MessageCheckMessagesInboxHandler
                 ));
             }
 
-            // get messages according to the query
-            return await this.queryBus.ask(new MessagePaginateInboxesQuery(
-                query,
-                {},
-                {
-                    timezone,
-                },
-            ));
+            return true;
         }
 
         // **********************************************************
@@ -192,10 +183,6 @@ export class MessageCheckMessagesInboxHandler
             },
         ));
 
-        return {
-            total: 0,
-            count: 0,
-            rows : [],
-        };
+        return true;
     }
 }

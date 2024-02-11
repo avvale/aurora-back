@@ -47,6 +47,9 @@ export { MessageDeleteInboxesResolver } from './resolvers/message-delete-inboxes
 export { MessageCheckMessagesInboxController } from './controllers/message-check-messages-inbox.controller';
 export { MessageCheckMessagesInboxHandler } from './handlers/message-check-messages-inbox.handler';
 export { MessageCheckMessagesInboxResolver } from './resolvers/message-check-messages-inbox.resolver';
+export { MessagePaginateMessagesInboxController } from './controllers/message-paginate-messages-inbox.controller';
+export { MessagePaginateMessagesInboxHandler } from './handlers/message-paginate-messages-inbox.handler';
+export { MessagePaginateMessagesInboxResolver } from './resolvers/message-paginate-messages-inbox.resolver';
 
 // import controllers
 import { MessageCreateInboxController } from './controllers/message-create-inbox.controller';
@@ -94,6 +97,9 @@ import { MessageInboxSeeder } from './seeder/message-inbox.seeder';
 import { MessageCheckMessagesInboxController } from './controllers/message-check-messages-inbox.controller';
 import { MessageCheckMessagesInboxHandler } from './handlers/message-check-messages-inbox.handler';
 import { MessageCheckMessagesInboxResolver } from './resolvers/message-check-messages-inbox.resolver';
+import { MessagePaginateMessagesInboxController } from './controllers/message-paginate-messages-inbox.controller';
+import { MessagePaginateMessagesInboxHandler } from './handlers/message-paginate-messages-inbox.handler';
+import { MessagePaginateMessagesInboxResolver } from './resolvers/message-paginate-messages-inbox.resolver';
 
 export const MessageInboxApiControllers = [
     MessageCreateInboxController,
@@ -110,6 +116,7 @@ export const MessageInboxApiControllers = [
 
     // additionalApis
     MessageCheckMessagesInboxController,
+    MessagePaginateMessagesInboxController,
 ];
 
 export const MessageInboxApiResolvers = [
@@ -127,6 +134,7 @@ export const MessageInboxApiResolvers = [
 
     // additionalApis
     MessageCheckMessagesInboxResolver,
+    MessagePaginateMessagesInboxResolver,
 ];
 
 export const MessageInboxApiHandlers = [
@@ -144,6 +152,7 @@ export const MessageInboxApiHandlers = [
 
     // additionalApis
     MessageCheckMessagesInboxHandler,
+    MessagePaginateMessagesInboxHandler,
 ];
 
 export const MessageInboxApiServices = [

@@ -37,7 +37,7 @@ export class MessageUpdateAndIncrementInboxesCommandHandler implements ICommandH
             {
                 id: new MessageInboxId(command.payload.id, { undefinable: true }),
                 tenantIds: new MessageInboxTenantIds(command.payload.tenantIds),
-                messageId: new MessageInboxMessageId(command.payload.messageId, { undefinable: true }),
+                messageId: new MessageInboxMessageId(command.payload.messageId),
                 sort: new MessageInboxSort(command.payload.sort, { undefinable: true }),
                 accountId: new MessageInboxAccountId(command.payload.accountId, { undefinable: true }),
                 accountCode: new MessageInboxAccountCode(command.payload.accountCode),

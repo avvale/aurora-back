@@ -3,7 +3,7 @@ type MessageInbox
 {
     id: ID!
     tenantIds: [ID]
-    messageId: ID!
+    messageId: ID
     message: MessageMessage
     sort: GraphQLInt!
     accountId: ID!
@@ -29,7 +29,7 @@ input MessageCreateInboxInput
 {
     id: ID!
     tenantIds: [ID]
-    messageId: ID!
+    messageId: ID
     sort: GraphQLInt!
     accountId: ID!
     accountCode: GraphQLString
@@ -115,8 +115,11 @@ type Query
 
 
     # additionalApis
-    messageCheckMessagesInbox(
+    messageCheckMessagesInbox: Boolean!
+
+    messagePaginateMessagesInbox(
         query: QueryStatement
+        constraint: QueryStatement
     ): Pagination!
 
 }

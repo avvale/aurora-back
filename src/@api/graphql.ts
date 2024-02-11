@@ -975,7 +975,7 @@ export interface MessageUpdateInboxSettingsInput {
 export interface MessageCreateInboxInput {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
-    messageId: string;
+    messageId?: Nullable<string>;
     sort: GraphQLInt;
     accountId: string;
     accountCode?: Nullable<GraphQLString>;
@@ -1528,7 +1528,8 @@ export interface IQuery {
     messageFindInboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageGetInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messagePaginateInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    messageCheckMessagesInbox(query?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    messageCheckMessagesInbox(): boolean | Promise<boolean>;
+    messagePaginateMessagesInbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     messageFindMessage(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
@@ -2179,7 +2180,7 @@ export interface MessageInboxSetting {
 export interface MessageInbox {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
-    messageId: string;
+    messageId?: Nullable<string>;
     message?: Nullable<MessageMessage>;
     sort: GraphQLInt;
     accountId: string;

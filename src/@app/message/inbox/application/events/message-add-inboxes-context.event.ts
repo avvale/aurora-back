@@ -23,7 +23,7 @@ export class MessageAddInboxesContextEvent extends AggregateRoot
                     new MessageCreatedInboxEvent(
                         inbox.id.value,
                         inbox.tenantIds?.value,
-                        inbox.messageId.value,
+                        inbox.messageId?.value,
                         inbox.sort.value,
                         inbox.accountId.value,
                         inbox.accountCode?.value,
@@ -56,7 +56,7 @@ export class MessageAddInboxesContextEvent extends AggregateRoot
                     new MessageUpdatedInboxEvent(
                         inbox.id.value,
                         inbox.tenantIds?.value,
-                        inbox.messageId.value,
+                        inbox.messageId?.value,
                         inbox.sort.value,
                         inbox.accountId.value,
                         inbox.accountCode?.value,
@@ -89,7 +89,7 @@ export class MessageAddInboxesContextEvent extends AggregateRoot
                     new MessageUpdatedAndIncrementedInboxEvent(
                         inbox.id.value,
                         inbox.tenantIds?.value,
-                        inbox.messageId.value,
+                        inbox.messageId?.value,
                         inbox.sort.value,
                         inbox.accountId.value,
                         inbox.accountCode?.value,
@@ -122,7 +122,7 @@ export class MessageAddInboxesContextEvent extends AggregateRoot
                     new MessageDeletedInboxEvent(
                         inbox.id.value,
                         inbox.tenantIds?.value,
-                        inbox.messageId.value,
+                        inbox.messageId?.value,
                         inbox.sort.value,
                         inbox.accountId.value,
                         inbox.accountCode?.value,
