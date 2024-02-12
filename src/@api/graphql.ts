@@ -1528,8 +1528,8 @@ export interface IQuery {
     messageFindInboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageGetInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messagePaginateInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    messageCheckMessagesInbox(): boolean | Promise<boolean>;
-    messagePaginateMessagesInbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    messagePaginateCustomerMessagesInbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    messageCustomerMessageInbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messageFindMessage(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
@@ -1748,6 +1748,10 @@ export interface IMutation {
     messageUpsertInbox(payload: MessageUpdateInboxByIdInput): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
+    messageCheckMessagesInbox(): boolean | Promise<boolean>;
+    messageDeleteCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageReadCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageUnreadCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateMessage(payload: MessageCreateMessageInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageCreateMessages(payload: Nullable<MessageCreateMessageInput>[]): boolean | Promise<boolean>;
     messageUpdateMessageById(payload: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;

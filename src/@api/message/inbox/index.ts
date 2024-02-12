@@ -47,9 +47,21 @@ export { MessageDeleteInboxesResolver } from './resolvers/message-delete-inboxes
 export { MessageCheckMessagesInboxController } from './controllers/message-check-messages-inbox.controller';
 export { MessageCheckMessagesInboxHandler } from './handlers/message-check-messages-inbox.handler';
 export { MessageCheckMessagesInboxResolver } from './resolvers/message-check-messages-inbox.resolver';
-export { MessagePaginateMessagesInboxController } from './controllers/message-paginate-messages-inbox.controller';
-export { MessagePaginateMessagesInboxHandler } from './handlers/message-paginate-messages-inbox.handler';
-export { MessagePaginateMessagesInboxResolver } from './resolvers/message-paginate-messages-inbox.resolver';
+export { MessagePaginateCustomerMessagesInboxController } from './controllers/message-paginate-customer-messages-inbox.controller';
+export { MessagePaginateCustomerMessagesInboxHandler } from './handlers/message-paginate-customer-messages-inbox.handler';
+export { MessagePaginateCustomerMessagesInboxResolver } from './resolvers/message-paginate-customer-messages-inbox.resolver';
+export { MessageCustomerMessageInboxController } from './controllers/message-customer-message-inbox.controller';
+export { MessageCustomerMessageInboxHandler } from './handlers/message-customer-message-inbox.handler';
+export { MessageCustomerMessageInboxResolver } from './resolvers/message-customer-message-inbox.resolver';
+export { MessageDeleteCustomerMessageInboxController } from './controllers/message-delete-customer-message-inbox.controller';
+export { MessageDeleteCustomerMessageInboxHandler } from './handlers/message-delete-customer-message-inbox.handler';
+export { MessageDeleteCustomerMessageInboxResolver } from './resolvers/message-delete-customer-message-inbox.resolver';
+export { MessageReadCustomerMessageInboxController } from './controllers/message-read-customer-message-inbox.controller';
+export { MessageReadCustomerMessageInboxHandler } from './handlers/message-read-customer-message-inbox.handler';
+export { MessageReadCustomerMessageInboxResolver } from './resolvers/message-read-customer-message-inbox.resolver';
+export { MessageUnreadCustomerMessageInboxController } from './controllers/message-unread-customer-message-inbox.controller';
+export { MessageUnreadCustomerMessageInboxHandler } from './handlers/message-unread-customer-message-inbox.handler';
+export { MessageUnreadCustomerMessageInboxResolver } from './resolvers/message-unread-customer-message-inbox.resolver';
 
 // import controllers
 import { MessageCreateInboxController } from './controllers/message-create-inbox.controller';
@@ -97,9 +109,21 @@ import { MessageInboxSeeder } from './seeder/message-inbox.seeder';
 import { MessageCheckMessagesInboxController } from './controllers/message-check-messages-inbox.controller';
 import { MessageCheckMessagesInboxHandler } from './handlers/message-check-messages-inbox.handler';
 import { MessageCheckMessagesInboxResolver } from './resolvers/message-check-messages-inbox.resolver';
-import { MessagePaginateMessagesInboxController } from './controllers/message-paginate-messages-inbox.controller';
-import { MessagePaginateMessagesInboxHandler } from './handlers/message-paginate-messages-inbox.handler';
-import { MessagePaginateMessagesInboxResolver } from './resolvers/message-paginate-messages-inbox.resolver';
+import { MessagePaginateCustomerMessagesInboxController } from './controllers/message-paginate-customer-messages-inbox.controller';
+import { MessagePaginateCustomerMessagesInboxHandler } from './handlers/message-paginate-customer-messages-inbox.handler';
+import { MessagePaginateCustomerMessagesInboxResolver } from './resolvers/message-paginate-customer-messages-inbox.resolver';
+import { MessageCustomerMessageInboxController } from './controllers/message-customer-message-inbox.controller';
+import { MessageCustomerMessageInboxHandler } from './handlers/message-customer-message-inbox.handler';
+import { MessageCustomerMessageInboxResolver } from './resolvers/message-customer-message-inbox.resolver';
+import { MessageDeleteCustomerMessageInboxController } from './controllers/message-delete-customer-message-inbox.controller';
+import { MessageDeleteCustomerMessageInboxHandler } from './handlers/message-delete-customer-message-inbox.handler';
+import { MessageDeleteCustomerMessageInboxResolver } from './resolvers/message-delete-customer-message-inbox.resolver';
+import { MessageReadCustomerMessageInboxController } from './controllers/message-read-customer-message-inbox.controller';
+import { MessageReadCustomerMessageInboxHandler } from './handlers/message-read-customer-message-inbox.handler';
+import { MessageReadCustomerMessageInboxResolver } from './resolvers/message-read-customer-message-inbox.resolver';
+import { MessageUnreadCustomerMessageInboxController } from './controllers/message-unread-customer-message-inbox.controller';
+import { MessageUnreadCustomerMessageInboxHandler } from './handlers/message-unread-customer-message-inbox.handler';
+import { MessageUnreadCustomerMessageInboxResolver } from './resolvers/message-unread-customer-message-inbox.resolver';
 
 export const MessageInboxApiControllers = [
     MessageCreateInboxController,
@@ -116,7 +140,11 @@ export const MessageInboxApiControllers = [
 
     // additionalApis
     MessageCheckMessagesInboxController,
-    MessagePaginateMessagesInboxController,
+    MessagePaginateCustomerMessagesInboxController,
+    MessageCustomerMessageInboxController,
+    MessageDeleteCustomerMessageInboxController,
+    MessageReadCustomerMessageInboxController,
+    MessageUnreadCustomerMessageInboxController,
 ];
 
 export const MessageInboxApiResolvers = [
@@ -134,7 +162,11 @@ export const MessageInboxApiResolvers = [
 
     // additionalApis
     MessageCheckMessagesInboxResolver,
-    MessagePaginateMessagesInboxResolver,
+    MessagePaginateCustomerMessagesInboxResolver,
+    MessageCustomerMessageInboxResolver,
+    MessageDeleteCustomerMessageInboxResolver,
+    MessageReadCustomerMessageInboxResolver,
+    MessageUnreadCustomerMessageInboxResolver,
 ];
 
 export const MessageInboxApiHandlers = [
@@ -152,7 +184,11 @@ export const MessageInboxApiHandlers = [
 
     // additionalApis
     MessageCheckMessagesInboxHandler,
-    MessagePaginateMessagesInboxHandler,
+    MessagePaginateCustomerMessagesInboxHandler,
+    MessageCustomerMessageInboxHandler,
+    MessageDeleteCustomerMessageInboxHandler,
+    MessageReadCustomerMessageInboxHandler,
+    MessageUnreadCustomerMessageInboxHandler,
 ];
 
 export const MessageInboxApiServices = [

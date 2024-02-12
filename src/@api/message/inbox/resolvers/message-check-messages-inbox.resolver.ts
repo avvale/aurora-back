@@ -3,7 +3,7 @@ import { AuthenticationJwtGuard } from '@api/o-auth/shared';
 import { IamAccountResponse } from '@app/iam/account';
 import { Auditing, AuditingMeta, CurrentAccount, Timezone } from '@aurorajs.dev/core';
 import { UseGuards } from '@nestjs/common';
-import { Query, Resolver } from '@nestjs/graphql';
+import { Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @UseGuards(AuthenticationJwtGuard)
@@ -13,7 +13,7 @@ export class MessageCheckMessagesInboxResolver
         private readonly handler: MessageCheckMessagesInboxHandler,
     ) {}
 
-    @Query('messageCheckMessagesInbox')
+    @Mutation('messageCheckMessagesInbox')
     async main(
         @CurrentAccount() account: IamAccountResponse,
         @Timezone() timezone?: string,

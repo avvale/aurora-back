@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { MessagePaginateMessagesInboxHandler } from './message-paginate-messages-inbox.handler';
+import { MessageDeleteCustomerMessageInboxHandler } from './message-delete-customer-message-inbox.handler';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('MessagePaginateMessagesInboxHandler', () =>
+describe('MessageDeleteCustomerMessageInboxHandler', () =>
 {
-    let handler: MessagePaginateMessagesInboxHandler;
+    let handler: MessageDeleteCustomerMessageInboxHandler;
     let queryBus: IQueryBus;
     let commandBus: ICommandBus;
 
@@ -15,7 +15,7 @@ describe('MessagePaginateMessagesInboxHandler', () =>
             imports: [
             ],
             providers: [
-                MessagePaginateMessagesInboxHandler,
+                MessageDeleteCustomerMessageInboxHandler,
                 {
                     provide : IQueryBus,
                     useValue: {
@@ -32,14 +32,14 @@ describe('MessagePaginateMessagesInboxHandler', () =>
         })
             .compile();
 
-        handler     = module.get<MessagePaginateMessagesInboxHandler>(MessagePaginateMessagesInboxHandler);
+        handler     = module.get<MessageDeleteCustomerMessageInboxHandler>(MessageDeleteCustomerMessageInboxHandler);
         queryBus    = module.get<IQueryBus>(IQueryBus);
         commandBus  = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
     {
-        test('MessagePaginateMessagesInboxHandler should be defined', () =>
+        test('MessageDeleteCustomerMessageInboxHandler should be defined', () =>
         {
             expect(handler).toBeDefined();
         });

@@ -115,12 +115,15 @@ type Query
 
 
     # additionalApis
-    messageCheckMessagesInbox: Boolean!
-
-    messagePaginateMessagesInbox(
+    messagePaginateCustomerMessagesInbox(
         query: QueryStatement
         constraint: QueryStatement
     ): Pagination!
+
+    messageCustomerMessageInbox(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [MessageInbox]!
 
 }
 
@@ -158,5 +161,24 @@ type Mutation
         query: QueryStatement
         constraint: QueryStatement
     ): [MessageInbox]!
+
+
+    # additionalApis
+    messageCheckMessagesInbox: Boolean!
+
+    messageDeleteCustomerMessageInbox(
+        payload: MessageUpdateInboxByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
+    messageReadCustomerMessageInbox(
+        payload: MessageUpdateInboxByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
+    messageUnreadCustomerMessageInbox(
+        payload: MessageUpdateInboxByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
 
 }

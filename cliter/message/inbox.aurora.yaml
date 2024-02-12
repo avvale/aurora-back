@@ -95,8 +95,20 @@ aggregateProperties:
     nullable: true
 additionalApis:
   - path: message/inbox/check-messages
+    resolverType: mutation
+    httpMethod: post
+  - path: message/inbox/paginate-customer-messages
     resolverType: query
     httpMethod: post
-  - path: message/inbox/paginate-messages
+  - path: message/inbox/customer-message
     resolverType: query
+    httpMethod: post
+  - path: message/inbox/delete-customer-message
+    resolverType: mutation
+    httpMethod: post
+  - path: message/inbox/read-customer-message
+    resolverType: mutation
+    httpMethod: post
+  - path: message/inbox/unread-customer-message
+    resolverType: mutation
     httpMethod: post

@@ -5,7 +5,7 @@ import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
 @Injectable()
-export class MessagePaginateMessagesInboxHandler
+export class MessagePaginateCustomerMessagesInboxHandler
 {
     constructor(
         private readonly queryBus: IQueryBus,
