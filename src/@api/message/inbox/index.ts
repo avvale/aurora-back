@@ -50,9 +50,9 @@ export { MessageCheckMessagesInboxResolver } from './resolvers/message-check-mes
 export { MessagePaginateCustomerMessagesInboxController } from './controllers/message-paginate-customer-messages-inbox.controller';
 export { MessagePaginateCustomerMessagesInboxHandler } from './handlers/message-paginate-customer-messages-inbox.handler';
 export { MessagePaginateCustomerMessagesInboxResolver } from './resolvers/message-paginate-customer-messages-inbox.resolver';
-export { MessageCustomerMessageInboxController } from './controllers/message-customer-message-inbox.controller';
-export { MessageCustomerMessageInboxHandler } from './handlers/message-customer-message-inbox.handler';
-export { MessageCustomerMessageInboxResolver } from './resolvers/message-customer-message-inbox.resolver';
+export { MessageFindCustomerMessageInboxController } from './controllers/message-find-customer-message-inbox.controller';
+export { MessageFindCustomerMessageInboxHandler } from './handlers/message-find-customer-message-inbox.handler';
+export { MessageFindCustomerMessageInboxResolver } from './resolvers/message-find-customer-message-inbox.resolver';
 export { MessageDeleteCustomerMessageInboxController } from './controllers/message-delete-customer-message-inbox.controller';
 export { MessageDeleteCustomerMessageInboxHandler } from './handlers/message-delete-customer-message-inbox.handler';
 export { MessageDeleteCustomerMessageInboxResolver } from './resolvers/message-delete-customer-message-inbox.resolver';
@@ -112,9 +112,9 @@ import { MessageCheckMessagesInboxResolver } from './resolvers/message-check-mes
 import { MessagePaginateCustomerMessagesInboxController } from './controllers/message-paginate-customer-messages-inbox.controller';
 import { MessagePaginateCustomerMessagesInboxHandler } from './handlers/message-paginate-customer-messages-inbox.handler';
 import { MessagePaginateCustomerMessagesInboxResolver } from './resolvers/message-paginate-customer-messages-inbox.resolver';
-import { MessageCustomerMessageInboxController } from './controllers/message-customer-message-inbox.controller';
-import { MessageCustomerMessageInboxHandler } from './handlers/message-customer-message-inbox.handler';
-import { MessageCustomerMessageInboxResolver } from './resolvers/message-customer-message-inbox.resolver';
+import { MessageFindCustomerMessageInboxController } from './controllers/message-find-customer-message-inbox.controller';
+import { MessageFindCustomerMessageInboxHandler } from './handlers/message-find-customer-message-inbox.handler';
+import { MessageFindCustomerMessageInboxResolver } from './resolvers/message-find-customer-message-inbox.resolver';
 import { MessageDeleteCustomerMessageInboxController } from './controllers/message-delete-customer-message-inbox.controller';
 import { MessageDeleteCustomerMessageInboxHandler } from './handlers/message-delete-customer-message-inbox.handler';
 import { MessageDeleteCustomerMessageInboxResolver } from './resolvers/message-delete-customer-message-inbox.resolver';
@@ -141,7 +141,7 @@ export const MessageInboxApiControllers = [
     // additionalApis
     MessageCheckMessagesInboxController,
     MessagePaginateCustomerMessagesInboxController,
-    MessageCustomerMessageInboxController,
+    MessageFindCustomerMessageInboxController,
     MessageDeleteCustomerMessageInboxController,
     MessageReadCustomerMessageInboxController,
     MessageUnreadCustomerMessageInboxController,
@@ -163,7 +163,7 @@ export const MessageInboxApiResolvers = [
     // additionalApis
     MessageCheckMessagesInboxResolver,
     MessagePaginateCustomerMessagesInboxResolver,
-    MessageCustomerMessageInboxResolver,
+    MessageFindCustomerMessageInboxResolver,
     MessageDeleteCustomerMessageInboxResolver,
     MessageReadCustomerMessageInboxResolver,
     MessageUnreadCustomerMessageInboxResolver,
@@ -185,7 +185,7 @@ export const MessageInboxApiHandlers = [
     // additionalApis
     MessageCheckMessagesInboxHandler,
     MessagePaginateCustomerMessagesInboxHandler,
-    MessageCustomerMessageInboxHandler,
+    MessageFindCustomerMessageInboxHandler,
     MessageDeleteCustomerMessageInboxHandler,
     MessageReadCustomerMessageInboxHandler,
     MessageUnreadCustomerMessageInboxHandler,

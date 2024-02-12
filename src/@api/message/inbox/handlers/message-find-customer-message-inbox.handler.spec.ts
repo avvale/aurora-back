@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { MessageCustomerMessageInboxHandler } from './message-customer-message-inbox.handler';
+import { MessageFindCustomerMessageInboxHandler } from './message-find-customer-message-inbox.handler';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('MessageCustomerMessageInboxHandler', () =>
+describe('MessageFindCustomerMessageInboxHandler', () =>
 {
-    let handler: MessageCustomerMessageInboxHandler;
+    let handler: MessageFindCustomerMessageInboxHandler;
     let queryBus: IQueryBus;
     let commandBus: ICommandBus;
 
@@ -15,7 +15,7 @@ describe('MessageCustomerMessageInboxHandler', () =>
             imports: [
             ],
             providers: [
-                MessageCustomerMessageInboxHandler,
+                MessageFindCustomerMessageInboxHandler,
                 {
                     provide : IQueryBus,
                     useValue: {
@@ -32,14 +32,14 @@ describe('MessageCustomerMessageInboxHandler', () =>
         })
             .compile();
 
-        handler     = module.get<MessageCustomerMessageInboxHandler>(MessageCustomerMessageInboxHandler);
+        handler     = module.get<MessageFindCustomerMessageInboxHandler>(MessageFindCustomerMessageInboxHandler);
         queryBus    = module.get<IQueryBus>(IQueryBus);
         commandBus  = module.get<ICommandBus>(ICommandBus);
     });
 
     describe('main', () =>
     {
-        test('MessageCustomerMessageInboxHandler should be defined', () =>
+        test('MessageFindCustomerMessageInboxHandler should be defined', () =>
         {
             expect(handler).toBeDefined();
         });

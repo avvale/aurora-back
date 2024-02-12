@@ -100,7 +100,7 @@ additionalApis:
   - path: message/inbox/paginate-customer-messages
     resolverType: query
     httpMethod: post
-  - path: message/inbox/customer-message
+  - path: message/inbox/find-customer-message
     resolverType: query
     httpMethod: post
   - path: message/inbox/delete-customer-message

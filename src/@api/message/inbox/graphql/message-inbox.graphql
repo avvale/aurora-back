@@ -120,10 +120,10 @@ type Query
         constraint: QueryStatement
     ): Pagination!
 
-    messageCustomerMessageInbox(
+    messageFindCustomerMessageInbox(
         query: QueryStatement
         constraint: QueryStatement
-    ): [MessageInbox]!
+    ): MessageInbox
 
 }
 
