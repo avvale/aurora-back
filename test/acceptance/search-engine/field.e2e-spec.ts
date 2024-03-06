@@ -5,7 +5,7 @@ import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorizat
 import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { SearchEngineIFieldRepository, searchEngineMockFieldData, SearchEngineMockFieldSeeder } from '@app/search-engine/field';
-import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
+import { GraphQLConfigModule } from '@aurora/modules/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';

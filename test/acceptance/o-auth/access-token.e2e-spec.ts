@@ -3,7 +3,7 @@
 /* eslint-disable key-spacing */
 import { OAuthModule } from '@api/o-auth/o-auth.module';
 import { OAuthIAccessTokenRepository, oAuthMockAccessTokenData, OAuthMockAccessTokenSeeder } from '@app/o-auth/access-token';
-import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
+import { GraphQLConfigModule } from '@aurora/modules/graphql/graphql-config.module';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';

@@ -7,7 +7,7 @@ import { MessageModule } from '@api/message/message.module';
 import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { IamAccountResponse } from '@app/iam/account';
 import { MessageIMessageRepository, messageMockMessageData, MessageMockMessageSeeder } from '@app/message/message';
-import { GraphQLConfigModule } from '@aurora/graphql/graphql-config.module';
+import { GraphQLConfigModule } from '@aurora/modules/graphql/graphql-config.module';
 import { CurrentAccount } from '@aurorajs.dev/core';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
