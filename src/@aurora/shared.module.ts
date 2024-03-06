@@ -1,6 +1,5 @@
 import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
-import { WhatsappSharedModule } from '@api/whatsapp/whatsapp-shared.module';
 import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
 import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
@@ -31,7 +30,6 @@ import { SentryModule } from './modules';
                 release    : configService.get('SENTRY_PROJECT') + '@' + process.env.npm_package_version,
             }),
         }),
-        WhatsappSharedModule,
     ],
     providers: [
         AuditingAxiosInterceptorService,
@@ -65,8 +63,8 @@ import { SentryModule } from './modules';
         CoreGetLangsService,
         CoreGetSearchKeyLangService,
         CqrsConfigModule,
+        HttpModule,
         SentryModule,
-        WhatsappSharedModule,
     ],
 })
 export class SharedModule {}
