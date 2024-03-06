@@ -1,7 +1,7 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { CqrsConfigModule } from 'src/@aurora/cqrs-config.module';
+import { CqrsConfigModule } from '@aurora/modules';
 import { JwtStrategy } from '../strategies/jwt.strategy';
 
 @Module({

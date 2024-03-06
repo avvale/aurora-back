@@ -8,8 +8,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
-import { CqrsConfigModule } from './cqrs-config.module';
-import { SentryModule } from './modules';
+import { CqrsConfigModule, SentryModule } from './modules';
 
 @Module({
     imports: [
