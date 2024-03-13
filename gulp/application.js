@@ -162,6 +162,14 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/search-engine/search-engine.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'SearchEngineModule');
 
+    // remove MessageModule
+    codeWriter.removeImport(sourceFile, '@api/message/message.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'MessageModule');
+
+    // remove WhatsappModule
+    codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'WhatsappModule');
+
     // remove ScheduleModule
     codeWriter.removeImport(sourceFile, '@nestjs/schedule');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ScheduleModule.forRoot()');
