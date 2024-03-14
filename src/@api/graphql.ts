@@ -1399,6 +1399,21 @@ export interface SearchEngineUpdateFieldsInput {
     isNullable?: Nullable<GraphQLBoolean>;
 }
 
+export interface WhatsappCreateWebhookInput {
+    id: string;
+    payload: JSON;
+}
+
+export interface WhatsappUpdateWebhookByIdInput {
+    id: string;
+    payload?: Nullable<JSON>;
+}
+
+export interface WhatsappUpdateWebhooksInput {
+    id?: Nullable<string>;
+    payload?: Nullable<JSON>;
+}
+
 export interface CoreFileUploaded {
     id: string;
     file: Upload;
@@ -1580,6 +1595,10 @@ export interface IQuery {
     searchEngineFindFieldById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineGetFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    whatsappFindWebhook(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappFindWebhookById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappGetWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
+    whatsappPaginateWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
@@ -1829,6 +1848,13 @@ export interface IMutation {
     searchEngineUpsertField(payload: SearchEngineUpdateFieldByIdInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFieldById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
+    whatsappCreateWebhook(payload: WhatsappCreateWebhookInput): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappCreateWebhooks(payload: Nullable<WhatsappCreateWebhookInput>[]): boolean | Promise<boolean>;
+    whatsappUpdateWebhookById(payload: WhatsappUpdateWebhookByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappUpdateWebhooks(payload: WhatsappUpdateWebhooksInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
+    whatsappUpsertWebhook(payload: WhatsappUpdateWebhookByIdInput): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappDeleteWebhookById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
+    whatsappDeleteWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
 }
 
 export interface AuditingSideEffect {
@@ -2391,6 +2417,14 @@ export interface SearchEngineField {
     name: GraphQLString;
     type: GraphQLString;
     isNullable: GraphQLBoolean;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface WhatsappWebhook {
+    id: string;
+    payload: JSON;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
