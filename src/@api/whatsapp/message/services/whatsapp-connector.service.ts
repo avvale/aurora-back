@@ -11,7 +11,7 @@ import { Button } from '@app/whatsapp/whatsapp.types';
 export class WhatsappConnectorService
 {
     baseApi = 'https://graph.facebook.com';
-    version = 'v15.0';
+    version = 'v19.0';
     messagesApi = 'messages';
 
     constructor(
@@ -24,9 +24,9 @@ export class WhatsappConnectorService
         return this.configService.get('WHATSAPP_SENDER_TELEPHONE_NUMBER_ID');
     }
 
-    getToken(): string
+    getAccessToken(): string
     {
-        return this.configService.get('WHATSAPP_TOKEN');
+        return this.configService.get('WHATSAPP_ACCESS_TOKEN');
     }
 
     getUrlMessagesPath(): string
@@ -37,7 +37,7 @@ export class WhatsappConnectorService
     getCommonHeaders(to: string): object
     {
         return {
-            'Authorization'  : `Bearer ${this.getToken()}`,
+            'Authorization'  : `Bearer ${this.getAccessToken()}`,
             'Content-Type'   : 'application/json',
             'X-Auditing-Tags': `WABA ${to}`,
         };

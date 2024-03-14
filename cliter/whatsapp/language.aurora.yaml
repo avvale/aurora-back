@@ -1,8 +1,8 @@
 version: 0.0.1
 boundedContextName: whatsapp
-moduleName: message
-moduleNames: messages
-aggregateName: WhatsappMessage
+moduleName: language
+moduleNames: languages
+aggregateName: WhatsappLanguage
 hasOAuth: true
 hasTenant: false
 hasAuditing: false
@@ -11,6 +11,14 @@ aggregateProperties:
     type: id
     primaryKey: true
     length: 36
+    nullable: false
+  - name: code
+    type: varchar
+    maxLength: 4
+    nullable: false
+  - name: name
+    type: varchar
+    maxLength: 63
     nullable: false
   - name: createdAt
     type: timestamp

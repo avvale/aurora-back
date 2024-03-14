@@ -1,8 +1,8 @@
 version: 0.0.1
 boundedContextName: whatsapp
-moduleName: message
-moduleNames: messages
-aggregateName: WhatsappMessage
+moduleName: webhook
+moduleNames: webhooks
+aggregateName: WhatsappWebhook
 hasOAuth: true
 hasTenant: false
 hasAuditing: false
@@ -10,7 +10,9 @@ aggregateProperties:
   - name: id
     type: id
     primaryKey: true
-    length: 36
+    nullable: false
+  - name: payload
+    type: json
     nullable: false
   - name: createdAt
     type: timestamp

@@ -1,0 +1,88 @@
+
+type WhatsappWebhook
+{
+    id: ID!
+    payload: JSON!
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input WhatsappCreateWebhookInput
+{
+    id: ID!
+    payload: JSON!
+}
+
+input WhatsappUpdateWebhookByIdInput
+{
+    id: ID!
+    payload: JSON
+}
+
+input WhatsappUpdateWebhooksInput
+{
+    id: ID
+    payload: JSON
+}
+
+type Query
+{
+    whatsappFindWebhook(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): WhatsappWebhook
+
+    whatsappFindWebhookById(
+        id: ID
+        constraint: QueryStatement
+    ): WhatsappWebhook
+
+    whatsappGetWebhooks(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [WhatsappWebhook]!
+
+    whatsappPaginateWebhooks(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    whatsappCreateWebhook(
+        payload: WhatsappCreateWebhookInput!
+    ): WhatsappWebhook
+
+    whatsappCreateWebhooks(
+        payload: [WhatsappCreateWebhookInput]!
+    ): Boolean!
+
+    whatsappUpdateWebhookById(
+        payload: WhatsappUpdateWebhookByIdInput!
+        constraint: QueryStatement
+    ): WhatsappWebhook
+
+    whatsappUpdateWebhooks(
+        payload: WhatsappUpdateWebhooksInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [WhatsappWebhook]!
+
+    whatsappUpsertWebhook(
+        payload: WhatsappUpdateWebhookByIdInput!
+    ): WhatsappWebhook
+
+    whatsappDeleteWebhookById(
+        id: ID!
+        constraint: QueryStatement
+    ): WhatsappWebhook
+
+    whatsappDeleteWebhooks(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [WhatsappWebhook]!
+
+}
