@@ -1,21 +1,32 @@
 /* eslint-disable comma-dangle */
-import { WhatsappWebhookHandlers, WhatsappWebhookServices, WhatsappWebhookModel, WhatsappIWebhookRepository, WhatsappSequelizeWebhookRepository, WhatsappWebhookSagas } from './webhook';
+export * from './whatsapp.types';
+import { WhatsappConversationHandlers, WhatsappConversationServices, WhatsappConversationModel, WhatsappIConversationRepository, WhatsappSequelizeConversationRepository, WhatsappConversationSagas } from './conversation';
+import { WhatsappMessageHandlers, WhatsappMessageServices, WhatsappMessageModel, WhatsappIMessageRepository, WhatsappSequelizeMessageRepository, WhatsappMessageSagas } from './message';
+
 
 export const WhatsappHandlers = [
-    ...WhatsappWebhookHandlers
+    ...WhatsappConversationHandlers,
+    ...WhatsappMessageHandlers
 ];
 export const WhatsappServices = [
-    ...WhatsappWebhookServices
+    ...WhatsappConversationServices,
+    ...WhatsappMessageServices
 ];
 export const WhatsappModels = [
-    WhatsappWebhookModel
+    WhatsappConversationModel,
+    WhatsappMessageModel
 ];
 export const WhatsappRepositories = [
     {
-        provide : WhatsappIWebhookRepository,
-        useClass: WhatsappSequelizeWebhookRepository
+        provide : WhatsappIConversationRepository,
+        useClass: WhatsappSequelizeConversationRepository
+    },
+    {
+        provide : WhatsappIMessageRepository,
+        useClass: WhatsappSequelizeMessageRepository
     }
 ];
 export const WhatsappSagas = [
-    WhatsappWebhookSagas
+    WhatsappConversationSagas,
+    WhatsappMessageSagas
 ];

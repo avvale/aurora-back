@@ -13,7 +13,8 @@ import { AzureAdModule } from '@api/azure-ad/azure-ad.module';
 import { CommonModule } from '@api/common/common.module';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { ServerStaticModule } from '@aurora/modules';
-import { MessageModule } from './@api/message/message.module';
+import { MessageModule } from '@api/message/message.module';
+import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
 
 @Module({
     imports: [
@@ -27,7 +28,8 @@ import { MessageModule } from './@api/message/message.module';
         ScheduleModule.forRoot(),
         SearchEngineModule,
         ServerStaticModule,
-        MessageModule
+        MessageModule,
+        WhatsappModule
     ],
     controllers: [
         AppController,

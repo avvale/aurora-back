@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HttpModule } from '@nestjs/axios';
-import { WhatsappConnectorService } from '../message/services/whatsapp-connector.service';
+import { WhatsappConnectorService } from './services/whatsapp-connector.service';
 
 @Module({
     imports: [

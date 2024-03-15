@@ -210,3 +210,16 @@ export { MessageInboxSettingResponse } from './@app/message/inbox-setting/domain
 export { MessageInboxSettingMapper } from './@app/message/inbox-setting/domain/message-inbox-setting.mapper';
 export { messageMockInboxSettingData } from './@app/message/inbox-setting/infrastructure/mock/message-mock-inbox-setting.data';
 export { MessageInboxSettingDto } from './@api/message/inbox-setting/dto/message-inbox-setting.dto';
+export { WhatsappModule } from './@api/whatsapp/whatsapp.module';
+export { WhatsappConversation } from './@app/whatsapp/conversation/domain/whatsapp-conversation.aggregate';
+export { WhatsappConversationModel } from './@app/whatsapp/conversation';
+export { WhatsappConversationResponse } from './@app/whatsapp/conversation/domain/whatsapp-conversation.response';
+export { WhatsappConversationMapper } from './@app/whatsapp/conversation/domain/whatsapp-conversation.mapper';
+export { whatsappMockConversationData } from './@app/whatsapp/conversation/infrastructure/mock/whatsapp-mock-conversation.data';
+export { WhatsappConversationDto } from './@api/whatsapp/conversation/dto/whatsapp-conversation.dto';
+export { WhatsappMessage } from './@app/whatsapp/message/domain/whatsapp-message.aggregate';
+export { WhatsappMessageModel } from './@app/whatsapp/message';
+export { WhatsappMessageResponse } from './@app/whatsapp/message/domain/whatsapp-message.response';
+export { WhatsappMessageMapper } from './@app/whatsapp/message/domain/whatsapp-message.mapper';
+export { whatsappMockMessageData } from './@app/whatsapp/message/infrastructure/mock/whatsapp-mock-message.data';
+export { WhatsappMessageDto } from './@api/whatsapp/message/dto/whatsapp-message.dto';

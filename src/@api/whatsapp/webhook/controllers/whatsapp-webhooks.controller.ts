@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Body, Controller, Get, Headers, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Headers, HttpCode, Post, Query } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { WhatsappDigestWebhooksHandler } from '../handlers/whatsapp-digest-webhooks.handler';
 import { WhatsappVerificationWebhooksHandler } from '../handlers/whatsapp-verification-webhooks.handler';
-import { WhatsappPayload } from '@api/whatsapp/whatsapp.types';
+import { WhatsappPayload } from '@app/whatsapp';
 
 @ApiTags('[whatsapp] webhook')
 @Controller('whatsapp/webhooks')
@@ -15,6 +15,7 @@ export class WhatsappWebhooksController
     ) {}
 
     @Post()
+    @HttpCode(200)
     @ApiOperation({ summary: 'Defines the operation of this controller' })
     @ApiCreatedResponse({ description: 'Defines the action performed', type: Boolean })
     async digest(

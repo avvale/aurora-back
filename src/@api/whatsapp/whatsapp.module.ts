@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SharedModule } from '@aurora/shared.module';
 import { WhatsappSeeder } from './whatsapp.seeder';
-import { WhatsappModels, WhatsappHandlers, WhatsappServices, WhatsappRepositories, WhatsappSagas } from '../../@app/whatsapp';
-import { WhatsappWebhookApiControllers, WhatsappWebhookApiResolvers, WhatsappWebhookApiHandlers, WhatsappWebhookApiServices } from './webhook';
+import { WhatsappWebhookApiControllers, WhatsappWebhookApiHandlers } from './webhook';
+import { WhatsappModels, WhatsappHandlers, WhatsappServices, WhatsappRepositories, WhatsappSagas } from '@app/whatsapp';
+import { WhatsappConversationApiControllers, WhatsappConversationApiResolvers, WhatsappConversationApiHandlers, WhatsappConversationApiServices } from './conversation';
+import { WhatsappMessageApiControllers, WhatsappMessageApiResolvers, WhatsappMessageApiHandlers, WhatsappMessageApiServices } from './message';
 
 @Module({
     imports: [
@@ -13,17 +15,23 @@ import { WhatsappWebhookApiControllers, WhatsappWebhookApiResolvers, WhatsappWeb
             ])
     ],
     controllers: [
-        ...WhatsappWebhookApiControllers
+        ...WhatsappWebhookApiControllers,
+        ...WhatsappConversationApiControllers,
+        ...WhatsappMessageApiControllers
     ],
     providers: [
         WhatsappSeeder,
+        ...WhatsappWebhookApiHandlers,
         ...WhatsappHandlers,
         ...WhatsappServices,
         ...WhatsappRepositories,
         ...WhatsappSagas,
-        ...WhatsappWebhookApiResolvers,
-        ...WhatsappWebhookApiHandlers,
-        ...WhatsappWebhookApiServices
+        ...WhatsappConversationApiResolvers,
+        ...WhatsappConversationApiHandlers,
+        ...WhatsappConversationApiServices,
+        ...WhatsappMessageApiResolvers,
+        ...WhatsappMessageApiHandlers,
+        ...WhatsappMessageApiServices
     ],
 })
 export class WhatsappModule {}

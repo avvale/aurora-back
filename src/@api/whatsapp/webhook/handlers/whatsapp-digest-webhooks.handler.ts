@@ -1,25 +1,38 @@
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { ICommandBus, uuid } from '@aurorajs.dev/core';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { verifyWebhookSignature } from '../shared';
-import { WhatsappPayload } from '@api/whatsapp/whatsapp.types';
+import { WhatsappPayload } from '@app/whatsapp';
+import { WhatsappCreateMessageCommand } from '@app/whatsapp/message';
+import { WhatsappMessageDirection } from '@api/graphql';
 
 @Injectable()
 export class WhatsappDigestWebhooksHandler
 {
     constructor(
         private readonly commandBus: ICommandBus,
-        private readonly queryBus: IQueryBus,
     ) {}
 
     async main(
         xHubSignature256: string,
         payload: WhatsappPayload,
-    ): Promise<boolean>
+    ): Promise<void>
     {
         if (!verifyWebhookSignature(xHubSignature256, payload)) throw new UnauthorizedException('Invalid signature');
 
-        console.log('payload', payload);
+        console.log('WhatsappDigestWebhooksHandler', payload);
 
-        return true;
+        await this.commandBus.dispatch(new WhatsappCreateMessageCommand(
+            {
+                id                : uuid(),
+                whatsappMessageId : uuid(),
+                conversationId    : '',
+                direction         : WhatsappMessageDirection.INPUT,
+                accountId         : null,
+                displayPhoneNumber: '',
+                phoneNumberId     : '',
+                type              : 'text',
+                payload,
+            },
+        ));
     }
 }

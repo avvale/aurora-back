@@ -7,6 +7,8 @@ export const verifyWebhookSignature = (
     payload: object,
 ): boolean =>
 {
+    if (!xHubSignature256) return false;
+
     const signature = crypto
         .createHmac('sha256', WHATSAPP_WEBHOOK_TOKEN)
         .update(JSON.stringify(payload))

@@ -130,6 +130,21 @@ export enum SearchEngineCollectionStatus {
     INDEXING = "INDEXING"
 }
 
+export enum WhatsappMessageDirection {
+    INPUT = "INPUT",
+    OUTPUT = "OUTPUT"
+}
+
+export enum WhatsappMessageType {
+    TEMPLATE = "TEMPLATE",
+    REACTION = "REACTION",
+    IMAGE = "IMAGE",
+    LOCATION = "LOCATION",
+    CONTACTS = "CONTACTS",
+    INTERACTIVE = "INTERACTIVE",
+    TEXT = "TEXT"
+}
+
 export enum CoreLangDir {
     LTR = "LTR",
     RTL = "RTL"
@@ -1399,18 +1414,54 @@ export interface SearchEngineUpdateFieldsInput {
     isNullable?: Nullable<GraphQLBoolean>;
 }
 
-export interface WhatsappCreateWebhookInput {
+export interface WhatsappCreateConversationInput {
     id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+}
+
+export interface WhatsappUpdateConversationByIdInput {
+    id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+}
+
+export interface WhatsappUpdateConversationsInput {
+    id?: Nullable<string>;
+    accounts?: Nullable<Nullable<string>[]>;
+}
+
+export interface WhatsappCreateMessageInput {
+    id: string;
+    whatsappMessageId: GraphQLString;
+    conversationId: string;
+    direction: WhatsappMessageDirection;
+    accountId?: Nullable<string>;
+    displayPhoneNumber: GraphQLString;
+    phoneNumberId: GraphQLString;
+    type: WhatsappMessageType;
     payload: JSON;
 }
 
-export interface WhatsappUpdateWebhookByIdInput {
+export interface WhatsappUpdateMessageByIdInput {
     id: string;
+    whatsappMessageId?: Nullable<GraphQLString>;
+    conversationId?: Nullable<string>;
+    direction?: Nullable<WhatsappMessageDirection>;
+    accountId?: Nullable<string>;
+    displayPhoneNumber?: Nullable<GraphQLString>;
+    phoneNumberId?: Nullable<GraphQLString>;
+    type?: Nullable<WhatsappMessageType>;
     payload?: Nullable<JSON>;
 }
 
-export interface WhatsappUpdateWebhooksInput {
+export interface WhatsappUpdateMessagesInput {
     id?: Nullable<string>;
+    whatsappMessageId?: Nullable<GraphQLString>;
+    conversationId?: Nullable<string>;
+    direction?: Nullable<WhatsappMessageDirection>;
+    accountId?: Nullable<string>;
+    displayPhoneNumber?: Nullable<GraphQLString>;
+    phoneNumberId?: Nullable<GraphQLString>;
+    type?: Nullable<WhatsappMessageType>;
     payload?: Nullable<JSON>;
 }
 
@@ -1595,10 +1646,14 @@ export interface IQuery {
     searchEngineFindFieldById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineGetFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    whatsappFindWebhook(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappFindWebhookById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappGetWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
-    whatsappPaginateWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    whatsappFindConversation(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappFindConversationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappGetConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
+    whatsappPaginateConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    whatsappFindMessage(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
+    whatsappPaginateMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
@@ -1848,13 +1903,20 @@ export interface IMutation {
     searchEngineUpsertField(payload: SearchEngineUpdateFieldByIdInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFieldById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
-    whatsappCreateWebhook(payload: WhatsappCreateWebhookInput): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappCreateWebhooks(payload: Nullable<WhatsappCreateWebhookInput>[]): boolean | Promise<boolean>;
-    whatsappUpdateWebhookById(payload: WhatsappUpdateWebhookByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappUpdateWebhooks(payload: WhatsappUpdateWebhooksInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
-    whatsappUpsertWebhook(payload: WhatsappUpdateWebhookByIdInput): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappDeleteWebhookById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook> | Promise<Nullable<WhatsappWebhook>>;
-    whatsappDeleteWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappWebhook>[] | Promise<Nullable<WhatsappWebhook>[]>;
+    whatsappCreateConversation(payload: WhatsappCreateConversationInput): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappCreateConversations(payload: Nullable<WhatsappCreateConversationInput>[]): boolean | Promise<boolean>;
+    whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
+    whatsappUpsertConversation(payload: WhatsappUpdateConversationByIdInput): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
+    whatsappDeleteConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
+    whatsappCreateMessage(payload: WhatsappCreateMessageInput): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappCreateMessages(payload: Nullable<WhatsappCreateMessageInput>[]): boolean | Promise<boolean>;
+    whatsappUpdateMessageById(payload: WhatsappUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappUpdateMessages(payload: WhatsappUpdateMessagesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
+    whatsappUpsertMessage(payload: WhatsappUpdateMessageByIdInput): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappDeleteMessageById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
+    whatsappDeleteMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
 }
 
 export interface AuditingSideEffect {
@@ -2422,8 +2484,25 @@ export interface SearchEngineField {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
-export interface WhatsappWebhook {
+export interface WhatsappConversation {
     id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface WhatsappMessage {
+    id: string;
+    whatsappMessageId: GraphQLString;
+    conversationId: string;
+    conversation?: Nullable<WhatsappConversation>;
+    direction: WhatsappMessageDirection;
+    accountId?: Nullable<string>;
+    account?: Nullable<IamAccount>;
+    displayPhoneNumber: GraphQLString;
+    phoneNumberId: GraphQLString;
+    type: WhatsappMessageType;
     payload: JSON;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
