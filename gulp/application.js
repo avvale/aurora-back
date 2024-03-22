@@ -77,7 +77,6 @@ function editPackageJson()
                 delete json.dependencies['@aurorajs.dev/typesense'];
 
                 delete json.dependencies['@narando/nest-axios-interceptor'];
-                delete json.dependencies['@nestjs-modules/mailer'];
                 delete json.dependencies['@nestjs/axios'];
                 delete json.dependencies['@nestjs/bull'];
                 delete json.dependencies['@nestjs/jwt'];
@@ -193,19 +192,14 @@ async function cleanShareModule()
     // remove HttpModule
     codeWriter.removeImport(sourceFile, '@nestjs/axios');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'HttpModule');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'HttpModule');
 
     // remove AuthJwtStrategyRegistryModule
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'AuthJwtStrategyRegistryModule');
 
     // remove jwtConfig
-    codeWriter.removeDecoratorProperty(
-        sourceFile,
-        'SharedModule',
-        'Module',
-        'imports',
-        'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)',
-    );
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
 
     // disabled auditing runner implementation
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
@@ -216,6 +210,7 @@ async function cleanShareModule()
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'CoreGetFallbackLangService', 'CoreGetFallbackLangFromJsonService');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'CommonAttachmentsService');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'CommonAttachmentsService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'providers', 'CommonAttachmentsService');
 
     // remove whatsapp service
     codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp-shared.module');
