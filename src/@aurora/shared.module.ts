@@ -8,7 +8,7 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
-import { CqrsConfigModule, SentryModule } from './modules';
+import { SentryModule } from './modules';
 
 @Module({
     imports: [
@@ -17,7 +17,6 @@ import { CqrsConfigModule, SentryModule } from './modules';
         CacheModule.register({ isGlobal: true, ttl: 0 }),
         ConfigModule.forRoot({ isGlobal: true }),
         CoreModule,
-        CqrsConfigModule,
         CqrsModule,
         HttpModule,
         SentryModule.forRootAsync({
@@ -61,7 +60,6 @@ import { CqrsConfigModule, SentryModule } from './modules';
         CoreGetFallbackLangService,
         CoreGetLangsService,
         CoreGetSearchKeyLangService,
-        CqrsConfigModule,
         HttpModule,
         SentryModule,
     ],
