@@ -216,7 +216,7 @@ export interface AuditingCreateSideEffectInput {
     oldValue?: Nullable<JSON>;
     newValue?: Nullable<JSON>;
     ip?: Nullable<GraphQLString>;
-    method: AuditingSideEffectMethod;
+    method?: Nullable<AuditingSideEffectMethod>;
     baseUrl?: Nullable<GraphQLString>;
     params?: Nullable<JSON>;
     query?: Nullable<JSON>;
@@ -1933,7 +1933,7 @@ export interface AuditingSideEffect {
     oldValue?: Nullable<JSON>;
     newValue?: Nullable<JSON>;
     ip?: Nullable<GraphQLString>;
-    method: AuditingSideEffectMethod;
+    method?: Nullable<AuditingSideEffectMethod>;
     baseUrl?: Nullable<GraphQLString>;
     params?: Nullable<JSON>;
     query?: Nullable<JSON>;
