@@ -128,35 +128,35 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle property can not to be null', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: null,
+                subject: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageTitle must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageMessageSubject must be defined, can not be null');
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageDescription property can not to be null', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageBody property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                description: null,
+                body: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageDescription must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageMessageBody must be defined, can not be null');
             });
     });
 
@@ -240,35 +240,35 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle property can not to be undefined', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: undefined,
+                subject: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageTitle must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageMessageSubject must be defined, can not be undefined');
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageDescription property can not to be undefined', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageBody property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                description: undefined,
+                body: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageDescription must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageMessageBody must be defined, can not be undefined');
             });
     });
 
@@ -320,19 +320,19 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageTitle is too large, has a maximum length of 255', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageSubject is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: '****************************************************************************************************************************************************************************************************************************************************************',
+                subject: '****************************************************************************************************************************************************************************************************************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageTitle is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for MessageMessageSubject is too large, has a maximum length of 255');
             });
     });
 
@@ -669,8 +669,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -753,8 +753,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -800,8 +800,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -847,8 +847,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -902,8 +902,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -955,8 +955,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1003,8 +1003,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1049,8 +1049,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1100,8 +1100,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1149,8 +1149,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1203,8 +1203,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1251,8 +1251,8 @@ describe('message', () =>
                             tagRecipients
                             sendAt
                             isImportant
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image

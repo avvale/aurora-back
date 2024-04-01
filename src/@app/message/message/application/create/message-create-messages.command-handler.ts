@@ -4,7 +4,7 @@ import { MessageCreateMessagesService } from '@app/message/message/application/c
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageDescription,
+    MessageMessageBody,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -16,10 +16,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
 } from '@app/message/message/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -48,8 +48,8 @@ export class MessageCreateMessagesCommandHandler implements ICommandHandler<Mess
                         tagRecipients: new MessageMessageTagRecipients(message.tagRecipients),
                         sendAt: new MessageMessageSendAt(message.sendAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
                         isImportant: new MessageMessageIsImportant(message.isImportant),
-                        title: new MessageMessageTitle(message.title),
-                        description: new MessageMessageDescription(message.description),
+                        subject: new MessageMessageSubject(message.subject),
+                        body: new MessageMessageBody(message.body),
                         link: new MessageMessageLink(message.link),
                         isInternalLink: new MessageMessageIsInternalLink(message.isInternalLink),
                         image: new MessageMessageImage(message.image),

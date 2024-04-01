@@ -1,13 +1,13 @@
 import { StringValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class MessageMessageDescription extends StringValueObject
+export class MessageMessageBody extends StringValueObject
 {
-    public readonly type: string = 'MessageMessageDescription';
+    public readonly type: string = 'MessageMessageBody';
 
     constructor(value: string, validationRules: ValidationRules = {})
     {
         super(value, Object.assign({
-            name       : 'MessageMessageDescription',
+            name       : 'MessageMessageBody',
             nullable   : false,
             undefinable: false,
         }, validationRules));

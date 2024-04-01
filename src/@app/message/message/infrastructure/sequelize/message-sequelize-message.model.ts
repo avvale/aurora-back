@@ -206,18 +206,18 @@ export class MessageMessageModel extends Model<MessageMessageModel>
     isImportant: boolean;
 
     @Column({
-        field: 'title',
+        field: 'subject',
         allowNull: false,
         type: DataTypes.STRING(255),
     })
-    title: string;
+    subject: string;
 
     @Column({
-        field: 'description',
+        field: 'body',
         allowNull: false,
         type: DataTypes.TEXT,
     })
-    description: string;
+    body: string;
 
     @Column({
         field: 'link',

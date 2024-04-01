@@ -4,7 +4,7 @@ import { MessageUpdateAndIncrementMessagesService } from '@app/message/message/a
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageDescription,
+    MessageMessageBody,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -16,10 +16,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
 } from '@app/message/message/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -45,8 +45,8 @@ export class MessageUpdateAndIncrementMessagesCommandHandler implements ICommand
                 tagRecipients: new MessageMessageTagRecipients(command.payload.tagRecipients),
                 sendAt: new MessageMessageSendAt(command.payload.sendAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
                 isImportant: new MessageMessageIsImportant(command.payload.isImportant, { undefinable: true }),
-                title: new MessageMessageTitle(command.payload.title, { undefinable: true }),
-                description: new MessageMessageDescription(command.payload.description, { undefinable: true }),
+                subject: new MessageMessageSubject(command.payload.subject, { undefinable: true }),
+                body: new MessageMessageBody(command.payload.body, { undefinable: true }),
                 link: new MessageMessageLink(command.payload.link),
                 isInternalLink: new MessageMessageIsInternalLink(command.payload.isInternalLink),
                 image: new MessageMessageImage(command.payload.image),

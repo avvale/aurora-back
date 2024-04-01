@@ -16,8 +16,8 @@ type MessageMessage
     tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
-    title: GraphQLString!
-    description: GraphQLString!
+    subject: GraphQLString!
+    body: GraphQLString!
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -42,8 +42,8 @@ input MessageCreateMessageInput
     tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
-    title: GraphQLString!
-    description: GraphQLString!
+    subject: GraphQLString!
+    body: GraphQLString!
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -63,8 +63,8 @@ input MessageUpdateMessageByIdInput
     tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
-    title: GraphQLString
-    description: GraphQLString
+    subject: GraphQLString
+    body: GraphQLString
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -84,8 +84,8 @@ input MessageUpdateMessagesInput
     tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
-    title: GraphQLString
-    description: GraphQLString
+    subject: GraphQLString
+    body: GraphQLString
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON

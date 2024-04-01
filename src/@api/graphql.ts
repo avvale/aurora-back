@@ -1060,14 +1060,16 @@ export interface MessageCreateMessageInput {
     tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
-    title: GraphQLString;
-    description: GraphQLString;
+    subject: GraphQLString;
+    body: GraphQLString;
     link?: Nullable<GraphQLString>;
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;
     icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     meta?: Nullable<JSON>;
+    totalRecipients: GraphQLInt;
+    reads: GraphQLInt;
 }
 
 export interface MessageUpdateMessageByIdInput {
@@ -1080,14 +1082,16 @@ export interface MessageUpdateMessageByIdInput {
     tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
-    title?: Nullable<GraphQLString>;
-    description?: Nullable<GraphQLString>;
+    subject?: Nullable<GraphQLString>;
+    body?: Nullable<GraphQLString>;
     link?: Nullable<GraphQLString>;
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;
     icon?: Nullable<GraphQLString>;
     attachments?: Nullable<JSON>;
     meta?: Nullable<JSON>;
+    totalRecipients?: Nullable<GraphQLInt>;
+    reads?: Nullable<GraphQLInt>;
 }
 
 export interface MessageUpdateMessagesInput {
@@ -1100,8 +1104,8 @@ export interface MessageUpdateMessagesInput {
     tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
-    title?: Nullable<GraphQLString>;
-    description?: Nullable<GraphQLString>;
+    subject?: Nullable<GraphQLString>;
+    body?: Nullable<GraphQLString>;
     link?: Nullable<GraphQLString>;
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;
@@ -2310,8 +2314,8 @@ export interface MessageMessage {
     tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
-    title: GraphQLString;
-    description: GraphQLString;
+    subject: GraphQLString;
+    body: GraphQLString;
     link?: Nullable<GraphQLString>;
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;

@@ -4,7 +4,7 @@ import { MessageUpdateMessagesService } from '@app/message/message/application/u
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageDescription,
+    MessageMessageBody,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -16,10 +16,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
 } from '@app/message/message/domain/value-objects';
 import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
@@ -74,8 +74,8 @@ describe('MessageUpdateMessagesService', () =>
                         tagRecipients: new MessageMessageTagRecipients(messageMockMessageData[0].tagRecipients),
                         sendAt: new MessageMessageSendAt(messageMockMessageData[0].sendAt),
                         isImportant: new MessageMessageIsImportant(messageMockMessageData[0].isImportant),
-                        title: new MessageMessageTitle(messageMockMessageData[0].title),
-                        description: new MessageMessageDescription(messageMockMessageData[0].description),
+                        subject: new MessageMessageSubject(messageMockMessageData[0].subject),
+                        body: new MessageMessageBody(messageMockMessageData[0].body),
                         link: new MessageMessageLink(messageMockMessageData[0].link),
                         isInternalLink: new MessageMessageIsInternalLink(messageMockMessageData[0].isInternalLink),
                         image: new MessageMessageImage(messageMockMessageData[0].image),

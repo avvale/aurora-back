@@ -4,7 +4,7 @@ import { MessageCreateMessageService } from '@app/message/message/application/cr
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
-    MessageMessageDescription,
+    MessageMessageBody,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -16,10 +16,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
 } from '@app/message/message/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -45,8 +45,8 @@ export class MessageCreateMessageCommandHandler implements ICommandHandler<Messa
                 tagRecipients: new MessageMessageTagRecipients(command.payload.tagRecipients),
                 sendAt: new MessageMessageSendAt(command.payload.sendAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
                 isImportant: new MessageMessageIsImportant(command.payload.isImportant),
-                title: new MessageMessageTitle(command.payload.title),
-                description: new MessageMessageDescription(command.payload.description),
+                subject: new MessageMessageSubject(command.payload.subject),
+                body: new MessageMessageBody(command.payload.body),
                 link: new MessageMessageLink(command.payload.link),
                 isInternalLink: new MessageMessageIsInternalLink(command.payload.isInternalLink),
                 image: new MessageMessageImage(command.payload.image),

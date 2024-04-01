@@ -3,9 +3,9 @@ import { MessageCreatedMessageEvent, MessageDeletedMessageEvent, MessageUpdatedM
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
+    MessageMessageBody,
     MessageMessageCreatedAt,
     MessageMessageDeletedAt,
-    MessageMessageDescription,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -17,10 +17,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
     MessageMessageUpdatedAt,
 } from '@app/message/message/domain/value-objects';
@@ -38,8 +38,8 @@ export class MessageMessage extends AggregateRoot
     tagRecipients: MessageMessageTagRecipients;
     sendAt: MessageMessageSendAt;
     isImportant: MessageMessageIsImportant;
-    title: MessageMessageTitle;
-    description: MessageMessageDescription;
+    subject: MessageMessageSubject;
+    body: MessageMessageBody;
     link: MessageMessageLink;
     isInternalLink: MessageMessageIsInternalLink;
     image: MessageMessageImage;
@@ -62,8 +62,8 @@ export class MessageMessage extends AggregateRoot
         tagRecipients: MessageMessageTagRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
-        title: MessageMessageTitle,
-        description: MessageMessageDescription,
+        subject: MessageMessageSubject,
+        body: MessageMessageBody,
         link: MessageMessageLink,
         isInternalLink: MessageMessageIsInternalLink,
         image: MessageMessageImage,
@@ -87,8 +87,8 @@ export class MessageMessage extends AggregateRoot
         this.tagRecipients = tagRecipients;
         this.sendAt = sendAt;
         this.isImportant = isImportant;
-        this.title = title;
-        this.description = description;
+        this.subject = subject;
+        this.body = body;
         this.link = link;
         this.isInternalLink = isInternalLink;
         this.image = image;
@@ -112,8 +112,8 @@ export class MessageMessage extends AggregateRoot
         tagRecipients: MessageMessageTagRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
-        title: MessageMessageTitle,
-        description: MessageMessageDescription,
+        subject: MessageMessageSubject,
+        body: MessageMessageBody,
         link: MessageMessageLink,
         isInternalLink: MessageMessageIsInternalLink,
         image: MessageMessageImage,
@@ -137,8 +137,8 @@ export class MessageMessage extends AggregateRoot
             tagRecipients,
             sendAt,
             isImportant,
-            title,
-            description,
+            subject,
+            body,
             link,
             isInternalLink,
             image,
@@ -166,8 +166,8 @@ export class MessageMessage extends AggregateRoot
                 message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
-                message.title.value,
-                message.description.value,
+                message.subject.value,
+                message.body.value,
                 message.link?.value,
                 message.isInternalLink?.value,
                 message.image?.value,
@@ -196,8 +196,8 @@ export class MessageMessage extends AggregateRoot
                 message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant?.value,
-                message.title?.value,
-                message.description?.value,
+                message.subject?.value,
+                message.body?.value,
                 message.link?.value,
                 message.isInternalLink?.value,
                 message.image?.value,
@@ -226,8 +226,8 @@ export class MessageMessage extends AggregateRoot
                 message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
-                message.title.value,
-                message.description.value,
+                message.subject.value,
+                message.body.value,
                 message.link?.value,
                 message.isInternalLink?.value,
                 message.image?.value,
@@ -255,8 +255,8 @@ export class MessageMessage extends AggregateRoot
             tagRecipients: this.tagRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
-            title: this.title.value,
-            description: this.description.value,
+            subject: this.subject.value,
+            body: this.body.value,
             link: this.link?.value,
             isInternalLink: this.isInternalLink?.value,
             image: this.image?.value,
@@ -284,8 +284,8 @@ export class MessageMessage extends AggregateRoot
             tagRecipients: this.tagRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
-            title: this.title.value,
-            description: this.description.value,
+            subject: this.subject.value,
+            body: this.body.value,
             link: this.link?.value,
             isInternalLink: this.isInternalLink?.value,
             image: this.image?.value,

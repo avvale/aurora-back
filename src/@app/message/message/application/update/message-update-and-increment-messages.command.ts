@@ -13,8 +13,8 @@ export class MessageUpdateAndIncrementMessagesCommand
             tagRecipients?: string[];
             sendAt?: string;
             isImportant?: boolean;
-            title?: string;
-            description?: string;
+            subject?: string;
+            body?: string;
             link?: string;
             isInternalLink?: boolean;
             image?: any;

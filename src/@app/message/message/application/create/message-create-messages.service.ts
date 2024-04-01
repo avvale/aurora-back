@@ -2,9 +2,9 @@ import { MessageAddMessagesContextEvent, MessageIMessageRepository, MessageMessa
 import {
     MessageMessageAccountRecipientIds,
     MessageMessageAttachments,
+    MessageMessageBody,
     MessageMessageCreatedAt,
     MessageMessageDeletedAt,
-    MessageMessageDescription,
     MessageMessageIcon,
     MessageMessageId,
     MessageMessageImage,
@@ -16,10 +16,10 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageSubject,
     MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
-    MessageMessageTitle,
     MessageMessageTotalRecipients,
     MessageMessageUpdatedAt,
 } from '@app/message/message/domain/value-objects';
@@ -46,8 +46,8 @@ export class MessageCreateMessagesService
             tagRecipients: MessageMessageTagRecipients;
             sendAt: MessageMessageSendAt;
             isImportant: MessageMessageIsImportant;
-            title: MessageMessageTitle;
-            description: MessageMessageDescription;
+            subject: MessageMessageSubject;
+            body: MessageMessageBody;
             link: MessageMessageLink;
             isInternalLink: MessageMessageIsInternalLink;
             image: MessageMessageImage;
@@ -71,8 +71,8 @@ export class MessageCreateMessagesService
             message.tagRecipients,
             message.sendAt,
             message.isImportant,
-            message.title,
-            message.description,
+            message.subject,
+            message.body,
             message.link,
             message.isInternalLink,
             message.image,
