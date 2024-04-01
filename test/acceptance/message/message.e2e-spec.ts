@@ -352,19 +352,19 @@ describe('message', () =>
             });
     });
 
-    test('/REST:POST message/message/create - Got 400 Conflict, MessageIcon is too large, has a maximum length of 63', () =>
+    test('/REST:POST message/message/create - Got 400 Conflict, MessageIcon is too large, has a maximum length of 64', () =>
     {
         return request(app.getHttpServer())
             .post('/message/message/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                icon: '****************************************************************',
+                icon: '*****************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageMessageIcon is too large, has a maximum length of 63');
+                expect(res.body.message).toContain('Value for MessageMessageIcon is too large, has a maximum length of 64');
             });
     });
 
@@ -666,6 +666,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -749,6 +750,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -795,6 +797,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -841,6 +844,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -895,6 +899,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -947,6 +952,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -994,6 +1000,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -1039,6 +1046,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -1089,6 +1097,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -1137,6 +1146,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -1190,6 +1200,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title
@@ -1237,6 +1248,7 @@ describe('message', () =>
                             accountRecipientIds
                             tenantRecipientIds
                             scopeRecipients
+                            tagRecipients
                             sendAt
                             isImportant
                             title

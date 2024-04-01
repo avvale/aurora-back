@@ -17,6 +17,7 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
     MessageMessageTitle,
@@ -34,6 +35,7 @@ export class MessageMessage extends AggregateRoot
     accountRecipientIds: MessageMessageAccountRecipientIds;
     tenantRecipientIds: MessageMessageTenantRecipientIds;
     scopeRecipients: MessageMessageScopeRecipients;
+    tagRecipients: MessageMessageTagRecipients;
     sendAt: MessageMessageSendAt;
     isImportant: MessageMessageIsImportant;
     title: MessageMessageTitle;
@@ -57,6 +59,7 @@ export class MessageMessage extends AggregateRoot
         accountRecipientIds: MessageMessageAccountRecipientIds,
         tenantRecipientIds: MessageMessageTenantRecipientIds,
         scopeRecipients: MessageMessageScopeRecipients,
+        tagRecipients: MessageMessageTagRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
         title: MessageMessageTitle,
@@ -81,6 +84,7 @@ export class MessageMessage extends AggregateRoot
         this.accountRecipientIds = accountRecipientIds;
         this.tenantRecipientIds = tenantRecipientIds;
         this.scopeRecipients = scopeRecipients;
+        this.tagRecipients = tagRecipients;
         this.sendAt = sendAt;
         this.isImportant = isImportant;
         this.title = title;
@@ -105,6 +109,7 @@ export class MessageMessage extends AggregateRoot
         accountRecipientIds: MessageMessageAccountRecipientIds,
         tenantRecipientIds: MessageMessageTenantRecipientIds,
         scopeRecipients: MessageMessageScopeRecipients,
+        tagRecipients: MessageMessageTagRecipients,
         sendAt: MessageMessageSendAt,
         isImportant: MessageMessageIsImportant,
         title: MessageMessageTitle,
@@ -129,6 +134,7 @@ export class MessageMessage extends AggregateRoot
             accountRecipientIds,
             tenantRecipientIds,
             scopeRecipients,
+            tagRecipients,
             sendAt,
             isImportant,
             title,
@@ -157,6 +163,7 @@ export class MessageMessage extends AggregateRoot
                 message.accountRecipientIds?.value,
                 message.tenantRecipientIds?.value,
                 message.scopeRecipients?.value,
+                message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
                 message.title.value,
@@ -186,6 +193,7 @@ export class MessageMessage extends AggregateRoot
                 message.accountRecipientIds?.value,
                 message.tenantRecipientIds?.value,
                 message.scopeRecipients?.value,
+                message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant?.value,
                 message.title?.value,
@@ -215,6 +223,7 @@ export class MessageMessage extends AggregateRoot
                 message.accountRecipientIds?.value,
                 message.tenantRecipientIds?.value,
                 message.scopeRecipients?.value,
+                message.tagRecipients?.value,
                 message.sendAt?.value,
                 message.isImportant.value,
                 message.title.value,
@@ -243,6 +252,7 @@ export class MessageMessage extends AggregateRoot
             accountRecipientIds: this.accountRecipientIds?.value,
             tenantRecipientIds: this.tenantRecipientIds?.value,
             scopeRecipients: this.scopeRecipients?.value,
+            tagRecipients: this.tagRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
             title: this.title.value,
@@ -271,6 +281,7 @@ export class MessageMessage extends AggregateRoot
             accountRecipientIds: this.accountRecipientIds?.value,
             tenantRecipientIds: this.tenantRecipientIds?.value,
             scopeRecipients: this.scopeRecipients?.value,
+            tagRecipients: this.tagRecipients?.value,
             sendAt: this.sendAt?.value,
             isImportant: this.isImportant.value,
             title: this.title.value,

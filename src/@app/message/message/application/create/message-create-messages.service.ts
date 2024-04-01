@@ -16,6 +16,7 @@ import {
     MessageMessageScopeRecipients,
     MessageMessageSendAt,
     MessageMessageStatus,
+    MessageMessageTagRecipients,
     MessageMessageTenantIds,
     MessageMessageTenantRecipientIds,
     MessageMessageTitle,
@@ -42,6 +43,7 @@ export class MessageCreateMessagesService
             accountRecipientIds: MessageMessageAccountRecipientIds;
             tenantRecipientIds: MessageMessageTenantRecipientIds;
             scopeRecipients: MessageMessageScopeRecipients;
+            tagRecipients: MessageMessageTagRecipients;
             sendAt: MessageMessageSendAt;
             isImportant: MessageMessageIsImportant;
             title: MessageMessageTitle;
@@ -66,6 +68,7 @@ export class MessageCreateMessagesService
             message.accountRecipientIds,
             message.tenantRecipientIds,
             message.scopeRecipients,
+            message.tagRecipients,
             message.sendAt,
             message.isImportant,
             message.title,

@@ -13,6 +13,7 @@ type MessageMessage
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     title: GraphQLString!
@@ -38,6 +39,7 @@ input MessageCreateMessageInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean!
     title: GraphQLString!
@@ -58,6 +60,7 @@ input MessageUpdateMessageByIdInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     title: GraphQLString
@@ -78,6 +81,7 @@ input MessageUpdateMessagesInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     sendAt: GraphQLTimestamp
     isImportant: GraphQLBoolean
     title: GraphQLString

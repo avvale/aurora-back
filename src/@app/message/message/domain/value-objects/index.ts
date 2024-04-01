@@ -14,6 +14,7 @@ export { MessageMessageReads } from './message-message-reads';
 export { MessageMessageScopeRecipients } from './message-message-scope-recipients';
 export { MessageMessageSendAt } from './message-message-send-at';
 export { MessageMessageStatus } from './message-message-status';
+export { MessageMessageTagRecipients } from './message-message-tag-recipients';
 export { MessageMessageTenantIds } from './message-message-tenant-ids';
 export { MessageMessageTenantRecipientIds } from './message-message-tenant-recipient-ids';
 export { MessageMessageTitle } from './message-message-title';

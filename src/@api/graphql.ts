@@ -1057,6 +1057,7 @@ export interface MessageCreateMessageInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
     title: GraphQLString;
@@ -1076,6 +1077,7 @@ export interface MessageUpdateMessageByIdInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
     title?: Nullable<GraphQLString>;
@@ -1095,6 +1097,7 @@ export interface MessageUpdateMessagesInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant?: Nullable<GraphQLBoolean>;
     title?: Nullable<GraphQLString>;
@@ -2301,6 +2304,7 @@ export interface MessageMessage {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     sendAt?: Nullable<GraphQLTimestamp>;
     isImportant: GraphQLBoolean;
     title: GraphQLString;

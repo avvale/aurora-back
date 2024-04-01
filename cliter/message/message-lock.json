@@ -27,23 +27,23 @@
         },
         {
             "path": "src/@app/message/message/application/create/message-create-message.command-handler.spec.ts",
-            "integrity": "sha1:603cfa05be7dad47e60d3eb6640c75c19cbc3708"
+            "integrity": "sha1:f94e5d1b898fb147cedc849c6e423f1b8ed74ad6"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-message.command-handler.ts",
-            "integrity": "sha1:e6e7eabfa33760bb47e57b39c344e1b665e34fc0"
+            "integrity": "sha1:88de9c25733b428a39b38888ba661fb6abc9a813"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-message.command.ts",
-            "integrity": "sha1:29c4181d2a0c8cc01af7b7a92e5c17b9734b7dbf"
+            "integrity": "sha1:6a415dc06d095eb14aa03e6ddc61c1fd7176b8c5"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-message.service.spec.ts",
-            "integrity": "sha1:82643288bf78c68d932ed1cf9774e26d84ff5406"
+            "integrity": "sha1:4e57727b6ece141cc348661238590fabf1f41362"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-message.service.ts",
-            "integrity": "sha1:d33dd8536c37685b9e398e8848843c4bc773501a"
+            "integrity": "sha1:239d25b883011074cc22422feb4e77971ddb8420"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-messages.command-handler.spec.ts",
@@ -51,11 +51,11 @@
         },
         {
             "path": "src/@app/message/message/application/create/message-create-messages.command-handler.ts",
-            "integrity": "sha1:1fe655fceec4be3e5c8f128a1262ec088bc999b6"
+            "integrity": "sha1:45916812f56113d2affe611fc93a7dbb21dc6670"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-messages.command.ts",
-            "integrity": "sha1:4c077e5827207cd26b446db87b4998f9f7a72b46"
+            "integrity": "sha1:2d91c3f09154f61cc8201235cc49fc9cf47104e8"
         },
         {
             "path": "src/@app/message/message/application/create/message-create-messages.service.spec.ts",
@@ -63,7 +63,7 @@
         },
         {
             "path": "src/@app/message/message/application/create/message-create-messages.service.ts",
-            "integrity": "sha1:ed6925c061459f6aa986686587a21d8010085de3"
+            "integrity": "sha1:c9101f1a715933b9fa252597ab16214811a8a88c"
         },
         {
             "path": "src/@app/message/message/application/delete/message-delete-message-by-id.command-handler.spec.ts",
@@ -107,7 +107,7 @@
         },
         {
             "path": "src/@app/message/message/application/events/message-add-messages-context.event.ts",
-            "integrity": "sha1:78371cf4bdfc3f9469622ee9183d5c7f415a7c79"
+            "integrity": "sha1:ba8fb6b7ac9bc58c9960eedb48fd53672a3f5293"
         },
         {
             "path": "src/@app/message/message/application/events/message-created-message.event-handler.ts",
@@ -115,7 +115,7 @@
         },
         {
             "path": "src/@app/message/message/application/events/message-created-message.event.ts",
-            "integrity": "sha1:c388cd7623ced75e0d4c2c58cbea6e4017b6b036"
+            "integrity": "sha1:c72127310131ab11773f39ad1733649db1780262"
         },
         {
             "path": "src/@app/message/message/application/events/message-created-messages.event-handler.ts",
@@ -131,7 +131,7 @@
         },
         {
             "path": "src/@app/message/message/application/events/message-deleted-message.event.ts",
-            "integrity": "sha1:fc0a789b72d08a496e32e25c8fcf90b487f3e070"
+            "integrity": "sha1:7b2c52b09bcb36e0808ebe5eefe4fbbb5632679b"
         },
         {
             "path": "src/@app/message/message/application/events/message-deleted-messages.event-handler.ts",
@@ -147,7 +147,7 @@
         },
         {
             "path": "src/@app/message/message/application/events/message-updated-message.event.ts",
-            "integrity": "sha1:eac58678eecb7230275f586f598ce25a29e69d1b"
+            "integrity": "sha1:fb96071f18da6a877c7d5b85767ce12247a450e0"
         },
         {
             "path": "src/@app/message/message/application/events/message-updated-messages.event-handler.ts",
@@ -159,7 +159,7 @@
         },
         {
             "path": "src/@app/message/message/application/events/message-updated-and-incremented-message.event.ts",
-            "integrity": "sha1:52df76b6b9befa4d4ed54a2b2a49d4cdbda2f013"
+            "integrity": "sha1:e6fc083343eb978df0791d16ee0a427fdcc04607"
         },
         {
             "path": "src/@app/message/message/application/events/message-updated-and-incremented-messages.event-handler.ts",
@@ -335,91 +335,91 @@
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.command-handler.spec.ts",
-            "integrity": "sha1:ba4247fc3aa47e446e1f6ccf76fd75d5cdc5a189"
+            "integrity": "sha1:9c3f1b0cd3155b9171d94563a6e1537848d1f4ad"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.command-handler.ts",
-            "integrity": "sha1:03961d0faf3faf06ccf8eac5b05c489053344e03"
+            "integrity": "sha1:bb0de586727add4bfd8604a4c9163dcc0190da02"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.command.ts",
-            "integrity": "sha1:ca1001535b7cd4099f652838233160221200c81d"
+            "integrity": "sha1:9e15a4775b745b0a2fdfa72fb8493be60fb33a73"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.service.spec.ts",
-            "integrity": "sha1:a8a8026157bd0550e2416d0f29945b02e6c614f5"
+            "integrity": "sha1:8c0335b7f16ca01be58812f3d4405fc36cffd320"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.service.ts",
-            "integrity": "sha1:a4cf687fddc7056437d75696022544bedfbaabe3"
+            "integrity": "sha1:f445fe76c6a5f6c56531f939a4887ac291759676"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-messages.command-handler.spec.ts",
-            "integrity": "sha1:3baf5d6ae175d422abfe928d429842c597fa6fa8"
+            "integrity": "sha1:1ba877888c8a9478da709786b5bd7d864dab9365"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-messages.command-handler.ts",
-            "integrity": "sha1:dc1daedbef7fe1aa384bae99c6695889460d9108"
+            "integrity": "sha1:4767fd7f3ecd4c8498c7a8509174b32c04959f76"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-messages.command.ts",
-            "integrity": "sha1:7385b6fb14920bd8e28acb2e64dfaddbb0941ea8"
+            "integrity": "sha1:65a1d55d5207e268b22e2911595a2dff9343ea98"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-messages.service.spec.ts",
-            "integrity": "sha1:b5ecd8cb2535eb465165cf5dc8244dabd442d875"
+            "integrity": "sha1:d3e13a1481524133e539d5f42358d385dd337ee9"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-messages.service.ts",
-            "integrity": "sha1:63ca12350c837a44164cb57efd2ebb2f2bd508e6"
+            "integrity": "sha1:b3ed65eccb6db975d243bb453064eefdb0b9b8ba"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-and-increment-messages.command-handler.spec.ts",
-            "integrity": "sha1:90d1330e9a7b008ad9305f49f5172f4da1e46470"
+            "integrity": "sha1:47c680cf7eac96df9dd63e78361ea464454c6d21"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-and-increment-messages.command-handler.ts",
-            "integrity": "sha1:2306d56e278b3f950515081f284d3b92a55ad397"
+            "integrity": "sha1:2d62a10ecc2f02e9a6067e06f1bea09ae266dedf"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-and-increment-messages.command.ts",
-            "integrity": "sha1:ecb2fd07d20918ca0378d0fd51cb6bfce53d277d"
+            "integrity": "sha1:fb2530d76cb9ce85757ad34ca8c9b140c92af8eb"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-and-increment-messages.service.spec.ts",
-            "integrity": "sha1:e70f2fc12de2f2c6a1edb818623430289e0eccb1"
+            "integrity": "sha1:dadccf57905f1bd790844e830f7c52f723a45897"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-and-increment-messages.service.ts",
-            "integrity": "sha1:b4dddcdf10dd5c9f5d1d42581b5a3241a93f5982"
+            "integrity": "sha1:46da08b20b94916339f4d11deb0e2870b0f8c202"
         },
         {
             "path": "src/@app/message/message/application/upsert/message-upsert-message.command-handler.spec.ts",
-            "integrity": "sha1:2bcec7e8bf78e5af7bcacc604f8ffbbc6c4dfb54"
+            "integrity": "sha1:1b80b505e79fbadd074c71a2981765397c1d46cb"
         },
         {
             "path": "src/@app/message/message/application/upsert/message-upsert-message.command-handler.ts",
-            "integrity": "sha1:e9d585dc892177c69ef37599c1276774e7eadb55"
+            "integrity": "sha1:912acbf53ce27b755515fe6b00cbc102d8e0f843"
         },
         {
             "path": "src/@app/message/message/application/upsert/message-upsert-message.command.ts",
-            "integrity": "sha1:8ab35ee2e08ec0d061efcc907ed848f945a2d8c9"
+            "integrity": "sha1:500ff57a305055bb400d55668581d5750d476dea"
         },
         {
             "path": "src/@app/message/message/application/upsert/message-upsert-message.service.spec.ts",
-            "integrity": "sha1:124f64735a25cab52b011c8f2ecc9dac47448aa0"
+            "integrity": "sha1:95f970d302f47b331617cf84a26deb6d03bea714"
         },
         {
             "path": "src/@app/message/message/application/upsert/message-upsert-message.service.ts",
-            "integrity": "sha1:040bfde5f8f59118fbeff93f90041ed807010b7f"
+            "integrity": "sha1:d59f17be7a6b71f4d8ff5a51aaaccac80be7efbe"
         },
         {
             "path": "src/@app/message/message/domain/message-message.aggregate.ts",
-            "integrity": "sha1:022055899d02740974bb2f52922395c4c4a25c0b"
+            "integrity": "sha1:4dd2c06f1860a92e0c8c769405493ac01fe38ec3"
         },
         {
             "path": "src/@app/message/message/domain/message-message.mapper.ts",
-            "integrity": "sha1:748a47d6863a6a9353fa06abbe9aa933a2984db4"
+            "integrity": "sha1:695fd1cf822c31a387aac320e915d2b4efc51b6e"
         },
         {
             "path": "src/@app/message/message/domain/message-message.repository.ts",
@@ -427,11 +427,11 @@
         },
         {
             "path": "src/@app/message/message/domain/message-message.response.ts",
-            "integrity": "sha1:241b9be27cbfd8c727c16757d0fede0a3eac00e9"
+            "integrity": "sha1:8d3a1ce65c05db7d31554e5cb042ca8814efcff9"
         },
         {
             "path": "src/@app/message/message/domain/value-objects/index.ts",
-            "integrity": "sha1:bdec57971ab79f4e135e3ed217ba6a08f1f21913"
+            "integrity": "sha1:1297eb3040402edf485f49e3a801100da3c1310b"
         },
         {
             "path": "src/@app/message/message/index.ts",
@@ -439,19 +439,19 @@
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.data.ts",
-            "integrity": "sha1:3bc73581ceed0a21701fe581453371755e1c9ec0"
+            "integrity": "sha1:ae1dd80b37e95e1d46b24cc5a24be414400f8159"
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.repository.ts",
-            "integrity": "sha1:99497c37a4ebfcd8d98264ebbd9ec24066b37020"
+            "integrity": "sha1:2017f73629c0d30b6ce7a003051fbc388b48d1f9"
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.seeder.ts",
-            "integrity": "sha1:35186d0468436b3d3691473a96e1843d0f672737"
+            "integrity": "sha1:0cfd84ff0fe6f05b2743d16ff84a543067b8d2b1"
         },
         {
             "path": "src/@app/message/message/infrastructure/sequelize/message-sequelize-message.model.ts",
-            "integrity": "sha1:a694006e83b38f3889ddbb0b478f4e6dd5add4dd"
+            "integrity": "sha1:bbd2f410d1344583f4ff1342493051f2de9f2151"
         },
         {
             "path": "src/@app/message/message/infrastructure/sequelize/message-sequelize-message.repository.ts",
@@ -480,6 +480,10 @@
         {
             "path": "src/@app/message/message/domain/value-objects/message-message-scope-recipients.ts",
             "integrity": "sha1:e6d51afbd66237ac821e4cc65250fb50aebde4c2"
+        },
+        {
+            "path": "src/@app/message/message/domain/value-objects/message-message-tag-recipients.ts",
+            "integrity": "sha1:dd61c068e1cbde1538cbe07bd33347fb908b0c17"
         },
         {
             "path": "src/@app/message/message/domain/value-objects/message-message-send-at.ts",
@@ -511,7 +515,7 @@
         },
         {
             "path": "src/@app/message/message/domain/value-objects/message-message-icon.ts",
-            "integrity": "sha1:9db27a270e967e06a011867c2130e44cbc57fb3b"
+            "integrity": "sha1:2c45002457747d7a05f4ab1dd120ae0e8c25607c"
         },
         {
             "path": "src/@app/message/message/domain/value-objects/message-message-attachments.ts",
@@ -635,19 +639,19 @@
         },
         {
             "path": "src/@api/message/message/dto/message-message.dto.ts",
-            "integrity": "sha1:f9dd542efabca2205431acb75bb27cd48b5ce080"
+            "integrity": "sha1:7f2181dc9c240707cf54cfd3d31ff26866cf7cfb"
         },
         {
             "path": "src/@api/message/message/dto/message-create-message.dto.ts",
-            "integrity": "sha1:ec14f1aa2f3ca2fc57515f59d4376aea9e7feb0c"
+            "integrity": "sha1:d63659c2b0f95a66a540264812439d2bce2af9ef"
         },
         {
             "path": "src/@api/message/message/dto/message-update-message-by-id.dto.ts",
-            "integrity": "sha1:67b2331ae0ec33466a88df3d2df13fad0c2f72eb"
+            "integrity": "sha1:5c6f7a2d46c6570a41b81aed4a17cff4c730627d"
         },
         {
             "path": "src/@api/message/message/dto/message-update-messages.dto.ts",
-            "integrity": "sha1:2855ec37314a52d04a6695317105c13b6457a947"
+            "integrity": "sha1:e540d560bdc995e0f7d567da034f9167c2498a25"
         },
         {
             "path": "src/@api/message/message/dto/index.ts",
@@ -659,7 +663,7 @@
         },
         {
             "path": "src/@api/message/message/graphql/message-message.graphql",
-            "integrity": "sha1:b82bcc7574700f65d459e5379e1cfad91bf03429"
+            "integrity": "sha1:13945de61491cba943a3a7cbe588e0e06ca6d457"
         },
         {
             "path": "src/@api/message/message/handlers/message-create-message.handler.spec.ts",
@@ -847,11 +851,11 @@
         },
         {
             "path": "test/acceptance/message/message.e2e-spec.ts",
-            "integrity": "sha1:c1c2a768aeb137bf7bd8fa33fc2353739430e011"
+            "integrity": "sha1:cabbf399d15b4483e4e2795323699d543a5f0997"
         },
         {
             "path": "postman/message/message.message.postman.json",
-            "integrity": "sha1:f84a4e24b757af6ac1add9c14e48d2e435c00658"
+            "integrity": "sha1:ae6a1c4b4e6b2259fef8a2bac90e7a60593e8a17"
         }
     ]
 }

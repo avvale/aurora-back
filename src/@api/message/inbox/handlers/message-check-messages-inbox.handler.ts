@@ -39,6 +39,7 @@ export class MessageCheckMessagesInboxHandler
         }
         catch (error)
         {
+            // manage not found inbox setting later
             if (!(error instanceof NotFoundException)) throw error;
         }
 

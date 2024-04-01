@@ -10,7 +10,7 @@ export class MessageMessageIcon extends StringValueObject
             name       : 'MessageMessageIcon',
             nullable   : true,
             undefinable: true,
-            maxLength  : 63,
+            maxLength  : 64,
         }, validationRules));
     }
 }

@@ -7,6 +7,7 @@ export class MessageUpdatedAndIncrementedMessageEvent
         public readonly accountRecipientIds: string[],
         public readonly tenantRecipientIds: string[],
         public readonly scopeRecipients: string[],
+        public readonly tagRecipients: string[],
         public readonly sendAt: string,
         public readonly isImportant: boolean,
         public readonly title: string,

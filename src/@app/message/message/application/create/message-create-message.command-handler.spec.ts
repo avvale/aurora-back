@@ -43,6 +43,7 @@ describe('MessageCreateMessageCommandHandler', () =>
                         accountRecipientIds: messageMockMessageData[0].accountRecipientIds,
                         tenantRecipientIds: messageMockMessageData[0].tenantRecipientIds,
                         scopeRecipients: messageMockMessageData[0].scopeRecipients,
+                        tagRecipients: messageMockMessageData[0].tagRecipients,
                         sendAt: messageMockMessageData[0].sendAt,
                         isImportant: messageMockMessageData[0].isImportant,
                         title: messageMockMessageData[0].title,

@@ -42,6 +42,12 @@ export class MessageMessageDto
     scopeRecipients?: string[];
 
     @ApiProperty({
+        type       : Array,
+        description: 'tagRecipients [input here api field description]',
+    })
+    tagRecipients?: string[];
+
+    @ApiProperty({
         type       : String,
         description: 'sendAt [input here api field description]',
     })

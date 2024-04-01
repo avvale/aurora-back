@@ -9,8 +9,6 @@ import * as dayjs from 'dayjs';
 @Injectable()
 export class MessageCheckOutboxTask
 {
-    private readonly logger = new Logger(MessageCheckOutboxTask.name);
-
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
@@ -68,11 +66,11 @@ export class MessageCheckOutboxTask
                 ));
             }
 
-            this.logger.log('Check outbox messages');
+            Logger.log('Check outbox messages', 'MessageCheckOutboxTask');
         }
         catch (error)
         {
-            this.logger.error('Error to check messages outbox', error);
+            Logger.error('Error to check messages outbox: ' + error, 'MessageCheckOutboxTask');
         }
     }
 }

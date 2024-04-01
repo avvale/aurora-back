@@ -10,6 +10,7 @@ export class MessageUpsertMessageCommand
             accountRecipientIds?: string[];
             tenantRecipientIds?: string[];
             scopeRecipients?: string[];
+            tagRecipients?: string[];
             sendAt?: string;
             isImportant?: boolean;
             title?: string;
