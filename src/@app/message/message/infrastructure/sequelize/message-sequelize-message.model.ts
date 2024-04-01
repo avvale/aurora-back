@@ -25,7 +25,6 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 			fields: ['scopeRecipients'],
 			unique: false,
 		},
-
     ],
 })
 export class MessageMessageModel extends Model<MessageMessageModel>
