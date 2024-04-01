@@ -13,7 +13,6 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 			fields: ['accountId'],
 			unique: true,
 		},
-
     ],
 })
 export class MessageInboxSettingModel extends Model<MessageInboxSettingModel>

@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@app/message/inbox/infrastructure/mock/message-mock-inbox.data.ts",
-            "integrity": "sha1:c69d43954f3d586a4e2543a9c9f95c5d2f24b835"
+            "integrity": "sha1:76bf8c521941e97b175bfcd65dfaeac51c1f2888"
         },
         {
             "path": "src/@app/message/inbox/infrastructure/mock/message-mock-inbox.repository.ts",
@@ -451,7 +451,7 @@
         },
         {
             "path": "src/@app/message/inbox/infrastructure/sequelize/message-sequelize-inbox.model.ts",
-            "integrity": "sha1:f17bbd1eac5c9352d9b16a4b487486f1cde872e4"
+            "integrity": "sha1:9a2fa1766a4c78c748140135c8c46ae72e94795e"
         },
         {
             "path": "src/@app/message/inbox/infrastructure/sequelize/message-sequelize-inbox.repository.ts",
@@ -511,7 +511,7 @@
         },
         {
             "path": "src/@app/message/inbox/domain/value-objects/message-inbox-icon.ts",
-            "integrity": "sha1:90c45152a31e5c12053f9db48cae9ea27a7dd23a"
+            "integrity": "sha1:2a63cab9532b7563ac96ccb021cc7d38136a23a9"
         },
         {
             "path": "src/@app/message/inbox/domain/value-objects/message-inbox-attachments.ts",
@@ -991,11 +991,11 @@
         },
         {
             "path": "test/acceptance/message/inbox.e2e-spec.ts",
-            "integrity": "sha1:2f572fa0a656188e460c5734c41bc9e6ad1e0df9"
+            "integrity": "sha1:122a6832a95c8d844f24543c475469e700de17db"
         },
         {
             "path": "postman/message/message.inbox.postman.json",
-            "integrity": "sha1:3d2adc43aa1ac3bf60b72271bdb837d283764f4a"
+            "integrity": "sha1:1a7bbe0f9c1b867cb0bfacc90d6fd3098a1b1869"
         }
     ]
 }

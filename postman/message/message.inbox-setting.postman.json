@@ -15,7 +15,7 @@
 					"mode": "graphql",
 					"graphql": {
 						"query": "mutation ($payload:MessageCreateInboxSettingInput!)\n{\n\tmessageCreateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t}\n}",
-                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 806088\n\t}\n}"
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 161351\n\t}\n}"
 					}
 				},
 				"url": {
@@ -39,7 +39,7 @@
 					"mode": "graphql",
 					"graphql": {
 						"query": "mutation ($payload:[MessageCreateInboxSettingInput]!)\n{\n\tmessageCreateInboxSettings (payload:$payload)\n}",
-						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"4ab37ae1-b65b-4d5f-a3d5-10eefa32ec72\", \n\t\t\t\"accountId\": \"3a99d724-b761-4173-8829-029d69da08b6\", \n\t\t\t\"sort\": 482316\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c3ef2f5c-707d-4147-aa43-274bdb88b492\", \n\t\t\t\"accountId\": \"93f946fe-3644-4bbf-a805-439cf8786d68\", \n\t\t\t\"sort\": 289606\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"8603b3eb-1525-4c67-8fcb-7f01ccfa1abd\", \n\t\t\t\"accountId\": \"81d35879-f805-45e5-94b1-2ded0d0c15e0\", \n\t\t\t\"sort\": 793046\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ad97e006-7633-4176-9c11-351388135c73\", \n\t\t\t\"accountId\": \"487b71a3-cf2b-4199-aa6b-7d7879644cfc\", \n\t\t\t\"sort\": 123924\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"3b7f705a-9663-43ed-b185-586da2ff71d3\", \n\t\t\t\"accountId\": \"4142d423-e0f4-47e3-b820-cf6c96140083\", \n\t\t\t\"sort\": 158922\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"80ea568f-a89a-4ef7-bfcc-a8d908340636\", \n\t\t\t\"accountId\": \"8f725a7f-974e-430c-b7f7-b25a858216ba\", \n\t\t\t\"sort\": 536964\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"1689e2a8-966f-43f0-9ad1-874a805d90a5\", \n\t\t\t\"accountId\": \"90efe5b6-0a79-4b5f-b79a-ae556d84499f\", \n\t\t\t\"sort\": 912494\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"802aec3f-7298-4602-939a-e3de96cf2e19\", \n\t\t\t\"accountId\": \"34791bba-7e45-4ce4-af25-b93207ed6248\", \n\t\t\t\"sort\": 296494\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"49bf5771-e57f-4130-ae3b-866a88fc601a\", \n\t\t\t\"accountId\": \"d5226561-e942-400e-a22e-348ec81e02e6\", \n\t\t\t\"sort\": 512550\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0d2c8330-dbb0-42c5-bed3-899201cf84c0\", \n\t\t\t\"accountId\": \"cff24914-5943-4a28-9f18-c7b8a13a2476\", \n\t\t\t\"sort\": 635208\n\t\t}\n\t]\n}"
+						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"c14d0cf6-32c5-41a8-82f7-5b5468751b68\", \n\t\t\t\"accountId\": \"31da3fa7-975b-4f40-a7c7-016f9ac4865e\", \n\t\t\t\"sort\": 785554\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c302a66a-b717-4c67-bc48-13ff54e6bf82\", \n\t\t\t\"accountId\": \"51c260b0-0b3f-49e4-973f-18724a1adc21\", \n\t\t\t\"sort\": 821870\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"33d3a2f9-e4ac-4171-b2d1-ee9e55e177d4\", \n\t\t\t\"accountId\": \"93191b08-bfda-41d8-bc24-26f52cf01fba\", \n\t\t\t\"sort\": 840069\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"47d3083c-b1ac-4739-8ba6-326b93d2789c\", \n\t\t\t\"accountId\": \"d95cedcc-2329-4f8a-9707-12814282702f\", \n\t\t\t\"sort\": 995135\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"b00d58f9-a594-4e26-b3e0-fed6f9a88957\", \n\t\t\t\"accountId\": \"a7393f75-77b9-449c-9031-a2fbb75c3183\", \n\t\t\t\"sort\": 388794\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"fb018ec2-339a-442c-b232-abc5def09633\", \n\t\t\t\"accountId\": \"8c563fd9-a348-4059-a6e8-064b3b271254\", \n\t\t\t\"sort\": 717826\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0483f81a-beb2-4279-a71c-1d64bb3e846a\", \n\t\t\t\"accountId\": \"5afbb814-7973-47c6-9b41-9f0af282d018\", \n\t\t\t\"sort\": 533507\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"44a7319c-0fca-4a45-b77f-5998e69c71a6\", \n\t\t\t\"accountId\": \"7793966b-d781-49db-90bf-cf808b9c809f\", \n\t\t\t\"sort\": 161211\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"5e246038-aca1-424e-8461-92cf7ed2e14d\", \n\t\t\t\"accountId\": \"d11496e0-6e31-4457-863e-053d1baea6ad\", \n\t\t\t\"sort\": 995008\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"d8f88143-cb1c-41b8-9afa-cbc4f3bfb628\", \n\t\t\t\"accountId\": \"b87e93d3-e231-4e0a-af7f-8e8f18f9fbd6\", \n\t\t\t\"sort\": 921935\n\t\t}\n\t]\n}"
 					}
 				},
 				"url": {
@@ -164,7 +164,7 @@
 					"mode": "graphql",
 					"graphql": {
 						"query": "mutation ($payload:MessageUpdateInboxSettingInput!)\n{\n\tmessageUpdateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 320800\n\t}\n}"
+						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 172274\n\t}\n}"
 					}
 				},
 				"url": {
@@ -242,7 +242,7 @@
 					}				],
 				"body": {
 					"mode"  : "raw",
-					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 254067\n}",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 703523\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -276,7 +276,7 @@
 					}				],
 				"body": {
 					"mode"  : "raw",
-					"raw"   : "[\n\t{\n\t\t\"id\": \"7f0082a6-64f1-4a1f-b54a-935b95f4c1d5\", \n\t\t\"accountId\": \"f77b4aac-8042-4a22-aa18-84f0ea3c6441\", \n\t\t\"sort\": 943750\n\t}, \n\t{\n\t\t\"id\": \"3938e11a-3182-4a9b-8cd5-553f6a6b9fd2\", \n\t\t\"accountId\": \"a6f7ebb1-bd48-462e-b595-404cce92de49\", \n\t\t\"sort\": 677333\n\t}, \n\t{\n\t\t\"id\": \"d8cde488-f092-4530-81d4-3b58bff337c9\", \n\t\t\"accountId\": \"cabe17dd-44fd-41ff-ac5f-687ce2296fdb\", \n\t\t\"sort\": 899210\n\t}, \n\t{\n\t\t\"id\": \"0ebb2f60-cf41-4041-b4c8-30e9833564bc\", \n\t\t\"accountId\": \"da8315aa-4fa0-454f-8d46-851748d0a42d\", \n\t\t\"sort\": 339649\n\t}, \n\t{\n\t\t\"id\": \"2ff90e93-7a09-4a93-ae78-6e4f87ba3208\", \n\t\t\"accountId\": \"6bb709b6-a375-461b-b5ab-903e57b15285\", \n\t\t\"sort\": 385246\n\t}, \n\t{\n\t\t\"id\": \"691d109d-e98d-4f67-9316-ec0def4a220c\", \n\t\t\"accountId\": \"b4a325af-7b07-4c59-b03d-e84d30a53ab2\", \n\t\t\"sort\": 195032\n\t}, \n\t{\n\t\t\"id\": \"34800cf3-c75d-40a0-9e34-d9817118579f\", \n\t\t\"accountId\": \"7d90e0d4-8aa0-4e4c-9576-75a1dac46034\", \n\t\t\"sort\": 439219\n\t}, \n\t{\n\t\t\"id\": \"3006a512-d4b3-4e68-915e-35233f5c8c0a\", \n\t\t\"accountId\": \"529ccec2-5b27-47d8-a2e7-0f6e3f10d774\", \n\t\t\"sort\": 114651\n\t}, \n\t{\n\t\t\"id\": \"bb5fc6cf-56d8-47bc-a167-ef9acb85918a\", \n\t\t\"accountId\": \"90bc1a42-1b53-4ff7-af9a-d6f61607116f\", \n\t\t\"sort\": 464078\n\t}, \n\t{\n\t\t\"id\": \"d6f3219c-13ea-484a-970b-2e66e28a8438\", \n\t\t\"accountId\": \"ab0554fd-12e0-4c5f-abfa-6060fda28bdf\", \n\t\t\"sort\": 399702\n\t}\n]",
+					"raw"   : "[\n\t{\n\t\t\"id\": \"7406e3b8-9634-4c18-a532-a070394cfbd0\", \n\t\t\"accountId\": \"d4c828c0-85cc-482c-8baf-b454b9d3c3fb\", \n\t\t\"sort\": 374133\n\t}, \n\t{\n\t\t\"id\": \"a305287a-47d6-4cfc-a604-0159e0e0e249\", \n\t\t\"accountId\": \"fdf18f83-17a3-4019-9b37-af63e2ee4a90\", \n\t\t\"sort\": 944176\n\t}, \n\t{\n\t\t\"id\": \"52f6c030-5bad-46bf-8e9f-6c0cd5563c8a\", \n\t\t\"accountId\": \"cd34034b-1513-467a-8ad5-bbf8dbfd778d\", \n\t\t\"sort\": 228160\n\t}, \n\t{\n\t\t\"id\": \"a2aa257f-663f-4747-982f-af625ad16b23\", \n\t\t\"accountId\": \"b0b32b80-ad4d-4d59-b64e-cd7c5802a1ee\", \n\t\t\"sort\": 349653\n\t}, \n\t{\n\t\t\"id\": \"4ca145cb-52d3-4bd5-a45e-57952a205106\", \n\t\t\"accountId\": \"a7ac23f3-acb8-4c90-b089-3761e385f267\", \n\t\t\"sort\": 573616\n\t}, \n\t{\n\t\t\"id\": \"e3b2d794-2b4a-49d5-a1c0-1a449e9113b2\", \n\t\t\"accountId\": \"5fbf3c73-ddbc-4751-97b7-b547c1757f0f\", \n\t\t\"sort\": 773104\n\t}, \n\t{\n\t\t\"id\": \"53fc5233-ad40-45be-a9f8-5b776c592011\", \n\t\t\"accountId\": \"7c69d381-0615-488a-94b6-ed5f45e35888\", \n\t\t\"sort\": 422216\n\t}, \n\t{\n\t\t\"id\": \"9c5546fa-bab4-4ca2-9b4f-5a90368b3274\", \n\t\t\"accountId\": \"e9d76a8b-8523-47ba-849a-989538f900fc\", \n\t\t\"sort\": 992034\n\t}, \n\t{\n\t\t\"id\": \"19528908-9333-4b3a-83ea-0e89ae3d73d7\", \n\t\t\"accountId\": \"b5ea42e7-07f1-4fd1-97ff-d4ec78a7877b\", \n\t\t\"sort\": 801564\n\t}, \n\t{\n\t\t\"id\": \"fb53f312-2654-4024-bbff-4b486778e5b9\", \n\t\t\"accountId\": \"78865858-c404-4d95-8ef3-3b4a27d989dd\", \n\t\t\"sort\": 642583\n\t}\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -459,7 +459,7 @@
 					}				],
 				"body": {
 					"mode": "raw",
-					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 884306\n}",
+					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 296394\n}",
 					"options": {
 						"raw": {
 							"language": "json"

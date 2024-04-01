@@ -7,7 +7,7 @@ import { MessageModule } from '@api/message/message.module';
 import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { IamAccountResponse } from '@app/iam/account';
 import { MessageIInboxRepository, messageMockInboxData, MessageMockInboxSeeder } from '@app/message/inbox';
-import { GraphQLConfigModule } from '@aurora/modules/graphql/graphql-config.module';
+import { GraphQLConfigModule } from '@aurora/modules';
 import { CurrentAccount } from '@aurorajs.dev/core';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -416,7 +416,7 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxAccountCode is not allowed, must be a length of 127', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxAccountCode is not allowed, must be a length of 128', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
@@ -428,7 +428,7 @@ describe('inbox', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxAccountCode is not allowed, must be a length of 127');
+                expect(res.body.message).toContain('Value for MessageInboxAccountCode is not allowed, must be a length of 128');
             });
     });
 
@@ -464,19 +464,19 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIcon is too large, has a maximum length of 63', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIcon is too large, has a maximum length of 64', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                icon: '****************************************************************',
+                icon: '*****************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxIcon is too large, has a maximum length of 63');
+                expect(res.body.message).toContain('Value for MessageInboxIcon is too large, has a maximum length of 64');
             });
     });
 

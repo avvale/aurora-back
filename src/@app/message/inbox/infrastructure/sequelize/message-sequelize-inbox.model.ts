@@ -22,7 +22,6 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 			fields: ['accountCode'],
 			unique: false,
 		},
-
     ],
 })
 export class MessageInboxModel extends Model<MessageInboxModel>
@@ -230,21 +229,21 @@ export class MessageInboxModel extends Model<MessageInboxModel>
     @Column({
         field: 'image',
         allowNull: true,
-        type: DataTypes.JSON,
+        type: DataTypes.JSONB,
     })
     image: any;
 
     @Column({
         field: 'icon',
         allowNull: true,
-        type: DataTypes.STRING(63),
+        type: DataTypes.STRING(64),
     })
     icon: string;
 
     @Column({
         field: 'attachments',
         allowNull: true,
-        type: DataTypes.JSON,
+        type: DataTypes.JSONB,
     })
     attachments: any;
 
@@ -265,7 +264,7 @@ export class MessageInboxModel extends Model<MessageInboxModel>
     @Column({
         field: 'meta',
         allowNull: true,
-        type: DataTypes.JSON,
+        type: DataTypes.JSONB,
     })
     meta: any;
 
