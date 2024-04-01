@@ -54,15 +54,15 @@ export class MessageUpdateInboxesDto
 
     @ApiProperty({
         type       : String,
-        description: 'title [input here api field description]',
+        description: 'subject [input here api field description]',
     })
-    title?: string;
+    subject?: string;
 
     @ApiProperty({
         type       : String,
-        description: 'description [input here api field description]',
+        description: 'body [input here api field description]',
     })
-    description?: string;
+    body?: string;
 
     @ApiProperty({
         type       : String,

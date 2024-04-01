@@ -3,9 +3,9 @@ import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
+    MessageInboxBody,
     MessageInboxCreatedAt,
     MessageInboxDeletedAt,
-    MessageInboxDescription,
     MessageInboxIcon,
     MessageInboxId,
     MessageInboxImage,
@@ -18,8 +18,8 @@ import {
     MessageInboxMeta,
     MessageInboxSentAt,
     MessageInboxSort,
+    MessageInboxSubject,
     MessageInboxTenantIds,
-    MessageInboxTitle,
     MessageInboxUpdatedAt,
 } from '@app/message/inbox/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
@@ -44,8 +44,8 @@ export class MessageUpdateInboxByIdService
             accountCode?: MessageInboxAccountCode;
             isImportant?: MessageInboxIsImportant;
             sentAt?: MessageInboxSentAt;
-            title?: MessageInboxTitle;
-            description?: MessageInboxDescription;
+            subject?: MessageInboxSubject;
+            body?: MessageInboxBody;
             link?: MessageInboxLink;
             isInternalLink?: MessageInboxIsInternalLink;
             image?: MessageInboxImage;
@@ -69,8 +69,8 @@ export class MessageUpdateInboxByIdService
             payload.accountCode,
             payload.isImportant,
             payload.sentAt,
-            payload.title,
-            payload.description,
+            payload.subject,
+            payload.body,
             payload.link,
             payload.isInternalLink,
             payload.image,

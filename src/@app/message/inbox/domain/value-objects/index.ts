@@ -1,9 +1,9 @@
 export { MessageInboxAccountCode } from './message-inbox-account-code';
 export { MessageInboxAccountId } from './message-inbox-account-id';
 export { MessageInboxAttachments } from './message-inbox-attachments';
+export { MessageInboxBody } from './message-inbox-body';
 export { MessageInboxCreatedAt } from './message-inbox-created-at';
 export { MessageInboxDeletedAt } from './message-inbox-deleted-at';
-export { MessageInboxDescription } from './message-inbox-description';
 export { MessageInboxIcon } from './message-inbox-icon';
 export { MessageInboxId } from './message-inbox-id';
 export { MessageInboxImage } from './message-inbox-image';
@@ -16,6 +16,6 @@ export { MessageInboxMessageId } from './message-inbox-message-id';
 export { MessageInboxMeta } from './message-inbox-meta';
 export { MessageInboxSentAt } from './message-inbox-sent-at';
 export { MessageInboxSort } from './message-inbox-sort';
+export { MessageInboxSubject } from './message-inbox-subject';
 export { MessageInboxTenantIds } from './message-inbox-tenant-ids';
-export { MessageInboxTitle } from './message-inbox-title';
 export { MessageInboxUpdatedAt } from './message-inbox-updated-at';

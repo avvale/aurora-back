@@ -10,8 +10,8 @@ type MessageInbox
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
     sentAt: GraphQLTimestamp!
-    title: GraphQLString!
-    description: GraphQLString!
+    subject: GraphQLString!
+    body: GraphQLString!
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -35,8 +35,8 @@ input MessageCreateInboxInput
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
     sentAt: GraphQLTimestamp!
-    title: GraphQLString!
-    description: GraphQLString!
+    subject: GraphQLString!
+    body: GraphQLString!
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -57,8 +57,8 @@ input MessageUpdateInboxByIdInput
     accountCode: GraphQLString
     isImportant: GraphQLBoolean
     sentAt: GraphQLTimestamp
-    title: GraphQLString
-    description: GraphQLString
+    subject: GraphQLString
+    body: GraphQLString
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON
@@ -79,8 +79,8 @@ input MessageUpdateInboxesInput
     accountCode: GraphQLString
     isImportant: GraphQLBoolean
     sentAt: GraphQLTimestamp
-    title: GraphQLString
-    description: GraphQLString
+    subject: GraphQLString
+    body: GraphQLString
     link: GraphQLString
     isInternalLink: GraphQLBoolean
     image: JSON

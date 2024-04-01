@@ -160,35 +160,35 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle property can not to be null', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: null,
+                subject: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxTitle must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageInboxSubject must be defined, can not be null');
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxDescription property can not to be null', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxBody property can not to be null', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                description: null,
+                body: null,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxDescription must be defined, can not be null');
+                expect(res.body.message).toContain('Value for MessageInboxBody must be defined, can not be null');
             });
     });
 
@@ -304,35 +304,35 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle property can not to be undefined', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: undefined,
+                subject: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxTitle must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageInboxSubject must be defined, can not be undefined');
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxDescription property can not to be undefined', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxBody property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                description: undefined,
+                body: undefined,
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxDescription must be defined, can not be undefined');
+                expect(res.body.message).toContain('Value for MessageInboxBody must be defined, can not be undefined');
             });
     });
 
@@ -432,19 +432,19 @@ describe('inbox', () =>
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxTitle is too large, has a maximum length of 255', () =>
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSubject is too large, has a maximum length of 255', () =>
     {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                title: '****************************************************************************************************************************************************************************************************************************************************************',
+                subject: '****************************************************************************************************************************************************************************************************************************************************************',
             })
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for MessageInboxTitle is too large, has a maximum length of 255');
+                expect(res.body.message).toContain('Value for MessageInboxSubject is too large, has a maximum length of 255');
             });
     });
 
@@ -750,8 +750,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -832,8 +832,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -878,8 +878,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -923,8 +923,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -976,8 +976,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1027,8 +1027,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1073,8 +1073,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1117,8 +1117,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1166,8 +1166,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1213,8 +1213,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1265,8 +1265,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image
@@ -1311,8 +1311,8 @@ describe('inbox', () =>
                             accountCode
                             isImportant
                             sentAt
-                            title
-                            description
+                            subject
+                            body
                             link
                             isInternalLink
                             image

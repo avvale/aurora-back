@@ -5,7 +5,7 @@ import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
-    MessageInboxDescription,
+    MessageInboxBody,
     MessageInboxIcon,
     MessageInboxId,
     MessageInboxImage,
@@ -18,8 +18,8 @@ import {
     MessageInboxMeta,
     MessageInboxSentAt,
     MessageInboxSort,
+    MessageInboxSubject,
     MessageInboxTenantIds,
-    MessageInboxTitle,
 } from '@app/message/inbox/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
@@ -43,8 +43,8 @@ export class MessageUpsertInboxCommandHandler implements ICommandHandler<Message
                 accountCode: new MessageInboxAccountCode(command.payload.accountCode),
                 isImportant: new MessageInboxIsImportant(command.payload.isImportant),
                 sentAt: new MessageInboxSentAt(command.payload.sentAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
-                title: new MessageInboxTitle(command.payload.title),
-                description: new MessageInboxDescription(command.payload.description),
+                subject: new MessageInboxSubject(command.payload.subject),
+                body: new MessageInboxBody(command.payload.body),
                 link: new MessageInboxLink(command.payload.link),
                 isInternalLink: new MessageInboxIsInternalLink(command.payload.isInternalLink),
                 image: new MessageInboxImage(command.payload.image),

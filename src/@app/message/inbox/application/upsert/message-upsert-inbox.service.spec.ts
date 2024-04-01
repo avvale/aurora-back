@@ -5,7 +5,7 @@ import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
-    MessageInboxDescription,
+    MessageInboxBody,
     MessageInboxIcon,
     MessageInboxId,
     MessageInboxImage,
@@ -18,8 +18,8 @@ import {
     MessageInboxMeta,
     MessageInboxSentAt,
     MessageInboxSort,
+    MessageInboxSubject,
     MessageInboxTenantIds,
-    MessageInboxTitle,
 } from '@app/message/inbox/domain/value-objects';
 import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -72,8 +72,8 @@ describe('MessageUpsertInboxService', () =>
                         accountCode: new MessageInboxAccountCode(messageMockInboxData[0].accountCode),
                         isImportant: new MessageInboxIsImportant(messageMockInboxData[0].isImportant),
                         sentAt: new MessageInboxSentAt(messageMockInboxData[0].sentAt),
-                        title: new MessageInboxTitle(messageMockInboxData[0].title),
-                        description: new MessageInboxDescription(messageMockInboxData[0].description),
+                        subject: new MessageInboxSubject(messageMockInboxData[0].subject),
+                        body: new MessageInboxBody(messageMockInboxData[0].body),
                         link: new MessageInboxLink(messageMockInboxData[0].link),
                         isInternalLink: new MessageInboxIsInternalLink(messageMockInboxData[0].isInternalLink),
                         image: new MessageInboxImage(messageMockInboxData[0].image),

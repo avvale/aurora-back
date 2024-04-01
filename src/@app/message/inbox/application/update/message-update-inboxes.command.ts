@@ -12,8 +12,8 @@ export class MessageUpdateInboxesCommand
             accountCode?: string;
             isImportant?: boolean;
             sentAt?: string;
-            title?: string;
-            description?: string;
+            subject?: string;
+            body?: string;
             link?: string;
             isInternalLink?: boolean;
             image?: any;
