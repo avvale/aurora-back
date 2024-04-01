@@ -8,6 +8,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
 } from '@app/message/outbox/domain/value-objects';
 import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
@@ -59,6 +60,7 @@ describe('MessageUpsertOutboxService', () =>
                         accountRecipientIds: new MessageOutboxAccountRecipientIds(messageMockOutboxData[0].accountRecipientIds),
                         tenantRecipientIds: new MessageOutboxTenantRecipientIds(messageMockOutboxData[0].tenantRecipientIds),
                         scopeRecipients: new MessageOutboxScopeRecipients(messageMockOutboxData[0].scopeRecipients),
+                        tagRecipients: new MessageOutboxTagRecipients(messageMockOutboxData[0].tagRecipients),
                         meta: new MessageOutboxMeta(messageMockOutboxData[0].meta),
                     },
                 ),

@@ -8,6 +8,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
     MessageOutboxUpdatedAt,
 } from '@app/message/outbox/domain/value-objects';
@@ -50,6 +51,7 @@ export class MessageMockOutboxRepository extends MockRepository<MessageOutbox> i
                 new MessageOutboxAccountRecipientIds(itemCollection.accountRecipientIds),
                 new MessageOutboxTenantRecipientIds(itemCollection.tenantRecipientIds),
                 new MessageOutboxScopeRecipients(itemCollection.scopeRecipients),
+                new MessageOutboxTagRecipients(itemCollection.tagRecipients),
                 new MessageOutboxMeta(itemCollection.meta),
                 new MessageOutboxCreatedAt(itemCollection.createdAt),
                 new MessageOutboxUpdatedAt(itemCollection.updatedAt),

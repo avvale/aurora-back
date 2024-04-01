@@ -7,7 +7,7 @@ import {
     MessageOutboxMessageId,
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
-    MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
 } from '@app/message/outbox/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -29,6 +29,7 @@ export class MessageCreateOutboxCommandHandler implements ICommandHandler<Messag
                 accountRecipientIds: new MessageOutboxAccountRecipientIds(command.payload.accountRecipientIds),
                 tenantRecipientIds: new MessageOutboxTenantRecipientIds(command.payload.tenantRecipientIds),
                 scopeRecipients: new MessageOutboxScopeRecipients(command.payload.scopeRecipients),
+                tagRecipients: new MessageOutboxTagRecipients(command.payload.tagRecipients),
                 meta: new MessageOutboxMeta(command.payload.meta),
             },
             command.cQMetadata,

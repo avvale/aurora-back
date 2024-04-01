@@ -9,6 +9,7 @@ export class MessageCreateOutboxesCommand
             accountRecipientIds?: string[];
             tenantRecipientIds?: string[];
             scopeRecipients?: string[];
+            tagRecipients?: string[];
             meta?: any;
         } [],
         public readonly cQMetadata?: CQMetadata,

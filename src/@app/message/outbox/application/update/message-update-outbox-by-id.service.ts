@@ -8,6 +8,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
     MessageOutboxUpdatedAt,
 } from '@app/message/outbox/domain/value-objects';
@@ -31,6 +32,7 @@ export class MessageUpdateOutboxByIdService
             accountRecipientIds?: MessageOutboxAccountRecipientIds;
             tenantRecipientIds?: MessageOutboxTenantRecipientIds;
             scopeRecipients?: MessageOutboxScopeRecipients;
+            tagRecipients?: MessageOutboxTagRecipients;
             meta?: MessageOutboxMeta;
         },
         constraint?: QueryStatement,
@@ -45,6 +47,7 @@ export class MessageUpdateOutboxByIdService
             payload.accountRecipientIds,
             payload.tenantRecipientIds,
             payload.scopeRecipients,
+            payload.tagRecipients,
             payload.meta,
             null, // createdAt
             new MessageOutboxUpdatedAt({ currentTimestamp: true }),

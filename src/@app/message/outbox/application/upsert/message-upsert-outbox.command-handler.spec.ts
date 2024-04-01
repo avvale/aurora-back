@@ -45,6 +45,7 @@ describe('MessageUpsertOutboxCommandHandler', () =>
                         accountRecipientIds: messageMockOutboxData[0].accountRecipientIds,
                         tenantRecipientIds: messageMockOutboxData[0].tenantRecipientIds,
                         scopeRecipients: messageMockOutboxData[0].scopeRecipients,
+                        tagRecipients: messageMockOutboxData[0].tagRecipients,
                         meta: messageMockOutboxData[0].meta,
                     },
                     { timezone: process.env.TZ },

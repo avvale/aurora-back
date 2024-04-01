@@ -8,6 +8,7 @@ type MessageOutbox
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     meta: JSON
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
@@ -21,6 +22,7 @@ input MessageCreateOutboxInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     meta: JSON
 }
 
@@ -31,6 +33,7 @@ input MessageUpdateOutboxByIdInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     meta: JSON
 }
 
@@ -41,6 +44,7 @@ input MessageUpdateOutboxesInput
     accountRecipientIds: [ID]
     tenantRecipientIds: [ID]
     scopeRecipients: [GraphQLString]
+    tagRecipients: [GraphQLString]
     meta: JSON
 }
 

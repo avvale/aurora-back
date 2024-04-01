@@ -1118,6 +1118,7 @@ export interface MessageCreateOutboxInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
 }
 
@@ -1127,6 +1128,7 @@ export interface MessageUpdateOutboxByIdInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
 }
 
@@ -1136,6 +1138,7 @@ export interface MessageUpdateOutboxesInput {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
 }
 
@@ -2330,6 +2333,7 @@ export interface MessageOutbox {
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
+    tagRecipients?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;

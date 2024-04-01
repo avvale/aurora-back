@@ -10,6 +10,7 @@ export class MessageUpdateAndIncrementOutboxesCommand
             accountRecipientIds?: string[];
             tenantRecipientIds?: string[];
             scopeRecipients?: string[];
+            tagRecipients?: string[];
             meta?: any;
         },
         public readonly queryStatement?: QueryStatement,

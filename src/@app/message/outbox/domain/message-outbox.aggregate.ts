@@ -10,6 +10,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
     MessageOutboxUpdatedAt,
 } from '@app/message/outbox/domain/value-objects';
@@ -24,6 +25,7 @@ export class MessageOutbox extends AggregateRoot
     accountRecipientIds: MessageOutboxAccountRecipientIds;
     tenantRecipientIds: MessageOutboxTenantRecipientIds;
     scopeRecipients: MessageOutboxScopeRecipients;
+    tagRecipients: MessageOutboxTagRecipients;
     meta: MessageOutboxMeta;
     createdAt: MessageOutboxCreatedAt;
     updatedAt: MessageOutboxUpdatedAt;
@@ -37,6 +39,7 @@ export class MessageOutbox extends AggregateRoot
         accountRecipientIds: MessageOutboxAccountRecipientIds,
         tenantRecipientIds: MessageOutboxTenantRecipientIds,
         scopeRecipients: MessageOutboxScopeRecipients,
+        tagRecipients: MessageOutboxTagRecipients,
         meta: MessageOutboxMeta,
         createdAt: MessageOutboxCreatedAt,
         updatedAt: MessageOutboxUpdatedAt,
@@ -51,6 +54,7 @@ export class MessageOutbox extends AggregateRoot
         this.accountRecipientIds = accountRecipientIds;
         this.tenantRecipientIds = tenantRecipientIds;
         this.scopeRecipients = scopeRecipients;
+        this.tagRecipients = tagRecipients;
         this.meta = meta;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -65,6 +69,7 @@ export class MessageOutbox extends AggregateRoot
         accountRecipientIds: MessageOutboxAccountRecipientIds,
         tenantRecipientIds: MessageOutboxTenantRecipientIds,
         scopeRecipients: MessageOutboxScopeRecipients,
+        tagRecipients: MessageOutboxTagRecipients,
         meta: MessageOutboxMeta,
         createdAt: MessageOutboxCreatedAt,
         updatedAt: MessageOutboxUpdatedAt,
@@ -79,6 +84,7 @@ export class MessageOutbox extends AggregateRoot
             accountRecipientIds,
             tenantRecipientIds,
             scopeRecipients,
+            tagRecipients,
             meta,
             createdAt,
             updatedAt,
@@ -97,6 +103,7 @@ export class MessageOutbox extends AggregateRoot
                 outbox.accountRecipientIds?.value,
                 outbox.tenantRecipientIds?.value,
                 outbox.scopeRecipients?.value,
+                outbox.tagRecipients?.value,
                 outbox.meta?.value,
                 outbox.createdAt?.value,
                 outbox.updatedAt?.value,
@@ -115,6 +122,7 @@ export class MessageOutbox extends AggregateRoot
                 outbox.accountRecipientIds?.value,
                 outbox.tenantRecipientIds?.value,
                 outbox.scopeRecipients?.value,
+                outbox.tagRecipients?.value,
                 outbox.meta?.value,
                 outbox.createdAt?.value,
                 outbox.updatedAt?.value,
@@ -133,6 +141,7 @@ export class MessageOutbox extends AggregateRoot
                 outbox.accountRecipientIds?.value,
                 outbox.tenantRecipientIds?.value,
                 outbox.scopeRecipients?.value,
+                outbox.tagRecipients?.value,
                 outbox.meta?.value,
                 outbox.createdAt?.value,
                 outbox.updatedAt?.value,
@@ -150,6 +159,7 @@ export class MessageOutbox extends AggregateRoot
             accountRecipientIds: this.accountRecipientIds?.value,
             tenantRecipientIds: this.tenantRecipientIds?.value,
             scopeRecipients: this.scopeRecipients?.value,
+            tagRecipients: this.tagRecipients?.value,
             meta: this.meta?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
@@ -168,6 +178,7 @@ export class MessageOutbox extends AggregateRoot
             accountRecipientIds: this.accountRecipientIds?.value,
             tenantRecipientIds: this.tenantRecipientIds?.value,
             scopeRecipients: this.scopeRecipients?.value,
+            tagRecipients: this.tagRecipients?.value,
             meta: this.meta?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,

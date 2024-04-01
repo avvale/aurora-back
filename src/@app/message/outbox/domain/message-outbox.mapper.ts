@@ -9,6 +9,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
     MessageOutboxUpdatedAt,
 } from '@app/message/outbox/domain/value-objects';
@@ -71,6 +72,7 @@ export class MessageOutboxMapper implements IMapper
             new MessageOutboxAccountRecipientIds(outbox.accountRecipientIds, { undefinable: true }),
             new MessageOutboxTenantRecipientIds(outbox.tenantRecipientIds, { undefinable: true }),
             new MessageOutboxScopeRecipients(outbox.scopeRecipients, { undefinable: true }),
+            new MessageOutboxTagRecipients(outbox.tagRecipients, { undefinable: true }),
             new MessageOutboxMeta(outbox.meta, { undefinable: true }),
             new MessageOutboxCreatedAt(outbox.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
             new MessageOutboxUpdatedAt(outbox.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
@@ -90,6 +92,7 @@ export class MessageOutboxMapper implements IMapper
             outbox.accountRecipientIds.value,
             outbox.tenantRecipientIds.value,
             outbox.scopeRecipients.value,
+            outbox.tagRecipients.value,
             outbox.meta.value,
             outbox.createdAt.value,
             outbox.updatedAt.value,

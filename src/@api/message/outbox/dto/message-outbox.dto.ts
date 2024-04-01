@@ -48,6 +48,12 @@ export class MessageOutboxDto
     scopeRecipients?: string[];
 
     @ApiProperty({
+        type       : Array,
+        description: 'tagRecipients [input here api field description]',
+    })
+    tagRecipients?: string[];
+
+    @ApiProperty({
         type       : Object,
         description: 'meta [input here api field description]',
     })

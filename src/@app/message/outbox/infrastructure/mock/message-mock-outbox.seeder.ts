@@ -8,6 +8,7 @@ import {
     MessageOutboxMeta,
     MessageOutboxScopeRecipients,
     MessageOutboxSort,
+    MessageOutboxTagRecipients,
     MessageOutboxTenantRecipientIds,
     MessageOutboxUpdatedAt,
 } from '@app/message/outbox/domain/value-objects';
@@ -40,6 +41,7 @@ export class MessageMockOutboxSeeder extends MockSeeder<MessageOutbox>
                     new MessageOutboxAccountRecipientIds(outbox.accountRecipientIds),
                     new MessageOutboxTenantRecipientIds(outbox.tenantRecipientIds),
                     new MessageOutboxScopeRecipients(outbox.scopeRecipients),
+                    new MessageOutboxTagRecipients(outbox.tagRecipients),
                     new MessageOutboxMeta(outbox.meta),
                     new MessageOutboxCreatedAt({ currentTimestamp: true }),
                     new MessageOutboxUpdatedAt({ currentTimestamp: true }),

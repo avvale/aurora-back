@@ -22,7 +22,10 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
 			fields: ['scopeRecipients'],
 			unique: false,
 		},
-
+		{
+			fields: ['tagRecipients'],
+			unique: false,
+		},
     ],
 })
 export class MessageOutboxModel extends Model<MessageOutboxModel>
@@ -182,14 +185,21 @@ export class MessageOutboxModel extends Model<MessageOutboxModel>
     @Column({
         field: 'scopeRecipients',
         allowNull: true,
-        type: DataTypes.ARRAY(DataTypes.STRING()),
+        type: DataTypes.ARRAY(DataTypes.STRING(64)),
     })
     scopeRecipients: string[];
 
     @Column({
+        field: 'tagRecipients',
+        allowNull: true,
+        type: DataTypes.ARRAY(DataTypes.STRING(64)),
+    })
+    tagRecipients: string[];
+
+    @Column({
         field: 'meta',
         allowNull: true,
-        type: DataTypes.JSON,
+        type: DataTypes.JSONB,
     })
     meta: any;
 
