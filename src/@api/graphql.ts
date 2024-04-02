@@ -901,7 +901,7 @@ export interface IamCreateTenantInput {
     parentId?: Nullable<string>;
     name: GraphQLString;
     code?: Nullable<GraphQLString>;
-    logo?: Nullable<GraphQLString>;
+    logo?: Nullable<JSON>;
     isActive: GraphQLBoolean;
     meta?: Nullable<JSON>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -912,7 +912,7 @@ export interface IamUpdateTenantByIdInput {
     parentId?: Nullable<string>;
     name?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    logo?: Nullable<GraphQLString>;
+    logo?: Nullable<JSON>;
     isActive?: Nullable<GraphQLBoolean>;
     meta?: Nullable<JSON>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -923,7 +923,7 @@ export interface IamUpdateTenantsInput {
     parentId?: Nullable<string>;
     name?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    logo?: Nullable<GraphQLString>;
+    logo?: Nullable<JSON>;
     isActive?: Nullable<GraphQLBoolean>;
     meta?: Nullable<JSON>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -2234,7 +2234,7 @@ export interface IamTenant {
     parent?: Nullable<IamTenant>;
     name: GraphQLString;
     code?: Nullable<GraphQLString>;
-    logo?: Nullable<GraphQLString>;
+    logo?: Nullable<JSON>;
     isActive: GraphQLBoolean;
     meta?: Nullable<JSON>;
     accounts?: Nullable<Nullable<IamAccount>[]>;
