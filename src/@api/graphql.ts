@@ -943,6 +943,8 @@ export interface IamCreateUserInput {
     username: GraphQLString;
     password: GraphQLString;
     rememberToken?: Nullable<GraphQLString>;
+    accountId: string;
+    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserByIdInput {
@@ -955,6 +957,8 @@ export interface IamUpdateUserByIdInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUsersInput {
@@ -967,6 +971,8 @@ export interface IamUpdateUsersInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    meta?: Nullable<JSON>;
 }
 
 export interface MessageCreateInboxSettingInput {
@@ -1791,7 +1797,7 @@ export interface IMutation {
     iamUpsertRole(payload: IamUpdateRoleByIdInput): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoleById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
-    iamInheritPermissionsRoleRole(payload: IamUpdateRoleByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    iamInheritPermissionsRoleRole(payload: IamInheritRoleInput): boolean | Promise<boolean>;
     iamCreateTenantAccount(payload: IamCreateTenantAccountInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamCreateTenantsAccounts(payload: Nullable<IamCreateTenantAccountInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantAccountById(payload: IamUpdateTenantAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
