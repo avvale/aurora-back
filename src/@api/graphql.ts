@@ -738,6 +738,7 @@ export interface IamCreateAccountInput {
     email: GraphQLString;
     isActive: GraphQLBoolean;
     clientId?: Nullable<string>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     scopes?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
@@ -753,6 +754,7 @@ export interface IamUpdateAccountByIdInput {
     email?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     scopes?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
     roleIds?: Nullable<Nullable<string>[]>;
@@ -768,6 +770,7 @@ export interface IamUpdateAccountsInput {
     email?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     scopes?: Nullable<Nullable<GraphQLString>[]>;
     dApplicationCodes?: Nullable<Nullable<GraphQLString>[]>;
     dPermissions?: Nullable<JSON>;
@@ -881,6 +884,21 @@ export interface IamInheritRoleInput {
     childRoleId: string;
 }
 
+export interface IamCreateTagInput {
+    id: string;
+    name: GraphQLString;
+}
+
+export interface IamUpdateTagByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+}
+
+export interface IamUpdateTagsInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+}
+
 export interface IamCreateTenantAccountInput {
     tenantId: string;
     accountId: string;
@@ -943,8 +961,6 @@ export interface IamCreateUserInput {
     username: GraphQLString;
     password: GraphQLString;
     rememberToken?: Nullable<GraphQLString>;
-    accountId: string;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserByIdInput {
@@ -957,8 +973,6 @@ export interface IamUpdateUserByIdInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUsersInput {
@@ -971,8 +985,6 @@ export interface IamUpdateUsersInput {
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface MessageCreateInboxSettingInput {
@@ -1585,6 +1597,10 @@ export interface IQuery {
     iamFindRoleById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamGetRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
     iamPaginateRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamFindTag(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamFindTagById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamGetTags(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag>[] | Promise<Nullable<IamTag>[]>;
+    iamPaginateTags(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindTenantAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamFindTenantAccountById(tenantId?: Nullable<string>, accountId?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamGetTenantsAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
@@ -1798,6 +1814,13 @@ export interface IMutation {
     iamDeleteRoleById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
     iamInheritPermissionsRoleRole(payload: IamInheritRoleInput): boolean | Promise<boolean>;
+    iamCreateTag(payload: IamCreateTagInput): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamCreateTags(payload: Nullable<IamCreateTagInput>[]): boolean | Promise<boolean>;
+    iamUpdateTagById(payload: IamUpdateTagByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamUpdateTags(payload: IamUpdateTagsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag>[] | Promise<Nullable<IamTag>[]>;
+    iamUpsertTag(payload: IamUpdateTagByIdInput): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamDeleteTagById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
+    iamDeleteTags(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag>[] | Promise<Nullable<IamTag>[]>;
     iamCreateTenantAccount(payload: IamCreateTenantAccountInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamCreateTenantsAccounts(payload: Nullable<IamCreateTenantAccountInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantAccountById(payload: IamUpdateTenantAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
@@ -2166,6 +2189,7 @@ export interface IamAccount {
     isActive: GraphQLBoolean;
     clientId: string;
     client?: Nullable<OAuthClient>;
+    tags?: Nullable<Nullable<GraphQLString>[]>;
     scopes?: Nullable<Nullable<GraphQLString>[]>;
     dApplicationCodes: Nullable<GraphQLString>[];
     dPermissions: JSON;
@@ -2222,6 +2246,14 @@ export interface IamRole {
     isMaster: GraphQLBoolean;
     permissions?: Nullable<Nullable<IamPermission>[]>;
     accounts?: Nullable<Nullable<IamAccount>[]>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface IamTag {
+    id: string;
+    name: GraphQLString;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

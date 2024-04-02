@@ -223,3 +223,9 @@ export { WhatsappMessageResponse } from './@app/whatsapp/message/domain/whatsapp
 export { WhatsappMessageMapper } from './@app/whatsapp/message/domain/whatsapp-message.mapper';
 export { whatsappMockMessageData } from './@app/whatsapp/message/infrastructure/mock/whatsapp-mock-message.data';
 export { WhatsappMessageDto } from './@api/whatsapp/message/dto/whatsapp-message.dto';
+export { IamTag } from './@app/iam/tag/domain/iam-tag.aggregate';
+export { IamTagModel } from './@app/iam/tag';
+export { IamTagResponse } from './@app/iam/tag/domain/iam-tag.response';
+export { IamTagMapper } from './@app/iam/tag/domain/iam-tag.mapper';
+export { iamMockTagData } from './@app/iam/tag/infrastructure/mock/iam-mock-tag.data';
+export { IamTagDto } from './@api/iam/tag/dto/iam-tag.dto';
