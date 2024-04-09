@@ -2,7 +2,7 @@ import { MessageMessage, MessageUpdateMessageByIdInput } from '@api/graphql';
 import { MessageMessageDto, MessageUpdateMessageByIdDto } from '@api/message/message';
 import { IamAccountResponse } from '@app/iam/account';
 import { MessageFindMessageByIdQuery, MessageUpdateMessageByIdCommand } from '@app/message/message';
-import { AuditingMeta, diff, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { AuditingMeta, diff, ICommandBus, IQueryBus, QueryStatement, uploadFile, uuid } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -31,10 +31,28 @@ export class MessageUpdateMessageByIdHandler
 
         const dataToUpdate = diff(payload, message);
 
+        if ('tenantRecipientIds' in dataToUpdate) dataToUpdate.tenantRecipientIds = payload.tenantRecipientIds;
+        if ('scopeRecipients' in dataToUpdate) dataToUpdate.scopeRecipients = payload.scopeRecipients;
+        if ('tagRecipients' in dataToUpdate) dataToUpdate.tagRecipients = payload.tagRecipients;
+
+        const attachments = Array.isArray(payload.attachmentsInputFile) ?
+            await Promise.all(
+                payload.attachmentsInputFile
+                    .map(
+                        attachmentInputFile => uploadFile({
+                            id                  : uuid(),
+                            file                : attachmentInputFile,
+                            relativePathSegments: ['aurora', 'message', 'attachments'],
+                            hasCreateLibrary    : false,
+                        }),
+                    ),
+            ) : [];
+
         await this.commandBus.dispatch(new MessageUpdateMessageByIdCommand(
             {
                 ...dataToUpdate,
-                id: payload.id,
+                attachments: [...message.attachments, ...attachments],
+                id         : payload.id,
             },
             constraint,
             {

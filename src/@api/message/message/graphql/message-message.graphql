@@ -48,7 +48,7 @@ input MessageCreateMessageInput
     isInternalLink: GraphQLBoolean
     image: JSON
     icon: GraphQLString
-    attachments: JSON
+    attachmentsInputFile: [Upload]
     meta: JSON
 }
 
@@ -69,7 +69,7 @@ input MessageUpdateMessageByIdInput
     isInternalLink: GraphQLBoolean
     image: JSON
     icon: GraphQLString
-    attachments: JSON
+    attachmentsInputFile: [Upload]
     meta: JSON
 }
 
@@ -154,5 +154,13 @@ type Mutation
         query: QueryStatement
         constraint: QueryStatement
     ): [MessageMessage]!
+
+
+    # additionalApis
+    messageRemoveAttachmentMessage(
+        message: MessageUpdateMessageByIdInput!
+        attachmentId: ID!
+        constraint: QueryStatement
+    ): Boolean!
 
 }

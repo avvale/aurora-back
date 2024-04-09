@@ -1,8 +1,10 @@
-import { MessageUpdateInboxByIdDto } from '../dto';
-import { MessageUpdateInboxByIdInput } from '@api/graphql';
 import { IamAccountResponse } from '@app/iam/account';
+import { MessageFindInboxByIdQuery, MessageUpdateInboxByIdCommand } from '@app/message/inbox';
 import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
+import { MessageInboxDto } from '../dto';
+import { MessageInbox } from '@api/graphql';
+import { MessageUpdateAndIncrementMessagesCommand } from '@app/message/message';
 
 @Injectable()
 export class MessageReadCustomerMessageInboxHandler
@@ -14,15 +16,33 @@ export class MessageReadCustomerMessageInboxHandler
 
     async main(
         account: IamAccountResponse,
-        payload: MessageUpdateInboxByIdInput | MessageUpdateInboxByIdDto,
+        id: string,
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<boolean>
+    ): Promise<MessageInbox | MessageInboxDto>
     {
-        // coding here
-        /* await this.commandBus.dispatch(new YourCommand(
-            payload,
+        const inbox = await this.queryBus.ask(new MessageFindInboxByIdQuery(
+            id,
+            constraint,
+            {
+                timezone,
+            },
+        ));
+
+        await this.commandBus.dispatch(new MessageUpdateInboxByIdCommand(
+            {
+                id,
+                isRead           : true,
+                isReadAtLeastOnce: true,
+            },
+            {
+                ...constraint,
+                where: {
+                    ...constraint.where,
+                    accountId: account.id,
+                },
+            },
             {
                 timezone,
                 repositoryOptions: {
@@ -30,14 +50,36 @@ export class MessageReadCustomerMessageInboxHandler
                 },
             },
         ));
-        await this.queryBus.ask(new YourQuery(
-            queryStatement,
-            constraint,
+
+        if (!inbox.isReadAtLeastOnce)
+        {
+            await this.queryBus.ask(new MessageUpdateAndIncrementMessagesCommand(
+                {
+                    reads: 1,
+                },
+                {
+                    ...constraint,
+                    where: {
+                        ...constraint.where,
+                        id       : inbox.messageId,
+                        accountId: account.id,
+                    },
+                },
+            ));
+        }
+
+        return await this.queryBus.ask(new MessageFindInboxByIdQuery(
+            id,
+            {
+                ...constraint,
+                where: {
+                    ...constraint.where,
+                    accountId: account.id,
+                },
+            },
             {
                 timezone,
             },
-        )); */
-
-        return true;
+        ));
     }
 }

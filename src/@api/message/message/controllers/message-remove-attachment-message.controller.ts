@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { MessageReadCustomerMessageInboxHandler } from '../handlers/message-read-customer-message-inbox.handler';
+import { MessageRemoveAttachmentMessageHandler } from '../handlers/message-remove-attachment-message.handler';
 import { TenantPolicy } from '@api/iam/shared';
 import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
 import { Auditing, AuditingMeta, CurrentAccount, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { MessageUpdateMessageByIdDto } from '../dto';
 
-@ApiTags('[message] inbox')
-@Controller('message/inbox/read-customer-message')
-@Auth('message.inbox.update')
-export class MessageReadCustomerMessageInboxController
+@ApiTags('[message] message')
+@Controller('message/message/remove-attachment')
+@Auth('message.message.update')
+export class MessageRemoveAttachmentMessageController
 {
     constructor(
-        private readonly handler: MessageReadCustomerMessageInboxHandler,
+        private readonly handler: MessageRemoveAttachmentMessageHandler,
     ) {}
 
     @Post()
@@ -22,7 +23,8 @@ export class MessageReadCustomerMessageInboxController
     @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
-        @Body() id: string,
+        @Body() message: MessageUpdateMessageByIdDto, // set message to pass TenantPolicy
+        @Body() attachmentId: string,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
@@ -30,7 +32,8 @@ export class MessageReadCustomerMessageInboxController
     {
         return await this.handler.main(
             account,
-            id,
+            message,
+            attachmentId,
             constraint,
             timezone,
             auditing,

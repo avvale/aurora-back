@@ -96,10 +96,10 @@ export class MessageUpdateMessageByIdDto
     icon?: string;
 
     @ApiProperty({
-        type       : Object,
+        type       : Array,
         description: 'attachments [input here api field description]',
     })
-    attachments?: any;
+    attachmentsInputFile?: any[];
 
     @ApiProperty({
         type       : Object,

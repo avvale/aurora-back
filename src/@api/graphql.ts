@@ -1084,7 +1084,7 @@ export interface MessageCreateMessageInput {
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;
     icon?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
+    attachmentsInputFile?: Nullable<Nullable<Upload>[]>;
     meta?: Nullable<JSON>;
 }
 
@@ -1104,7 +1104,7 @@ export interface MessageUpdateMessageByIdInput {
     isInternalLink?: Nullable<GraphQLBoolean>;
     image?: Nullable<JSON>;
     icon?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
+    attachmentsInputFile?: Nullable<Nullable<Upload>[]>;
     meta?: Nullable<JSON>;
 }
 
@@ -1858,9 +1858,9 @@ export interface IMutation {
     messageDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messageCheckMessagesInbox(): boolean | Promise<boolean>;
-    messageDeleteCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    messageReadCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    messageUnreadCustomerMessageInbox(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageDeleteCustomerMessageInbox(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageReadCustomerMessageInbox(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageUnreadCustomerMessageInbox(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateMessage(payload: MessageCreateMessageInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageCreateMessages(payload: Nullable<MessageCreateMessageInput>[]): boolean | Promise<boolean>;
     messageUpdateMessageById(payload: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
@@ -1868,6 +1868,7 @@ export interface IMutation {
     messageUpsertMessage(payload: MessageUpdateMessageByIdInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageDeleteMessageById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageDeleteMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
+    messageRemoveAttachmentMessage(message: MessageUpdateMessageByIdInput, attachmentId: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateOutbox(payload: MessageCreateOutboxInput): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageCreateOutboxes(payload: Nullable<MessageCreateOutboxInput>[]): boolean | Promise<boolean>;
     messageUpdateOutboxById(payload: MessageUpdateOutboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;

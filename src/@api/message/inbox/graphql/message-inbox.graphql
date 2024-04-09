@@ -167,17 +167,17 @@ type Mutation
     messageCheckMessagesInbox: Boolean!
 
     messageDeleteCustomerMessageInbox(
-        payload: MessageUpdateInboxByIdInput!
+        id: ID!
         constraint: QueryStatement
     ): Boolean!
 
     messageReadCustomerMessageInbox(
-        payload: MessageUpdateInboxByIdInput!
+        id: ID!
         constraint: QueryStatement
     ): Boolean!
 
     messageUnreadCustomerMessageInbox(
-        payload: MessageUpdateInboxByIdInput!
+        id: ID!
         constraint: QueryStatement
     ): Boolean!
 

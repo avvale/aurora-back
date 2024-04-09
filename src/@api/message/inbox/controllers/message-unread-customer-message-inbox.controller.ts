@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { MessageUpdateInboxByIdDto } from '../dto';
 import { MessageUnreadCustomerMessageInboxHandler } from '../handlers/message-unread-customer-message-inbox.handler';
 import { TenantPolicy } from '@api/iam/shared';
 import { IamAccountResponse } from '@app/iam/account';
@@ -23,7 +22,7 @@ export class MessageUnreadCustomerMessageInboxController
     @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
-        @Body() payload: MessageUpdateInboxByIdDto,
+        @Body() id: string,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
@@ -31,7 +30,7 @@ export class MessageUnreadCustomerMessageInboxController
     {
         return await this.handler.main(
             account,
-            payload,
+            id,
             constraint,
             timezone,
             auditing,

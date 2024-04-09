@@ -1,6 +1,7 @@
-import { MessageUpdateInboxByIdDto } from '../dto';
-import { MessageUpdateInboxByIdInput } from '@api/graphql';
+import { MessageInboxDto } from '../dto';
+import { MessageInbox } from '@api/graphql';
 import { IamAccountResponse } from '@app/iam/account';
+import { MessageFindInboxByIdQuery, MessageUpdateInboxByIdCommand } from '@app/message/inbox';
 import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -14,15 +15,32 @@ export class MessageUnreadCustomerMessageInboxHandler
 
     async main(
         account: IamAccountResponse,
-        payload: MessageUpdateInboxByIdInput | MessageUpdateInboxByIdDto,
+        id: string,
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<boolean>
+    ): Promise<MessageInbox | MessageInboxDto>
     {
-        // coding here
-        /* await this.commandBus.dispatch(new YourCommand(
-            payload,
+        const inbox = await this.queryBus.ask(new MessageFindInboxByIdQuery(
+            id,
+            constraint,
+            {
+                timezone,
+            },
+        ));
+
+        await this.commandBus.dispatch(new MessageUpdateInboxByIdCommand(
+            {
+                id,
+                isRead: false,
+            },
+            {
+                ...constraint,
+                where: {
+                    ...constraint.where,
+                    accountId: account.id,
+                },
+            },
             {
                 timezone,
                 repositoryOptions: {
@@ -30,14 +48,19 @@ export class MessageUnreadCustomerMessageInboxHandler
                 },
             },
         ));
-        await this.queryBus.ask(new YourQuery(
-            queryStatement,
-            constraint,
+
+        return await this.queryBus.ask(new MessageFindInboxByIdQuery(
+            id,
+            {
+                ...constraint,
+                where: {
+                    ...constraint.where,
+                    accountId: account.id,
+                },
+            },
             {
                 timezone,
             },
-        )); */
-
-        return true;
+        ));
     }
 }

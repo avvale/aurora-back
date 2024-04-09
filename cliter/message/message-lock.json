@@ -267,7 +267,7 @@
         },
         {
             "path": "src/@app/message/message/application/min/message-min-message.service.ts",
-            "integrity": "sha1:553acfd77b8e833e643370c05b068895d9f797a9"
+            "integrity": "sha1:1015e72919c1e2c6a2d50bc677a1332c125a6893"
         },
         {
             "path": "src/@app/message/message/application/paginate/message-paginate-messages.query-handler.spec.ts",
@@ -331,7 +331,7 @@
         },
         {
             "path": "src/@app/message/message/application/sum/message-sum-message.service.ts",
-            "integrity": "sha1:cc979068c62a588860c9a5f8c86403685fa13826"
+            "integrity": "sha1:d7540556e8b4e27f1cfe81103db190fbd96d3a38"
         },
         {
             "path": "src/@app/message/message/application/update/message-update-message-by-id.command-handler.spec.ts",
@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.data.ts",
-            "integrity": "sha1:b5ebcc0d1beb8e75374e49eb1824c5279776e796"
+            "integrity": "sha1:29b80489da73eb6c818a03583e2acb76ce56a83f"
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.repository.ts",
@@ -663,7 +663,7 @@
         },
         {
             "path": "src/@api/message/message/graphql/message-message.graphql",
-            "integrity": "sha1:b73c6c3b0ae46c322e078b2fb607f57960599d39"
+            "integrity": "sha1:cf6166baf7f79454d78b87055bb0f9410b3d6028"
         },
         {
             "path": "src/@api/message/message/handlers/message-create-message.handler.spec.ts",
@@ -755,7 +755,7 @@
         },
         {
             "path": "src/@api/message/message/index.ts",
-            "integrity": "sha1:3fad599757b0b12f6bac331c7afc63817ea826ba"
+            "integrity": "sha1:b6b803d029d4d7993b8dc72fe221932edd700bef"
         },
         {
             "path": "src/@api/message/message/resolvers/message-create-message.resolver.spec.ts",
@@ -850,12 +850,36 @@
             "integrity": "sha1:bf76f0938ca738d5f778e393be512c22d0c2a9d4"
         },
         {
+            "path": "src/@api/message/message/controllers/message-remove-attachment-message.controller.spec.ts",
+            "integrity": "sha1:01524c67e6dcde0a8247e9600729ab8b89e708f4"
+        },
+        {
+            "path": "src/@api/message/message/controllers/message-remove-attachment-message.controller.ts",
+            "integrity": "sha1:0b3bf8ee703e23de8a2e6e2a75f333aa07dae2e8"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-remove-attachment-message.handler.spec.ts",
+            "integrity": "sha1:a9bc4d6e4a95f940a00d7db28f211bce3628257c"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-remove-attachment-message.handler.ts",
+            "integrity": "sha1:1414ae8d35f9a96083aec29aaea5f0d0bc32f390"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-remove-attachment-message.resolver.spec.ts",
+            "integrity": "sha1:ef5ffb7048773a3989151d7d6e84507e828b1e2e"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-remove-attachment-message.resolver.ts",
+            "integrity": "sha1:0ac208f793bfeff0186450bae8c68d72fb4deb58"
+        },
+        {
             "path": "test/acceptance/message/message.e2e-spec.ts",
             "integrity": "sha1:e66fd01ae73f21ccb7877dce754db1311521a652"
         },
         {
             "path": "postman/message/message.message.postman.json",
-            "integrity": "sha1:4e304b76fe715e84bd10d626d5ed7c541d663d4a"
+            "integrity": "sha1:34c856d204e7b97ec316f92d91d93d026ef055da"
         }
     ]
 }

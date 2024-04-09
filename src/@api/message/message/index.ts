@@ -43,6 +43,11 @@ export { MessageUpsertMessageResolver } from './resolvers/message-upsert-message
 export { MessageDeleteMessageByIdResolver } from './resolvers/message-delete-message-by-id.resolver';
 export { MessageDeleteMessagesResolver } from './resolvers/message-delete-messages.resolver';
 
+// export additionalApis
+export { MessageRemoveAttachmentMessageController } from './controllers/message-remove-attachment-message.controller';
+export { MessageRemoveAttachmentMessageHandler } from './handlers/message-remove-attachment-message.handler';
+export { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remove-attachment-message.resolver';
+
 // import controllers
 import { MessageCreateMessageController } from './controllers/message-create-message.controller';
 import { MessageCreateMessagesController } from './controllers/message-create-messages.controller';
@@ -85,6 +90,11 @@ import { MessageDeleteMessagesHandler } from './handlers/message-delete-messages
 // import seeder
 import { MessageMessageSeeder } from './seeder/message-message.seeder';
 
+// import additionalApis
+import { MessageRemoveAttachmentMessageController } from './controllers/message-remove-attachment-message.controller';
+import { MessageRemoveAttachmentMessageHandler } from './handlers/message-remove-attachment-message.handler';
+import { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remove-attachment-message.resolver';
+
 export const MessageMessageApiControllers = [
     MessageCreateMessageController,
     MessageCreateMessagesController,
@@ -97,6 +107,9 @@ export const MessageMessageApiControllers = [
     MessageUpsertMessageController,
     MessageDeleteMessageByIdController,
     MessageDeleteMessagesController,
+
+    // additionalApis
+    MessageRemoveAttachmentMessageController,
 ];
 
 export const MessageMessageApiResolvers = [
@@ -111,6 +124,9 @@ export const MessageMessageApiResolvers = [
     MessageUpsertMessageResolver,
     MessageDeleteMessageByIdResolver,
     MessageDeleteMessagesResolver,
+
+    // additionalApis
+    MessageRemoveAttachmentMessageResolver,
 ];
 
 export const MessageMessageApiHandlers = [
@@ -125,6 +141,9 @@ export const MessageMessageApiHandlers = [
     MessageUpsertMessageHandler,
     MessageDeleteMessageByIdHandler,
     MessageDeleteMessagesHandler,
+
+    // additionalApis
+    MessageRemoveAttachmentMessageHandler,
 ];
 
 export const MessageMessageApiServices = [
