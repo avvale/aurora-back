@@ -1,4 +1,4 @@
-import { MessageInbox } from '@api/graphql';
+import { MessageInbox, MessageUpdateInboxByIdInput } from '@api/graphql';
 import { TenantPolicy } from '@api/iam/shared';
 import { MessageReadCustomerMessageInboxHandler } from '@api/message/inbox';
 import { IamAccountResponse } from '@app/iam/account';
@@ -18,15 +18,15 @@ export class MessageReadCustomerMessageInboxResolver
     @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
-        @Args('id') id: string,
+        @Args('inbox') inbox: MessageUpdateInboxByIdInput,
         @Args('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
-    ): Promise<MessageInbox>
+    ): Promise<boolean>
     {
         return await this.handler.main(
             account,
-            id,
+            inbox,
             constraint,
             timezone,
             auditing,

@@ -6,6 +6,7 @@ import { Auth } from '@aurora/decorators';
 import { Auditing, AuditingMeta, CurrentAccount, QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { MessageUpdateInboxByIdDto } from '../dto';
 
 @ApiTags('[message] inbox')
 @Controller('message/inbox/unread-customer-message')
@@ -22,7 +23,7 @@ export class MessageUnreadCustomerMessageInboxController
     @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
-        @Body() id: string,
+        @Body('inbox') inbox: MessageUpdateInboxByIdDto,
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
@@ -30,7 +31,7 @@ export class MessageUnreadCustomerMessageInboxController
     {
         return await this.handler.main(
             account,
-            id,
+            inbox,
             constraint,
             timezone,
             auditing,

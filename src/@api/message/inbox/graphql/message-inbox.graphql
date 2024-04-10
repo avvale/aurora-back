@@ -172,12 +172,12 @@ type Mutation
     ): Boolean!
 
     messageReadCustomerMessageInbox(
-        id: ID!
+        inbox: MessageUpdateInboxByIdInput!
         constraint: QueryStatement
     ): Boolean!
 
     messageUnreadCustomerMessageInbox(
-        id: ID!
+        inbox: MessageUpdateInboxByIdInput!
         constraint: QueryStatement
     ): Boolean!
 

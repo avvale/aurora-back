@@ -2,8 +2,8 @@ import { IamAccountResponse } from '@app/iam/account';
 import { MessageFindInboxByIdQuery, MessageUpdateInboxByIdCommand } from '@app/message/inbox';
 import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { MessageInboxDto } from '../dto';
-import { MessageInbox } from '@api/graphql';
+import { MessageUpdateInboxByIdDto } from '../dto';
+import { MessageUpdateInboxByIdInput } from '@api/graphql';
 import { MessageUpdateAndIncrementMessagesCommand } from '@app/message/message';
 
 @Injectable()
@@ -16,14 +16,14 @@ export class MessageReadCustomerMessageInboxHandler
 
     async main(
         account: IamAccountResponse,
-        id: string,
+        inbox: MessageUpdateInboxByIdInput | MessageUpdateInboxByIdDto,
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<MessageInbox | MessageInboxDto>
+    ): Promise<boolean>
     {
-        const inbox = await this.queryBus.ask(new MessageFindInboxByIdQuery(
-            id,
+        const currentInbox = await this.queryBus.ask(new MessageFindInboxByIdQuery(
+            inbox.id,
             constraint,
             {
                 timezone,
@@ -32,7 +32,7 @@ export class MessageReadCustomerMessageInboxHandler
 
         await this.commandBus.dispatch(new MessageUpdateInboxByIdCommand(
             {
-                id,
+                id               : currentInbox.id,
                 isRead           : true,
                 isReadAtLeastOnce: true,
             },
@@ -53,7 +53,7 @@ export class MessageReadCustomerMessageInboxHandler
 
         if (!inbox.isReadAtLeastOnce)
         {
-            await this.queryBus.ask(new MessageUpdateAndIncrementMessagesCommand(
+            await this.commandBus.dispatch(new MessageUpdateAndIncrementMessagesCommand(
                 {
                     reads: 1,
                 },
@@ -61,25 +61,12 @@ export class MessageReadCustomerMessageInboxHandler
                     ...constraint,
                     where: {
                         ...constraint.where,
-                        id       : inbox.messageId,
-                        accountId: account.id,
+                        id: currentInbox.messageId,
                     },
                 },
             ));
         }
 
-        return await this.queryBus.ask(new MessageFindInboxByIdQuery(
-            id,
-            {
-                ...constraint,
-                where: {
-                    ...constraint.where,
-                    accountId: account.id,
-                },
-            },
-            {
-                timezone,
-            },
-        ));
+        return true;
     }
 }
