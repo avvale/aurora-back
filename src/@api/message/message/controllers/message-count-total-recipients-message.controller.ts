@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { MessageUpdateMessageByIdDto } from '../dto';
-import { MessageRemoveAttachmentMessageHandler } from '../handlers/message-remove-attachment-message.handler';
+import { MessageCountTotalRecipientsMessageHandler } from '../handlers/message-count-total-recipients-message.handler';
 import { TenantPolicy } from '@api/iam/shared';
 import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
@@ -9,12 +9,12 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('[message] message')
-@Controller('message/message/remove-attachment')
+@Controller('message/message/count-total-recipients')
 @Auth('message.message.update')
-export class MessageRemoveAttachmentMessageController
+export class MessageCountTotalRecipientsMessageController
 {
     constructor(
-        private readonly handler: MessageRemoveAttachmentMessageHandler,
+        private readonly handler: MessageCountTotalRecipientsMessageHandler,
     ) {}
 
     @Post()
@@ -23,8 +23,10 @@ export class MessageRemoveAttachmentMessageController
     @TenantPolicy()
     async main(
         @CurrentAccount() account: IamAccountResponse,
-        @Body() message: MessageUpdateMessageByIdDto, // set message to pass TenantPolicy
-        @Body() attachmentId: string,
+        @Body('tenantRecipientIds') tenantRecipientIds: string[],
+        @Body('scopeRecipients') scopeRecipients: string[],
+        @Body('tagRecipients') tagRecipients: string[],
+        @Body('accountRecipientIds') accountRecipientIds: string[],
         @Body('constraint') constraint?: QueryStatement,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
@@ -32,8 +34,10 @@ export class MessageRemoveAttachmentMessageController
     {
         return await this.handler.main(
             account,
-            message,
-            attachmentId,
+            tenantRecipientIds,
+            scopeRecipients,
+            tagRecipients,
+            accountRecipientIds,
             constraint,
             timezone,
             auditing,

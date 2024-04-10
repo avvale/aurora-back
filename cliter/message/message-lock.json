@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.data.ts",
-            "integrity": "sha1:29b80489da73eb6c818a03583e2acb76ce56a83f"
+            "integrity": "sha1:051e2712888ad1425bc1b079b8fa34a2b768733d"
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.repository.ts",
@@ -663,7 +663,7 @@
         },
         {
             "path": "src/@api/message/message/graphql/message-message.graphql",
-            "integrity": "sha1:cf6166baf7f79454d78b87055bb0f9410b3d6028"
+            "integrity": "sha1:e97deefed223d4b13a3c97323ae8aacea00d142f"
         },
         {
             "path": "src/@api/message/message/handlers/message-create-message.handler.spec.ts",
@@ -755,7 +755,7 @@
         },
         {
             "path": "src/@api/message/message/index.ts",
-            "integrity": "sha1:b6b803d029d4d7993b8dc72fe221932edd700bef"
+            "integrity": "sha1:3aa8cf781fc2ed6d93dd0749a050fcc979eddae9"
         },
         {
             "path": "src/@api/message/message/resolvers/message-create-message.resolver.spec.ts",
@@ -874,12 +874,36 @@
             "integrity": "sha1:0ac208f793bfeff0186450bae8c68d72fb4deb58"
         },
         {
+            "path": "src/@api/message/message/controllers/message-count-total-recipients-message.controller.spec.ts",
+            "integrity": "sha1:f9c3036dc60fcbf8632f6cbdaa60093a2c178028"
+        },
+        {
+            "path": "src/@api/message/message/controllers/message-count-total-recipients-message.controller.ts",
+            "integrity": "sha1:a1d52ed02868bf33a284574fcf2cae19190cebe7"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-count-total-recipients-message.handler.spec.ts",
+            "integrity": "sha1:d158e622b69d13f28e85f14c1ae736bd552e11db"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-count-total-recipients-message.handler.ts",
+            "integrity": "sha1:e99c17e2d465f20edc95443e516478b7405f51fa"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-count-total-recipients-message.resolver.spec.ts",
+            "integrity": "sha1:89da64dc9d2415a73db4bf79a28b96a29585abe9"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-count-total-recipients-message.resolver.ts",
+            "integrity": "sha1:02fbb722caa6a670946ad3356c00727e7e98a3b1"
+        },
+        {
             "path": "test/acceptance/message/message.e2e-spec.ts",
             "integrity": "sha1:e66fd01ae73f21ccb7877dce754db1311521a652"
         },
         {
             "path": "postman/message/message.message.postman.json",
-            "integrity": "sha1:34c856d204e7b97ec316f92d91d93d026ef055da"
+            "integrity": "sha1:f38538deac0fb8d4cb4fd6cd73601ce296fd0a48"
         }
     ]
 }

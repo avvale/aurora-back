@@ -47,6 +47,9 @@ export { MessageDeleteMessagesResolver } from './resolvers/message-delete-messag
 export { MessageRemoveAttachmentMessageController } from './controllers/message-remove-attachment-message.controller';
 export { MessageRemoveAttachmentMessageHandler } from './handlers/message-remove-attachment-message.handler';
 export { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remove-attachment-message.resolver';
+export { MessageCountTotalRecipientsMessageController } from './controllers/message-count-total-recipients-message.controller';
+export { MessageCountTotalRecipientsMessageHandler } from './handlers/message-count-total-recipients-message.handler';
+export { MessageCountTotalRecipientsMessageResolver } from './resolvers/message-count-total-recipients-message.resolver';
 
 // import controllers
 import { MessageCreateMessageController } from './controllers/message-create-message.controller';
@@ -94,6 +97,9 @@ import { MessageMessageSeeder } from './seeder/message-message.seeder';
 import { MessageRemoveAttachmentMessageController } from './controllers/message-remove-attachment-message.controller';
 import { MessageRemoveAttachmentMessageHandler } from './handlers/message-remove-attachment-message.handler';
 import { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remove-attachment-message.resolver';
+import { MessageCountTotalRecipientsMessageController } from './controllers/message-count-total-recipients-message.controller';
+import { MessageCountTotalRecipientsMessageHandler } from './handlers/message-count-total-recipients-message.handler';
+import { MessageCountTotalRecipientsMessageResolver } from './resolvers/message-count-total-recipients-message.resolver';
 
 export const MessageMessageApiControllers = [
     MessageCreateMessageController,
@@ -110,6 +116,7 @@ export const MessageMessageApiControllers = [
 
     // additionalApis
     MessageRemoveAttachmentMessageController,
+    MessageCountTotalRecipientsMessageController,
 ];
 
 export const MessageMessageApiResolvers = [
@@ -127,6 +134,7 @@ export const MessageMessageApiResolvers = [
 
     // additionalApis
     MessageRemoveAttachmentMessageResolver,
+    MessageCountTotalRecipientsMessageResolver,
 ];
 
 export const MessageMessageApiHandlers = [
@@ -144,6 +152,7 @@ export const MessageMessageApiHandlers = [
 
     // additionalApis
     MessageRemoveAttachmentMessageHandler,
+    MessageCountTotalRecipientsMessageHandler,
 ];
 
 export const MessageMessageApiServices = [
