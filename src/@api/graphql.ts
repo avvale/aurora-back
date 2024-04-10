@@ -1685,6 +1685,7 @@ export interface IQuery {
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
+    coreGetBase64FromFile(relativePathSegments: GraphQLString[], filename: GraphQLString): Nullable<GraphQLString> | Promise<Nullable<GraphQLString>>;
     hello(): Nullable<string> | Promise<Nullable<string>>;
 }
 
