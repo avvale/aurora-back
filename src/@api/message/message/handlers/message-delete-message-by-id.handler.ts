@@ -2,8 +2,9 @@ import { MessageMessage } from '@api/graphql';
 import { MessageMessageDto } from '@api/message/message';
 import { IamAccountResponse } from '@app/iam/account';
 import { MessageDeleteMessageByIdCommand, MessageFindMessageByIdQuery } from '@app/message/message';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement, storagePublicAbsolutePath } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
+import { existsSync, unlinkSync } from 'node:fs';
 
 @Injectable()
 export class MessageDeleteMessageByIdHandler
@@ -39,6 +40,19 @@ export class MessageDeleteMessageByIdHandler
                 },
             },
         ));
+
+        if (Array.isArray(message.attachments))
+        {
+            for (const attachment of message.attachments)
+            {
+                // delete attachment file
+                const absolutePath = storagePublicAbsolutePath(
+                    attachment.relativePathSegments,
+                    attachment.filename,
+                );
+                if (existsSync(absolutePath)) unlinkSync(absolutePath);
+            }
+        }
 
         return message;
     }
