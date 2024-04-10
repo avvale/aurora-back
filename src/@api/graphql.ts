@@ -1628,7 +1628,7 @@ export interface IQuery {
     messageFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
     messagePaginateMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    messageCountTotalRecipientsMessage(tenantRecipientIds: Nullable<string>[], scopeRecipients: Nullable<GraphQLString>[], tagRecipients: Nullable<GraphQLString>[], accountRecipientIds: Nullable<string>[], constraint?: Nullable<QueryStatement>): GraphQLInt | Promise<GraphQLInt>;
+    messageCountTotalRecipientsMessage(tenantRecipientIds?: Nullable<Nullable<string>[]>, scopeRecipients?: Nullable<Nullable<GraphQLString>[]>, tagRecipients?: Nullable<Nullable<GraphQLString>[]>, accountRecipientIds?: Nullable<Nullable<string>[]>, constraint?: Nullable<QueryStatement>): GraphQLInt | Promise<GraphQLInt>;
     messageFindOutbox(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageFindOutboxById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageGetOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox>[] | Promise<Nullable<MessageOutbox>[]>;

@@ -1,5 +1,5 @@
-import { IamAccountResponse, IamCountAccountQuery } from '@app/iam/account';
-import { AuditingMeta, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
+import { IamCountAccountQuery } from '@app/iam/account';
+import { IQueryBus, Operator, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -10,34 +10,45 @@ export class MessageCountTotalRecipientsMessageHandler
     ) {}
 
     async main(
-        account: IamAccountResponse,
         tenantRecipientIds: string[],
         scopeRecipients: string[],
         tagRecipients: string[],
         accountRecipientIds: string[],
         constraint?: QueryStatement,
-        timezone?: string,
-        auditing?: AuditingMeta,
     ): Promise<number>
     {
-
-        const count = await this.queryBus.ask(new IamCountAccountQuery(
+        return await this.queryBus.ask(new IamCountAccountQuery(
             {
                 where: {
-                    dTenants: tenantRecipientIds,
-                    scopes  : scopeRecipients,
-                    tags    : tagRecipients,
-                    id      : accountRecipientIds,
+                    [Operator.or]: [
+                        {
+                            // query messages for tenants that account belongs to
+                            dTenants: {
+                                [Operator.overlap]: tenantRecipientIds,
+                            },
+                        },
+                        {
+                            // query messages for scopes that account belongs to
+                            scopes: {
+                                [Operator.overlap]: scopeRecipients,
+                            },
+                        },
+                        {
+                            // query messages for tags that account belongs to
+                            tags: {
+                                [Operator.overlap]: tagRecipients,
+                            },
+                        },
+                        {
+                            // query messages for account
+                            id: {
+                                [Operator.in]: accountRecipientIds || [],
+                            },
+                        },
+                    ],
                 },
             },
             constraint,
-            {
-                timezone,
-            },
         ));
-
-        console.log('count', count);
-
-        return count;
     }
 }

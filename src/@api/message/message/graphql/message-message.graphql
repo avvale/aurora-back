@@ -121,10 +121,10 @@ type Query
 
     # additionalApis
     messageCountTotalRecipientsMessage(
-        tenantRecipientIds: [ID]!
-        scopeRecipients: [GraphQLString]!
-        tagRecipients: [GraphQLString]!
-        accountRecipientIds: [ID]!
+        tenantRecipientIds: [ID]
+        scopeRecipients: [GraphQLString]
+        tagRecipients: [GraphQLString]
+        accountRecipientIds: [ID]
         constraint: QueryStatement
     ): GraphQLInt!
 
