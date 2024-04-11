@@ -50,6 +50,12 @@ export { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remo
 export { MessageCountTotalRecipientsMessageController } from './controllers/message-count-total-recipients-message.controller';
 export { MessageCountTotalRecipientsMessageHandler } from './handlers/message-count-total-recipients-message.handler';
 export { MessageCountTotalRecipientsMessageResolver } from './resolvers/message-count-total-recipients-message.resolver';
+export { MessageSendMessageMessageController } from './controllers/message-send-message-message.controller';
+export { MessageSendMessageMessageHandler } from './handlers/message-send-message-message.handler';
+export { MessageSendMessageMessageResolver } from './resolvers/message-send-message-message.resolver';
+export { MessageDraftMessageMessageController } from './controllers/message-draft-message-message.controller';
+export { MessageDraftMessageMessageHandler } from './handlers/message-draft-message-message.handler';
+export { MessageDraftMessageMessageResolver } from './resolvers/message-draft-message-message.resolver';
 
 // import controllers
 import { MessageCreateMessageController } from './controllers/message-create-message.controller';
@@ -100,6 +106,12 @@ import { MessageRemoveAttachmentMessageResolver } from './resolvers/message-remo
 import { MessageCountTotalRecipientsMessageController } from './controllers/message-count-total-recipients-message.controller';
 import { MessageCountTotalRecipientsMessageHandler } from './handlers/message-count-total-recipients-message.handler';
 import { MessageCountTotalRecipientsMessageResolver } from './resolvers/message-count-total-recipients-message.resolver';
+import { MessageSendMessageMessageController } from './controllers/message-send-message-message.controller';
+import { MessageSendMessageMessageHandler } from './handlers/message-send-message-message.handler';
+import { MessageSendMessageMessageResolver } from './resolvers/message-send-message-message.resolver';
+import { MessageDraftMessageMessageController } from './controllers/message-draft-message-message.controller';
+import { MessageDraftMessageMessageHandler } from './handlers/message-draft-message-message.handler';
+import { MessageDraftMessageMessageResolver } from './resolvers/message-draft-message-message.resolver';
 
 export const MessageMessageApiControllers = [
     MessageCreateMessageController,
@@ -117,6 +129,8 @@ export const MessageMessageApiControllers = [
     // additionalApis
     MessageRemoveAttachmentMessageController,
     MessageCountTotalRecipientsMessageController,
+    MessageSendMessageMessageController,
+    MessageDraftMessageMessageController,
 ];
 
 export const MessageMessageApiResolvers = [
@@ -135,6 +149,8 @@ export const MessageMessageApiResolvers = [
     // additionalApis
     MessageRemoveAttachmentMessageResolver,
     MessageCountTotalRecipientsMessageResolver,
+    MessageSendMessageMessageResolver,
+    MessageDraftMessageMessageResolver,
 ];
 
 export const MessageMessageApiHandlers = [
@@ -153,6 +169,8 @@ export const MessageMessageApiHandlers = [
     // additionalApis
     MessageRemoveAttachmentMessageHandler,
     MessageCountTotalRecipientsMessageHandler,
+    MessageSendMessageMessageHandler,
+    MessageDraftMessageMessageHandler,
 ];
 
 export const MessageMessageApiServices = [

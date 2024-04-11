@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.data.ts",
-            "integrity": "sha1:051e2712888ad1425bc1b079b8fa34a2b768733d"
+            "integrity": "sha1:80f2d068bf2a1a688d5632095f6ba3195e2fcb92"
         },
         {
             "path": "src/@app/message/message/infrastructure/mock/message-mock-message.repository.ts",
@@ -663,7 +663,7 @@
         },
         {
             "path": "src/@api/message/message/graphql/message-message.graphql",
-            "integrity": "sha1:e97deefed223d4b13a3c97323ae8aacea00d142f"
+            "integrity": "sha1:b3d8733c97e49bd591d64cd6fc6282eda725b4c2"
         },
         {
             "path": "src/@api/message/message/handlers/message-create-message.handler.spec.ts",
@@ -755,7 +755,7 @@
         },
         {
             "path": "src/@api/message/message/index.ts",
-            "integrity": "sha1:3aa8cf781fc2ed6d93dd0749a050fcc979eddae9"
+            "integrity": "sha1:9580301a424fa6e89423f61692120462fd68fb24"
         },
         {
             "path": "src/@api/message/message/resolvers/message-create-message.resolver.spec.ts",
@@ -898,12 +898,60 @@
             "integrity": "sha1:02fbb722caa6a670946ad3356c00727e7e98a3b1"
         },
         {
+            "path": "src/@api/message/message/controllers/message-send-message-message.controller.spec.ts",
+            "integrity": "sha1:d389a8db2a341914d8bc662c44c92563acd3d0e0"
+        },
+        {
+            "path": "src/@api/message/message/controllers/message-send-message-message.controller.ts",
+            "integrity": "sha1:e090ba2def83a8be346adca5960668e3f3ae1b4d"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-send-message-message.handler.spec.ts",
+            "integrity": "sha1:415edf0f7eb84f4056a54268041ed0db794755ad"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-send-message-message.handler.ts",
+            "integrity": "sha1:876987787df322c8e5119bd56172e25498a4dfc7"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-send-message-message.resolver.spec.ts",
+            "integrity": "sha1:f15ee236fb54a2caccc7cfda76b7037bb55e032a"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-send-message-message.resolver.ts",
+            "integrity": "sha1:74a2adbdb137879ad80f5ce2154186b60c5db489"
+        },
+        {
+            "path": "src/@api/message/message/controllers/message-draft-message-message.controller.spec.ts",
+            "integrity": "sha1:2b91d5d841d2c1528e452bb9797f783051f2c00c"
+        },
+        {
+            "path": "src/@api/message/message/controllers/message-draft-message-message.controller.ts",
+            "integrity": "sha1:bb6e2b2b0df48660d7b57ed77f1cd2292663e0eb"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-draft-message-message.handler.spec.ts",
+            "integrity": "sha1:616d2a4b003c598c61026147c13678da3e4d8447"
+        },
+        {
+            "path": "src/@api/message/message/handlers/message-draft-message-message.handler.ts",
+            "integrity": "sha1:4bcc6f0b165586e9864a65ceacc088c955e5ee0a"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-draft-message-message.resolver.spec.ts",
+            "integrity": "sha1:844448fbff5250150d54a9aa195b5dda5a11f7ee"
+        },
+        {
+            "path": "src/@api/message/message/resolvers/message-draft-message-message.resolver.ts",
+            "integrity": "sha1:515c508dd9a2a73269546148e6bf6e08fa419118"
+        },
+        {
             "path": "test/acceptance/message/message.e2e-spec.ts",
             "integrity": "sha1:e66fd01ae73f21ccb7877dce754db1311521a652"
         },
         {
             "path": "postman/message/message.message.postman.json",
-            "integrity": "sha1:f38538deac0fb8d4cb4fd6cd73601ce296fd0a48"
+            "integrity": "sha1:a01edb66444b9e9e1094137085bd0e667a68dabd"
         }
     ]
 }

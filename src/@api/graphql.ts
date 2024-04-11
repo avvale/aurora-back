@@ -1871,6 +1871,8 @@ export interface IMutation {
     messageDeleteMessageById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageDeleteMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
     messageRemoveAttachmentMessage(message: MessageUpdateMessageByIdInput, attachmentId: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageSendMessageMessage(message: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageDraftMessageMessage(message: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateOutbox(payload: MessageCreateOutboxInput): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageCreateOutboxes(payload: Nullable<MessageCreateOutboxInput>[]): boolean | Promise<boolean>;
     messageUpdateOutboxById(payload: MessageUpdateOutboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;

@@ -173,4 +173,14 @@ type Mutation
         constraint: QueryStatement
     ): Boolean!
 
+    messageSendMessageMessage(
+        message: MessageUpdateMessageByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
+    messageDraftMessageMessage(
+        message: MessageUpdateMessageByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
 }
