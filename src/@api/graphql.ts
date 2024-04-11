@@ -1071,7 +1071,6 @@ export interface MessageUpdateInboxesInput {
 export interface MessageCreateMessageInput {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
-    status: MessageMessageStatus;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
@@ -1091,7 +1090,6 @@ export interface MessageCreateMessageInput {
 export interface MessageUpdateMessageByIdInput {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
-    status?: Nullable<MessageMessageStatus>;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;
