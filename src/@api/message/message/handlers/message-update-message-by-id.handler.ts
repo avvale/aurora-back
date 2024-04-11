@@ -1,5 +1,6 @@
 import { MessageMessage, MessageUpdateMessageByIdInput } from '@api/graphql';
 import { MessageMessageDto, MessageUpdateMessageByIdDto } from '@api/message/message';
+import { countTotalRecipients } from '@api/message/shared';
 import { IamAccountResponse } from '@app/iam/account';
 import { MessageFindMessageByIdQuery, MessageUpdateMessageByIdCommand } from '@app/message/message';
 import { AuditingMeta, diff, ICommandBus, IQueryBus, QueryStatement, uploadFile, uuid } from '@aurorajs.dev/core';
@@ -34,6 +35,21 @@ export class MessageUpdateMessageByIdHandler
         if ('tenantRecipientIds' in dataToUpdate) dataToUpdate.tenantRecipientIds = payload.tenantRecipientIds;
         if ('scopeRecipients' in dataToUpdate) dataToUpdate.scopeRecipients = payload.scopeRecipients;
         if ('tagRecipients' in dataToUpdate) dataToUpdate.tagRecipients = payload.tagRecipients;
+        if (
+            'tenantRecipientIds' in dataToUpdate ||
+            'scopeRecipients' in dataToUpdate ||
+            'tagRecipients' in dataToUpdate ||
+            'accountRecipientIds' in dataToUpdate
+        )
+        {
+            dataToUpdate.totalRecipients = await countTotalRecipients({
+                queryBus           : this.queryBus,
+                tenantRecipientIds : payload.tenantRecipientIds,
+                scopeRecipients    : payload.scopeRecipients,
+                tagRecipients      : payload.tagRecipients,
+                accountRecipientIds: payload.accountRecipientIds,
+            });
+        }
 
         const attachments = Array.isArray(payload.attachmentsInputFile) ?
             await Promise.all(

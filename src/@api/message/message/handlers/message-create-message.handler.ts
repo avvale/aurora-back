@@ -1,5 +1,6 @@
 import { MessageCreateMessageInput, MessageMessage } from '@api/graphql';
 import { MessageCreateMessageDto, MessageMessageDto } from '@api/message/message';
+import { countTotalRecipients } from '@api/message/shared';
 import { IamAccountResponse, IamCountAccountQuery } from '@app/iam/account';
 import { MessageCreateMessageCommand, MessageFindMessageByIdQuery } from '@app/message/message';
 import { AuditingMeta, ICommandBus, IQueryBus, Operator, uploadFile, uuid } from '@aurorajs.dev/core';
@@ -33,38 +34,13 @@ export class MessageCreateMessageHandler
                     ),
             ) : [];
 
-        const totalRecipients = await this.queryBus.ask(new IamCountAccountQuery(
-            {
-                where: {
-                    [Operator.or]: [
-                        {
-                            // query messages for tenants that account belongs to
-                            dTenants: {
-                                [Operator.overlap]: payload.tenantRecipientIds,
-                            },
-                        },
-                        {
-                            // query messages for scopes that account belongs to
-                            scopes: {
-                                [Operator.overlap]: payload.scopeRecipients,
-                            },
-                        },
-                        {
-                            // query messages for tags that account belongs to
-                            tags: {
-                                [Operator.overlap]: payload.tagRecipients,
-                            },
-                        },
-                        {
-                            // query messages for account
-                            id: {
-                                [Operator.in]: payload.accountRecipientIds || [],
-                            },
-                        },
-                    ],
-                },
-            },
-        ));
+        const totalRecipients = await countTotalRecipients({
+            queryBus           : this.queryBus,
+            tenantRecipientIds : payload.tenantRecipientIds,
+            scopeRecipients    : payload.scopeRecipients,
+            tagRecipients      : payload.tagRecipients,
+            accountRecipientIds: payload.accountRecipientIds,
+        });
 
         await this.commandBus.dispatch(new MessageCreateMessageCommand(
             {
