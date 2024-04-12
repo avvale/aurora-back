@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { MessageDeleteCustomerMessageInboxHandler } from '../handlers/message-delete-customer-message-inbox.handler';
-import { TenantPolicy } from '@api/iam/shared';
+import { TenantConstraint } from '@api/iam/shared';
 import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
 import { Auditing, AuditingMeta, CurrentAccount, QueryStatement, Timezone } from '@aurorajs.dev/core';
@@ -19,7 +19,7 @@ export class MessageDeleteCustomerMessageInboxController
     @Post()
     @ApiOperation({ summary: 'Defines the operation of this controller' })
     @ApiCreatedResponse({ description: 'Defines the action performed', type: Boolean })
-    @TenantPolicy()
+    @TenantConstraint()
     async main(
         @CurrentAccount() account: IamAccountResponse,
         @Body() id: string,
