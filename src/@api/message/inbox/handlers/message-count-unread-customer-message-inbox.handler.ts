@@ -24,7 +24,7 @@ export class MessageCountUnreadCustomerMessageInboxHandler
                 where: {
                     ...queryStatement?.where,
                     accountId: account.id,
-                    read     : false,
+                    isRead   : false,
                 },
             },
             constraint,
