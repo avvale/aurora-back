@@ -125,6 +125,11 @@ type Query
         constraint: QueryStatement
     ): MessageInbox
 
+    messageCountUnreadCustomerMessageInbox(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): GraphQLInt!
+
 }
 
 type Mutation
