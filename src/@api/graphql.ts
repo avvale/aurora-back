@@ -1858,7 +1858,7 @@ export interface IMutation {
     messageDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messageCheckMessagesInbox(): boolean | Promise<boolean>;
-    messageDeleteCustomerMessageInbox(id: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    messageDeleteCustomerMessageInbox(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageReadCustomerMessageInbox(inbox: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageUnreadCustomerMessageInbox(inbox: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateMessage(payload: MessageCreateMessageInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
