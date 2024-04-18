@@ -735,7 +735,8 @@ export interface IamCreateAccountInput {
     id: string;
     type: IamAccountType;
     code?: Nullable<GraphQLString>;
-    email: GraphQLString;
+    email?: Nullable<GraphQLString>;
+    username: GraphQLString;
     isActive: GraphQLBoolean;
     clientId?: Nullable<string>;
     tags?: Nullable<Nullable<GraphQLString>[]>;
@@ -752,6 +753,7 @@ export interface IamUpdateAccountByIdInput {
     type?: Nullable<IamAccountType>;
     code?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
+    username?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
     tags?: Nullable<Nullable<GraphQLString>[]>;
@@ -768,6 +770,7 @@ export interface IamUpdateAccountsInput {
     type?: Nullable<IamAccountType>;
     code?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
+    username?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
     clientId?: Nullable<string>;
     tags?: Nullable<Nullable<GraphQLString>[]>;
@@ -958,8 +961,9 @@ export interface IamCreateUserInput {
     avatar?: Nullable<GraphQLString>;
     mobile?: Nullable<GraphQLString>;
     langId?: Nullable<string>;
-    username: GraphQLString;
     password: GraphQLString;
+    isTwoFactorAuthenticationEnabled: GraphQLBoolean;
+    twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
 }
 
@@ -970,8 +974,9 @@ export interface IamUpdateUserByIdInput {
     avatar?: Nullable<GraphQLString>;
     mobile?: Nullable<GraphQLString>;
     langId?: Nullable<string>;
-    username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
+    isTwoFactorAuthenticationEnabled?: Nullable<GraphQLBoolean>;
+    twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
 }
 
@@ -982,8 +987,9 @@ export interface IamUpdateUsersInput {
     avatar?: Nullable<GraphQLString>;
     mobile?: Nullable<GraphQLString>;
     langId?: Nullable<string>;
-    username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
+    isTwoFactorAuthenticationEnabled?: Nullable<GraphQLBoolean>;
+    twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
 }
 
@@ -2189,7 +2195,8 @@ export interface IamAccount {
     id: string;
     type: IamAccountType;
     code?: Nullable<GraphQLString>;
-    email: GraphQLString;
+    email?: Nullable<GraphQLString>;
+    username: GraphQLString;
     isActive: GraphQLBoolean;
     clientId: string;
     client?: Nullable<OAuthClient>;
@@ -2299,8 +2306,9 @@ export interface IamUser {
     avatar?: Nullable<GraphQLString>;
     mobile?: Nullable<GraphQLString>;
     langId?: Nullable<string>;
-    username: GraphQLString;
     password: GraphQLString;
+    isTwoFactorAuthenticationEnabled: GraphQLBoolean;
+    twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
