@@ -136,13 +136,25 @@ export enum WhatsappMessageDirection {
 }
 
 export enum WhatsappMessageType {
-    TEMPLATE = "TEMPLATE",
-    REACTION = "REACTION",
-    IMAGE = "IMAGE",
-    LOCATION = "LOCATION",
+    BUTTON = "BUTTON",
     CONTACTS = "CONTACTS",
+    IMAGE = "IMAGE",
     INTERACTIVE = "INTERACTIVE",
-    TEXT = "TEXT"
+    LOCATION = "LOCATION",
+    ORDER = "ORDER",
+    REACTION = "REACTION",
+    STICKER = "STICKER",
+    SYSTEM = "SYSTEM",
+    TEMPLATE = "TEMPLATE",
+    TEXT = "TEXT",
+    UNKNOWN = "UNKNOWN"
+}
+
+export enum WhatsappMessageStatus {
+    ACCEPTED = "ACCEPTED",
+    SENT = "SENT",
+    DELIVERED = "DELIVERED",
+    READ = "READ"
 }
 
 export enum CoreLangDir {
@@ -1444,53 +1456,92 @@ export interface SearchEngineUpdateFieldsInput {
 
 export interface WhatsappCreateConversationInput {
     id: string;
-    accounts?: Nullable<Nullable<string>[]>;
+    wabaConversationId: GraphQLString;
+    timelineId: string;
+    wabaContactId: GraphQLString;
+    expiration: GraphQLString;
+    category: GraphQLString;
+    isBillable: GraphQLBoolean;
+    pricingModel: GraphQLString;
 }
 
 export interface WhatsappUpdateConversationByIdInput {
     id: string;
-    accounts?: Nullable<Nullable<string>[]>;
+    wabaConversationId?: Nullable<GraphQLString>;
+    timelineId?: Nullable<string>;
+    wabaContactId?: Nullable<GraphQLString>;
+    expiration?: Nullable<GraphQLString>;
+    category?: Nullable<GraphQLString>;
+    isBillable?: Nullable<GraphQLBoolean>;
+    pricingModel?: Nullable<GraphQLString>;
 }
 
 export interface WhatsappUpdateConversationsInput {
     id?: Nullable<string>;
-    accounts?: Nullable<Nullable<string>[]>;
+    wabaConversationId?: Nullable<GraphQLString>;
+    timelineId?: Nullable<string>;
+    wabaContactId?: Nullable<GraphQLString>;
+    expiration?: Nullable<GraphQLString>;
+    category?: Nullable<GraphQLString>;
+    isBillable?: Nullable<GraphQLBoolean>;
+    pricingModel?: Nullable<GraphQLString>;
 }
 
 export interface WhatsappCreateMessageInput {
     id: string;
-    whatsappMessageId: GraphQLString;
-    conversationId: string;
+    wabaMessageId: GraphQLString;
     direction: WhatsappMessageDirection;
     accountId?: Nullable<string>;
-    displayPhoneNumber: GraphQLString;
-    phoneNumberId: GraphQLString;
+    wabaContactId: GraphQLString;
+    contactName?: Nullable<GraphQLString>;
     type: WhatsappMessageType;
     payload: JSON;
 }
 
 export interface WhatsappUpdateMessageByIdInput {
     id: string;
-    whatsappMessageId?: Nullable<GraphQLString>;
-    conversationId?: Nullable<string>;
+    wabaMessageId?: Nullable<GraphQLString>;
     direction?: Nullable<WhatsappMessageDirection>;
     accountId?: Nullable<string>;
-    displayPhoneNumber?: Nullable<GraphQLString>;
-    phoneNumberId?: Nullable<GraphQLString>;
+    wabaContactId?: Nullable<GraphQLString>;
+    contactName?: Nullable<GraphQLString>;
     type?: Nullable<WhatsappMessageType>;
     payload?: Nullable<JSON>;
 }
 
 export interface WhatsappUpdateMessagesInput {
     id?: Nullable<string>;
-    whatsappMessageId?: Nullable<GraphQLString>;
+    wabaMessageId?: Nullable<GraphQLString>;
+    timelineId?: Nullable<string>;
     conversationId?: Nullable<string>;
+    statuses?: Nullable<Nullable<GraphQLString>[]>;
     direction?: Nullable<WhatsappMessageDirection>;
     accountId?: Nullable<string>;
-    displayPhoneNumber?: Nullable<GraphQLString>;
-    phoneNumberId?: Nullable<GraphQLString>;
+    wabaContactId?: Nullable<GraphQLString>;
+    contactName?: Nullable<GraphQLString>;
     type?: Nullable<WhatsappMessageType>;
     payload?: Nullable<JSON>;
+}
+
+export interface WhatsappCreateTimelineInput {
+    id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+    wabaPhoneNumberId: GraphQLString;
+    wabaContactId: GraphQLString;
+}
+
+export interface WhatsappUpdateTimelineByIdInput {
+    id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+    wabaPhoneNumberId?: Nullable<GraphQLString>;
+    wabaContactId?: Nullable<GraphQLString>;
+}
+
+export interface WhatsappUpdateTimelinesInput {
+    id?: Nullable<string>;
+    accounts?: Nullable<Nullable<string>[]>;
+    wabaPhoneNumberId?: Nullable<GraphQLString>;
+    wabaContactId?: Nullable<GraphQLString>;
 }
 
 export interface CoreFileUploaded {
@@ -1688,6 +1739,10 @@ export interface IQuery {
     whatsappFindMessageById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
     whatsappGetMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
     whatsappPaginateMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    whatsappFindTimeline(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline> | Promise<Nullable<WhatsappTimeline>>;
+    whatsappFindTimelineById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline> | Promise<Nullable<WhatsappTimeline>>;
+    whatsappGetTimelines(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline>[] | Promise<Nullable<WhatsappTimeline>[]>;
+    whatsappPaginateTimelines(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     coreGetLangs(): Nullable<CoreLang>[] | Promise<Nullable<CoreLang>[]>;
     coreGetFallbackLang(): Nullable<CoreLang> | Promise<Nullable<CoreLang>>;
     coreGetSearchKeyLang(): Nullable<CoreSearchKeyLang> | Promise<Nullable<CoreSearchKeyLang>>;
@@ -1948,20 +2003,18 @@ export interface IMutation {
     searchEngineUpsertField(payload: SearchEngineUpdateFieldByIdInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFieldById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
-    whatsappCreateConversation(payload: WhatsappCreateConversationInput): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
-    whatsappCreateConversations(payload: Nullable<WhatsappCreateConversationInput>[]): boolean | Promise<boolean>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
-    whatsappUpsertConversation(payload: WhatsappUpdateConversationByIdInput): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappDeleteConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
-    whatsappCreateMessage(payload: WhatsappCreateMessageInput): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
-    whatsappCreateMessages(payload: Nullable<WhatsappCreateMessageInput>[]): boolean | Promise<boolean>;
     whatsappUpdateMessageById(payload: WhatsappUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
     whatsappUpdateMessages(payload: WhatsappUpdateMessagesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
-    whatsappUpsertMessage(payload: WhatsappUpdateMessageByIdInput): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
     whatsappDeleteMessageById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage> | Promise<Nullable<WhatsappMessage>>;
     whatsappDeleteMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappMessage>[] | Promise<Nullable<WhatsappMessage>[]>;
+    whatsappUpdateTimelineById(payload: WhatsappUpdateTimelineByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline> | Promise<Nullable<WhatsappTimeline>>;
+    whatsappUpdateTimelines(payload: WhatsappUpdateTimelinesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline>[] | Promise<Nullable<WhatsappTimeline>[]>;
+    whatsappDeleteTimelineById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline> | Promise<Nullable<WhatsappTimeline>>;
+    whatsappDeleteTimelines(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappTimeline>[] | Promise<Nullable<WhatsappTimeline>[]>;
 }
 
 export interface AuditingSideEffect {
@@ -2544,7 +2597,14 @@ export interface SearchEngineField {
 
 export interface WhatsappConversation {
     id: string;
-    accounts?: Nullable<Nullable<string>[]>;
+    wabaConversationId: GraphQLString;
+    timelineId: string;
+    timeline?: Nullable<WhatsappTimeline>;
+    wabaContactId: GraphQLString;
+    expiration: GraphQLString;
+    category: GraphQLString;
+    isBillable: GraphQLBoolean;
+    pricingModel: GraphQLString;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
@@ -2552,16 +2612,29 @@ export interface WhatsappConversation {
 
 export interface WhatsappMessage {
     id: string;
-    whatsappMessageId: GraphQLString;
-    conversationId: string;
+    wabaMessageId: GraphQLString;
+    timelineId: string;
+    timeline?: Nullable<WhatsappTimeline>;
+    conversationId?: Nullable<string>;
     conversation?: Nullable<WhatsappConversation>;
+    statuses: Nullable<GraphQLString>[];
     direction: WhatsappMessageDirection;
     accountId?: Nullable<string>;
     account?: Nullable<IamAccount>;
-    displayPhoneNumber: GraphQLString;
-    phoneNumberId: GraphQLString;
+    wabaContactId: GraphQLString;
+    contactName?: Nullable<GraphQLString>;
     type: WhatsappMessageType;
     payload: JSON;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface WhatsappTimeline {
+    id: string;
+    accounts?: Nullable<Nullable<string>[]>;
+    wabaPhoneNumberId: GraphQLString;
+    wabaContactId: GraphQLString;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
