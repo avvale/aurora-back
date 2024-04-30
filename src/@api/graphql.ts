@@ -136,8 +136,10 @@ export enum WhatsappMessageDirection {
 }
 
 export enum WhatsappMessageType {
+    AUDIO = "AUDIO",
     BUTTON = "BUTTON",
     CONTACTS = "CONTACTS",
+    DOCUMENT = "DOCUMENT",
     IMAGE = "IMAGE",
     INTERACTIVE = "INTERACTIVE",
     LOCATION = "LOCATION",
@@ -147,7 +149,8 @@ export enum WhatsappMessageType {
     SYSTEM = "SYSTEM",
     TEMPLATE = "TEMPLATE",
     TEXT = "TEXT",
-    UNKNOWN = "UNKNOWN"
+    UNKNOWN = "UNKNOWN",
+    VIDEO = "VIDEO"
 }
 
 export enum WhatsappMessageStatus {
