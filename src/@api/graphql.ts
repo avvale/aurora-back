@@ -1303,7 +1303,6 @@ export interface OAuthCreateCredentialsInput {
     grantType: OAuthClientGrantType;
     username?: Nullable<GraphQLString>;
     password?: Nullable<GraphQLString>;
-    email?: Nullable<GraphQLString>;
     clientSecret?: Nullable<GraphQLString>;
     accessTokenId?: Nullable<string>;
     refreshToken?: Nullable<GraphQLString>;
