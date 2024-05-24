@@ -119,6 +119,10 @@ export const IamRepositories = [
     {
         provide : IamIRoleRepository,
         useClass: IamSequelizeRoleRepository,
+    },
+    {
+        provide : IamITagRepository,
+        useClass: IamSequelizeTagRepository,
     }
 ];
 export const IamSagas = [

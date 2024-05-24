@@ -3,83 +3,83 @@
 
 export const iamMockTagData = [
     {
-        id: '32ca777b-0d70-414b-a15f-5c014955a781',
-        name: 'Fantastic Cotton Sausages',
+        id: '044e9b19-1d5e-43b6-bcce-660725759eb2',
+        name: 'Generic Fresh Car',
     },
     {
-        id: '5d90cc5f-43d7-4b5b-92f6-5bb6823f91e8',
-        name: 'Incredible Plastic Keyboard',
+        id: '63856db8-17fb-42cf-bebe-d1766a3e59ad',
+        name: 'Unbranded Wooden Car',
     },
     {
-        id: 'fa345775-2e05-47b1-b2c6-f4f4970fe504',
-        name: 'Gorgeous Plastic Chair',
+        id: '79ddc557-adfd-466d-aa91-e7c54cdcde33',
+        name: 'Rustic Concrete Shirt',
     },
     {
-        id: '29069dc3-57ca-4f05-ba51-e97b831b40d6',
-        name: 'Sleek Soft Gloves',
+        id: '2fee9fc7-bd9c-497b-b754-1317410916cf',
+        name: 'Awesome Granite Hat',
     },
     {
-        id: '9e07b50c-8ed0-49ce-a843-f0b906cda0d5',
-        name: 'Intelligent Cotton Towels',
+        id: 'd5b9bd33-1a12-4e65-a3ed-67159c738a5c',
+        name: 'Sleek Frozen Chair',
     },
     {
-        id: 'dfc34e73-8ebc-4e49-8513-09fe00ce9c45',
-        name: 'Ergonomic Metal Chicken',
+        id: 'a2245419-a0d4-4d4f-89eb-0e07ad643071',
+        name: 'Fantastic Wooden Table',
     },
     {
-        id: '462f3d33-8e9a-401a-b2ae-3c85059ff961',
-        name: 'Intelligent Steel Shirt',
+        id: 'ba2adf8d-3680-4bc0-baa0-b1273429ff89',
+        name: 'Intelligent Metal Gloves',
     },
     {
-        id: '7d200c94-7c35-4620-ac3d-d4f518b068c6',
-        name: 'Unbranded Frozen Chips',
+        id: '8d432ba3-8a57-40f7-8c15-a2221666bcfd',
+        name: 'Fantastic Plastic Shoes',
     },
     {
-        id: '7f044b71-38bb-4dba-a3ac-13ae80dcdfac',
-        name: 'Rustic Rubber Towels',
+        id: '54d70b4f-7326-412f-a530-5e83f3256df7',
+        name: 'Generic Rubber Mouse',
     },
     {
-        id: 'cbfa9f14-8399-4762-ad31-c11e116f5d22',
-        name: 'Gorgeous Frozen Mouse',
+        id: '5343a8e2-0712-41e8-9cb3-3c983b9ce4eb',
+        name: 'Generic Soft Salad',
     },
     {
-        id: 'bf55fc7d-6a57-422b-8026-41c86a678895',
-        name: 'Intelligent Plastic Fish',
+        id: '867c87fc-b9b7-4100-b62b-1ecc566d432f',
+        name: 'Handcrafted Steel Chips',
     },
     {
-        id: '7e318b73-9bca-44e3-b427-d34334ded189',
-        name: 'Handcrafted Concrete Pizza',
+        id: '80f0658d-354f-4ccc-8a1f-b94907a6a554',
+        name: 'Handcrafted Fresh Hat',
     },
     {
-        id: 'c480df57-7138-410f-b914-c29a6d75388e',
-        name: 'Small Plastic Sausages',
+        id: '7073839d-133a-4f7e-b386-d1a6492ec1a0',
+        name: 'Ergonomic Cotton Shirt',
     },
     {
-        id: '6da56b66-1110-451b-b9f2-733888d65f60',
-        name: 'Fantastic Granite Soap',
+        id: '5e7dc7a3-6c2c-4f97-9eed-5dff4e653183',
+        name: 'Tasty Concrete Bacon',
     },
     {
-        id: 'f0679275-ecd3-4cd6-a9a0-32bcfc707407',
-        name: 'Intelligent Concrete Salad',
+        id: '034fcbbe-a180-46b8-99e7-a9efbc4e0751',
+        name: 'Fantastic Metal Towels',
     },
     {
-        id: 'c19f64e4-74fe-4a68-9923-6baeaf027745',
-        name: 'Unbranded Granite Soap',
+        id: 'ad82ba68-14b6-42cc-98f2-35e0a2b8f727',
+        name: 'Ergonomic Soft Table',
     },
     {
-        id: '4f930493-5115-4152-9c0a-134e090e8a33',
-        name: 'Unbranded Soft Computer',
+        id: '7e43b47b-1ff5-478c-b8c2-ca0d223932cc',
+        name: 'Ergonomic Plastic Pizza',
     },
     {
-        id: '3cae489a-f7e6-452c-89c5-ed9226e5dbe5',
-        name: 'Handmade Wooden Towels',
+        id: 'e921947d-bbae-4dbd-99ae-cd1182d493da',
+        name: 'Tasty Concrete Cheese',
     },
     {
-        id: '0c8671d6-76d0-4804-a6ee-c774847d67e2',
-        name: 'Licensed Metal Ball',
+        id: '48fd93ba-9f0b-4923-bcf1-cc84376deee5',
+        name: 'Ergonomic Plastic Car',
     },
     {
-        id: 'dfe5fef9-33e2-4711-85fb-2a54b1d61c17',
-        name: 'Handcrafted Metal Chicken',
+        id: '224fe82f-befc-4253-89ce-76a0dc573d5a',
+        name: 'Handmade Wooden Computer',
     },
 ];
