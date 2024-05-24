@@ -107,6 +107,14 @@ export const IamRepositories = [
     {
         provide : IamIBoundedContextRepository,
         useClass: IamSequelizeBoundedContextRepository,
+    },
+    {
+        provide : IamIPermissionRepository,
+        useClass: IamSequelizePermissionRepository,
+    },
+    {
+        provide : IamIPermissionRoleRepository,
+        useClass: IamSequelizePermissionRoleRepository,
     }
 ];
 export const IamSagas = [
