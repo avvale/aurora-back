@@ -103,6 +103,10 @@ export const IamRepositories = [
     {
         provide : IamITenantAccountRepository,
         useClass: IamSequelizeTenantAccountRepository,
+    },
+    {
+        provide : IamIBoundedContextRepository,
+        useClass: IamSequelizeBoundedContextRepository,
     }
 ];
 export const IamSagas = [
