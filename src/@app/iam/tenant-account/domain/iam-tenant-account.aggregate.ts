@@ -6,7 +6,7 @@ import {
     IamTenantAccountAccountId,
     IamTenantAccountTenantId,
 } from '@app/iam/tenant-account/domain/value-objects';
-import { CQMetadata, LiteralObject, Utils } from '@aurorajs.dev/core';
+import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
 export class IamTenantAccount extends AggregateRoot
