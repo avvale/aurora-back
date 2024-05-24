@@ -127,6 +127,10 @@ export const IamRepositories = [
     {
         provide : IamITenantRepository,
         useClass: IamSequelizeTenantRepository,
+    },
+    {
+        provide : IamIUserRepository,
+        useClass: IamSequelizeUserRepository,
     }
 ];
 export const IamSagas = [
