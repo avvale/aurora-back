@@ -980,8 +980,6 @@ export interface IamCreateUserInput {
     isTwoFactorAuthenticationEnabled: GraphQLBoolean;
     twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId: string;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUserByIdInput {
@@ -995,8 +993,6 @@ export interface IamUpdateUserByIdInput {
     isTwoFactorAuthenticationEnabled?: Nullable<GraphQLBoolean>;
     twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface IamUpdateUsersInput {
@@ -1010,8 +1006,6 @@ export interface IamUpdateUsersInput {
     isTwoFactorAuthenticationEnabled?: Nullable<GraphQLBoolean>;
     twoFactorAuthenticationSecret?: Nullable<GraphQLString>;
     rememberToken?: Nullable<GraphQLString>;
-    accountId?: Nullable<string>;
-    meta?: Nullable<JSON>;
 }
 
 export interface MessageCreateInboxSettingInput {
