@@ -83,6 +83,13 @@ input IamUpdateAccountsInput
     user: IamUpdateUsersInput
 }
 
+input IamUpdateMeAccountInput
+{
+    email: GraphQLString
+    username: GraphQLString
+    user: IamUpdateUserByIdInput
+}
+
 type Query
 {
     iamFindAccount(
@@ -141,6 +148,12 @@ type Mutation
         query: QueryStatement
         constraint: QueryStatement
     ): [IamAccount]!
+
+
+    # additionalApis
+    iamMeAccountUpdate(
+        payload: IamUpdateMeAccountInput!
+    ): Boolean!
 
     # ---- customizations ----
     iamCreateAccounts(payload: [IamCreateAccountInput]!): Boolean!

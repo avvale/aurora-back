@@ -798,6 +798,12 @@ export interface IamUpdateAccountsInput {
     user?: Nullable<IamUpdateUsersInput>;
 }
 
+export interface IamUpdateMeAccountInput {
+    email?: Nullable<GraphQLString>;
+    username?: Nullable<GraphQLString>;
+    user?: Nullable<IamUpdateUserByIdInput>;
+}
+
 export interface IamCreateBoundedContextInput {
     id: string;
     name: GraphQLString;
@@ -1841,6 +1847,7 @@ export interface IMutation {
     iamUpsertAccount(payload: IamUpdateAccountByIdInput): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamDeleteAccountById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamDeleteAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
+    iamMeAccountUpdate(payload: IamUpdateMeAccountInput): boolean | Promise<boolean>;
     iamCreateAccounts(payload: Nullable<IamCreateAccountInput>[]): boolean | Promise<boolean>;
     iamCreateBoundedContext(payload: IamCreateBoundedContextInput): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamCreateBoundedContexts(payload: Nullable<IamCreateBoundedContextInput>[]): boolean | Promise<boolean>;
