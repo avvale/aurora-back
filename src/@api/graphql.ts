@@ -799,6 +799,7 @@ export interface IamUpdateAccountsInput {
 }
 
 export interface IamUpdateMeAccountInput {
+    id: string;
     email?: Nullable<GraphQLString>;
     username?: Nullable<GraphQLString>;
     user?: Nullable<IamUpdateUserByIdInput>;
