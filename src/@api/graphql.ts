@@ -753,7 +753,7 @@ export interface IamCreateAccountInput {
     email?: Nullable<GraphQLString>;
     username: GraphQLString;
     isActive: GraphQLBoolean;
-    clientId?: Nullable<string>;
+    clientId: string;
     tags?: Nullable<Nullable<GraphQLString>[]>;
     scopes?: Nullable<Nullable<GraphQLString>[]>;
     meta?: Nullable<JSON>;
@@ -761,6 +761,9 @@ export interface IamCreateAccountInput {
     tenantIds?: Nullable<Nullable<string>[]>;
     hasAddChildTenants?: Nullable<GraphQLBoolean>;
     user?: Nullable<IamCreateUserInput>;
+    dApplicationCodes: Nullable<GraphQLString>[];
+    dPermissions: JSON;
+    dTenants: Nullable<string>[];
 }
 
 export interface IamUpdateAccountByIdInput {
@@ -778,6 +781,9 @@ export interface IamUpdateAccountByIdInput {
     tenantIds?: Nullable<Nullable<string>[]>;
     hasAddChildTenants?: Nullable<GraphQLBoolean>;
     user?: Nullable<IamUpdateUserByIdInput>;
+    dApplicationCodes?: Nullable<Nullable<GraphQLString>[]>;
+    dPermissions?: Nullable<JSON>;
+    dTenants?: Nullable<Nullable<string>[]>;
 }
 
 export interface IamUpdateAccountsInput {
@@ -796,6 +802,7 @@ export interface IamUpdateAccountsInput {
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
     user?: Nullable<IamUpdateUsersInput>;
+    dTenants?: Nullable<Nullable<string>[]>;
 }
 
 export interface IamUpdateMeAccountInput {
@@ -1641,6 +1648,8 @@ export interface IQuery {
     iamGetAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
     iamPaginateAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamMeAccount(): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
+    iamCheckPasswordMeAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
+    iamCheckUniqueUsernameAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
     iamFindBoundedContext(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamFindBoundedContextById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamGetBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext>[] | Promise<Nullable<IamBoundedContext>[]>;
@@ -1849,7 +1858,7 @@ export interface IMutation {
     iamDeleteAccountById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamDeleteAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
     iamCreateAccounts(payload: Nullable<IamCreateAccountInput>[]): boolean | Promise<boolean>;
-    iamUpdateMeAccount(payload: IamUpdateMeAccountInput): boolean | Promise<boolean>;
+    iamUpdateMeAccount(payload: IamUpdateAccountByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     iamCheckPasswordMeAccount(password: GraphQLString): boolean | Promise<boolean>;
     iamCheckUniqueUsernameAccount(username: GraphQLString): boolean | Promise<boolean>;
     iamCreateBoundedContext(payload: IamCreateBoundedContextInput): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;

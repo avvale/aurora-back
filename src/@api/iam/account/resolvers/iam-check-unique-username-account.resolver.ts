@@ -1,7 +1,7 @@
 import { IamCheckUniqueUsernameAccountHandler } from '@api/iam/account';
 import { AuthenticationJwtGuard } from '@api/o-auth/shared';
 import { UseGuards } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @UseGuards(AuthenticationJwtGuard)
@@ -11,7 +11,7 @@ export class IamCheckUniqueUsernameAccountResolver
         private readonly handler: IamCheckUniqueUsernameAccountHandler,
     ) {}
 
-    @Mutation('iamCheckUniqueUsernameAccount')
+    @Query('iamCheckUniqueUsernameAccount')
     async main(
         @Args('username') username?: string,
     ): Promise<boolean>

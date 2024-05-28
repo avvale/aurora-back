@@ -117,6 +117,16 @@ type Query
 
     # ---- customizations ----
     iamMeAccount: IamAccount
+
+    # additionalApis
+    iamCheckPasswordMeAccount(
+        password: GraphQLString!
+    ): Boolean!
+
+    iamCheckUniqueUsernameAccount(
+        username: GraphQLString!
+    ): Boolean!
+
 }
 
 type Mutation
@@ -156,14 +166,6 @@ type Mutation
     # additionalApis
     iamUpdateMeAccount(
         payload: IamUpdateMeAccountInput!
-    ): Boolean!
-
-    iamCheckPasswordMeAccount(
-        password: GraphQLString!
-    ): Boolean!
-
-    iamCheckUniqueUsernameAccount(
-        username: GraphQLString!
     ): Boolean!
 
 }
