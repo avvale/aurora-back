@@ -150,12 +150,20 @@ type Mutation
         constraint: QueryStatement
     ): [IamAccount]!
 
+    # ---- customizations ----
+    iamCreateAccounts(payload: [IamCreateAccountInput]!): Boolean!
 
     # additionalApis
-    iamMeAccountUpdate(
+    iamUpdateMeAccount(
         payload: IamUpdateMeAccountInput!
     ): Boolean!
 
-    # ---- customizations ----
-    iamCreateAccounts(payload: [IamCreateAccountInput]!): Boolean!
+    iamCheckPasswordMeAccount(
+        password: GraphQLString!
+    ): Boolean!
+
+    iamCheckUniqueUsernameAccount(
+        username: GraphQLString!
+    ): Boolean!
+
 }

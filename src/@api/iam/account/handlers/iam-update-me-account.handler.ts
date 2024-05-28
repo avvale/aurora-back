@@ -1,12 +1,12 @@
+import { IamAccountResponse, IamFindAccountByIdQuery, IamUpdateAccountByIdCommand } from '@app/iam/account';
 import { IamUpdateMeAccountDto } from '../dto';
 import { IamUpdateMeAccountInput } from '@api/graphql';
-import { IamAccountResponse, IamFindAccountByIdQuery, IamUpdateAccountByIdCommand } from '@app/iam/account';
 import { IamFindUserByIdQuery, IamUpdateUserByIdCommand } from '@app/iam/user';
 import { AuditingMeta, ICommandBus, IQueryBus, diff, uuid } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class IamMeAccountUpdateHandler
+export class IamUpdateMeAccountHandler
 {
     constructor(
         private readonly commandBus: ICommandBus,
@@ -21,7 +21,7 @@ export class IamMeAccountUpdateHandler
     ): Promise<boolean>
     {
         const accountStorage = await this.queryBus.ask(new IamFindAccountByIdQuery(
-            payload.id,
+            account.id,
             {},
             {
                 timezone,
@@ -29,7 +29,7 @@ export class IamMeAccountUpdateHandler
         ));
 
         const userStorage = await this.queryBus.ask(new IamFindUserByIdQuery(
-            payload.user.id,
+            account.user.id,
             {},
             {
                 timezone,
@@ -46,7 +46,7 @@ export class IamMeAccountUpdateHandler
         await this.commandBus.dispatch(new IamUpdateAccountByIdCommand(
             {
                 ...accountStorage,
-                id: payload.id,
+                id: account.id,
             },
             {},
             {
@@ -67,7 +67,7 @@ export class IamMeAccountUpdateHandler
         await this.commandBus.dispatch(new IamUpdateUserByIdCommand(
             {
                 ...userDataToUpdate,
-                id: payload.user.id,
+                id: account.user.id,
             },
             {},
             {
