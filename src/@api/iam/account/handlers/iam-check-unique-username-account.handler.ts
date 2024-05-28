@@ -1,12 +1,11 @@
 import { IamFindAccountQuery } from '@app/iam/account';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamCheckUniqueUsernameAccountHandler
 {
     constructor(
-        private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
     ) {}
 
@@ -14,14 +13,21 @@ export class IamCheckUniqueUsernameAccountHandler
         username: string,
     ): Promise<boolean>
     {
-        const account = await this.queryBus.ask(new IamFindAccountQuery(
-            {
-                where: {
-                    username,
+        try
+        {
+            const account = await this.queryBus.ask(new IamFindAccountQuery(
+                {
+                    where: {
+                        username,
+                    },
                 },
-            },
-        ));
+            ));
 
-        return !account;
+            return !account;
+        }
+        catch (error)
+        {
+            if (error.status === 404) return true;
+        }
     }
 }
