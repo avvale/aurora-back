@@ -13,11 +13,13 @@ export class IamCheckUniqueUsernameAccountResolver
 
     @Query('iamCheckUniqueUsernameAccount')
     async main(
-        @Args('username') username?: string,
+        @Args('username') username: string,
+        @Args('avoidUsernames') avoidUsernames?: string[],
     ): Promise<boolean>
     {
         return await this.handler.main(
             username,
+            avoidUsernames,
         );
     }
 }

@@ -1642,7 +1642,7 @@ export interface IQuery {
     iamPaginateAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamMeAccount(): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamCheckPasswordMeAccount(password: GraphQLString): boolean | Promise<boolean>;
-    iamCheckUniqueUsernameAccount(username: GraphQLString): boolean | Promise<boolean>;
+    iamCheckUniqueUsernameAccount(username: GraphQLString, avoidUsernames?: Nullable<Nullable<GraphQLString>[]>): boolean | Promise<boolean>;
     iamFindBoundedContext(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamFindBoundedContextById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamGetBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext>[] | Promise<Nullable<IamBoundedContext>[]>;

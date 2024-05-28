@@ -125,6 +125,7 @@ type Query
 
     iamCheckUniqueUsernameAccount(
         username: GraphQLString!
+        avoidUsernames: [GraphQLString]
     ): Boolean!
 
 }

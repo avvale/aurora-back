@@ -18,10 +18,12 @@ export class IamCheckUniqueUsernameAccountController
     @ApiCreatedResponse({ description: 'Defines the action performed', type: Boolean })
     async main(
         @Body() username: string,
+        @Body() avoidUsernames: string[],
     )
     {
         return await this.handler.main(
             username,
+            avoidUsernames,
         );
     }
 }

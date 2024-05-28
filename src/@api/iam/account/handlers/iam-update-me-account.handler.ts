@@ -45,7 +45,7 @@ export class IamUpdateMeAccountHandler
 
         await this.commandBus.dispatch(new IamUpdateAccountByIdCommand(
             {
-                ...accountStorage,
+                ...accountDataToUpdate,
                 id: account.id,
             },
             {},

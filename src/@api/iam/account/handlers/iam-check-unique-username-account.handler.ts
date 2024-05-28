@@ -1,5 +1,5 @@
 import { IamFindAccountQuery } from '@app/iam/account';
-import { IQueryBus } from '@aurorajs.dev/core';
+import { IQueryBus, Operator } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -11,6 +11,7 @@ export class IamCheckUniqueUsernameAccountHandler
 
     async main(
         username: string,
+        avoidUsernames?: string[],
     ): Promise<boolean>
     {
         try
@@ -18,7 +19,14 @@ export class IamCheckUniqueUsernameAccountHandler
             const account = await this.queryBus.ask(new IamFindAccountQuery(
                 {
                     where: {
-                        username,
+                        [Operator.and]: [
+                            { username },
+                            { username:
+                                {
+                                    [Operator.notIn]: avoidUsernames,
+                                },
+                            },
+                        ],
                     },
                 },
             ));
