@@ -4,7 +4,6 @@ export { IamCreateTagsCommand } from './application/create/iam-create-tags.comma
 export { IamUpdateTagByIdCommand } from './application/update/iam-update-tag-by-id.command';
 export { IamUpdateTagsCommand } from './application/update/iam-update-tags.command';
 export { IamUpdateAndIncrementTagsCommand } from './application/update/iam-update-and-increment-tags.command';
-export { IamUpsertTagCommand } from './application/upsert/iam-upsert-tag.command';
 export { IamDeleteTagByIdCommand } from './application/delete/iam-delete-tag-by-id.command';
 export { IamDeleteTagsCommand } from './application/delete/iam-delete-tags.command';
 
@@ -55,7 +54,6 @@ import { IamCreateTagsCommandHandler } from './application/create/iam-create-tag
 import { IamUpdateTagByIdCommandHandler } from './application/update/iam-update-tag-by-id.command-handler';
 import { IamUpdateTagsCommandHandler } from './application/update/iam-update-tags.command-handler';
 import { IamUpdateAndIncrementTagsCommandHandler } from './application/update/iam-update-and-increment-tags.command-handler';
-import { IamUpsertTagCommandHandler } from './application/upsert/iam-upsert-tag.command-handler';
 import { IamDeleteTagByIdCommandHandler } from './application/delete/iam-delete-tag-by-id.command-handler';
 import { IamDeleteTagsCommandHandler } from './application/delete/iam-delete-tags.command-handler';
 
@@ -84,7 +82,6 @@ import { IamFindTagByIdService } from './application/find/iam-find-tag-by-id.ser
 import { IamUpdateTagByIdService } from './application/update/iam-update-tag-by-id.service';
 import { IamUpdateTagsService } from './application/update/iam-update-tags.service';
 import { IamUpdateAndIncrementTagsService } from './application/update/iam-update-and-increment-tags.service';
-import { IamUpsertTagService } from './application/upsert/iam-upsert-tag.service';
 import { IamDeleteTagByIdService } from './application/delete/iam-delete-tag-by-id.service';
 import { IamDeleteTagsService } from './application/delete/iam-delete-tags.service';
 
@@ -95,7 +92,6 @@ export const IamTagHandlers = [
     IamUpdateTagByIdCommandHandler,
     IamUpdateTagsCommandHandler,
     IamUpdateAndIncrementTagsCommandHandler,
-    IamUpsertTagCommandHandler,
     IamDeleteTagByIdCommandHandler,
     IamDeleteTagsCommandHandler,
 
@@ -125,7 +121,6 @@ export const IamTagServices = [
     IamUpdateTagByIdService,
     IamUpdateTagsService,
     IamUpdateAndIncrementTagsService,
-    IamUpsertTagService,
     IamDeleteTagByIdService,
     IamDeleteTagsService,
 ];
