@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/iam/tag/application/events/iam-add-tags-context.event.ts",
-            "integrity": "sha1:398537fc41bd7f54b66d8e95da1bcdd250e2c1cb"
+            "integrity": "sha1:305a7d9490b4975cd2930b4e4a18271ce80c7d24"
         },
         {
             "path": "src/@app/iam/tag/application/events/iam-created-tag.event-handler.ts",
@@ -136,18 +136,6 @@
         {
             "path": "src/@app/iam/tag/application/events/iam-updated-tags.event.ts",
             "integrity": "sha1:801554aa0284871a58711200987d102f8a61d5e0"
-        },
-        {
-            "path": "src/@app/iam/tag/application/events/iam-updated-and-incremented-tag.event.ts",
-            "integrity": "sha1:921f7022130b802b735118e0b3a7f90fb1645f2c"
-        },
-        {
-            "path": "src/@app/iam/tag/application/events/iam-updated-and-incremented-tags.event-handler.ts",
-            "integrity": "sha1:bc735d4d97484f113085c69aa727a1c72abe225b"
-        },
-        {
-            "path": "src/@app/iam/tag/application/events/iam-updated-and-incremented-tags.event.ts",
-            "integrity": "sha1:430d98a2940eeb6e94ad0ac48f96db14872f62dd"
         },
         {
             "path": "src/@app/iam/tag/application/find/iam-find-tag-by-id.query-handler.spec.ts",
@@ -274,26 +262,6 @@
             "integrity": "sha1:54b08d481a62dea24d95c1bf09f1e2264ef81136"
         },
         {
-            "path": "src/@app/iam/tag/application/update/iam-update-and-increment-tags.command-handler.spec.ts",
-            "integrity": "sha1:43cdc02609a60159c95475671cbebf3075edbd37"
-        },
-        {
-            "path": "src/@app/iam/tag/application/update/iam-update-and-increment-tags.command-handler.ts",
-            "integrity": "sha1:77c396e1c08848a7725c12c41769619ac764e5ab"
-        },
-        {
-            "path": "src/@app/iam/tag/application/update/iam-update-and-increment-tags.command.ts",
-            "integrity": "sha1:b8620c64e17ebe13f8cb4cb863c637334ca28cc0"
-        },
-        {
-            "path": "src/@app/iam/tag/application/update/iam-update-and-increment-tags.service.spec.ts",
-            "integrity": "sha1:f038a004e4958b0d72cb09c8eba45ea071424688"
-        },
-        {
-            "path": "src/@app/iam/tag/application/update/iam-update-and-increment-tags.service.ts",
-            "integrity": "sha1:fd396546bbe4788495736ae06e76813147ec4d4e"
-        },
-        {
             "path": "src/@app/iam/tag/domain/iam-tag.aggregate.ts",
             "integrity": "sha1:a51e2259df3fe9d71ee4785c51be830ade45a43f"
         },
@@ -315,11 +283,11 @@
         },
         {
             "path": "src/@app/iam/tag/index.ts",
-            "integrity": "sha1:084bb8d8113d38ef5515ff7401b45bc8f0328d8f"
+            "integrity": "sha1:288df1c6d74bc55570d4bce0ee9db3e591571809"
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.data.ts",
-            "integrity": "sha1:72a464adc449a7d8379de9e13894fffb953ef709"
+            "integrity": "sha1:f2d65ed62b26a465a0aa78ef58c6ff81a1e6be82"
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.repository.ts",
@@ -643,7 +611,7 @@
         },
         {
             "path": "postman/iam/iam.tag.postman.json",
-            "integrity": "sha1:c1e99201ae2506e7a458bf833adb1ad65629140d"
+            "integrity": "sha1:7fb8316aad9ddb6e3f1f4f0f2df67f055e4a0448"
         }
     ]
 }

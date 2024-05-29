@@ -34,3 +34,4 @@ excludedOperations:
   - sum
   - rawSql
   - upsert
+  - updateAndIncrement
