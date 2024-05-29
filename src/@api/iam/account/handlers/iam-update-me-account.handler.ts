@@ -43,23 +43,31 @@ export class IamUpdateMeAccountHandler
 
         const operationId = uuid();
 
-        await this.commandBus.dispatch(new IamUpdateAccountByIdCommand(
-            {
-                ...accountDataToUpdate,
-                id: account.id,
-            },
-            {},
-            {
-                timezone,
-                repositoryOptions: {
-                    auditing: {
-                        ...auditing,
-                        operationId,
-                        operationSort: 1,
+        if (
+            !(
+                Object.keys(accountDataToUpdate).length === 1 &&
+                Object.keys(accountDataToUpdate).includes('id')
+            )
+        )
+        {
+            await this.commandBus.dispatch(new IamUpdateAccountByIdCommand(
+                {
+                    ...accountDataToUpdate,
+                    id: account.id,
+                },
+                {},
+                {
+                    timezone,
+                    repositoryOptions: {
+                        auditing: {
+                            ...auditing,
+                            operationId,
+                            operationSort: 1,
+                        },
                     },
                 },
-            },
-        ));
+            ));
+        }
 
         // always password will be empty unless is changed
         if (userDataToUpdate.password === '') delete userDataToUpdate.password;

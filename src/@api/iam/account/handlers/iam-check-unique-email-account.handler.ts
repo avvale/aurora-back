@@ -24,7 +24,7 @@ export class IamCheckUniqueEmailAccountHandler
                             { email },
                             { email:
                                 {
-                                    [Operator.notIn]: avoidEmails,
+                                    [Operator.notIn]: avoidEmails.filter(email => email !== null),
                                 },
                             },
                             { email:

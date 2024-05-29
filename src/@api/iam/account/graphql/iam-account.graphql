@@ -131,7 +131,7 @@ type Query
     iamCheckUniqueEmailAccount(
         email: GraphQLString!
         avoidEmails: [GraphQLString]
-    ): [IamAccount]!
+    ): Boolean!
 
 }
 
