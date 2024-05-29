@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@app/iam/account/infrastructure/mock/iam-mock-account.data.ts",
-            "integrity": "sha1:87f0cbb3eec362d8058879c9159da1a6bd1fa01b"
+            "integrity": "sha1:e1df721a29c992b12366287ebc1720e26477675a"
         },
         {
             "path": "src/@app/iam/account/infrastructure/mock/iam-mock-account.repository.ts",
@@ -963,7 +963,7 @@
         },
         {
             "path": "src/@app/iam/role-account/infrastructure/mock/iam-mock-role-account.data.ts",
-            "integrity": "sha1:6b165bf9a418368a6bea6d67c25f6d1096d512fd"
+            "integrity": "sha1:f1a45d3ef1bee8665c8c9dc928a28bd0da8e899a"
         },
         {
             "path": "src/@app/iam/role-account/infrastructure/mock/iam-mock-role-account.repository.ts",
@@ -1423,7 +1423,7 @@
         },
         {
             "path": "src/@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.data.ts",
-            "integrity": "sha1:143e05bbbe2ad4a9cdd2029669241bde5dd03f2f"
+            "integrity": "sha1:78700d66ebc0119e8850f510876b13a705cc8ab8"
         },
         {
             "path": "src/@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.repository.ts",
@@ -1559,7 +1559,7 @@
         },
         {
             "path": "src/@api/iam/account/graphql/iam-account.graphql",
-            "integrity": "sha1:b39d8dc6c5f8d82f74ff3e668495070acaf4c254"
+            "integrity": "sha1:de6a0bf65cb6dafb394fbc76e505bd22ae51211b"
         },
         {
             "path": "src/@api/iam/account/handlers/iam-create-account.handler.spec.ts",
@@ -1643,7 +1643,7 @@
         },
         {
             "path": "src/@api/iam/account/index.ts",
-            "integrity": "sha1:1042792b2b2e734455adf1c96322b07f6550e42c"
+            "integrity": "sha1:2174685f9f7be46b66a3983782d9cd3e896a1685"
         },
         {
             "path": "src/@api/iam/account/resolvers/iam-create-account.resolver.spec.ts",
@@ -2402,12 +2402,36 @@
             "integrity": "sha1:e509a2acb8c4bb461643d4f1d8fac5a2568bade3"
         },
         {
+            "path": "src/@api/iam/account/controllers/iam-check-unique-email-account.controller.spec.ts",
+            "integrity": "sha1:f9e94304d87dd914c7e63596cab5196dee5b65e9"
+        },
+        {
+            "path": "src/@api/iam/account/controllers/iam-check-unique-email-account.controller.ts",
+            "integrity": "sha1:ceebf7d5b8611f2d988d8b4fdf60634a88e6d342"
+        },
+        {
+            "path": "src/@api/iam/account/handlers/iam-check-unique-email-account.handler.spec.ts",
+            "integrity": "sha1:fa6a9486b336f5fba8ea4e1c507cbc6a40398944"
+        },
+        {
+            "path": "src/@api/iam/account/handlers/iam-check-unique-email-account.handler.ts",
+            "integrity": "sha1:69a8385c29fc44ed25a4f641b9106f5e9a07ac72"
+        },
+        {
+            "path": "src/@api/iam/account/resolvers/iam-check-unique-email-account.resolver.spec.ts",
+            "integrity": "sha1:31babaa7598840c4fbab390b53193ea5f522d294"
+        },
+        {
+            "path": "src/@api/iam/account/resolvers/iam-check-unique-email-account.resolver.ts",
+            "integrity": "sha1:6521c50b54c10ca586e08a0c763cee75a9459fb1"
+        },
+        {
             "path": "test/acceptance/iam/account.e2e-spec.ts",
             "integrity": "sha1:d8911f0bf428f9cf5ff6b41f3414e73f070190dc"
         },
         {
             "path": "postman/iam/iam.account.postman.json",
-            "integrity": "sha1:7f49fe99a979b0ff89a13e49da41c093d1c158bf"
+            "integrity": "sha1:80fd18e014e5fd7e8ca2652cf870255cd83b688c"
         }
     ]
 }

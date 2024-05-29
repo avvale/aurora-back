@@ -1643,6 +1643,7 @@ export interface IQuery {
     iamMeAccount(): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamCheckPasswordMeAccount(password: GraphQLString): boolean | Promise<boolean>;
     iamCheckUniqueUsernameAccount(username: GraphQLString, avoidUsernames?: Nullable<Nullable<GraphQLString>[]>): boolean | Promise<boolean>;
+    iamCheckUniqueEmailAccount(email: GraphQLString, avoidEmails?: Nullable<Nullable<GraphQLString>[]>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
     iamFindBoundedContext(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamFindBoundedContextById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext> | Promise<Nullable<IamBoundedContext>>;
     iamGetBoundedContexts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamBoundedContext>[] | Promise<Nullable<IamBoundedContext>[]>;

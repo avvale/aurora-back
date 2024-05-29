@@ -50,6 +50,9 @@ export { IamCheckPasswordMeAccountResolver } from './resolvers/iam-check-passwor
 export { IamCheckUniqueUsernameAccountController } from './controllers/iam-check-unique-username-account.controller';
 export { IamCheckUniqueUsernameAccountHandler } from './handlers/iam-check-unique-username-account.handler';
 export { IamCheckUniqueUsernameAccountResolver } from './resolvers/iam-check-unique-username-account.resolver';
+export { IamCheckUniqueEmailAccountController } from './controllers/iam-check-unique-email-account.controller';
+export { IamCheckUniqueEmailAccountHandler } from './handlers/iam-check-unique-email-account.handler';
+export { IamCheckUniqueEmailAccountResolver } from './resolvers/iam-check-unique-email-account.resolver';
 
 // import controllers
 import { IamCreateAccountController } from './controllers/iam-create-account.controller';
@@ -105,6 +108,9 @@ import { IamCheckPasswordMeAccountResolver } from './resolvers/iam-check-passwor
 import { IamCheckUniqueUsernameAccountController } from './controllers/iam-check-unique-username-account.controller';
 import { IamCheckUniqueUsernameAccountHandler } from './handlers/iam-check-unique-username-account.handler';
 import { IamCheckUniqueUsernameAccountResolver } from './resolvers/iam-check-unique-username-account.resolver';
+import { IamCheckUniqueEmailAccountController } from './controllers/iam-check-unique-email-account.controller';
+import { IamCheckUniqueEmailAccountHandler } from './handlers/iam-check-unique-email-account.handler';
+import { IamCheckUniqueEmailAccountResolver } from './resolvers/iam-check-unique-email-account.resolver';
 
 export const IamAccountApiControllers = [
     // ---- customizations ----
@@ -125,6 +131,7 @@ export const IamAccountApiControllers = [
     IamUpdateMeAccountController,
     IamCheckPasswordMeAccountController,
     IamCheckUniqueUsernameAccountController,
+    IamCheckUniqueEmailAccountController,
 ];
 
 export const IamAccountApiResolvers = [
@@ -146,6 +153,7 @@ export const IamAccountApiResolvers = [
     IamUpdateMeAccountResolver,
     IamCheckPasswordMeAccountResolver,
     IamCheckUniqueUsernameAccountResolver,
+    IamCheckUniqueEmailAccountResolver,
 ];
 
 export const IamAccountApiHandlers = [
@@ -167,6 +175,7 @@ export const IamAccountApiHandlers = [
     IamUpdateMeAccountHandler,
     IamCheckPasswordMeAccountHandler,
     IamCheckUniqueUsernameAccountHandler,
+    IamCheckUniqueEmailAccountHandler,
 ];
 
 export const IamAccountApiServices = [
