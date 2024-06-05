@@ -1890,7 +1890,6 @@ export interface IMutation {
     iamDeleteRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
     iamInheritPermissionsRoleRole(payload: IamInheritRoleInput): boolean | Promise<boolean>;
     iamCreateTag(payload: IamCreateTagInput): Nullable<IamTag> | Promise<Nullable<IamTag>>;
-    iamCreateTags(payload: Nullable<IamCreateTagInput>[]): boolean | Promise<boolean>;
     iamUpdateTagById(payload: IamUpdateTagByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
     iamUpdateTags(payload: IamUpdateTagsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag>[] | Promise<Nullable<IamTag>[]>;
     iamDeleteTagById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;

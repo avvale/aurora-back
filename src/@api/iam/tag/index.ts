@@ -6,7 +6,6 @@ export { IamUpdateTagsDto } from './dto/iam-update-tags.dto';
 
 // export handlers
 export { IamCreateTagHandler } from './handlers/iam-create-tag.handler';
-export { IamCreateTagsHandler } from './handlers/iam-create-tags.handler';
 export { IamPaginateTagsHandler } from './handlers/iam-paginate-tags.handler';
 export { IamGetTagsHandler } from './handlers/iam-get-tags.handler';
 export { IamFindTagByIdHandler } from './handlers/iam-find-tag-by-id.handler';
@@ -18,7 +17,6 @@ export { IamDeleteTagsHandler } from './handlers/iam-delete-tags.handler';
 
 // export controllers
 export { IamCreateTagController } from './controllers/iam-create-tag.controller';
-export { IamCreateTagsController } from './controllers/iam-create-tags.controller';
 export { IamPaginateTagsController } from './controllers/iam-paginate-tags.controller';
 export { IamGetTagsController } from './controllers/iam-get-tags.controller';
 export { IamFindTagByIdController } from './controllers/iam-find-tag-by-id.controller';
@@ -30,7 +28,6 @@ export { IamDeleteTagsController } from './controllers/iam-delete-tags.controlle
 
 // export resolvers
 export { IamCreateTagResolver } from './resolvers/iam-create-tag.resolver';
-export { IamCreateTagsResolver } from './resolvers/iam-create-tags.resolver';
 export { IamPaginateTagsResolver } from './resolvers/iam-paginate-tags.resolver';
 export { IamGetTagsResolver } from './resolvers/iam-get-tags.resolver';
 export { IamFindTagByIdResolver } from './resolvers/iam-find-tag-by-id.resolver';
@@ -42,7 +39,6 @@ export { IamDeleteTagsResolver } from './resolvers/iam-delete-tags.resolver';
 
 // import controllers
 import { IamCreateTagController } from './controllers/iam-create-tag.controller';
-import { IamCreateTagsController } from './controllers/iam-create-tags.controller';
 import { IamPaginateTagsController } from './controllers/iam-paginate-tags.controller';
 import { IamGetTagsController } from './controllers/iam-get-tags.controller';
 import { IamFindTagByIdController } from './controllers/iam-find-tag-by-id.controller';
@@ -54,7 +50,6 @@ import { IamDeleteTagsController } from './controllers/iam-delete-tags.controlle
 
 // import resolvers
 import { IamCreateTagResolver } from './resolvers/iam-create-tag.resolver';
-import { IamCreateTagsResolver } from './resolvers/iam-create-tags.resolver';
 import { IamPaginateTagsResolver } from './resolvers/iam-paginate-tags.resolver';
 import { IamGetTagsResolver } from './resolvers/iam-get-tags.resolver';
 import { IamFindTagByIdResolver } from './resolvers/iam-find-tag-by-id.resolver';
@@ -66,7 +61,6 @@ import { IamDeleteTagsResolver } from './resolvers/iam-delete-tags.resolver';
 
 // import handlers
 import { IamCreateTagHandler } from './handlers/iam-create-tag.handler';
-import { IamCreateTagsHandler } from './handlers/iam-create-tags.handler';
 import { IamPaginateTagsHandler } from './handlers/iam-paginate-tags.handler';
 import { IamGetTagsHandler } from './handlers/iam-get-tags.handler';
 import { IamFindTagByIdHandler } from './handlers/iam-find-tag-by-id.handler';
@@ -81,7 +75,6 @@ import { IamTagSeeder } from './seeder/iam-tag.seeder';
 
 export const IamTagApiControllers = [
     IamCreateTagController,
-    IamCreateTagsController,
     IamPaginateTagsController,
     IamGetTagsController,
     IamFindTagByIdController,
@@ -94,7 +87,6 @@ export const IamTagApiControllers = [
 
 export const IamTagApiResolvers = [
     IamCreateTagResolver,
-    IamCreateTagsResolver,
     IamPaginateTagsResolver,
     IamGetTagsResolver,
     IamFindTagByIdResolver,
@@ -107,7 +99,6 @@ export const IamTagApiResolvers = [
 
 export const IamTagApiHandlers = [
     IamCreateTagHandler,
-    IamCreateTagsHandler,
     IamPaginateTagsHandler,
     IamGetTagsHandler,
     IamFindTagByIdHandler,

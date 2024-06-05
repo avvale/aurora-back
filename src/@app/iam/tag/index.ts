@@ -1,6 +1,5 @@
 // export commands
 export { IamCreateTagCommand } from './application/create/iam-create-tag.command';
-export { IamCreateTagsCommand } from './application/create/iam-create-tags.command';
 export { IamUpdateTagByIdCommand } from './application/update/iam-update-tag-by-id.command';
 export { IamUpdateTagsCommand } from './application/update/iam-update-tags.command';
 export { IamDeleteTagByIdCommand } from './application/delete/iam-delete-tag-by-id.command';
@@ -47,7 +46,6 @@ export { IamTagSagas } from './application/sagas/iam-tag.sagas';
 
 // command handlers
 import { IamCreateTagCommandHandler } from './application/create/iam-create-tag.command-handler';
-import { IamCreateTagsCommandHandler } from './application/create/iam-create-tags.command-handler';
 import { IamUpdateTagByIdCommandHandler } from './application/update/iam-update-tag-by-id.command-handler';
 import { IamUpdateTagsCommandHandler } from './application/update/iam-update-tags.command-handler';
 import { IamDeleteTagByIdCommandHandler } from './application/delete/iam-delete-tag-by-id.command-handler';
@@ -69,7 +67,6 @@ import { IamDeletedTagsEventHandler } from './application/events/iam-deleted-tag
 
 // services
 import { IamCreateTagService } from './application/create/iam-create-tag.service';
-import { IamCreateTagsService } from './application/create/iam-create-tags.service';
 import { IamPaginateTagsService } from './application/paginate/iam-paginate-tags.service';
 import { IamGetTagsService } from './application/get/iam-get-tags.service';
 import { IamFindTagService } from './application/find/iam-find-tag.service';
@@ -82,7 +79,6 @@ import { IamDeleteTagsService } from './application/delete/iam-delete-tags.servi
 export const IamTagHandlers = [
     // commands
     IamCreateTagCommandHandler,
-    IamCreateTagsCommandHandler,
     IamUpdateTagByIdCommandHandler,
     IamUpdateTagsCommandHandler,
     IamDeleteTagByIdCommandHandler,
@@ -105,7 +101,6 @@ export const IamTagHandlers = [
 
 export const IamTagServices = [
     IamCreateTagService,
-    IamCreateTagsService,
     IamPaginateTagsService,
     IamGetTagsService,
     IamFindTagService,

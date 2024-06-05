@@ -26,26 +26,6 @@
             "integrity": "sha1:5608ab45f9b56749254db76e10394943c5ad42f2"
         },
         {
-            "path": "src/@app/iam/tag/application/create/iam-create-tags.command-handler.spec.ts",
-            "integrity": "sha1:f3b2533b454c36c4413e8439523082f41f9bd95a"
-        },
-        {
-            "path": "src/@app/iam/tag/application/create/iam-create-tags.command-handler.ts",
-            "integrity": "sha1:2db2f6b06a11b9f4791275c1690e8c4efd4b19a0"
-        },
-        {
-            "path": "src/@app/iam/tag/application/create/iam-create-tags.command.ts",
-            "integrity": "sha1:d57f431a2d251f55edc952e5526e8cc354d39926"
-        },
-        {
-            "path": "src/@app/iam/tag/application/create/iam-create-tags.service.spec.ts",
-            "integrity": "sha1:7a4617860b92ae04fb756ed571ce6db88e189f9b"
-        },
-        {
-            "path": "src/@app/iam/tag/application/create/iam-create-tags.service.ts",
-            "integrity": "sha1:fed27784ebd15e9eb9ba1d1a451cc45eb8bab64e"
-        },
-        {
             "path": "src/@app/iam/tag/application/delete/iam-delete-tag-by-id.command-handler.spec.ts",
             "integrity": "sha1:825ccac288874054ec157721a8c088fb03fdf2e1"
         },
@@ -283,11 +263,11 @@
         },
         {
             "path": "src/@app/iam/tag/index.ts",
-            "integrity": "sha1:288df1c6d74bc55570d4bce0ee9db3e591571809"
+            "integrity": "sha1:966e549f9175c7f006f644022ec55bc58ade33d8"
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.data.ts",
-            "integrity": "sha1:f2d65ed62b26a465a0aa78ef58c6ff81a1e6be82"
+            "integrity": "sha1:d41d44b4aca943113ec153bc9a15da16ad8bc66c"
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.repository.ts",
@@ -336,14 +316,6 @@
         {
             "path": "src/@api/iam/tag/controllers/iam-create-tag.controller.ts",
             "integrity": "sha1:6ff85f5c08c79fd554173d770da529b6efb48729"
-        },
-        {
-            "path": "src/@api/iam/tag/controllers/iam-create-tags.controller.spec.ts",
-            "integrity": "sha1:54f24bdb19b23ad33198291e371f142c0a45cb38"
-        },
-        {
-            "path": "src/@api/iam/tag/controllers/iam-create-tags.controller.ts",
-            "integrity": "sha1:291aa59bd065a5c73ee11bd57b3d8dfcf3545b42"
         },
         {
             "path": "src/@api/iam/tag/controllers/iam-delete-tag-by-id.controller.spec.ts",
@@ -435,7 +407,7 @@
         },
         {
             "path": "src/@api/iam/tag/graphql/iam-tag.graphql",
-            "integrity": "sha1:0f87de73d293827596af108e2ae2ea85e3a4d8b5"
+            "integrity": "sha1:9481c3e4698396ca2ab4d3e7e0e6ad4a2b2dca7d"
         },
         {
             "path": "src/@api/iam/tag/handlers/iam-create-tag.handler.spec.ts",
@@ -444,14 +416,6 @@
         {
             "path": "src/@api/iam/tag/handlers/iam-create-tag.handler.ts",
             "integrity": "sha1:a8878380370416f7884e93589aadafba2b68e167"
-        },
-        {
-            "path": "src/@api/iam/tag/handlers/iam-create-tags.handler.spec.ts",
-            "integrity": "sha1:caabf98027e73509ab10463895a44d5aa3d9bb41"
-        },
-        {
-            "path": "src/@api/iam/tag/handlers/iam-create-tags.handler.ts",
-            "integrity": "sha1:f4a5c62d4c74ec9f7faca006caea228ac9480e11"
         },
         {
             "path": "src/@api/iam/tag/handlers/iam-delete-tag-by-id.handler.spec.ts",
@@ -519,7 +483,7 @@
         },
         {
             "path": "src/@api/iam/tag/index.ts",
-            "integrity": "sha1:86e26976cab7b1b53344992fdc160c401a52ec86"
+            "integrity": "sha1:9bd80aee127d803bbc163d211aa2d9990a18f92c"
         },
         {
             "path": "src/@api/iam/tag/resolvers/iam-create-tag.resolver.spec.ts",
@@ -528,14 +492,6 @@
         {
             "path": "src/@api/iam/tag/resolvers/iam-create-tag.resolver.ts",
             "integrity": "sha1:12cb97fd75f1c1019ad7a74a2e0488f034189cb4"
-        },
-        {
-            "path": "src/@api/iam/tag/resolvers/iam-create-tags.resolver.spec.ts",
-            "integrity": "sha1:f41a1aa7fee31e2b4462cba20f365d1d29680854"
-        },
-        {
-            "path": "src/@api/iam/tag/resolvers/iam-create-tags.resolver.ts",
-            "integrity": "sha1:3764bf587cf8db4bae2c973f46304ac799a312e0"
         },
         {
             "path": "src/@api/iam/tag/resolvers/iam-delete-tag-by-id.resolver.spec.ts",
@@ -603,7 +559,7 @@
         },
         {
             "path": "src/@api/iam/tag/seeder/iam-tag.seeder.ts",
-            "integrity": "sha1:081c47fb093a97e4ea519a9c8c4a04e10f318d22"
+            "integrity": "sha1:9154022f45f25c9ec14a6a7bd194808f83a960c2"
         },
         {
             "path": "test/acceptance/iam/tag.e2e-spec.ts",
@@ -611,7 +567,7 @@
         },
         {
             "path": "postman/iam/iam.tag.postman.json",
-            "integrity": "sha1:7fb8316aad9ddb6e3f1f4f0f2df67f055e4a0448"
+            "integrity": "sha1:098b5f9094411e5d49700e82abc660ac0f2f1edb"
         }
     ]
 }

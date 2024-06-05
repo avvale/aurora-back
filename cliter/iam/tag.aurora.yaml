@@ -35,3 +35,4 @@ excludedOperations:
   - rawSql
   - upsert
   - updateAndIncrement
+  - createBatch
