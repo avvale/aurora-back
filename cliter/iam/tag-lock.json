@@ -267,7 +267,7 @@
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.data.ts",
-            "integrity": "sha1:d41d44b4aca943113ec153bc9a15da16ad8bc66c"
+            "integrity": "sha1:65960ab19bd2c71ea1b450be89bd481960471fe0"
         },
         {
             "path": "src/@app/iam/tag/infrastructure/mock/iam-mock-tag.repository.ts",
@@ -567,7 +567,7 @@
         },
         {
             "path": "postman/iam/iam.tag.postman.json",
-            "integrity": "sha1:098b5f9094411e5d49700e82abc660ac0f2f1edb"
+            "integrity": "sha1:7d231ae3e61c517ece9e168b022c784f4ec69c69"
         }
     ]
 }
