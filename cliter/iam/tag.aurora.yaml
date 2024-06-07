@@ -36,3 +36,4 @@ excludedOperations:
   - upsert
   - updateAndIncrement
   - createBatch
+  - update

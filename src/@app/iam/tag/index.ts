@@ -1,7 +1,6 @@
 // export commands
 export { IamCreateTagCommand } from './application/create/iam-create-tag.command';
 export { IamUpdateTagByIdCommand } from './application/update/iam-update-tag-by-id.command';
-export { IamUpdateTagsCommand } from './application/update/iam-update-tags.command';
 export { IamDeleteTagByIdCommand } from './application/delete/iam-delete-tag-by-id.command';
 export { IamDeleteTagsCommand } from './application/delete/iam-delete-tags.command';
 
@@ -22,7 +21,6 @@ export { IamCreatedTagsEvent } from './application/events/iam-created-tags.event
 export { IamCreatedTagEvent } from './application/events/iam-created-tag.event';
 export { IamDeletedTagsEvent } from './application/events/iam-deleted-tags.event';
 export { IamDeletedTagEvent } from './application/events/iam-deleted-tag.event';
-export { IamUpdatedTagsEvent } from './application/events/iam-updated-tags.event';
 export { IamUpdatedTagEvent } from './application/events/iam-updated-tag.event';
 
 // export command handlers
@@ -47,7 +45,6 @@ export { IamTagSagas } from './application/sagas/iam-tag.sagas';
 // command handlers
 import { IamCreateTagCommandHandler } from './application/create/iam-create-tag.command-handler';
 import { IamUpdateTagByIdCommandHandler } from './application/update/iam-update-tag-by-id.command-handler';
-import { IamUpdateTagsCommandHandler } from './application/update/iam-update-tags.command-handler';
 import { IamDeleteTagByIdCommandHandler } from './application/delete/iam-delete-tag-by-id.command-handler';
 import { IamDeleteTagsCommandHandler } from './application/delete/iam-delete-tags.command-handler';
 
@@ -61,7 +58,6 @@ import { IamFindTagByIdQueryHandler } from './application/find/iam-find-tag-by-i
 import { IamCreatedTagEventHandler } from './application/events/iam-created-tag.event-handler';
 import { IamCreatedTagsEventHandler } from './application/events/iam-created-tags.event-handler';
 import { IamUpdatedTagEventHandler } from './application/events/iam-updated-tag.event-handler';
-import { IamUpdatedTagsEventHandler } from './application/events/iam-updated-tags.event-handler';
 import { IamDeletedTagEventHandler } from './application/events/iam-deleted-tag.event-handler';
 import { IamDeletedTagsEventHandler } from './application/events/iam-deleted-tags.event-handler';
 
@@ -72,7 +68,6 @@ import { IamGetTagsService } from './application/get/iam-get-tags.service';
 import { IamFindTagService } from './application/find/iam-find-tag.service';
 import { IamFindTagByIdService } from './application/find/iam-find-tag-by-id.service';
 import { IamUpdateTagByIdService } from './application/update/iam-update-tag-by-id.service';
-import { IamUpdateTagsService } from './application/update/iam-update-tags.service';
 import { IamDeleteTagByIdService } from './application/delete/iam-delete-tag-by-id.service';
 import { IamDeleteTagsService } from './application/delete/iam-delete-tags.service';
 
@@ -80,7 +75,6 @@ export const IamTagHandlers = [
     // commands
     IamCreateTagCommandHandler,
     IamUpdateTagByIdCommandHandler,
-    IamUpdateTagsCommandHandler,
     IamDeleteTagByIdCommandHandler,
     IamDeleteTagsCommandHandler,
 
@@ -94,7 +88,6 @@ export const IamTagHandlers = [
     IamCreatedTagEventHandler,
     IamCreatedTagsEventHandler,
     IamUpdatedTagEventHandler,
-    IamUpdatedTagsEventHandler,
     IamDeletedTagEventHandler,
     IamDeletedTagsEventHandler,
 ];
@@ -106,7 +99,6 @@ export const IamTagServices = [
     IamFindTagService,
     IamFindTagByIdService,
     IamUpdateTagByIdService,
-    IamUpdateTagsService,
     IamDeleteTagByIdService,
     IamDeleteTagsService,
 ];
