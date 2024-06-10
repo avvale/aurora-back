@@ -66,9 +66,4 @@ type Mutation
         constraint: QueryStatement
     ): IamTag
 
-    iamDeleteTags(
-        query: QueryStatement
-        constraint: QueryStatement
-    ): [IamTag]!
-
 }

@@ -37,3 +37,4 @@ excludedOperations:
   - updateAndIncrement
   - createBatch
   - update
+  - delete

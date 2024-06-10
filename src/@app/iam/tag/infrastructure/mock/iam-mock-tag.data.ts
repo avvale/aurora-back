@@ -3,83 +3,83 @@
 
 export const iamMockTagData = [
     {
-        id: '3d5a65d2-c285-4528-bb1a-94bf77320a56',
-        name: 'Small Rubber Mouse',
+        id: '6a2bb762-cd3d-447a-8fb3-7af36ed3fd25',
+        name: 'Ergonomic Soft Sausages',
     },
     {
-        id: 'c2a9fced-1521-4061-8995-98386f948715',
-        name: 'Intelligent Steel Shoes',
+        id: 'bed03266-8097-4697-815a-b44ece3d6152',
+        name: 'Handmade Granite Ball',
     },
     {
-        id: '207e76e3-6948-4475-af1b-a11b762884b4',
-        name: 'Ergonomic Granite Car',
+        id: '260be8c0-855b-4f73-9079-3eb0f427f5cf',
+        name: 'Sleek Metal Salad',
     },
     {
-        id: '45516f59-8872-4cc3-a530-c21f18f402bb',
-        name: 'Ergonomic Granite Cheese',
+        id: '91c0b0ca-197c-422d-a6bf-2f57006047b4',
+        name: 'Generic Frozen Car',
     },
     {
-        id: '83ff4b95-3803-4755-8de7-e90d008c0843',
-        name: 'Small Metal Shoes',
+        id: 'adc013be-b383-4e1c-aa57-82b0c44c14ff',
+        name: 'Sleek Concrete Cheese',
     },
     {
-        id: '05d27563-1550-4663-927f-03c3b36be2e8',
-        name: 'Incredible Steel Shoes',
+        id: 'd0a79a09-1c1b-4df3-ad23-ef4536e02343',
+        name: 'Small Plastic Keyboard',
     },
     {
-        id: 'e1405c21-ef5d-429b-a1e8-0b3aaf9cf019',
-        name: 'Practical Wooden Table',
+        id: 'b288a540-2151-4c39-9955-7a2d830dccbe',
+        name: 'Tasty Cotton Shirt',
     },
     {
-        id: '9181e435-3ef1-4647-a516-f1a87b259e4c',
-        name: 'Handcrafted Metal Hat',
+        id: 'b14375c1-591c-4560-8ad7-f140b506a995',
+        name: 'Practical Metal Ball',
     },
     {
-        id: 'd96c3904-daeb-4754-b76b-f89c89b13979',
-        name: 'Practical Cotton Salad',
+        id: 'a1076a1e-eb0b-4f1d-b64f-86818466ac3d',
+        name: 'Awesome Rubber Ball',
     },
     {
-        id: '62be559f-3a82-4af3-a7ca-6c2020843bfa',
-        name: 'Fantastic Fresh Chips',
+        id: '30a937bd-b1a8-4754-ada4-62157be32e2d',
+        name: 'Tasty Frozen Pants',
     },
     {
-        id: '096012bb-840c-4798-9106-b4521e1b151b',
-        name: 'Licensed Fresh Fish',
+        id: 'f1d93cdd-bbcc-4fac-8282-60c7902ed762',
+        name: 'Handmade Metal Pants',
     },
     {
-        id: 'd24a9fbd-c562-4aad-b8f8-b0acd70fe080',
-        name: 'Intelligent Rubber Keyboard',
+        id: '5c5bb462-ffaa-4c66-ba87-6cdac2decebc',
+        name: 'Handmade Soft Tuna',
     },
     {
-        id: '963303de-e9f8-438d-90c0-30b7125191d4',
-        name: 'Tasty Wooden Ball',
+        id: '8a1c8ea9-880a-41a2-bdb6-8279df8a614e',
+        name: 'Generic Metal Tuna',
     },
     {
-        id: '57cad671-e58d-4525-a778-b8412db596c6',
-        name: 'Ergonomic Metal Keyboard',
+        id: 'd732accf-1ec5-4224-8413-baf653e2c05d',
+        name: 'Generic Fresh Pants',
     },
     {
-        id: '922782b4-3215-4697-ab6b-c9a2f5afddc5',
-        name: 'Practical Plastic Bacon',
+        id: '3ceff4d8-b10b-448b-b487-d19f48c9af15',
+        name: 'Licensed Rubber Shirt',
     },
     {
-        id: '83d34bbd-b3e5-4f0e-9c34-786f718475e7',
-        name: 'Rustic Frozen Cheese',
+        id: '95f72531-7845-4c39-93f1-6ce02bc8368a',
+        name: 'Awesome Metal Mouse',
     },
     {
-        id: '17a458f9-0112-402b-a1fe-66fa733ed278',
-        name: 'Small Cotton Salad',
+        id: '2d5ef4e3-69e4-4791-96f2-16e3b1fb1e7d',
+        name: 'Awesome Plastic Bacon',
     },
     {
-        id: '3fdfaead-51d9-4415-a3d2-b5154bb0a4ed',
-        name: 'Sleek Soft Car',
+        id: '8289314a-9d68-4ac3-b78b-b437e7eced12',
+        name: 'Ergonomic Rubber Pants',
     },
     {
-        id: 'b7b180ac-715b-4377-88d8-afe42409c333',
-        name: 'Practical Granite Pizza',
+        id: '19ad972d-b612-4752-96e8-4ce9811adf9c',
+        name: 'Generic Steel Table',
     },
     {
-        id: 'ccb52bbb-bbfd-417f-b662-f9207703f7d0',
-        name: 'Generic Cotton Salad',
+        id: '19c0167b-4da4-4eb3-8d76-76685ca1653f',
+        name: 'Handmade Cotton Shirt',
     },
 ];

@@ -1892,7 +1892,6 @@ export interface IMutation {
     iamCreateTag(payload: IamCreateTagInput): Nullable<IamTag> | Promise<Nullable<IamTag>>;
     iamUpdateTagById(payload: IamUpdateTagByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
     iamDeleteTagById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamTag> | Promise<Nullable<IamTag>>;
-    iamDeleteTags(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTag>[] | Promise<Nullable<IamTag>[]>;
     iamCreateTenantAccount(payload: IamCreateTenantAccountInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamCreateTenantsAccounts(payload: Nullable<IamCreateTenantAccountInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantAccountById(payload: IamUpdateTenantAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
