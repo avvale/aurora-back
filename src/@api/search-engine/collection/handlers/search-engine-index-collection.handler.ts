@@ -2,9 +2,9 @@ import { SearchEngineCollectionStatus } from '@api/graphql';
 import { QueueManagerJobService } from '@api/queue-manager/shared/services';
 import { SearchEngineFindCollectionByIdQuery, SearchEngineUpdateCollectionByIdCommand } from '@app/search-engine/collection';
 import { ICommandBus, IQueryBus, QueryStatement, Utils } from '@aurorajs.dev/core';
-import { InjectQueue } from '@nestjs/bull';
+import { InjectQueue } from '@nestjs/bullmq';
 import { Injectable } from '@nestjs/common';
-import { Queue } from 'bull';
+import { Queue } from 'bullmq';
 import * as _ from 'lodash';
 import { QueueStorage } from 'src/app.queues';
 

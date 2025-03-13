@@ -23,8 +23,8 @@ export class SearchEngineUpdateCollectionsDto
     alias?: string;
 
     @ApiProperty({
-        type       : SearchEngineCollectionStatus,
-        enum       : ['CONSOLIDATED','INDEXING'],
+        enum       : SearchEngineCollectionStatus,
+        enumName   : 'SearchEngineCollectionStatus',
         description: 'status [input here api field description]',
         example    : SearchEngineCollectionStatus.CONSOLIDATED,
     })

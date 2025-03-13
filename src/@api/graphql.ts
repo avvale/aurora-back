@@ -1973,6 +1973,7 @@ export interface IMutation {
     oAuthDeleteClientById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
     oAuthDeleteClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient>[] | Promise<Nullable<OAuthClient>[]>;
     oAuthCreateCredentials(payload: OAuthCreateCredentialsInput): OAuthCredentials | Promise<OAuthCredentials>;
+    oAuthCreateImpersonalizeCredentials(accountId: string): OAuthCredentials | Promise<OAuthCredentials>;
     oAuthDeleteRefreshTokenById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthRefreshToken> | Promise<Nullable<OAuthRefreshToken>>;
     oAuthDeleteRefreshTokens(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthRefreshToken>[] | Promise<Nullable<OAuthRefreshToken>[]>;
     oAuthCreateScope(payload: OAuthCreateScopeInput): Nullable<OAuthScope> | Promise<Nullable<OAuthScope>>;
@@ -2545,7 +2546,7 @@ export interface QueueManagerJobRegistry {
 }
 
 export interface QueueManagerJob {
-    id: Any;
+    id?: Nullable<GraphQLString>;
     name: GraphQLString;
     data: JSON;
     opts: JSON;
@@ -2557,7 +2558,7 @@ export interface QueueManagerJob {
     stacktrace: Nullable<GraphQLString>[];
     returnvalue?: Nullable<Any>;
     finishedOn?: Nullable<GraphQLInt>;
-    processedOn: GraphQLInt;
+    processedOn?: Nullable<GraphQLInt>;
     state: QueueManagerJobState;
 }
 

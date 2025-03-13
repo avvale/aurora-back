@@ -3,14 +3,14 @@ import { QueueManagerJobService } from '@api/queue-manager/shared/services';
 import { SearchEngineFindCollectionByIdQuery, SearchEngineUpdateCollectionByIdCommand } from '@app/search-engine';
 import { AuroraMetadataRegistry, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { TypesenseMetadataRegistry } from '@aurorajs.dev/typesense';
-import { InjectQueue, Process, Processor } from '@nestjs/bull';
-import { Job, Queue } from 'bull';
+import { InjectQueue, Processor, WorkerHost } from '@nestjs/bullmq';
+import { Job, Queue } from 'bullmq';
 import { QueueStorage } from 'src/app.queues';
 import { Client } from 'typesense';
 import * as _ from 'lodash';
 
 @Processor(QueueStorage.SEARCH_ENGINE_COLLECTION)
-export class IndexCollectionSearchEngineConsumer
+export class IndexCollectionSearchEngineConsumer extends WorkerHost
 {
     constructor(
         private readonly auroraMetadataRegistry: AuroraMetadataRegistry,
@@ -20,19 +20,24 @@ export class IndexCollectionSearchEngineConsumer
         private readonly typesense: Client,
         private readonly typesenseMetadataRegistry: TypesenseMetadataRegistry,
         @InjectQueue(QueueStorage.SEARCH_ENGINE_COLLECTION) private searchEngineCollectionQueue: Queue,
-    ) {}
+    )
+    {
+        super();
+    }
 
-    @Process('indexCollection')
-    async main(job: Job<{
-        payload: {
-            id: string;
-            offset: number;
-            limit: number;
-            collectionName: string;
-            constraint: QueryStatement;
-        };
-        timezone: string;
-    }>): Promise<void>
+    async process(
+        job: Job<{
+            payload: {
+                id: string;
+                offset: number;
+                limit: number;
+                collectionName: string;
+                constraint: QueryStatement;
+            };
+            timezone: string;
+        }>,
+        token?: string,
+    ): Promise<void>
     {
         const { payload, timezone } = job.data;
         const collection = await this.queryBus.ask(new SearchEngineFindCollectionByIdQuery(
@@ -52,14 +57,14 @@ export class IndexCollectionSearchEngineConsumer
         // check if collection exists
         try
         {
-            // eslint-disable-next-line no-await-in-loop
+
             await this.typesense
                 .collections(payload.collectionName)
                 .retrieve();
         }
         catch (error)
         {
-            if ((error as any).httpStatus === 404)
+            if ((error).httpStatus === 404)
             {
                 const schema = this.typesenseMetadataRegistry
                     .getSchemaByName(collection.alias);
@@ -120,14 +125,14 @@ export class IndexCollectionSearchEngineConsumer
             // update collection with new collection name
             await this.commandBus.dispatch(new SearchEngineUpdateCollectionByIdCommand(
                 {
-                    id                  : payload.id,
-                    name                : payload.collectionName,
-                    status              : SearchEngineCollectionStatus.CONSOLIDATED,
-                    documentsNumber     : typesenseCollection.num_documents,
-                    defaultSortingField : typesenseCollection.default_sorting_field,
-                    numMemoryShards     : typesenseCollection.num_memory_shards,
-                    timestampCreatedAt  : typesenseCollection.created_at,
-                    isEnableNestedFields: typesenseCollection.enable_nested_fields,
+                    id                : payload.id,
+                    name              : payload.collectionName,
+                    status            : SearchEngineCollectionStatus.CONSOLIDATED,
+                    documentsNumber   : typesenseCollection.num_documents,
+                    // defaultSortingField : typesenseCollection.default_sorting_field,
+                    numMemoryShards   : typesenseCollection.num_memory_shards,
+                    timestampCreatedAt: typesenseCollection.created_at,
+                    // isEnableNestedFields: typesenseCollection.enable_nested_fields,
                 },
                 {},
                 {

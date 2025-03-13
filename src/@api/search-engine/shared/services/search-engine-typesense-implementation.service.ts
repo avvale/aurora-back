@@ -1,4 +1,4 @@
-/* eslint-disable no-await-in-loop */
+
 import { Injectable, Logger } from '@nestjs/common';
 import { ICommandBus, Utils } from '@aurorajs.dev/core';
 import { Client } from 'typesense';
@@ -28,19 +28,19 @@ export class SearchEngineTypesenseImplementationService
         {
             const collectionId = Utils.uuid(collection.name);
 
-            // eslint-disable-next-line camelcase
+
             const alias = aliases.aliases.find(alias => alias.collection_name === collection.name);
 
             collectionsPayload.push({
-                id                  : collectionId,
-                name                : collection.name,
-                alias               : alias?.name || null,
-                status              : SearchEngineCollectionStatus.CONSOLIDATED,
-                documentsNumber     : collection.num_documents,
-                defaultSortingField : collection.default_sorting_field,
-                numMemoryShards     : collection.num_memory_shards,
-                timestampCreatedAt  : collection.created_at,
-                isEnableNestedFields: collection.enable_nested_fields,
+                id                : collectionId,
+                name              : collection.name,
+                alias             : alias?.name || null,
+                status            : SearchEngineCollectionStatus.CONSOLIDATED,
+                documentsNumber   : collection.num_documents,
+                // defaultSortingField : collection.default_sorting_field,
+                numMemoryShards   : collection.num_memory_shards,
+                timestampCreatedAt: collection.created_at,
+                // isEnableNestedFields: collection.enable_nested_fields,
             });
 
             for (const field of collection.fields)
@@ -85,7 +85,7 @@ export class SearchEngineTypesenseImplementationService
         }
         catch (error)
         {
-            if ((error as any).httpStatus === 404)
+            if ((error).httpStatus === 404)
             {
                 this.logger.warn(`Collection ${schemaName} not found to be deleted in Typesense server`);
             }

@@ -1,6 +1,6 @@
 import { SharedModule } from '@aurora/shared.module';
 import { TypesenseModule } from '@aurorajs.dev/typesense';
-import { BullModule } from '@nestjs/bull';
+import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
@@ -40,7 +40,7 @@ import { QueueManagerJobService } from '@api/queue-manager/shared/services';
     ],
     controllers: [
         ...SearchEngineCollectionApiControllers,
-        ...SearchEngineFieldApiControllers
+        ...SearchEngineFieldApiControllers,
     ],
     providers: [
         SearchEngineSeeder,
