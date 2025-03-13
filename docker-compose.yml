@@ -1,5 +1,5 @@
 version: '3'
-name: aurora-enviroment
+name: aurora-environment
 
 services:
   db1:

@@ -1,6 +1,6 @@
 import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
-import { AuthJwtStrategyRegistryModule, jwtConfig } from '@app/o-auth/shared';
+import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
 import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetBase64FromFileService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
@@ -13,9 +13,12 @@ import { SentryModule } from './modules';
 @Module({
     imports: [
         AuroraMetadataModule,
-        AuthJwtStrategyRegistryModule.forRoot(jwtConfig),
+        AuthJwtStrategyRegistryModule.forRoot(),
         CacheModule.register({ isGlobal: true, ttl: 0 }),
-        ConfigModule.forRoot({ isGlobal: true }),
+        ConfigModule.forRoot({
+            isGlobal   : true,
+            envFilePath: ['../.aurora.env', '.aurora.env'],
+        }),
         CoreModule,
         CqrsModule,
         HttpModule,

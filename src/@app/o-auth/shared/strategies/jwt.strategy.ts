@@ -7,18 +7,20 @@ import { IQueryBus, Jwt } from '@aurorajs.dev/core';
 import { IamAccountDto } from '@api/iam/account/dto';
 import { IamFindAccountQuery } from '@app/iam/account';
 import { IamAccount } from '@api/graphql';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy)
 {
     constructor(
         private readonly queryBus: IQueryBus,
+        private readonly configService: ConfigService,
     )
     {
         super({
             jwtFromRequest  : ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
-            secretOrKey     : fs.readFileSync('oauth-public.key'),
+            secretOrKey     : fs.readFileSync(configService.get('OAUTH_PUBLIC_KEY_PATH'), 'utf8'),
             algorithms      : ['RS256'],
         });
     }

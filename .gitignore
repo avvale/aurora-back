@@ -1,9 +1,7 @@
-# envirionment files
+# environment files
 .env
-.env.development.plesk
-.env.quality.plesk
-.env.production.plesk
-.env.localhost.plesk
+.aurora.env
+.aurora.env.*
 
 # key files
 *.key
