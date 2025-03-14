@@ -22,7 +22,6 @@ function copyApplication()
         [
             '**/*',
             '.gitignore',
-            '.eslintrc.js',
             '!cliter/**',
             '!db/**',
             '!dist/**',
@@ -33,7 +32,6 @@ function copyApplication()
             '!node_modules/**',
             '!oauth-private.key',
             '!oauth-public.key',
-            '!odoo/**',
             '!package.json',
             '!package-lock.json',
             '!postman/**',
@@ -71,20 +69,19 @@ function editPackageJson()
             {
                 // modify @aurorajs.dev/core version
                 delete json.scripts['install:core'];
-                json.dependencies['@aurorajs.dev/core'] = '^3.0.0';
+                json.dependencies['@aurorajs.dev/core'] = '^4.0.0';
 
                 delete json.scripts['install:typesense'];
                 delete json.dependencies['@aurorajs.dev/typesense'];
 
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs/axios'];
-                delete json.dependencies['@nestjs/bull'];
+                delete json.dependencies['@nestjs/bullmq'];
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];
                 delete json.dependencies['@nestjs/schedule'];
-                delete json.dependencies['bull'];
+                delete json.dependencies['bullmq'];
                 delete json.dependencies['handlebars'];
-                delete json.dependencies['mariadb'];
                 delete json.dependencies['nodemailer'];
                 delete json.dependencies['passport-azure-ad'];
                 delete json.dependencies['passport-jwt'];
@@ -199,7 +196,7 @@ async function cleanShareModule()
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'AuthJwtStrategyRegistryModule');
 
     // remove jwtConfig
-    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'AuthJwtStrategyRegistryModule.forRoot(jwtConfig)');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'AuthJwtStrategyRegistryModule.forRoot()');
 
     // disabled auditing runner implementation
     codeWriter.changeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'providers', 'AuditingRunner', 'AuditingRunnerDisabledImplementationService');
