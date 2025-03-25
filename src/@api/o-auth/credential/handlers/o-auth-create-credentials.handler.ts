@@ -94,7 +94,7 @@ export class OAuthCreateCredentialsHandler
             ));
 
             // if not exist user throw error
-            if (!user.account.isActive) throw new UnauthorizedException();
+            if (!user.account?.isActive) throw new UnauthorizedException();
 
             // get account to create credential and consolidate permissions
             const account = await this.consolidatePermissions(
