@@ -49,6 +49,17 @@ aggregateProperties:
       key: id
       field: otherModule
       avoidConstraint: true
+  - name: fields
+    type: relationship
+    nullable: true
+    relationship:
+      type: one-to-many
+      singularName: field
+      aggregateName: KitchenSinkField
+      modulePath: kitchen-sink/field
+      avoidConstraint: true
+    webComponent:
+      type: grid-elements-manager
   - name: tags
     type: array
     nullable: true
@@ -57,6 +68,54 @@ aggregateProperties:
       maxLength: 64
     webComponent:
       type: multiple-select
+  - name: roles
+    type: relationship
+    nullable: true
+    relationship:
+      type: many-to-many
+      singularName: role
+      aggregateName: KitchenSinkRole
+      modulePath: kitchen-sink/role
+      avoidConstraint: true
+      isDenormalized: true
+      pivot:
+        boundedContextName: kitchen-sink
+        moduleName: my-module-role
+        moduleNames: my-modules-roles
+        aggregateName: KitchenSinkMyModuleRole
+        hasOAuth: false
+        hasAuditing: false
+        aggregateProperties:
+          - name: myModuleId
+            type: id
+            primaryKey: true
+            nullable: false
+            relationship:
+              type: many-to-one
+              aggregateName: KitchenSinkMyModule
+              modulePath: kitchen-sink/my-module
+              field: myModule
+              avoidConstraint: true
+          - name: roleId
+            type: id
+            primaryKey: true
+            nullable: false
+            relationship:
+              type: many-to-one
+              aggregateName: KitchenSinkRole
+              modulePath: kitchen-sink/role
+              field: role
+              avoidConstraint: true
+        excludedOperations:
+          - count
+          - max
+          - min
+          - sum
+          - rawSql
+          - upsert
+          - updateAndIncrement
+    webComponent:
+      type: async-search-multiple-select
   - name: meta
     type: jsonb
     nullable: true
