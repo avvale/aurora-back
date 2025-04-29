@@ -9,7 +9,6 @@ export const TenantConstraint = ({
     targetProperty  = 'tenantIds',
     constraintIndex = 2,
     isArray         = true,
-
 }: {
     targetProperty?: string;  // name of the property to be added to the query
     constraintIndex?: number; // index of the constraint in the arguments
