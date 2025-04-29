@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { publishApplication } = require('./gulp/application');
 const { publishAuditing } = require('./gulp/auditing');
-const { publishAzureAd } = require('./gulp/azure-ad');
+const { publishMsEntraId } = require('./gulp/ms-entra-id');
 const { publishCommon } = require('./gulp/common');
 const { publishIam } = require('./gulp/iam');
 const { publishOAuth } = require('./gulp/o-auth');
@@ -22,7 +22,7 @@ exports.default = defaultTask;
 // commands
 exports.publishApplication = publishApplication;
 exports.publishAuditing = publishAuditing;
-exports.publishAzureAd = publishAzureAd;
+exports.publishMsEntraId = publishMsEntraId;
 exports.publishCommon = publishCommon;
 exports.publishIam = publishIam;
 exports.publishOAuth = publishOAuth;

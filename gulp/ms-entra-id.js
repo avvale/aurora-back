@@ -13,19 +13,19 @@ function cleanSourceDirectory(cb)
 /**
  * Copy iam files to publish folder
  */
-function copyAzureAd()
+function copyMsEntraIdAd()
 {
     return Promise.all([
-        fse.copy('src/@api/azure-ad', 'publish/src/@api/azure-ad', { overwrite: true }),
+        fse.copy('src/@api/ms-entra-id', 'publish/src/@api/ms-entra-id', { overwrite: true }),
     ]);
 }
 
 function copyToCLI()
 {
     // remove old cli azureAd files
-    fs.rmSync('../aurora-cli/src/templates/back/packages/azure-ad', { recursive: true, force: true });
+    fs.rmSync('../aurora-cli/src/templates/back/packages/ms-entra-id', { recursive: true, force: true });
     // copy new cli azureAd files
-    return fse.copy('publish', '../aurora-cli/src/templates/back/packages/azure-ad', { overwrite: true });
+    return fse.copy('publish', '../aurora-cli/src/templates/back/packages/ms-entra-id', { overwrite: true });
 }
 
 async function clean()
@@ -34,9 +34,9 @@ async function clean()
     fs.rmSync('publish', { recursive: true, force: true });
 }
 
-exports.publishAzureAd = series(
+exports.publishMsEntraId = series(
     cleanSourceDirectory,
-    copyAzureAd,
+    copyMsEntraIdAd,
     copyToCLI,
     clean,
 );

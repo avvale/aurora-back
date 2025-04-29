@@ -141,9 +141,9 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AuditingModule');
 
-    // remove AzureADModule
-    codeWriter.removeImport(sourceFile, '@api/azure-ad/azure-ad.module');
-    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureAdModule');
+    // remove MsEntraIdModule
+    codeWriter.removeImport(sourceFile, '@api/ms-entra-id/ms-entra-id.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'MsEntraIdModule');
 
     // remove CommonModule
     codeWriter.removeImport(sourceFile, '@api/common/common.module');

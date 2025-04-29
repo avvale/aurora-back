@@ -4,12 +4,12 @@ import { AppService } from './app.service';
 
 // modules
 import { ScheduleModule } from '@nestjs/schedule';
-import { CoreModule } from './@aurora/core.module';
+import { CoreModule } from '@aurora/core.module';
 import { AuditingModule } from '@api/auditing/auditing.module';
 import { OAuthModule } from '@api/o-auth/o-auth.module';
 import { IamModule } from '@api/iam/iam.module';
+import { MsEntraIdModule } from '@api/ms-entra-id/ms-entra-id.module';
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
-import { AzureAdModule } from '@api/azure-ad/azure-ad.module';
 import { CommonModule } from '@api/common/common.module';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { RootModule, ServerStaticModule } from '@aurora/modules';
@@ -20,10 +20,10 @@ import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
     imports: [
         RootModule,
         AuditingModule,
-        AzureAdModule,
         CommonModule,
         CoreModule,
         IamModule,
+        MsEntraIdModule,
         OAuthModule,
         QueueManagerModule,
         ScheduleModule.forRoot(),

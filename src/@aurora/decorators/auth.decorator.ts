@@ -4,7 +4,7 @@ import { AuthenticationDisabledAdapterGuard, AuthorizationDisabledAdapterGuard, 
 import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
 
-export function Auth(...permissions: string[]): Function
+export function Auth(...permissions: string[]): MethodDecorator & ClassDecorator
 {
     return applyDecorators(
         Permissions(...permissions),
