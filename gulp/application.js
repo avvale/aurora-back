@@ -89,15 +89,15 @@ function editPackageJson()
                 delete json.dependencies['@nestjs/schedule'];
                 delete json.dependencies['bullmq'];
                 delete json.dependencies['handlebars'];
+                delete json.dependencies['jwks-rsa'];
                 delete json.dependencies['nodemailer'];
-                delete json.dependencies['passport-azure-ad'];
+                delete json.dependencies['passport'];
                 delete json.dependencies['passport-jwt'];
                 delete json.dependencies['redis'];
 
                 delete json.devDependencies.gulp;
                 delete json.devDependencies['@types/cron'];
                 delete json.devDependencies['@types/nodemailer'];
-                delete json.devDependencies['@types/passport-jwt'];
                 delete json.devDependencies['gulp-json-editor'];
                 delete json.devDependencies['fs-extra'];
                 delete json.devDependencies['through2'];
