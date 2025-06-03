@@ -92,6 +92,7 @@ function editPackageJson()
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['jwks-rsa'];
                 delete json.dependencies['nodemailer'];
+                delete json.dependencies['openai'];
                 delete json.dependencies['passport'];
                 delete json.dependencies['passport-jwt'];
                 delete json.dependencies['redis'];
@@ -141,6 +142,10 @@ async function cleanAppModule()
     // remove AuditingModule
     codeWriter.removeImport(sourceFile, '@api/auditing/auditing.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AuditingModule');
+
+    // remove AzureStorageAccountModule
+    codeWriter.removeImport(sourceFile, '@api/azure-storage-account/azure-storage-account.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureStorageAccountModule');
 
     // remove MsEntraIdModule
     codeWriter.removeImport(sourceFile, '@api/ms-entra-id/ms-entra-id.module');
