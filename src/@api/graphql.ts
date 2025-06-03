@@ -1557,7 +1557,9 @@ export interface CoreFileUploaded {
     id: string;
     file: Upload;
     relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
+    containerName?: Nullable<GraphQLString>;
     hasCreateLibrary?: Nullable<GraphQLBoolean>;
+    meta?: Nullable<JSON>;
 }
 
 export interface QueryStatement {
@@ -1599,6 +1601,7 @@ export interface IQuery {
     auditingFindSideEffectById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingGetSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingPaginateSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    azureStorageAccountGetBase64FromBlob(blobName: GraphQLString, relativePathSegments: GraphQLString[], containerName?: Nullable<GraphQLString>): Nullable<AzureStorageAccountBase64Blob> | Promise<Nullable<AzureStorageAccountBase64Blob>>;
     commonFindAdministrativeAreaLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonFindAdministrativeAreaLevel1ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonGetAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
@@ -1778,6 +1781,7 @@ export interface IMutation {
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    azureStorageAccountUploadBlob(file: CoreFileUploaded, containerName?: Nullable<GraphQLString>, hasFileMeta?: Nullable<GraphQLBoolean>): Nullable<CoreFile> | Promise<Nullable<CoreFile>>;
     commonCreateAdministrativeAreaLevel1(payload: CommonCreateAdministrativeAreaLevel1Input): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonCreateAdministrativeAreasLevel1(payload: Nullable<CommonCreateAdministrativeAreaLevel1Input>[]): boolean | Promise<boolean>;
     commonUpdateAdministrativeAreaLevel1ById(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
@@ -2052,6 +2056,10 @@ export interface AuditingSideEffect {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface AzureStorageAccountBase64Blob {
+    base64: GraphQLString;
 }
 
 export interface CommonAdministrativeAreaLevel1 {
