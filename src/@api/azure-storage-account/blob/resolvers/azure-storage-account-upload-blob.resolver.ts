@@ -4,7 +4,7 @@ import { Auth } from '@aurora/decorators';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
-@Auth('azureStorageAccount.blob.create')
+// @Auth('azureStorageAccount.blob.create')
 export class AzureStorageAccountUploadBlobResolver
 {
     constructor(

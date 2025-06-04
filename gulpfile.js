@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { publishAzureStorageAccount } = require('./gulp/azure-storage-account');
 const { publishApplication } = require('./gulp/application');
 const { publishAuditing } = require('./gulp/auditing');
 const { publishMsEntraId } = require('./gulp/ms-entra-id');
@@ -20,6 +21,7 @@ function defaultTask(cb)
 exports.default = defaultTask;
 
 // commands
+exports.publishAzureStorageAccount = publishAzureStorageAccount;
 exports.publishApplication = publishApplication;
 exports.publishAuditing = publishAuditing;
 exports.publishMsEntraId = publishMsEntraId;

@@ -13,15 +13,17 @@ import { AzureStorageAccountCopyBlobService } from './azure-storage-account-copy
 export class AzureStorageAccountUploadBlobService
 {
     private readonly blobServiceClient: BlobServiceClient;
+    private readonly containerName: string;
 
     constructor(
         private readonly configService: ConfigService,
         private readonly azureStorageAccountCopyBlobService: AzureStorageAccountCopyBlobService,
     )
     {
-        const connectionString = configService.get<string>('AZURE_STORAGE_CONNECTION_STRING');
+        const connectionString = configService.get<string>('AZURE_STORAGE_ACCOUNT_CONNECTION_STRING');
+        this.containerName = configService.get<string>('AZURE_STORAGE_ACCOUNT_CONTAINER_NAME');
 
-        if (!connectionString) throw new BadRequestException('Azure Storage connection string is not defined in the configuration, please set it in the environment variables AZURE_STORAGE_CONNECTION_STRING value.');
+        if (!connectionString) throw new BadRequestException('Azure Storage connection string is not defined in the configuration, please set it in the environment variables AZURE_STORAGE_ACCOUNT_CONNECTION_STRING value.');
 
         this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
     }
@@ -35,7 +37,7 @@ export class AzureStorageAccountUploadBlobService
         const relativePathSegments = getRelativePathSegments(filePayload.relativePathSegments);
 
         // get container name from file or use default
-        const containerName = filePayload.containerName || 'default';
+        const containerName = this.containerName || filePayload.containerName || 'default';
 
         // eslint-disable-next-line no-await-in-loop
         const { createReadStream, filename: originFilename, mimetype, encoding } = await filePayload.file;

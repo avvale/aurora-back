@@ -13,9 +13,9 @@ export class AzureStorageAccountGetBase64FromBlobService
         private readonly configService: ConfigService,
     )
     {
-        const connectionString = configService.get<string>('AZURE_STORAGE_CONNECTION_STRING');
+        const connectionString = configService.get<string>('AZURE_STORAGE_ACCOUNT_CONNECTION_STRING');
 
-        if (!connectionString) throw new BadRequestException('Azure Storage connection string is not defined in the configuration, please set it in the environment variables AZURE_STORAGE_CONNECTION_STRING value.');
+        if (!connectionString) throw new BadRequestException('Azure Storage connection string is not defined in the configuration, please set it in the environment variables AZURE_STORAGE_ACCOUNT_CONNECTION_STRING value.');
 
         this.blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
     }
