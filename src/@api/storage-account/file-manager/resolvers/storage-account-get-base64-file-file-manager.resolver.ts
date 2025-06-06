@@ -4,7 +4,7 @@ import { Auth } from '@aurora/decorators';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
-// @Auth('storageAccount.fileManager.get')
+@Auth('storageAccount.fileManager.get')
 export class StorageAccountGetBase64FileFileManagerResolver
 {
     constructor(

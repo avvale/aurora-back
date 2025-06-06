@@ -171,6 +171,10 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/search-engine/search-engine.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'SearchEngineModule');
 
+    // remove SearchEngineModule
+    codeWriter.removeImport(sourceFile, '@api/storage-account/storage-account.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'StorageAccountModule');
+
     // remove MessageModule
     codeWriter.removeImport(sourceFile, '@api/message/message.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'MessageModule');
@@ -203,6 +207,11 @@ async function cleanShareModule()
     codeWriter.removeImport(sourceFile, '@nestjs/axios');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'imports', 'HttpModule');
     codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'HttpModule');
+
+    // remove StorageAccountModule
+    codeWriter.removeImport(sourceFile, '@api/storage-account/file-manager');
+    codeWriter.removeDecoratorPropertyAdapter(sourceFile, 'SharedModule', 'Module', 'providers', 'StorageAccountFileManagerService');
+    codeWriter.removeDecoratorProperty(sourceFile, 'SharedModule', 'Module', 'exports', 'StorageAccountFileManagerService');
 
     // remove AuthJwtStrategyRegistryModule
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared');

@@ -1,6 +1,6 @@
 import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
-import { StorageAccountFileManagerService, StorageAccountLocalFileManagerService } from '@api/storage-account/file-manager/shared';
+import { StorageAccountFileManagerService, StorageAccountLocalFileManagerService } from '@api/storage-account/file-manager';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
 import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
