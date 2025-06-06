@@ -13,19 +13,19 @@ function cleanSourceDirectory(cb)
 /**
  * Copy iam files to publish folder
  */
-function copyAzureStorageAccount()
+function copyStorageAccountAzure()
 {
     return Promise.all([
-        fse.copy('src/@api/azure-storage-account', 'publish/src/@api/azure-storage-account', { overwrite: true }),
+        fse.copy('src/@api/storage-account-azure', 'publish/src/@api/storage-account-azure', { overwrite: true }),
     ]);
 }
 
 function copyToCLI()
 {
     // remove old cli azureStorageAccount files
-    fs.rmSync('../aurora-cli/src/templates/back/packages/azure-storage-account', { recursive: true, force: true });
+    fs.rmSync('../aurora-cli/src/templates/back/packages/storage-account-azure', { recursive: true, force: true });
     // copy new cli azureStorageAccount files
-    return fse.copy('publish', '../aurora-cli/src/templates/back/packages/azure-storage-account', { overwrite: true });
+    return fse.copy('publish', '../aurora-cli/src/templates/back/packages/storage-account-azure', { overwrite: true });
 }
 
 async function clean()
@@ -34,9 +34,9 @@ async function clean()
     fs.rmSync('publish', { recursive: true, force: true });
 }
 
-exports.publishAzureStorageAccount = series(
+exports.publishStorageAccountAzure = series(
     cleanSourceDirectory,
-    copyAzureStorageAccount,
+    copyStorageAccountAzure,
     copyToCLI,
     clean,
 );

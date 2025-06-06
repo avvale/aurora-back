@@ -9,6 +9,7 @@ const { publishOAuth } = require('./gulp/o-auth');
 const { publishQueueManager } = require('./gulp/queue-manager');
 const { publishSearchEngine } = require('./gulp/search-engine');
 const { publishStorageAccount } = require('./gulp/storage-account');
+const { publishStorageAccountAzure } = require('./gulp/storage-account-azure');
 const { publishWhatsapp } = require('./gulp/whatsapp');
 const { publishMessage } = require('./gulp/message');
 
@@ -30,5 +31,6 @@ exports.publishOAuth = publishOAuth;
 exports.publishQueueManager = publishQueueManager;
 exports.publishSearchEngine = publishSearchEngine;
 exports.publishStorageAccount = publishStorageAccount;
+exports.publishStorageAccountAzure = publishStorageAccountAzure;
 exports.publishWhatsapp = publishWhatsapp;
 exports.publishMessage = publishMessage;
