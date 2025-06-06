@@ -1463,6 +1463,21 @@ export interface SearchEngineUpdateFieldsInput {
     isNullable?: Nullable<GraphQLBoolean>;
 }
 
+export interface StorageAccountFileManagerFileInput {
+    filename: GraphQLString;
+    relativePathSegments: Nullable<GraphQLString>[];
+    containerName?: Nullable<GraphQLString>;
+}
+
+export interface StorageAccountFileManagerFileUploadedInput {
+    id: string;
+    file: Upload;
+    relativePathSegments: Nullable<GraphQLString>[];
+    containerName?: Nullable<GraphQLString>;
+    hasCreateLibrary?: Nullable<GraphQLBoolean>;
+    meta?: Nullable<JSON>;
+}
+
 export interface WhatsappCreateConversationInput {
     id: string;
     wabaConversationId: GraphQLString;
@@ -1553,15 +1568,6 @@ export interface WhatsappUpdateTimelinesInput {
     wabaContactId?: Nullable<GraphQLString>;
 }
 
-export interface CoreFileUploaded {
-    id: string;
-    file: Upload;
-    relativePathSegments?: Nullable<Nullable<GraphQLString>[]>;
-    containerName?: Nullable<GraphQLString>;
-    hasCreateLibrary?: Nullable<GraphQLBoolean>;
-    meta?: Nullable<JSON>;
-}
-
 export interface QueryStatement {
     where?: Nullable<JSON>;
     attributes?: Nullable<JSON>;
@@ -1601,7 +1607,6 @@ export interface IQuery {
     auditingFindSideEffectById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingGetSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingPaginateSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    azureStorageAccountGetBase64FromBlob(blobName: GraphQLString, relativePathSegments: GraphQLString[], containerName?: Nullable<GraphQLString>): Nullable<AzureStorageAccountBase64Blob> | Promise<Nullable<AzureStorageAccountBase64Blob>>;
     commonFindAdministrativeAreaLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonFindAdministrativeAreaLevel1ById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonGetAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
@@ -1746,6 +1751,8 @@ export interface IQuery {
     searchEngineFindFieldById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineGetFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    storageAccountGetBase64FileFileManager(file: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerBase64> | Promise<Nullable<StorageAccountFileManagerBase64>>;
+    storageAccountGetBase64FilesFileManager(files: StorageAccountFileManagerFileInput[]): Nullable<Nullable<StorageAccountFileManagerBase64>[]> | Promise<Nullable<Nullable<StorageAccountFileManagerBase64>[]>>;
     whatsappFindConversation(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappFindConversationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappGetConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
@@ -1781,7 +1788,6 @@ export interface IMutation {
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    azureStorageAccountUploadBlob(file: CoreFileUploaded, containerName?: Nullable<GraphQLString>, hasFileMeta?: Nullable<GraphQLBoolean>): Nullable<CoreFile> | Promise<Nullable<CoreFile>>;
     commonCreateAdministrativeAreaLevel1(payload: CommonCreateAdministrativeAreaLevel1Input): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonCreateAdministrativeAreasLevel1(payload: Nullable<CommonCreateAdministrativeAreaLevel1Input>[]): boolean | Promise<boolean>;
     commonUpdateAdministrativeAreaLevel1ById(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
@@ -1824,9 +1830,7 @@ export interface IMutation {
     commonUpsertAttachment(payload: CommonUpdateAttachmentByIdInput): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachmentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment> | Promise<Nullable<CommonAttachment>>;
     commonDeleteAttachments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAttachment>[] | Promise<Nullable<CommonAttachment>[]>;
-    commonUploadAttachments(files: CoreFileUploaded[]): CoreFile[] | Promise<CoreFile[]>;
     commonDeleteAttachment(payload: CommonAttachmentInput): CommonAttachment | Promise<CommonAttachment>;
-    commonCreateBlobAttachment(payload: CommonAttachmentInput): GraphQLString | Promise<GraphQLString>;
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
@@ -2017,6 +2021,9 @@ export interface IMutation {
     searchEngineUpsertField(payload: SearchEngineUpdateFieldByIdInput): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFieldById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField> | Promise<Nullable<SearchEngineField>>;
     searchEngineDeleteFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SearchEngineField>[] | Promise<Nullable<SearchEngineField>[]>;
+    storageAccountCopyFileManager(src: StorageAccountFileManagerFileInput, dest: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
+    storageAccountUploadFileFileManager(file: StorageAccountFileManagerFileUploadedInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
+    storageAccountUploadFilesFileManager(files: StorageAccountFileManagerFileUploadedInput[]): Nullable<StorageAccountFileManagerFile>[] | Promise<Nullable<StorageAccountFileManagerFile>[]>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
@@ -2056,10 +2063,6 @@ export interface AuditingSideEffect {
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface AzureStorageAccountBase64Blob {
-    base64: GraphQLString;
 }
 
 export interface CommonAdministrativeAreaLevel1 {
@@ -2613,6 +2616,43 @@ export interface SearchEngineField {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface StorageAccountFileManagerBase64 {
+    base64: GraphQLString;
+}
+
+export interface StorageAccountFileManagerFile {
+    id: string;
+    originFilename: GraphQLString;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    extension: GraphQLString;
+    relativePathSegments: GraphQLString[];
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    libraryId?: Nullable<string>;
+    libraryFilename?: Nullable<GraphQLString>;
+    library?: Nullable<StorageAccountFileManagerLibraryFile>;
+    meta?: Nullable<JSON>;
+}
+
+export interface StorageAccountFileManagerLibraryFile {
+    id: string;
+    originFilename: GraphQLString;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    extension: GraphQLString;
+    relativePathSegments: GraphQLString[];
+    width: GraphQLInt;
+    height: GraphQLInt;
+    size: GraphQLInt;
+    url: GraphQLString;
+    meta?: Nullable<JSON>;
+}
+
 export interface WhatsappConversation {
     id: string;
     wabaConversationId: GraphQLString;
@@ -2672,39 +2712,6 @@ export interface CoreLang {
     createdAt?: Nullable<GraphQLString>;
     updatedAt?: Nullable<GraphQLString>;
     deletedAt?: Nullable<GraphQLString>;
-}
-
-export interface CoreFile {
-    id: string;
-    originFilename: GraphQLString;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: GraphQLString[];
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    isCropable: GraphQLBoolean;
-    isUploaded: GraphQLBoolean;
-    libraryId?: Nullable<string>;
-    libraryFilename?: Nullable<GraphQLString>;
-    library?: Nullable<CoreLibraryFile>;
-    meta?: Nullable<JSON>;
-}
-
-export interface CoreLibraryFile {
-    id: string;
-    originFilename: GraphQLString;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: GraphQLString[];
-    width: GraphQLInt;
-    height: GraphQLInt;
-    size: GraphQLInt;
-    url: GraphQLString;
-    meta?: Nullable<JSON>;
 }
 
 export interface Pagination {

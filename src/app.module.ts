@@ -12,16 +12,15 @@ import { MsEntraIdModule } from '@api/ms-entra-id/ms-entra-id.module';
 import { QueueManagerModule } from '@api/queue-manager/queue-manager.module';
 import { CommonModule } from '@api/common/common.module';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
+import { StorageAccountModule } from '@api/storage-account/storage-account.module';
 import { RootModule, ServerStaticModule } from '@aurora/modules';
 import { MessageModule } from '@api/message/message.module';
 import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
-import { AzureStorageAccountModule } from '@api/azure-storage-account/azure-storage-account.module';
 
 @Module({
     imports: [
         RootModule,
         AuditingModule,
-        AzureStorageAccountModule,
         CommonModule,
         CoreModule,
         IamModule,
@@ -31,6 +30,7 @@ import { AzureStorageAccountModule } from '@api/azure-storage-account/azure-stor
         ScheduleModule.forRoot(),
         SearchEngineModule,
         ServerStaticModule,
+        StorageAccountModule,
         MessageModule,
         WhatsappModule
     ],

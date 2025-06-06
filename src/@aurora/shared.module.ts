@@ -1,8 +1,9 @@
 import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
+import { StorageAccountFileManagerService, StorageAccountLocalFileManagerService } from '@api/storage-account/file-manager/shared';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared';
 import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
-import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetBase64FromFileService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
+import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
@@ -36,7 +37,6 @@ import { SentryModule } from './modules';
         AuditingAxiosInterceptorService,
         CommonAttachmentsService,
         CoreAddI18nConstraintService,
-        CoreGetBase64FromFileService,
         CoreGetContentLanguageObjectService,
         CoreGetSearchKeyLangService,
         {
@@ -51,6 +51,10 @@ import { SentryModule } from './modules';
             provide : CoreGetFallbackLangService,
             useClass: CommonGetFallbackLangFromDbService,
         },
+        {
+            provide : StorageAccountFileManagerService,
+            useClass: StorageAccountLocalFileManagerService,
+        },
     ],
     exports: [
         AuditingRunner,
@@ -60,13 +64,13 @@ import { SentryModule } from './modules';
         CommonAttachmentsService,
         ConfigModule,
         CoreAddI18nConstraintService,
-        CoreGetBase64FromFileService,
         CoreGetContentLanguageObjectService,
         CoreGetFallbackLangService,
         CoreGetLangsService,
         CoreGetSearchKeyLangService,
         HttpModule,
         SentryModule,
+        StorageAccountFileManagerService,
     ],
 })
 export class SharedModule {}
