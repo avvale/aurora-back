@@ -4,7 +4,7 @@ export const boundedContexts = [
         id      : '57c76503-15a9-4bed-a39e-bda1161721f6',
         name    : 'SearchEngine',
         root    : 'search-engine',
-        sort    : 60,
+        sort    : 70,
         isActive: true,
     },
 ];
