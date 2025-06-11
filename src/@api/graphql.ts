@@ -130,6 +130,17 @@ export enum SearchEngineCollectionStatus {
     INDEXING = "INDEXING"
 }
 
+export enum ToolsKeyValueType {
+    STRING = "STRING",
+    BOOLEAN = "BOOLEAN",
+    NUMBER = "NUMBER",
+    DATE = "DATE",
+    TIME = "TIME",
+    TIMESTAMP = "TIMESTAMP",
+    OBJECT = "OBJECT",
+    ARRAY = "ARRAY"
+}
+
 export enum WhatsappMessageDirection {
     INPUT = "INPUT",
     OUTPUT = "OUTPUT"
@@ -1478,6 +1489,33 @@ export interface StorageAccountFileManagerFileUploadedInput {
     meta?: Nullable<JSON>;
 }
 
+export interface ToolsCreateKeyValueInput {
+    id: string;
+    key: GraphQLString;
+    type: ToolsKeyValueType;
+    value: GraphQLString;
+    isActive: GraphQLBoolean;
+    description?: Nullable<GraphQLString>;
+}
+
+export interface ToolsUpdateKeyValueByIdInput {
+    id: string;
+    key?: Nullable<GraphQLString>;
+    type?: Nullable<ToolsKeyValueType>;
+    value?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    description?: Nullable<GraphQLString>;
+}
+
+export interface ToolsUpdateKeyValuesInput {
+    id?: Nullable<string>;
+    key?: Nullable<GraphQLString>;
+    type?: Nullable<ToolsKeyValueType>;
+    value?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    description?: Nullable<GraphQLString>;
+}
+
 export interface WhatsappCreateConversationInput {
     id: string;
     wabaConversationId: GraphQLString;
@@ -1753,6 +1791,10 @@ export interface IQuery {
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     storageAccountGetBase64FileFileManager(file: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerBase64> | Promise<Nullable<StorageAccountFileManagerBase64>>;
     storageAccountGetBase64FilesFileManager(files: StorageAccountFileManagerFileInput[]): Nullable<Nullable<StorageAccountFileManagerBase64>[]> | Promise<Nullable<Nullable<StorageAccountFileManagerBase64>[]>>;
+    toolsFindKeyValue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
+    toolsFindKeyValueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
+    toolsGetKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
+    toolsPaginateKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     whatsappFindConversation(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappFindConversationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappGetConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
@@ -2024,6 +2066,12 @@ export interface IMutation {
     storageAccountCopyFileManager(src: StorageAccountFileManagerFileInput, dest: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFileFileManager(file: StorageAccountFileManagerFileUploadedInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFilesFileManager(files: StorageAccountFileManagerFileUploadedInput[]): Nullable<StorageAccountFileManagerFile>[] | Promise<Nullable<StorageAccountFileManagerFile>[]>;
+    toolsCreateKeyValue(payload: ToolsCreateKeyValueInput): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
+    toolsCreateKeyValues(payload: Nullable<ToolsCreateKeyValueInput>[]): boolean | Promise<boolean>;
+    toolsUpdateKeyValueById(payload: ToolsUpdateKeyValueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
+    toolsUpdateKeyValues(payload: ToolsUpdateKeyValuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
+    toolsDeleteKeyValueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
+    toolsDeleteKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
@@ -2651,6 +2699,18 @@ export interface StorageAccountFileManagerLibraryFile {
     size: GraphQLInt;
     url: GraphQLString;
     meta?: Nullable<JSON>;
+}
+
+export interface ToolsKeyValue {
+    id: string;
+    key: GraphQLString;
+    type: ToolsKeyValueType;
+    value: GraphQLString;
+    isActive: GraphQLBoolean;
+    description?: Nullable<GraphQLString>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
 export interface WhatsappConversation {

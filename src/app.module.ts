@@ -14,6 +14,7 @@ import { CommonModule } from '@api/common/common.module';
 import { SearchEngineModule } from '@api/search-engine/search-engine.module';
 import { StorageAccountModule } from '@api/storage-account/storage-account.module';
 import { RootModule, ServerStaticModule } from '@aurora/modules';
+import { ToolsModule } from '@api/tools/tools.module';
 import { MessageModule } from '@api/message/message.module';
 import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
 
@@ -31,6 +32,7 @@ import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
         SearchEngineModule,
         ServerStaticModule,
         StorageAccountModule,
+        ToolsModule,
         MessageModule,
         WhatsappModule
     ],
