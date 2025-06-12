@@ -120,4 +120,16 @@ type Mutation
         constraint: QueryStatement
     ): [IamUser]!
 
+
+    # additionalApis
+    iamForgotPasswordUser(
+        payload: IamUpdateUserByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
+    iamResetPasswordUser(
+        payload: IamUpdateUserByIdInput!
+        constraint: QueryStatement
+    ): Boolean!
+
 }

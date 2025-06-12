@@ -1964,6 +1964,8 @@ export interface IMutation {
     iamUpsertUser(payload: IamUpdateUserByIdInput): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUserById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUsers(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser>[] | Promise<Nullable<IamUser>[]>;
+    iamForgotPasswordUser(payload: IamUpdateUserByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    iamResetPasswordUser(payload: IamUpdateUserByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     messageCreateInboxSetting(payload: MessageCreateInboxSettingInput): Nullable<MessageInboxSetting> | Promise<Nullable<MessageInboxSetting>>;
     messageCreateInboxSettings(payload: Nullable<MessageCreateInboxSettingInput>[]): boolean | Promise<boolean>;
     messageUpdateInboxSettingById(payload: MessageUpdateInboxSettingByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageInboxSetting> | Promise<Nullable<MessageInboxSetting>>;
