@@ -2,7 +2,7 @@ import { IamResetPasswordUserDto } from '../dto';
 import { IamResetPasswordUserInput } from '@api/graphql';
 import { IamFindUserQuery, IamUpdateUserByIdCommand } from '@app/iam/user';
 import { AuditingMeta, dateFromFormat, ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
-import { ConflictException, ForbiddenException, Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamResetPasswordUserHandler

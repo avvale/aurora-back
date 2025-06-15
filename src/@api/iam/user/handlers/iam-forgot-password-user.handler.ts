@@ -7,6 +7,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { join } from 'node:path';
 import { IamForgotPasswordUserDto } from '../dto';
 import { coreLangs } from '@aurora/modules/lang';
+import { I18nService } from 'nestjs-i18n';
 
 @Injectable()
 export class IamForgotPasswordUserHandler
@@ -15,6 +16,7 @@ export class IamForgotPasswordUserHandler
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
         private readonly mailerService: MailerService,
+        private readonly i18nService: I18nService,
     ) {}
 
     async main(
@@ -59,12 +61,11 @@ export class IamForgotPasswordUserHandler
         this.mailerService
             .sendMail({
                 to      : account.email,
-                subject : 'Recordatorio de contraseña',
+                subject : this.i18nService.t('iam.PasswordRecovery', { lang: lang?.iso6392 }),
                 template: join(process.cwd(), 'public', 'email', 'templates', 'forgot-password'), // The `.pug`, `.ejs` or `.hbs` extension is appended automatically.
                 context : {
                     lang       : lang?.iso6392,
                     link       : `${payload.origin}/reset-password/${rememberToken}`,
-                    buttonText : 'Reset password.',
                     projectName: 'Aurora',
                     username   : account.username,
                     email      : account.email,

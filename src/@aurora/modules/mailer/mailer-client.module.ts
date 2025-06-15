@@ -11,7 +11,7 @@ const customI18nHelper = (i18nService: I18nService) =>
     return (key: string, context: any) =>
     {
         const lang = context?.data?.root?.lang || 'en';
-        const args = { ...context.hash };
+        const args = context?.hash || {};
         return i18nService.t(key, { lang, args });
     };
 };
@@ -45,8 +45,13 @@ export class MailerCLientModule
                     ],
                 }),
                 MailerModule.forRootAsync({
-                    imports   : [ConfigModule],
-                    inject    : [ConfigService, I18nService],
+                    imports: [
+                        ConfigModule,
+                    ],
+                    inject: [
+                        ConfigService,
+                        I18nService,
+                    ],
                     useFactory: (
                         configService: ConfigService,
                         i18nService: I18nService,
