@@ -1028,6 +1028,7 @@ export interface IamUpdateUsersInput {
 
 export interface IamForgotPasswordUserInput {
     email: GraphQLString;
+    origin: GraphQLString;
 }
 
 export interface IamResetPasswordUserInput {

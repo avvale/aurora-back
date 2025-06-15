@@ -64,6 +64,7 @@ input IamUpdateUsersInput
 input IamForgotPasswordUserInput
 {
     email: GraphQLString!
+    origin: GraphQLString!
 }
 
 input IamResetPasswordUserInput

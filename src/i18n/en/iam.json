@@ -1,0 +1,8 @@
+{
+    "PasswordRecovery": "Password Recovery",
+    "ForgotPasswordEmailTemplate": {
+        "Phrase1": "We received a request to recover the password for user { username } with email { email }",
+        "Phrase2": "Reset your password by clicking the button below:",
+        "Phrase3": "Or open the following link:"
+    }
+}

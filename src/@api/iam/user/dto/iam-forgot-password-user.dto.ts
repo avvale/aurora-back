@@ -8,4 +8,10 @@ export class IamForgotPasswordUserDto
         description: 'email [input here api field description]',
     })
     email: string;
+
+    @ApiProperty({
+        type       : String,
+        description: 'origin [input here api field description]',
+    })
+    origin: string;
 }

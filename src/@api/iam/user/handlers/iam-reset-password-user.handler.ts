@@ -1,8 +1,8 @@
 import { IamResetPasswordUserDto } from '../dto';
 import { IamResetPasswordUserInput } from '@api/graphql';
-import { IamFindUserQuery } from '@app/iam/user';
+import { IamFindUserQuery, IamUpdateUserByIdCommand } from '@app/iam/user';
 import { AuditingMeta, dateFromFormat, ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
-import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
+import { ConflictException, ForbiddenException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamResetPasswordUserHandler
@@ -24,14 +24,19 @@ export class IamResetPasswordUserHandler
 
         if (!dateFromFormat(requestAt, 'YYYYMMDDHHmmss', true).isValid())
         {
-            throw new BadRequestException('Invalid token');
+            throw new ConflictException({
+                message   : 'Invalid token',
+                statusCode: 102,
+            });
         }
 
         if (dateFromFormat(requestAt, 'YYYYMMDDHHmmss').add(1, 'hour').isBefore(now()))
         {
-            throw new ForbiddenException('Token expired');
+            throw new ConflictException({
+                message   : 'Token expired',
+                statusCode: 102,
+            });
         }
-
 
         const user = await this.queryBus.ask(new IamFindUserQuery(
             {
@@ -41,8 +46,13 @@ export class IamResetPasswordUserHandler
             },
         ));
 
-        console.log('user', atob(payload.token));
-        console.log('user', user);
+        await this.commandBus.dispatch(new IamUpdateUserByIdCommand(
+            {
+                id           : user.id,
+                password     : payload.password,
+                rememberToken: null,
+            },
+        ));
 
         return true;
     }

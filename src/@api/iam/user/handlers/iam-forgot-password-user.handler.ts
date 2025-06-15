@@ -1,11 +1,12 @@
-import { IamFindAccountQuery } from '@app/iam/account';
-import { IamForgotPasswordUserDto } from '../dto';
 import { IamForgotPasswordUserInput } from '@api/graphql';
-import { AuditingMeta, ICommandBus, IQueryBus, now, Operator, uuid } from '@aurorajs.dev/core';
-import { Injectable, Logger } from '@nestjs/common';
+import { IamFindAccountQuery } from '@app/iam/account';
 import { IamUpdateUsersCommand } from '@app/iam/user';
+import { AuditingMeta, ICommandBus, IQueryBus, now, Operator, uuid } from '@aurorajs.dev/core';
 import { MailerService } from '@nestjs-modules/mailer';
+import { Injectable, Logger } from '@nestjs/common';
 import { join } from 'node:path';
+import { IamForgotPasswordUserDto } from '../dto';
+import { coreLangs } from '@aurora/modules/lang';
 
 @Injectable()
 export class IamForgotPasswordUserHandler
@@ -17,7 +18,7 @@ export class IamForgotPasswordUserHandler
     ) {}
 
     async main(
-        payload: IamForgotPasswordUserInput |IamForgotPasswordUserDto,
+        payload: IamForgotPasswordUserInput | IamForgotPasswordUserDto,
         auditing?: AuditingMeta,
     ): Promise<boolean>
     {
@@ -30,7 +31,17 @@ export class IamForgotPasswordUserHandler
                     ],
                 },
             },
+            {
+                include: [
+                    {
+                        association: 'user',
+                    },
+                ],
+            },
         ));
+
+        // find user's language
+        const lang = coreLangs.find(lang => lang.id === account.user.langId);
 
         const rememberToken = btoa(account.id + now().format('YYYYMMDDHHmmss') + uuid());
 
@@ -51,8 +62,13 @@ export class IamForgotPasswordUserHandler
                 subject : 'Recordatorio de contraseña',
                 template: join(process.cwd(), 'public', 'email', 'templates', 'forgot-password'), // The `.pug`, `.ejs` or `.hbs` extension is appended automatically.
                 context : {
-                    link      : 'http://localhost:4200/reset-password/' + rememberToken,
-                    buttonText: 'Reset password.',
+                    lang       : lang?.iso6392,
+                    link       : `${payload.origin}/reset-password/${rememberToken}`,
+                    buttonText : 'Reset password.',
+                    projectName: 'Aurora',
+                    username   : account.username,
+                    email      : account.email,
+                    validHours : 1,
                 },
             })
             .then(data =>
