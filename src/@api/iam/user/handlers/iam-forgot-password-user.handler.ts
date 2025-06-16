@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { IamForgotPasswordUserDto } from '../dto';
 import { coreLangs } from '@aurora/modules/lang';
 import { I18nService } from 'nestjs-i18n';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class IamForgotPasswordUserHandler
@@ -17,6 +18,7 @@ export class IamForgotPasswordUserHandler
         private readonly queryBus: IQueryBus,
         private readonly mailerService: MailerService,
         private readonly i18nService: I18nService,
+        private readonly configService: ConfigService,
     ) {}
 
     async main(
@@ -66,7 +68,7 @@ export class IamForgotPasswordUserHandler
                 context : {
                     lang       : lang?.iso6392,
                     link       : `${payload.origin}/reset-password/${rememberToken}`,
-                    projectName: 'Aurora',
+                    projectName: this.configService.get<string>('APP_NAME', 'Aurora'),
                     username   : account.username,
                     email      : account.email,
                     validHours : 1,

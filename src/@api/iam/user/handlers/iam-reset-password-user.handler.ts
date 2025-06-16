@@ -2,7 +2,7 @@ import { IamResetPasswordUserDto } from '../dto';
 import { IamResetPasswordUserInput } from '@api/graphql';
 import { IamFindUserQuery, IamUpdateUserByIdCommand } from '@app/iam/user';
 import { AuditingMeta, dateFromFormat, ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
-import { ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamResetPasswordUserHandler
@@ -24,18 +24,12 @@ export class IamResetPasswordUserHandler
 
         if (!dateFromFormat(requestAt, 'YYYYMMDDHHmmss', true).isValid())
         {
-            throw new ConflictException({
-                message   : 'Invalid token',
-                statusCode: 102,
-            });
+            throw new BadRequestException({ message: 'Invalid token' });
         }
 
         if (dateFromFormat(requestAt, 'YYYYMMDDHHmmss').add(1, 'hour').isBefore(now()))
         {
-            throw new ConflictException({
-                message   : 'Token expired',
-                statusCode: 102,
-            });
+            throw new BadRequestException({ message: 'Token expired' });
         }
 
         const user = await this.queryBus.ask(new IamFindUserQuery(

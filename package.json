@@ -55,6 +55,7 @@
         "jwks-rsa": "^3.2.0",
         "libphonenumber-js": "^1.12.5",
         "nest-winston": "^1.10.2",
+        "nestjs-i18n": "^10.5.1",
         "openai": "^4.98.0",
         "passport": "^0.7.0",
         "passport-jwt": "^4.0.1",

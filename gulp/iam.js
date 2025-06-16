@@ -19,6 +19,8 @@ function copyIam()
         fse.copy('cliter/iam', 'publish/cliter/iam', { overwrite: true }),
         fse.copy('src/@api/iam', 'publish/src/@api/iam', { overwrite: true }),
         fse.copy('src/@app/iam', 'publish/src/@app/iam', { overwrite: true }),
+        fse.copy('src/i18n/en/iam.json', 'publish/src/i18n/en/iam.json', { overwrite: true }),
+        fse.copy('src/i18n/es/iam.json', 'publish/src/i18n/es/iam.json', { overwrite: true }),
         fse.copy('test/acceptance/iam', 'publish/test/acceptance/iam', { overwrite: true }),
         fse.copy('postman/iam', 'publish/postman/iam', { overwrite: true }),
     ]);
