@@ -34,7 +34,7 @@ export class MailerCLientModule
                 I18nModule.forRoot({
                     fallbackLanguage: 'en',
                     loaderOptions   : {
-                        path : join(process.cwd(), '/src/i18n/'),
+                        path : join(process.cwd(), 'src', 'i18n'),
                         watch: true,
                     },
                     resolvers: [
@@ -70,7 +70,7 @@ export class MailerCLientModule
                             from: configService.get<string>('MAILER_FROM'),
                         },
                         template: {
-                            dir    : __dirname + '/templates',
+                            dir    : join(process.cwd(), 'src', 'assets', 'email', 'templates'),
                             adapter: new HandlebarsAdapter({
                                 ...handlebarsHelpers(),
                                 t: customI18nHelper(i18nService),

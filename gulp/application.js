@@ -29,6 +29,7 @@ function copyApplication()
             '!cliter/o-auth/**',
             '!cliter/queue-manager/**',
             '!cliter/search-engine/**',
+            '!cliter/tools/**',
             '!cliter/whatsapp/**',
             '!db/**',
             '!dist/**',
@@ -44,6 +45,8 @@ function copyApplication()
             '!postman/**',
             '!src/@api/**',
             '!src/@app/**',
+            '!src/assets/**',
+            '!src/i18n/**',
             '!src/app.queues.ts',
             '!src/index.ts',
             '!storage/**',
@@ -175,6 +178,10 @@ async function cleanAppModule()
     // remove SearchEngineModule
     codeWriter.removeImport(sourceFile, '@api/storage-account/storage-account.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'StorageAccountModule');
+
+    // remove toolsModule
+    codeWriter.removeImport(sourceFile, '@api/tools/tools.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'ToolsModule');
 
     // remove MessageModule
     codeWriter.removeImport(sourceFile, '@api/message/message.module');
