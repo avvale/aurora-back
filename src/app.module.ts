@@ -17,6 +17,7 @@ import { RootModule, ServerStaticModule } from '@aurora/modules';
 import { ToolsModule } from '@api/tools/tools.module';
 import { MessageModule } from '@api/message/message.module';
 import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
+import { SharedModule } from '@api/shared/shared.module';
 
 @Module({
     imports: [
@@ -34,7 +35,8 @@ import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
         StorageAccountModule,
         ToolsModule,
         MessageModule,
-        WhatsappModule
+        WhatsappModule,
+        SharedModule,
     ],
     controllers: [
         AppController,

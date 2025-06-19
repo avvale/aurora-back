@@ -187,6 +187,10 @@ async function cleanAppModule()
     codeWriter.removeImport(sourceFile, '@api/message/message.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'MessageModule');
 
+     // remove SharedModule
+    codeWriter.removeImport(sourceFile, '@api/shared/shared.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'SharedModule');
+
     // remove WhatsappModule
     codeWriter.removeImport(sourceFile, '@api/whatsapp/whatsapp.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'WhatsappModule');
