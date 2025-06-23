@@ -236,3 +236,9 @@ export { ToolsKeyValueMapper } from './@app/tools/key-value/domain/tools-key-val
 export { toolsMockKeyValueData } from './@app/tools/key-value/infrastructure/mock/tools-mock-key-value.data';
 export { ToolsModule } from './@api/tools/tools.module';
 export { ToolsKeyValueDto } from './@api/tools/key-value/dto/tools-key-value.dto';
+export { ToolsProcedure } from './@app/tools/procedure/domain/tools-procedure.aggregate';
+export { ToolsProcedureModel } from './@app/tools/procedure';
+export { ToolsProcedureResponse } from './@app/tools/procedure/domain/tools-procedure.response';
+export { ToolsProcedureMapper } from './@app/tools/procedure/domain/tools-procedure.mapper';
+export { toolsMockProcedureData } from './@app/tools/procedure/infrastructure/mock/tools-mock-procedure.data';
+export { ToolsProcedureDto } from './@api/tools/procedure/dto/tools-procedure.dto';
