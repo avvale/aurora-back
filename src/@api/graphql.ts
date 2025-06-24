@@ -2138,8 +2138,8 @@ export interface IMutation {
     toolsUpdateProcedures(payload: ToolsUpdateProceduresInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
     toolsDeleteProcedureById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsDeleteProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
-    toolsUpScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    toolsDownScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    toolsUpScriptProcedure(procedureId: string): boolean | Promise<boolean>;
+    toolsDownScriptProcedure(procedureId: string): boolean | Promise<boolean>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
