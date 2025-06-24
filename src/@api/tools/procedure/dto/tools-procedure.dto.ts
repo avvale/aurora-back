@@ -36,6 +36,12 @@ export class ToolsProcedureDto
     isActive: boolean;
 
     @ApiProperty({
+        type       : Boolean,
+        description: 'isUpdated [input here api field description]',
+    })
+    isUpdated: boolean;
+
+    @ApiProperty({
         type       : String,
         description: 'upScript [input here api field description]',
     })

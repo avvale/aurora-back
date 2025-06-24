@@ -42,6 +42,7 @@ describe('ToolsUpdateProcedureByIdCommandHandler', () =>
                         type: toolsMockProcedureData[0].type,
                         version: toolsMockProcedureData[0].version,
                         isActive: toolsMockProcedureData[0].isActive,
+                        isUpdated: toolsMockProcedureData[0].isUpdated,
                         upScript: toolsMockProcedureData[0].upScript,
                         downScript: toolsMockProcedureData[0].downScript,
                         executedAt: toolsMockProcedureData[0].executedAt,

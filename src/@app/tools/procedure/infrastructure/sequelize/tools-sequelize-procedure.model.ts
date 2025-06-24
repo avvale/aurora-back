@@ -54,6 +54,14 @@ export class ToolsProcedureModel extends Model<ToolsProcedureModel>
     isActive: boolean;
 
     @Column({
+        field: 'isUpdated',
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    })
+    isUpdated: boolean;
+
+    @Column({
         field: 'upScript',
         allowNull: true,
         type: DataTypes.TEXT,

@@ -8,6 +8,7 @@ import {
     ToolsProcedureExecutedAt,
     ToolsProcedureId,
     ToolsProcedureIsActive,
+    ToolsProcedureIsUpdated,
     ToolsProcedureName,
     ToolsProcedureType,
     ToolsProcedureUpdatedAt,
@@ -24,6 +25,7 @@ export class ToolsProcedure extends AggregateRoot
     type: ToolsProcedureType;
     version: ToolsProcedureVersion;
     isActive: ToolsProcedureIsActive;
+    isUpdated: ToolsProcedureIsUpdated;
     upScript: ToolsProcedureUpScript;
     downScript: ToolsProcedureDownScript;
     executedAt: ToolsProcedureExecutedAt;
@@ -38,6 +40,7 @@ export class ToolsProcedure extends AggregateRoot
         type: ToolsProcedureType,
         version: ToolsProcedureVersion,
         isActive: ToolsProcedureIsActive,
+        isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
         executedAt: ToolsProcedureExecutedAt,
@@ -53,6 +56,7 @@ export class ToolsProcedure extends AggregateRoot
         this.type = type;
         this.version = version;
         this.isActive = isActive;
+        this.isUpdated = isUpdated;
         this.upScript = upScript;
         this.downScript = downScript;
         this.executedAt = executedAt;
@@ -68,6 +72,7 @@ export class ToolsProcedure extends AggregateRoot
         type: ToolsProcedureType,
         version: ToolsProcedureVersion,
         isActive: ToolsProcedureIsActive,
+        isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
         executedAt: ToolsProcedureExecutedAt,
@@ -83,6 +88,7 @@ export class ToolsProcedure extends AggregateRoot
             type,
             version,
             isActive,
+            isUpdated,
             upScript,
             downScript,
             executedAt,
@@ -108,6 +114,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type.value,
                     version: event.payload.version.value,
                     isActive: event.payload.isActive.value,
+                    isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     executedAt: event.payload.executedAt?.value,
@@ -136,6 +143,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type?.value,
                     version: event.payload.version?.value,
                     isActive: event.payload.isActive?.value,
+                    isUpdated: event.payload.isUpdated?.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     executedAt: event.payload.executedAt?.value,
@@ -164,6 +172,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type.value,
                     version: event.payload.version.value,
                     isActive: event.payload.isActive.value,
+                    isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     executedAt: event.payload.executedAt?.value,
@@ -185,6 +194,7 @@ export class ToolsProcedure extends AggregateRoot
             type: this.type.value,
             version: this.version.value,
             isActive: this.isActive.value,
+            isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
             executedAt: this.executedAt?.value,
@@ -204,6 +214,7 @@ export class ToolsProcedure extends AggregateRoot
             type: this.type.value,
             version: this.version.value,
             isActive: this.isActive.value,
+            isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
             executedAt: this.executedAt?.value,

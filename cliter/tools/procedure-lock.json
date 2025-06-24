@@ -7,23 +7,23 @@
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedure.command-handler.spec.ts",
-            "integrity": "sha1:a1f0c62a8a89f9f7e25307e91f480ca034f5a5f4"
+            "integrity": "sha1:8c66d48af4158d696854e62dda9e951327dcc36c"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedure.command-handler.ts",
-            "integrity": "sha1:75cb752a01d483b8665435e02381b4736da4f22b"
+            "integrity": "sha1:db9d8fd9e3efbbceba7b653192f41b2a50b4d138"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedure.command.ts",
-            "integrity": "sha1:71f33de6245c64eaa9444be924551acfa3d78e77"
+            "integrity": "sha1:69e37509b51a7ca11479e8221b4c62d455c4ea34"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedure.service.spec.ts",
-            "integrity": "sha1:a20839f9df7d38b61c02b3c1f05e37748947b59a"
+            "integrity": "sha1:bad3433e03606ce71e36fae3c1b51da065adaa4a"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedure.service.ts",
-            "integrity": "sha1:abea82fc896056c9b054a311e575a0268e023bb9"
+            "integrity": "sha1:9a36f2e42c330006007b1a8ff99e646dada53342"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedures.command-handler.spec.ts",
@@ -31,11 +31,11 @@
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedures.command-handler.ts",
-            "integrity": "sha1:be97210fd34919e629ede8d461ae75725151a6fe"
+            "integrity": "sha1:bc0aa00f581edbd988a661e42c9c6fafdad7b6e8"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedures.command.ts",
-            "integrity": "sha1:12ec1b1cf04293fd883179bb6d640b9d908aace2"
+            "integrity": "sha1:1253e56d3b5a834d6cd4683bd49222744e52337a"
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedures.service.spec.ts",
@@ -43,7 +43,7 @@
         },
         {
             "path": "src/@app/tools/procedure/application/create/tools-create-procedures.service.ts",
-            "integrity": "sha1:3021dc1e8dc1bad902442e23315a0719bbb62658"
+            "integrity": "sha1:efcd488353631bfa6eb7e4c5c2641a9156060b37"
         },
         {
             "path": "src/@app/tools/procedure/application/delete/tools-delete-procedure-by-id.command-handler.spec.ts",
@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-add-procedures-context.event.ts",
-            "integrity": "sha1:7eb546c15da128c03f4522455aa0aa0163bb63bf"
+            "integrity": "sha1:3a60bc67545c9d62c50af6885fb085ab44320851"
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-created-procedure.event-handler.ts",
@@ -95,7 +95,7 @@
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-created-procedure.event.ts",
-            "integrity": "sha1:7f2effe8714e0e9e6a53a5ba1e077a78df7c122c"
+            "integrity": "sha1:d651a4d6b29da3a40097b419d0d41bcc3c694887"
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-created-procedures.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-deleted-procedure.event.ts",
-            "integrity": "sha1:dc483f171dad7f5ccbf57966b806c1981d7052c3"
+            "integrity": "sha1:e10383175a37977bc6c878a66c8ab84f71e33c4c"
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-deleted-procedures.event-handler.ts",
@@ -127,7 +127,7 @@
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-updated-procedure.event.ts",
-            "integrity": "sha1:3d350b9eedb0ab339cdf14fd30b3c60e1adb9de4"
+            "integrity": "sha1:9af534726b8bad49c66931cedb5f8c1e485359a0"
         },
         {
             "path": "src/@app/tools/procedure/application/events/tools-updated-procedures.event-handler.ts",
@@ -218,56 +218,76 @@
             "integrity": "sha1:fd5a40f16d0aef7f3bd148342c89b5bcfeed5ba5"
         },
         {
+            "path": "src/@app/tools/procedure/application/raw-sql/tools-raw-sql-procedures.query-handler.spec.ts",
+            "integrity": "sha1:bcab1d6e6c40f08a71a9a902e34fa009cc61ddac"
+        },
+        {
+            "path": "src/@app/tools/procedure/application/raw-sql/tools-raw-sql-procedures.query-handler.ts",
+            "integrity": "sha1:2b8a38459c38621b326a8927e568d4dda8dec210"
+        },
+        {
+            "path": "src/@app/tools/procedure/application/raw-sql/tools-raw-sql-procedures.query.ts",
+            "integrity": "sha1:1e3c89bf112be44586b6a208a87887d961f14bf8"
+        },
+        {
+            "path": "src/@app/tools/procedure/application/raw-sql/tools-raw-sql-procedures.service.spec.ts",
+            "integrity": "sha1:5ccf06098fe26f369f370c64f4fbf00c2104e9b7"
+        },
+        {
+            "path": "src/@app/tools/procedure/application/raw-sql/tools-raw-sql-procedures.service.ts",
+            "integrity": "sha1:5232a7fdfb313c6da5e995a29248019c6c194064"
+        },
+        {
             "path": "src/@app/tools/procedure/application/sagas/tools-procedure.sagas.ts",
             "integrity": "sha1:dd22d5934778d9787ba9f9e3da6a8896dc32214e"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedure-by-id.command-handler.spec.ts",
-            "integrity": "sha1:5e8b446e3f7c62b48daaf8eafe177c1dab032ebb"
+            "integrity": "sha1:13bcdb97d45297c18969b3f7b2c686a27ebe7033"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedure-by-id.command-handler.ts",
-            "integrity": "sha1:865f83798c03bfda7ca26791e52b54311e5cfcf6"
+            "integrity": "sha1:f39cc67577165d152f7d718be295768a0db7a78c"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedure-by-id.command.ts",
-            "integrity": "sha1:1d89f179cfea369d463481469a616a53ce13309e"
+            "integrity": "sha1:e202dde9e5c0ea18cd96300767639f5ee3b17c6e"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedure-by-id.service.spec.ts",
-            "integrity": "sha1:13cf591837d00868564d7f75cddf8f6e8f9bbf0f"
+            "integrity": "sha1:98cc29e2cdc0767b8ed1c04118cace72ef1c00af"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedure-by-id.service.ts",
-            "integrity": "sha1:e3f530d9e9627568f4c6fc9847d07e0dbe77a3db"
+            "integrity": "sha1:9a786f45b4bb405bacb7b017a605766f3c0b6cd8"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedures.command-handler.spec.ts",
-            "integrity": "sha1:df626d8e36c8335a9390d5cf897b3541f3297fc3"
+            "integrity": "sha1:daeaab0f0ba04be7d2ade59b3c90c19ff50a983d"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedures.command-handler.ts",
-            "integrity": "sha1:4b231936cf675a61994fa02d0c03b77bd881822b"
+            "integrity": "sha1:0a4c3c9b4d53c5b22e96a4794261384fc6e9683e"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedures.command.ts",
-            "integrity": "sha1:83278a87fd87545cc101b08a842fa7e30c86c338"
+            "integrity": "sha1:58fc704968bea4023c6e4f467b0aedb191fc1d45"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedures.service.spec.ts",
-            "integrity": "sha1:bd4f2e0c61b47f95a95527ff6c64c2e2b26d75a1"
+            "integrity": "sha1:21a05f09882657932664d8ce6aa8031f155f36ca"
         },
         {
             "path": "src/@app/tools/procedure/application/update/tools-update-procedures.service.ts",
-            "integrity": "sha1:a660420fd785d6ac092ed52b952d02bd13a6243e"
+            "integrity": "sha1:4e71a23baa9b1e01c58da9a7e4cfef6a21a322dc"
         },
         {
             "path": "src/@app/tools/procedure/domain/tools-procedure.aggregate.ts",
-            "integrity": "sha1:614a785a8e66e3a754bc87cc502c6163bf47daa3"
+            "integrity": "sha1:1be8f3b94d82270027e246312abe9d6bad46e2a4"
         },
         {
             "path": "src/@app/tools/procedure/domain/tools-procedure.mapper.ts",
-            "integrity": "sha1:12a843ad5415df36c4fed84a32595f2eceff423a"
+            "integrity": "sha1:53c85cb83f2e8588c058454604ba499dc9ebd784"
         },
         {
             "path": "src/@app/tools/procedure/domain/tools-procedure.repository.ts",
@@ -275,31 +295,31 @@
         },
         {
             "path": "src/@app/tools/procedure/domain/tools-procedure.response.ts",
-            "integrity": "sha1:11ee5143122a0724b5b680a65125fbb8c578a58a"
+            "integrity": "sha1:6eae5f9d616c9fc76107f1b4a0ea763fe2eadfc4"
         },
         {
             "path": "src/@app/tools/procedure/domain/value-objects/index.ts",
-            "integrity": "sha1:f0f57c744a57b34fa7831c5184e8c54dfa0766b5"
+            "integrity": "sha1:4f341c6292f777dd85c3669f864bad4006685d33"
         },
         {
             "path": "src/@app/tools/procedure/index.ts",
-            "integrity": "sha1:a95ffc672a490ea39aeb80af6bb4926c38a3d99d"
+            "integrity": "sha1:e1a7b1e01ebce0273fd4b89de0d688ba9931b877"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/mock/tools-mock-procedure.data.ts",
-            "integrity": "sha1:d075e1464e499decf0ffb6f700fa4cef0d9eb315"
+            "integrity": "sha1:796d781f434d5c12cf6da2b05085a10240fe6ffd"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/mock/tools-mock-procedure.repository.ts",
-            "integrity": "sha1:41418717f3a9fc5fc660db1145797498f8213633"
+            "integrity": "sha1:e17acaa294cdece2e91ddd80c526ef0dee690e07"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/mock/tools-mock-procedure.seeder.ts",
-            "integrity": "sha1:23df4347751a81d1df2c982d2dcb3e6e326d5842"
+            "integrity": "sha1:5bdecf9b2acdcd943a2233849acd1f81200dca5c"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/sequelize/tools-sequelize-procedure.model.ts",
-            "integrity": "sha1:63a09e7dbc1dcc62b653e90f7946d8f51cc03c7b"
+            "integrity": "sha1:de1847c4c7d75bce4f7d4391143723bd0cb710f0"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/sequelize/tools-sequelize-procedure.repository.ts",
@@ -324,6 +344,10 @@
         {
             "path": "src/@app/tools/procedure/domain/value-objects/tools-procedure-is-active.ts",
             "integrity": "sha1:2406c63027c865fb0a561997ff5fa615115aafc9"
+        },
+        {
+            "path": "src/@app/tools/procedure/domain/value-objects/tools-procedure-is-updated.ts",
+            "integrity": "sha1:927452ad7d7ef313190183f529d83b0a7a518f03"
         },
         {
             "path": "src/@app/tools/procedure/domain/value-objects/tools-procedure-up-script.ts",
@@ -439,19 +463,19 @@
         },
         {
             "path": "src/@api/tools/procedure/dto/tools-procedure.dto.ts",
-            "integrity": "sha1:1440a9f88649aafb6176e3d2e1a429f2f09134f1"
+            "integrity": "sha1:48961cf73a2e1e9a1ec1ffb4da9c81e112e35b91"
         },
         {
             "path": "src/@api/tools/procedure/dto/tools-create-procedure.dto.ts",
-            "integrity": "sha1:0b5207b7ba276f924fd1a388f715b92edf5a0924"
+            "integrity": "sha1:dcac8983cafe3b6d48df5a999ea7addf8b800998"
         },
         {
             "path": "src/@api/tools/procedure/dto/tools-update-procedure-by-id.dto.ts",
-            "integrity": "sha1:1b82846d2fa68782dba6df0f9786b7ab58601b04"
+            "integrity": "sha1:b0613fa8422a5ace29d6f8b9ff2aa7e95cdcdac1"
         },
         {
             "path": "src/@api/tools/procedure/dto/tools-update-procedures.dto.ts",
-            "integrity": "sha1:bce53eba55eb37159ce85c1372a184a6dd398a26"
+            "integrity": "sha1:40ab36fc6fd317d7ed837610d82e7f3a0c340201"
         },
         {
             "path": "src/@api/tools/procedure/dto/index.ts",
@@ -463,7 +487,7 @@
         },
         {
             "path": "src/@api/tools/procedure/graphql/tools-procedure.graphql",
-            "integrity": "sha1:c70d9e285e62c097a0f710bcc4ad53bb732ce908"
+            "integrity": "sha1:9641af212bf86b3d379b1fec26cf05506e00b4f4"
         },
         {
             "path": "src/@api/tools/procedure/handlers/tools-create-procedure.handler.spec.ts",
@@ -547,7 +571,7 @@
         },
         {
             "path": "src/@api/tools/procedure/index.ts",
-            "integrity": "sha1:a8b3959b6de60e6a0c20acfea821d3d19216ea23"
+            "integrity": "sha1:808f5db412c3f29c36d7ba437db213e4a17d582e"
         },
         {
             "path": "src/@api/tools/procedure/resolvers/tools-create-procedure.resolver.spec.ts",
@@ -634,12 +658,60 @@
             "integrity": "sha1:987b52bba7f4af28ec0b2313f25e69ad4706dbfe"
         },
         {
+            "path": "src/@api/tools/procedure/controllers/tools-up-script-procedure.controller.spec.ts",
+            "integrity": "sha1:8c27796da3b796a2aef2f92e386f2765fef2f066"
+        },
+        {
+            "path": "src/@api/tools/procedure/controllers/tools-up-script-procedure.controller.ts",
+            "integrity": "sha1:ab715e045ba294fbef6640e806826fc961bed8a7"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-up-script-procedure.handler.spec.ts",
+            "integrity": "sha1:ec3a488a1a54d54fba95da1c17409589348dfd2c"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-up-script-procedure.handler.ts",
+            "integrity": "sha1:7937033cad924525749db5ab48b8d4d5031b86aa"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-up-script-procedure.resolver.spec.ts",
+            "integrity": "sha1:c6e5736ae0dd0964fe1504973f9cc959ec6bac2e"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-up-script-procedure.resolver.ts",
+            "integrity": "sha1:b6c82b8b45bae16a61e29ec784cf7a5badabed46"
+        },
+        {
+            "path": "src/@api/tools/procedure/controllers/tools-down-script-procedure.controller.spec.ts",
+            "integrity": "sha1:aadd40057ab1cb4c5a9ae24bac5a0719fec75930"
+        },
+        {
+            "path": "src/@api/tools/procedure/controllers/tools-down-script-procedure.controller.ts",
+            "integrity": "sha1:47c747d9b83aba1e3d4fa36020741be84758e062"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-down-script-procedure.handler.spec.ts",
+            "integrity": "sha1:d20f80c6aa705ed5a2956c79f0aa59f195de828a"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-down-script-procedure.handler.ts",
+            "integrity": "sha1:716cb77eaf2f4ddc65e5968161ab8b54806b3e82"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-down-script-procedure.resolver.spec.ts",
+            "integrity": "sha1:04c7081f7ffaa8bec0d7bc8c664c898cb240f7a0"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-down-script-procedure.resolver.ts",
+            "integrity": "sha1:5886f39f493b9be982b231842b6e72349c0fb40a"
+        },
+        {
             "path": "test/acceptance/tools/procedure.e2e-spec.ts",
-            "integrity": "sha1:7baccd96c332ace06e07a0cfe8eec002fdd017c6"
+            "integrity": "sha1:f1b3415835ad51b623984fb19f265f7ca24079c0"
         },
         {
             "path": "postman/tools/tools.procedure.postman.json",
-            "integrity": "sha1:9392d193416d0f5430ccaa2784d95d55e98e3e84"
+            "integrity": "sha1:8b21b02129a4162f87845c00caf605d140fff326"
         }
     ]
 }

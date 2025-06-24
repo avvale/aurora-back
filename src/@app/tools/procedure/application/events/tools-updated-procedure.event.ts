@@ -10,6 +10,7 @@ export class ToolsUpdatedProcedureEvent
                 type: string;
                 version: string;
                 isActive: boolean;
+                isUpdated: boolean;
                 upScript: string;
                 downScript: string;
                 executedAt: string;

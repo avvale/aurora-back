@@ -1537,6 +1537,7 @@ export interface ToolsCreateProcedureInput {
     type: ToolsProcedureType;
     version: GraphQLString;
     isActive: GraphQLBoolean;
+    isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
@@ -1549,6 +1550,7 @@ export interface ToolsUpdateProcedureByIdInput {
     type?: Nullable<ToolsProcedureType>;
     version?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
+    isUpdated?: Nullable<GraphQLBoolean>;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
@@ -1561,6 +1563,7 @@ export interface ToolsUpdateProceduresInput {
     type?: Nullable<ToolsProcedureType>;
     version?: Nullable<GraphQLString>;
     isActive?: Nullable<GraphQLBoolean>;
+    isUpdated?: Nullable<GraphQLBoolean>;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
@@ -2135,6 +2138,8 @@ export interface IMutation {
     toolsUpdateProcedures(payload: ToolsUpdateProceduresInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
     toolsDeleteProcedureById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsDeleteProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
+    toolsUpScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    toolsDownScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
@@ -2782,6 +2787,7 @@ export interface ToolsProcedure {
     type: ToolsProcedureType;
     version: GraphQLString;
     isActive: GraphQLBoolean;
+    isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;

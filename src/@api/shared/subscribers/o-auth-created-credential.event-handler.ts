@@ -6,6 +6,6 @@ export class OAuthCreatedCredentialEventHandler implements IEventHandler<OAuthCr
 {
     handle(event: OAuthCreatedCredentialEvent): void
     {
-        console.log('OAuthCreatedCredentialEvent: ', event);
+        // console.log('OAuthCreatedCredentialEvent: ', event);
     }
 }

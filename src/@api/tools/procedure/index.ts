@@ -40,6 +40,14 @@ export { ToolsUpdateProceduresResolver } from './resolvers/tools-update-procedur
 export { ToolsDeleteProcedureByIdResolver } from './resolvers/tools-delete-procedure-by-id.resolver';
 export { ToolsDeleteProceduresResolver } from './resolvers/tools-delete-procedures.resolver';
 
+// export additionalApis
+export { ToolsUpScriptProcedureController } from './controllers/tools-up-script-procedure.controller';
+export { ToolsUpScriptProcedureHandler } from './handlers/tools-up-script-procedure.handler';
+export { ToolsUpScriptProcedureResolver } from './resolvers/tools-up-script-procedure.resolver';
+export { ToolsDownScriptProcedureController } from './controllers/tools-down-script-procedure.controller';
+export { ToolsDownScriptProcedureHandler } from './handlers/tools-down-script-procedure.handler';
+export { ToolsDownScriptProcedureResolver } from './resolvers/tools-down-script-procedure.resolver';
+
 // import controllers
 import { ToolsCreateProcedureController } from './controllers/tools-create-procedure.controller';
 import { ToolsCreateProceduresController } from './controllers/tools-create-procedures.controller';
@@ -79,6 +87,14 @@ import { ToolsDeleteProceduresHandler } from './handlers/tools-delete-procedures
 // import seeder
 import { ToolsProcedureSeeder } from './seeder/tools-procedure.seeder';
 
+// import additionalApis
+import { ToolsUpScriptProcedureController } from './controllers/tools-up-script-procedure.controller';
+import { ToolsUpScriptProcedureHandler } from './handlers/tools-up-script-procedure.handler';
+import { ToolsUpScriptProcedureResolver } from './resolvers/tools-up-script-procedure.resolver';
+import { ToolsDownScriptProcedureController } from './controllers/tools-down-script-procedure.controller';
+import { ToolsDownScriptProcedureHandler } from './handlers/tools-down-script-procedure.handler';
+import { ToolsDownScriptProcedureResolver } from './resolvers/tools-down-script-procedure.resolver';
+
 export const ToolsProcedureApiControllers = [
     ToolsCreateProcedureController,
     ToolsCreateProceduresController,
@@ -90,6 +106,10 @@ export const ToolsProcedureApiControllers = [
     ToolsUpdateProceduresController,
     ToolsDeleteProcedureByIdController,
     ToolsDeleteProceduresController,
+
+    // additionalApis
+    ToolsUpScriptProcedureController,
+    ToolsDownScriptProcedureController,
 ];
 
 export const ToolsProcedureApiResolvers = [
@@ -103,6 +123,10 @@ export const ToolsProcedureApiResolvers = [
     ToolsUpdateProceduresResolver,
     ToolsDeleteProcedureByIdResolver,
     ToolsDeleteProceduresResolver,
+
+    // additionalApis
+    ToolsUpScriptProcedureResolver,
+    ToolsDownScriptProcedureResolver,
 ];
 
 export const ToolsProcedureApiHandlers = [
@@ -116,6 +140,10 @@ export const ToolsProcedureApiHandlers = [
     ToolsUpdateProceduresHandler,
     ToolsDeleteProcedureByIdHandler,
     ToolsDeleteProceduresHandler,
+
+    // additionalApis
+    ToolsUpScriptProcedureHandler,
+    ToolsDownScriptProcedureHandler,
 ];
 
 export const ToolsProcedureApiServices = [

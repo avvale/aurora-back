@@ -157,6 +157,22 @@ describe('procedure', () =>
             });
     });
 
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isUpdated: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsUpdated must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureId property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -237,6 +253,22 @@ describe('procedure', () =>
             });
     });
 
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isUpdated: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsUpdated must be defined, can not be undefined');
+            });
+    });
+
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureId is not allowed, must be a length of 36', () =>
     {
         return request(app.getHttpServer())
@@ -298,6 +330,21 @@ describe('procedure', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for ToolsProcedureIsActive has to be a boolean value');
+            });
+    });
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated has to be a boolean value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isUpdated: 'true',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsUpdated has to be a boolean value');
             });
     });
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureType has to be a enum option of FUNCTION, TRIGGER', () =>
@@ -522,6 +569,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -596,6 +644,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -633,6 +682,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -670,6 +720,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -715,6 +766,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -758,6 +810,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -796,6 +849,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -832,6 +886,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -873,6 +928,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -912,6 +968,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -956,6 +1013,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
@@ -994,6 +1052,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isUpdated
                             upScript
                             downScript
                             executedAt
