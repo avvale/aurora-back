@@ -24,13 +24,14 @@ exports.default = defaultTask;
 // commands
 exports.publishApplication = publishApplication;
 exports.publishAuditing = publishAuditing;
-exports.publishMsEntraId = publishMsEntraId;
 exports.publishCommon = publishCommon;
 exports.publishIam = publishIam;
+exports.publishMessage = publishMessage;
+exports.publishMsEntraId = publishMsEntraId;
 exports.publishOAuth = publishOAuth;
 exports.publishQueueManager = publishQueueManager;
 exports.publishSearchEngine = publishSearchEngine;
 exports.publishStorageAccount = publishStorageAccount;
 exports.publishStorageAccountAzure = publishStorageAccountAzure;
+exports.publishTools = publishTools;
 exports.publishWhatsapp = publishWhatsapp;
-exports.publishMessage = publishMessage;
