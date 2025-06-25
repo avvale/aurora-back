@@ -6,7 +6,7 @@ import { Sequelize } from 'sequelize-typescript';
 @Injectable()
 export class ToolsSequelizeInformationSchemaRepository extends SequelizeRepository<ToolsInformationSchemaSqlRequest | ToolsInformationSchemaSqlResponse, new () => any>
 {
-    public readonly mapper: ToolsInformationSchemaMapper = new ToolsInformationSchemaMapper();
+    public readonly mapper: any = new ToolsInformationSchemaMapper();
     public readonly repository: any = { sequelize: Sequelize };
 
     constructor(

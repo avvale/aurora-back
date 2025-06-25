@@ -1,10 +1,8 @@
 import { ToolsInformationSchemaSqlResponse, ToolsInformationSchemaResponse } from '@app/tools/information-schema';
-import {
-    ToolsInformationSchemaValue,
-} from '@app/tools/information-schema/domain/value-objects';
-import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
+import { ToolsInformationSchemaValue } from '@app/tools/information-schema/domain/value-objects';
+import { CQMetadata, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
 
-export class ToolsInformationSchemaMapper implements IMapper
+export class ToolsInformationSchemaMapper
 {
     constructor(
         public options: MapperOptions = { eagerLoading: true },
@@ -49,8 +47,6 @@ export class ToolsInformationSchemaMapper implements IMapper
      */
     mapAggregatesToResponses(sqlResponse: ToolsInformationSchemaSqlResponse): ToolsInformationSchemaResponse
     {
-        if (!Array.isArray(sqlResponse)) return;
-
         return this.makeResponse(sqlResponse);
     }
 
