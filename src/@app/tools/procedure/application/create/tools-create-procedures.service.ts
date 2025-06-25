@@ -9,6 +9,7 @@ import {
     ToolsProcedureIsActive,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
+    ToolsProcedureSort,
     ToolsProcedureType,
     ToolsProcedureUpdatedAt,
     ToolsProcedureUpScript,
@@ -36,6 +37,7 @@ export class ToolsCreateProceduresService
             isUpdated: ToolsProcedureIsUpdated;
             upScript: ToolsProcedureUpScript;
             downScript: ToolsProcedureDownScript;
+            sort: ToolsProcedureSort;
             executedAt: ToolsProcedureExecutedAt;
             checkedAt: ToolsProcedureCheckedAt;
         } [],
@@ -52,6 +54,7 @@ export class ToolsCreateProceduresService
             procedure.isUpdated,
             procedure.upScript,
             procedure.downScript,
+            procedure.sort,
             procedure.executedAt,
             procedure.checkedAt,
             new ToolsProcedureCreatedAt({ currentTimestamp: true }),

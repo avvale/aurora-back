@@ -24,6 +24,7 @@ aggregateProperties:
     type: enum
     enumOptions:
       - FUNCTION
+      - PROCEDURE
       - TRIGGER
     nullable: false
   - name: version
@@ -44,6 +45,10 @@ aggregateProperties:
     nullable: true
   - name: downScript
     type: text
+    nullable: true
+  - name: sort
+    type: smallint
+    unsigned: true
     nullable: true
   - name: executedAt
     type: timestamp
@@ -71,6 +76,7 @@ excludedOperations:
   - count
   - max
   - min
+  - rawSql
   - sum
   - updateAndIncrement
   - upsert

@@ -5,7 +5,6 @@ export { ToolsUpdateProcedureByIdCommand } from './application/update/tools-upda
 export { ToolsUpdateProceduresCommand } from './application/update/tools-update-procedures.command';
 export { ToolsDeleteProcedureByIdCommand } from './application/delete/tools-delete-procedure-by-id.command';
 export { ToolsDeleteProceduresCommand } from './application/delete/tools-delete-procedures.command';
-export { ToolsRawSQLProcedureCommand } from './application/raw-sql/tools-raw-sql-procedure.command';
 
 // export queries
 export { ToolsPaginateProceduresQuery } from './application/paginate/tools-paginate-procedures.query';
@@ -53,7 +52,6 @@ import { ToolsUpdateProcedureByIdCommandHandler } from './application/update/too
 import { ToolsUpdateProceduresCommandHandler } from './application/update/tools-update-procedures.command-handler';
 import { ToolsDeleteProcedureByIdCommandHandler } from './application/delete/tools-delete-procedure-by-id.command-handler';
 import { ToolsDeleteProceduresCommandHandler } from './application/delete/tools-delete-procedures.command-handler';
-import { ToolsRawSQLProcedureCommandHandler } from './application/raw-sql/tools-raw-sql-procedure.command-handler';
 
 // query handlers
 import { ToolsPaginateProceduresQueryHandler } from './application/paginate/tools-paginate-procedures.query-handler';
@@ -76,7 +74,6 @@ import { ToolsPaginateProceduresService } from './application/paginate/tools-pag
 import { ToolsGetProceduresService } from './application/get/tools-get-procedures.service';
 import { ToolsFindProcedureService } from './application/find/tools-find-procedure.service';
 import { ToolsFindProcedureByIdService } from './application/find/tools-find-procedure-by-id.service';
-import { ToolsRawSQLProceduresService } from './application/raw-sql/tools-raw-sql-procedures.service';
 import { ToolsUpdateProcedureByIdService } from './application/update/tools-update-procedure-by-id.service';
 import { ToolsUpdateProceduresService } from './application/update/tools-update-procedures.service';
 import { ToolsDeleteProcedureByIdService } from './application/delete/tools-delete-procedure-by-id.service';
@@ -90,7 +87,6 @@ export const ToolsProcedureHandlers = [
     ToolsUpdateProceduresCommandHandler,
     ToolsDeleteProcedureByIdCommandHandler,
     ToolsDeleteProceduresCommandHandler,
-    ToolsRawSQLProcedureCommandHandler,
 
     // queries
     ToolsPaginateProceduresQueryHandler,
@@ -114,7 +110,6 @@ export const ToolsProcedureServices = [
     ToolsGetProceduresService,
     ToolsFindProcedureService,
     ToolsFindProcedureByIdService,
-    ToolsRawSQLProceduresService,
     ToolsUpdateProcedureByIdService,
     ToolsUpdateProceduresService,
     ToolsDeleteProcedureByIdService,

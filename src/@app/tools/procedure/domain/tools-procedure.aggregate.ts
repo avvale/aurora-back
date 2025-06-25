@@ -10,6 +10,7 @@ import {
     ToolsProcedureIsActive,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
+    ToolsProcedureSort,
     ToolsProcedureType,
     ToolsProcedureUpdatedAt,
     ToolsProcedureUpScript,
@@ -28,6 +29,7 @@ export class ToolsProcedure extends AggregateRoot
     isUpdated: ToolsProcedureIsUpdated;
     upScript: ToolsProcedureUpScript;
     downScript: ToolsProcedureDownScript;
+    sort: ToolsProcedureSort;
     executedAt: ToolsProcedureExecutedAt;
     checkedAt: ToolsProcedureCheckedAt;
     createdAt: ToolsProcedureCreatedAt;
@@ -43,6 +45,7 @@ export class ToolsProcedure extends AggregateRoot
         isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
+        sort: ToolsProcedureSort,
         executedAt: ToolsProcedureExecutedAt,
         checkedAt: ToolsProcedureCheckedAt,
         createdAt: ToolsProcedureCreatedAt,
@@ -59,6 +62,7 @@ export class ToolsProcedure extends AggregateRoot
         this.isUpdated = isUpdated;
         this.upScript = upScript;
         this.downScript = downScript;
+        this.sort = sort;
         this.executedAt = executedAt;
         this.checkedAt = checkedAt;
         this.createdAt = createdAt;
@@ -75,6 +79,7 @@ export class ToolsProcedure extends AggregateRoot
         isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
+        sort: ToolsProcedureSort,
         executedAt: ToolsProcedureExecutedAt,
         checkedAt: ToolsProcedureCheckedAt,
         createdAt: ToolsProcedureCreatedAt,
@@ -91,6 +96,7 @@ export class ToolsProcedure extends AggregateRoot
             isUpdated,
             upScript,
             downScript,
+            sort,
             executedAt,
             checkedAt,
             createdAt,
@@ -117,6 +123,7 @@ export class ToolsProcedure extends AggregateRoot
                     isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
+                    sort: event.payload.sort?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -146,6 +153,7 @@ export class ToolsProcedure extends AggregateRoot
                     isUpdated: event.payload.isUpdated?.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
+                    sort: event.payload.sort?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -175,6 +183,7 @@ export class ToolsProcedure extends AggregateRoot
                     isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
+                    sort: event.payload.sort?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -197,6 +206,7 @@ export class ToolsProcedure extends AggregateRoot
             isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
+            sort: this.sort?.value,
             executedAt: this.executedAt?.value,
             checkedAt: this.checkedAt?.value,
             createdAt: this.createdAt?.value,
@@ -217,6 +227,7 @@ export class ToolsProcedure extends AggregateRoot
             isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
+            sort: this.sort?.value,
             executedAt: this.executedAt?.value,
             checkedAt: this.checkedAt?.value,
             createdAt: this.createdAt?.value,

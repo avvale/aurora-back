@@ -143,6 +143,7 @@ export enum ToolsKeyValueType {
 
 export enum ToolsProcedureType {
     FUNCTION = "FUNCTION",
+    PROCEDURE = "PROCEDURE",
     TRIGGER = "TRIGGER"
 }
 
@@ -1540,6 +1541,7 @@ export interface ToolsCreateProcedureInput {
     isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
@@ -1553,6 +1555,7 @@ export interface ToolsUpdateProcedureByIdInput {
     isUpdated?: Nullable<GraphQLBoolean>;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
@@ -1566,6 +1569,7 @@ export interface ToolsUpdateProceduresInput {
     isUpdated?: Nullable<GraphQLBoolean>;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
@@ -2790,6 +2794,7 @@ export interface ToolsProcedure {
     isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
     createdAt?: Nullable<GraphQLTimestamp>;

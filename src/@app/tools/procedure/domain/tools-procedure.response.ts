@@ -10,6 +10,7 @@ export class ToolsProcedureResponse
         public readonly isUpdated: boolean,
         public readonly upScript: string,
         public readonly downScript: string,
+        public readonly sort: number,
         public readonly executedAt: string,
         public readonly checkedAt: string,
         public readonly createdAt: string,

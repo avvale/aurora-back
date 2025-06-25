@@ -9,6 +9,7 @@ import {
     ToolsProcedureIsActive,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
+    ToolsProcedureSort,
     ToolsProcedureType,
     ToolsProcedureUpdatedAt,
     ToolsProcedureUpScript,
@@ -36,6 +37,7 @@ export class ToolsUpdateProceduresService
             isUpdated?: ToolsProcedureIsUpdated;
             upScript?: ToolsProcedureUpScript;
             downScript?: ToolsProcedureDownScript;
+            sort?: ToolsProcedureSort;
             executedAt?: ToolsProcedureExecutedAt;
             checkedAt?: ToolsProcedureCheckedAt;
         },
@@ -54,6 +56,7 @@ export class ToolsUpdateProceduresService
             payload.isUpdated,
             payload.upScript,
             payload.downScript,
+            payload.sort,
             payload.executedAt,
             payload.checkedAt,
             null, // createdAt

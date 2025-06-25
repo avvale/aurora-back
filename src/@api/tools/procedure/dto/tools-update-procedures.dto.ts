@@ -54,6 +54,12 @@ export class ToolsUpdateProceduresDto
     downScript?: string;
 
     @ApiProperty({
+        type       : Number,
+        description: 'sort [input here api field description]',
+    })
+    sort?: number;
+
+    @ApiProperty({
         type       : String,
         description: 'executedAt [input here api field description]',
     })

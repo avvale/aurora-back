@@ -13,6 +13,7 @@ export class ToolsDeletedProcedureEvent
                 isUpdated: boolean;
                 upScript: string;
                 downScript: string;
+                sort: number;
                 executedAt: string;
                 checkedAt: string;
                 createdAt: string;

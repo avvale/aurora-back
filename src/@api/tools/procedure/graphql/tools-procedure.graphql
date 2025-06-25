@@ -1,5 +1,6 @@
 enum ToolsProcedureType {
     FUNCTION
+    PROCEDURE
     TRIGGER
 }
 
@@ -14,6 +15,7 @@ type ToolsProcedure
     isUpdated: GraphQLBoolean!
     upScript: GraphQLString
     downScript: GraphQLString
+    sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
     createdAt: GraphQLTimestamp
@@ -31,6 +33,7 @@ input ToolsCreateProcedureInput
     isUpdated: GraphQLBoolean!
     upScript: GraphQLString
     downScript: GraphQLString
+    sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
 }
@@ -45,6 +48,7 @@ input ToolsUpdateProcedureByIdInput
     isUpdated: GraphQLBoolean
     upScript: GraphQLString
     downScript: GraphQLString
+    sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
 }
@@ -59,6 +63,7 @@ input ToolsUpdateProceduresInput
     isUpdated: GraphQLBoolean
     upScript: GraphQLString
     downScript: GraphQLString
+    sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
 }

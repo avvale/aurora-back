@@ -12,6 +12,7 @@ export class ToolsUpdateProcedureByIdCommand
             isUpdated?: boolean;
             upScript?: string;
             downScript?: string;
+            sort?: number;
             executedAt?: string;
             checkedAt?: string;
         },

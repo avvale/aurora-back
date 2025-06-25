@@ -34,7 +34,7 @@ export class ToolsProcedureModel extends Model<ToolsProcedureModel>
     @Column({
         field: 'type',
         allowNull: false,
-        type: DataTypes.ENUM('FUNCTION','TRIGGER'),
+        type: DataTypes.ENUM('FUNCTION','PROCEDURE','TRIGGER'),
     })
     type: string;
 
@@ -74,6 +74,13 @@ export class ToolsProcedureModel extends Model<ToolsProcedureModel>
         type: DataTypes.TEXT,
     })
     downScript: string;
+
+    @Column({
+        field: 'sort',
+        allowNull: true,
+        type: DataTypes.SMALLINT,
+    })
+    sort: number;
 
     @Column({
         field: 'executedAt',

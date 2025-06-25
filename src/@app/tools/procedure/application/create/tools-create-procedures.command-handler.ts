@@ -9,6 +9,7 @@ import {
     ToolsProcedureIsActive,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
+    ToolsProcedureSort,
     ToolsProcedureType,
     ToolsProcedureUpScript,
     ToolsProcedureVersion,
@@ -38,6 +39,7 @@ export class ToolsCreateProceduresCommandHandler implements ICommandHandler<Tool
                         isUpdated: new ToolsProcedureIsUpdated(procedure.isUpdated),
                         upScript: new ToolsProcedureUpScript(procedure.upScript),
                         downScript: new ToolsProcedureDownScript(procedure.downScript),
+                        sort: new ToolsProcedureSort(procedure.sort),
                         executedAt: new ToolsProcedureExecutedAt(procedure.executedAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
                         checkedAt: new ToolsProcedureCheckedAt(procedure.checkedAt, {}, { removeTimezone: command.cQMetadata?.timezone }),
                     };

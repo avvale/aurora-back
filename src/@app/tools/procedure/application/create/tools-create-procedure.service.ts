@@ -9,6 +9,7 @@ import {
     ToolsProcedureIsActive,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
+    ToolsProcedureSort,
     ToolsProcedureType,
     ToolsProcedureUpdatedAt,
     ToolsProcedureUpScript,
@@ -36,6 +37,7 @@ export class ToolsCreateProcedureService
             isUpdated: ToolsProcedureIsUpdated;
             upScript: ToolsProcedureUpScript;
             downScript: ToolsProcedureDownScript;
+            sort: ToolsProcedureSort;
             executedAt: ToolsProcedureExecutedAt;
             checkedAt: ToolsProcedureCheckedAt;
         },
@@ -52,6 +54,7 @@ export class ToolsCreateProcedureService
             payload.isUpdated,
             payload.upScript,
             payload.downScript,
+            payload.sort,
             payload.executedAt,
             payload.checkedAt,
             new ToolsProcedureCreatedAt({ currentTimestamp: true }),

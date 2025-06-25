@@ -10,7 +10,7 @@ export class ToolsProcedureType extends EnumValueObject
             name       : 'ToolsProcedureType',
             nullable   : false,
             undefinable: false,
-            enumOptions: ['FUNCTION','TRIGGER'],
+            enumOptions: ['FUNCTION','PROCEDURE','TRIGGER'],
         }, validationRules));
     }
 }

@@ -347,7 +347,7 @@ describe('procedure', () =>
                 expect(res.body.message).toContain('Value for ToolsProcedureIsUpdated has to be a boolean value');
             });
     });
-    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureType has to be a enum option of FUNCTION, TRIGGER', () =>
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureType has to be a enum option of FUNCTION, PROCEDURE, TRIGGER', () =>
     {
         return request(app.getHttpServer())
             .post('/tools/procedure/create')
@@ -359,7 +359,7 @@ describe('procedure', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for ToolsProcedureType has to be any of this options: FUNCTION, TRIGGER');
+                expect(res.body.message).toContain('Value for ToolsProcedureType has to be any of this options: FUNCTION, PROCEDURE, TRIGGER');
             });
     });
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureExecutedAt has to be a timestamp value', () =>
@@ -572,6 +572,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                         }
@@ -647,6 +648,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -685,6 +687,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                         }
@@ -723,6 +726,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -769,6 +773,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -813,6 +818,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -852,6 +858,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -889,6 +896,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -931,6 +939,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -971,6 +980,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -1016,6 +1026,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt
@@ -1055,6 +1066,7 @@ describe('procedure', () =>
                             isUpdated
                             upScript
                             downScript
+                            sort
                             executedAt
                             checkedAt
                             createdAt

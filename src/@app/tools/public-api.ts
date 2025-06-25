@@ -1,18 +1,21 @@
 /* eslint-disable comma-dangle */
 import { ToolsKeyValueHandlers, ToolsKeyValueServices, ToolsKeyValueModel, ToolsIKeyValueRepository, ToolsSequelizeKeyValueRepository, ToolsKeyValueSagas } from './key-value';
 import { ToolsProcedureHandlers, ToolsProcedureServices, ToolsProcedureModel, ToolsIProcedureRepository, ToolsSequelizeProcedureRepository, ToolsProcedureSagas } from './procedure';
+import { ToolsInformationSchemaHandlers, ToolsInformationSchemaServices, ToolsSequelizeInformationSchemaRepository } from './information-schema';
 
 export const ToolsHandlers = [
     ...ToolsKeyValueHandlers,
-    ...ToolsProcedureHandlers
+    ...ToolsProcedureHandlers,
+    ...ToolsInformationSchemaHandlers,
 ];
 export const ToolsServices = [
     ...ToolsKeyValueServices,
-    ...ToolsProcedureServices
+    ...ToolsProcedureServices,
+    ...ToolsInformationSchemaServices,
 ];
 export const ToolsModels = [
     ToolsKeyValueModel,
-    ToolsProcedureModel
+    ToolsProcedureModel,
 ];
 export const ToolsRepositories = [
     {
@@ -22,7 +25,8 @@ export const ToolsRepositories = [
     {
         provide : ToolsIProcedureRepository,
         useClass: ToolsSequelizeProcedureRepository,
-    }
+    },
+    ToolsSequelizeInformationSchemaRepository,
 ];
 export const ToolsSagas = [
     ToolsKeyValueSagas,
