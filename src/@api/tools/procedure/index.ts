@@ -47,6 +47,9 @@ export { ToolsUpScriptProcedureResolver } from './resolvers/tools-up-script-proc
 export { ToolsDownScriptProcedureController } from './controllers/tools-down-script-procedure.controller';
 export { ToolsDownScriptProcedureHandler } from './handlers/tools-down-script-procedure.handler';
 export { ToolsDownScriptProcedureResolver } from './resolvers/tools-down-script-procedure.resolver';
+export { ToolsCheckScriptProcedureController } from './controllers/tools-check-script-procedure.controller';
+export { ToolsCheckScriptProcedureHandler } from './handlers/tools-check-script-procedure.handler';
+export { ToolsCheckScriptProcedureResolver } from './resolvers/tools-check-script-procedure.resolver';
 
 // import controllers
 import { ToolsCreateProcedureController } from './controllers/tools-create-procedure.controller';
@@ -94,6 +97,9 @@ import { ToolsUpScriptProcedureResolver } from './resolvers/tools-up-script-proc
 import { ToolsDownScriptProcedureController } from './controllers/tools-down-script-procedure.controller';
 import { ToolsDownScriptProcedureHandler } from './handlers/tools-down-script-procedure.handler';
 import { ToolsDownScriptProcedureResolver } from './resolvers/tools-down-script-procedure.resolver';
+import { ToolsCheckScriptProcedureController } from './controllers/tools-check-script-procedure.controller';
+import { ToolsCheckScriptProcedureHandler } from './handlers/tools-check-script-procedure.handler';
+import { ToolsCheckScriptProcedureResolver } from './resolvers/tools-check-script-procedure.resolver';
 
 export const ToolsProcedureApiControllers = [
     ToolsCreateProcedureController,
@@ -110,6 +116,7 @@ export const ToolsProcedureApiControllers = [
     // additionalApis
     ToolsUpScriptProcedureController,
     ToolsDownScriptProcedureController,
+    ToolsCheckScriptProcedureController,
 ];
 
 export const ToolsProcedureApiResolvers = [
@@ -127,6 +134,7 @@ export const ToolsProcedureApiResolvers = [
     // additionalApis
     ToolsUpScriptProcedureResolver,
     ToolsDownScriptProcedureResolver,
+    ToolsCheckScriptProcedureResolver,
 ];
 
 export const ToolsProcedureApiHandlers = [
@@ -144,6 +152,7 @@ export const ToolsProcedureApiHandlers = [
     // additionalApis
     ToolsUpScriptProcedureHandler,
     ToolsDownScriptProcedureHandler,
+    ToolsCheckScriptProcedureHandler,
 ];
 
 export const ToolsProcedureApiServices = [

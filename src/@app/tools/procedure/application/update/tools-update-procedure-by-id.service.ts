@@ -7,6 +7,7 @@ import {
     ToolsProcedureExecutedAt,
     ToolsProcedureId,
     ToolsProcedureIsActive,
+    ToolsProcedureIsInstalled,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
     ToolsProcedureSort,
@@ -34,6 +35,7 @@ export class ToolsUpdateProcedureByIdService
             type?: ToolsProcedureType;
             version?: ToolsProcedureVersion;
             isActive?: ToolsProcedureIsActive;
+            isInstalled?: ToolsProcedureIsInstalled;
             isUpdated?: ToolsProcedureIsUpdated;
             upScript?: ToolsProcedureUpScript;
             downScript?: ToolsProcedureDownScript;
@@ -52,6 +54,7 @@ export class ToolsUpdateProcedureByIdService
             payload.type,
             payload.version,
             payload.isActive,
+            payload.isInstalled,
             payload.isUpdated,
             payload.upScript,
             payload.downScript,

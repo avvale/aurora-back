@@ -36,6 +36,10 @@ aggregateProperties:
     type: boolean
     nullable: false
     defaultValue: false
+  - name: isInstalled
+    type: boolean
+    nullable: false
+    defaultValue: false
   - name: isUpdated
     type: boolean
     nullable: false
@@ -70,6 +74,9 @@ additionalApis:
     resolverType: mutation
     httpMethod: post
   - path: tools/procedure/down-script
+    resolverType: mutation
+    httpMethod: post
+  - path: tools/procedure/check-script
     resolverType: mutation
     httpMethod: post
 excludedOperations:

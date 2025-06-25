@@ -8,6 +8,7 @@ import {
     ToolsProcedureExecutedAt,
     ToolsProcedureId,
     ToolsProcedureIsActive,
+    ToolsProcedureIsInstalled,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
     ToolsProcedureSort,
@@ -26,6 +27,7 @@ export class ToolsProcedure extends AggregateRoot
     type: ToolsProcedureType;
     version: ToolsProcedureVersion;
     isActive: ToolsProcedureIsActive;
+    isInstalled: ToolsProcedureIsInstalled;
     isUpdated: ToolsProcedureIsUpdated;
     upScript: ToolsProcedureUpScript;
     downScript: ToolsProcedureDownScript;
@@ -42,6 +44,7 @@ export class ToolsProcedure extends AggregateRoot
         type: ToolsProcedureType,
         version: ToolsProcedureVersion,
         isActive: ToolsProcedureIsActive,
+        isInstalled: ToolsProcedureIsInstalled,
         isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
@@ -59,6 +62,7 @@ export class ToolsProcedure extends AggregateRoot
         this.type = type;
         this.version = version;
         this.isActive = isActive;
+        this.isInstalled = isInstalled;
         this.isUpdated = isUpdated;
         this.upScript = upScript;
         this.downScript = downScript;
@@ -76,6 +80,7 @@ export class ToolsProcedure extends AggregateRoot
         type: ToolsProcedureType,
         version: ToolsProcedureVersion,
         isActive: ToolsProcedureIsActive,
+        isInstalled: ToolsProcedureIsInstalled,
         isUpdated: ToolsProcedureIsUpdated,
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
@@ -93,6 +98,7 @@ export class ToolsProcedure extends AggregateRoot
             type,
             version,
             isActive,
+            isInstalled,
             isUpdated,
             upScript,
             downScript,
@@ -120,6 +126,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type.value,
                     version: event.payload.version.value,
                     isActive: event.payload.isActive.value,
+                    isInstalled: event.payload.isInstalled.value,
                     isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
@@ -150,6 +157,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type?.value,
                     version: event.payload.version?.value,
                     isActive: event.payload.isActive?.value,
+                    isInstalled: event.payload.isInstalled?.value,
                     isUpdated: event.payload.isUpdated?.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
@@ -180,6 +188,7 @@ export class ToolsProcedure extends AggregateRoot
                     type: event.payload.type.value,
                     version: event.payload.version.value,
                     isActive: event.payload.isActive.value,
+                    isInstalled: event.payload.isInstalled.value,
                     isUpdated: event.payload.isUpdated.value,
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
@@ -203,6 +212,7 @@ export class ToolsProcedure extends AggregateRoot
             type: this.type.value,
             version: this.version.value,
             isActive: this.isActive.value,
+            isInstalled: this.isInstalled.value,
             isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
@@ -224,6 +234,7 @@ export class ToolsProcedure extends AggregateRoot
             type: this.type.value,
             version: this.version.value,
             isActive: this.isActive.value,
+            isInstalled: this.isInstalled.value,
             isUpdated: this.isUpdated.value,
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,

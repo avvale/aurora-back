@@ -1,6 +1,6 @@
 import { ToolsRawSQLInformationSchemaCommand } from '@app/tools/information-schema';
-import { ToolsFindProcedureByIdQuery } from '@app/tools/procedure';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
+import { ToolsFindProcedureByIdQuery, ToolsUpdateProcedureByIdCommand } from '@app/tools/procedure';
+import { ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -28,6 +28,18 @@ export class ToolsUpScriptProcedureHandler
             {
                 rawSQL: procedure.upScript,
             },
+            {
+                timezone,
+            },
+        ));
+
+        await this.commandBus.dispatch(new ToolsUpdateProcedureByIdCommand(
+            {
+                id         : procedure.id,
+                isInstalled: true,
+                executedAt : now().tz(timezone).format('YYYY-MM-DD HH:mm:ss'),
+            },
+            {},
             {
                 timezone,
             },

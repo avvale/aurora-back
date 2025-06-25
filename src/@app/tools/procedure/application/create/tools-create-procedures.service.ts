@@ -7,6 +7,7 @@ import {
     ToolsProcedureExecutedAt,
     ToolsProcedureId,
     ToolsProcedureIsActive,
+    ToolsProcedureIsInstalled,
     ToolsProcedureIsUpdated,
     ToolsProcedureName,
     ToolsProcedureSort,
@@ -34,6 +35,7 @@ export class ToolsCreateProceduresService
             type: ToolsProcedureType;
             version: ToolsProcedureVersion;
             isActive: ToolsProcedureIsActive;
+            isInstalled: ToolsProcedureIsInstalled;
             isUpdated: ToolsProcedureIsUpdated;
             upScript: ToolsProcedureUpScript;
             downScript: ToolsProcedureDownScript;
@@ -51,6 +53,7 @@ export class ToolsCreateProceduresService
             procedure.type,
             procedure.version,
             procedure.isActive,
+            procedure.isInstalled,
             procedure.isUpdated,
             procedure.upScript,
             procedure.downScript,

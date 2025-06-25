@@ -157,6 +157,22 @@ describe('procedure', () =>
             });
     });
 
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsInstalled property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isInstalled: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsInstalled must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -253,6 +269,22 @@ describe('procedure', () =>
             });
     });
 
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsInstalled property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isInstalled: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsInstalled must be defined, can not be undefined');
+            });
+    });
+
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated property can not to be undefined', () =>
     {
         return request(app.getHttpServer())
@@ -330,6 +362,21 @@ describe('procedure', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for ToolsProcedureIsActive has to be a boolean value');
+            });
+    });
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsInstalled has to be a boolean value', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                isInstalled: 'true',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureIsInstalled has to be a boolean value');
             });
     });
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsUpdated has to be a boolean value', () =>
@@ -569,6 +616,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -645,6 +693,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -684,6 +733,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -723,6 +773,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -770,6 +821,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -815,6 +867,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -855,6 +908,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -893,6 +947,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -936,6 +991,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -977,6 +1033,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -1023,6 +1080,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript
@@ -1063,6 +1121,7 @@ describe('procedure', () =>
                             type
                             version
                             isActive
+                            isInstalled
                             isUpdated
                             upScript
                             downScript

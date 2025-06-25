@@ -9,6 +9,7 @@ export class ToolsCreateProceduresCommand
             type: string;
             version: string;
             isActive: boolean;
+            isInstalled: boolean;
             isUpdated: boolean;
             upScript?: string;
             downScript?: string;

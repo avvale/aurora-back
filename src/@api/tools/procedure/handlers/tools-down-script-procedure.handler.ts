@@ -1,5 +1,5 @@
 import { ToolsRawSQLInformationSchemaCommand } from '@app/tools/information-schema';
-import { ToolsFindProcedureByIdQuery } from '@app/tools/procedure';
+import { ToolsFindProcedureByIdQuery, ToolsUpdateProcedureByIdCommand } from '@app/tools/procedure';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
@@ -33,31 +33,18 @@ export class ToolsDownScriptProcedureHandler
             },
         ));
 
-        /* const res = await this.queryBus.ask<ToolsRawSQLInformationSchemasQuery, ToolsInformationSchemaResponse>(new ToolsRawSQLInformationSchemasQuery(
-            `
-                SELECT routine_name, routine_type, data_type
-                    FROM information_schema.routines
-                    WHERE routine_name = 'set_updated_at'
-                    AND routine_type = 'FUNCTION';
-            `,
+        await this.commandBus.dispatch(new ToolsUpdateProcedureByIdCommand(
+            {
+                id         : procedure.id,
+                isInstalled: false,
+                executedAt : null,
+                checkedAt  : null,
+            },
+            {},
             {
                 timezone,
             },
-        )); */
-
-        /* const res = await this.queryBus.ask(new ToolsRawSQLProceduresQuery(
-            `
-                SELECT event_object_table AS "eventObjectTable",
-                    trigger_name AS "triggerName",
-                    action_timing AS "actionTiming",
-                    event_manipulation AS "eventManipulation"
-                FROM information_schema.triggers
-                WHERE trigger_name = 'trigger_set_updated_at';
-            `,
-            {
-                timezone,
-            },
-        )); */
+        ));
 
         return true;
     }
