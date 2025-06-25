@@ -2,16 +2,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { publishApplication } = require('./gulp/application');
 const { publishAuditing } = require('./gulp/auditing');
-const { publishMsEntraId } = require('./gulp/ms-entra-id');
 const { publishCommon } = require('./gulp/common');
 const { publishIam } = require('./gulp/iam');
+const { publishMessage } = require('./gulp/message');
+const { publishMsEntraId } = require('./gulp/ms-entra-id');
 const { publishOAuth } = require('./gulp/o-auth');
 const { publishQueueManager } = require('./gulp/queue-manager');
 const { publishSearchEngine } = require('./gulp/search-engine');
 const { publishStorageAccount } = require('./gulp/storage-account');
 const { publishStorageAccountAzure } = require('./gulp/storage-account-azure');
+const { publishTools } = require('./gulp/tools');
 const { publishWhatsapp } = require('./gulp/whatsapp');
-const { publishMessage } = require('./gulp/message');
 
 function defaultTask(cb)
 {
