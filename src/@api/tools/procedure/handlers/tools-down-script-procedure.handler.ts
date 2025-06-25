@@ -1,4 +1,4 @@
-import { ToolsRawSQLInformationSchemasQuery } from '@app/tools/information-schema';
+import { ToolsRawSQLInformationSchemaCommand } from '@app/tools/information-schema';
 import { ToolsFindProcedureByIdQuery } from '@app/tools/procedure';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -24,7 +24,16 @@ export class ToolsDownScriptProcedureHandler
             },
         ));
 
-        const res = await this.queryBus.ask(new ToolsRawSQLInformationSchemasQuery(
+        await this.commandBus.dispatch(new ToolsRawSQLInformationSchemaCommand(
+            {
+                rawSQL: procedure.downScript,
+            },
+            {
+                timezone,
+            },
+        ));
+
+        /* const res = await this.queryBus.ask<ToolsRawSQLInformationSchemasQuery, ToolsInformationSchemaResponse>(new ToolsRawSQLInformationSchemasQuery(
             `
                 SELECT routine_name, routine_type, data_type
                     FROM information_schema.routines
@@ -34,9 +43,9 @@ export class ToolsDownScriptProcedureHandler
             {
                 timezone,
             },
-        ));
+        )); */
 
-         /* const res = await this.queryBus.ask(new ToolsRawSQLProceduresQuery(
+        /* const res = await this.queryBus.ask(new ToolsRawSQLProceduresQuery(
             `
                 SELECT event_object_table AS "eventObjectTable",
                     trigger_name AS "triggerName",
@@ -45,16 +54,6 @@ export class ToolsDownScriptProcedureHandler
                 FROM information_schema.triggers
                 WHERE trigger_name = 'trigger_set_updated_at';
             `,
-            {
-                timezone,
-            },
-        )); */
-
-        console.log('res', res);
-
-
-        /* await this.commandBus.dispatch(new ToolsRawSQLProcedureCommand(
-            procedure.downScript,
             {
                 timezone,
             },

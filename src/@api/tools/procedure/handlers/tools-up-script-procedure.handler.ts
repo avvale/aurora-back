@@ -1,3 +1,4 @@
+import { ToolsRawSQLInformationSchemaCommand } from '@app/tools/information-schema';
 import { ToolsFindProcedureByIdQuery } from '@app/tools/procedure';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -23,12 +24,14 @@ export class ToolsUpScriptProcedureHandler
             },
         ));
 
-        /* await this.commandBus.dispatch(new ToolsRawSQLProcedureCommand(
-            procedure.upScript,
+        await this.commandBus.dispatch(new ToolsRawSQLInformationSchemaCommand(
+            {
+                rawSQL: procedure.upScript,
+            },
             {
                 timezone,
             },
-        )); */
+        ));
 
         return true;
     }
