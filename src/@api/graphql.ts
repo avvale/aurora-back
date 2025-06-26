@@ -1538,7 +1538,6 @@ export interface ToolsCreateProcedureInput {
     type: ToolsProcedureType;
     version: GraphQLString;
     isActive: GraphQLBoolean;
-    isInstalled: GraphQLBoolean;
     isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
