@@ -1,25 +1,29 @@
 import { IamAccount, IamAccountType, IamCreateAccountInput } from '@api/graphql';
 import { IamAccountDto, IamCreateAccountDto } from '@api/iam/account';
-import { IamCreateAccountCommand, IamFindAccountByIdQuery, IamGetAccountsQuery } from '@app/iam/account';
+import { IamAccountResponse, IamCreateAccountCommand, IamFindAccountByIdQuery, IamGetAccountsQuery } from '@app/iam/account';
 import { IamGetRolesQuery } from '@app/iam/role';
 import { iamCreatePermissionsFromRoles } from '@app/iam/shared';
 import { IamGetTenantsQuery } from '@app/iam/tenant';
 import { IamCreateUserCommand } from '@app/iam/user';
 import { OAuthFindClientByIdQuery } from '@app/o-auth/client';
-import { AuditingMeta, getNestedObjectsFromParentId, ICommandBus, IQueryBus, Jwt, LiteralObject, Operator, uuid } from '@aurorajs.dev/core';
+import { Arrays, AuditingMeta, getNestedObjectsFromParentId, ICommandBus, IQueryBus, LiteralObject, Operator, uuid } from '@aurorajs.dev/core';
 import { ConflictException } from '@nestjs/common';
+import { ModuleRef } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 
 export const createAccount = async (
-    commandBus: ICommandBus,
-    queryBus: IQueryBus,
-    jwtService: JwtService,
+    moduleRef: ModuleRef,
+    account: IamAccountResponse,
     payload: IamCreateAccountInput | IamCreateAccountDto,
     headers: LiteralObject,
     timezone?: string,
     auditing?: AuditingMeta,
 ): Promise<IamAccount | IamAccountDto> =>
 {
+    const queryBus = moduleRef.get(IQueryBus, { strict: false });
+    const commandBus = moduleRef.get(ICommandBus, { strict: false });
+    const jwtService = moduleRef.get(JwtService, { strict: false });
+
     const accountQueryWhere = { username: payload.username };
     if (payload.code) accountQueryWhere['code'] = payload.code;
     if (payload.email) accountQueryWhere['email'] = payload.email;
@@ -60,7 +64,7 @@ export const createAccount = async (
     }
 
     // check token is correct
-    <Jwt>jwtService.decode(headers.authorization.replace('Bearer ', ''));
+    jwtService.decode(headers.authorization.replace('Bearer ', ''));
 
     // get client to get applications related FindClientByIdQuery
     const client = await queryBus.ask(new OAuthFindClientByIdQuery(
@@ -85,6 +89,17 @@ export const createAccount = async (
             },
         ],
     }));
+
+    const permissions = iamCreatePermissionsFromRoles(roles);
+
+    if (!Arrays.contained(permissions.all, account.dPermissions.all))
+    {
+        throw new ConflictException({
+            message    : 'Your account does not have the required permissions to create an account with the specified roles.',
+            statusCode : 401,
+            translation: 'iam.error.105',
+        });
+    }
 
 
     if (payload.hasAddChildTenants)
@@ -122,7 +137,7 @@ export const createAccount = async (
             tags             : payload.tags,
             scopes           : payload.scopes,
             dApplicationCodes: client?.applications.map(application => application.code),
-            dPermissions     : iamCreatePermissionsFromRoles(roles),
+            dPermissions     : permissions,
             meta             : payload.meta,
             roleIds          : payload.roleIds,
             tenantIds        : payload.tenantIds,
