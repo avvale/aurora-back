@@ -287,7 +287,7 @@
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/mock/tools-mock-procedure.data.ts",
-            "integrity": "sha1:0b42906d487419b9e1d2d1ee3183c66343b4542f"
+            "integrity": "sha1:6a8f4349d0a61128cd352c8fe425abd00a9fc942"
         },
         {
             "path": "src/@app/tools/procedure/infrastructure/mock/tools-mock-procedure.repository.ts",
@@ -475,7 +475,7 @@
         },
         {
             "path": "src/@api/tools/procedure/graphql/tools-procedure.graphql",
-            "integrity": "sha1:265fcda84d49c3154331cd3d0d908241d610ecb2"
+            "integrity": "sha1:ae3798dd5949eb304425b8170241031455315129"
         },
         {
             "path": "src/@api/tools/procedure/handlers/tools-create-procedure.handler.spec.ts",
@@ -559,7 +559,7 @@
         },
         {
             "path": "src/@api/tools/procedure/index.ts",
-            "integrity": "sha1:c9bc9ae29c7a760a51092373f96f7e78d27abd90"
+            "integrity": "sha1:3a97006b1c8a59e254dcff683d96984fe371beb2"
         },
         {
             "path": "src/@api/tools/procedure/resolvers/tools-create-procedure.resolver.spec.ts",
@@ -718,12 +718,36 @@
             "integrity": "sha1:454bee50bdda632e5646d206e9076d83a521952e"
         },
         {
+            "path": "src/@api/tools/procedure/controllers/tools-run-scripts-procedure.controller.spec.ts",
+            "integrity": "sha1:5f92c46c43f0a343af71884bdb1dec513a8711c3"
+        },
+        {
+            "path": "src/@api/tools/procedure/controllers/tools-run-scripts-procedure.controller.ts",
+            "integrity": "sha1:5bf5d003963d68223c3e04c41a20c9ed6c07716a"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-run-scripts-procedure.handler.spec.ts",
+            "integrity": "sha1:679aca4d66ee6f6987caabde411314d1683ac8e7"
+        },
+        {
+            "path": "src/@api/tools/procedure/handlers/tools-run-scripts-procedure.handler.ts",
+            "integrity": "sha1:bb7a6bee51b4f0f1c15f2e29dc44f071c86b8995"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-run-scripts-procedure.resolver.spec.ts",
+            "integrity": "sha1:0a71dff4c3ea732deff3e4bb576bfd3f53217d17"
+        },
+        {
+            "path": "src/@api/tools/procedure/resolvers/tools-run-scripts-procedure.resolver.ts",
+            "integrity": "sha1:7c159deba45edfebb7216d0e151b1332960d0f87"
+        },
+        {
             "path": "test/acceptance/tools/procedure.e2e-spec.ts",
             "integrity": "sha1:c2d5705e8411f542ddf29e5b6794959e5bbb98a5"
         },
         {
             "path": "postman/tools/tools.procedure.postman.json",
-            "integrity": "sha1:95752ec46d27be26c0f31b6089a2e307637837a0"
+            "integrity": "sha1:34f4834a7f8b2d98c83eb761d7f13347fff1cca9"
         }
     ]
 }

@@ -31,7 +31,6 @@ input ToolsCreateProcedureInput
     type: ToolsProcedureType!
     version: GraphQLString!
     isActive: GraphQLBoolean!
-    isUpdated: GraphQLBoolean!
     upScript: GraphQLString
     downScript: GraphQLString
     sort: GraphQLInt
@@ -46,8 +45,6 @@ input ToolsUpdateProcedureByIdInput
     type: ToolsProcedureType
     version: GraphQLString
     isActive: GraphQLBoolean
-    isInstalled: GraphQLBoolean
-    isUpdated: GraphQLBoolean
     upScript: GraphQLString
     downScript: GraphQLString
     sort: GraphQLInt
@@ -62,8 +59,6 @@ input ToolsUpdateProceduresInput
     type: ToolsProcedureType
     version: GraphQLString
     isActive: GraphQLBoolean
-    isInstalled: GraphQLBoolean
-    isUpdated: GraphQLBoolean
     upScript: GraphQLString
     downScript: GraphQLString
     sort: GraphQLInt
@@ -139,5 +134,7 @@ type Mutation
     toolsCheckScriptProcedure(
         procedureId: ID!
     ): Boolean!
+
+    toolsRunScriptsProcedure: Boolean!
 
 }

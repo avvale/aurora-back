@@ -21,6 +21,7 @@ export class ToolsCreateProcedureHandler
             {
                 ...payload,
                 isInstalled: false,
+                isUpdated  : false,
             },
             {
                 timezone,

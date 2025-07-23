@@ -78,6 +78,9 @@ additionalApis:
   - path: tools/procedure/check-script
     resolverType: mutation
     httpMethod: post
+  - path: tools/procedure/run-scripts
+    resolverType: mutation
+    httpMethod: post
 excludedOperations:
   - count
   - max
