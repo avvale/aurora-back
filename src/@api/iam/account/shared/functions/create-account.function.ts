@@ -97,7 +97,7 @@ export const createAccount = async (
         throw new ConflictException({
             message    : 'Your account does not have the required permissions to create an account with the specified roles.',
             statusCode : 401,
-            translation: 'iam.error.105',
+            translation: 'error.105',
         });
     }
 

@@ -44,7 +44,7 @@ export const TenantPolicy = ({
                             if (!Arrays.contained(item[targetProperty], account.dTenants)) throw new UnauthorizedException({
                                 statusCode : 401,
                                 message    : 'Not allowed operate this item on select tenants, please contact the administrator.',
-                                translation: 'iam.error.107',
+                                translation: 'error.107',
                                 params     : { tenant: args[payloadIndex][targetProperty] },
                             });
                         }
@@ -54,7 +54,7 @@ export const TenantPolicy = ({
                                 throw new UnauthorizedException({
                                     statusCode : 401,
                                     message    : 'Not allowed operate this item on select tenants, please contact the administrator.',
-                                    translation: 'iam.error.107',
+                                    translation: 'error.107',
                                     params     : { tenant: args[payloadIndex][targetProperty] },
                                 });
                         }
@@ -70,7 +70,7 @@ export const TenantPolicy = ({
                             throw new UnauthorizedException({
                                 statusCode : 401,
                                 message    : 'Not allowed operate this item on select tenants, please contact the administrator.',
-                                translation: 'iam.error.107',
+                                translation: 'error.107',
                                 params     : { tenant: args[payloadIndex][targetProperty] },
                             });
                     }
@@ -80,7 +80,7 @@ export const TenantPolicy = ({
                             throw new UnauthorizedException({
                                 statusCode : 401,
                                 message    : 'Not allowed operate this item on select tenants, please contact the administrator.',
-                                translation: 'iam.error.107',
+                                translation: 'error.107',
                                 params     : { tenant: args[payloadIndex][targetProperty] },
                             });
                     }

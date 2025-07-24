@@ -43,7 +43,7 @@ export class IamUpdateAccountsHandler
                 throw new ConflictException({
                     message    : 'The account does not have the required permissions to update the account with the specified roles.',
                     statusCode : 401,
-                    translation: 'iam.error.106',
+                    translation: 'error.106',
                 });
             }
 
