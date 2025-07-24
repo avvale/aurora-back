@@ -20,13 +20,13 @@ export class IamCreateAccountHandler
         auditing?: AuditingMeta,
     ): Promise<IamAccount | IamAccountDto>
     {
-        return createAccount(
-            this.moduleRef,
-            account,
+        return createAccount({
+            moduleRef: this.moduleRef,
             payload,
+            account,
             headers,
             timezone,
             auditing,
-        );
+        });
     }
 }

@@ -7,19 +7,34 @@ import { IamGetTenantsQuery } from '@app/iam/tenant';
 import { IamCreateUserCommand } from '@app/iam/user';
 import { OAuthFindClientByIdQuery } from '@app/o-auth/client';
 import { Arrays, AuditingMeta, getNestedObjectsFromParentId, ICommandBus, IQueryBus, LiteralObject, Operator, uuid } from '@aurorajs.dev/core';
-import { ConflictException } from '@nestjs/common';
+import { BadRequestException, ConflictException } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 
 export const createAccount = async (
-    moduleRef: ModuleRef,
-    account: IamAccountResponse,
-    payload: IamCreateAccountInput | IamCreateAccountDto,
-    headers: LiteralObject,
-    timezone?: string,
-    auditing?: AuditingMeta,
+    {
+        moduleRef = null,
+        payload = null,
+        account = null,
+        checkContainedPermissions = false,
+        headers = null,
+        timezone = null,
+        auditing = null,
+    }: {
+        moduleRef?: ModuleRef;
+        payload?: IamCreateAccountInput | IamCreateAccountDto;
+        account?: IamAccountResponse;
+        checkContainedPermissions?: boolean;
+        headers?: LiteralObject;
+        timezone?: string;
+        auditing?: AuditingMeta;
+    } = {},
 ): Promise<IamAccount | IamAccountDto> =>
 {
+    if (!moduleRef) throw new BadRequestException('moduleRef parameter is required');
+    if (!payload) throw new BadRequestException('payload parameter is required');
+    if (checkContainedPermissions && !account) throw new BadRequestException('account parameter is required');
+
     const queryBus = moduleRef.get(IQueryBus, { strict: false });
     const commandBus = moduleRef.get(ICommandBus, { strict: false });
     const jwtService = moduleRef.get(JwtService, { strict: false });
@@ -41,24 +56,24 @@ export const createAccount = async (
         if (accounts.some(client => client.email === payload.email))
         {
             throw new ConflictException({
-                message   : `The email ${payload.email} already exists`,
-                statusCode: 102,
+                message    : `The email ${payload.email} already exists`,
+                translation: 'error.102',
             });
         }
 
         if (accounts.some(client => client.code === payload.code))
         {
             throw new ConflictException({
-                message   : `The code ${payload.code} already exists`,
-                statusCode: 103,
+                message    : `The code ${payload.code} already exists`,
+                translation: 'error.103',
             });
         }
 
         if (accounts.some(client => client.username === payload.username))
         {
             throw new ConflictException({
-                message   : `The username ${payload.username} already exists in the database`,
-                statusCode: 101,
+                message    : `The username ${payload.username} already exists in the database`,
+                translation: 'error.101',
             });
         }
     }
@@ -92,7 +107,7 @@ export const createAccount = async (
 
     const permissions = iamCreatePermissionsFromRoles(roles);
 
-    if (!Arrays.contained(permissions.all, account.dPermissions.all))
+    if (checkContainedPermissions && !Arrays.contained(permissions.all, account.dPermissions.all))
     {
         throw new ConflictException({
             message    : 'Your account does not have the required permissions to create an account with the specified roles.',
@@ -100,7 +115,6 @@ export const createAccount = async (
             translation: 'error.105',
         });
     }
-
 
     if (payload.hasAddChildTenants)
     {
