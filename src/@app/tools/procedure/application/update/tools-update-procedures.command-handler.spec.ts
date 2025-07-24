@@ -47,6 +47,7 @@ describe('ToolsUpdateProceduresCommandHandler', () =>
                         upScript: toolsMockProcedureData[0].upScript,
                         downScript: toolsMockProcedureData[0].downScript,
                         sort: toolsMockProcedureData[0].sort,
+                        hash: toolsMockProcedureData[0].hash,
                         executedAt: toolsMockProcedureData[0].executedAt,
                         checkedAt: toolsMockProcedureData[0].checkedAt,
                     },

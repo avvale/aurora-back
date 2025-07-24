@@ -349,6 +349,22 @@ describe('procedure', () =>
             });
     });
 
+    test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureHash is too large, has a maximum length of 64', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/procedure/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                hash: '*****************************************************************',
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsProcedureHash is too large, has a maximum length of 64');
+            });
+    });
+
     test('/REST:POST tools/procedure/create - Got 400 Conflict, ProcedureIsActive has to be a boolean value', () =>
     {
         return request(app.getHttpServer())
@@ -621,6 +637,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                         }
@@ -698,6 +715,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -738,6 +756,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                         }
@@ -778,6 +797,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -826,6 +846,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -872,6 +893,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -913,6 +935,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -952,6 +975,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -996,6 +1020,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -1038,6 +1063,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -1085,6 +1111,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt
@@ -1126,6 +1153,7 @@ describe('procedure', () =>
                             upScript
                             downScript
                             sort
+                            hash
                             executedAt
                             checkedAt
                             createdAt

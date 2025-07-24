@@ -53,6 +53,10 @@ aggregateProperties:
     type: smallint
     unsigned: true
     nullable: true
+  - name: hash
+    type: varchar
+    maxLength: 64
+    nullable: true
   - name: executedAt
     type: timestamp
     nullable: true

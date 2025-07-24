@@ -24,7 +24,7 @@ export class ToolsRunScriptsProcedureHandler
             `
                 SELECT * FROM "ToolsProcedure"
                 WHERE
-                    string_to_array(SUBSTRING(version FROM 2), '.')::int[] < ARRAY[${version.split('.').join(',')}]
+                    string_to_array(SUBSTRING(version FROM 2), '.')::int[] <= ARRAY[${version.split('.').join(',')}]
                     AND
                     ("isInstalled" = false OR "isUpdated" = true)
                 ORDER BY string_to_array(SUBSTRING(version FROM 2), '.')::int[] ASC, sort ASC;

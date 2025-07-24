@@ -67,6 +67,12 @@ export class ToolsProcedureDto
 
     @ApiProperty({
         type       : String,
+        description: 'hash [input here api field description]',
+    })
+    hash?: string;
+
+    @ApiProperty({
+        type       : String,
         description: 'executedAt [input here api field description]',
     })
     executedAt?: string;

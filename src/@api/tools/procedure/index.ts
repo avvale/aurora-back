@@ -107,6 +107,9 @@ import { ToolsRunScriptsProcedureController } from './controllers/tools-run-scri
 import { ToolsRunScriptsProcedureHandler } from './handlers/tools-run-scripts-procedure.handler';
 import { ToolsRunScriptsProcedureResolver } from './resolvers/tools-run-scripts-procedure.resolver';
 
+// import shared services
+import { ToolsLoadProceduresService } from './shared/services/load-procedures.service';
+
 export const ToolsProcedureApiControllers = [
     ToolsCreateProcedureController,
     ToolsCreateProceduresController,
@@ -166,4 +169,5 @@ export const ToolsProcedureApiHandlers = [
 
 export const ToolsProcedureApiServices = [
     ToolsProcedureSeeder,
+    ToolsLoadProceduresService,
 ];

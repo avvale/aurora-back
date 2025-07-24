@@ -17,6 +17,7 @@ type ToolsProcedure
     upScript: GraphQLString
     downScript: GraphQLString
     sort: GraphQLInt
+    hash: GraphQLString
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
     createdAt: GraphQLTimestamp
@@ -64,6 +65,17 @@ input ToolsUpdateProceduresInput
     sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
+}
+
+input ToolsCreateProcedureTemplateInput
+{
+    id: ID!
+    name: GraphQLString!
+    type: ToolsProcedureType!
+    version: GraphQLString!
+    upScript: GraphQLString!
+    downScript: GraphQLString!
+    sort: GraphQLInt!
 }
 
 type Query

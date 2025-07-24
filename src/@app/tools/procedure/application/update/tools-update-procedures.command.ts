@@ -14,6 +14,7 @@ export class ToolsUpdateProceduresCommand
             upScript?: string;
             downScript?: string;
             sort?: number;
+            hash?: string;
             executedAt?: string;
             checkedAt?: string;
         },

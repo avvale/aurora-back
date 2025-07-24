@@ -1571,6 +1571,16 @@ export interface ToolsUpdateProceduresInput {
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsCreateProcedureTemplateInput {
+    id: string;
+    name: GraphQLString;
+    type: ToolsProcedureType;
+    version: GraphQLString;
+    upScript: GraphQLString;
+    downScript: GraphQLString;
+    sort: GraphQLInt;
+}
+
 export interface WhatsappCreateConversationInput {
     id: string;
     wabaConversationId: GraphQLString;
@@ -2795,6 +2805,7 @@ export interface ToolsProcedure {
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;
     sort?: Nullable<GraphQLInt>;
+    hash?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
     createdAt?: Nullable<GraphQLTimestamp>;

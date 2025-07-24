@@ -15,6 +15,7 @@ export class ToolsDeletedProcedureEvent
                 upScript: string;
                 downScript: string;
                 sort: number;
+                hash: string;
                 executedAt: string;
                 checkedAt: string;
                 createdAt: string;

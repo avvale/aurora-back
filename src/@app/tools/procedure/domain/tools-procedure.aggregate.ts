@@ -6,6 +6,7 @@ import {
     ToolsProcedureDeletedAt,
     ToolsProcedureDownScript,
     ToolsProcedureExecutedAt,
+    ToolsProcedureHash,
     ToolsProcedureId,
     ToolsProcedureIsActive,
     ToolsProcedureIsInstalled,
@@ -32,6 +33,7 @@ export class ToolsProcedure extends AggregateRoot
     upScript: ToolsProcedureUpScript;
     downScript: ToolsProcedureDownScript;
     sort: ToolsProcedureSort;
+    hash: ToolsProcedureHash;
     executedAt: ToolsProcedureExecutedAt;
     checkedAt: ToolsProcedureCheckedAt;
     createdAt: ToolsProcedureCreatedAt;
@@ -49,6 +51,7 @@ export class ToolsProcedure extends AggregateRoot
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
         sort: ToolsProcedureSort,
+        hash: ToolsProcedureHash,
         executedAt: ToolsProcedureExecutedAt,
         checkedAt: ToolsProcedureCheckedAt,
         createdAt: ToolsProcedureCreatedAt,
@@ -67,6 +70,7 @@ export class ToolsProcedure extends AggregateRoot
         this.upScript = upScript;
         this.downScript = downScript;
         this.sort = sort;
+        this.hash = hash;
         this.executedAt = executedAt;
         this.checkedAt = checkedAt;
         this.createdAt = createdAt;
@@ -85,6 +89,7 @@ export class ToolsProcedure extends AggregateRoot
         upScript: ToolsProcedureUpScript,
         downScript: ToolsProcedureDownScript,
         sort: ToolsProcedureSort,
+        hash: ToolsProcedureHash,
         executedAt: ToolsProcedureExecutedAt,
         checkedAt: ToolsProcedureCheckedAt,
         createdAt: ToolsProcedureCreatedAt,
@@ -103,6 +108,7 @@ export class ToolsProcedure extends AggregateRoot
             upScript,
             downScript,
             sort,
+            hash,
             executedAt,
             checkedAt,
             createdAt,
@@ -131,6 +137,7 @@ export class ToolsProcedure extends AggregateRoot
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     sort: event.payload.sort?.value,
+                    hash: event.payload.hash?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -162,6 +169,7 @@ export class ToolsProcedure extends AggregateRoot
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     sort: event.payload.sort?.value,
+                    hash: event.payload.hash?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -193,6 +201,7 @@ export class ToolsProcedure extends AggregateRoot
                     upScript: event.payload.upScript?.value,
                     downScript: event.payload.downScript?.value,
                     sort: event.payload.sort?.value,
+                    hash: event.payload.hash?.value,
                     executedAt: event.payload.executedAt?.value,
                     checkedAt: event.payload.checkedAt?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -217,6 +226,7 @@ export class ToolsProcedure extends AggregateRoot
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
             sort: this.sort?.value,
+            hash: this.hash?.value,
             executedAt: this.executedAt?.value,
             checkedAt: this.checkedAt?.value,
             createdAt: this.createdAt?.value,
@@ -239,6 +249,7 @@ export class ToolsProcedure extends AggregateRoot
             upScript: this.upScript?.value,
             downScript: this.downScript?.value,
             sort: this.sort?.value,
+            hash: this.hash?.value,
             executedAt: this.executedAt?.value,
             checkedAt: this.checkedAt?.value,
             createdAt: this.createdAt?.value,

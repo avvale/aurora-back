@@ -85,6 +85,13 @@ export class ToolsProcedureModel extends Model<ToolsProcedureModel>
     sort: number;
 
     @Column({
+        field: 'hash',
+        allowNull: true,
+        type: DataTypes.STRING(64),
+    })
+    hash: string;
+
+    @Column({
         field: 'executedAt',
         allowNull: true,
         type: DataTypes.DATE,

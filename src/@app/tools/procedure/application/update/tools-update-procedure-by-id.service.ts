@@ -5,6 +5,7 @@ import {
     ToolsProcedureDeletedAt,
     ToolsProcedureDownScript,
     ToolsProcedureExecutedAt,
+    ToolsProcedureHash,
     ToolsProcedureId,
     ToolsProcedureIsActive,
     ToolsProcedureIsInstalled,
@@ -40,6 +41,7 @@ export class ToolsUpdateProcedureByIdService
             upScript?: ToolsProcedureUpScript;
             downScript?: ToolsProcedureDownScript;
             sort?: ToolsProcedureSort;
+            hash?: ToolsProcedureHash;
             executedAt?: ToolsProcedureExecutedAt;
             checkedAt?: ToolsProcedureCheckedAt;
         },
@@ -59,6 +61,7 @@ export class ToolsUpdateProcedureByIdService
             payload.upScript,
             payload.downScript,
             payload.sort,
+            payload.hash,
             payload.executedAt,
             payload.checkedAt,
             null, // createdAt

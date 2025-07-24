@@ -3,6 +3,7 @@ export { ToolsProcedureCreatedAt } from './tools-procedure-created-at';
 export { ToolsProcedureDeletedAt } from './tools-procedure-deleted-at';
 export { ToolsProcedureDownScript } from './tools-procedure-down-script';
 export { ToolsProcedureExecutedAt } from './tools-procedure-executed-at';
+export { ToolsProcedureHash } from './tools-procedure-hash';
 export { ToolsProcedureId } from './tools-procedure-id';
 export { ToolsProcedureIsActive } from './tools-procedure-is-active';
 export { ToolsProcedureIsInstalled } from './tools-procedure-is-installed';

@@ -5,6 +5,7 @@ import {
     ToolsProcedureDeletedAt,
     ToolsProcedureDownScript,
     ToolsProcedureExecutedAt,
+    ToolsProcedureHash,
     ToolsProcedureId,
     ToolsProcedureIsActive,
     ToolsProcedureIsInstalled,
@@ -40,6 +41,7 @@ export class ToolsCreateProcedureService
             upScript: ToolsProcedureUpScript;
             downScript: ToolsProcedureDownScript;
             sort: ToolsProcedureSort;
+            hash: ToolsProcedureHash;
             executedAt: ToolsProcedureExecutedAt;
             checkedAt: ToolsProcedureCheckedAt;
         },
@@ -58,6 +60,7 @@ export class ToolsCreateProcedureService
             payload.upScript,
             payload.downScript,
             payload.sort,
+            payload.hash,
             payload.executedAt,
             payload.checkedAt,
             new ToolsProcedureCreatedAt({ currentTimestamp: true }),
