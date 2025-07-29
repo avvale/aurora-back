@@ -19,6 +19,7 @@ function copyTools()
         fse.copy('cliter/tools', 'publish/cliter/tools', { overwrite: true }),
         fse.copy('src/@api/tools', 'publish/src/@api/tools', { overwrite: true }),
         fse.copy('src/@app/tools', 'publish/src/@app/tools', { overwrite: true }),
+        fse.copy('src/assets/tools', 'publish/src/assets/tools', { overwrite: true }),
         fse.copy('test/acceptance/tools', 'publish/test/acceptance/tools', { overwrite: true }),
         fse.copy('postman/tools', 'publish/postman/tools', { overwrite: true }),
     ]);

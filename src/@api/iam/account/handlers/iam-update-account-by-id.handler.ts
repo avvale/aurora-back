@@ -1,12 +1,13 @@
 import { IamAccount, IamAccountType, IamUpdateAccountByIdInput } from '@api/graphql';
 import { IamAccountDto, IamUpdateAccountByIdDto } from '@api/iam/account';
 import { IamAccountResponse, IamFindAccountByIdQuery, IamUpdateAccountByIdCommand } from '@app/iam/account';
+import { IamPermissions } from '@app/iam/iam.types';
 import { IamGetRolesQuery } from '@app/iam/role';
 import { iamCreatePermissionsFromRoles } from '@app/iam/shared';
 import { IamGetTenantsQuery } from '@app/iam/tenant';
 import { IamFindUserByIdQuery, IamUpdateUserByIdCommand } from '@app/iam/user';
-import { AuditingMeta, ICommandBus, IQueryBus, QueryStatement, diff, getNestedObjectsFromParentId, uuid } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { Arrays, AuditingMeta, ICommandBus, IQueryBus, QueryStatement, diff, getNestedObjectsFromParentId, uuid } from '@aurorajs.dev/core';
+import { ConflictException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamUpdateAccountByIdHandler
@@ -59,9 +60,17 @@ export class IamUpdateAccountByIdHandler
 
             const permissions = iamCreatePermissionsFromRoles(roles);
 
-            // it is not possible to check if the administrator has all the permissions of the user to be created,
-            // there are cases when the administrator wants to create a user with exclusive access permissions
-            // for a user with more restrictive permissions
+            if (
+                !account.dPermissions.includes(IamPermissions.SUDO) &&
+                !Arrays.contained(permissions.all, account.dPermissions.all)
+            )
+            {
+                throw new ConflictException({
+                    message    : 'The account does not have the required permissions to update the account with the specified roles.',
+                    statusCode : 401,
+                    translation: 'error.106',
+                });
+            }
 
             dataToUpdate['dPermissions'] = permissions;
         }

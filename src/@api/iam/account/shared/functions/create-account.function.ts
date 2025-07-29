@@ -1,6 +1,7 @@
 import { IamAccount, IamAccountType, IamCreateAccountInput } from '@api/graphql';
 import { IamAccountDto, IamCreateAccountDto } from '@api/iam/account';
 import { IamAccountResponse, IamCreateAccountCommand, IamFindAccountByIdQuery, IamGetAccountsQuery } from '@app/iam/account';
+import { IamPermissions } from '@app/iam/iam.types';
 import { IamGetRolesQuery } from '@app/iam/role';
 import { iamCreatePermissionsFromRoles } from '@app/iam/shared';
 import { IamGetTenantsQuery } from '@app/iam/tenant';
@@ -16,7 +17,6 @@ export const createAccount = async (
         moduleRef = null,
         payload = null,
         account = null,
-        checkContainedPermissions = false,
         headers = null,
         timezone = null,
         auditing = null,
@@ -24,7 +24,6 @@ export const createAccount = async (
         moduleRef?: ModuleRef;
         payload?: IamCreateAccountInput | IamCreateAccountDto;
         account?: IamAccountResponse;
-        checkContainedPermissions?: boolean;
         headers?: LiteralObject;
         timezone?: string;
         auditing?: AuditingMeta;
@@ -33,7 +32,6 @@ export const createAccount = async (
 {
     if (!moduleRef) throw new BadRequestException('moduleRef parameter is required');
     if (!payload) throw new BadRequestException('payload parameter is required');
-    if (checkContainedPermissions && !account) throw new BadRequestException('account parameter is required');
 
     const queryBus = moduleRef.get(IQueryBus, { strict: false });
     const commandBus = moduleRef.get(ICommandBus, { strict: false });
@@ -107,7 +105,10 @@ export const createAccount = async (
 
     const permissions = iamCreatePermissionsFromRoles(roles);
 
-    if (checkContainedPermissions && !Arrays.contained(permissions.all, account.dPermissions.all))
+    if (
+        !account.dPermissions.includes(IamPermissions.SUDO) &&
+        !Arrays.contained(permissions.all, account.dPermissions.all)
+    )
     {
         throw new ConflictException({
             message    : 'Your account does not have the required permissions to create an account with the specified roles.',

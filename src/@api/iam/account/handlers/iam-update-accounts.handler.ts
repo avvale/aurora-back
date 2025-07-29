@@ -1,6 +1,7 @@
 import { IamAccount, IamUpdateAccountsInput } from '@api/graphql';
 import { IamAccountDto, IamUpdateAccountsDto } from '@api/iam/account';
 import { IamAccountResponse, IamGetAccountsQuery, IamUpdateAccountsCommand } from '@app/iam/account';
+import { IamPermissions } from '@app/iam/iam.types';
 import { IamGetRolesQuery } from '@app/iam/role';
 import { iamCreatePermissionsFromRoles } from '@app/iam/shared';
 import { Arrays, AuditingMeta, ICommandBus, IQueryBus, QueryStatement } from '@aurorajs.dev/core';
@@ -38,7 +39,10 @@ export class IamUpdateAccountsHandler
 
             const permissions = iamCreatePermissionsFromRoles(roles);
 
-            if (!Arrays.contained(permissions.all, account.dPermissions.all))
+            if (
+                !account.dPermissions.includes(IamPermissions.SUDO) &&
+                !Arrays.contained(permissions.all, account.dPermissions.all)
+            )
             {
                 throw new ConflictException({
                     message    : 'The account does not have the required permissions to update the account with the specified roles.',
