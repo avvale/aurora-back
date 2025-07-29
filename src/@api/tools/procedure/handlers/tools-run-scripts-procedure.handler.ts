@@ -26,7 +26,7 @@ export class ToolsRunScriptsProcedureHandler
                 WHERE
                     string_to_array(SUBSTRING(version FROM 2), '.')::int[] <= ARRAY[${version.split('.').join(',')}]
                     AND
-                    ("isInstalled" = false OR "isUpdated" = true)
+                    ("isExecuted" = false OR "isUpdated" = true)
                 ORDER BY string_to_array(SUBSTRING(version FROM 2), '.')::int[] ASC, sort ASC;
             `,
             {
@@ -51,9 +51,9 @@ export class ToolsRunScriptsProcedureHandler
 
         await this.commandBus.dispatch(new ToolsUpdateProceduresCommand(
             {
-                isInstalled: true,
-                isUpdated  : false,
-                executedAt : now().tz(timezone).format('YYYY-MM-DD HH:mm:ss'),
+                isExecuted: true,
+                isUpdated : false,
+                executedAt: now().tz(timezone).format('YYYY-MM-DD HH:mm:ss'),
             },
             {
                 where: {

@@ -1532,6 +1532,48 @@ export interface ToolsUpdateKeyValuesInput {
     description?: Nullable<GraphQLString>;
 }
 
+export interface ToolsCreateMigrationInput {
+    id: string;
+    name: GraphQLString;
+    version: GraphQLString;
+    isActive: GraphQLBoolean;
+    upScript?: Nullable<GraphQLString>;
+    downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    executedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface ToolsUpdateMigrationByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+    version?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    upScript?: Nullable<GraphQLString>;
+    downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    executedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface ToolsUpdateMigrationsInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    version?: Nullable<GraphQLString>;
+    isActive?: Nullable<GraphQLBoolean>;
+    upScript?: Nullable<GraphQLString>;
+    downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    executedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface ToolsCreateMigrationTemplateInput {
+    id: string;
+    name: GraphQLString;
+    version: GraphQLString;
+    upScript: GraphQLString;
+    downScript: GraphQLString;
+    sort: GraphQLInt;
+}
+
 export interface ToolsCreateProcedureInput {
     id: string;
     name: GraphQLString;
@@ -1860,6 +1902,10 @@ export interface IQuery {
     toolsFindKeyValueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsGetKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
     toolsPaginateKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    toolsFindMigration(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsFindMigrationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsGetMigrations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
+    toolsPaginateMigrations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     toolsFindProcedure(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsFindProcedureById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsGetProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
@@ -2143,6 +2189,15 @@ export interface IMutation {
     toolsUpdateKeyValues(payload: ToolsUpdateKeyValuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
     toolsDeleteKeyValueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsDeleteKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
+    toolsCreateMigration(payload: ToolsCreateMigrationInput): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsCreateMigrations(payload: Nullable<ToolsCreateMigrationInput>[]): boolean | Promise<boolean>;
+    toolsUpdateMigrationById(payload: ToolsUpdateMigrationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsUpdateMigrations(payload: ToolsUpdateMigrationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
+    toolsDeleteMigrationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsDeleteMigrations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
+    toolsUpScriptMigration(migrationId: string): boolean | Promise<boolean>;
+    toolsDownScriptMigration(migrationId: string): boolean | Promise<boolean>;
+    toolsRunScriptsMigration(): boolean | Promise<boolean>;
     toolsCreateProcedure(payload: ToolsCreateProcedureInput): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsCreateProcedures(payload: Nullable<ToolsCreateProcedureInput>[]): boolean | Promise<boolean>;
     toolsUpdateProcedureById(payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
@@ -2794,13 +2849,28 @@ export interface ToolsKeyValue {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsMigration {
+    id: string;
+    name: GraphQLString;
+    version: GraphQLString;
+    isActive: GraphQLBoolean;
+    isExecuted: GraphQLBoolean;
+    upScript?: Nullable<GraphQLString>;
+    downScript?: Nullable<GraphQLString>;
+    sort?: Nullable<GraphQLInt>;
+    executedAt?: Nullable<GraphQLTimestamp>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
 export interface ToolsProcedure {
     id: string;
     name: GraphQLString;
     type: ToolsProcedureType;
     version: GraphQLString;
     isActive: GraphQLBoolean;
-    isInstalled: GraphQLBoolean;
+    isExecuted: GraphQLBoolean;
     isUpdated: GraphQLBoolean;
     upScript?: Nullable<GraphQLString>;
     downScript?: Nullable<GraphQLString>;

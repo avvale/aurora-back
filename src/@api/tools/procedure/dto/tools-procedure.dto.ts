@@ -37,9 +37,9 @@ export class ToolsProcedureDto
 
     @ApiProperty({
         type       : Boolean,
-        description: 'isInstalled [input here api field description]',
+        description: 'isExecuted [input here api field description]',
     })
-    isInstalled: boolean;
+    isExecuted: boolean;
 
     @ApiProperty({
         type       : Boolean,

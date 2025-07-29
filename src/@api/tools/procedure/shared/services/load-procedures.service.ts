@@ -1,7 +1,7 @@
 import { ToolsCreateProceduresCommand, ToolsDeleteProceduresCommand, ToolsGetProceduresQuery } from '@app/tools/procedure';
 import { Encrypt, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-import { procedures } from 'assets/procedures';
+import { procedures } from 'src/assets/tools/procedures';
 
 @Injectable()
 export class ToolsLoadProceduresService
@@ -32,7 +32,7 @@ export class ToolsLoadProceduresService
                     downScript: procedure.downScript,
                     sort      : procedure.sort,
                     hash      : `sha1:${Encrypt.sha1(procedure.upScript)}`,
-                    isUpdated : procedureInDatabase.isInstalled &&
+                    isUpdated : procedureInDatabase.isExecuted &&
                         procedureInDatabase.hash &&
                         `sha1:${Encrypt.sha1(procedure.upScript)}` !== procedureInDatabase.hash ?
                         true : procedureInDatabase.isUpdated,
@@ -42,10 +42,10 @@ export class ToolsLoadProceduresService
             {
                 proceduresToStorage.push({
                     ...procedure,
-                    isActive   : false,
-                    isInstalled: false,
-                    isUpdated  : false,
-                    hash       : `sha1:${Encrypt.sha1(procedure.upScript)}`,
+                    isActive  : false,
+                    isExecuted: false,
+                    isUpdated : false,
+                    hash      : `sha1:${Encrypt.sha1(procedure.upScript)}`,
                 });
             }
         }

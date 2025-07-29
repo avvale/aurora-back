@@ -35,7 +35,7 @@ aggregateProperties:
     type: boolean
     nullable: false
     defaultValue: false
-  - name: isInstalled
+  - name: isExecuted
     type: boolean
     nullable: false
     defaultValue: false

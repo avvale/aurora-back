@@ -12,7 +12,7 @@ type ToolsProcedure
     type: ToolsProcedureType!
     version: GraphQLString!
     isActive: GraphQLBoolean!
-    isInstalled: GraphQLBoolean!
+    isExecuted: GraphQLBoolean!
     isUpdated: GraphQLBoolean!
     upScript: GraphQLString
     downScript: GraphQLString

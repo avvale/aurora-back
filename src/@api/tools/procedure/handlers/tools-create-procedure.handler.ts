@@ -20,8 +20,8 @@ export class ToolsCreateProcedureHandler
         await this.commandBus.dispatch(new ToolsCreateProcedureCommand(
             {
                 ...payload,
-                isInstalled: false,
-                isUpdated  : false,
+                isExecuted: false,
+                isUpdated : false,
             },
             {
                 timezone,

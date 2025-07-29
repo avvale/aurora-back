@@ -242,3 +242,9 @@ export { ToolsProcedureResponse } from './@app/tools/procedure/domain/tools-proc
 export { ToolsProcedureMapper } from './@app/tools/procedure/domain/tools-procedure.mapper';
 export { toolsMockProcedureData } from './@app/tools/procedure/infrastructure/mock/tools-mock-procedure.data';
 export { ToolsProcedureDto } from './@api/tools/procedure/dto/tools-procedure.dto';
+export { ToolsMigration } from './@app/tools/migration/domain/tools-migration.aggregate';
+export { ToolsMigrationModel } from './@app/tools/migration';
+export { ToolsMigrationResponse } from './@app/tools/migration/domain/tools-migration.response';
+export { ToolsMigrationMapper } from './@app/tools/migration/domain/tools-migration.mapper';
+export { toolsMockMigrationData } from './@app/tools/migration/infrastructure/mock/tools-mock-migration.data';
+export { ToolsMigrationDto } from './@api/tools/migration/dto/tools-migration.dto';

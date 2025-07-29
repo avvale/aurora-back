@@ -48,12 +48,12 @@ export class ToolsProcedureModel extends Model<ToolsProcedureModel>
     isActive: boolean;
 
     @Column({
-        field: 'isInstalled',
+        field: 'isExecuted',
         allowNull: false,
         type: DataTypes.BOOLEAN,
         defaultValue: false,
     })
-    isInstalled: boolean;
+    isExecuted: boolean;
 
     @Column({
         field: 'isUpdated',

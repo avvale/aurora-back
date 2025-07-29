@@ -1,24 +1,24 @@
 import { ToolsCreateProcedureTemplateInput, ToolsProcedureType } from '@api/graphql';
 
 export const procedures: ToolsCreateProcedureTemplateInput[] = [
-    /* {
+    {
         id      : '1cd0c79e-b83b-4ebf-b112-063669703cdc',
-        name    : 'insertar_usuario',
+        name    : 'insert_user',
         type    : ToolsProcedureType.PROCEDURE,
-        version : 'v1.1.7',
+        version : 'v1.0.0',
         sort    : 1,
         upScript: `
-CREATE OR REPLACE PROCEDURE insertar_usuario(nombre_input VARCHAR, edad_input INTEGER)
+CREATE OR REPLACE PROCEDURE insert_user(name_input VARCHAR, age_input INTEGER)
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    INSERT INTO usuarios (nombre, edad)
-    VALUES (nombre_input, edad_input);
+    INSERT INTO users (name, age)
+    VALUES (name_input, age_input);
 END;
 $$;
         `,
         downScript: `
-DROP PROCEDURE insertar_usuario(VARCHAR, INTEGER);
+DROP PROCEDURE insert_user(VARCHAR, INTEGER);
         `,
-    }, */
+    },
 ];
