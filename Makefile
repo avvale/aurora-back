@@ -22,3 +22,8 @@ deploy-qa:
 .PHONY: deploy-prod
 deploy-prod:
 	bash scripts/deployments/deploy-prod.sh
+
+# GIT
+.PHONY: commit
+commit:
+	npm run commit
