@@ -53,8 +53,8 @@ git push origin "v$NEW_VERSION"
 
 # Step 7: Switch to deployment branch
 echo -e "${BLUE}→ Switching to deployment branch...${RESET}"
-git switch environments/plesk-development
-git pull origin environments/plesk-development
+git switch environments/plesk-dev
+git pull origin environments/plesk-dev
 
 # Step 8: Merge main
 echo -e "${BLUE}→ Merging main into deployment branch...${RESET}"
@@ -62,6 +62,6 @@ git merge main
 
 # Step 9: Push deployment branch
 echo -e "${BLUE}→ Pushing deployment branch...${RESET}"
-git push origin environments/plesk-development
+git push origin environments/plesk-dev
 
 echo -e "${GREEN}✅ Dev deployment complete. Version: v$NEW_VERSION${RESET}"

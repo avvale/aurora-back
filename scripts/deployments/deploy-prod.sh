@@ -10,16 +10,16 @@ set -e  # Exit on any error
 
 # Step 1: Switch to production branch and update with latest changes
 echo -e "${BOLD}${BLUE}→ Switching to production branch...${RESET}"
-git switch environments/plesk-production
-git pull origin environments/plesk-production
+git switch environments/plesk-prod
+git pull origin environments/plesk-prod
 
-# Step 2: Merge development branch into production branch
-echo -e "${BLUE}→ Merging development into production...${RESET}"
-git merge environments/plesk-development
+# Step 2: Merge quality branch into production branch
+echo -e "${BLUE}→ Merging quality into production...${RESET}"
+git merge environments/plesk-qa
 
 # Step 3: Push production branch to remote
 echo -e "${BLUE}→ Pushing production branch...${RESET}"
-git push origin environments/plesk-production
+git push origin environments/plesk-prod
 
 # Get current version from package.json
 NEW_VERSION=$(node -p "require('./package.json').version")

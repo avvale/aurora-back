@@ -15,7 +15,7 @@ git pull origin environments/plesk-qa
 
 # Step 2: Merge development branch into qa branch
 echo -e "${BLUE}→ Merging development into qa...${RESET}"
-git merge environments/plesk-development
+git merge environments/plesk-dev
 
 # Step 3: Push qa branch to remote
 echo -e "${BLUE}→ Pushing qa branch...${RESET}"
