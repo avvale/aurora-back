@@ -23,6 +23,18 @@ deploy-qa:
 deploy-prod:
 	bash scripts/deployments/deploy-prod.sh
 
+.PHONY: deploy-all
+deploy-all:
+	@printf "[ATTENTION!] The changes will be published in the entire deploy branch flow.\n\n"; \
+	read -p "Are you sure you want to continue? (y/n): " confirm; \
+	if [ "$$confirm" = "y" ]; then \
+		$(MAKE) deploy-dev && \
+		$(MAKE) deploy-qa && \
+		$(MAKE) deploy-prod; \
+	else \
+		echo "Operation canceled."; \
+	fi
+
 # GIT
 .PHONY: commit
 commit:
