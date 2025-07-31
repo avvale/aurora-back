@@ -6,7 +6,12 @@ BOLD='\033[1m'
 NC='\033[0m'
 
 if ! npx --no -- commitlint --quiet --edit "$1" > /dev/null 2>&1; then
-	printf "\n${RED}${BOLD}✖ Invalid commit message${NC}\n"
-	printf "${YELLOW}Please use the interactive assistant:${NC} ${BOLD}make commit${NC}\n\n"
+    if [ -t 1 ]; then
+	    printf "\n${RED}${BOLD}✖ Invalid commit message${NC}\n"
+	    printf "${YELLOW}Please use the interactive assistant:${NC} ${BOLD}make commit${NC}\n\n"
+    else
+        printf "\n✖ Invalid commit message\n"
+        printf "Please use the interactive assistant: make commit$\n\n"
+    fi
 	exit 1
 fi
