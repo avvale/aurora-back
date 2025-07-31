@@ -53,7 +53,7 @@ function copyApplication()
             '!storage/**',
             '!test/acceptance/**',
         ],
-        { base: '.' } 
+        { base: '.' }
     )
     .pipe(dest('publish/'));
 }
