@@ -21,6 +21,7 @@ function copyApplication()
     return src(
         [
             '**/*',
+            '.husky/**',
             '.gitignore',
             '!cliter/auditing/**',
             '!cliter/common/**',
@@ -51,10 +52,10 @@ function copyApplication()
             '!src/index.ts',
             '!storage/**',
             '!test/acceptance/**',
-        ])
-        .pipe(
-            dest('publish/'),
-        );
+        ],
+        { base: '.' } 
+    )
+    .pipe(dest('publish/'));
 }
 
 async function createDirectories()
