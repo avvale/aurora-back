@@ -95,7 +95,6 @@ function editPackageJson()
                 delete json.dependencies['bullmq'];
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['jwks-rsa'];
-                delete json.dependencies['nestjs-i18n'];
                 delete json.dependencies['nodemailer'];
                 delete json.dependencies['openai'];
                 delete json.dependencies['passport'];
