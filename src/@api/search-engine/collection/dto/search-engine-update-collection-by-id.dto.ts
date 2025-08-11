@@ -24,7 +24,6 @@ export class SearchEngineUpdateCollectionByIdDto
 
     @ApiProperty({
         enum       : SearchEngineCollectionStatus,
-        enumName   : 'SearchEngineCollectionStatus',
         description: 'status [input here api field description]',
         example    : SearchEngineCollectionStatus.CONSOLIDATED,
     })
