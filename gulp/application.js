@@ -86,6 +86,7 @@ function editPackageJson()
                 delete json.dependencies['@aurorajs.dev/typesense'];
 
                 delete json.dependencies['@azure/storage-blob'];
+                delete json.dependencies['@microsoft/microsoft-graph-client'];
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs/axios'];
                 delete json.dependencies['@nestjs/bullmq'];

@@ -30,6 +30,7 @@
         "@aurorajs.dev/core": "file:../aurora-core",
         "@aurorajs.dev/typesense": "file:../aurora-typesense",
         "@azure/storage-blob": "^12.27.0",
+        "@microsoft/microsoft-graph-client": "^3.0.7",
         "@nestjs-modules/mailer": "^2.0.2",
         "@nestjs/apollo": "^13.0.3",
         "@nestjs/axios": "^4.0.0",

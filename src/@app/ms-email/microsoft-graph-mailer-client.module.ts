@@ -1,7 +1,7 @@
-import { MailerTransportService } from '@aurorajs.dev/core';
-import { MailerTransportModule } from '@config/mailer';
+import { MicrosoftGraphTransport } from '@app/ms-email';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { HttpModule, HttpService } from '@nestjs/axios';
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as handlebarsHelpers from 'handlebars-helpers';
@@ -19,21 +19,21 @@ const customI18nHelper = (i18nService: I18nService) =>
 };
 
 @Module({})
-export class MailerCLientModule
+export class MicrosoftGraphMailerClientModule
 {
     public static forRootAsync(): DynamicModule
     {
         if (process.env.MAILER_ENABLED !== 'true')
         {
             return {
-                module: MailerCLientModule,
+                module: MicrosoftGraphMailerClientModule,
             };
         }
 
-        const srcPath = join(__dirname, '..', '..', '..');
+        const srcPath = join(__dirname, '..', '..');
 
         return {
-            module : MailerCLientModule,
+            module : MicrosoftGraphMailerClientModule,
             imports: [
                 I18nModule.forRoot({
                     fallbackLanguage: 'en',
@@ -51,20 +51,29 @@ export class MailerCLientModule
                 MailerModule.forRootAsync({
                     imports: [
                         ConfigModule,
-                        MailerTransportModule,
+                        HttpModule,
                     ],
                     inject: [
                         ConfigService,
                         I18nService,
-                        MailerTransportService,
+                        HttpService,
                     ],
                     useFactory: (
                         configService: ConfigService,
                         i18nService: I18nService,
-                        mailerTransportService: MailerTransportService,
+                        httpService: HttpService,
                     ) => ({
-                        transport: mailerTransportService.getTransport(),
-                        defaults : {
+                        transport: new MicrosoftGraphTransport(
+                            httpService,
+                            {
+                                tenantId    : configService.get<string>('MS_GRAPH_TENANT_ID'),
+                                clientId    : configService.get<string>('MS_GRAPH_CLIENT_ID'),
+                                clientSecret: configService.get<string>('MS_GRAPH_CLIENT_SECRET'),
+                                from        : configService.get<string>('MS_GRAPH_MAIL_FROM'),
+                                userId      : configService.get<string>('MS_GRAPH_USER_ID'),
+                            },
+                        ),
+                        defaults: {
                             from: configService.get<string>('MAILER_FROM'),
                         },
                         template: {
