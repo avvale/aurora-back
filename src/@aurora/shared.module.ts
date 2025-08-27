@@ -2,7 +2,7 @@ import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationServ
 import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
 import { StorageAccountFileManagerService, StorageAccountLocalFileManagerService } from '@api/storage-account/file-manager';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared';
-import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules/lang';
+import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules';
 import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
