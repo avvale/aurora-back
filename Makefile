@@ -48,6 +48,7 @@ publish-all:
 		gulp publishCommon && \
 		gulp publishIam && \
 		gulp publishMessage && \
+		gulp publishMsEmail && \
 		gulp publishMsEntraId && \
 		gulp publishOAuth && \
 		gulp publishQueueManager && \
