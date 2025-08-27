@@ -1,1 +1,1 @@
-export * from './root.module';
+export { RootModule } from './root.module';

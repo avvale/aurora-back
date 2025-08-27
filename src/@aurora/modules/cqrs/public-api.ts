@@ -1,1 +1,1 @@
-export * from './cqrs-config.module';
+export { CqrsConfigModule } from './cqrs-config.module';

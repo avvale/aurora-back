@@ -1,1 +1,1 @@
-export * from './graphql-config.module';
+export { GraphQLConfigModule } from './graphql-config.module';

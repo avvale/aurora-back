@@ -1,1 +1,1 @@
-export * from './server-static.module';
+export { ServerStaticModule } from './server-static.module';
