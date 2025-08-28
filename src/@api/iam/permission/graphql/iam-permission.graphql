@@ -1,7 +1,9 @@
 
 type IamPermission
 {
+    """UUID for permission"""
     id: ID!
+    """Permission name"""
     name: GraphQLString!
     boundedContextId: ID!
     boundedContext: IamBoundedContext

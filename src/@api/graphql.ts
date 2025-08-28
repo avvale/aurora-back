@@ -2029,7 +2029,6 @@ export interface IMutation {
     iamCreatePermissionsRoles(payload: Nullable<IamCreatePermissionRoleInput>[]): boolean | Promise<boolean>;
     iamUpdatePermissionRoleById(payload: IamUpdatePermissionRoleByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamUpdatePermissionsRoles(payload: IamUpdatePermissionsRolesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
-    iamUpsertPermissionRole(payload: IamUpdatePermissionRoleByIdInput): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamDeletePermissionRoleById(permissionId: string, roleId: string, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole> | Promise<Nullable<IamPermissionRole>>;
     iamDeletePermissionsRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamPermissionRole>[] | Promise<Nullable<IamPermissionRole>[]>;
     iamCreatePermission(payload: IamCreatePermissionInput): Nullable<IamPermission> | Promise<Nullable<IamPermission>>;
@@ -2486,8 +2485,8 @@ export interface IamBoundedContext {
 
 export interface IamPermissionRole {
     permissionId: string;
-    roleId: string;
     permission?: Nullable<IamPermission>;
+    roleId: string;
     role?: Nullable<IamRole>;
 }
 
