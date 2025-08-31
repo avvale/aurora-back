@@ -31,6 +31,7 @@
         "@aurorajs.dev/typesense": "file:../aurora-typesense",
         "@azure/storage-blob": "^12.27.0",
         "@microsoft/microsoft-graph-client": "^3.0.7",
+        "@modelcontextprotocol/sdk": "^1.17.4",
         "@nestjs-modules/mailer": "^2.0.2",
         "@nestjs/apollo": "^13.0.3",
         "@nestjs/axios": "^4.0.0",
@@ -72,7 +73,8 @@
         "sequelize": "^6.37.6",
         "sharp": "^0.33.5",
         "ts-morph": "^25.0.1",
-        "winston": "^3.17.0"
+        "winston": "^3.17.0",
+        "zod": "^3.25.76"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.8.1",

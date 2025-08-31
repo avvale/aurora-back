@@ -1,6 +1,7 @@
 import { All, Controller, Logger, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { McpNestGraphQLServer } from './mcp.server';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 import { mcpAls } from './mcp.context';
@@ -10,6 +11,7 @@ import { uuid } from '@aurorajs.dev/core';
 export class McpController
 {
     private transports = new Map<string, StreamableHTTPServerTransport>();
+    private servers = new Map<string, McpServer>();
     private readonly logger = new Logger(McpController.name);
 
     constructor(
@@ -19,9 +21,23 @@ export class McpController
     @All()
     async handle(@Req() req: Request, @Res() res: Response): Promise<void>
     {
+        const stateless = process.env.MCP_STATELESS === 'true';
         const sessionId = req.header('mcp-session-id') ?? undefined;
+        const method = (req.body && typeof req.body === 'object' && 'method' in req.body) ? (req.body as any).method : 'unknown';
+        this.logger.debug(`MCP HTTP request - method=${method} sessionId=${sessionId ?? 'none'} transports=${this.transports.size}`);
 
         const run = (fn: () => Promise<void>) => mcpAls.run({ sessionId }, fn);
+
+        // Stateless mode: per-request transport, no session management
+        if (stateless)
+        {
+            const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
+            const server = this.mcp.createServer();
+            res.on('close', async () => { await transport.close(); await server.close(); });
+            await server.connect(transport);
+            await run(() => transport.handleRequest(req, res, req.body));
+            return;
+        }
 
         let transport = sessionId ? this.transports.get(sessionId) : undefined;
 
@@ -39,15 +55,21 @@ export class McpController
                 return;
             }
 
+            let server: McpServer | undefined;
             transport = new StreamableHTTPServerTransport({
                 sessionIdGenerator  : () => uuid(),
                 onsessioninitialized: (sid: string) =>
                 {
+                    this.logger.log(`MCP (GraphQL) session initialized: ${sid}`);
                     if (transport) this.transports.set(sid, transport);
+                    // store the server created for this transport
+                    if (server) this.servers.set(sid, server);
                 },
                 onsessionclosed: (sid: string) =>
                 {
+                    this.logger.log(`MCP (GraphQL) session closed (callback): ${sid}`);
                     this.transports.delete(sid);
+                    this.servers.delete(sid);
                 },
             });
 
@@ -60,7 +82,9 @@ export class McpController
                 }
             };
 
-            await this.mcp.server.connect(transport);
+            // Create and attach a fresh server for this transport
+            server = this.mcp.createServer();
+            await server.connect(transport);
         }
 
         try
@@ -79,4 +103,3 @@ export class McpController
         }
     }
 }
-

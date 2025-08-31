@@ -87,6 +87,7 @@ function editPackageJson()
 
                 delete json.dependencies['@azure/storage-blob'];
                 delete json.dependencies['@microsoft/microsoft-graph-client'];
+                delete json.dependencies['@modelcontextprotocol/sdk'];
                 delete json.dependencies['@narando/nest-axios-interceptor'];
                 delete json.dependencies['@nestjs/axios'];
                 delete json.dependencies['@nestjs/bullmq'];
@@ -101,6 +102,7 @@ function editPackageJson()
                 delete json.dependencies['passport'];
                 delete json.dependencies['passport-jwt'];
                 delete json.dependencies['redis'];
+                delete json.dependencies['zod'];
 
                 delete json.devDependencies.gulp;
                 delete json.devDependencies['@types/cron'];
@@ -151,6 +153,10 @@ async function cleanAppModule()
     // remove AzureStorageAccountModule
     codeWriter.removeImport(sourceFile, '@api/azure-storage-account/azure-storage-account.module');
     codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'AzureStorageAccountModule');
+
+    // remove McpModule
+    codeWriter.removeImport(sourceFile, '@api/mcp/mcp.module');
+    codeWriter.removeDecoratorProperty(sourceFile, 'AppModule', 'Module', 'imports', 'McpModule');
 
     // remove MsEntraIdModule
     codeWriter.removeImport(sourceFile, '@api/ms-entra-id/ms-entra-id.module');

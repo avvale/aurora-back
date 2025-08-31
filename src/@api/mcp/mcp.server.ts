@@ -10,8 +10,6 @@ import { McpAuthService } from './mcp.auth.service';
 @Injectable()
 export class McpNestGraphQLServer implements OnApplicationBootstrap
 {
-    public readonly server = new McpServer({ name: 'nestjs-mcp', version: '1.0.0' });
-
     private schema!: GraphQLSchema;
     private initialized = false;
     private initPromise?: Promise<void>;
@@ -25,11 +23,13 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
     async onApplicationBootstrap(): Promise<void>
     {
         this.schema = await this.waitForSchema();
-        this.initFromSchema();
         this.initialized = true;
     }
 
-    private async waitForSchema(timeoutMs = 15000, intervalMs = 50): Promise<GraphQLSchema>
+    private async waitForSchema(
+        timeoutMs = 15000,
+        intervalMs = 50,
+    ): Promise<GraphQLSchema>
     {
         const start = Date.now();
         while (true)
@@ -49,10 +49,18 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         }
     }
 
-    private initFromSchema(): void
+    // Factory: create a fresh MCP server instance with all resources/tools
+    createServer(): McpServer
+    {
+        const server = new McpServer({ name: 'nestjs-mcp', version: '1.0.0' });
+        this.initFromSchema(server);
+        return server;
+    }
+
+    private initFromSchema(server: McpServer): void
     {
         // 1) Resource: full GraphQL SDL
-        this.server.registerResource(
+        server.registerResource(
             'graphql-schema',
             'gql://schema',
             {
@@ -68,7 +76,7 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         );
 
         // 1.b) Minimal prompt so clients don't error on prompts/list
-        this.server.registerPrompt(
+        server.registerPrompt(
             'graphql-quickstart',
             {
                 title      : 'GraphQL Quickstart',
@@ -92,7 +100,7 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         );
 
         // 2) Tool: generic GraphQL executor (allows queries y mutations)
-        this.server.registerTool(
+        server.registerTool(
             'graphql-execute',
             {
                 title      : 'GraphQL execute',
@@ -123,53 +131,48 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         const q = this.schema.getQueryType();
         if (q)
         {
-            const include = (process.env.INCLUDE_API_TOOLS || '').trim();
-            if (include.length)
+            const include = (process.env.MCP_INCLUDE_API_TOOLS || '').trim();
+            const includeAll = include.length === 0 || include === '*';
+            const includeSet = new Set(includeAll ? [] : include.split(',').map(s => s.trim()).filter(Boolean));
+            const excludeSet = new Set((process.env.MCP_EXCLUDE_API_TOOLS || '').split(',').map(s => s.trim()).filter(Boolean));
+
+            const fields = q.getFields();
+            for (const fieldName of Object.keys(fields))
             {
-                const includeAll = include === '*';
-                const includeSet = new Set(includeAll ? [] : include.split(',').map(s => s.trim()).filter(Boolean));
-                const excludeSet = new Set((process.env.EXCLUDE_API_TOOLS || '').split(',').map(s => s.trim()).filter(Boolean));
+                if (!includeAll && !includeSet.has(fieldName)) continue;
+                if (excludeSet.size && excludeSet.has(fieldName)) continue;
 
-                const fields = q.getFields();
-                for (const fieldName of Object.keys(fields))
-                {
-                    if (!includeAll && !includeSet.has(fieldName)) continue;
-                    if (excludeSet.size && excludeSet.has(fieldName)) continue;
+                const field = fields[fieldName];
+                const args = field.args;
+                const inputSchema = this.argsToZodSchema(args);
+                const { varDefs, argAssigns } = this.buildVarDefsAndArgs(args);
+                const selection = this.buildSelection(field.type);
+                const document = `query ${fieldName}${varDefs ? `(${varDefs})` : ''} { ${fieldName}${argAssigns} ${selection} }`;
 
-                    const field = fields[fieldName];
-                    const args = field.args;
-                    const inputSchema = this.argsToZodSchema(args);
-                    const { varDefs, argAssigns } = this.buildVarDefsAndArgs(args);
-                    console.log('Building GraphQL query:', field.type.toString());
-                    const selection = this.buildSelection(field.type);
-                    const document = `query ${fieldName}${varDefs ? `(${varDefs})` : ''} { ${fieldName}${argAssigns} ${selection} }`;
-
-                    this.server.registerTool(
-                        `gql-query-${fieldName}`,
-                        {
-                            title      : `Query ${fieldName}`,
-                            description: field.description ?? `GraphQL query ${fieldName}`,
-                            inputSchema,
-                        },
-                        async toolArgs =>
-                        {
-                            console.log(`Executing ${fieldName} with args:`, toolArgs);
-                            const variables = toolArgs as Record<string, unknown>;
-                            const { status, data } = await this.execHttp({ document, variables });
-                            const text = JSON.stringify({ status, data }, null, 2);
-                            return { content: [{ type: 'text', text }]};
-                        },
-                    );
-                }
+                server.registerTool(
+                    `gql-query-${fieldName}`,
+                    {
+                        title      : `Query ${fieldName}`,
+                        description: field.description ?? `GraphQL query ${fieldName}`,
+                        inputSchema,
+                    },
+                    async toolArgs =>
+                    {
+                        const variables = toolArgs as Record<string, unknown>;
+                        const { status, data } = await this.execHttp({ document, variables });
+                        const text = JSON.stringify({ status, data }, null, 2);
+                        return { content: [{ type: 'text', text }]};
+                    },
+                );
             }
         }
 
         // 4) Auth tool: password grant when env variables are not provided
-        this.server.registerTool(
+        server.registerTool(
             'auth-login',
             {
                 title      : 'Authentication (PASSWORD)',
-                description: 'Gets JWT using grant PASSWORD when there is no AUTH_USERNAME / AUTH_CLIENT_SECRET in the environment variables',
+                description: 'Gets JWT using grant PASSWORD when there is no MCP_AUTH_USERNAME / MCP_AUTH_CLIENT_SECRET in the environment variables',
                 inputSchema: {
                     username: z.string(),
                     password: z.string(),
@@ -199,7 +202,6 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
     {
         const baseURL = process.env.SELF_BASE_URL || `http://localhost:${process.env.APP_PORT || 3000}`;
 
-        console.log('Executing GraphQL operation:', { document, variables, operationName: operationName || 'commonGetCountries' });
         await this.auth.ensureAuth();
 
 
@@ -228,7 +230,6 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
                 res = await makeRequest(this.auth.getAuthHeader());
             }
         }
-        console.log('GraphQL response:', JSON.stringify({ status: res.status, data: res.data }, null, 2));
         return { status: res.status, data: res.data };
     }
 
@@ -257,7 +258,6 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
      */
     private zodFromInputType(t: GraphQLInputType): z.ZodTypeAny
     {
-        console.log(`Converting GraphQL type to Zod: ${t.toString()}`);
         const nonNull = isNonNullType(t);
         const inner = nonNull ? t.ofType : t;
 
@@ -272,7 +272,6 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
             {
                 const f = fields[fName];
                 const fZ = this.zodFromInputType(f.type);
-                //console.log(`Field ${fName}: ${JSON.stringify(fZ)}`);
                 shape[fName] = isNonNullType(f.type) ? fZ : fZ.optional();
             }
             return z.object(shape);
@@ -280,7 +279,6 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
 
         if (isScalarType(named))
         {
-            console.log(`Scalar field ${named.name}`);
             switch (named.name)
             {
                 case 'GraphQLString':

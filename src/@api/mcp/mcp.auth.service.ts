@@ -29,8 +29,8 @@ export class McpAuthService
     {
         if (this.accessToken) return;
 
-        const envUser = process.env.AUTH_USERNAME;
-        const envClientSecret = process.env.AUTH_CLIENT_SECRET;
+        const envUser = process.env.MCP_AUTH_USERNAME;
+        const envClientSecret = process.env.MCP_AUTH_CLIENT_SECRET;
 
         if (envUser && envClientSecret)
         {
@@ -132,7 +132,7 @@ export class McpAuthService
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization : `Basic ${process.env.AUTH_BASIC_AUTHORIZATION}`,
+                    Authorization : `Basic ${process.env.MCP_AUTH_BASIC_AUTHORIZATION}`,
                 },
                 validateStatus: () => true,
                 timeout       : 30000,
