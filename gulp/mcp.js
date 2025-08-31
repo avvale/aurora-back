@@ -11,9 +11,9 @@ function cleanSourceDirectory(cb)
 }
 
 /**
- * Copy iam files to publish folder
+ * Copy mcp files to publish folder
  */
-function copyMsEmail()
+function copyMcp()
 {
     return Promise.all([
         fse.copy('src/@api/mcp', 'publish/src/@api/mcp', { overwrite: true }),
@@ -34,9 +34,9 @@ async function clean()
     fs.rmSync('publish', { recursive: true, force: true });
 }
 
-exports.publishMsEmail = series(
+exports.publishMcp = series(
     cleanSourceDirectory,
-    copyMsEmail,
+    copyMcp,
     copyToCLI,
     clean,
 );

@@ -11,7 +11,7 @@ function cleanSourceDirectory(cb)
 }
 
 /**
- * Copy iam files to publish folder
+ * Copy msEmail files to publish folder
  */
 function copyMsEmail()
 {
