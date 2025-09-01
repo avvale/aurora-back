@@ -284,6 +284,7 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         // Enforce/normalize QueryStatement operators
         const enforce   = process.env.MCP_QS_ENFORCE_BRACKETS === 'true';
         const normalize = process.env.MCP_QS_NORMALIZE !== 'false';
+
         if (variables && enforce)
         {
             const offenders = this.findUnbracketedOperators(variables);
