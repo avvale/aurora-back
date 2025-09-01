@@ -89,7 +89,6 @@ function editPackageJson()
                 delete json.dependencies['@microsoft/microsoft-graph-client'];
                 delete json.dependencies['@modelcontextprotocol/sdk'];
                 delete json.dependencies['@narando/nest-axios-interceptor'];
-                delete json.dependencies['@nestjs/axios'];
                 delete json.dependencies['@nestjs/bullmq'];
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];

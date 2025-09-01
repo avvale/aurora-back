@@ -300,8 +300,7 @@ export class McpNestGraphQLServer implements OnApplicationBootstrap
         // Normalize QueryStatement operators if requested (default: on)
         if (variables && normalize) variables = this.normalizeQueryStatementOperators(variables) as Record<string, unknown>;
 
-        await this.auth.ensureAuth();
-
+        if (process.env.MCP_AUTH === 'true') await this.auth.ensureAuth();
 
         const makeRequest = async (authHeader?: string) => firstValueFrom(this.http.post<any>(
             `${baseURL}/graphql`,
