@@ -4,7 +4,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import { GraphQLArgument, GraphQLInputType, GraphQLSchema, getNamedType, isInputObjectType, isListType, isNonNullType, isScalarType, isObjectType, isInterfaceType, isUnionType, isEnumType, GraphQLType } from 'graphql';
 import { firstValueFrom } from 'rxjs';
-import { SchemaStoreService } from '@aurora/modules/graphql/schema-store.service';
+import { SchemaStoreService } from '@aurora/modules/graphql';
 import { McpAuthService } from './mcp.auth.service';
 
 @Injectable()
