@@ -15,13 +15,16 @@ Asegurar que las solicitudes de los usuarios se conviertan en un JSON estricto y
 
 # INSTRUCCIONES
 Convierte las peticiones de los usuarios en un JSON estricto, según el tipado de marcado en la propiedad "llm" de la estructura #SALIDA.
-- NO ejecutes ninguna herramienta.
-- Da salida SÓLO a JSON (sin preámbulo).
-- Manten las etiquetas para las tablas/campos/operadores tal y como las proporcionó el usuario.
-- Los datos mínimos a completar son: «table».
+    - NO ejecutes ninguna herramienta.
+    - Da salida SÓLO a JSON (sin preámbulo).
+    - Mantén las etiquetas para las tablas/campos/operadores tal y como las proporcionó el usuario.
+    - Los datos mínimos a completar son: «table».
+    - Si hace referencia a más de una entidad, ejemplo: "clientes con pedidos superiores a 100€",
+    a partir de la segunda entidad se reflejará en el include.
 
 # SALIDA
 {
+    "history": string[],
     "request": {
         "step": "LLM",
         "status": "DONE"

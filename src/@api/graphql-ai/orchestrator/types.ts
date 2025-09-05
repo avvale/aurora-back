@@ -30,6 +30,7 @@ export enum MODEL
 
 export interface RequestEnvelope
 {
+    history: string[];
     request: {
         step: STEP;
         status: STATUS;

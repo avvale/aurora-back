@@ -11,7 +11,7 @@ export const equivalenceAgentFactory = async (
 {
     return new Agent({
         name        : 'GraphQL Semantic Equivalence Agent',
-        model       : MODEL.GPT_5_NANO,
+        model       : MODEL.GPT_4_1_NANO,
         instructions: `You map user-language tables/fields to GraphQL operation and canonical field names.
 Resources available via MCP:
 - "graphql-highlight-schema" (weight ${weighting})

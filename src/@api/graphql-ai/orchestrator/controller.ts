@@ -1,9 +1,6 @@
 /* eslint-disable no-await-in-loop */
-import { Agent, run, setDefaultOpenAIKey } from '@openai/agents';
+import { Agent, run } from '@openai/agents';
 import { RequestEnvelope, STATUS, STEP } from './types';
-
-// Initialize OpenAI client
-setDefaultOpenAIKey(process.env.OPENAI_API_KEY);
 
 const defaultFlow: STEP[] = [
     STEP.VALIDATOR,
@@ -24,6 +21,9 @@ export async function runAuroraAgents(
         // 1) Bootstrap: If no prev envelope, ask LLM Agent to structure the request
         let state: RequestEnvelope = JSON.parse((await run(agents.LLM, userText)).finalOutput);
 
+        // Add user text to history
+        state.history.push(userText);
+
         // 2) Orchestration loop
         let cursor: STEP | undefined = state?.request?.target;
 
@@ -40,6 +40,7 @@ export async function runAuroraAgents(
             const agent = agents[cursor];
 
             console.log('Agent: ', cursor);
+            console.log('Input:', JSON.stringify(state, null, 2));
 
             const res = await run(agent, JSON.stringify(state));
 
@@ -71,12 +72,16 @@ export async function runAuroraAgents(
                 envelope.request?.status === STATUS.DONE
             )
             {
+                console.log('Input VALIDATOR:', JSON.stringify(envelope, null, 2));
                 const composed = await run(agents[STEP.VALIDATOR], JSON.stringify(envelope));
                 const composedOut = composed.finalOutput;
+                console.log('Output VALIDATOR:', composedOut);
                 envelope = typeof composedOut === 'string' ? JSON.parse(composedOut) : composedOut;
 
+                console.log('Input EQUIVALENCE:', JSON.stringify(envelope, null, 2));
                 const composer = await run(agents[STEP.EQUIVALENCE], JSON.stringify(envelope));
                 const compOut = composer.finalOutput;
+                console.log('Output EQUIVALENCE:', compOut);
                 state = typeof compOut === 'string' ? JSON.parse(compOut) : compOut;
                 cursor = STEP.OPERATOR;
                 continue;
