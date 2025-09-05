@@ -35,21 +35,21 @@ const makeMCPServer = (
             return new MCPServerStreamableHttp({
                 ...baseCfg,
                 // Hide ALL tools (only resources/prompts)
-                toolFilter: async () => Promise.resolve(false),
+                toolFilter: () => Promise.resolve(false),
             });
 
         case 'highlighted':
             return new MCPServerStreamableHttp({
                 ...baseCfg,
                 // Only gql-query-* tools
-                toolFilter: async (_ctx, tool) => Promise.resolve(/^gql-query-/.test(tool.name)),
+                toolFilter: (_ctx, tool) => Promise.resolve(/^gql-query-/.test(tool.name)),
             });
 
         case 'execute':
             return new MCPServerStreamableHttp({
                 ...baseCfg,
                 // Only graphql-execute
-                toolFilter: async (_ctx, tool) => Promise.resolve(tool.name === 'graphql-execute'),
+                toolFilter: (_ctx, tool) => Promise.resolve(tool.name === 'graphql-execute'),
             });
     }
 };
@@ -73,6 +73,7 @@ export const getMcpServer = async (
     {
         await mcpServer.connect(); // ensure connection if needed
     }
+
     return mcpServer;
 };
 

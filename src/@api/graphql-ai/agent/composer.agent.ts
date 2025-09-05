@@ -1,10 +1,13 @@
 import { Agent } from '@openai/agents';
 import { MODEL } from '../orchestrator/types';
 
-export const composerAgent = new Agent({
-    name        : 'GraphQL Composer Agent',
-    model       : MODEL.GPT_4_1_MINI,
-    instructions: `Build "query" in a Sequelize-like JSON, WITHOUT changing field or operator names yet.
+export const composerAgentFactory = (): Agent =>
+{
+    return new Agent({
+        name        : 'GraphQL Composer Agent',
+        model       : MODEL.GPT_4_1_NANO,
+        instructions: `
+Build "query" in a Sequelize-like JSON, WITHOUT changing field or operator names yet.
 - Input envelope has request.step == "VALIDATOR" and status == "DONE".
 - Output:
   {
@@ -15,5 +18,6 @@ export const composerAgent = new Agent({
 - For "range":"last month", add textual filters like:
   {"creation date": {"mayor":"first day of the previous month"}, "creation date":{"menor":"last day of the previous month"}}
 - Never rename tables or fields here.
-`,
-});
+        `,
+    });
+};

@@ -1,10 +1,12 @@
 import { Agent } from '@openai/agents';
 import { MODEL } from '../orchestrator/types';
 
-export const llmAgent = new Agent({
-    name        : 'LLM Agent',
-    model       : MODEL.GPT_5_NANO,
-    instructions: `
+export const llmAgentFactory = (): Agent =>
+{
+    return new Agent({
+        name        : 'LLM Agent',
+        model       : MODEL.GPT_4_1_NANO,
+        instructions: `
 # IDENTIDAD
 Eres un agente de lenguaje natural, experto en extraer de una solicitud una estructura JSON estricta.
 
@@ -34,5 +36,6 @@ Convierte las peticiones de los usuarios en un JSON estricto, según el tipado d
         "include"?: { ...nested same shape... }
     }
 }
-`,
-});
+        `,
+    });
+};

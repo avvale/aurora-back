@@ -1,26 +1,9 @@
 /* eslint-disable no-await-in-loop */
 import { Agent, run, setDefaultOpenAIKey } from '@openai/agents';
-import { llmAgent } from '../agent/llm.agent';
-import { validatorAgent } from '../agent/validator.agent';
-import { equivalenceAgent } from '../agent/equivalence.agent';
-import { operatorAgent } from '../agent/operator.agent';
-import { executorAgent } from '../agent/executor.agent';
-import { composerAgent } from '../agent/composer.agent';
-import { responseAgent } from '../agent/response.agent';
 import { RequestEnvelope, STATUS, STEP } from './types';
 
 // Initialize OpenAI client
 setDefaultOpenAIKey(process.env.OPENAI_API_KEY);
-
-const agents: Record<STEP, Agent> = {
-    [STEP.LLM]        : llmAgent,
-    [STEP.COMPOSER]   : composerAgent,
-    [STEP.VALIDATOR]  : validatorAgent,
-    [STEP.EQUIVALENCE]: equivalenceAgent,
-    [STEP.OPERATOR]   : operatorAgent,
-    [STEP.EXECUTOR]   : executorAgent,
-    [STEP.RESPONSE]   : responseAgent,
-};
 
 const defaultFlow: STEP[] = [
     STEP.VALIDATOR,
@@ -31,6 +14,7 @@ const defaultFlow: STEP[] = [
 ];
 
 export async function runAuroraAgents(
+    agents: Partial<Record<STEP, Agent>>,
     userText: string,
     prev?: RequestEnvelope,
 ): Promise<void>
@@ -70,7 +54,7 @@ export async function runAuroraAgents(
             }
             catch
             {
-                throw new Error(`Agent ${cursor} did not return JSON`);
+                throw new Error(`Agent ${cursor} did not return JSON, return ${out}`);
             }
 
             // Handle ERROR: route to target (LLM/EQUIVALENCE/OPERATOR/EXECUTOR)
