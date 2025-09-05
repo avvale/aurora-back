@@ -84,7 +84,6 @@ function editPackageJson()
 
                 delete json.scripts['install:typesense'];
                 delete json.dependencies['@aurorajs.dev/typesense'];
-
                 delete json.dependencies['@azure/storage-blob'];
                 delete json.dependencies['@microsoft/microsoft-graph-client'];
                 delete json.dependencies['@modelcontextprotocol/sdk'];
@@ -93,6 +92,7 @@ function editPackageJson()
                 delete json.dependencies['@nestjs/jwt'];
                 delete json.dependencies['@nestjs/passport'];
                 delete json.dependencies['@nestjs/schedule'];
+                delete json.dependencies['@openai/agents'];
                 delete json.dependencies['bullmq'];
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['jwks-rsa'];

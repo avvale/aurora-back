@@ -19,6 +19,7 @@ import { MessageModule } from '@api/message/message.module';
 import { WhatsappModule } from '@api/whatsapp/whatsapp.module';
 import { McpModule } from '@api/mcp/mcp.module';
 import { SharedModule } from '@api/shared/shared.module';
+import { GraphQLAIModule } from '@api/graphql-ai/graphql-ai.module';
 
 @Module({
     imports: [
@@ -39,6 +40,7 @@ import { SharedModule } from '@api/shared/shared.module';
         WhatsappModule,
         SharedModule,
         McpModule,
+        GraphQLAIModule,
     ],
     controllers: [
         AppController,

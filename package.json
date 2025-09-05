@@ -48,6 +48,7 @@
         "@nestjs/schedule": "^5.0.1",
         "@nestjs/serve-static": "^5.0.3",
         "@nestjs/swagger": "^11.0.6",
+        "@openai/agents": "^0.1.0",
         "@sentry/node": "^9.5.0",
         "bullmq": "^5.42.0",
         "cache-manager": "^6.4.1",
