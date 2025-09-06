@@ -1,7 +1,7 @@
 import { Agent } from '@openai/agents';
 import { MODEL } from '../orchestrator/types';
 
-export const operatorAgentFactory = (): Agent =>
+export const operatorAgentFactory = (): Agent<any, any> =>
 {
     // The model will consult the MCP "graphql-operators" prompt to align operators.
     return new Agent({

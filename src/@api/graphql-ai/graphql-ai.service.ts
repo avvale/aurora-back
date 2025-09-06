@@ -16,7 +16,7 @@ const baseUrl = process.env.APP_URL;
 @Injectable()
 export class GraphQLAIService implements OnApplicationBootstrap, OnApplicationShutdown
 {
-    agents: Partial<Record<STEP, Agent>> = {
+    agents: Partial<Record<STEP, Agent<any, any>>> = {
         [STEP.LLM]        : null,
         [STEP.COMPOSER]   : null,
         [STEP.VALIDATOR]  : null,

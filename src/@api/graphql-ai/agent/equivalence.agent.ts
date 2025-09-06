@@ -7,7 +7,7 @@ const weighting = Number(process.env.MCP_HIGHLIGHT_WEIGHTING ?? '0.7');
 
 export const equivalenceAgentFactory = async (
     mcpBaseUrl: string,
-): Promise<Agent> =>
+): Promise<Agent<any, any>> =>
 {
     return new Agent({
         name        : 'GraphQL Semantic Equivalence Agent',

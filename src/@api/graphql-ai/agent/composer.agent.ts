@@ -1,7 +1,7 @@
 import { Agent } from '@openai/agents';
 import { MODEL } from '../orchestrator/types';
 
-export const composerAgentFactory = (): Agent =>
+export const composerAgentFactory = (): Agent<any, any> =>
 {
     return new Agent({
         name        : 'GraphQL Composer Agent',

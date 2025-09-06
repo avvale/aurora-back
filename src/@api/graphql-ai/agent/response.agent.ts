@@ -1,7 +1,7 @@
 import { Agent } from '@openai/agents';
 import { MODEL } from '../orchestrator/types';
 
-export const responseAgentFactory = (): Agent =>
+export const responseAgentFactory = (): Agent<any, any> =>
 {
     return new Agent({
         name        : 'Response Agent',

@@ -4,7 +4,7 @@ import { MODEL } from '../orchestrator/types';
 
 export const executorAgentFactory = async (
     mcpBaseUrl: string,
-): Promise<Agent> =>
+): Promise<Agent<any, any>> =>
 {
     return new Agent({
         name        : 'GraphQL Executor Agent',
