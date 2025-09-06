@@ -11,15 +11,20 @@ const defaultFlow: STEP[] = [
 ];
 
 export async function runAuroraAgents(
-    agents: Partial<Record<STEP, Agent>>,
+    agents: Partial<Record<STEP, Agent<any, any>>>,
     userText: string,
     prev?: RequestEnvelope,
 ): Promise<void>
 {
+
+    
+
     try
     {
         // 1) Bootstrap: If no prev envelope, ask LLM Agent to structure the request
-        let state: RequestEnvelope = JSON.parse((await run(agents.LLM, userText)).finalOutput);
+        let state: RequestEnvelope = (await run(agents.LLM, userText)).finalOutput;
+
+        console.log('LLM output:', state);
 
         // Add user text to history
         state.history.push(userText);

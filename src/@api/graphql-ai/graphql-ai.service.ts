@@ -10,6 +10,7 @@ import { responseAgentFactory } from './agent/response.agent';
 import { llmAgentFactory } from './agent/llm.agent';
 import { composerAgentFactory } from './agent/composer.agent';
 import { validatorAgentFactory } from './agent/validator.agent';
+import { requestEnvelopeSchema } from './orchestrator/request-envolope.schema';
 
 const baseUrl = process.env.APP_URL;
 
@@ -37,7 +38,7 @@ export class GraphQLAIService implements OnApplicationBootstrap, OnApplicationSh
         // wait to nest tick to initialize agents
         setTimeout(async () =>
         {
-            this.agents[STEP.LLM]         = llmAgentFactory();
+            this.agents[STEP.LLM]         = llmAgentFactory(requestEnvelopeSchema());
             this.agents[STEP.VALIDATOR]   = validatorAgentFactory();
             this.agents[STEP.COMPOSER]    = composerAgentFactory();
             this.agents[STEP.EQUIVALENCE] = await equivalenceAgentFactory(baseUrl);
