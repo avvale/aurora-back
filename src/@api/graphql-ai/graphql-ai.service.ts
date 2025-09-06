@@ -39,8 +39,8 @@ export class GraphQLAIService implements OnApplicationBootstrap, OnApplicationSh
         setTimeout(async () =>
         {
             this.agents[STEP.LLM]         = llmAgentFactory(requestEnvelopeSchema());
-            this.agents[STEP.VALIDATOR]   = validatorAgentFactory();
-            this.agents[STEP.COMPOSER]    = composerAgentFactory();
+            this.agents[STEP.VALIDATOR]   = validatorAgentFactory(requestEnvelopeSchema());
+            this.agents[STEP.COMPOSER]    = composerAgentFactory(requestEnvelopeSchema());
             this.agents[STEP.EQUIVALENCE] = await equivalenceAgentFactory(baseUrl);
             this.agents[STEP.OPERATOR]    = operatorAgentFactory();
             this.agents[STEP.EXECUTOR]    = await executorAgentFactory(baseUrl);
@@ -56,10 +56,10 @@ export class GraphQLAIService implements OnApplicationBootstrap, OnApplicationSh
     async ask(
         text: string,
         previous?: any,
-    ): Promise<void>
+    ): Promise<any>
     {
         // previous can be the last envelope (for multi-turn clarification loops)
-        await runAuroraAgents(
+        return await runAuroraAgents(
             this.agents,
             text,
             previous,

@@ -33,8 +33,8 @@ export interface RequestEnvelope
     history: string[];
     request: {
         step: STEP;
+        targetStep?: STEP;
         status: STATUS;
-        target?: STEP;
         error?: string;
     };
     llm?: any;   // raw LLM structure (user language)

@@ -26,10 +26,10 @@ export const requestEnvelopeSchema = (): z.ZodObject<any> =>
     return z.object({
         history: z.array(z.string()),
         request: z.object({
-            step  : z.literal('LLM'),
-            status: z.enum(['DONE', 'ERROR']),
-            target: z.enum(['LLM', 'VALIDATOR', 'COMPOSER', 'EQUIVALENCE', 'OPERATOR', 'EXECUTOR', 'RESPONSE']).nullable().optional(),
-            error : z.string().nullable().optional(),
+            step      : z.literal('LLM'),
+            targetStep: z.enum(['LLM', 'VALIDATOR', 'COMPOSER', 'EQUIVALENCE', 'OPERATOR', 'EXECUTOR', 'RESPONSE']).nullable().optional(),
+            status    : z.enum(['DONE', 'ERROR']),
+            error     : z.string().nullable().optional(),
         }).strict(),
         llm: LLM,
     }).strict();
