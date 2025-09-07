@@ -20,8 +20,6 @@ Campos a extraer:
 - include: tablas adicionales si hay relaciones o referencias
   a más de una entidad, ejemplo: "clientes con pedidos superiores a 100€",
   a partir de la segunda entidad se reflejará en el include.
-
- # REGLAS
 - No inventes cosas ni des por sentados los parámetros
 - NO ejecutes ninguna herramienta.
 - SOLO establece propiedades que puedas rellenar con información comprensible y aporte foco.
@@ -57,8 +55,6 @@ Fields to be extracted:
 - include: additional tables if there are relations or references
   to more than one entity, example: "customers with orders over 100€",
   from the second entity will be reflected in the include.
-
- # SCHEMA RULES (context)
 - Don't invent things or take parameters for granted
 - DO NOT run any tools.
 - ONLY set properties that you can fill in with understandable information and bring focus.

@@ -6,7 +6,7 @@ const defaultFlow: STEP[] = [
     STEP.LLM,
     //STEP.VALIDATOR,
     //STEP.COMPOSER,
-    STEP.EQUIVALENCE,
+    // STEP.EQUIVALENCE,
     // STEP.OPERATOR,
     // STEP.EXECUTOR,
     //  STEP.RESPONSE,
