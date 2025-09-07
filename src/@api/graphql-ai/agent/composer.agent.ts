@@ -2,15 +2,7 @@ import { Agent } from '@openai/agents';
 import { z } from 'zod';
 import { MODEL } from '../orchestrator/types';
 
-export const composerAgentFactory = (
-    requestEnvelopeSchema: z.ZodObject<any>,
-): Agent<any, any> =>
-{
-    return new Agent({
-        name        : 'GraphQL Composer Agent',
-        model       : MODEL.GPT_4_1_MINI,
-        outputType  : requestEnvelopeSchema,
-        instructions: rc => `
+/**
 # IDENTIDAD
 Eres un agente experto en sintaxis Sequelize:
 - "attributes options"
@@ -34,6 +26,40 @@ en la propiedad "query" del schema de salida una consulta en formato Sequelize.
 - En caso de error por falta de datos, establece SOLO la propiedad "request.status" a "ERROR" y la propiedad "request.error" con un mensaje descriptivo del problema.
 - No MODIFICUES ninguna otra propiedad que no se haya mencionado.
 - Devuelve el schema como salida final.
+ */
+
+export const composerAgentFactory = (
+    requestEnvelopeSchema: z.ZodObject<any>,
+): Agent<any, any> =>
+{
+    return new Agent({
+        name        : 'GraphQL Composer Agent',
+        model       : MODEL.GPT_4O,
+        outputType  : requestEnvelopeSchema,
+        instructions: rc => `
+# IDENTITY
+You are an expert agent in Sequelize syntax:
+- "attributes options"
+- "where options"
+- "include options"
+- "order options"
+- "limit options"
+- "offset options"
+- "group options"
+- "distinct options"
+
+# OBJECTIVE
+ONLY you have to evaluate the content of the "llm" property of the schema to compose
+in the "query" property of the output schema a query in Sequelize format.
+
+# INSTRUCTIONS
+- Study carefully the schema property "history" and "llm" to get additional context.
+
+ # SCHEMA RULES (context)
+- You must ONLY generate the structure in the schema property "query".
+- In case of missing data error, set ONLY the "request.status" property to "ERROR" and the "request.error" property with a message describing the problem.
+- Do not MODIFY any other property not mentioned.
+- Return the schema as final output.
  ${JSON.stringify((rc.context).envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {}})}
         `,
     });

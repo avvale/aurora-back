@@ -2,15 +2,7 @@ import { Agent } from '@openai/agents';
 import { z } from 'zod';
 import { MODEL } from '../orchestrator/types';
 
-export const llmAgentFactory = (
-    requestEnvelopeSchema: z.ZodObject<any>,
-): Agent<any, any> =>
-{
-    return new Agent({
-        name        : 'LLM Agent',
-        model       : MODEL.GPT_4_1_NANO,
-        outputType  : requestEnvelopeSchema,
-        instructions: rc => `
+/**
 # IDENTIDAD
 Eres un agente experto en transformar frases en consultas de base de datos.
 
@@ -37,6 +29,43 @@ Debes obtener esta información de la petición del usuario:
 - En caso de error por falta de datos, establece SOLO la propiedad "request.status" a "ERROR" y la propiedad "request.error" con un mensaje descriptivo del problema.
 - No MODIFICUES ninguna otra propiedad que no se haya mencionado.
 - Devuelve el schema como salida final.
+ */
+
+export const llmAgentFactory = (
+    requestEnvelopeSchema: z.ZodObject<any>,
+): Agent<any, any> =>
+{
+    return new Agent({
+        name        : 'LLM Agent',
+        model       : MODEL.GPT_4O,
+        outputType  : requestEnvelopeSchema,
+        instructions: rc => `
+# IDENTITY
+You are an expert agent in transforming sentences into database queries.
+
+#
+Your task is to decompose the user's request into a strict JSON structure
+and ensure that there is a minimum of data to perform a SQL query.
+
+# INSTRUCTIONS
+You must get this information from the user request:
+- action: main verb (SELECT, COUNT, SUM, MIN, MAX, AVG)
+- table: main table to operate on
+- include: additional tables if there are relations or references
+ to more than one entity, example: "customers with orders over 100€",
+ from the second entity will be reflected in the include.
+- fields: list of specific columns if mentioned.
+- conditions: restrictions or filters (field, operator, value, range)
+- order_by: field and address if applicable
+- group_by: field if applicable
+- DO NOT run any tools.
+
+ # SCHEMA RULES (context)
+- ONLY set properties that you can fill in with understandable information and bring focus.
+- ONLY fill in properties that are possible from the schema property "llm".
+- In case of missing data error, set ONLY the "request.status" property to "ERROR" and the "request.error" property with a message describing the problem.
+- Do not MODIFY any other property not mentioned.
+- Return the schema as final output.
  ${JSON.stringify((rc.context).envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {}})}
         `,
     });

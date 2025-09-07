@@ -37,20 +37,24 @@ export async function runAuroraAgents(
         while (true)
         {
             count++;
-            if (count > 5) throw new Error('Too many iterations in agents orchestration loop');
+            if (count > 2) throw new Error('Too many iterations in agents orchestration loop');
 
             const agent = agents[state.request.step];
 
             console.log('Agent: ', state.request.step);
             console.log('Input:', JSON.stringify(state, null, 2));
 
-            const res = await run(agent, userText, { context: { envelope: state }});
+            // Build a richer prompt so the agent always sees the latest envelope
+            const effectivePrompt = `${userText}\n\nYou are part of a multi-agent orchestration. You MUST update the JSON envelope you receive in context and return it as { finalOutput: <envelope> }. Here is the latest envelope (JSON):\n${JSON.stringify(state)}`;
+
+            const res = await run(agent, count == 1 ? userText: effectivePrompt, { context: { envelope: state }});
             state = res.finalOutput;
 
             console.log('Output:', JSON.stringify(state, null, 2));
 
             // Handle ERROR: route to target (LLM/EQUIVALENCE/OPERATOR/EXECUTOR)
-            if (state.request?.status === STATUS.ERROR)
+            // if (state.request?.status === STATUS.ERROR)
+            if (false)
             {
                 console.log('ERROR!!!');
                 state.request.targetStep = state.request.step;
@@ -64,6 +68,9 @@ export async function runAuroraAgents(
             }
 
             const stepCurrentIndex = defaultFlow.indexOf(state.request.step);
+
+            console.log('defaultFlow.length:', defaultFlow.length);
+            console.log('stepCurrentIndex:', stepCurrentIndex + 1 >= defaultFlow.length);
 
             // If last step, break
             if (stepCurrentIndex + 1 >= defaultFlow.length) break;
