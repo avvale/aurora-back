@@ -1,15 +1,15 @@
 /* eslint-disable no-await-in-loop */
-import { Agent, run } from '@openai/agents';
+import { Agent, run, RunContext, RunState } from '@openai/agents';
 import { RequestEnvelope, STATUS, STEP } from './types';
 
 const defaultFlow: STEP[] = [
     STEP.LLM,
     //STEP.VALIDATOR,
-    STEP.COMPOSER,
-   // STEP.EQUIVALENCE,
-   // STEP.OPERATOR,
-   // STEP.EXECUTOR,
-   //  STEP.RESPONSE,
+    //STEP.COMPOSER,
+    STEP.EQUIVALENCE,
+    // STEP.OPERATOR,
+    // STEP.EXECUTOR,
+    //  STEP.RESPONSE,
 ];
 
 export async function runAuroraAgents(
@@ -25,11 +25,16 @@ export async function runAuroraAgents(
         let state: Partial<RequestEnvelope> = {
             history: [],
             request: { step: STEP.LLM, status: STATUS.DONE, targetStep: null, error: null },
-            llm    : { table: null, field: null, operator: null, value: null, range: null, format: null, include: null },
-            query  : null,
+            llm    : { table: null, attributes: null, order: null, where: null, include: null },
+            query  : {},
         };
 
         state.history.push(userText);
+
+        // Create a RunContext to carry our envelope across runs
+        const runCtx = new RunContext<{ envelope: Partial<RequestEnvelope>; }>({ envelope: state });
+        // We'll reuse the same RunState across iterations
+        let runState: RunState<{ envelope: Partial<RequestEnvelope>; }, Agent<any, any>> | undefined;
 
         let count = 0;
 
@@ -45,10 +50,22 @@ export async function runAuroraAgents(
             console.log('Input:', JSON.stringify(state, null, 2));
 
             // Build a richer prompt so the agent always sees the latest envelope
+            // eslint-disable-next-line max-len
             const effectivePrompt = `${userText}\n\nYou are part of a multi-agent orchestration. You MUST update the JSON envelope you receive in context and return it as { finalOutput: <envelope> }. Here is the latest envelope (JSON):\n${JSON.stringify(state)}`;
 
-            const res = await run(agent, count == 1 ? userText: effectivePrompt, { context: { envelope: state }});
+            // Keep the RunContext's envelope in sync with our local state
+            runCtx.context.envelope = state;
+
+            // Initialize (first turn) or continue (subsequent turns) with RunState
+            if (!runState)
+            {
+                // Max turns is internal to a single agent run; keep small as we loop externally
+                runState = new RunState(runCtx, count === 1 ? userText : effectivePrompt, agent, 3);
+            }
+
+            const res = await run(agent, runState);
             state = res.finalOutput;
+            runState = res.state;
 
             console.log('Output:', JSON.stringify(state, null, 2));
 
