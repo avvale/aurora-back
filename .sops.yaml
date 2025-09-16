@@ -1,0 +1,5 @@
+creation_rules:
+  - path_regex: '(\.env(\..+)?|\.env)$'
+    age: 'age16zdh0jhcz23rnluanuq7d8kzxrcvtnkptkzws9skajut54mxjg4qjv99ke'
+
+# carlos.rodriguez@avvale.com age16zdh0jhcz23rnluanuq7d8kzxrcvtnkptkzws9skajut54mxjg4qjv99ke
