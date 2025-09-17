@@ -1,0 +1,51 @@
+/* eslint-disable key-spacing */
+import { SupportUpdateIssueByIdCommand } from '@app/support/issue';
+import { SupportUpdateIssueByIdService } from '@app/support/issue/application/update/support-update-issue-by-id.service';
+import {
+    SupportIssueAccountId,
+    SupportIssueAccountUsername,
+    SupportIssueAttachments,
+    SupportIssueBackVersion,
+    SupportIssueDescription,
+    SupportIssueEnvironment,
+    SupportIssueExternalId,
+    SupportIssueExternalStatus,
+    SupportIssueFrontVersion,
+    SupportIssueId,
+    SupportIssueMeta,
+    SupportIssueSubject,
+    SupportIssueVideo,
+} from '@app/support/issue/domain/value-objects';
+import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
+
+@CommandHandler(SupportUpdateIssueByIdCommand)
+export class SupportUpdateIssueByIdCommandHandler implements ICommandHandler<SupportUpdateIssueByIdCommand>
+{
+    constructor(
+        private readonly updateIssueByIdService: SupportUpdateIssueByIdService,
+    ) {}
+
+    async execute(command: SupportUpdateIssueByIdCommand): Promise<void>
+    {
+        // call to use case and implements ValueObjects
+        await this.updateIssueByIdService.main(
+            {
+                id: new SupportIssueId(command.payload.id),
+                externalId: new SupportIssueExternalId(command.payload.externalId),
+                externalStatus: new SupportIssueExternalStatus(command.payload.externalStatus),
+                accountId: new SupportIssueAccountId(command.payload.accountId),
+                accountUsername: new SupportIssueAccountUsername(command.payload.accountUsername),
+                frontVersion: new SupportIssueFrontVersion(command.payload.frontVersion),
+                backVersion: new SupportIssueBackVersion(command.payload.backVersion),
+                environment: new SupportIssueEnvironment(command.payload.environment),
+                subject: new SupportIssueSubject(command.payload.subject, { undefinable: true }),
+                description: new SupportIssueDescription(command.payload.description, { undefinable: true }),
+                attachments: new SupportIssueAttachments(command.payload.attachments),
+                video: new SupportIssueVideo(command.payload.video),
+                meta: new SupportIssueMeta(command.payload.meta),
+            },
+            command.constraint,
+            command.cQMetadata,
+        );
+    }
+}

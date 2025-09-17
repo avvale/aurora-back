@@ -248,3 +248,10 @@ export { ToolsMigrationResponse } from './@app/tools/migration/domain/tools-migr
 export { ToolsMigrationMapper } from './@app/tools/migration/domain/tools-migration.mapper';
 export { toolsMockMigrationData } from './@app/tools/migration/infrastructure/mock/tools-mock-migration.data';
 export { ToolsMigrationDto } from './@api/tools/migration/dto/tools-migration.dto';
+export { SupportIssue } from './@app/support/issue/domain/support-issue.aggregate';
+export { SupportIssueModel } from './@app/support/issue';
+export { SupportIssueResponse } from './@app/support/issue/domain/support-issue.response';
+export { SupportIssueMapper } from './@app/support/issue/domain/support-issue.mapper';
+export { supportMockIssueData } from './@app/support/issue/infrastructure/mock/support-mock-issue.data';
+export { SupportModule } from './@api/support/support.module';
+export { SupportIssueDto } from './@api/support/issue/dto/support-issue.dto';

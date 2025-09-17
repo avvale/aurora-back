@@ -1505,6 +1505,54 @@ export interface StorageAccountFileManagerFileUploadedInput {
     meta?: Nullable<JSON>;
 }
 
+export interface SupportCreateIssueInput {
+    id: string;
+    externalId?: Nullable<GraphQLString>;
+    externalStatus?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    frontVersion?: Nullable<GraphQLString>;
+    backVersion?: Nullable<GraphQLString>;
+    environment?: Nullable<GraphQLString>;
+    subject: GraphQLString;
+    description: GraphQLString;
+    attachments?: Nullable<JSON>;
+    video?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
+export interface SupportUpdateIssueByIdInput {
+    id: string;
+    externalId?: Nullable<GraphQLString>;
+    externalStatus?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    frontVersion?: Nullable<GraphQLString>;
+    backVersion?: Nullable<GraphQLString>;
+    environment?: Nullable<GraphQLString>;
+    subject?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    attachments?: Nullable<JSON>;
+    video?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
+export interface SupportUpdateIssuesInput {
+    id?: Nullable<string>;
+    externalId?: Nullable<GraphQLString>;
+    externalStatus?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    frontVersion?: Nullable<GraphQLString>;
+    backVersion?: Nullable<GraphQLString>;
+    environment?: Nullable<GraphQLString>;
+    subject?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    attachments?: Nullable<JSON>;
+    video?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
 export interface ToolsCreateKeyValueInput {
     id: string;
     key: GraphQLString;
@@ -1898,6 +1946,10 @@ export interface IQuery {
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     storageAccountGetBase64FileFileManager(file: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerBase64> | Promise<Nullable<StorageAccountFileManagerBase64>>;
     storageAccountGetBase64FilesFileManager(files: StorageAccountFileManagerFileInput[]): Nullable<Nullable<StorageAccountFileManagerBase64>[]> | Promise<Nullable<Nullable<StorageAccountFileManagerBase64>[]>>;
+    supportFindIssue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportFindIssueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportGetIssues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue>[] | Promise<Nullable<SupportIssue>[]>;
+    supportPaginateIssues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     toolsFindKeyValue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsFindKeyValueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsGetKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
@@ -2182,6 +2234,9 @@ export interface IMutation {
     storageAccountCopyFileManager(src: StorageAccountFileManagerFileInput, dest: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFileFileManager(file: StorageAccountFileManagerFileUploadedInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFilesFileManager(files: StorageAccountFileManagerFileUploadedInput[]): Nullable<StorageAccountFileManagerFile>[] | Promise<Nullable<StorageAccountFileManagerFile>[]>;
+    supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     toolsCreateKeyValue(payload: ToolsCreateKeyValueInput): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsCreateKeyValues(payload: Nullable<ToolsCreateKeyValueInput>[]): boolean | Promise<boolean>;
     toolsUpdateKeyValueById(payload: ToolsUpdateKeyValueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
@@ -2834,6 +2889,26 @@ export interface StorageAccountFileManagerLibraryFile {
     size: GraphQLInt;
     url: GraphQLString;
     meta?: Nullable<JSON>;
+}
+
+export interface SupportIssue {
+    id: string;
+    externalId?: Nullable<GraphQLString>;
+    externalStatus?: Nullable<GraphQLString>;
+    accountId?: Nullable<string>;
+    account?: Nullable<IamAccount>;
+    accountUsername?: Nullable<GraphQLString>;
+    frontVersion?: Nullable<GraphQLString>;
+    backVersion?: Nullable<GraphQLString>;
+    environment?: Nullable<GraphQLString>;
+    subject: GraphQLString;
+    description: GraphQLString;
+    attachments?: Nullable<JSON>;
+    video?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
 export interface ToolsKeyValue {

@@ -1,0 +1,114 @@
+
+type SupportIssue
+{
+    id: ID!
+    externalId: GraphQLString
+    externalStatus: GraphQLString
+    accountId: ID
+    account: IamAccount
+    accountUsername: GraphQLString
+    frontVersion: GraphQLString
+    backVersion: GraphQLString
+    environment: GraphQLString
+    subject: GraphQLString!
+    description: GraphQLString!
+    attachments: JSON
+    video: JSON
+    meta: JSON
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input SupportCreateIssueInput
+{
+    id: ID!
+    externalId: GraphQLString
+    externalStatus: GraphQLString
+    accountId: ID
+    accountUsername: GraphQLString
+    frontVersion: GraphQLString
+    backVersion: GraphQLString
+    environment: GraphQLString
+    subject: GraphQLString!
+    description: GraphQLString!
+    attachments: JSON
+    video: JSON
+    meta: JSON
+}
+
+input SupportUpdateIssueByIdInput
+{
+    id: ID!
+    externalId: GraphQLString
+    externalStatus: GraphQLString
+    accountId: ID
+    accountUsername: GraphQLString
+    frontVersion: GraphQLString
+    backVersion: GraphQLString
+    environment: GraphQLString
+    subject: GraphQLString
+    description: GraphQLString
+    attachments: JSON
+    video: JSON
+    meta: JSON
+}
+
+input SupportUpdateIssuesInput
+{
+    id: ID
+    externalId: GraphQLString
+    externalStatus: GraphQLString
+    accountId: ID
+    accountUsername: GraphQLString
+    frontVersion: GraphQLString
+    backVersion: GraphQLString
+    environment: GraphQLString
+    subject: GraphQLString
+    description: GraphQLString
+    attachments: JSON
+    video: JSON
+    meta: JSON
+}
+
+type Query
+{
+    supportFindIssue(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): SupportIssue
+
+    supportFindIssueById(
+        id: ID
+        constraint: QueryStatement
+    ): SupportIssue
+
+    supportGetIssues(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SupportIssue]!
+
+    supportPaginateIssues(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+}
+
+type Mutation
+{
+    supportCreateIssue(
+        payload: SupportCreateIssueInput!
+    ): SupportIssue
+
+    supportUpdateIssueById(
+        payload: SupportUpdateIssueByIdInput!
+        constraint: QueryStatement
+    ): SupportIssue
+
+    supportDeleteIssueById(
+        id: ID!
+        constraint: QueryStatement
+    ): SupportIssue
+
+}

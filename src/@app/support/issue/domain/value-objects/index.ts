@@ -1,0 +1,16 @@
+export { SupportIssueAccountId } from './support-issue-account-id';
+export { SupportIssueAccountUsername } from './support-issue-account-username';
+export { SupportIssueAttachments } from './support-issue-attachments';
+export { SupportIssueBackVersion } from './support-issue-back-version';
+export { SupportIssueCreatedAt } from './support-issue-created-at';
+export { SupportIssueDeletedAt } from './support-issue-deleted-at';
+export { SupportIssueDescription } from './support-issue-description';
+export { SupportIssueEnvironment } from './support-issue-environment';
+export { SupportIssueExternalId } from './support-issue-external-id';
+export { SupportIssueExternalStatus } from './support-issue-external-status';
+export { SupportIssueFrontVersion } from './support-issue-front-version';
+export { SupportIssueId } from './support-issue-id';
+export { SupportIssueMeta } from './support-issue-meta';
+export { SupportIssueSubject } from './support-issue-subject';
+export { SupportIssueUpdatedAt } from './support-issue-updated-at';
+export { SupportIssueVideo } from './support-issue-video';
