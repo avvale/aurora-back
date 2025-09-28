@@ -1764,11 +1764,17 @@ export interface WhatsappUpdateTimelinesInput {
 export interface QueryStatement {
     where?: Nullable<JSON>;
     attributes?: Nullable<JSON>;
-    include?: Nullable<Nullable<GraphQLString>[]>;
+    include?: Nullable<JSON>;
     order?: Nullable<JSON>;
     group?: Nullable<JSON>;
     limit?: Nullable<GraphQLInt>;
     offset?: Nullable<GraphQLInt>;
+    lock?: Nullable<Any>;
+    skipLocked?: Nullable<GraphQLBoolean>;
+    raw?: Nullable<GraphQLBoolean>;
+    having?: Nullable<Any>;
+    subQuery?: Nullable<GraphQLBoolean>;
+    indexHints?: Nullable<JSON>;
     distinct?: Nullable<GraphQLBoolean>;
     col?: Nullable<GraphQLString>;
 }
