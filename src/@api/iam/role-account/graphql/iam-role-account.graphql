@@ -71,10 +71,6 @@ type Mutation
         constraint: QueryStatement
     ): [IamRoleAccount]!
 
-    iamUpsertRoleAccount(
-        payload: IamUpdateRoleAccountByIdInput!
-    ): IamRoleAccount
-
     iamDeleteRoleAccountById(
         roleId: ID!
         accountId: ID!

@@ -71,10 +71,6 @@ type Mutation
         constraint: QueryStatement
     ): [IamTenantAccount]!
 
-    iamUpsertTenantAccount(
-        payload: IamUpdateTenantAccountByIdInput!
-    ): IamTenantAccount
-
     iamDeleteTenantAccountById(
         tenantId: ID!
         accountId: ID!

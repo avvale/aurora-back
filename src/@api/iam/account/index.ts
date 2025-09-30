@@ -26,7 +26,6 @@ export { IamFindAccountByIdController } from './controllers/iam-find-account-by-
 export { IamFindAccountController } from './controllers/iam-find-account.controller';
 export { IamUpdateAccountByIdController } from './controllers/iam-update-account-by-id.controller';
 export { IamUpdateAccountsController } from './controllers/iam-update-accounts.controller';
-export { IamUpsertAccountController } from './controllers/iam-upsert-account.controller';
 export { IamDeleteAccountByIdController } from './controllers/iam-delete-account-by-id.controller';
 export { IamDeleteAccountsController } from './controllers/iam-delete-accounts.controller';
 
@@ -38,7 +37,6 @@ export { IamFindAccountByIdResolver } from './resolvers/iam-find-account-by-id.r
 export { IamFindAccountResolver } from './resolvers/iam-find-account.resolver';
 export { IamUpdateAccountByIdResolver } from './resolvers/iam-update-account-by-id.resolver';
 export { IamUpdateAccountsResolver } from './resolvers/iam-update-accounts.resolver';
-export { IamUpsertAccountResolver } from './resolvers/iam-upsert-account.resolver';
 export { IamDeleteAccountByIdResolver } from './resolvers/iam-delete-account-by-id.resolver';
 export { IamDeleteAccountsResolver } from './resolvers/iam-delete-accounts.resolver';
 
@@ -64,7 +62,6 @@ import { IamFindAccountByIdController } from './controllers/iam-find-account-by-
 import { IamFindAccountController } from './controllers/iam-find-account.controller';
 import { IamUpdateAccountByIdController } from './controllers/iam-update-account-by-id.controller';
 import { IamUpdateAccountsController } from './controllers/iam-update-accounts.controller';
-import { IamUpsertAccountController } from './controllers/iam-upsert-account.controller';
 import { IamDeleteAccountByIdController } from './controllers/iam-delete-account-by-id.controller';
 import { IamDeleteAccountsController } from './controllers/iam-delete-accounts.controller';
 
@@ -76,7 +73,6 @@ import { IamFindAccountByIdResolver } from './resolvers/iam-find-account-by-id.r
 import { IamFindAccountResolver } from './resolvers/iam-find-account.resolver';
 import { IamUpdateAccountByIdResolver } from './resolvers/iam-update-account-by-id.resolver';
 import { IamUpdateAccountsResolver } from './resolvers/iam-update-accounts.resolver';
-import { IamUpsertAccountResolver } from './resolvers/iam-upsert-account.resolver';
 import { IamDeleteAccountByIdResolver } from './resolvers/iam-delete-account-by-id.resolver';
 import { IamDeleteAccountsResolver } from './resolvers/iam-delete-accounts.resolver';
 
@@ -125,7 +121,6 @@ export const IamAccountApiControllers = [
     IamFindAccountController,
     IamUpdateAccountByIdController,
     IamUpdateAccountsController,
-    IamUpsertAccountController,
     IamDeleteAccountByIdController,
     IamDeleteAccountsController,
 
@@ -147,7 +142,6 @@ export const IamAccountApiResolvers = [
     IamFindAccountResolver,
     IamUpdateAccountByIdResolver,
     IamUpdateAccountsResolver,
-    IamUpsertAccountResolver,
     IamDeleteAccountByIdResolver,
     IamDeleteAccountsResolver,
 

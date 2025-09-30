@@ -2102,7 +2102,6 @@ export interface IMutation {
     iamCreateRolesAccounts(payload: Nullable<IamCreateRoleAccountInput>[]): boolean | Promise<boolean>;
     iamUpdateRoleAccountById(payload: IamUpdateRoleAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
     iamUpdateRolesAccounts(payload: IamUpdateRolesAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount>[] | Promise<Nullable<IamRoleAccount>[]>;
-    iamUpsertRoleAccount(payload: IamUpdateRoleAccountByIdInput): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
     iamDeleteRoleAccountById(roleId: string, accountId: string, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount> | Promise<Nullable<IamRoleAccount>>;
     iamDeleteRolesAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRoleAccount>[] | Promise<Nullable<IamRoleAccount>[]>;
     iamCreateRole(payload: IamCreateRoleInput): Nullable<IamRole> | Promise<Nullable<IamRole>>;
@@ -2120,7 +2119,6 @@ export interface IMutation {
     iamCreateTenantsAccounts(payload: Nullable<IamCreateTenantAccountInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantAccountById(payload: IamUpdateTenantAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamUpdateTenantsAccounts(payload: IamUpdateTenantsAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
-    iamUpsertTenantAccount(payload: IamUpdateTenantAccountByIdInput): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamDeleteTenantAccountById(tenantId: string, accountId: string, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount> | Promise<Nullable<IamTenantAccount>>;
     iamDeleteTenantsAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenantAccount>[] | Promise<Nullable<IamTenantAccount>[]>;
     iamCreateTenant(payload: IamCreateTenantInput): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
