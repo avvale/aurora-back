@@ -2,8 +2,8 @@
 type IamRoleAccount
 {
     roleId: ID!
-    accountId: ID!
     role: IamRole
+    accountId: ID!
     account: IamAccount
 }
 

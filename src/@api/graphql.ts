@@ -1883,6 +1883,8 @@ export interface IQuery {
     iamFindTenantById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamGetTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant>[] | Promise<Nullable<IamTenant>[]>;
     iamPaginateTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamGetWithTenantConstraintTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant>[] | Promise<Nullable<IamTenant>[]>;
+    iamPaginateWithTenantConstraintTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     iamFindUserMetaById(id: string): Nullable<IamUserMeta> | Promise<Nullable<IamUserMeta>>;
     iamFindUser(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamFindUserById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
@@ -2564,8 +2566,8 @@ export interface IamPermission {
 
 export interface IamRoleAccount {
     roleId: string;
-    accountId: string;
     role?: Nullable<IamRole>;
+    accountId: string;
     account?: Nullable<IamAccount>;
 }
 
@@ -2590,8 +2592,8 @@ export interface IamTag {
 
 export interface IamTenantAccount {
     tenantId: string;
-    accountId: string;
     tenant?: Nullable<IamTenant>;
+    accountId: string;
     account?: Nullable<IamAccount>;
 }
 

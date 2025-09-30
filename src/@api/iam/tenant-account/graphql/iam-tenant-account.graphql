@@ -2,8 +2,8 @@
 type IamTenantAccount
 {
     tenantId: ID!
-    accountId: ID!
     tenant: IamTenant
+    accountId: ID!
     account: IamAccount
 }
 
