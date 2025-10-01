@@ -109,6 +109,8 @@ import { IamCheckUniqueUsernameAccountResolver } from './resolvers/iam-check-uni
 import { IamCheckUniqueEmailAccountController } from './controllers/iam-check-unique-email-account.controller';
 import { IamCheckUniqueEmailAccountHandler } from './handlers/iam-check-unique-email-account.handler';
 import { IamCheckUniqueEmailAccountResolver } from './resolvers/iam-check-unique-email-account.resolver';
+import { IamPaginateWithTenantConstraintAccountsController } from './controllers/iam-paginate-with-tenant-constraint-accounts.controller';
+import { IamPaginateWithTenantConstraintAccountsResolver } from './resolvers/iam-paginate-with-tenant-constraint-accounts.resolver';
 
 export const IamAccountApiControllers = [
     // ---- customizations ----
@@ -129,6 +131,7 @@ export const IamAccountApiControllers = [
     IamCheckPasswordMeAccountController,
     IamCheckUniqueUsernameAccountController,
     IamCheckUniqueEmailAccountController,
+    IamPaginateWithTenantConstraintAccountsController,
 ];
 
 export const IamAccountApiResolvers = [
@@ -150,6 +153,7 @@ export const IamAccountApiResolvers = [
     IamCheckPasswordMeAccountResolver,
     IamCheckUniqueUsernameAccountResolver,
     IamCheckUniqueEmailAccountResolver,
+    IamPaginateWithTenantConstraintAccountsResolver,
 ];
 
 export const IamAccountApiHandlers = [
