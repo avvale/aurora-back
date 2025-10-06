@@ -35,6 +35,7 @@ export const composerAgentFactory = (
     return new Agent({
         name        : 'GraphQL Composer Agent',
         model       : MODEL.GPT_4_1_NANO,
+        // todo, CADA AGENTE SU ESTRUCTURA DE SALIDA
         outputType  : requestEnvelopeSchema,
         instructions: rc => `
 # IDENTITY
