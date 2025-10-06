@@ -66,10 +66,10 @@ aggregateProperties:
           - count
           - max
           - min
-          - sum
           - rawSql
-          - upsert
+          - sum
           - updateAndIncrement
+          - upsert
   - name: accounts
     type: relationship
     nullable: true

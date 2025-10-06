@@ -75,12 +75,12 @@ aggregateProperties:
     nullable: true
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - max
   - min
-  - sum
   - rawSql
-  - upsert
-  - updateAndIncrement
-  - createBatch
+  - sum
   - update
-  - delete
+  - updateAndIncrement
+  - upsert
