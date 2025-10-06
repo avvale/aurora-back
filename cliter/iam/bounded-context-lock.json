@@ -287,7 +287,7 @@
         },
         {
             "path": "src/@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.data.ts",
-            "integrity": "sha1:91fdbc200fbce6b8cd273614d00807f053eecea8"
+            "integrity": "sha1:da5edd529ce2f31a1e82c8958c602d2953ad99e0"
         },
         {
             "path": "src/@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.repository.ts",
@@ -623,7 +623,7 @@
         },
         {
             "path": "postman/iam/iam.bounded-context.postman.json",
-            "integrity": "sha1:1cd83de2bf613df2ee0b6fca694d2cdb8a1065ee"
+            "integrity": "sha1:d99411898637da8173cc0107d1580fd1f9b82165"
         }
     ]
 }
