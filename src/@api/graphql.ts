@@ -2573,6 +2573,7 @@ export interface IamRoleAccount {
 
 export interface IamRole {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     isMaster: GraphQLBoolean;
     permissions?: Nullable<Nullable<IamPermission>[]>;

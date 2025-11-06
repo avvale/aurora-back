@@ -5,6 +5,7 @@ export { IamRoleId } from './iam-role-id';
 export { IamRoleIsMaster } from './iam-role-is-master';
 export { IamRoleName } from './iam-role-name';
 export { IamRolePermissionIds } from './iam-role-permission-ids';
+export { IamRoleRowId } from './iam-role-row-id';
 export { IamRoleUpdatedAt } from './iam-role-updated-at';
 
 // ---- customizations ----
