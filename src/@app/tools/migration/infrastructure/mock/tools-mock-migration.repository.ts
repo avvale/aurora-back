@@ -8,6 +8,7 @@ import {
     ToolsMigrationIsActive,
     ToolsMigrationIsExecuted,
     ToolsMigrationName,
+    ToolsMigrationRowId,
     ToolsMigrationSort,
     ToolsMigrationUpdatedAt,
     ToolsMigrationUpScript,
@@ -47,6 +48,7 @@ export class ToolsMockMigrationRepository extends MockRepository<ToolsMigration>
 
             this.collectionSource.push(ToolsMigration.register(
                 new ToolsMigrationId(itemCollection.id),
+                new ToolsMigrationRowId(itemCollection.rowId),
                 new ToolsMigrationName(itemCollection.name),
                 new ToolsMigrationVersion(itemCollection.version),
                 new ToolsMigrationIsActive(itemCollection.isActive),

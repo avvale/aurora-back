@@ -43,6 +43,7 @@ export class ToolsCreateMigrationsService
         // create aggregate with factory pattern
         const migrations = payload.map(migration => ToolsMigration.register(
             migration.id,
+            undefined, // rowId
             migration.name,
             migration.version,
             migration.isActive,

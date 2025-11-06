@@ -6,6 +6,7 @@ export class ToolsDeletedKeyValueEvent
         public readonly event: {
             payload: {
                 id: string;
+                rowId: number;
                 key: string;
                 type: string;
                 value: string;

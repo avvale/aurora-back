@@ -10,7 +10,7 @@ export class ToolsKeyValueType extends EnumValueObject
             name       : 'ToolsKeyValueType',
             nullable   : false,
             undefinable: false,
-            enumOptions: ['STRING','BOOLEAN','NUMBER','DATE','TIME','TIMESTAMP','OBJECT','ARRAY'],
+            enumOptions: ['ARRAY','BOOLEAN','DATE','NUMBER','OBJECT','SECRET','STRING','TIME','TIMESTAMP'],
         }, validationRules));
     }
 }

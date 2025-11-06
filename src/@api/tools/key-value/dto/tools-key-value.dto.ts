@@ -11,6 +11,12 @@ export class ToolsKeyValueDto
     id: string;
 
     @ApiProperty({
+        type       : Number,
+        description: 'rowId [input here api field description]',
+    })
+    rowId: number;
+
+    @ApiProperty({
         type       : String,
         description: 'key [input here api field description]',
     })

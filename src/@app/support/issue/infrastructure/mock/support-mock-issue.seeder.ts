@@ -13,6 +13,7 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueRowId,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
     SupportIssueVideo,
@@ -41,6 +42,7 @@ export class SupportMockIssueSeeder extends MockSeeder<SupportIssue>
             this.collectionSource.push(
                 SupportIssue.register(
                     new SupportIssueId(issue.id),
+                    new SupportIssueRowId(issue.rowId),
                     new SupportIssueExternalId(issue.externalId),
                     new SupportIssueExternalStatus(issue.externalStatus),
                     new SupportIssueAccountId(issue.accountId),

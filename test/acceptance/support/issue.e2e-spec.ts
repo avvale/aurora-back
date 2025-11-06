@@ -93,6 +93,22 @@ describe('issue', () =>
             });
     });
 
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for SupportIssueRowId must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -138,6 +154,22 @@ describe('issue', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for SupportIssueId must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for SupportIssueRowId must be defined, can not be undefined');
             });
     });
 
@@ -490,6 +522,7 @@ describe('issue', () =>
                         supportCreateIssue (payload:$payload)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountId
@@ -568,6 +601,7 @@ describe('issue', () =>
                         supportGetIssues (query:$query)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -608,6 +642,7 @@ describe('issue', () =>
                         supportCreateIssue (payload:$payload)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountId
@@ -649,6 +684,7 @@ describe('issue', () =>
                         supportFindIssue (query:$query)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -697,6 +733,7 @@ describe('issue', () =>
                         supportFindIssue (query:$query)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -743,6 +780,7 @@ describe('issue', () =>
                         supportFindIssueById (id:$id)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -784,6 +822,7 @@ describe('issue', () =>
                         supportFindIssueById (id:$id)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -823,6 +862,7 @@ describe('issue', () =>
                         supportUpdateIssueById (payload:$payload)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -867,6 +907,7 @@ describe('issue', () =>
                         supportUpdateIssueById (payload:$payload)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -909,6 +950,7 @@ describe('issue', () =>
                         supportUpdateIssues (payload:$payload query:$query)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -956,6 +998,7 @@ describe('issue', () =>
                         supportDeleteIssueById (id:$id)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername
@@ -997,6 +1040,7 @@ describe('issue', () =>
                         supportDeleteIssueById (id:$id)
                         {
                             id
+                            rowId
                             externalId
                             externalStatus
                             accountUsername

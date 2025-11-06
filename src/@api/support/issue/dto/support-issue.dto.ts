@@ -11,6 +11,12 @@ export class SupportIssueDto
     id: string;
 
     @ApiProperty({
+        type       : Number,
+        description: 'rowId [input here api field description]',
+    })
+    rowId: number;
+
+    @ApiProperty({
         type       : String,
         description: 'externalId [input here api field description]',
     })

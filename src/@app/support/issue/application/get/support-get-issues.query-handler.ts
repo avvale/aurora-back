@@ -1,5 +1,6 @@
-import { SupportGetIssuesQuery, SupportIssueMapper, SupportIssueResponse } from '@app/support/issue';
+import { SupportGetIssuesQuery, SupportIssue, SupportIssueMapper, SupportIssueResponse } from '@app/support/issue';
 import { SupportGetIssuesService } from '@app/support/issue/application/get/support-get-issues.service';
+import { LiteralObject } from '@aurorajs.dev/core';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 @QueryHandler(SupportGetIssuesQuery)
@@ -11,14 +12,16 @@ export class SupportGetIssuesQueryHandler implements IQueryHandler<SupportGetIss
         private readonly getIssuesService: SupportGetIssuesService,
     ) {}
 
-    async execute(query: SupportGetIssuesQuery): Promise<SupportIssueResponse[]>
+    async execute(query: SupportGetIssuesQuery): Promise<SupportIssueResponse[] | LiteralObject[]>
     {
-        return this.mapper.mapAggregatesToResponses(
-            await this.getIssuesService.main(
-                query.queryStatement,
-                query.constraint,
-                query.cQMetadata,
-            ),
+        const models = await this.getIssuesService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
         );
+
+        if (query.cQMetadata?.excludeMapModelToAggregate) return models;
+
+        return this.mapper.mapAggregatesToResponses(models as SupportIssue[]);
     }
 }

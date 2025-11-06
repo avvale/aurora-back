@@ -17,10 +17,11 @@ export class ToolsCreateMigrationsHandler
     ): Promise<boolean>
     {
         await this.commandBus.dispatch(new ToolsCreateMigrationsCommand(
-            payload.map(migration => ({
-                ...migration,
-                isExecuted: false,
-            })),
+            payload
+                .map(migration => ({
+                    ...migration,
+                    isExecuted: false,
+                })),
             {
                 timezone,
             },

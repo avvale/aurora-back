@@ -9,6 +9,10 @@ import { Column, ForeignKey, Model, Table } from 'sequelize-typescript';
     timestamps: false,
     indexes: [
 		{
+			fields: ['rowId'],
+			unique: true,
+		},
+		{
 			fields: ['version'],
 			unique: false,
 		},
@@ -23,6 +27,14 @@ export class ToolsMigrationModel extends Model<ToolsMigrationModel>
         type: DataTypes.UUID,
     })
     id: string;
+
+    @Column({
+        field: 'rowId',
+        autoIncrement: true,
+        allowNull: false,
+        type: DataTypes.BIGINT,
+    })
+    rowId: number;
 
     @Column({
         field: 'name',

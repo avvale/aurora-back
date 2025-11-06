@@ -15,6 +15,7 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueRowId,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
     SupportIssueVideo,
@@ -25,6 +26,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class SupportIssue extends AggregateRoot
 {
     id: SupportIssueId;
+    rowId: SupportIssueRowId;
     externalId: SupportIssueExternalId;
     externalStatus: SupportIssueExternalStatus;
     accountId: SupportIssueAccountId;
@@ -44,6 +46,7 @@ export class SupportIssue extends AggregateRoot
 
     constructor(
         id: SupportIssueId,
+        rowId: SupportIssueRowId,
         externalId: SupportIssueExternalId,
         externalStatus: SupportIssueExternalStatus,
         accountId: SupportIssueAccountId,
@@ -64,6 +67,7 @@ export class SupportIssue extends AggregateRoot
     {
         super();
         this.id = id;
+        this.rowId = rowId;
         this.externalId = externalId;
         this.externalStatus = externalStatus;
         this.accountId = accountId;
@@ -84,6 +88,7 @@ export class SupportIssue extends AggregateRoot
 
     static register(
         id: SupportIssueId,
+        rowId: SupportIssueRowId,
         externalId: SupportIssueExternalId,
         externalStatus: SupportIssueExternalStatus,
         accountId: SupportIssueAccountId,
@@ -104,6 +109,7 @@ export class SupportIssue extends AggregateRoot
     {
         return new SupportIssue(
             id,
+            rowId,
             externalId,
             externalStatus,
             accountId,
@@ -198,6 +204,7 @@ export class SupportIssue extends AggregateRoot
             new SupportDeletedIssueEvent({
                 payload: {
                     id: event.payload.id.value,
+                    rowId: event.payload.rowId.value,
                     externalId: event.payload.externalId?.value,
                     externalStatus: event.payload.externalStatus?.value,
                     accountId: event.payload.accountId?.value,
@@ -223,6 +230,7 @@ export class SupportIssue extends AggregateRoot
     {
         return {
             id: this.id.value,
+            rowId: this.rowId.value,
             externalId: this.externalId?.value,
             externalStatus: this.externalStatus?.value,
             accountId: this.accountId?.value,

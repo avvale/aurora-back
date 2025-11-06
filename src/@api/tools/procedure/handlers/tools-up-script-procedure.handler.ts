@@ -4,8 +4,7 @@ import { ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ToolsUpScriptProcedureHandler
-{
+export class ToolsUpScriptProcedureHandler {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
@@ -14,8 +13,7 @@ export class ToolsUpScriptProcedureHandler
     async main(
         procedureId: string,
         timezone?: string,
-    ): Promise<boolean>
-    {
+    ): Promise<boolean> {
         const procedure = await this.queryBus.ask(new ToolsFindProcedureByIdQuery(
             procedureId,
             {},

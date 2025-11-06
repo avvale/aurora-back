@@ -11,6 +11,7 @@ export { SupportIssueExternalStatus } from './support-issue-external-status';
 export { SupportIssueFrontVersion } from './support-issue-front-version';
 export { SupportIssueId } from './support-issue-id';
 export { SupportIssueMeta } from './support-issue-meta';
+export { SupportIssueRowId } from './support-issue-row-id';
 export { SupportIssueSubject } from './support-issue-subject';
 export { SupportIssueUpdatedAt } from './support-issue-updated-at';
 export { SupportIssueVideo } from './support-issue-video';

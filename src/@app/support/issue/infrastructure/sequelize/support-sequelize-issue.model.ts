@@ -11,6 +11,10 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
     timestamps: false,
     indexes: [
 		{
+			fields: ['rowId'],
+			unique: true,
+		},
+		{
 			fields: ['accountId'],
 			unique: false,
 		},
@@ -133,6 +137,14 @@ export class SupportIssueModel extends Model<SupportIssueModel>
         type: DataTypes.UUID,
     })
     id: string;
+
+    @Column({
+        field: 'rowId',
+        autoIncrement: true,
+        allowNull: false,
+        type: DataTypes.BIGINT,
+    })
+    rowId: number;
 
     @Column({
         field: 'externalId',

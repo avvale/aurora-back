@@ -6,6 +6,7 @@ import {
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
     ToolsKeyValueKey,
+    ToolsKeyValueRowId,
     ToolsKeyValueType,
     ToolsKeyValueUpdatedAt,
     ToolsKeyValueValue,
@@ -64,6 +65,7 @@ export class ToolsKeyValueMapper implements IMapper
     {
         return ToolsKeyValue.register(
             new ToolsKeyValueId(keyValue.id, { undefinable: true }),
+            new ToolsKeyValueRowId(keyValue.rowId, { undefinable: true }),
             new ToolsKeyValueKey(keyValue.key, { undefinable: true }),
             new ToolsKeyValueType(keyValue.type, { undefinable: true }),
             new ToolsKeyValueValue(keyValue.value, { undefinable: true }),
@@ -81,6 +83,7 @@ export class ToolsKeyValueMapper implements IMapper
 
         return new ToolsKeyValueResponse(
             keyValue.id.value,
+            keyValue.rowId.value,
             keyValue.key.value,
             keyValue.type.value,
             keyValue.value.value,

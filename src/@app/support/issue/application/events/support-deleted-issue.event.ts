@@ -6,6 +6,7 @@ export class SupportDeletedIssueEvent
         public readonly event: {
             payload: {
                 id: string;
+                rowId: number;
                 externalId: string;
                 externalStatus: string;
                 accountId: string;

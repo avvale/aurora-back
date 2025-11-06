@@ -37,6 +37,7 @@ export class ToolsCreateKeyValuesService
         // create aggregate with factory pattern
         const keyValues = payload.map(keyValue => ToolsKeyValue.register(
             keyValue.id,
+            undefined, // rowId
             keyValue.key,
             keyValue.type,
             keyValue.value,

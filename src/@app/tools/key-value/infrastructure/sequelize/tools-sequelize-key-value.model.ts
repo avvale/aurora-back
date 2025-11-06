@@ -10,6 +10,10 @@ import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, A
     timestamps: false,
     indexes: [
 		{
+			fields: ['rowId'],
+			unique: true,
+		},
+		{
 			fields: ['key'],
 			unique: true,
 		},
@@ -134,6 +138,14 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     id: string;
 
     @Column({
+        field: 'rowId',
+        autoIncrement: true,
+        allowNull: false,
+        type: DataTypes.BIGINT,
+    })
+    rowId: number;
+
+    @Column({
         field: 'key',
         allowNull: false,
         type: DataTypes.STRING(64),
@@ -143,7 +155,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     @Column({
         field: 'type',
         allowNull: false,
-        type: DataTypes.ENUM('STRING','BOOLEAN','NUMBER','DATE','TIME','TIMESTAMP','OBJECT','ARRAY'),
+        type: DataTypes.ENUM('ARRAY','BOOLEAN','DATE','NUMBER','OBJECT','SECRET','STRING','TIME','TIMESTAMP'),
     })
     type: string;
 

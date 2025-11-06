@@ -6,6 +6,7 @@ import {
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
     ToolsKeyValueKey,
+    ToolsKeyValueRowId,
     ToolsKeyValueType,
     ToolsKeyValueUpdatedAt,
     ToolsKeyValueValue,
@@ -34,6 +35,7 @@ export class ToolsMockKeyValueSeeder extends MockSeeder<ToolsKeyValue>
             this.collectionSource.push(
                 ToolsKeyValue.register(
                     new ToolsKeyValueId(keyValue.id),
+                    new ToolsKeyValueRowId(keyValue.rowId),
                     new ToolsKeyValueKey(keyValue.key),
                     new ToolsKeyValueType(keyValue.type),
                     new ToolsKeyValueValue(keyValue.value),

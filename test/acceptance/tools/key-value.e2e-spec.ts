@@ -93,6 +93,22 @@ describe('key-value', () =>
             });
     });
 
+    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueRowId property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/key-value/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsKeyValueRowId must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueKey property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -170,6 +186,22 @@ describe('key-value', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for ToolsKeyValueId must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueRowId property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/key-value/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsKeyValueRowId must be defined, can not be undefined');
             });
     });
 
@@ -284,7 +316,7 @@ describe('key-value', () =>
                 expect(res.body.message).toContain('Value for ToolsKeyValueIsActive has to be a boolean value');
             });
     });
-    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueType has to be a enum option of STRING, BOOLEAN, NUMBER, DATE, TIME, TIMESTAMP, OBJECT, ARRAY', () =>
+    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueType has to be a enum option of ARRAY, BOOLEAN, DATE, NUMBER, OBJECT, SECRET, STRING, TIME, TIMESTAMP', () =>
     {
         return request(app.getHttpServer())
             .post('/tools/key-value/create')
@@ -296,7 +328,7 @@ describe('key-value', () =>
             .expect(400)
             .then(res =>
             {
-                expect(res.body.message).toContain('Value for ToolsKeyValueType has to be any of this options: STRING, BOOLEAN, NUMBER, DATE, TIME, TIMESTAMP, OBJECT, ARRAY');
+                expect(res.body.message).toContain('Value for ToolsKeyValueType has to be any of this options: ARRAY, BOOLEAN, DATE, NUMBER, OBJECT, SECRET, STRING, TIME, TIMESTAMP');
             });
     });
 
@@ -472,6 +504,7 @@ describe('key-value', () =>
                         toolsCreateKeyValue (payload:$payload)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -543,6 +576,7 @@ describe('key-value', () =>
                         toolsGetKeyValues (query:$query)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -577,6 +611,7 @@ describe('key-value', () =>
                         toolsCreateKeyValue (payload:$payload)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -611,6 +646,7 @@ describe('key-value', () =>
                         toolsFindKeyValue (query:$query)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -653,6 +689,7 @@ describe('key-value', () =>
                         toolsFindKeyValue (query:$query)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -693,6 +730,7 @@ describe('key-value', () =>
                         toolsFindKeyValueById (id:$id)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -728,6 +766,7 @@ describe('key-value', () =>
                         toolsFindKeyValueById (id:$id)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -761,6 +800,7 @@ describe('key-value', () =>
                         toolsUpdateKeyValueById (payload:$payload)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -799,6 +839,7 @@ describe('key-value', () =>
                         toolsUpdateKeyValueById (payload:$payload)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -835,6 +876,7 @@ describe('key-value', () =>
                         toolsUpdateKeyValues (payload:$payload query:$query)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -876,6 +918,7 @@ describe('key-value', () =>
                         toolsDeleteKeyValueById (id:$id)
                         {
                             id
+                            rowId
                             key
                             type
                             value
@@ -911,6 +954,7 @@ describe('key-value', () =>
                         toolsDeleteKeyValueById (id:$id)
                         {
                             id
+                            rowId
                             key
                             type
                             value

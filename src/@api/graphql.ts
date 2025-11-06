@@ -131,14 +131,15 @@ export enum SearchEngineCollectionStatus {
 }
 
 export enum ToolsKeyValueType {
-    STRING = "STRING",
+    ARRAY = "ARRAY",
     BOOLEAN = "BOOLEAN",
-    NUMBER = "NUMBER",
     DATE = "DATE",
-    TIME = "TIME",
-    TIMESTAMP = "TIMESTAMP",
+    NUMBER = "NUMBER",
     OBJECT = "OBJECT",
-    ARRAY = "ARRAY"
+    SECRET = "SECRET",
+    STRING = "STRING",
+    TIME = "TIME",
+    TIMESTAMP = "TIMESTAMP"
 }
 
 export enum ToolsProcedureType {
@@ -1591,6 +1592,15 @@ export interface ToolsCreateMigrationInput {
     executedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsCreateMigrationTemplateInput {
+    id: string;
+    name: GraphQLString;
+    version: GraphQLString;
+    upScript: GraphQLString;
+    downScript: GraphQLString;
+    sort: GraphQLInt;
+}
+
 export interface ToolsUpdateMigrationByIdInput {
     id: string;
     name?: Nullable<GraphQLString>;
@@ -1613,15 +1623,6 @@ export interface ToolsUpdateMigrationsInput {
     executedAt?: Nullable<GraphQLTimestamp>;
 }
 
-export interface ToolsCreateMigrationTemplateInput {
-    id: string;
-    name: GraphQLString;
-    version: GraphQLString;
-    upScript: GraphQLString;
-    downScript: GraphQLString;
-    sort: GraphQLInt;
-}
-
 export interface ToolsCreateProcedureInput {
     id: string;
     name: GraphQLString;
@@ -1633,6 +1634,19 @@ export interface ToolsCreateProcedureInput {
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
+    isExecuted: GraphQLBoolean;
+    isUpdated: GraphQLBoolean;
+    hash?: Nullable<GraphQLString>;
+}
+
+export interface ToolsCreateProcedureTemplateInput {
+    id: string;
+    name: GraphQLString;
+    type: ToolsProcedureType;
+    version: GraphQLString;
+    upScript: GraphQLString;
+    downScript: GraphQLString;
+    sort: GraphQLInt;
 }
 
 export interface ToolsUpdateProcedureByIdInput {
@@ -1646,6 +1660,9 @@ export interface ToolsUpdateProcedureByIdInput {
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
+    isExecuted?: Nullable<GraphQLBoolean>;
+    isUpdated?: Nullable<GraphQLBoolean>;
+    hash?: Nullable<GraphQLString>;
 }
 
 export interface ToolsUpdateProceduresInput {
@@ -1659,16 +1676,9 @@ export interface ToolsUpdateProceduresInput {
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface ToolsCreateProcedureTemplateInput {
-    id: string;
-    name: GraphQLString;
-    type: ToolsProcedureType;
-    version: GraphQLString;
-    upScript: GraphQLString;
-    downScript: GraphQLString;
-    sort: GraphQLInt;
+    isExecuted?: Nullable<GraphQLBoolean>;
+    isUpdated?: Nullable<GraphQLBoolean>;
+    hash?: Nullable<GraphQLString>;
 }
 
 export interface WhatsappCreateConversationInput {
@@ -2263,10 +2273,10 @@ export interface IMutation {
     toolsUpdateProcedures(payload: ToolsUpdateProceduresInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
     toolsDeleteProcedureById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsDeleteProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
-    toolsUpScriptProcedure(procedureId: string): boolean | Promise<boolean>;
-    toolsDownScriptProcedure(procedureId: string): boolean | Promise<boolean>;
-    toolsCheckScriptProcedure(procedureId: string): boolean | Promise<boolean>;
-    toolsRunScriptsProcedure(): boolean | Promise<boolean>;
+    toolsUpScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    toolsDownScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    toolsCheckScriptProcedure(procedureId: string, payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
+    toolsRunScriptsProcedure(payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
@@ -2898,6 +2908,7 @@ export interface StorageAccountFileManagerLibraryFile {
 
 export interface SupportIssue {
     id: string;
+    rowId: GraphQLInt;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
@@ -2918,6 +2929,7 @@ export interface SupportIssue {
 
 export interface ToolsKeyValue {
     id: string;
+    rowId: GraphQLInt;
     key: GraphQLString;
     type: ToolsKeyValueType;
     value: GraphQLString;
@@ -2930,6 +2942,7 @@ export interface ToolsKeyValue {
 
 export interface ToolsMigration {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     version: GraphQLString;
     isActive: GraphQLBoolean;
@@ -2945,6 +2958,7 @@ export interface ToolsMigration {
 
 export interface ToolsProcedure {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     type: ToolsProcedureType;
     version: GraphQLString;

@@ -6,6 +6,7 @@ import {
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
     ToolsKeyValueKey,
+    ToolsKeyValueRowId,
     ToolsKeyValueType,
     ToolsKeyValueValue,
 } from '@app/tools/key-value/domain/value-objects';
@@ -53,6 +54,7 @@ describe('ToolsUpdateKeyValuesService', () =>
                 await service.main(
                     {
                         id: new ToolsKeyValueId(toolsMockKeyValueData[0].id),
+                        rowId: new ToolsKeyValueRowId(toolsMockKeyValueData[0].rowId),
                         key: new ToolsKeyValueKey(toolsMockKeyValueData[0].key),
                         type: new ToolsKeyValueType(toolsMockKeyValueData[0].type),
                         value: new ToolsKeyValueValue(toolsMockKeyValueData[0].value),

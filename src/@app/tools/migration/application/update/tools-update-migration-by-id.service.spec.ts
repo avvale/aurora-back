@@ -8,6 +8,7 @@ import {
     ToolsMigrationIsActive,
     ToolsMigrationIsExecuted,
     ToolsMigrationName,
+    ToolsMigrationRowId,
     ToolsMigrationSort,
     ToolsMigrationUpScript,
     ToolsMigrationVersion,
@@ -55,6 +56,7 @@ describe('ToolsUpdateMigrationByIdService', () =>
                 await service.main(
                     {
                         id: new ToolsMigrationId(toolsMockMigrationData[0].id),
+                        rowId: new ToolsMigrationRowId(toolsMockMigrationData[0].rowId),
                         name: new ToolsMigrationName(toolsMockMigrationData[0].name),
                         version: new ToolsMigrationVersion(toolsMockMigrationData[0].version),
                         isActive: new ToolsMigrationIsActive(toolsMockMigrationData[0].isActive),

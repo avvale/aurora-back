@@ -5,8 +5,7 @@ import { ICommandBus, IQueryBus, now } from '@aurorajs.dev/core';
 import { BadRequestException, Injectable } from '@nestjs/common';
 
 @Injectable()
-export class ToolsCheckScriptProcedureHandler
-{
+export class ToolsCheckScriptProcedureHandler {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,

@@ -6,6 +6,7 @@ export class ToolsDeletedMigrationEvent
         public readonly event: {
             payload: {
                 id: string;
+                rowId: number;
                 name: string;
                 version: string;
                 isActive: boolean;

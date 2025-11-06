@@ -3,6 +3,7 @@ export class ToolsMigrationResponse
 {
     constructor(
         public readonly id: string,
+        public readonly rowId: number,
         public readonly name: string,
         public readonly version: string,
         public readonly isActive: boolean,

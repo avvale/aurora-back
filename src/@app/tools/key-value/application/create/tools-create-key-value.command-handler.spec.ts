@@ -38,6 +38,7 @@ describe('ToolsCreateKeyValueCommandHandler', () =>
                 new ToolsCreateKeyValueCommand(
                     {
                         id: toolsMockKeyValueData[0].id,
+                        rowId: toolsMockKeyValueData[0].rowId,
                         key: toolsMockKeyValueData[0].key,
                         type: toolsMockKeyValueData[0].type,
                         value: toolsMockKeyValueData[0].value,

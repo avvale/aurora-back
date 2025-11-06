@@ -7,6 +7,7 @@ import {
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
     ToolsKeyValueKey,
+    ToolsKeyValueRowId,
     ToolsKeyValueType,
     ToolsKeyValueUpdatedAt,
     ToolsKeyValueValue,
@@ -17,6 +18,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class ToolsKeyValue extends AggregateRoot
 {
     id: ToolsKeyValueId;
+    rowId: ToolsKeyValueRowId;
     key: ToolsKeyValueKey;
     type: ToolsKeyValueType;
     value: ToolsKeyValueValue;
@@ -28,6 +30,7 @@ export class ToolsKeyValue extends AggregateRoot
 
     constructor(
         id: ToolsKeyValueId,
+        rowId: ToolsKeyValueRowId,
         key: ToolsKeyValueKey,
         type: ToolsKeyValueType,
         value: ToolsKeyValueValue,
@@ -40,6 +43,7 @@ export class ToolsKeyValue extends AggregateRoot
     {
         super();
         this.id = id;
+        this.rowId = rowId;
         this.key = key;
         this.type = type;
         this.value = value;
@@ -52,6 +56,7 @@ export class ToolsKeyValue extends AggregateRoot
 
     static register(
         id: ToolsKeyValueId,
+        rowId: ToolsKeyValueRowId,
         key: ToolsKeyValueKey,
         type: ToolsKeyValueType,
         value: ToolsKeyValueValue,
@@ -64,6 +69,7 @@ export class ToolsKeyValue extends AggregateRoot
     {
         return new ToolsKeyValue(
             id,
+            rowId,
             key,
             type,
             value,
@@ -136,6 +142,7 @@ export class ToolsKeyValue extends AggregateRoot
             new ToolsDeletedKeyValueEvent({
                 payload: {
                     id: event.payload.id.value,
+                    rowId: event.payload.rowId.value,
                     key: event.payload.key.value,
                     type: event.payload.type.value,
                     value: event.payload.value.value,
@@ -154,6 +161,7 @@ export class ToolsKeyValue extends AggregateRoot
     {
         return {
             id: this.id.value,
+            rowId: this.rowId.value,
             key: this.key.value,
             type: this.type.value,
             value: this.value.value,

@@ -14,6 +14,7 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueRowId,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
     SupportIssueVideo,
@@ -72,6 +73,7 @@ export class SupportIssueMapper implements IMapper
     {
         return SupportIssue.register(
             new SupportIssueId(issue.id, { undefinable: true }),
+            new SupportIssueRowId(issue.rowId, { undefinable: true }),
             new SupportIssueExternalId(issue.externalId, { undefinable: true }),
             new SupportIssueExternalStatus(issue.externalStatus, { undefinable: true }),
             new SupportIssueAccountId(issue.accountId, { undefinable: true }),
@@ -97,6 +99,7 @@ export class SupportIssueMapper implements IMapper
 
         return new SupportIssueResponse(
             issue.id.value,
+            issue.rowId.value,
             issue.externalId.value,
             issue.externalStatus.value,
             issue.accountId.value,

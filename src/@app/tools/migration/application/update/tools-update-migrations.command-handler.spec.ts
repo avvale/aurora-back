@@ -38,6 +38,7 @@ describe('ToolsUpdateMigrationsCommandHandler', () =>
                 new ToolsUpdateMigrationsCommand(
                     {
                         id: toolsMockMigrationData[0].id,
+                        rowId: toolsMockMigrationData[0].rowId,
                         name: toolsMockMigrationData[0].name,
                         version: toolsMockMigrationData[0].version,
                         isActive: toolsMockMigrationData[0].isActive,

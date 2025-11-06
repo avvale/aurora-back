@@ -8,6 +8,7 @@ import {
     ToolsMigrationIsActive,
     ToolsMigrationIsExecuted,
     ToolsMigrationName,
+    ToolsMigrationRowId,
     ToolsMigrationSort,
     ToolsMigrationUpdatedAt,
     ToolsMigrationUpScript,
@@ -37,6 +38,7 @@ export class ToolsMockMigrationSeeder extends MockSeeder<ToolsMigration>
             this.collectionSource.push(
                 ToolsMigration.register(
                     new ToolsMigrationId(migration.id),
+                    new ToolsMigrationRowId(migration.rowId),
                     new ToolsMigrationName(migration.name),
                     new ToolsMigrationVersion(migration.version),
                     new ToolsMigrationIsActive(migration.isActive),

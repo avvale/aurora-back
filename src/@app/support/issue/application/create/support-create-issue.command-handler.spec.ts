@@ -38,6 +38,7 @@ describe('SupportCreateIssueCommandHandler', () =>
                 new SupportCreateIssueCommand(
                     {
                         id: supportMockIssueData[0].id,
+                        rowId: supportMockIssueData[0].rowId,
                         externalId: supportMockIssueData[0].externalId,
                         externalStatus: supportMockIssueData[0].externalStatus,
                         accountId: supportMockIssueData[0].accountId,

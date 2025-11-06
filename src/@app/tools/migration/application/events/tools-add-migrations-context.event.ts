@@ -79,6 +79,7 @@ export class ToolsAddMigrationsContextEvent extends AggregateRoot
                     new ToolsDeletedMigrationEvent({
                         payload: {
                             id: migration.id.value,
+                            rowId: migration.rowId.value,
                             name: migration.name.value,
                             version: migration.version.value,
                             isActive: migration.isActive.value,

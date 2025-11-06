@@ -13,6 +13,7 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueRowId,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
     SupportIssueVideo,
@@ -51,6 +52,7 @@ export class SupportMockIssueRepository extends MockRepository<SupportIssue> imp
 
             this.collectionSource.push(SupportIssue.register(
                 new SupportIssueId(itemCollection.id),
+                new SupportIssueRowId(itemCollection.rowId),
                 new SupportIssueExternalId(itemCollection.externalId),
                 new SupportIssueExternalStatus(itemCollection.externalStatus),
                 new SupportIssueAccountId(itemCollection.accountId),

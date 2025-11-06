@@ -1,5 +1,6 @@
-import { ToolsGetMigrationsQuery, ToolsMigrationMapper, ToolsMigrationResponse } from '@app/tools/migration';
+import { ToolsGetMigrationsQuery, ToolsMigration, ToolsMigrationMapper, ToolsMigrationResponse } from '@app/tools/migration';
 import { ToolsGetMigrationsService } from '@app/tools/migration/application/get/tools-get-migrations.service';
+import { LiteralObject } from '@aurorajs.dev/core';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 @QueryHandler(ToolsGetMigrationsQuery)
@@ -11,14 +12,16 @@ export class ToolsGetMigrationsQueryHandler implements IQueryHandler<ToolsGetMig
         private readonly getMigrationsService: ToolsGetMigrationsService,
     ) {}
 
-    async execute(query: ToolsGetMigrationsQuery): Promise<ToolsMigrationResponse[]>
+    async execute(query: ToolsGetMigrationsQuery): Promise<ToolsMigrationResponse[] | LiteralObject[]>
     {
-        return this.mapper.mapAggregatesToResponses(
-            await this.getMigrationsService.main(
-                query.queryStatement,
-                query.constraint,
-                query.cQMetadata,
-            ),
+        const models = await this.getMigrationsService.main(
+            query.queryStatement,
+            query.constraint,
+            query.cQMetadata,
         );
+
+        if (query.cQMetadata?.excludeMapModelToAggregate) return models;
+
+        return this.mapper.mapAggregatesToResponses(models as ToolsMigration[]);
     }
 }

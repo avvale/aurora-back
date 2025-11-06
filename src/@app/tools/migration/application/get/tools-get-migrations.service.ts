@@ -1,5 +1,5 @@
 import { ToolsIMigrationRepository, ToolsMigration } from '@app/tools/migration';
-import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
+import { CQMetadata, LiteralObject, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class ToolsGetMigrationsService
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
-    ): Promise<ToolsMigration[]>
+    ): Promise<ToolsMigration[] | LiteralObject[]>
     {
         return await this.repository.get({
             queryStatement,

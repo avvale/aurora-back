@@ -2,6 +2,7 @@
 type ToolsMigration
 {
     id: ID!
+    rowId: GraphQLInt!
     name: GraphQLString!
     version: GraphQLString!
     isActive: GraphQLBoolean!
@@ -27,6 +28,16 @@ input ToolsCreateMigrationInput
     executedAt: GraphQLTimestamp
 }
 
+input ToolsCreateMigrationTemplateInput
+{
+    id: ID!
+    name: GraphQLString!
+    version: GraphQLString!
+    upScript: GraphQLString!
+    downScript: GraphQLString!
+    sort: GraphQLInt!
+}
+
 input ToolsUpdateMigrationByIdInput
 {
     id: ID!
@@ -49,16 +60,6 @@ input ToolsUpdateMigrationsInput
     downScript: GraphQLString
     sort: GraphQLInt
     executedAt: GraphQLTimestamp
-}
-
-input ToolsCreateMigrationTemplateInput
-{
-    id: ID!
-    name: GraphQLString!
-    version: GraphQLString!
-    upScript: GraphQLString!
-    downScript: GraphQLString!
-    sort: GraphQLInt!
 }
 
 type Query

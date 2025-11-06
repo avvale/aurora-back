@@ -10,6 +10,12 @@ export class ToolsMigrationDto
     id: string;
 
     @ApiProperty({
+        type       : Number,
+        description: 'rowId [input here api field description]',
+    })
+    rowId: number;
+
+    @ApiProperty({
         type       : String,
         description: 'name [input here api field description]',
     })

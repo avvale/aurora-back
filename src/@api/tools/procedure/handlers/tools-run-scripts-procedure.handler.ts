@@ -6,8 +6,7 @@ import { ToolsUpdateProceduresCommand } from '@app/tools/procedure';
 import * as semver from 'semver';
 
 @Injectable()
-export class ToolsRunScriptsProcedureHandler
-{
+export class ToolsRunScriptsProcedureHandler {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
@@ -15,8 +14,7 @@ export class ToolsRunScriptsProcedureHandler
 
     async main(
         timezone?: string,
-    ): Promise<boolean>
-    {
+    ): Promise<boolean> {
         const packageFile = getPackageFile();
         const version = semver.clean(packageFile.version);
 

@@ -73,6 +73,7 @@ export class ToolsAddKeyValuesContextEvent extends AggregateRoot
                     new ToolsDeletedKeyValueEvent({
                         payload: {
                             id: keyValue.id.value,
+                            rowId: keyValue.rowId.value,
                             key: keyValue.key.value,
                             type: keyValue.type.value,
                             value: keyValue.value.value,

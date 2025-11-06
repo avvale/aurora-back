@@ -7,11 +7,11 @@
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migration.command-handler.spec.ts",
-            "integrity": "sha1:866f42c0c9d3cc488039ee6fbfa69e0fb39c561b"
+            "integrity": "sha1:86424cb0f8b683ecd92b394a00f6ad09274d5463"
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migration.command-handler.ts",
-            "integrity": "sha1:73b9ee1c6185202eafa1ab223bcf7a3563c3cac7"
+            "integrity": "sha1:f1dd584a96aa7201e01f64c9fc2fa453dd173f09"
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migration.command.ts",
@@ -19,11 +19,11 @@
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migration.service.spec.ts",
-            "integrity": "sha1:97a52e12f2dd2608c784b4559985624b2f1b8fa0"
+            "integrity": "sha1:8932febd1326fc51b78a08b3bb1af57b3ba7b924"
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migration.service.ts",
-            "integrity": "sha1:dad623090af206383c93dfe8dd4f26c2d1a9dcd1"
+            "integrity": "sha1:21457246930b08c67ca0c1897f0a98c80665d47e"
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migrations.command-handler.spec.ts",
@@ -31,7 +31,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migrations.command-handler.ts",
-            "integrity": "sha1:23ba37446e02e11de6ddc4c1f8b78cad9e1bf67b"
+            "integrity": "sha1:3f2d19a7472027a7e870f4daac3433a2249768cb"
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migrations.command.ts",
@@ -43,7 +43,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/create/tools-create-migrations.service.ts",
-            "integrity": "sha1:464045805c2756b97a132eb0ad3dd1d1ca153912"
+            "integrity": "sha1:b553b0c9a8a5b6815d2a26e9285d2314b4a2e639"
         },
         {
             "path": "src/@app/tools/migration/application/delete/tools-delete-migration-by-id.command-handler.spec.ts",
@@ -87,7 +87,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/events/tools-add-migrations-context.event.ts",
-            "integrity": "sha1:0600ec4a1ce0d41b263e949012a93fa4f8ef78b4"
+            "integrity": "sha1:8ac35a7f70b89268ec5c45437f8572f30c0accfb"
         },
         {
             "path": "src/@app/tools/migration/application/events/tools-created-migration.event-handler.ts",
@@ -111,7 +111,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/events/tools-deleted-migration.event.ts",
-            "integrity": "sha1:4d7d2ff8b52a2b26179a19b476408eb997e9ec19"
+            "integrity": "sha1:8ce93bc3184c31f79bdc9b4855d017ba5c291405"
         },
         {
             "path": "src/@app/tools/migration/application/events/tools-deleted-migrations.event-handler.ts",
@@ -183,7 +183,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/get/tools-get-migrations.query-handler.ts",
-            "integrity": "sha1:e38ce734991e9e30ee077c441027dcc7fb92e6f7"
+            "integrity": "sha1:1af9bd19cd40b19db83256317ece6c490a7fcc28"
         },
         {
             "path": "src/@app/tools/migration/application/get/tools-get-migrations.query.ts",
@@ -195,7 +195,7 @@
         },
         {
             "path": "src/@app/tools/migration/application/get/tools-get-migrations.service.ts",
-            "integrity": "sha1:10090ed7614f8c6125aa709366fcc1acebfee390"
+            "integrity": "sha1:7ddf62c9c62b73532997fc3080d10a70f792c3bf"
         },
         {
             "path": "src/@app/tools/migration/application/paginate/tools-paginate-migrations.query-handler.spec.ts",
@@ -223,11 +223,11 @@
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migration-by-id.command-handler.spec.ts",
-            "integrity": "sha1:65b2db560d249d79e6e3747f13e39579dff5349b"
+            "integrity": "sha1:ed81f95b12fef7d234b484ff14af970a078736d0"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migration-by-id.command-handler.ts",
-            "integrity": "sha1:7a6c9c482bb093cb91b194ad9060241732d3a801"
+            "integrity": "sha1:a59ae52c1cdd219291dc2a1b063567fe422abea5"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migration-by-id.command.ts",
@@ -235,19 +235,19 @@
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migration-by-id.service.spec.ts",
-            "integrity": "sha1:8c205d6fcc7d5ed233336d12db337d7a0916794a"
+            "integrity": "sha1:a968ae4352c02951b1990022622b61ee6950a488"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migration-by-id.service.ts",
-            "integrity": "sha1:bf1e6ef37d068ea3c6daa8b3248e566fae709838"
+            "integrity": "sha1:83bf369b402129ba2119bc96f3d4da2dde6f036e"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migrations.command-handler.spec.ts",
-            "integrity": "sha1:8407e93b1f6244fd0170615cf03a9ea6478236e9"
+            "integrity": "sha1:f42ef99723f0cc8468d2f95a77acffeeafe145ba"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migrations.command-handler.ts",
-            "integrity": "sha1:d1ccb70fefb45d5571f318f7d4416e79492659a1"
+            "integrity": "sha1:6d49bff881b1bde9196925bbdc80ecd186f298fb"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migrations.command.ts",
@@ -255,19 +255,19 @@
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migrations.service.spec.ts",
-            "integrity": "sha1:3bb716620dec3082575440bcc840a009649fad00"
+            "integrity": "sha1:c915c200ba0e083390cce188f390969bb797d053"
         },
         {
             "path": "src/@app/tools/migration/application/update/tools-update-migrations.service.ts",
-            "integrity": "sha1:42433ded449373539c3610f70d1d7411ade0401f"
+            "integrity": "sha1:0c89b64db622ec24dbd61900c13f5ff59432843d"
         },
         {
             "path": "src/@app/tools/migration/domain/tools-migration.aggregate.ts",
-            "integrity": "sha1:89b58f8634c753153de0433b649b61bc88974653"
+            "integrity": "sha1:d9ee551f08f7c892951ee9d519ab5eaafa54cdfd"
         },
         {
             "path": "src/@app/tools/migration/domain/tools-migration.mapper.ts",
-            "integrity": "sha1:4462a6cd0e446f3e95a13e4771aad24ce6bce3e3"
+            "integrity": "sha1:7af7402fb5674bc583a8ebd4b3705f6d404b0c8b"
         },
         {
             "path": "src/@app/tools/migration/domain/tools-migration.repository.ts",
@@ -275,11 +275,11 @@
         },
         {
             "path": "src/@app/tools/migration/domain/tools-migration.response.ts",
-            "integrity": "sha1:59a3dbc104285f49ec5061f5446d3cce23e09fcc"
+            "integrity": "sha1:cab846352adcbbf7c6d67894ed5d6499d2aa4bb7"
         },
         {
             "path": "src/@app/tools/migration/domain/value-objects/index.ts",
-            "integrity": "sha1:002f032dc52b4ac2d9a379fd768d42a627f36363"
+            "integrity": "sha1:fd46c613480d52c47e367273230a7e07ce05666d"
         },
         {
             "path": "src/@app/tools/migration/index.ts",
@@ -287,19 +287,19 @@
         },
         {
             "path": "src/@app/tools/migration/infrastructure/mock/tools-mock-migration.data.ts",
-            "integrity": "sha1:17a2397cd8b29fc0184509170f7f10b69d3ffb3c"
+            "integrity": "sha1:e670f97a1a0f49bf33b52731d560840de9f1b300"
         },
         {
             "path": "src/@app/tools/migration/infrastructure/mock/tools-mock-migration.repository.ts",
-            "integrity": "sha1:a2d2922fafb17d05e9c6c86b5fd8ab3fff64bff4"
+            "integrity": "sha1:c0c85446aea86cde294692699cb8609f72f7ecf6"
         },
         {
             "path": "src/@app/tools/migration/infrastructure/mock/tools-mock-migration.seeder.ts",
-            "integrity": "sha1:d64bbac425994c2d40d246241ef61f18093235f1"
+            "integrity": "sha1:6ee9648122c66b380a5fe1f176dbacec16bf8274"
         },
         {
             "path": "src/@app/tools/migration/infrastructure/sequelize/tools-sequelize-migration.model.ts",
-            "integrity": "sha1:5d425e4fc590aae9a35122e28f5cfe206629f1d3"
+            "integrity": "sha1:ba0c9fb0055d24383342e8efcc86c63e66d0434d"
         },
         {
             "path": "src/@app/tools/migration/infrastructure/sequelize/tools-sequelize-migration.repository.ts",
@@ -308,6 +308,10 @@
         {
             "path": "src/@app/tools/migration/domain/value-objects/tools-migration-id.ts",
             "integrity": "sha1:bef13e4007705d74a9188851ad252a8d368e34f3"
+        },
+        {
+            "path": "src/@app/tools/migration/domain/value-objects/tools-migration-row-id.ts",
+            "integrity": "sha1:a399f0108d69ed8fdfa89d69154fcd228ae2d990"
         },
         {
             "path": "src/@app/tools/migration/domain/value-objects/tools-migration-name.ts",
@@ -439,7 +443,7 @@
         },
         {
             "path": "src/@api/tools/migration/dto/tools-migration.dto.ts",
-            "integrity": "sha1:163d462848e66d289acddc139d7ad7085ae3a064"
+            "integrity": "sha1:76551a1a3366be66b7a31cac293fec8624f76498"
         },
         {
             "path": "src/@api/tools/migration/dto/tools-create-migration.dto.ts",
@@ -463,7 +467,7 @@
         },
         {
             "path": "src/@api/tools/migration/graphql/tools-migration.graphql",
-            "integrity": "sha1:6bad83d45f82b5d838aca2eb3ec40c19fb3c8ede"
+            "integrity": "sha1:46990cc6b504cc14039cbc47f34df6aa516b3134"
         },
         {
             "path": "src/@api/tools/migration/handlers/tools-create-migration.handler.spec.ts",
@@ -707,11 +711,11 @@
         },
         {
             "path": "test/acceptance/tools/migration.e2e-spec.ts",
-            "integrity": "sha1:28e15f5dfc1353c8094a54f731a580c66266f872"
+            "integrity": "sha1:b3cace4c1a0fecd7d31af05cb6161d8126013917"
         },
         {
             "path": "postman/tools/tools.migration.postman.json",
-            "integrity": "sha1:4b2985d3b1e7dbdd4ac1bcb53757d333dc5730c1"
+            "integrity": "sha1:68b15df5ddf62eba1684c01818c6760149777ea6"
         }
     ]
 }

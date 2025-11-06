@@ -44,6 +44,7 @@ export class ToolsUpdateMigrationByIdService
         // create aggregate with factory pattern
         const migration = ToolsMigration.register(
             payload.id,
+            undefined, // rowId
             payload.name,
             payload.version,
             payload.isActive,

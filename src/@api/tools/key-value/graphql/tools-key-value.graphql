@@ -1,18 +1,20 @@
 enum ToolsKeyValueType {
-    STRING
+    ARRAY
     BOOLEAN
-    NUMBER
     DATE
+    NUMBER
+    OBJECT
+    SECRET
+    STRING
     TIME
     TIMESTAMP
-    OBJECT
-    ARRAY
 }
 
 
 type ToolsKeyValue
 {
     id: ID!
+    rowId: GraphQLInt!
     key: GraphQLString!
     type: ToolsKeyValueType!
     value: GraphQLString!

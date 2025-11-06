@@ -4,16 +4,17 @@ import { SharedModule } from '@aurora/shared.module';
 import { SupportSeeder } from './support.seeder';
 import { SupportModels, SupportHandlers, SupportServices, SupportRepositories, SupportSagas } from '@app/support';
 import { SupportIssueApiControllers, SupportIssueApiResolvers, SupportIssueApiHandlers, SupportIssueApiServices } from './issue';
+import { ClickUpService } from './shared';
 
 @Module({
     imports: [
         SharedModule,
         SequelizeModule.forFeature([
-                ...SupportModels
-            ])
+            ...SupportModels,
+        ]),
     ],
     controllers: [
-        ...SupportIssueApiControllers
+        ...SupportIssueApiControllers,
     ],
     providers: [
         SupportSeeder,
@@ -23,7 +24,10 @@ import { SupportIssueApiControllers, SupportIssueApiResolvers, SupportIssueApiHa
         ...SupportSagas,
         ...SupportIssueApiResolvers,
         ...SupportIssueApiHandlers,
-        ...SupportIssueApiServices
+        ...SupportIssueApiServices,
+
+        // ---- customizations ----
+        ClickUpService,
     ],
 })
 export class SupportModule {}

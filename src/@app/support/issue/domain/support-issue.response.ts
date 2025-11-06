@@ -4,6 +4,7 @@ export class SupportIssueResponse
 {
     constructor(
         public readonly id: string,
+        public readonly rowId: number,
         public readonly externalId: string,
         public readonly externalStatus: string,
         public readonly accountId: string,

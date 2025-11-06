@@ -52,6 +52,7 @@ export class SupportUpdateIssueByIdService
         // create aggregate with factory pattern
         const issue = SupportIssue.register(
             payload.id,
+            undefined, // rowId
             payload.externalId,
             payload.externalStatus,
             payload.accountId,

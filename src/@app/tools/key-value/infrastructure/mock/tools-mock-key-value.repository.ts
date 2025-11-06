@@ -6,6 +6,7 @@ import {
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
     ToolsKeyValueKey,
+    ToolsKeyValueRowId,
     ToolsKeyValueType,
     ToolsKeyValueUpdatedAt,
     ToolsKeyValueValue,
@@ -44,6 +45,7 @@ export class ToolsMockKeyValueRepository extends MockRepository<ToolsKeyValue> i
 
             this.collectionSource.push(ToolsKeyValue.register(
                 new ToolsKeyValueId(itemCollection.id),
+                new ToolsKeyValueRowId(itemCollection.rowId),
                 new ToolsKeyValueKey(itemCollection.key),
                 new ToolsKeyValueType(itemCollection.type),
                 new ToolsKeyValueValue(itemCollection.value),

@@ -8,6 +8,7 @@ import {
     ToolsMigrationIsActive,
     ToolsMigrationIsExecuted,
     ToolsMigrationName,
+    ToolsMigrationRowId,
     ToolsMigrationSort,
     ToolsMigrationUpdatedAt,
     ToolsMigrationUpScript,
@@ -67,6 +68,7 @@ export class ToolsMigrationMapper implements IMapper
     {
         return ToolsMigration.register(
             new ToolsMigrationId(migration.id, { undefinable: true }),
+            new ToolsMigrationRowId(migration.rowId, { undefinable: true }),
             new ToolsMigrationName(migration.name, { undefinable: true }),
             new ToolsMigrationVersion(migration.version, { undefinable: true }),
             new ToolsMigrationIsActive(migration.isActive, { undefinable: true }),
@@ -87,6 +89,7 @@ export class ToolsMigrationMapper implements IMapper
 
         return new ToolsMigrationResponse(
             migration.id.value,
+            migration.rowId.value,
             migration.name.value,
             migration.version.value,
             migration.isActive.value,

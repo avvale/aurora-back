@@ -13,6 +13,7 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueRowId,
     SupportIssueSubject,
     SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
@@ -59,6 +60,7 @@ describe('SupportUpdateIssueByIdService', () =>
                 await service.main(
                     {
                         id: new SupportIssueId(supportMockIssueData[0].id),
+                        rowId: new SupportIssueRowId(supportMockIssueData[0].rowId),
                         externalId: new SupportIssueExternalId(supportMockIssueData[0].externalId),
                         externalStatus: new SupportIssueExternalStatus(supportMockIssueData[0].externalStatus),
                         accountId: new SupportIssueAccountId(supportMockIssueData[0].accountId),

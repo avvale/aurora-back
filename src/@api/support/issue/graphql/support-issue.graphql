@@ -2,6 +2,7 @@
 type SupportIssue
 {
     id: ID!
+    rowId: GraphQLInt!
     externalId: GraphQLString
     externalStatus: GraphQLString
     accountId: ID

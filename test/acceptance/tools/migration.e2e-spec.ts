@@ -93,6 +93,22 @@ describe('migration', () =>
             });
     });
 
+    test('/REST:POST tools/migration/create - Got 400 Conflict, MigrationRowId property can not to be null', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/migration/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: null,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsMigrationRowId must be defined, can not be null');
+            });
+    });
+
     test('/REST:POST tools/migration/create - Got 400 Conflict, MigrationName property can not to be null', () =>
     {
         return request(app.getHttpServer())
@@ -170,6 +186,22 @@ describe('migration', () =>
             .then(res =>
             {
                 expect(res.body.message).toContain('Value for ToolsMigrationId must be defined, can not be undefined');
+            });
+    });
+
+    test('/REST:POST tools/migration/create - Got 400 Conflict, MigrationRowId property can not to be undefined', () =>
+    {
+        return request(app.getHttpServer())
+            .post('/tools/migration/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                rowId: undefined,
+            })
+            .expect(400)
+            .then(res =>
+            {
+                expect(res.body.message).toContain('Value for ToolsMigrationRowId must be defined, can not be undefined');
             });
     });
 
@@ -503,6 +535,7 @@ describe('migration', () =>
                         toolsCreateMigration (payload:$payload)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -577,6 +610,7 @@ describe('migration', () =>
                         toolsGetMigrations (query:$query)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -614,6 +648,7 @@ describe('migration', () =>
                         toolsCreateMigration (payload:$payload)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -651,6 +686,7 @@ describe('migration', () =>
                         toolsFindMigration (query:$query)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -696,6 +732,7 @@ describe('migration', () =>
                         toolsFindMigration (query:$query)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -739,6 +776,7 @@ describe('migration', () =>
                         toolsFindMigrationById (id:$id)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -777,6 +815,7 @@ describe('migration', () =>
                         toolsFindMigrationById (id:$id)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -813,6 +852,7 @@ describe('migration', () =>
                         toolsUpdateMigrationById (payload:$payload)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -854,6 +894,7 @@ describe('migration', () =>
                         toolsUpdateMigrationById (payload:$payload)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -893,6 +934,7 @@ describe('migration', () =>
                         toolsUpdateMigrations (payload:$payload query:$query)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -937,6 +979,7 @@ describe('migration', () =>
                         toolsDeleteMigrationById (id:$id)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive
@@ -975,6 +1018,7 @@ describe('migration', () =>
                         toolsDeleteMigrationById (id:$id)
                         {
                             id
+                            rowId
                             name
                             version
                             isActive

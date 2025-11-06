@@ -9,6 +9,7 @@ import {
     ToolsMigrationIsActive,
     ToolsMigrationIsExecuted,
     ToolsMigrationName,
+    ToolsMigrationRowId,
     ToolsMigrationSort,
     ToolsMigrationUpdatedAt,
     ToolsMigrationUpScript,
@@ -20,6 +21,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class ToolsMigration extends AggregateRoot
 {
     id: ToolsMigrationId;
+    rowId: ToolsMigrationRowId;
     name: ToolsMigrationName;
     version: ToolsMigrationVersion;
     isActive: ToolsMigrationIsActive;
@@ -34,6 +36,7 @@ export class ToolsMigration extends AggregateRoot
 
     constructor(
         id: ToolsMigrationId,
+        rowId: ToolsMigrationRowId,
         name: ToolsMigrationName,
         version: ToolsMigrationVersion,
         isActive: ToolsMigrationIsActive,
@@ -49,6 +52,7 @@ export class ToolsMigration extends AggregateRoot
     {
         super();
         this.id = id;
+        this.rowId = rowId;
         this.name = name;
         this.version = version;
         this.isActive = isActive;
@@ -64,6 +68,7 @@ export class ToolsMigration extends AggregateRoot
 
     static register(
         id: ToolsMigrationId,
+        rowId: ToolsMigrationRowId,
         name: ToolsMigrationName,
         version: ToolsMigrationVersion,
         isActive: ToolsMigrationIsActive,
@@ -79,6 +84,7 @@ export class ToolsMigration extends AggregateRoot
     {
         return new ToolsMigration(
             id,
+            rowId,
             name,
             version,
             isActive,
@@ -160,6 +166,7 @@ export class ToolsMigration extends AggregateRoot
             new ToolsDeletedMigrationEvent({
                 payload: {
                     id: event.payload.id.value,
+                    rowId: event.payload.rowId.value,
                     name: event.payload.name.value,
                     version: event.payload.version.value,
                     isActive: event.payload.isActive.value,
@@ -181,6 +188,7 @@ export class ToolsMigration extends AggregateRoot
     {
         return {
             id: this.id.value,
+            rowId: this.rowId.value,
             name: this.name.value,
             version: this.version.value,
             isActive: this.isActive.value,
