@@ -2554,6 +2554,7 @@ export interface IamPermissionRole {
 
 export interface IamPermission {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     boundedContextId: string;
     boundedContext?: Nullable<IamBoundedContext>;
@@ -2583,6 +2584,7 @@ export interface IamRole {
 
 export interface IamTag {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
