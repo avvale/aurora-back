@@ -2125,7 +2125,6 @@ export interface IMutation {
     iamCreateTenants(payload: Nullable<IamCreateTenantInput>[]): boolean | Promise<boolean>;
     iamUpdateTenantById(payload: IamUpdateTenantByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamUpdateTenants(payload: IamUpdateTenantsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant>[] | Promise<Nullable<IamTenant>[]>;
-    iamUpsertTenant(payload: IamUpdateTenantByIdInput): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamDeleteTenantById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamTenant> | Promise<Nullable<IamTenant>>;
     iamDeleteTenants(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamTenant>[] | Promise<Nullable<IamTenant>[]>;
     iamUpdateUserMetaById(payload: IamUpdateUserMetaByIdInput): Nullable<IamUserMeta> | Promise<Nullable<IamUserMeta>>;
@@ -2601,6 +2600,7 @@ export interface IamTenantAccount {
 
 export interface IamTenant {
     id: string;
+    rowId: GraphQLInt;
     parentId?: Nullable<string>;
     parent?: Nullable<IamTenant>;
     name: GraphQLString;
