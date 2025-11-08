@@ -514,6 +514,34 @@ export interface CommonUpdateAttachmentLibrariesInput {
     meta?: Nullable<JSON>;
 }
 
+export interface CommonAttachmentInput {
+    id: string;
+    familyId?: Nullable<string>;
+    attachableId: string;
+    langId?: Nullable<string>;
+    sort?: Nullable<GraphQLInt>;
+    alt?: Nullable<GraphQLString>;
+    title?: Nullable<GraphQLString>;
+    originFilename: GraphQLString;
+    filename: GraphQLString;
+    mimetype: GraphQLString;
+    extension: GraphQLString;
+    relativePathSegments: JSON;
+    width?: Nullable<GraphQLInt>;
+    height?: Nullable<GraphQLInt>;
+    size: GraphQLInt;
+    url: GraphQLString;
+    isCropable: GraphQLBoolean;
+    isCropped: GraphQLBoolean;
+    isUploaded: GraphQLBoolean;
+    isChanged: GraphQLBoolean;
+    library?: Nullable<CommonCreateAttachmentLibraryInput>;
+    libraryId?: Nullable<string>;
+    libraryFilename?: Nullable<GraphQLString>;
+    sizes?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
 export interface CommonCreateAttachmentInput {
     id: string;
     familyId?: Nullable<string>;
@@ -588,34 +616,6 @@ export interface CommonUpdateAttachmentsInput {
     size?: Nullable<GraphQLInt>;
     url?: Nullable<GraphQLString>;
     isCropable?: Nullable<GraphQLBoolean>;
-    libraryId?: Nullable<string>;
-    libraryFilename?: Nullable<GraphQLString>;
-    sizes?: Nullable<JSON>;
-    meta?: Nullable<JSON>;
-}
-
-export interface CommonAttachmentInput {
-    id: string;
-    familyId?: Nullable<string>;
-    attachableId: string;
-    langId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
-    alt?: Nullable<GraphQLString>;
-    title?: Nullable<GraphQLString>;
-    originFilename: GraphQLString;
-    filename: GraphQLString;
-    mimetype: GraphQLString;
-    extension: GraphQLString;
-    relativePathSegments: JSON;
-    width?: Nullable<GraphQLInt>;
-    height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
-    isCropable: GraphQLBoolean;
-    isCropped: GraphQLBoolean;
-    isUploaded: GraphQLBoolean;
-    isChanged: GraphQLBoolean;
-    library?: Nullable<CommonCreateAttachmentLibraryInput>;
     libraryId?: Nullable<string>;
     libraryFilename?: Nullable<GraphQLString>;
     sizes?: Nullable<JSON>;

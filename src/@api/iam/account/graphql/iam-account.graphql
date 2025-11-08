@@ -87,6 +87,10 @@ input IamUpdateAccountsInput {
 }
 
 type Query {
+    #region customizations
+    iamMeAccount: IamAccount
+    #endregion customizations
+
     iamFindAccount(
         query: QueryStatement
         constraint: QueryStatement
@@ -108,9 +112,6 @@ type Query {
         query: QueryStatement
         constraint: QueryStatement
     ): Pagination!
-
-    # ---- customizations ----
-    iamMeAccount: IamAccount
 
     # additionalApis
     iamCheckPasswordMeAccount(password: GraphQLString!): Boolean!

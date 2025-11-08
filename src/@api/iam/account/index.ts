@@ -1,4 +1,9 @@
-export * from './shared';
+/* #region customizations */
+export { createAccount } from './shared';
+import { IamMeAccountController } from './controllers/iam-me-account.controller';
+import { IamMeAccountHandler } from './handlers/iam-me-account.handler';
+import { IamMeAccountResolver } from './resolvers/iam-me-account.resolver';
+/* #endregion customizations */
 
 // export DTOs
 export { IamAccountDto } from './dto/iam-account.dto';
@@ -91,11 +96,6 @@ import { IamUpdateAccountsHandler } from './handlers/iam-update-accounts.handler
 // import seeder
 import { IamAccountSeeder } from './seeder/iam-account.seeder';
 
-// ---- customizations ----
-import { IamMeAccountController } from './controllers/iam-me-account.controller';
-import { IamMeAccountHandler } from './handlers/iam-me-account.handler';
-import { IamMeAccountResolver } from './resolvers/iam-me-account.resolver';
-
 // import additionalApis
 import { IamCheckPasswordMeAccountController } from './controllers/iam-check-password-me-account.controller';
 import { IamCheckUniqueEmailAccountController } from './controllers/iam-check-unique-email-account.controller';
@@ -113,8 +113,9 @@ import { IamPaginateWithTenantConstraintAccountsResolver } from './resolvers/iam
 import { IamUpdateMeAccountResolver } from './resolvers/iam-update-me-account.resolver';
 
 export const IamAccountApiControllers = [
-    // ---- customizations ----
+    /* #region customizations */
     IamMeAccountController,
+    /* #endregion customizations */
 
     IamCreateAccountController,
     IamPaginateAccountsController,
@@ -135,8 +136,9 @@ export const IamAccountApiControllers = [
 ];
 
 export const IamAccountApiResolvers = [
-    // ---- customizations ----
+    /* #region customizations */
     IamMeAccountResolver,
+    /* #endregion customizations */
 
     IamCreateAccountResolver,
     IamPaginateAccountsResolver,
@@ -157,8 +159,9 @@ export const IamAccountApiResolvers = [
 ];
 
 export const IamAccountApiHandlers = [
-    // ---- customizations ----
+    /* #region customizations */
     IamMeAccountHandler,
+    /* #endregion customizations */
 
     IamCreateAccountHandler,
     IamPaginateAccountsHandler,
