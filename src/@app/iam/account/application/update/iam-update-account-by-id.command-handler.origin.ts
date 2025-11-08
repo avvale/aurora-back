@@ -57,7 +57,7 @@ export class IamUpdateAccountByIdCommandHandler
                     command.payload.dPermissions,
                     { undefinable: true },
                 ),
-                dTenants: new IamAccountDTenants(command.payload.tenantIds, {
+                dTenants: new IamAccountDTenants(command.payload.dTenants, {
                     undefinable: true,
                 }),
                 meta: new IamAccountMeta(command.payload.meta),

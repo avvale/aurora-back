@@ -1,6 +1,6 @@
 /* eslint-disable key-spacing */
-import { IamUpsertAccountCommand } from '@app/iam/account';
-import { IamUpsertAccountService } from '@app/iam/account/application/upsert/iam-upsert-account.service';
+import { IamCreateAccountCommand } from '@app/iam/account';
+import { IamCreateAccountService } from '@app/iam/account/application/create/iam-create-account.service';
 import {
     IamAccountClientId,
     IamAccountCode,
@@ -20,17 +20,17 @@ import {
 } from '@app/iam/account/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-@CommandHandler(IamUpsertAccountCommand)
-export class IamUpsertAccountCommandHandler implements ICommandHandler<IamUpsertAccountCommand>
+@CommandHandler(IamCreateAccountCommand)
+export class IamCreateAccountCommandHandler
+    implements ICommandHandler<IamCreateAccountCommand>
 {
     constructor(
-        private readonly upsertAccountService: IamUpsertAccountService,
+        private readonly createAccountService: IamCreateAccountService,
     ) {}
 
-    async execute(command: IamUpsertAccountCommand): Promise<void>
-    {
+    async execute(command: IamCreateAccountCommand): Promise<void> {
         // call to use case and implements ValueObjects
-        await this.upsertAccountService.main(
+        await this.createAccountService.main(
             {
                 id: new IamAccountId(command.payload.id),
                 type: new IamAccountType(command.payload.type),
@@ -41,8 +41,12 @@ export class IamUpsertAccountCommandHandler implements ICommandHandler<IamUpsert
                 clientId: new IamAccountClientId(command.payload.clientId),
                 tags: new IamAccountTags(command.payload.tags),
                 scopes: new IamAccountScopes(command.payload.scopes),
-                dApplicationCodes: new IamAccountDApplicationCodes(command.payload.dApplicationCodes),
-                dPermissions: new IamAccountDPermissions(command.payload.dPermissions),
+                dApplicationCodes: new IamAccountDApplicationCodes(
+                    command.payload.dApplicationCodes,
+                ),
+                dPermissions: new IamAccountDPermissions(
+                    command.payload.dPermissions,
+                ),
                 dTenants: new IamAccountDTenants(command.payload.dTenants),
                 meta: new IamAccountMeta(command.payload.meta),
                 roleIds: new IamAccountRoleIds(command.payload.roleIds),

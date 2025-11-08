@@ -1,10 +1,9 @@
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 
-export class IamUpdateAndIncrementAccountsCommand
-{
+export class IamUpdateAccountByIdCommand {
     constructor(
         public readonly payload: {
-            id?: string;
+            id: string;
             type?: string;
             code?: string;
             email?: string;
@@ -20,7 +19,6 @@ export class IamUpdateAndIncrementAccountsCommand
             roleIds?: string[];
             tenantIds?: string[];
         },
-        public readonly queryStatement?: QueryStatement,
         public readonly constraint?: QueryStatement,
         public readonly cQMetadata?: CQMetadata,
     ) {}

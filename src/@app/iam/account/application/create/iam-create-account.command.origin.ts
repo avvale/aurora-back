@@ -1,21 +1,20 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class IamUpsertAccountCommand
-{
+export class IamCreateAccountCommand {
     constructor(
         public readonly payload: {
             id: string;
-            type?: string;
+            type: string;
             code?: string;
             email?: string;
-            username?: string;
-            isActive?: boolean;
-            clientId?: string;
+            username: string;
+            isActive: boolean;
+            clientId: string;
             tags?: string[];
             scopes?: string[];
-            dApplicationCodes?: string[];
-            dPermissions?: any;
-            dTenants?: string[];
+            dApplicationCodes: string[];
+            dPermissions: any;
+            dTenants: string[];
             meta?: any;
             roleIds?: string[];
             tenantIds?: string[];

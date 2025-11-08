@@ -3,7 +3,8 @@ export { CommonUpdateAttachmentsDto } from './common-update-attachments.dto';
 export { CommonUpdateAttachmentByIdDto } from './common-update-attachment-by-id.dto';
 export { CommonAttachmentDto } from './common-attachment.dto';
 
-// ---- customizations ----
+/* #region customizations */
 export { CommonCreateCropDto } from './common-create-crop.dto';
 export { CommonCropAttachmentLibraryDto } from './common-crop-attachment-library.dto';
 export { CommonCropAttachmentDto } from './common-crop-attachment.dto';
+/* #endregion customizations */

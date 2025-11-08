@@ -764,6 +764,13 @@ export interface CommonUpdateResourcesInput {
     hasAttachments?: Nullable<GraphQLBoolean>;
 }
 
+export interface IamUpdateMeAccountInput {
+    id: string;
+    email?: Nullable<GraphQLString>;
+    username?: Nullable<GraphQLString>;
+    user?: Nullable<IamUpdateUserByIdInput>;
+}
+
 export interface IamCreateAccountInput {
     id: string;
     type: IamAccountType;
@@ -814,13 +821,6 @@ export interface IamUpdateAccountsInput {
     roleIds?: Nullable<Nullable<string>[]>;
     tenantIds?: Nullable<Nullable<string>[]>;
     user?: Nullable<IamUpdateUsersInput>;
-}
-
-export interface IamUpdateMeAccountInput {
-    id: string;
-    email?: Nullable<GraphQLString>;
-    username?: Nullable<GraphQLString>;
-    user?: Nullable<IamUpdateUserByIdInput>;
 }
 
 export interface IamCreateBoundedContextInput {
@@ -2510,6 +2510,7 @@ export interface CommonResource {
 
 export interface IamAccount {
     id: string;
+    rowId: GraphQLInt;
     type: IamAccountType;
     code?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
