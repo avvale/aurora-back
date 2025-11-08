@@ -1,3 +1,7 @@
+/* #region customizations */
+export { IamBoundedContextHelper } from './domain/iam-bounded-context-helper';
+/* #endregion customizations */
+
 // export commands
 export { IamCreateBoundedContextCommand } from './application/create/iam-create-bounded-context.command';
 export { IamCreateBoundedContextsCommand } from './application/create/iam-create-bounded-contexts.command';
@@ -78,9 +82,6 @@ import { IamGetBoundedContextsService } from './application/get/iam-get-bounded-
 import { IamPaginateBoundedContextsService } from './application/paginate/iam-paginate-bounded-contexts.service';
 import { IamUpdateBoundedContextByIdService } from './application/update/iam-update-bounded-context-by-id.service';
 import { IamUpdateBoundedContextsService } from './application/update/iam-update-bounded-contexts.service';
-
-// ---- customizations ----
-export { IamBoundedContextHelper } from './domain/iam-bounded-context-helper';
 
 export const IamBoundedContextHandlers = [
     // commands

@@ -103,12 +103,18 @@ import { OAuthUpsertApplicationService } from './application/upsert/o-auth-upser
 import { OAuthDeleteApplicationByIdService } from './application/delete/o-auth-delete-application-by-id.service';
 import { OAuthDeleteApplicationsService } from './application/delete/o-auth-delete-applications.service';
 
-// ---- customizations ----
+/* #region customizations */
+// to avoid dependency error, has to be declared in this place
 export { OAuthFindApplicationByAuthorizationHeaderQuery } from './application/find/o-auth-find-application-by-authorization-header.query';
 import { OAuthFindApplicationByAuthorizationHeaderQueryHandler } from './application/find/o-auth-find-application-by-authorization-header.query-handler';
 import { OAuthFindApplicationByAuthorizationHeaderService } from './application/find/o-auth-find-application-by-authorization-header.service';
+/* #endregion customizations */
 
 export const OAuthApplicationHandlers = [
+    /* #region customizations */
+    OAuthFindApplicationByAuthorizationHeaderQueryHandler,
+    /* #endregion customizations */
+
     // commands
     OAuthCreateApplicationCommandHandler,
     OAuthCreateApplicationsCommandHandler,
@@ -138,12 +144,13 @@ export const OAuthApplicationHandlers = [
     OAuthUpdatedAndIncrementedApplicationsEventHandler,
     OAuthDeletedApplicationEventHandler,
     OAuthDeletedApplicationsEventHandler,
-
-    // ---- customizations ----
-    OAuthFindApplicationByAuthorizationHeaderQueryHandler,
 ];
 
 export const OAuthApplicationServices = [
+    /* #region customizations */
+    OAuthFindApplicationByAuthorizationHeaderService,
+    /* #endregion customizations */
+
     OAuthCreateApplicationService,
     OAuthCreateApplicationsService,
     OAuthPaginateApplicationsService,
@@ -161,7 +168,4 @@ export const OAuthApplicationServices = [
     OAuthUpsertApplicationService,
     OAuthDeleteApplicationByIdService,
     OAuthDeleteApplicationsService,
-
-    // ---- customizations ----
-    OAuthFindApplicationByAuthorizationHeaderService,
 ];

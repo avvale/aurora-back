@@ -1,3 +1,7 @@
+/* #region customizations */
+export { IamPermissionHelper } from './domain/iam-permission-helper';
+/* #endregion customizations */
+
 // export commands
 export { IamCreatePermissionCommand } from './application/create/iam-create-permission.command';
 export { IamCreatePermissionsCommand } from './application/create/iam-create-permissions.command';
@@ -44,9 +48,6 @@ export { IamSequelizePermissionRepository } from './infrastructure/sequelize/iam
 
 // sagas
 export { IamPermissionSagas } from './application/sagas/iam-permission.sagas';
-
-// ---- customizations ----
-export { IamPermissionHelper } from './domain/iam-permission-helper';
 
 // command handlers
 import { IamCreatePermissionCommandHandler } from './application/create/iam-create-permission.command-handler';

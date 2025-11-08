@@ -148,6 +148,13 @@ export enum ToolsProcedureType {
     TRIGGER = "TRIGGER"
 }
 
+export enum WhatsappMessageStatus {
+    ACCEPTED = "ACCEPTED",
+    SENT = "SENT",
+    DELIVERED = "DELIVERED",
+    READ = "READ"
+}
+
 export enum WhatsappMessageDirection {
     INPUT = "INPUT",
     OUTPUT = "OUTPUT"
@@ -169,13 +176,6 @@ export enum WhatsappMessageType {
     TEXT = "TEXT",
     UNKNOWN = "UNKNOWN",
     VIDEO = "VIDEO"
-}
-
-export enum WhatsappMessageStatus {
-    ACCEPTED = "ACCEPTED",
-    SENT = "SENT",
-    DELIVERED = "DELIVERED",
-    READ = "READ"
 }
 
 export enum CoreLangDir {
@@ -1623,6 +1623,16 @@ export interface ToolsUpdateMigrationsInput {
     executedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsCreateProcedureTemplateInput {
+    id: string;
+    name: GraphQLString;
+    type: ToolsProcedureType;
+    version: GraphQLString;
+    upScript: GraphQLString;
+    downScript: GraphQLString;
+    sort: GraphQLInt;
+}
+
 export interface ToolsCreateProcedureInput {
     id: string;
     name: GraphQLString;
@@ -1660,16 +1670,6 @@ export interface ToolsUpdateProceduresInput {
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
-}
-
-export interface ToolsCreateProcedureTemplateInput {
-    id: string;
-    name: GraphQLString;
-    type: ToolsProcedureType;
-    version: GraphQLString;
-    upScript: GraphQLString;
-    downScript: GraphQLString;
-    sort: GraphQLInt;
 }
 
 export interface WhatsappCreateConversationInput {
@@ -1844,11 +1844,11 @@ export interface IQuery {
     commonFindResourceById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
     commonGetResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
     commonPaginateResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    iamMeAccount(): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamFindAccount(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamFindAccountById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>, queryGetClients?: Nullable<QueryStatement>, constraintGetClients?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamGetAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
     iamPaginateAccounts(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    iamMeAccount(): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamCheckPasswordMeAccount(password: GraphQLString): boolean | Promise<boolean>;
     iamCheckUniqueUsernameAccount(username: GraphQLString, avoidUsernames?: Nullable<Nullable<GraphQLString>[]>): boolean | Promise<boolean>;
     iamCheckUniqueEmailAccount(email: GraphQLString, avoidEmails?: Nullable<Nullable<GraphQLString>[]>): boolean | Promise<boolean>;

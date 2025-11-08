@@ -17,6 +17,10 @@ import { ClickUpService } from './shared';
         ...SupportIssueApiControllers,
     ],
     providers: [
+        /* #region customizations */
+        ClickUpService,
+        /* #endregion customizations */
+
         SupportSeeder,
         ...SupportHandlers,
         ...SupportServices,
@@ -25,9 +29,6 @@ import { ClickUpService } from './shared';
         ...SupportIssueApiResolvers,
         ...SupportIssueApiHandlers,
         ...SupportIssueApiServices,
-
-        // ---- customizations ----
-        ClickUpService,
     ],
 })
 export class SupportModule {}

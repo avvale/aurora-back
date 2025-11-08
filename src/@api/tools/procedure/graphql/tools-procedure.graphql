@@ -1,3 +1,15 @@
+#region customizations
+input ToolsCreateProcedureTemplateInput {
+    id: ID!
+    name: GraphQLString!
+    type: ToolsProcedureType!
+    version: GraphQLString!
+    upScript: GraphQLString!
+    downScript: GraphQLString!
+    sort: GraphQLInt!
+}
+#endregion customizations
+
 enum ToolsProcedureType {
     FUNCTION
     PROCEDURE
@@ -61,17 +73,6 @@ input ToolsUpdateProceduresInput {
     sort: GraphQLInt
     executedAt: GraphQLTimestamp
     checkedAt: GraphQLTimestamp
-}
-
-## ---- customizations ----
-input ToolsCreateProcedureTemplateInput {
-    id: ID!
-    name: GraphQLString!
-    type: ToolsProcedureType!
-    version: GraphQLString!
-    upScript: GraphQLString!
-    downScript: GraphQLString!
-    sort: GraphQLInt!
 }
 
 type Query {

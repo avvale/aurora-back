@@ -155,8 +155,9 @@ type Mutation {
         constraint: QueryStatement
     ): [IamAccount]!
 
-    # ---- customizations ----
+    #region customizations
     iamCreateAccounts(payload: [IamCreateAccountInput]!): Boolean!
+    #endregion customizations
 
     # additionalApis
     iamUpdateMeAccount(payload: IamUpdateMeAccountInput!): Boolean!

@@ -36,8 +36,9 @@ export class SearchEngineDeleteCollectionByIdHandler
             },
         ));
 
-        // ---- customizations ----
+        /* #region customizations */
         this.searchEngineService.delete(collection.name);
+        /* #endregion customizations */
 
         return collection;
     }

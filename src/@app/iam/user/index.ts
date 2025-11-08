@@ -1,3 +1,10 @@
+/* #region customizations */
+export { IamFindUserByUsernamePasswordQuery } from './application/find/iam-find-user-by-username-password.query';
+
+import { IamFindUserByUsernamePasswordService } from './application/find/iam-find-user-by-username-password.service';
+import { IamFindUserByUsernamePasswordQueryHandler } from './application/find/iam-find-user-by-username-password.query-handler';
+/* #endregion customizations */
+
 // export commands
 export { IamCreateUserCommand } from './application/create/iam-create-user.command';
 export { IamCreateUsersCommand } from './application/create/iam-create-users.command';
@@ -54,9 +61,6 @@ export { IamSequelizeUserRepository } from './infrastructure/sequelize/iam-seque
 // sagas
 export { IamUserSagas } from './application/sagas/iam-user.sagas';
 
-// ---- customizations ----
-export { IamFindUserByUsernamePasswordQuery } from './application/find/iam-find-user-by-username-password.query';
-
 // command handlers
 import { IamCreateUserCommandHandler } from './application/create/iam-create-user.command-handler';
 import { IamCreateUsersCommandHandler } from './application/create/iam-create-users.command-handler';
@@ -106,11 +110,11 @@ import { IamUpsertUserService } from './application/upsert/iam-upsert-user.servi
 import { IamDeleteUserByIdService } from './application/delete/iam-delete-user-by-id.service';
 import { IamDeleteUsersService } from './application/delete/iam-delete-users.service';
 
-// ---- customizations ----
-import { IamFindUserByUsernamePasswordService } from './application/find/iam-find-user-by-username-password.service';
-import { IamFindUserByUsernamePasswordQueryHandler } from './application/find/iam-find-user-by-username-password.query-handler';
-
 export const IamUserHandlers = [
+    /* #region customizations */
+    IamFindUserByUsernamePasswordQueryHandler,
+    /* #endregion customizations */
+
     // commands
     IamCreateUserCommandHandler,
     IamCreateUsersCommandHandler,
@@ -132,9 +136,6 @@ export const IamUserHandlers = [
     IamMinUserQueryHandler,
     IamSumUserQueryHandler,
 
-    // ---- customizations ----
-    IamFindUserByUsernamePasswordQueryHandler,
-
     // events
     IamCreatedUserEventHandler,
     IamCreatedUsersEventHandler,
@@ -146,6 +147,10 @@ export const IamUserHandlers = [
 ];
 
 export const IamUserServices = [
+    /* #region customizations */
+    IamFindUserByUsernamePasswordService,
+    /* #endregion customizations */
+
     IamCreateUserService,
     IamCreateUsersService,
     IamPaginateUsersService,
@@ -163,7 +168,4 @@ export const IamUserServices = [
     IamUpsertUserService,
     IamDeleteUserByIdService,
     IamDeleteUsersService,
-
-    // ---- customizations ----
-    IamFindUserByUsernamePasswordService,
 ];

@@ -33,7 +33,7 @@ export class IamMockRoleSeeder extends MockSeeder<IamRole> {
                     new IamRoleRowId(role.rowId),
                     new IamRoleName(role.name),
                     new IamRoleIsMaster(role.isMaster),
-                    // ---- customizations ----
+                    /* #region customizations */
                     new IamRolePermissionIds(
                         role.permissions.map((permission) => permission.id),
                     ),
@@ -41,6 +41,7 @@ export class IamMockRoleSeeder extends MockSeeder<IamRole> {
                     new IamRoleAccountIds([
                         '948a5308-a49d-42dc-9ea3-7490e120000b',
                     ]),
+                    /* #endregion customizations */
                     new IamRoleCreatedAt({ currentTimestamp: true }),
                     new IamRoleUpdatedAt({ currentTimestamp: true }),
                     new IamRoleDeletedAt(null),
