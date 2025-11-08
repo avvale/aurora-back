@@ -2132,7 +2132,6 @@ export interface IMutation {
     iamCreateUsers(payload: Nullable<IamCreateUserInput>[]): boolean | Promise<boolean>;
     iamUpdateUserById(payload: IamUpdateUserByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamUpdateUsers(payload: IamUpdateUsersInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser>[] | Promise<Nullable<IamUser>[]>;
-    iamUpsertUser(payload: IamUpdateUserByIdInput): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUserById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamUser> | Promise<Nullable<IamUser>>;
     iamDeleteUsers(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamUser>[] | Promise<Nullable<IamUser>[]>;
     iamForgotPasswordUser(payload: IamForgotPasswordUserInput): boolean | Promise<boolean>;
@@ -2622,6 +2621,7 @@ export interface IamUserMeta {
 
 export interface IamUser {
     id: string;
+    rowId: GraphQLInt;
     accountId: string;
     account?: Nullable<IamAccount>;
     name: GraphQLString;
