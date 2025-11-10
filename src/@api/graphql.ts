@@ -2770,6 +2770,7 @@ export interface OAuthCredentials {
 
 export interface OAuthRefreshToken {
     id: string;
+    rowId: GraphQLInt;
     accessTokenId: string;
     accessToken?: Nullable<OAuthAccessToken>;
     token: GraphQLString;

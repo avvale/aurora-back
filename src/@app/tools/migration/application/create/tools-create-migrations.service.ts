@@ -56,7 +56,6 @@ export class ToolsCreateMigrationsService
             new ToolsMigrationUpdatedAt({ currentTimestamp: true }),
             null, // deleteAt
         ));
-
         // insert
         await this.repository.insert(
             migrations,
