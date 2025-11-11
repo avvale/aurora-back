@@ -1599,7 +1599,6 @@ export interface ToolsCreateMigrationInput {
     downScript?: Nullable<GraphQLString>;
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
-    isExecuted: GraphQLBoolean;
 }
 
 export interface ToolsUpdateMigrationByIdInput {
@@ -1611,7 +1610,6 @@ export interface ToolsUpdateMigrationByIdInput {
     downScript?: Nullable<GraphQLString>;
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
-    isExecuted?: Nullable<GraphQLBoolean>;
 }
 
 export interface ToolsUpdateMigrationsInput {
@@ -1623,7 +1621,6 @@ export interface ToolsUpdateMigrationsInput {
     downScript?: Nullable<GraphQLString>;
     sort?: Nullable<GraphQLInt>;
     executedAt?: Nullable<GraphQLTimestamp>;
-    isExecuted?: Nullable<GraphQLBoolean>;
 }
 
 export interface ToolsCreateProcedureTemplateInput {
@@ -2243,12 +2240,12 @@ export interface IMutation {
     toolsCreateMigration(payload: ToolsCreateMigrationInput): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
     toolsCreateMigrations(payload: Nullable<ToolsCreateMigrationInput>[]): boolean | Promise<boolean>;
     toolsUpdateMigrationById(payload: ToolsUpdateMigrationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
+    toolsUpdateMigrations(payload: ToolsUpdateMigrationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
     toolsDeleteMigrationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;
     toolsDeleteMigrations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
-    toolsUpScriptMigration(migrationId: string, payload: ToolsUpdateMigrationByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    toolsDownScriptMigration(migrationId: string, payload: ToolsUpdateMigrationByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    toolsRunScriptsMigration(payload: ToolsUpdateMigrationByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
-    toolsUpdateMigrations(payload: ToolsUpdateMigrationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsMigration>[] | Promise<Nullable<ToolsMigration>[]>;
+    toolsUpScriptMigration(migrationId: string): boolean | Promise<boolean>;
+    toolsDownScriptMigration(migrationId: string): boolean | Promise<boolean>;
+    toolsRunScriptsMigration(): boolean | Promise<boolean>;
     toolsCreateProcedure(payload: ToolsCreateProcedureInput): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsCreateProcedures(payload: Nullable<ToolsCreateProcedureInput>[]): boolean | Promise<boolean>;
     toolsUpdateProcedureById(payload: ToolsUpdateProcedureByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
