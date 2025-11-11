@@ -1,18 +1,26 @@
 /* eslint-disable comma-dangle */
 import { OAuthScopeHandlers, OAuthScopeServices, OAuthScopeModel, OAuthIScopeRepository, OAuthSequelizeScopeRepository, OAuthScopeSagas } from './scope';
 import { OAuthRefreshTokenHandlers, OAuthRefreshTokenServices, OAuthRefreshTokenModel, OAuthIRefreshTokenRepository, OAuthSequelizeRefreshTokenRepository, OAuthRefreshTokenSagas } from './refresh-token';
+import { OAuthClientHandlers, OAuthClientServices, OAuthClientModel, OAuthIClientRepository, OAuthSequelizeClientRepository, OAuthClientSagas } from './client';
+import { OAuthApplicationClientHandlers, OAuthApplicationClientServices, OAuthApplicationClientModel, OAuthIApplicationClientRepository, OAuthSequelizeApplicationClientRepository, OAuthApplicationClientSagas } from './application-client';
 
 export const OAuthHandlers = [
     ...OAuthScopeHandlers,
-    ...OAuthRefreshTokenHandlers
+    ...OAuthRefreshTokenHandlers,
+    ...OAuthClientHandlers,
+    ...OAuthApplicationClientHandlers
 ];
 export const OAuthServices = [
     ...OAuthScopeServices,
-    ...OAuthRefreshTokenServices
+    ...OAuthRefreshTokenServices,
+    ...OAuthClientServices,
+    ...OAuthApplicationClientServices
 ];
 export const OAuthModels = [
     OAuthScopeModel,
-    OAuthRefreshTokenModel
+    OAuthRefreshTokenModel,
+    OAuthClientModel,
+    OAuthApplicationClientModel
 ];
 export const OAuthRepositories = [
     {
@@ -22,9 +30,19 @@ export const OAuthRepositories = [
     {
         provide : OAuthIRefreshTokenRepository,
         useClass: OAuthSequelizeRefreshTokenRepository,
+    },
+    {
+        provide : OAuthIClientRepository,
+        useClass: OAuthSequelizeClientRepository,
+    },
+    {
+        provide : OAuthIApplicationClientRepository,
+        useClass: OAuthSequelizeApplicationClientRepository,
     }
 ];
 export const OAuthSagas = [
     OAuthScopeSagas,
-    OAuthRefreshTokenSagas
+    OAuthRefreshTokenSagas,
+    OAuthClientSagas,
+    OAuthApplicationClientSagas
 ];

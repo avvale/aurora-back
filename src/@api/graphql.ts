@@ -2176,8 +2176,6 @@ export interface IMutation {
     oAuthCreateApplicationClient(payload: OAuthCreateApplicationClientInput): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthCreateApplicationsClients(payload: Nullable<OAuthCreateApplicationClientInput>[]): boolean | Promise<boolean>;
     oAuthUpdateApplicationClientById(payload: OAuthUpdateApplicationClientByIdInput, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
-    oAuthUpdateApplicationsClients(payload: OAuthUpdateApplicationsClientsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient>[] | Promise<Nullable<OAuthApplicationClient>[]>;
-    oAuthUpsertApplicationClient(payload: OAuthUpdateApplicationClientByIdInput): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthDeleteApplicationClientById(applicationId: string, clientId: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient> | Promise<Nullable<OAuthApplicationClient>>;
     oAuthDeleteApplicationsClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthApplicationClient>[] | Promise<Nullable<OAuthApplicationClient>[]>;
     oAuthCreateApplication(payload: OAuthCreateApplicationInput): Nullable<OAuthApplication> | Promise<Nullable<OAuthApplication>>;
@@ -2190,8 +2188,6 @@ export interface IMutation {
     oAuthCreateClient(payload: OAuthCreateClientInput): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
     oAuthCreateClients(payload: Nullable<OAuthCreateClientInput>[]): boolean | Promise<boolean>;
     oAuthUpdateClientById(payload: OAuthUpdateClientByIdInput, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
-    oAuthUpdateClients(payload: OAuthUpdateClientsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient>[] | Promise<Nullable<OAuthClient>[]>;
-    oAuthUpsertClient(payload: OAuthUpdateClientByIdInput): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
     oAuthDeleteClientById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient> | Promise<Nullable<OAuthClient>>;
     oAuthDeleteClients(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<OAuthClient>[] | Promise<Nullable<OAuthClient>[]>;
     oAuthCreateCredentials(payload: OAuthCreateCredentialsInput): OAuthCredentials | Promise<OAuthCredentials>;
@@ -2727,8 +2723,8 @@ export interface OAuthAccessToken {
 
 export interface OAuthApplicationClient {
     applicationId: string;
-    clientId: string;
     application?: Nullable<OAuthApplication>;
+    clientId: string;
     client?: Nullable<OAuthClient>;
 }
 
@@ -2746,6 +2742,7 @@ export interface OAuthApplication {
 
 export interface OAuthClient {
     id: string;
+    rowId: GraphQLInt;
     grantType: OAuthClientGrantType;
     name: GraphQLString;
     secret: GraphQLString;
