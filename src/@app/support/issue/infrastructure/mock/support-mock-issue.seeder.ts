@@ -23,22 +23,18 @@ import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()
-export class SupportMockIssueSeeder extends MockSeeder<SupportIssue>
-{
+export class SupportMockIssueSeeder extends MockSeeder<SupportIssue> {
     public collectionSource: SupportIssue[];
 
-    constructor()
-    {
+    constructor() {
         super();
         this._createMock();
     }
 
-    private _createMock(): void
-    {
+    private _createMock(): void {
         this.collectionSource = [];
 
-        for (const issue of _.orderBy(supportMockIssueData, ['id']))
-        {
+        for (const issue of _.orderBy(supportMockIssueData, ['id'])) {
             this.collectionSource.push(
                 SupportIssue.register(
                     new SupportIssueId(issue.id),

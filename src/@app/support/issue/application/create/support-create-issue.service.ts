@@ -5,7 +5,6 @@ import {
     SupportIssueAttachments,
     SupportIssueBackVersion,
     SupportIssueCreatedAt,
-    SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueEnvironment,
     SupportIssueExternalId,
@@ -22,8 +21,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class SupportCreateIssueService
-{
+export class SupportCreateIssueService {
     constructor(
         private readonly publisher: EventPublisher,
         private readonly repository: SupportIIssueRepository,
@@ -46,8 +44,7 @@ export class SupportCreateIssueService
             meta: SupportIssueMeta;
         },
         cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
+    ): Promise<void> {
         // create aggregate with factory pattern
         const issue = SupportIssue.register(
             payload.id,
@@ -69,17 +66,12 @@ export class SupportCreateIssueService
             null, // deletedAt
         );
 
-        await this.repository.create(
-            issue,
-            {
-                createOptions: cQMetadata?.repositoryOptions,
-            },
-        );
+        await this.repository.create(issue, {
+            createOptions: cQMetadata?.repositoryOptions,
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
-        const issueRegister = this.publisher.mergeObjectContext(
-            issue,
-        );
+        const issueRegister = this.publisher.mergeObjectContext(issue);
 
         issueRegister.created({
             payload: issue,

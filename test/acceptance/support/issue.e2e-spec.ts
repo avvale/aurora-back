@@ -4,7 +4,11 @@
 import { AuthorizationPermissionsGuard } from '@api/iam/shared/guards/authorization-permissions.guard';
 import { AuthenticationJwtGuard } from '@api/o-auth/shared/guards/authentication-jwt.guard';
 import { SupportModule } from '@api/support/support.module';
-import { SupportIIssueRepository, supportMockIssueData, SupportMockIssueSeeder } from '@app/support/issue';
+import {
+    SupportIIssueRepository,
+    supportMockIssueData,
+    SupportMockIssueSeeder,
+} from '@app/support/issue';
 import { GraphQLConfigModule } from '@aurora/modules';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -16,8 +20,7 @@ import * as request from 'supertest';
 // disable import foreign modules, can be micro-services
 const importForeignModules = [];
 
-describe('issue', () =>
-{
+describe('issue', () => {
     let app: INestApplication;
     let issueRepository: SupportIIssueRepository;
     let issueSeeder: SupportMockIssueSeeder;
@@ -28,37 +31,41 @@ describe('issue', () =>
     // set timeout to 60s by default are 5s
     jest.setTimeout(60000);
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [
                 ...importForeignModules,
                 SupportModule,
                 GraphQLConfigModule,
                 SequelizeModule.forRootAsync({
-                    imports   : [ConfigModule],
-                    inject    : [ConfigService],
-                    useFactory: (configService: ConfigService) =>
-                    {
+                    imports: [ConfigModule],
+                    inject: [ConfigService],
+                    useFactory: (configService: ConfigService) => {
                         return {
-                            dialect       : configService.get('TEST_DATABASE_DIALECT'),
-                            storage       : configService.get('TEST_DATABASE_STORAGE'),
-                            host          : configService.get('TEST_DATABASE_HOST'),
-                            port          : +configService.get('TEST_DATABASE_PORT'),
-                            username      : configService.get('TEST_DATABASE_USER'),
-                            password      : configService.get('TEST_DATABASE_PASSWORD'),
-                            database      : configService.get('TEST_DATABASE_SCHEMA'),
-                            synchronize   : configService.get('TEST_DATABASE_SYNCHRONIZE'),
-                            logging       : configService.get('TEST_DATABASE_LOGGIN') === 'true' ? console.log : false,
+                            dialect: configService.get('TEST_DATABASE_DIALECT'),
+                            storage: configService.get('TEST_DATABASE_STORAGE'),
+                            host: configService.get('TEST_DATABASE_HOST'),
+                            port: +configService.get('TEST_DATABASE_PORT'),
+                            username: configService.get('TEST_DATABASE_USER'),
+                            password: configService.get(
+                                'TEST_DATABASE_PASSWORD',
+                            ),
+                            database: configService.get('TEST_DATABASE_SCHEMA'),
+                            synchronize: configService.get(
+                                'TEST_DATABASE_SYNCHRONIZE',
+                            ),
+                            logging:
+                                configService.get('TEST_DATABASE_LOGGIN') ===
+                                'true'
+                                    ? console.log
+                                    : false,
                             autoLoadModels: true,
-                            models        : [],
+                            models: [],
                         };
                     },
                 }),
             ],
-            providers: [
-                SupportMockIssueSeeder,
-            ],
+            providers: [SupportMockIssueSeeder],
         })
             .overrideGuard(AuthenticationJwtGuard)
             .useValue({ canActivate: () => true })
@@ -68,8 +75,12 @@ describe('issue', () =>
 
         mockData = supportMockIssueData;
         app = module.createNestApplication();
-        issueRepository = module.get<SupportIIssueRepository>(SupportIIssueRepository);
-        issueSeeder = module.get<SupportMockIssueSeeder>(SupportMockIssueSeeder);
+        issueRepository = module.get<SupportIIssueRepository>(
+            SupportIIssueRepository,
+        );
+        issueSeeder = module.get<SupportMockIssueSeeder>(
+            SupportMockIssueSeeder,
+        );
 
         // seed mock data in memory database
         await issueRepository.insert(issueSeeder.collectionSource);
@@ -77,8 +88,7 @@ describe('issue', () =>
         await app.init();
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId property can not to be null', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -87,14 +97,14 @@ describe('issue', () =>
                 id: null,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueId must be defined, can not be null');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueId must be defined, can not be null',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be null', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -103,14 +113,14 @@ describe('issue', () =>
                 rowId: null,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueRowId must be defined, can not be null');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueRowId must be defined, can not be null',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject property can not to be null', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -119,14 +129,14 @@ describe('issue', () =>
                 subject: null,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueSubject must be defined, can not be null');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueSubject must be defined, can not be null',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueDescription property can not to be null', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueDescription property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -135,14 +145,14 @@ describe('issue', () =>
                 description: null,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueDescription must be defined, can not be null');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueDescription must be defined, can not be null',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId property can not to be undefined', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -151,14 +161,14 @@ describe('issue', () =>
                 id: undefined,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueId must be defined, can not be undefined');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueId must be defined, can not be undefined',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be undefined', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueRowId property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -167,14 +177,14 @@ describe('issue', () =>
                 rowId: undefined,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueRowId must be defined, can not be undefined');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueRowId must be defined, can not be undefined',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject property can not to be undefined', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -183,14 +193,14 @@ describe('issue', () =>
                 subject: undefined,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueSubject must be defined, can not be undefined');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueSubject must be defined, can not be undefined',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueDescription property can not to be undefined', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueDescription property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -199,14 +209,14 @@ describe('issue', () =>
                 description: undefined,
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueDescription must be defined, can not be undefined');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueDescription must be defined, can not be undefined',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId is not allowed, must be a length of 36', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueId is not allowed, must be a length of 36', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -215,14 +225,14 @@ describe('issue', () =>
                 id: '*************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueId is not allowed, must be a length of 36');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueId is not allowed, must be a length of 36',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueAccountId is not allowed, must be a length of 36', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueAccountId is not allowed, must be a length of 36', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -231,30 +241,31 @@ describe('issue', () =>
                 accountId: '*************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueAccountId is not allowed, must be a length of 36');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueAccountId is not allowed, must be a length of 36',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueExternalId is too large, has a maximum length of 64', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueExternalId is too large, has a maximum length of 64', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                externalId: '*****************************************************************',
+                externalId:
+                    '*****************************************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueExternalId is too large, has a maximum length of 64');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueExternalId is too large, has a maximum length of 64',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueExternalStatus is too large, has a maximum length of 36', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueExternalStatus is too large, has a maximum length of 36', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -263,30 +274,31 @@ describe('issue', () =>
                 externalStatus: '*************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueExternalStatus is too large, has a maximum length of 36');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueExternalStatus is too large, has a maximum length of 36',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueAccountUsername is too large, has a maximum length of 128', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueAccountUsername is too large, has a maximum length of 128', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                accountUsername: '*********************************************************************************************************************************',
+                accountUsername:
+                    '*********************************************************************************************************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueAccountUsername is too large, has a maximum length of 128');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueAccountUsername is too large, has a maximum length of 128',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueFrontVersion is too large, has a maximum length of 16', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueFrontVersion is too large, has a maximum length of 16', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -295,14 +307,14 @@ describe('issue', () =>
                 frontVersion: '*****************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueFrontVersion is too large, has a maximum length of 16');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueFrontVersion is too large, has a maximum length of 16',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueBackVersion is too large, has a maximum length of 16', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueBackVersion is too large, has a maximum length of 16', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -311,14 +323,14 @@ describe('issue', () =>
                 backVersion: '*****************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueBackVersion is too large, has a maximum length of 16');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueBackVersion is too large, has a maximum length of 16',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueEnvironment is too large, has a maximum length of 36', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueEnvironment is too large, has a maximum length of 36', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -327,31 +339,31 @@ describe('issue', () =>
                 environment: '*************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueEnvironment is too large, has a maximum length of 36');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueEnvironment is too large, has a maximum length of 36',
+                );
             });
     });
 
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject is too large, has a maximum length of 510', () =>
-    {
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueSubject is too large, has a maximum length of 510', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                subject: '*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
+                subject:
+                    '*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************',
             })
             .expect(400)
-            .then(res =>
-            {
-                expect(res.body.message).toContain('Value for SupportIssueSubject is too large, has a maximum length of 510');
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueSubject is too large, has a maximum length of 510',
+                );
             });
     });
 
-
-    test('/REST:POST support/issue/create - Got 409 Conflict, item already exist in database', () =>
-    {
+    test('/REST:POST support/issue/create - Got 409 Conflict, item already exist in database', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -359,53 +371,63 @@ describe('issue', () =>
             .expect(409);
     });
 
-    test('/REST:POST support/issues/paginate', () =>
-    {
+    test('/REST:POST support/issues/paginate', () => {
         return request(app.getHttpServer())
             .post('/support/issues/paginate')
             .set('Accept', 'application/json')
             .send({
-                query:
-                {
+                query: {
                     offset: 0,
                     limit: 5,
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toEqual({
                     total: issueSeeder.collectionResponse.length,
                     count: issueSeeder.collectionResponse.length,
-                    rows : issueSeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))).slice(0, 5),
+                    rows: issueSeeder.collectionResponse
+                        .map((item) =>
+                            expect.objectContaining(
+                                _.omit(item, [
+                                    'createdAt',
+                                    'updatedAt',
+                                    'deletedAt',
+                                ]),
+                            ),
+                        )
+                        .slice(0, 5),
                 });
             });
     });
 
-    test('/REST:POST support/issues/get', () =>
-    {
+    test('/REST:POST support/issues/get', () => {
         return request(app.getHttpServer())
             .post('/support/issues/get')
             .set('Accept', 'application/json')
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toEqual(
-                    issueSeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))),
+                    issueSeeder.collectionResponse.map((item) =>
+                        expect.objectContaining(
+                            _.omit(item, [
+                                'createdAt',
+                                'updatedAt',
+                                'deletedAt',
+                            ]),
+                        ),
+                    ),
                 );
             });
     });
 
-    test('/REST:POST support/issue/find - Got 404 Not Found', () =>
-    {
+    test('/REST:POST support/issue/find - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/support/issue/find')
             .set('Accept', 'application/json')
             .send({
-                query:
-                {
-                    where:
-                    {
+                query: {
+                    where: {
                         id: '3aa68d5b-f4aa-51b4-8743-152ee3d2c51a',
                     },
                 },
@@ -413,8 +435,7 @@ describe('issue', () =>
             .expect(404);
     });
 
-    test('/REST:POST support/issue/create', () =>
-    {
+    test('/REST:POST support/issue/create', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
             .set('Accept', 'application/json')
@@ -425,49 +446,47 @@ describe('issue', () =>
             .expect(201);
     });
 
-    test('/REST:POST support/issue/find', () =>
-    {
+    test('/REST:POST support/issue/find', () => {
         return request(app.getHttpServer())
             .post('/support/issue/find')
             .set('Accept', 'application/json')
             .send({
-                query:
-                {
-                    where:
-                    {
+                query: {
+                    where: {
                         id: '5b19d6ac-4081-573b-96b3-56964d5326a8',
                     },
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body).toHaveProperty('id', '5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body).toHaveProperty(
+                    'id',
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/REST:POST support/issue/find/{id} - Got 404 Not Found', () =>
-    {
+    test('/REST:POST support/issue/find/{id} - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/support/issue/find/95802429-0d3c-5da1-b25d-df17a7d89801')
             .set('Accept', 'application/json')
             .expect(404);
     });
 
-    test('/REST:POST support/issue/find/{id}', () =>
-    {
+    test('/REST:POST support/issue/find/{id}', () => {
         return request(app.getHttpServer())
             .post('/support/issue/find/5b19d6ac-4081-573b-96b3-56964d5326a8')
             .set('Accept', 'application/json')
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body).toHaveProperty('id', '5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body).toHaveProperty(
+                    'id',
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/REST:PUT support/issue/update - Got 404 Not Found', () =>
-    {
+    test('/REST:PUT support/issue/update - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .put('/support/issue/update')
             .set('Accept', 'application/json')
@@ -478,8 +497,7 @@ describe('issue', () =>
             .expect(404);
     });
 
-    test('/REST:PUT support/issue/update', () =>
-    {
+    test('/REST:PUT support/issue/update', () => {
         return request(app.getHttpServer())
             .put('/support/issue/update')
             .set('Accept', 'application/json')
@@ -488,30 +506,33 @@ describe('issue', () =>
                 id: '5b19d6ac-4081-573b-96b3-56964d5326a8',
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body).toHaveProperty('id', '5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body).toHaveProperty(
+                    'id',
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/REST:DELETE support/issue/delete/{id} - Got 404 Not Found', () =>
-    {
+    test('/REST:DELETE support/issue/delete/{id} - Got 404 Not Found', () => {
         return request(app.getHttpServer())
-            .delete('/support/issue/delete/75dd9747-67b4-5be2-85af-c4c60322f34b')
+            .delete(
+                '/support/issue/delete/75dd9747-67b4-5be2-85af-c4c60322f34b',
+            )
             .set('Accept', 'application/json')
             .expect(404);
     });
 
-    test('/REST:DELETE support/issue/delete/{id}', () =>
-    {
+    test('/REST:DELETE support/issue/delete/{id}', () => {
         return request(app.getHttpServer())
-            .delete('/support/issue/delete/5b19d6ac-4081-573b-96b3-56964d5326a8')
+            .delete(
+                '/support/issue/delete/5b19d6ac-4081-573b-96b3-56964d5326a8',
+            )
             .set('Accept', 'application/json')
             .expect(200);
     });
 
-    test('/GraphQL supportCreateIssue - Got 409 Conflict, item already exist in database', () =>
-    {
+    test('/GraphQL supportCreateIssue - Got 409 Conflict, item already exist in database', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -538,22 +559,27 @@ describe('issue', () =>
                         }
                     }
                 `,
-                variables:
-                {
-                    payload: _.omit(mockData[0], ['createdAt','updatedAt','deletedAt']),
+                variables: {
+                    payload: _.omit(mockData[0], [
+                        'createdAt',
+                        'updatedAt',
+                        'deletedAt',
+                    ]),
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(409);
-                expect(res.body.errors[0].extensions.originalError.message).toContain('already exist in database');
+                expect(
+                    res.body.errors[0].extensions.originalError.statusCode,
+                ).toBe(409);
+                expect(
+                    res.body.errors[0].extensions.originalError.message,
+                ).toContain('already exist in database');
             });
     });
 
-    test('/GraphQL supportPaginateIssues', () =>
-    {
+    test('/GraphQL supportPaginateIssues', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -569,28 +595,34 @@ describe('issue', () =>
                         }
                     }
                 `,
-                variables:
-                {
-                    query:
-                    {
+                variables: {
+                    query: {
                         offset: 0,
                         limit: 5,
                     },
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body.data.supportPaginateIssues).toEqual({
                     total: issueSeeder.collectionResponse.length,
                     count: issueSeeder.collectionResponse.length,
-                    rows : issueSeeder.collectionResponse.map(item => expect.objectContaining(_.omit(item, ['createdAt', 'updatedAt', 'deletedAt']))).slice(0, 5),
+                    rows: issueSeeder.collectionResponse
+                        .map((item) =>
+                            expect.objectContaining(
+                                _.omit(item, [
+                                    'createdAt',
+                                    'updatedAt',
+                                    'deletedAt',
+                                ]),
+                            ),
+                        )
+                        .slice(0, 5),
                 });
             });
     });
 
-    test('/GraphQL supportGetIssues', () =>
-    {
+    test('/GraphQL supportGetIssues', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -621,17 +653,25 @@ describe('issue', () =>
                 variables: {},
             })
             .expect(200)
-            .then(res =>
-            {
-                for (const [index, value] of res.body.data.supportGetIssues.entries())
-                {
-                    expect(issueSeeder.collectionResponse[index]).toEqual(expect.objectContaining(_.omit(value, ['createdAt', 'updatedAt', 'deletedAt'])));
+            .then((res) => {
+                for (const [
+                    index,
+                    value,
+                ] of res.body.data.supportGetIssues.entries()) {
+                    expect(issueSeeder.collectionResponse[index]).toEqual(
+                        expect.objectContaining(
+                            _.omit(value, [
+                                'createdAt',
+                                'updatedAt',
+                                'deletedAt',
+                            ]),
+                        ),
+                    );
                 }
             });
     });
 
-    test('/GraphQL supportCreateIssue', () =>
-    {
+    test('/GraphQL supportCreateIssue', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -666,14 +706,15 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportCreateIssue).toHaveProperty('id', '5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportCreateIssue).toHaveProperty(
+                    'id',
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/GraphQL supportFindIssue - Got 404 Not Found', () =>
-    {
+    test('/GraphQL supportFindIssue - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -701,28 +742,27 @@ describe('issue', () =>
                         }
                     }
                 `,
-                variables:
-                {
-                    query:
-                    {
-                        where:
-                        {
+                variables: {
+                    query: {
+                        where: {
                             id: '6dc0327d-7ecf-5023-a645-12198dcce962',
                         },
                     },
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
+                expect(
+                    res.body.errors[0].extensions.originalError.statusCode,
+                ).toBe(404);
+                expect(
+                    res.body.errors[0].extensions.originalError.message,
+                ).toContain('not found');
             });
     });
 
-    test('/GraphQL supportFindIssue', () =>
-    {
+    test('/GraphQL supportFindIssue', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -750,26 +790,23 @@ describe('issue', () =>
                         }
                     }
                 `,
-                variables:
-                {
-                    query:
-                    {
-                        where:
-                        {
+                variables: {
+                    query: {
+                        where: {
                             id: '5b19d6ac-4081-573b-96b3-56964d5326a8',
                         },
                     },
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportFindIssue.id).toStrictEqual('5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportFindIssue.id).toStrictEqual(
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/GraphQL supportFindIssueById - Got 404 Not Found', () =>
-    {
+    test('/GraphQL supportFindIssueById - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -802,16 +839,18 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
+                expect(
+                    res.body.errors[0].extensions.originalError.statusCode,
+                ).toBe(404);
+                expect(
+                    res.body.errors[0].extensions.originalError.message,
+                ).toContain('not found');
             });
     });
 
-    test('/GraphQL supportFindIssueById', () =>
-    {
+    test('/GraphQL supportFindIssueById', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -844,14 +883,14 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportFindIssueById.id).toStrictEqual('5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportFindIssueById.id).toStrictEqual(
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/GraphQL supportUpdateIssueById - Got 404 Not Found', () =>
-    {
+    test('/GraphQL supportUpdateIssueById - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -887,16 +926,18 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
+                expect(
+                    res.body.errors[0].extensions.originalError.statusCode,
+                ).toBe(404);
+                expect(
+                    res.body.errors[0].extensions.originalError.message,
+                ).toContain('not found');
             });
     });
 
-    test('/GraphQL supportUpdateIssueById', () =>
-    {
+    test('/GraphQL supportUpdateIssueById', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -932,14 +973,14 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportUpdateIssueById.id).toStrictEqual('5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportUpdateIssueById.id).toStrictEqual(
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/GraphQL supportUpdateIssues', () =>
-    {
+    test('/GraphQL supportUpdateIssues', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -980,14 +1021,14 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportUpdateIssues[0].id).toStrictEqual('5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportUpdateIssues[0].id).toStrictEqual(
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    test('/GraphQL supportDeleteIssueById - Got 404 Not Found', () =>
-    {
+    test('/GraphQL supportDeleteIssueById - Got 404 Not Found', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -1020,16 +1061,18 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
+            .then((res) => {
                 expect(res.body).toHaveProperty('errors');
-                expect(res.body.errors[0].extensions.originalError.statusCode).toBe(404);
-                expect(res.body.errors[0].extensions.originalError.message).toContain('not found');
+                expect(
+                    res.body.errors[0].extensions.originalError.statusCode,
+                ).toBe(404);
+                expect(
+                    res.body.errors[0].extensions.originalError.message,
+                ).toContain('not found');
             });
     });
 
-    test('/GraphQL supportDeleteIssueById', () =>
-    {
+    test('/GraphQL supportDeleteIssueById', () => {
         return request(app.getHttpServer())
             .post('/graphql')
             .set('Accept', 'application/json')
@@ -1062,14 +1105,14 @@ describe('issue', () =>
                 },
             })
             .expect(200)
-            .then(res =>
-            {
-                expect(res.body.data.supportDeleteIssueById.id).toStrictEqual('5b19d6ac-4081-573b-96b3-56964d5326a8');
+            .then((res) => {
+                expect(res.body.data.supportDeleteIssueById.id).toStrictEqual(
+                    '5b19d6ac-4081-573b-96b3-56964d5326a8',
+                );
             });
     });
 
-    afterAll(async () =>
-    {
+    afterAll(async () => {
         await issueRepository.delete({
             queryStatement: {
                 where: {},

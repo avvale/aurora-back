@@ -1,6 +1,10 @@
 /* eslint-disable key-spacing */
 import { IamAccount } from '@app/iam/account';
-import { SupportCreatedIssueEvent, SupportDeletedIssueEvent, SupportUpdatedIssueEvent } from '@app/support/issue';
+import {
+    SupportCreatedIssueEvent,
+    SupportDeletedIssueEvent,
+    SupportUpdatedIssueEvent,
+} from '@app/support/issue';
 import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
@@ -23,8 +27,7 @@ import {
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
-export class SupportIssue extends AggregateRoot
-{
+export class SupportIssue extends AggregateRoot {
     id: SupportIssueId;
     rowId: SupportIssueRowId;
     externalId: SupportIssueExternalId;
@@ -63,8 +66,7 @@ export class SupportIssue extends AggregateRoot
         updatedAt: SupportIssueUpdatedAt,
         deletedAt: SupportIssueDeletedAt,
         account?: IamAccount,
-    )
-    {
+    ) {
         super();
         this.id = id;
         this.rowId = rowId;
@@ -105,8 +107,7 @@ export class SupportIssue extends AggregateRoot
         updatedAt: SupportIssueUpdatedAt,
         deletedAt: SupportIssueDeletedAt,
         account?: IamAccount,
-    ): SupportIssue
-    {
+    ): SupportIssue {
         return new SupportIssue(
             id,
             rowId,
@@ -129,13 +130,7 @@ export class SupportIssue extends AggregateRoot
         );
     }
 
-    created(
-        event: {
-            payload: SupportIssue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    created(event: { payload: SupportIssue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new SupportCreatedIssueEvent({
                 payload: {
@@ -161,13 +156,7 @@ export class SupportIssue extends AggregateRoot
         );
     }
 
-    updated(
-        event: {
-            payload: SupportIssue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    updated(event: { payload: SupportIssue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new SupportUpdatedIssueEvent({
                 payload: {
@@ -193,13 +182,7 @@ export class SupportIssue extends AggregateRoot
         );
     }
 
-    deleted(
-        event: {
-            payload: SupportIssue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    deleted(event: { payload: SupportIssue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new SupportDeletedIssueEvent({
                 payload: {
@@ -226,8 +209,7 @@ export class SupportIssue extends AggregateRoot
         );
     }
 
-    toDTO(): LiteralObject
-    {
+    toDTO(): LiteralObject {
         return {
             id: this.id.value,
             rowId: this.rowId.value,
@@ -251,8 +233,7 @@ export class SupportIssue extends AggregateRoot
     }
 
     // function called to get data for repository side effect methods
-    toRepository(): LiteralObject
-    {
+    toRepository(): LiteralObject {
         return {
             id: this.id.value,
             externalId: this.externalId?.value,

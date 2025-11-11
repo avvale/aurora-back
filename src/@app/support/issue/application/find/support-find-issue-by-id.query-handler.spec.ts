@@ -1,56 +1,70 @@
-import { SupportFindIssueByIdQuery, SupportIIssueRepository, SupportIssueMapper, supportMockIssueData, SupportMockIssueRepository } from '@app/support/issue';
+import {
+    SupportFindIssueByIdQuery,
+    SupportIIssueRepository,
+    SupportIssueMapper,
+    supportMockIssueData,
+    SupportMockIssueRepository,
+} from '@app/support/issue';
 import { SupportFindIssueByIdQueryHandler } from '@app/support/issue/application/find/support-find-issue-by-id.query-handler';
 import { SupportFindIssueByIdService } from '@app/support/issue/application/find/support-find-issue-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportFindIssueByIdQueryHandler', () =>
-{
+describe('SupportFindIssueByIdQueryHandler', () => {
     let queryHandler: SupportFindIssueByIdQueryHandler;
     let service: SupportFindIssueByIdService;
     let repository: SupportMockIssueRepository;
     let mapper: SupportIssueMapper;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 SupportFindIssueByIdQueryHandler,
                 {
-                    provide : SupportIIssueRepository,
+                    provide: SupportIIssueRepository,
                     useClass: SupportMockIssueRepository,
                 },
                 {
-                    provide : SupportFindIssueByIdService,
+                    provide: SupportFindIssueByIdService,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        queryHandler = module.get<SupportFindIssueByIdQueryHandler>(SupportFindIssueByIdQueryHandler);
-        service = module.get<SupportFindIssueByIdService>(SupportFindIssueByIdService);
-        repository = <SupportMockIssueRepository>module.get<SupportIIssueRepository>(SupportIIssueRepository);
+        queryHandler = module.get<SupportFindIssueByIdQueryHandler>(
+            SupportFindIssueByIdQueryHandler,
+        );
+        service = module.get<SupportFindIssueByIdService>(
+            SupportFindIssueByIdService,
+        );
+        repository = <SupportMockIssueRepository>(
+            module.get<SupportIIssueRepository>(SupportIIssueRepository)
+        );
         mapper = new SupportIssueMapper();
     });
 
-    describe('main', () =>
-    {
-        test('FindIssueByIdQueryHandler should be defined', () =>
-        {
+    describe('main', () => {
+        test('FindIssueByIdQueryHandler should be defined', () => {
             expect(queryHandler).toBeDefined();
         });
 
-        test('should return an issue founded', async () =>
-        {
-            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(repository.collectionSource[0])));
-            expect(await queryHandler.execute(
-                new SupportFindIssueByIdQuery(
-                    supportMockIssueData[0].id,
-
+        test('should return an issue founded', async () => {
+            jest.spyOn(service, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) =>
+                        resolve(repository.collectionSource[0]),
+                    ),
+            );
+            expect(
+                await queryHandler.execute(
+                    new SupportFindIssueByIdQuery(supportMockIssueData[0].id),
                 ),
-            )).toStrictEqual(mapper.mapAggregateToResponse(repository.collectionSource[0]));
+            ).toStrictEqual(
+                mapper.mapAggregateToResponse(repository.collectionSource[0]),
+            );
         });
     });
 });

@@ -1,30 +1,46 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
 import { IamAccountModel } from '@app/iam/account';
-import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import {
+    AuditingSideEffectEvent,
+    SequelizeAuditingAgent,
+} from '@aurorajs.dev/core';
 import { DataTypes } from 'sequelize';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, BelongsTo, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import {
+    AfterBulkCreate,
+    AfterBulkDestroy,
+    AfterBulkRestore,
+    AfterBulkUpdate,
+    AfterCreate,
+    AfterDestroy,
+    AfterRestore,
+    AfterUpdate,
+    AfterUpsert,
+    BelongsTo,
+    Column,
+    ForeignKey,
+    Model,
+    Table,
+} from 'sequelize-typescript';
 
 @Table({
     modelName: 'SupportIssue',
     freezeTableName: true,
     timestamps: false,
     indexes: [
-		{
-			fields: ['rowId'],
-			unique: true,
-		},
-		{
-			fields: ['accountId'],
-			unique: false,
-		},
+        {
+            fields: ['rowId'],
+            unique: true,
+        },
+        {
+            fields: ['accountId'],
+            unique: false,
+        },
     ],
 })
-export class SupportIssueModel extends Model<SupportIssueModel>
-{
+export class SupportIssueModel extends Model<SupportIssueModel> {
     @AfterCreate
-    static auditingCreate(instance: SupportIssueModel, options): void
-    {
+    static auditingCreate(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -35,8 +51,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterBulkCreate
-    static auditingBulkCreate(instance: SupportIssueModel, options): void
-    {
+    static auditingBulkCreate(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -47,8 +62,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterUpdate
-    static auditingUpdate(instance: SupportIssueModel, options): void
-    {
+    static auditingUpdate(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -59,8 +73,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterBulkUpdate
-    static auditingBulkUpdate(options): void
-    {
+    static auditingBulkUpdate(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -71,8 +84,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterDestroy
-    static auditingDestroy(instance: SupportIssueModel, options): void
-    {
+    static auditingDestroy(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -83,8 +95,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterBulkDestroy
-    static auditingBulkDestroy(options): void
-    {
+    static auditingBulkDestroy(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -95,8 +106,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterRestore
-    static auditingRestore(instance: SupportIssueModel, options): void
-    {
+    static auditingRestore(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -107,8 +117,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterBulkRestore
-    static auditingBulkRestore(options): void
-    {
+    static auditingBulkRestore(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -119,8 +128,7 @@ export class SupportIssueModel extends Model<SupportIssueModel>
     }
 
     @AfterUpsert
-    static auditingUpsert(instance: SupportIssueModel, options): void
-    {
+    static auditingUpsert(instance: SupportIssueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -257,5 +265,4 @@ export class SupportIssueModel extends Model<SupportIssueModel>
         type: DataTypes.DATE,
     })
     deletedAt: string;
-
 }

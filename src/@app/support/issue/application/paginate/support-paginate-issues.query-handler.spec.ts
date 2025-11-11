@@ -1,67 +1,78 @@
-import { SupportIIssueRepository, SupportMockIssueRepository, SupportPaginateIssuesQuery } from '@app/support/issue';
+import {
+    SupportIIssueRepository,
+    SupportMockIssueRepository,
+    SupportPaginateIssuesQuery,
+} from '@app/support/issue';
 import { SupportPaginateIssuesQueryHandler } from '@app/support/issue/application/paginate/support-paginate-issues.query-handler';
 import { SupportPaginateIssuesService } from '@app/support/issue/application/paginate/support-paginate-issues.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportPaginateIssuesQueryHandler', () =>
-{
+describe('SupportPaginateIssuesQueryHandler', () => {
     let queryHandler: SupportPaginateIssuesQueryHandler;
     let service: SupportPaginateIssuesService;
     let repository: SupportMockIssueRepository;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 SupportPaginateIssuesQueryHandler,
                 {
-                    provide : SupportIIssueRepository,
+                    provide: SupportIIssueRepository,
                     useClass: SupportMockIssueRepository,
                 },
                 {
-                    provide : SupportPaginateIssuesService,
+                    provide: SupportPaginateIssuesService,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        queryHandler = module.get<SupportPaginateIssuesQueryHandler>(SupportPaginateIssuesQueryHandler);
-        service = module.get<SupportPaginateIssuesService>(SupportPaginateIssuesService);
-        repository = <SupportMockIssueRepository>module.get<SupportIIssueRepository>(SupportIIssueRepository);
+        queryHandler = module.get<SupportPaginateIssuesQueryHandler>(
+            SupportPaginateIssuesQueryHandler,
+        );
+        service = module.get<SupportPaginateIssuesService>(
+            SupportPaginateIssuesService,
+        );
+        repository = <SupportMockIssueRepository>(
+            module.get<SupportIIssueRepository>(SupportIIssueRepository)
+        );
     });
 
-    describe('main', () =>
-    {
-        test('SupportPaginateIssuesQueryHandler should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportPaginateIssuesQueryHandler should be defined', () => {
             expect(queryHandler).toBeDefined();
         });
 
-        test('should return an issues paginated', async () =>
-        {
-            jest.spyOn(service, 'main').mockImplementation(() => new Promise(resolve => resolve(
-                {
-                    count: 10,
-                    total: 100,
-                    rows : repository.collectionSource.slice(0,10),
-                },
-            )));
-            expect(await queryHandler.execute(
-                new SupportPaginateIssuesQuery(
-                    {
+        test('should return an issues paginated', async () => {
+            jest.spyOn(service, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) =>
+                        resolve({
+                            count: 10,
+                            total: 100,
+                            rows: repository.collectionSource.slice(0, 10),
+                        }),
+                    ),
+            );
+            expect(
+                await queryHandler.execute(
+                    new SupportPaginateIssuesQuery({
                         offset: 0,
-                        limit : 10,
-                    },
+                        limit: 10,
+                    }),
                 ),
-            )).toStrictEqual(
+            ).toStrictEqual(
                 new PaginationResponse(
                     100,
                     10,
-                    repository.collectionSource.slice(0,10).map(item => item.toDTO()),
+                    repository.collectionSource
+                        .slice(0, 10)
+                        .map((item) => item.toDTO()),
                 ),
             );
         });

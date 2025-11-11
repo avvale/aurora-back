@@ -1,50 +1,56 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SupportDeleteIssueByIdHandler, SupportDeleteIssueByIdResolver } from '@api/support/issue';
+import {
+    SupportDeleteIssueByIdHandler,
+    SupportDeleteIssueByIdResolver,
+} from '@api/support/issue';
 import { supportMockIssueData } from '@app/support/issue';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportDeleteIssueByIdResolver', () =>
-{
+describe('SupportDeleteIssueByIdResolver', () => {
     let resolver: SupportDeleteIssueByIdResolver;
     let handler: SupportDeleteIssueByIdHandler;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
+            imports: [],
             providers: [
                 SupportDeleteIssueByIdResolver,
                 {
-                    provide : SupportDeleteIssueByIdHandler,
+                    provide: SupportDeleteIssueByIdHandler,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        resolver = module.get<SupportDeleteIssueByIdResolver>(SupportDeleteIssueByIdResolver);
-        handler = module.get<SupportDeleteIssueByIdHandler>(SupportDeleteIssueByIdHandler);
+        resolver = module.get<SupportDeleteIssueByIdResolver>(
+            SupportDeleteIssueByIdResolver,
+        );
+        handler = module.get<SupportDeleteIssueByIdHandler>(
+            SupportDeleteIssueByIdHandler,
+        );
     });
 
-    test('SupportDeleteIssueByIdResolver should be defined', () =>
-    {
+    test('SupportDeleteIssueByIdResolver should be defined', () => {
         expect(resolver).toBeDefined();
     });
 
-    describe('main', () =>
-    {
-        test('SupportDeleteIssueByIdResolver should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportDeleteIssueByIdResolver should be defined', () => {
             expect(resolver).toBeDefined();
         });
 
-        test('should return an issue deleted', async () =>
-        {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(supportMockIssueData[0])));
-            expect(await resolver.main(supportMockIssueData[0].id)).toBe(supportMockIssueData[0]);
+        test('should return an issue deleted', async () => {
+            jest.spyOn(handler, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) => resolve(supportMockIssueData[0])),
+            );
+            expect(await resolver.main(supportMockIssueData[0].id)).toBe(
+                supportMockIssueData[0],
+            );
         });
     });
 });

@@ -1,51 +1,59 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { SupportCreateIssueInput } from '@api/graphql';
-import { SupportCreateIssueHandler, SupportCreateIssueResolver } from '@api/support/issue';
+import {
+    SupportCreateIssueHandler,
+    SupportCreateIssueResolver,
+} from '@api/support/issue';
 import { supportMockIssueData } from '@app/support/issue';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportCreateIssueResolver', () =>
-{
+describe('SupportCreateIssueResolver', () => {
     let resolver: SupportCreateIssueResolver;
     let handler: SupportCreateIssueHandler;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
+            imports: [],
             providers: [
                 SupportCreateIssueResolver,
                 {
-                    provide : SupportCreateIssueHandler,
+                    provide: SupportCreateIssueHandler,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        resolver = module.get<SupportCreateIssueResolver>(SupportCreateIssueResolver);
-        handler = module.get<SupportCreateIssueHandler>(SupportCreateIssueHandler);
+        resolver = module.get<SupportCreateIssueResolver>(
+            SupportCreateIssueResolver,
+        );
+        handler = module.get<SupportCreateIssueHandler>(
+            SupportCreateIssueHandler,
+        );
     });
 
-    test('SupportCreateIssueResolver should be defined', () =>
-    {
+    test('SupportCreateIssueResolver should be defined', () => {
         expect(resolver).toBeDefined();
     });
 
-    describe('main', () =>
-    {
-        test('SupportCreateIssueResolver should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportCreateIssueResolver should be defined', () => {
             expect(resolver).toBeDefined();
         });
 
-        test('should return an issue created', async () =>
-        {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(supportMockIssueData[0])));
-            expect(await resolver.main(<SupportCreateIssueInput>supportMockIssueData[0])).toBe(supportMockIssueData[0]);
+        test('should return an issue created', async () => {
+            jest.spyOn(handler, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) => resolve(supportMockIssueData[0])),
+            );
+            expect(
+                await resolver.main(
+                    <SupportCreateIssueInput>supportMockIssueData[0],
+                ),
+            ).toBe(supportMockIssueData[0]);
         });
     });
 });

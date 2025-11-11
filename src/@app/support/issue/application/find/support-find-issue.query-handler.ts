@@ -1,18 +1,20 @@
-import { SupportFindIssueQuery, SupportIssueMapper, SupportIssueResponse } from '@app/support/issue';
+import {
+    SupportFindIssueQuery,
+    SupportIssueMapper,
+    SupportIssueResponse,
+} from '@app/support/issue';
 import { SupportFindIssueService } from '@app/support/issue/application/find/support-find-issue.service';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 @QueryHandler(SupportFindIssueQuery)
-export class SupportFindIssueQueryHandler implements IQueryHandler<SupportFindIssueQuery>
+export class SupportFindIssueQueryHandler
+    implements IQueryHandler<SupportFindIssueQuery>
 {
     private readonly mapper: SupportIssueMapper = new SupportIssueMapper();
 
-    constructor(
-        private readonly findIssueService: SupportFindIssueService,
-    ) {}
+    constructor(private readonly findIssueService: SupportFindIssueService) {}
 
-    async execute(query: SupportFindIssueQuery): Promise<SupportIssueResponse>
-    {
+    async execute(query: SupportFindIssueQuery): Promise<SupportIssueResponse> {
         const issue = await this.findIssueService.main(
             query.queryStatement,
             query.constraint,

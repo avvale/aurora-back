@@ -1,7 +1,6 @@
 import { IamAccountResponse } from '@app/iam/account';
 
-export class SupportIssueResponse
-{
+export class SupportIssueResponse {
     constructor(
         public readonly id: string,
         public readonly rowId: number,

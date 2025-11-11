@@ -1,16 +1,22 @@
-import { SupportIIssueRepository, SupportMockIssueRepository } from '@app/support/issue';
+import {
+    SupportIIssueRepository,
+    SupportMockIssueRepository,
+} from '@app/support/issue';
 import { SupportPaginateIssuesService } from '@app/support/issue/application/paginate/support-paginate-issues.service';
-import { CommandBus, EventBus, EventPublisher, UnhandledExceptionBus } from '@nestjs/cqrs';
+import {
+    CommandBus,
+    EventBus,
+    EventPublisher,
+    UnhandledExceptionBus,
+} from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportPaginateIssuesService', () =>
-{
+describe('SupportPaginateIssuesService', () => {
     let service: SupportPaginateIssuesService;
     let repository: SupportIIssueRepository;
     let mockRepository: SupportMockIssueRepository;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 CommandBus,
@@ -20,41 +26,48 @@ describe('SupportPaginateIssuesService', () =>
                 SupportPaginateIssuesService,
                 SupportMockIssueRepository,
                 {
-                    provide : SupportIIssueRepository,
+                    provide: SupportIIssueRepository,
                     useValue: {
-                        paginate: (queryStatement, constraints) => { /**/ },
+                        paginate: (queryStatement, constraints) => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
         service = module.get(SupportPaginateIssuesService);
         repository = module.get(SupportIIssueRepository);
         mockRepository = module.get(SupportMockIssueRepository);
     });
 
-    describe('main', () =>
-    {
-        test('SupportPaginateIssuesService should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportPaginateIssuesService should be defined', () => {
             expect(service).toBeDefined();
         });
 
-        test('should paginate issues', async () =>
-        {
-            jest.spyOn(repository, 'paginate').mockImplementation(() => new Promise(resolve => resolve({
-                total: mockRepository.collectionSource.slice(0,10).length,
-                count: mockRepository.collectionSource.slice(0,10).length,
-                rows : mockRepository.collectionSource.slice(0,10),
-            })));
-            expect(await service.main({
-                offset: 0,
-                limit : 10
-            })).toStrictEqual({
-                total: mockRepository.collectionSource.slice(0,10).length,
-                count: mockRepository.collectionSource.slice(0,10).length,
-                rows : mockRepository.collectionSource.slice(0,10),
+        test('should paginate issues', async () => {
+            jest.spyOn(repository, 'paginate').mockImplementation(
+                () =>
+                    new Promise((resolve) =>
+                        resolve({
+                            total: mockRepository.collectionSource.slice(0, 10)
+                                .length,
+                            count: mockRepository.collectionSource.slice(0, 10)
+                                .length,
+                            rows: mockRepository.collectionSource.slice(0, 10),
+                        }),
+                    ),
+            );
+            expect(
+                await service.main({
+                    offset: 0,
+                    limit: 10,
+                }),
+            ).toStrictEqual({
+                total: mockRepository.collectionSource.slice(0, 10).length,
+                count: mockRepository.collectionSource.slice(0, 10).length,
+                rows: mockRepository.collectionSource.slice(0, 10),
             });
         });
     });

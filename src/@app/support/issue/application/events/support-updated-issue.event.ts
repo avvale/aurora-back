@@ -1,7 +1,6 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class SupportUpdatedIssueEvent
-{
+export class SupportUpdatedIssueEvent {
     constructor(
         public readonly event: {
             payload: {

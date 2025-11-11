@@ -1,85 +1,83 @@
 /* eslint-disable indent */
 import { ApiProperty } from '@nestjs/swagger';
 
-export class SupportUpdateIssueByIdDto
-{
+export class SupportUpdateIssueByIdDto {
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'id [input here api field description]',
     })
     id: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'externalId [input here api field description]',
     })
     externalId?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'externalStatus [input here api field description]',
     })
     externalStatus?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'accountId [input here api field description]',
-        example    : 'bb311dbd-dd0b-5412-bf15-ca58a8aa48db',
+        example: 'bb311dbd-dd0b-5412-bf15-ca58a8aa48db',
     })
     accountId?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'accountUsername [input here api field description]',
     })
     accountUsername?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'frontVersion [input here api field description]',
     })
     frontVersion?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'backVersion [input here api field description]',
     })
     backVersion?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'environment [input here api field description]',
     })
     environment?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'subject [input here api field description]',
     })
     subject?: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'description [input here api field description]',
     })
     description?: string;
 
     @ApiProperty({
-        type       : Object,
+        type: Object,
         description: 'attachments [input here api field description]',
     })
     attachments?: any;
 
     @ApiProperty({
-        type       : Object,
+        type: Object,
         description: 'video [input here api field description]',
     })
     video?: any;
 
     @ApiProperty({
-        type       : Object,
+        type: Object,
         description: 'meta [input here api field description]',
     })
     meta?: any;
-
 }

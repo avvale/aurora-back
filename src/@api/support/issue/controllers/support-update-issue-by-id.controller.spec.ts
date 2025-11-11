@@ -1,46 +1,51 @@
-import { SupportUpdateIssueByIdController, SupportUpdateIssueByIdHandler } from '@api/support/issue';
+import {
+    SupportUpdateIssueByIdController,
+    SupportUpdateIssueByIdHandler,
+} from '@api/support/issue';
 import { supportMockIssueData } from '@app/support/issue';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportUpdateIssueByIdController', () =>
-{
+describe('SupportUpdateIssueByIdController', () => {
     let controller: SupportUpdateIssueByIdController;
     let handler: SupportUpdateIssueByIdHandler;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
-            controllers: [
-                SupportUpdateIssueByIdController,
-            ],
+            imports: [],
+            controllers: [SupportUpdateIssueByIdController],
             providers: [
                 {
-                    provide : SupportUpdateIssueByIdHandler,
+                    provide: SupportUpdateIssueByIdHandler,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        controller = module.get<SupportUpdateIssueByIdController>(SupportUpdateIssueByIdController);
-        handler = module.get<SupportUpdateIssueByIdHandler>(SupportUpdateIssueByIdHandler);
+        controller = module.get<SupportUpdateIssueByIdController>(
+            SupportUpdateIssueByIdController,
+        );
+        handler = module.get<SupportUpdateIssueByIdHandler>(
+            SupportUpdateIssueByIdHandler,
+        );
     });
 
-    describe('main', () =>
-    {
-        test('SupportUpdateIssueByIdController should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportUpdateIssueByIdController should be defined', () => {
             expect(controller).toBeDefined();
         });
 
-        test('should return a issue updated', async () =>
-        {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve(supportMockIssueData[0])));
-            expect(await controller.main(supportMockIssueData[0])).toBe(supportMockIssueData[0]);
+        test('should return a issue updated', async () => {
+            jest.spyOn(handler, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) => resolve(supportMockIssueData[0])),
+            );
+            expect(await controller.main(supportMockIssueData[0])).toBe(
+                supportMockIssueData[0],
+            );
         });
     });
 });

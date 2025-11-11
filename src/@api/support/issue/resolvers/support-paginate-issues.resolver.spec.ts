@@ -1,57 +1,63 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { SupportPaginateIssuesHandler, SupportPaginateIssuesResolver } from '@api/support/issue';
+import {
+    SupportPaginateIssuesHandler,
+    SupportPaginateIssuesResolver,
+} from '@api/support/issue';
 import { supportMockIssueData } from '@app/support/issue';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportPaginateIssuesResolver', () =>
-{
+describe('SupportPaginateIssuesResolver', () => {
     let resolver: SupportPaginateIssuesResolver;
     let handler: SupportPaginateIssuesHandler;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
+            imports: [],
             providers: [
                 SupportPaginateIssuesResolver,
                 {
-                    provide : SupportPaginateIssuesHandler,
+                    provide: SupportPaginateIssuesHandler,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        resolver = module.get<SupportPaginateIssuesResolver>(SupportPaginateIssuesResolver);
-        handler = module.get<SupportPaginateIssuesHandler>(SupportPaginateIssuesHandler);
+        resolver = module.get<SupportPaginateIssuesResolver>(
+            SupportPaginateIssuesResolver,
+        );
+        handler = module.get<SupportPaginateIssuesHandler>(
+            SupportPaginateIssuesHandler,
+        );
     });
 
-    test('SupportPaginateIssuesResolver should be defined', () =>
-    {
+    test('SupportPaginateIssuesResolver should be defined', () => {
         expect(resolver).toBeDefined();
     });
 
-    describe('main', () =>
-    {
-        test('SupportPaginateIssuesResolver should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportPaginateIssuesResolver should be defined', () => {
             expect(resolver).toBeDefined();
         });
 
-        test('should return a supportMockIssueData', async () =>
-        {
-            jest.spyOn(handler, 'main').mockImplementation(() => new Promise(resolve => resolve({
-                total: 5,
-                count: 5,
-                rows : supportMockIssueData,
-            })));
+        test('should return a supportMockIssueData', async () => {
+            jest.spyOn(handler, 'main').mockImplementation(
+                () =>
+                    new Promise((resolve) =>
+                        resolve({
+                            total: 5,
+                            count: 5,
+                            rows: supportMockIssueData,
+                        }),
+                    ),
+            );
             expect(await resolver.main()).toStrictEqual({
                 total: 5,
                 count: 5,
-                rows : supportMockIssueData,
+                rows: supportMockIssueData,
             });
         });
     });

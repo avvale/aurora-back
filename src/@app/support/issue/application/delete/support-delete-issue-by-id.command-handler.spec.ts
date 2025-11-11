@@ -1,44 +1,47 @@
-import { SupportDeleteIssueByIdCommand, supportMockIssueData } from '@app/support/issue';
+import {
+    SupportDeleteIssueByIdCommand,
+    supportMockIssueData,
+} from '@app/support/issue';
 import { SupportDeleteIssueByIdCommandHandler } from '@app/support/issue/application/delete/support-delete-issue-by-id.command-handler';
 import { SupportDeleteIssueByIdService } from '@app/support/issue/application/delete/support-delete-issue-by-id.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportDeleteIssueByIdCommandHandler', () =>
-{
+describe('SupportDeleteIssueByIdCommandHandler', () => {
     let commandHandler: SupportDeleteIssueByIdCommandHandler;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 SupportDeleteIssueByIdCommandHandler,
                 {
-                    provide : SupportDeleteIssueByIdService,
+                    provide: SupportDeleteIssueByIdService,
                     useValue: {
-                        main: () => { /**/ },
+                        main: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        commandHandler = module.get<SupportDeleteIssueByIdCommandHandler>(SupportDeleteIssueByIdCommandHandler);
+        commandHandler = module.get<SupportDeleteIssueByIdCommandHandler>(
+            SupportDeleteIssueByIdCommandHandler,
+        );
     });
 
-    describe('main', () =>
-    {
-        test('SupportDeleteIssueByIdCommandHandler should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportDeleteIssueByIdCommandHandler should be defined', () => {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should create the value object id and pass them as parameters to the SupportDeleteIssueByIdService', async () =>
-        {
-            expect(await commandHandler.execute(
-                new SupportDeleteIssueByIdCommand(
-                    supportMockIssueData[0].id,
+        test('should create the value object id and pass them as parameters to the SupportDeleteIssueByIdService', async () => {
+            expect(
+                await commandHandler.execute(
+                    new SupportDeleteIssueByIdCommand(
+                        supportMockIssueData[0].id,
+                    ),
                 ),
-            )).toBe(undefined);
+            ).toBe(undefined);
         });
     });
 });

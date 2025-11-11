@@ -1,7 +1,6 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class SupportDeletedIssueEvent
-{
+export class SupportDeletedIssueEvent {
     constructor(
         public readonly event: {
             payload: {

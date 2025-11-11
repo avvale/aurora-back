@@ -19,20 +19,24 @@ import {
     SupportIssueUpdatedAt,
     SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
-import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
+import {
+    CQMetadata,
+    IMapper,
+    LiteralObject,
+    MapperOptions,
+} from '@aurorajs.dev/core';
 
-export class SupportIssueMapper implements IMapper
-{
-    constructor(
-        public options: MapperOptions = { eagerLoading: true },
-    ) {}
+export class SupportIssueMapper implements IMapper {
+    constructor(public options: MapperOptions = { eagerLoading: true }) {}
 
     /**
      * Map object to aggregate
      * @param issue
      */
-    mapModelToAggregate(issue: LiteralObject, cQMetadata?: CQMetadata): SupportIssue
-    {
+    mapModelToAggregate(
+        issue: LiteralObject,
+        cQMetadata?: CQMetadata,
+    ): SupportIssue {
         if (!issue) return;
 
         return this.makeAggregate(issue, cQMetadata);
@@ -42,19 +46,20 @@ export class SupportIssueMapper implements IMapper
      * Map array of objects to array aggregates
      * @param issues
      */
-    mapModelsToAggregates(issues: LiteralObject[], cQMetadata?: CQMetadata): SupportIssue[]
-    {
+    mapModelsToAggregates(
+        issues: LiteralObject[],
+        cQMetadata?: CQMetadata,
+    ): SupportIssue[] {
         if (!Array.isArray(issues)) return;
 
-        return issues.map(issue => this.makeAggregate(issue, cQMetadata));
+        return issues.map((issue) => this.makeAggregate(issue, cQMetadata));
     }
 
     /**
      * Map aggregate to response
      * @param issue
      */
-    mapAggregateToResponse(issue: SupportIssue): SupportIssueResponse
-    {
+    mapAggregateToResponse(issue: SupportIssue): SupportIssueResponse {
         return this.makeResponse(issue);
     }
 
@@ -62,39 +67,69 @@ export class SupportIssueMapper implements IMapper
      * Map array of aggregates to array responses
      * @param issues
      */
-    mapAggregatesToResponses(issues: SupportIssue[]): SupportIssueResponse[]
-    {
+    mapAggregatesToResponses(issues: SupportIssue[]): SupportIssueResponse[] {
         if (!Array.isArray(issues)) return;
 
-        return issues.map(issue => this.makeResponse(issue));
+        return issues.map((issue) => this.makeResponse(issue));
     }
 
-    private makeAggregate(issue: LiteralObject, cQMetadata?: CQMetadata): SupportIssue
-    {
+    private makeAggregate(
+        issue: LiteralObject,
+        cQMetadata?: CQMetadata,
+    ): SupportIssue {
         return SupportIssue.register(
             new SupportIssueId(issue.id, { undefinable: true }),
             new SupportIssueRowId(issue.rowId, { undefinable: true }),
             new SupportIssueExternalId(issue.externalId, { undefinable: true }),
-            new SupportIssueExternalStatus(issue.externalStatus, { undefinable: true }),
+            new SupportIssueExternalStatus(issue.externalStatus, {
+                undefinable: true,
+            }),
             new SupportIssueAccountId(issue.accountId, { undefinable: true }),
-            new SupportIssueAccountUsername(issue.accountUsername, { undefinable: true }),
-            new SupportIssueFrontVersion(issue.frontVersion, { undefinable: true }),
-            new SupportIssueBackVersion(issue.backVersion, { undefinable: true }),
-            new SupportIssueEnvironment(issue.environment, { undefinable: true }),
+            new SupportIssueAccountUsername(issue.accountUsername, {
+                undefinable: true,
+            }),
+            new SupportIssueFrontVersion(issue.frontVersion, {
+                undefinable: true,
+            }),
+            new SupportIssueBackVersion(issue.backVersion, {
+                undefinable: true,
+            }),
+            new SupportIssueEnvironment(issue.environment, {
+                undefinable: true,
+            }),
             new SupportIssueSubject(issue.subject, { undefinable: true }),
-            new SupportIssueDescription(issue.description, { undefinable: true }),
-            new SupportIssueAttachments(issue.attachments, { undefinable: true }),
+            new SupportIssueDescription(issue.description, {
+                undefinable: true,
+            }),
+            new SupportIssueAttachments(issue.attachments, {
+                undefinable: true,
+            }),
             new SupportIssueVideo(issue.video, { undefinable: true }),
             new SupportIssueMeta(issue.meta, { undefinable: true }),
-            new SupportIssueCreatedAt(issue.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            new SupportIssueUpdatedAt(issue.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            new SupportIssueDeletedAt(issue.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new IamAccountMapper({ eagerLoading: true }).mapModelToAggregate(issue.account, cQMetadata) : undefined,
+            new SupportIssueCreatedAt(
+                issue.createdAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            new SupportIssueUpdatedAt(
+                issue.updatedAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            new SupportIssueDeletedAt(
+                issue.deletedAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            this.options.eagerLoading
+                ? new IamAccountMapper({
+                      eagerLoading: true,
+                  }).mapModelToAggregate(issue.account, cQMetadata)
+                : undefined,
         );
     }
 
-    private makeResponse(issue: SupportIssue): SupportIssueResponse
-    {
+    private makeResponse(issue: SupportIssue): SupportIssueResponse {
         if (!issue) return;
 
         return new SupportIssueResponse(
@@ -115,7 +150,11 @@ export class SupportIssueMapper implements IMapper
             issue.createdAt.value,
             issue.updatedAt.value,
             issue.deletedAt.value,
-            this.options.eagerLoading ? new IamAccountMapper({ eagerLoading: true }).mapAggregateToResponse(issue.account) : undefined,
+            this.options.eagerLoading
+                ? new IamAccountMapper({
+                      eagerLoading: true,
+                  }).mapAggregateToResponse(issue.account)
+                : undefined,
         );
     }
 }

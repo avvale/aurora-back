@@ -4,56 +4,57 @@ import { supportMockIssueData } from '@app/support/issue';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportDeleteIssueByIdController', () =>
-{
+describe('SupportDeleteIssueByIdController', () => {
     let handler: SupportDeleteIssueByIdHandler;
     let queryBus: IQueryBus;
 
-    beforeAll(async () =>
-    {
+    beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
+            imports: [],
             providers: [
                 SupportDeleteIssueByIdHandler,
                 {
-                    provide : IQueryBus,
+                    provide: IQueryBus,
                     useValue: {
-                        ask: () => { /**/ },
+                        ask: () => {
+                            /**/
+                        },
                     },
                 },
                 {
-                    provide : ICommandBus,
+                    provide: ICommandBus,
                     useValue: {
-                        dispatch: () => { /**/ },
+                        dispatch: () => {
+                            /**/
+                        },
                     },
                 },
             ],
-        })
-            .compile();
+        }).compile();
 
-        handler = module.get<SupportDeleteIssueByIdHandler>(SupportDeleteIssueByIdHandler);
+        handler = module.get<SupportDeleteIssueByIdHandler>(
+            SupportDeleteIssueByIdHandler,
+        );
         queryBus = module.get<IQueryBus>(IQueryBus);
     });
 
-    describe('main', () =>
-    {
-        test('SupportDeleteIssueByIdHandler should be defined', () =>
-        {
+    describe('main', () => {
+        test('SupportDeleteIssueByIdHandler should be defined', () => {
             expect(handler).toBeDefined();
         });
 
-        test('should return an issue deleted', async () =>
-        {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(supportMockIssueData[0])));
+        test('should return an issue deleted', async () => {
+            jest.spyOn(queryBus, 'ask').mockImplementation(
+                () =>
+                    new Promise((resolve) => resolve(supportMockIssueData[0])),
+            );
             expect(
                 await handler.main(
                     supportMockIssueData[0].id,
                     {},
                     'Europe/Madrid',
                 ),
-            )
-                .toBe(supportMockIssueData[0]);
+            ).toBe(supportMockIssueData[0]);
         });
     });
 });
