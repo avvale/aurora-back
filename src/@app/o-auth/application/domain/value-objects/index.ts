@@ -9,5 +9,6 @@ export { OAuthApplicationDeletedAt } from './o-auth-application-deleted-at';
 export { OAuthApplicationId } from './o-auth-application-id';
 export { OAuthApplicationIsMaster } from './o-auth-application-is-master';
 export { OAuthApplicationName } from './o-auth-application-name';
+export { OAuthApplicationRowId } from './o-auth-application-row-id';
 export { OAuthApplicationSecret } from './o-auth-application-secret';
 export { OAuthApplicationUpdatedAt } from './o-auth-application-updated-at';
