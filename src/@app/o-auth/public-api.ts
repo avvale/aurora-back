@@ -4,27 +4,31 @@ import { OAuthRefreshTokenHandlers, OAuthRefreshTokenServices, OAuthRefreshToken
 import { OAuthClientHandlers, OAuthClientServices, OAuthClientModel, OAuthIClientRepository, OAuthSequelizeClientRepository, OAuthClientSagas } from './client';
 import { OAuthApplicationClientHandlers, OAuthApplicationClientServices, OAuthApplicationClientModel, OAuthIApplicationClientRepository, OAuthSequelizeApplicationClientRepository, OAuthApplicationClientSagas } from './application-client';
 import { OAuthApplicationHandlers, OAuthApplicationServices, OAuthApplicationModel, OAuthIApplicationRepository, OAuthSequelizeApplicationRepository, OAuthApplicationSagas } from './application';
+import { OAuthAccessTokenHandlers, OAuthAccessTokenServices, OAuthAccessTokenModel, OAuthIAccessTokenRepository, OAuthSequelizeAccessTokenRepository, OAuthAccessTokenSagas } from './access-token';
 
 export const OAuthHandlers = [
     ...OAuthScopeHandlers,
     ...OAuthRefreshTokenHandlers,
     ...OAuthClientHandlers,
     ...OAuthApplicationClientHandlers,
-    ...OAuthApplicationHandlers
+    ...OAuthApplicationHandlers,
+    ...OAuthAccessTokenHandlers
 ];
 export const OAuthServices = [
     ...OAuthScopeServices,
     ...OAuthRefreshTokenServices,
     ...OAuthClientServices,
     ...OAuthApplicationClientServices,
-    ...OAuthApplicationServices
+    ...OAuthApplicationServices,
+    ...OAuthAccessTokenServices
 ];
 export const OAuthModels = [
     OAuthScopeModel,
     OAuthRefreshTokenModel,
     OAuthClientModel,
     OAuthApplicationClientModel,
-    OAuthApplicationModel
+    OAuthApplicationModel,
+    OAuthAccessTokenModel
 ];
 export const OAuthRepositories = [
     {
@@ -46,6 +50,10 @@ export const OAuthRepositories = [
     {
         provide : OAuthIApplicationRepository,
         useClass: OAuthSequelizeApplicationRepository,
+    },
+    {
+        provide : OAuthIAccessTokenRepository,
+        useClass: OAuthSequelizeAccessTokenRepository,
     }
 ];
 export const OAuthSagas = [
@@ -53,5 +61,6 @@ export const OAuthSagas = [
     OAuthRefreshTokenSagas,
     OAuthClientSagas,
     OAuthApplicationClientSagas,
-    OAuthApplicationSagas
+    OAuthApplicationSagas,
+    OAuthAccessTokenSagas
 ];

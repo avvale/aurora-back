@@ -2706,6 +2706,7 @@ export interface MessageOutbox {
 
 export interface OAuthAccessToken {
     id: string;
+    rowId: GraphQLInt;
     clientId: string;
     client?: Nullable<OAuthClient>;
     accountId?: Nullable<string>;
