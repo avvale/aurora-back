@@ -1,6 +1,4 @@
-
-export class ToolsMigrationResponse
-{
+export class ToolsMigrationResponse {
     constructor(
         public readonly id: string,
         public readonly rowId: number,

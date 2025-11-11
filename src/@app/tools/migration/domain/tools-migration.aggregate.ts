@@ -1,5 +1,9 @@
 /* eslint-disable key-spacing */
-import { ToolsCreatedMigrationEvent, ToolsDeletedMigrationEvent, ToolsUpdatedMigrationEvent } from '@app/tools/migration';
+import {
+    ToolsCreatedMigrationEvent,
+    ToolsDeletedMigrationEvent,
+    ToolsUpdatedMigrationEvent,
+} from '@app/tools/migration';
 import {
     ToolsMigrationCreatedAt,
     ToolsMigrationDeletedAt,
@@ -18,8 +22,7 @@ import {
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
-export class ToolsMigration extends AggregateRoot
-{
+export class ToolsMigration extends AggregateRoot {
     id: ToolsMigrationId;
     rowId: ToolsMigrationRowId;
     name: ToolsMigrationName;
@@ -48,8 +51,7 @@ export class ToolsMigration extends AggregateRoot
         createdAt: ToolsMigrationCreatedAt,
         updatedAt: ToolsMigrationUpdatedAt,
         deletedAt: ToolsMigrationDeletedAt,
-    )
-    {
+    ) {
         super();
         this.id = id;
         this.rowId = rowId;
@@ -80,8 +82,7 @@ export class ToolsMigration extends AggregateRoot
         createdAt: ToolsMigrationCreatedAt,
         updatedAt: ToolsMigrationUpdatedAt,
         deletedAt: ToolsMigrationDeletedAt,
-    ): ToolsMigration
-    {
+    ): ToolsMigration {
         return new ToolsMigration(
             id,
             rowId,
@@ -99,13 +100,7 @@ export class ToolsMigration extends AggregateRoot
         );
     }
 
-    created(
-        event: {
-            payload: ToolsMigration;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    created(event: { payload: ToolsMigration; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsCreatedMigrationEvent({
                 payload: {
@@ -127,13 +122,7 @@ export class ToolsMigration extends AggregateRoot
         );
     }
 
-    updated(
-        event: {
-            payload: ToolsMigration;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    updated(event: { payload: ToolsMigration; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsUpdatedMigrationEvent({
                 payload: {
@@ -155,13 +144,7 @@ export class ToolsMigration extends AggregateRoot
         );
     }
 
-    deleted(
-        event: {
-            payload: ToolsMigration;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    deleted(event: { payload: ToolsMigration; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsDeletedMigrationEvent({
                 payload: {
@@ -184,8 +167,7 @@ export class ToolsMigration extends AggregateRoot
         );
     }
 
-    toDTO(): LiteralObject
-    {
+    toDTO(): LiteralObject {
         return {
             id: this.id.value,
             rowId: this.rowId.value,
@@ -204,8 +186,7 @@ export class ToolsMigration extends AggregateRoot
     }
 
     // function called to get data for repository side effect methods
-    toRepository(): LiteralObject
-    {
+    toRepository(): LiteralObject {
         return {
             id: this.id.value,
             name: this.name.value,
