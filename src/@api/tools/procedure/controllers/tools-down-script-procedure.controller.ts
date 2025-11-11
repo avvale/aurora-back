@@ -12,15 +12,12 @@ export class ToolsDownScriptProcedureController {
     constructor(private readonly handler: ToolsDownScriptProcedureHandler) {}
 
     @Post()
-    @ApiOperation({summary: 'Defines the operation of this controller' })
+    @ApiOperation({ summary: 'Defines the operation of this controller' })
     @ApiCreatedResponse({
         description: 'Defines the action performed',
         type: Boolean,
     })
-    async main(
-        @Body() procedureId: string,
-        @Timezone() timezone?: string,
-    ) {
+    async main(@Body() procedureId: string, @Timezone() timezone?: string) {
         return await this.handler.main(procedureId, timezone);
     }
 }

@@ -107,8 +107,9 @@ import { ToolsDownScriptProcedureResolver } from './resolvers/tools-down-script-
 import { ToolsRunScriptsProcedureResolver } from './resolvers/tools-run-scripts-procedure.resolver';
 import { ToolsUpScriptProcedureResolver } from './resolvers/tools-up-script-procedure.resolver';
 
-// import shared services
+/* #region customizations */
 import { ToolsLoadProceduresService } from './shared/services/load-procedures.service';
+/* #endregion customizations */
 
 export const ToolsProcedureApiControllers = [
     ToolsCreateProcedureController,
@@ -169,5 +170,7 @@ export const ToolsProcedureApiHandlers = [
 
 export const ToolsProcedureApiServices = [
     ToolsProcedureSeeder,
+    /* #region customizations */
     ToolsLoadProceduresService,
+    /* #endregion customizations */
 ];

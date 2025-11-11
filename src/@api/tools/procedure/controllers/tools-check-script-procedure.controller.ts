@@ -17,10 +17,7 @@ export class ToolsCheckScriptProcedureController {
         description: 'Defines the action performed',
         type: Boolean,
     })
-    async main(
-        @Body() procedureId: string,
-        @Timezone() timezone?: string,
-    ) {
+    async main(@Body() procedureId: string, @Timezone() timezone?: string) {
         return await this.handler.main(procedureId, timezone);
     }
 }
