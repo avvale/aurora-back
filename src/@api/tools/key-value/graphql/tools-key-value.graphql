@@ -15,7 +15,7 @@ type ToolsKeyValue {
     rowId: GraphQLInt!
     key: GraphQLString!
     type: ToolsKeyValueType!
-    value: GraphQLString!
+    value: GraphQLString
     isActive: GraphQLBoolean!
     description: GraphQLString
     createdAt: GraphQLTimestamp
@@ -27,7 +27,7 @@ input ToolsCreateKeyValueInput {
     id: ID!
     key: GraphQLString!
     type: ToolsKeyValueType!
-    value: GraphQLString!
+    value: GraphQLString
     isActive: GraphQLBoolean!
     description: GraphQLString
 }

@@ -6,7 +6,7 @@ export class ToolsCreateKeyValuesCommand {
             id: string;
             key: string;
             type: string;
-            value: string;
+            value?: string;
             isActive: boolean;
             description?: string;
         }[],

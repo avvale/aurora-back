@@ -4,32 +4,26 @@ import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ClickUpService
-{
+export class ClickUpService {
     apiUrl = 'https://api.clickup.com';
     apiCreateTask = '/api/v2/list/:listId/task';
     apiGetTask = '/api/v2/task/:taskId';
     apiCreateTaskComment = '/api/v2/task/:taskId/comment';
     apiGetFolders = '/api/v2/space/:spaceId/folder';
 
-    constructor(
-        private readonly httpService: HttpService,
-    ) {}
+    constructor(private readonly httpService: HttpService) {}
 
-    getFolders(
-        spaceId: string,
-    ): Observable<any>
-    {
-        return this.httpService
-            .get(
-                `${this.apiUrl}${Str.replaceParams(this.apiGetFolders, { spaceId })}`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization : 'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
-                    },
+    getFolders(spaceId: string): Observable<any> {
+        return this.httpService.get(
+            `${this.apiUrl}${Str.replaceParams(this.apiGetFolders, { spaceId })}`,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization:
+                        'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
                 },
-            );
+            },
+        );
     }
 
     createTask(
@@ -40,20 +34,19 @@ export class ClickUpService
             status?: string;
             priority?: number;
         },
-    ): Observable<any>
-    {
-        return this.httpService
-            .post(
-                `${this.apiUrl}${Str.replaceParams(this.apiCreateTask, { listId })}`,
-                {
-                    ...task,
+    ): Observable<any> {
+        return this.httpService.post(
+            `${this.apiUrl}${Str.replaceParams(this.apiCreateTask, { listId })}`,
+            {
+                ...task,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization:
+                        'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
                 },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization : 'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
-                    },
-                },
-            );
+            },
+        );
     }
 }

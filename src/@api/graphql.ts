@@ -1558,7 +1558,7 @@ export interface ToolsCreateKeyValueInput {
     id: string;
     key: GraphQLString;
     type: ToolsKeyValueType;
-    value: GraphQLString;
+    value?: Nullable<GraphQLString>;
     isActive: GraphQLBoolean;
     description?: Nullable<GraphQLString>;
 }
@@ -2923,7 +2923,7 @@ export interface ToolsKeyValue {
     rowId: GraphQLInt;
     key: GraphQLString;
     type: ToolsKeyValueType;
-    value: GraphQLString;
+    value?: Nullable<GraphQLString>;
     isActive: GraphQLBoolean;
     description?: Nullable<GraphQLString>;
     createdAt?: Nullable<GraphQLTimestamp>;

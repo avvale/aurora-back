@@ -177,7 +177,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel> {
 
     @Column({
         field: 'value',
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.TEXT,
     })
     value: string;

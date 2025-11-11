@@ -152,22 +152,6 @@ describe('key-value', () => {
             });
     });
 
-    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueValue property can not to be null', () => {
-        return request(app.getHttpServer())
-            .post('/tools/key-value/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                value: null,
-            })
-            .expect(400)
-            .then((res) => {
-                expect(res.body.message).toContain(
-                    'Value for ToolsKeyValueValue must be defined, can not be null',
-                );
-            });
-    });
-
     test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueIsActive property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/tools/key-value/create')
@@ -244,22 +228,6 @@ describe('key-value', () => {
             .then((res) => {
                 expect(res.body.message).toContain(
                     'Value for ToolsKeyValueType must be defined, can not be undefined',
-                );
-            });
-    });
-
-    test('/REST:POST tools/key-value/create - Got 400 Conflict, KeyValueValue property can not to be undefined', () => {
-        return request(app.getHttpServer())
-            .post('/tools/key-value/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                value: undefined,
-            })
-            .expect(400)
-            .then((res) => {
-                expect(res.body.message).toContain(
-                    'Value for ToolsKeyValueValue must be defined, can not be undefined',
                 );
             });
     });

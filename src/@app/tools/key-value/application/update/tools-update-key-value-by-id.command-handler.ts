@@ -30,9 +30,7 @@ export class ToolsUpdateKeyValueByIdCommandHandler
                 type: new ToolsKeyValueType(command.payload.type, {
                     undefinable: true,
                 }),
-                value: new ToolsKeyValueValue(command.payload.value, {
-                    undefinable: true,
-                }),
+                value: new ToolsKeyValueValue(command.payload.value),
                 isActive: new ToolsKeyValueIsActive(command.payload.isActive, {
                     undefinable: true,
                 }),

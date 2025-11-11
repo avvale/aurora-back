@@ -31,7 +31,7 @@ export class ToolsKeyValueDto {
         type: String,
         description: 'value [input here api field description]',
     })
-    value: string;
+    value?: string;
 
     @ApiProperty({
         type: Boolean,

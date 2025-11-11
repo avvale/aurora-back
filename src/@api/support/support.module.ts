@@ -1,24 +1,29 @@
+import {
+    SupportHandlers,
+    SupportModels,
+    SupportRepositories,
+    SupportSagas,
+    SupportServices,
+} from '@app/support';
+import { SharedModule } from '@aurora/shared.module';
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { SharedModule } from '@aurora/shared.module';
+import {
+    SupportIssueApiControllers,
+    SupportIssueApiHandlers,
+    SupportIssueApiResolvers,
+    SupportIssueApiServices,
+} from './issue';
+import { ClickUpService, SupportConfigService } from './shared';
 import { SupportSeeder } from './support.seeder';
-import { SupportModels, SupportHandlers, SupportServices, SupportRepositories, SupportSagas } from '@app/support';
-import { SupportIssueApiControllers, SupportIssueApiResolvers, SupportIssueApiHandlers, SupportIssueApiServices } from './issue';
-import { ClickUpService } from './shared';
 
 @Module({
-    imports: [
-        SharedModule,
-        SequelizeModule.forFeature([
-            ...SupportModels,
-        ]),
-    ],
-    controllers: [
-        ...SupportIssueApiControllers,
-    ],
+    imports: [SharedModule, SequelizeModule.forFeature([...SupportModels])],
+    controllers: [...SupportIssueApiControllers],
     providers: [
         /* #region customizations */
         ClickUpService,
+        SupportConfigService,
         /* #endregion customizations */
 
         SupportSeeder,
