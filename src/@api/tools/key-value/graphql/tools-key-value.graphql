@@ -10,9 +10,7 @@ enum ToolsKeyValueType {
     TIMESTAMP
 }
 
-
-type ToolsKeyValue
-{
+type ToolsKeyValue {
     id: ID!
     rowId: GraphQLInt!
     key: GraphQLString!
@@ -25,8 +23,7 @@ type ToolsKeyValue
     deletedAt: GraphQLTimestamp
 }
 
-input ToolsCreateKeyValueInput
-{
+input ToolsCreateKeyValueInput {
     id: ID!
     key: GraphQLString!
     type: ToolsKeyValueType!
@@ -35,8 +32,7 @@ input ToolsCreateKeyValueInput
     description: GraphQLString
 }
 
-input ToolsUpdateKeyValueByIdInput
-{
+input ToolsUpdateKeyValueByIdInput {
     id: ID!
     key: GraphQLString
     type: ToolsKeyValueType
@@ -45,8 +41,7 @@ input ToolsUpdateKeyValueByIdInput
     description: GraphQLString
 }
 
-input ToolsUpdateKeyValuesInput
-{
+input ToolsUpdateKeyValuesInput {
     id: ID
     key: GraphQLString
     type: ToolsKeyValueType
@@ -55,17 +50,13 @@ input ToolsUpdateKeyValuesInput
     description: GraphQLString
 }
 
-type Query
-{
+type Query {
     toolsFindKeyValue(
         query: QueryStatement
         constraint: QueryStatement
     ): ToolsKeyValue
 
-    toolsFindKeyValueById(
-        id: ID
-        constraint: QueryStatement
-    ): ToolsKeyValue
+    toolsFindKeyValueById(id: ID, constraint: QueryStatement): ToolsKeyValue
 
     toolsGetKeyValues(
         query: QueryStatement
@@ -76,38 +67,22 @@ type Query
         query: QueryStatement
         constraint: QueryStatement
     ): Pagination!
-
 }
 
-type Mutation
-{
-    toolsCreateKeyValue(
-        payload: ToolsCreateKeyValueInput!
-    ): ToolsKeyValue
+type Mutation {
+    toolsCreateKeyValue(payload: ToolsCreateKeyValueInput!): ToolsKeyValue
 
-    toolsCreateKeyValues(
-        payload: [ToolsCreateKeyValueInput]!
-    ): Boolean!
+    toolsCreateKeyValues(payload: [ToolsCreateKeyValueInput]!): Boolean!
 
     toolsUpdateKeyValueById(
         payload: ToolsUpdateKeyValueByIdInput!
         constraint: QueryStatement
     ): ToolsKeyValue
 
-    toolsUpdateKeyValues(
-        payload: ToolsUpdateKeyValuesInput!
-        query: QueryStatement
-        constraint: QueryStatement
-    ): [ToolsKeyValue]!
-
-    toolsDeleteKeyValueById(
-        id: ID!
-        constraint: QueryStatement
-    ): ToolsKeyValue
+    toolsDeleteKeyValueById(id: ID!, constraint: QueryStatement): ToolsKeyValue
 
     toolsDeleteKeyValues(
         query: QueryStatement
         constraint: QueryStatement
     ): [ToolsKeyValue]!
-
 }

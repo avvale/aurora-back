@@ -2235,7 +2235,6 @@ export interface IMutation {
     toolsCreateKeyValue(payload: ToolsCreateKeyValueInput): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsCreateKeyValues(payload: Nullable<ToolsCreateKeyValueInput>[]): boolean | Promise<boolean>;
     toolsUpdateKeyValueById(payload: ToolsUpdateKeyValueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
-    toolsUpdateKeyValues(payload: ToolsUpdateKeyValuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
     toolsDeleteKeyValueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsDeleteKeyValues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue>[] | Promise<Nullable<ToolsKeyValue>[]>;
     toolsCreateMigration(payload: ToolsCreateMigrationInput): Nullable<ToolsMigration> | Promise<Nullable<ToolsMigration>>;

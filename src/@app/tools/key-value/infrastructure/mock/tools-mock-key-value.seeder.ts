@@ -16,22 +16,18 @@ import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()
-export class ToolsMockKeyValueSeeder extends MockSeeder<ToolsKeyValue>
-{
+export class ToolsMockKeyValueSeeder extends MockSeeder<ToolsKeyValue> {
     public collectionSource: ToolsKeyValue[];
 
-    constructor()
-    {
+    constructor() {
         super();
         this._createMock();
     }
 
-    private _createMock(): void
-    {
+    private _createMock(): void {
         this.collectionSource = [];
 
-        for (const keyValue of _.orderBy(toolsMockKeyValueData, ['id']))
-        {
+        for (const keyValue of _.orderBy(toolsMockKeyValueData, ['id'])) {
             this.collectionSource.push(
                 ToolsKeyValue.register(
                     new ToolsKeyValueId(keyValue.id),

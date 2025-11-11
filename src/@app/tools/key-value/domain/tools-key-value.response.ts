@@ -1,6 +1,4 @@
-
-export class ToolsKeyValueResponse
-{
+export class ToolsKeyValueResponse {
     constructor(
         public readonly id: string,
         public readonly rowId: number,

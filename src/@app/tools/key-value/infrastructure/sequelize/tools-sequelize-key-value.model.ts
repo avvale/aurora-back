@@ -1,29 +1,43 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
-import { AuditingSideEffectEvent, SequelizeAuditingAgent } from '@aurorajs.dev/core';
+import {
+    AuditingSideEffectEvent,
+    SequelizeAuditingAgent,
+} from '@aurorajs.dev/core';
 import { DataTypes } from 'sequelize';
-import { AfterBulkCreate, AfterBulkDestroy, AfterBulkRestore, AfterBulkUpdate, AfterCreate, AfterDestroy, AfterRestore, AfterUpdate, AfterUpsert, Column, ForeignKey, Model, Table } from 'sequelize-typescript';
+import {
+    AfterBulkCreate,
+    AfterBulkDestroy,
+    AfterBulkRestore,
+    AfterBulkUpdate,
+    AfterCreate,
+    AfterDestroy,
+    AfterRestore,
+    AfterUpdate,
+    AfterUpsert,
+    Column,
+    Model,
+    Table,
+} from 'sequelize-typescript';
 
 @Table({
     modelName: 'ToolsKeyValue',
     freezeTableName: true,
     timestamps: false,
     indexes: [
-		{
-			fields: ['rowId'],
-			unique: true,
-		},
-		{
-			fields: ['key'],
-			unique: true,
-		},
+        {
+            fields: ['rowId'],
+            unique: true,
+        },
+        {
+            fields: ['key'],
+            unique: true,
+        },
     ],
 })
-export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
-{
+export class ToolsKeyValueModel extends Model<ToolsKeyValueModel> {
     @AfterCreate
-    static auditingCreate(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingCreate(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -34,8 +48,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterBulkCreate
-    static auditingBulkCreate(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingBulkCreate(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -46,8 +59,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterUpdate
-    static auditingUpdate(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingUpdate(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -58,8 +70,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterBulkUpdate
-    static auditingBulkUpdate(options): void
-    {
+    static auditingBulkUpdate(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -70,8 +81,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterDestroy
-    static auditingDestroy(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingDestroy(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -82,8 +92,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterBulkDestroy
-    static auditingBulkDestroy(options): void
-    {
+    static auditingBulkDestroy(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -94,8 +103,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterRestore
-    static auditingRestore(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingRestore(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -106,8 +114,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterBulkRestore
-    static auditingBulkRestore(options): void
-    {
+    static auditingBulkRestore(options): void {
         SequelizeAuditingAgent.registerSideEffect(
             null,
             options,
@@ -118,8 +125,7 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     }
 
     @AfterUpsert
-    static auditingUpsert(instance: ToolsKeyValueModel, options): void
-    {
+    static auditingUpsert(instance: ToolsKeyValueModel, options): void {
         SequelizeAuditingAgent.registerSideEffect(
             instance,
             options,
@@ -155,7 +161,17 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
     @Column({
         field: 'type',
         allowNull: false,
-        type: DataTypes.ENUM('ARRAY','BOOLEAN','DATE','NUMBER','OBJECT','SECRET','STRING','TIME','TIMESTAMP'),
+        type: DataTypes.ENUM(
+            'ARRAY',
+            'BOOLEAN',
+            'DATE',
+            'NUMBER',
+            'OBJECT',
+            'SECRET',
+            'STRING',
+            'TIME',
+            'TIMESTAMP',
+        ),
     })
     type: string;
 
@@ -201,5 +217,4 @@ export class ToolsKeyValueModel extends Model<ToolsKeyValueModel>
         type: DataTypes.DATE,
     })
     deletedAt: string;
-
 }

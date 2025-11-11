@@ -65,5 +65,6 @@ excludedOperations:
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

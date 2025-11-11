@@ -1,7 +1,6 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class ToolsDeletedKeyValueEvent
-{
+export class ToolsDeletedKeyValueEvent {
     constructor(
         public readonly event: {
             payload: {

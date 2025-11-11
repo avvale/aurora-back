@@ -1,5 +1,9 @@
 /* eslint-disable key-spacing */
-import { ToolsCreatedKeyValueEvent, ToolsDeletedKeyValueEvent, ToolsUpdatedKeyValueEvent } from '@app/tools/key-value';
+import {
+    ToolsCreatedKeyValueEvent,
+    ToolsDeletedKeyValueEvent,
+    ToolsUpdatedKeyValueEvent,
+} from '@app/tools/key-value';
 import {
     ToolsKeyValueCreatedAt,
     ToolsKeyValueDeletedAt,
@@ -15,8 +19,7 @@ import {
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
-export class ToolsKeyValue extends AggregateRoot
-{
+export class ToolsKeyValue extends AggregateRoot {
     id: ToolsKeyValueId;
     rowId: ToolsKeyValueRowId;
     key: ToolsKeyValueKey;
@@ -39,8 +42,7 @@ export class ToolsKeyValue extends AggregateRoot
         createdAt: ToolsKeyValueCreatedAt,
         updatedAt: ToolsKeyValueUpdatedAt,
         deletedAt: ToolsKeyValueDeletedAt,
-    )
-    {
+    ) {
         super();
         this.id = id;
         this.rowId = rowId;
@@ -65,8 +67,7 @@ export class ToolsKeyValue extends AggregateRoot
         createdAt: ToolsKeyValueCreatedAt,
         updatedAt: ToolsKeyValueUpdatedAt,
         deletedAt: ToolsKeyValueDeletedAt,
-    ): ToolsKeyValue
-    {
+    ): ToolsKeyValue {
         return new ToolsKeyValue(
             id,
             rowId,
@@ -81,13 +82,7 @@ export class ToolsKeyValue extends AggregateRoot
         );
     }
 
-    created(
-        event: {
-            payload: ToolsKeyValue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    created(event: { payload: ToolsKeyValue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsCreatedKeyValueEvent({
                 payload: {
@@ -106,13 +101,7 @@ export class ToolsKeyValue extends AggregateRoot
         );
     }
 
-    updated(
-        event: {
-            payload: ToolsKeyValue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    updated(event: { payload: ToolsKeyValue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsUpdatedKeyValueEvent({
                 payload: {
@@ -131,13 +120,7 @@ export class ToolsKeyValue extends AggregateRoot
         );
     }
 
-    deleted(
-        event: {
-            payload: ToolsKeyValue;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    deleted(event: { payload: ToolsKeyValue; cQMetadata?: CQMetadata }): void {
         this.apply(
             new ToolsDeletedKeyValueEvent({
                 payload: {
@@ -157,8 +140,7 @@ export class ToolsKeyValue extends AggregateRoot
         );
     }
 
-    toDTO(): LiteralObject
-    {
+    toDTO(): LiteralObject {
         return {
             id: this.id.value,
             rowId: this.rowId.value,
@@ -174,8 +156,7 @@ export class ToolsKeyValue extends AggregateRoot
     }
 
     // function called to get data for repository side effect methods
-    toRepository(): LiteralObject
-    {
+    toRepository(): LiteralObject {
         return {
             id: this.id.value,
             key: this.key.value,
