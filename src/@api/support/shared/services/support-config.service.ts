@@ -5,7 +5,9 @@ import {
     ToolsKeyValueResponse,
 } from '@app/tools/key-value';
 import { ICommandBus, IQueryBus, Operator, uuid } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Inject, Injectable } from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import {
     SUPPORT_TASK_PLATFORM_API_KEY,
     SUPPORT_TASK_PLATFORM_LIST_ID,
@@ -16,6 +18,7 @@ export class SupportConfigService {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
+        @Inject(CACHE_MANAGER) private cacheManager: Cache,
     ) {}
 
     async onApplicationBootstrap(): Promise<void> {
@@ -35,11 +38,16 @@ export class SupportConfigService {
             }),
         );
 
-        if (
-            !supportConfigValues.find(
-                (value) => value.key === SUPPORT_TASK_PLATFORM_API_KEY,
-            )
-        ) {
+        const supportTaskPlatformApiKey = supportConfigValues.find(
+            (value) => value.key === SUPPORT_TASK_PLATFORM_API_KEY,
+        );
+
+        if (supportTaskPlatformApiKey) {
+            await this.cacheManager.set(
+                SUPPORT_TASK_PLATFORM_API_KEY,
+                supportTaskPlatformApiKey.value,
+            );
+        } else {
             void this.commandBus.dispatch(
                 new ToolsCreateKeyValueCommand({
                     id: uuid(),
@@ -53,11 +61,16 @@ export class SupportConfigService {
             );
         }
 
-        if (
-            !supportConfigValues.find(
-                (value) => value.key === SUPPORT_TASK_PLATFORM_LIST_ID,
-            )
-        ) {
+        const supportTaskPlatformListId = supportConfigValues.find(
+            (value) => value.key === SUPPORT_TASK_PLATFORM_LIST_ID,
+        );
+
+        if (supportTaskPlatformListId) {
+            await this.cacheManager.set(
+                SUPPORT_TASK_PLATFORM_LIST_ID,
+                supportTaskPlatformListId.value,
+            );
+        } else {
             void this.commandBus.dispatch(
                 new ToolsCreateKeyValueCommand({
                     id: uuid(),

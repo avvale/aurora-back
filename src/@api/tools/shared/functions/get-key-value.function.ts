@@ -14,7 +14,7 @@ export const getKeyValue = async <
 
     switch (keyValue.type) {
         case ToolsKeyValueType.STRING:
-            return keyValue.value;
+            return keyValue.value as T;
 
         case ToolsKeyValueType.BOOLEAN:
             return (keyValue.value === 'true') as T;
@@ -24,6 +24,6 @@ export const getKeyValue = async <
 
         case ToolsKeyValueType.ARRAY:
         case ToolsKeyValueType.OBJECT:
-            return JSON.parse(keyValue.value);
+            return JSON.parse(keyValue.value) as T;
     }
 };
