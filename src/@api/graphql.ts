@@ -1559,6 +1559,7 @@ export interface ToolsCreateKeyValueInput {
     key: GraphQLString;
     type: ToolsKeyValueType;
     value?: Nullable<GraphQLString>;
+    isCached: GraphQLBoolean;
     isActive: GraphQLBoolean;
     description?: Nullable<GraphQLString>;
 }
@@ -1568,6 +1569,7 @@ export interface ToolsUpdateKeyValueByIdInput {
     key?: Nullable<GraphQLString>;
     type?: Nullable<ToolsKeyValueType>;
     value?: Nullable<GraphQLString>;
+    isCached?: Nullable<GraphQLBoolean>;
     isActive?: Nullable<GraphQLBoolean>;
     description?: Nullable<GraphQLString>;
 }
@@ -1577,6 +1579,7 @@ export interface ToolsUpdateKeyValuesInput {
     key?: Nullable<GraphQLString>;
     type?: Nullable<ToolsKeyValueType>;
     value?: Nullable<GraphQLString>;
+    isCached?: Nullable<GraphQLBoolean>;
     isActive?: Nullable<GraphQLBoolean>;
     description?: Nullable<GraphQLString>;
 }
@@ -2924,6 +2927,7 @@ export interface ToolsKeyValue {
     key: GraphQLString;
     type: ToolsKeyValueType;
     value?: Nullable<GraphQLString>;
+    isCached: GraphQLBoolean;
     isActive: GraphQLBoolean;
     description?: Nullable<GraphQLString>;
     createdAt?: Nullable<GraphQLTimestamp>;

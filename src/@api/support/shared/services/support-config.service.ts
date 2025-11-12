@@ -1,8 +1,10 @@
+import { ToolsKeyValueType } from '@api/graphql';
 import {
+    ToolsCreateKeyValueCommand,
     ToolsGetKeyValuesQuery,
     ToolsKeyValueResponse,
 } from '@app/tools/key-value';
-import { ICommandBus, IQueryBus, Operator } from '@aurorajs.dev/core';
+import { ICommandBus, IQueryBus, Operator, uuid } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import {
     SUPPORT_TASK_PLATFORM_API_KEY,
@@ -32,20 +34,19 @@ export class SupportConfigService {
                 },
             }),
         );
-        /*
+
         if (
             !supportConfigValues.find(
-                (value) =>
-                    value.key ===
-                    (SupportConfigKey.SUPPORT_TASK_PLATFORM_API_KEY as unknown as typeof value.key),
+                (value) => value.key === SUPPORT_TASK_PLATFORM_API_KEY,
             )
         ) {
-            await this.commandBus.dispatch(
+            void this.commandBus.dispatch(
                 new ToolsCreateKeyValueCommand({
                     id: uuid(),
-                    key: SupportConfigKey.SUPPORT_TASK_PLATFORM_API_KEY as string,
-                    type: ToolsKeyValueType.STRING,
-                    value: '<API_KEY>',
+                    key: SUPPORT_TASK_PLATFORM_API_KEY as string,
+                    type: ToolsKeyValueType.SECRET,
+                    value: null,
+                    isCached: true,
                     isActive: true,
                     description: 'API key for the support task platform',
                 }),
@@ -54,21 +55,20 @@ export class SupportConfigService {
 
         if (
             !supportConfigValues.find(
-                (value) =>
-                    value.key ===
-                    (SupportConfigKey.SUPPORT_TASK_PLATFORM_LIST_ID as unknown as typeof value.key),
+                (value) => value.key === SUPPORT_TASK_PLATFORM_LIST_ID,
             )
         ) {
-            await this.commandBus.dispatch(
+            void this.commandBus.dispatch(
                 new ToolsCreateKeyValueCommand({
                     id: uuid(),
-                    key: SupportConfigKey.SUPPORT_TASK_PLATFORM_LIST_ID as string,
+                    key: SUPPORT_TASK_PLATFORM_LIST_ID,
                     type: ToolsKeyValueType.STRING,
-                    value: '<LIST_ID>',
+                    value: null,
+                    isCached: true,
                     isActive: true,
                     description: 'List ID for the support task platform',
                 }),
             );
-        }*/
+        }
     }
 }

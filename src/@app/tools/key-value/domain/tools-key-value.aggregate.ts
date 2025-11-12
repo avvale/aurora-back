@@ -10,6 +10,7 @@ import {
     ToolsKeyValueDescription,
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
+    ToolsKeyValueIsCached,
     ToolsKeyValueKey,
     ToolsKeyValueRowId,
     ToolsKeyValueType,
@@ -25,6 +26,7 @@ export class ToolsKeyValue extends AggregateRoot {
     key: ToolsKeyValueKey;
     type: ToolsKeyValueType;
     value: ToolsKeyValueValue;
+    isCached: ToolsKeyValueIsCached;
     isActive: ToolsKeyValueIsActive;
     description: ToolsKeyValueDescription;
     createdAt: ToolsKeyValueCreatedAt;
@@ -37,6 +39,7 @@ export class ToolsKeyValue extends AggregateRoot {
         key: ToolsKeyValueKey,
         type: ToolsKeyValueType,
         value: ToolsKeyValueValue,
+        isCached: ToolsKeyValueIsCached,
         isActive: ToolsKeyValueIsActive,
         description: ToolsKeyValueDescription,
         createdAt: ToolsKeyValueCreatedAt,
@@ -49,6 +52,7 @@ export class ToolsKeyValue extends AggregateRoot {
         this.key = key;
         this.type = type;
         this.value = value;
+        this.isCached = isCached;
         this.isActive = isActive;
         this.description = description;
         this.createdAt = createdAt;
@@ -62,6 +66,7 @@ export class ToolsKeyValue extends AggregateRoot {
         key: ToolsKeyValueKey,
         type: ToolsKeyValueType,
         value: ToolsKeyValueValue,
+        isCached: ToolsKeyValueIsCached,
         isActive: ToolsKeyValueIsActive,
         description: ToolsKeyValueDescription,
         createdAt: ToolsKeyValueCreatedAt,
@@ -74,6 +79,7 @@ export class ToolsKeyValue extends AggregateRoot {
             key,
             type,
             value,
+            isCached,
             isActive,
             description,
             createdAt,
@@ -90,6 +96,7 @@ export class ToolsKeyValue extends AggregateRoot {
                     key: event.payload.key.value,
                     type: event.payload.type.value,
                     value: event.payload.value?.value,
+                    isCached: event.payload.isCached.value,
                     isActive: event.payload.isActive.value,
                     description: event.payload.description?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -109,6 +116,7 @@ export class ToolsKeyValue extends AggregateRoot {
                     key: event.payload.key?.value,
                     type: event.payload.type?.value,
                     value: event.payload.value?.value,
+                    isCached: event.payload.isCached?.value,
                     isActive: event.payload.isActive?.value,
                     description: event.payload.description?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -129,6 +137,7 @@ export class ToolsKeyValue extends AggregateRoot {
                     key: event.payload.key.value,
                     type: event.payload.type.value,
                     value: event.payload.value?.value,
+                    isCached: event.payload.isCached.value,
                     isActive: event.payload.isActive.value,
                     description: event.payload.description?.value,
                     createdAt: event.payload.createdAt?.value,
@@ -147,6 +156,7 @@ export class ToolsKeyValue extends AggregateRoot {
             key: this.key.value,
             type: this.type.value,
             value: this.value?.value,
+            isCached: this.isCached.value,
             isActive: this.isActive.value,
             description: this.description?.value,
             createdAt: this.createdAt?.value,
@@ -162,6 +172,7 @@ export class ToolsKeyValue extends AggregateRoot {
             key: this.key.value,
             type: this.type.value,
             value: this.value?.value,
+            isCached: this.isCached.value,
             isActive: this.isActive.value,
             description: this.description?.value,
             createdAt: this.createdAt?.value,

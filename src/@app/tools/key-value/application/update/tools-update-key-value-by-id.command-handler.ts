@@ -5,6 +5,7 @@ import {
     ToolsKeyValueDescription,
     ToolsKeyValueId,
     ToolsKeyValueIsActive,
+    ToolsKeyValueIsCached,
     ToolsKeyValueKey,
     ToolsKeyValueType,
     ToolsKeyValueValue,
@@ -31,6 +32,9 @@ export class ToolsUpdateKeyValueByIdCommandHandler
                     undefinable: true,
                 }),
                 value: new ToolsKeyValueValue(command.payload.value),
+                isCached: new ToolsKeyValueIsCached(command.payload.isCached, {
+                    undefinable: true,
+                }),
                 isActive: new ToolsKeyValueIsActive(command.payload.isActive, {
                     undefinable: true,
                 }),
