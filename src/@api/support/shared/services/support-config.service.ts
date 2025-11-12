@@ -11,14 +11,14 @@ import { Cache } from 'cache-manager';
 import {
     SUPPORT_TASK_PLATFORM_API_KEY,
     SUPPORT_TASK_PLATFORM_LIST_ID,
-} from './support.constants';
+} from '../support.constants';
 
 @Injectable()
 export class SupportConfigService {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
-        @Inject(CACHE_MANAGER) private cacheManager: Cache,
+        @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
     ) {}
 
     async onApplicationBootstrap(): Promise<void> {

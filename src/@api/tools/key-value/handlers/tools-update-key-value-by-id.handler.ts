@@ -23,7 +23,7 @@ export class ToolsUpdateKeyValueByIdHandler {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
-        @Inject(CACHE_MANAGER) private cacheManager: Cache,
+        @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
     ) {}
 
     async main(

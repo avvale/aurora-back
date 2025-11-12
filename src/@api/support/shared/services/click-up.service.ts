@@ -13,14 +13,16 @@ export class ClickUpService {
 
     constructor(private readonly httpService: HttpService) {}
 
-    getFolders(spaceId: string): Observable<any> {
+    getFolders(
+        spaceId: string,
+        options: { authorization: string },
+    ): Observable<any> {
         return this.httpService.get(
             `${this.apiUrl}${Str.replaceParams(this.apiGetFolders, { spaceId })}`,
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization:
-                        'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
+                    Authorization: options.authorization,
                 },
             },
         );
@@ -34,6 +36,7 @@ export class ClickUpService {
             status?: string;
             priority?: number;
         },
+        options: { authorization: string },
     ): Observable<any> {
         return this.httpService.post(
             `${this.apiUrl}${Str.replaceParams(this.apiCreateTask, { listId })}`,
@@ -43,8 +46,7 @@ export class ClickUpService {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization:
-                        'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
+                    Authorization: options.authorization,
                 },
             },
         );
