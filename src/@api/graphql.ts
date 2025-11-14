@@ -1785,6 +1785,7 @@ export interface QueryStatement {
 
 export interface AuditingHttpCommunication {
     id: string;
+    rowId: GraphQLInt;
     tags?: Nullable<Nullable<GraphQLString>[]>;
     event: AuditingHttpCommunicationEvent;
     status?: Nullable<GraphQLInt>;
@@ -1999,14 +2000,12 @@ export interface IMutation {
     auditingCreateHttpCommunications(payload: Nullable<AuditingCreateHttpCommunicationInput>[]): boolean | Promise<boolean>;
     auditingUpdateHttpCommunicationById(payload: AuditingUpdateHttpCommunicationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<AuditingHttpCommunication> | Promise<Nullable<AuditingHttpCommunication>>;
     auditingUpdateHttpCommunications(payload: AuditingUpdateHttpCommunicationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingHttpCommunication>[] | Promise<Nullable<AuditingHttpCommunication>[]>;
-    auditingUpsertHttpCommunication(payload: AuditingUpdateHttpCommunicationByIdInput): Nullable<AuditingHttpCommunication> | Promise<Nullable<AuditingHttpCommunication>>;
     auditingDeleteHttpCommunicationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingHttpCommunication> | Promise<Nullable<AuditingHttpCommunication>>;
     auditingDeleteHttpCommunications(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingHttpCommunication>[] | Promise<Nullable<AuditingHttpCommunication>[]>;
     auditingCreateSideEffect(payload: AuditingCreateSideEffectInput): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingCreateSideEffects(payload: Nullable<AuditingCreateSideEffectInput>[]): boolean | Promise<boolean>;
     auditingUpdateSideEffectById(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingUpdateSideEffects(payload: AuditingUpdateSideEffectsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
-    auditingUpsertSideEffect(payload: AuditingUpdateSideEffectByIdInput): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffectById(id: string, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect> | Promise<Nullable<AuditingSideEffect>>;
     auditingDeleteSideEffects(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<AuditingSideEffect>[] | Promise<Nullable<AuditingSideEffect>[]>;
     auditingRollbackSideEffect(payload: AuditingUpdateSideEffectByIdInput, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
@@ -2273,6 +2272,7 @@ export interface IMutation {
 
 export interface AuditingSideEffect {
     id: string;
+    rowId: GraphQLInt;
     tags?: Nullable<Nullable<GraphQLString>[]>;
     modelPath: GraphQLString;
     modelName: GraphQLString;
