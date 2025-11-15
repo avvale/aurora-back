@@ -16,10 +16,13 @@ import {
 } from './issue';
 import { ClickUpService, SupportConfigService } from './shared';
 import { SupportSeeder } from './support.seeder';
+import { SupportConfigApiControllers, SupportConfigApiResolvers, SupportConfigApiHandlers, SupportConfigApiServices } from './config';
 
 @Module({
     imports: [SharedModule, SequelizeModule.forFeature([...SupportModels])],
-    controllers: [...SupportIssueApiControllers],
+    controllers: [...SupportIssueApiControllers,
+        ...SupportConfigApiControllers
+    ],
     providers: [
         /* #region customizations */
         ClickUpService,
@@ -34,6 +37,9 @@ import { SupportSeeder } from './support.seeder';
         ...SupportIssueApiResolvers,
         ...SupportIssueApiHandlers,
         ...SupportIssueApiServices,
+        ...SupportConfigApiResolvers,
+        ...SupportConfigApiHandlers,
+        ...SupportConfigApiServices
     ],
 })
 export class SupportModule {}

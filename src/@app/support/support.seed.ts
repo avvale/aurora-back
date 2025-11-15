@@ -1,21 +1,93 @@
 // ignored file
 export const boundedContexts = [
     {
-        id      : 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
-        name    : 'Support',
-        root    : 'support',
-        sort    : 0,
+        id: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        name: 'Support',
+        root: 'support',
+        sort: 0,
         isActive: true,
     },
 ];
 
 export const permissions = [
-    { id: '8eb1aa0e-0c79-4dc1-84e2-041f3ee3fbb4',  name: 'support.access',          boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
+    /* {
+        id: '8eb1aa0e-0c79-4dc1-84e2-041f3ee3fbb4',
+        name: 'support.access',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
 
-    { id: 'e6290c6c-cd15-49a5-a1b7-622d1e095af1',  name: 'support.issue.access',    boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
-    { id: '9f109b44-6877-4b6e-a86a-52270eaba115',  name: 'support.issue.get',       boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
-    { id: '6a1d1b8e-81c8-46fe-928d-41729940fc04',  name: 'support.issue.create',    boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
-    { id: 'd73aadf5-f150-4176-8189-8b23aedde2cb',  name: 'support.issue.update',    boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
-    { id: 'd57057e4-d61d-4cfe-8d9b-c2c59bf011df',  name: 'support.issue.upsert',    boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
-    { id: 'c9d49aca-1127-4c5c-9cd4-6067bc2152fa',  name: 'support.issue.delete',    boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d', roleIds: []},
+    {
+        id: 'e6290c6c-cd15-49a5-a1b7-622d1e095af1',
+        name: 'support.issue.access',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '9f109b44-6877-4b6e-a86a-52270eaba115',
+        name: 'support.issue.get',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '6a1d1b8e-81c8-46fe-928d-41729940fc04',
+        name: 'support.issue.create',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'd73aadf5-f150-4176-8189-8b23aedde2cb',
+        name: 'support.issue.update',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'd57057e4-d61d-4cfe-8d9b-c2c59bf011df',
+        name: 'support.issue.upsert',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'c9d49aca-1127-4c5c-9cd4-6067bc2152fa',
+        name: 'support.issue.delete',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+ */
+    {
+        id: 'ca56da38-77ef-4993-a74f-f9d950d4b174',
+        name: 'support.config.access',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '755053c5-0da4-4261-8d76-eaea0e95e6fe',
+        name: 'support.config.get',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '39524d51-9a5a-4d3f-902d-680ec1fd4485',
+        name: 'support.config.create',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'bfe3d3cc-bc65-4702-b89c-b5c7008d763f',
+        name: 'support.config.update',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '178e3b87-aec8-4e0a-8865-5b801b1a86f1',
+        name: 'support.config.upsert',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '05ce00c2-c2a8-4653-b837-57c95b05acc8',
+        name: 'support.config.delete',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
 ];

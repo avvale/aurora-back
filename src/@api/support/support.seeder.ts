@@ -1,6 +1,7 @@
+import { IamCreatePermissionsCommand } from '@app/iam/permission';
+import { permissions } from '@app/support/support.seed';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
-// import { IamCreatePermissionsCommand } from '@app/iam/permission';
 // import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
 
 @Injectable()
@@ -12,7 +13,11 @@ export class SupportSeeder {
 
     async main(): Promise<boolean> {
         // await this.commandBus.dispatch(new IamCreateBoundedContextsCommand(boundedContexts, { timezone: process.env.TZ }));
-        // await this.commandBus.dispatch(new IamCreatePermissionsCommand(permissions, { timezone: process.env.TZ }));
+        await this.commandBus.dispatch(
+            new IamCreatePermissionsCommand(permissions, {
+                timezone: process.env.TZ,
+            }),
+        );
 
         return true;
     }

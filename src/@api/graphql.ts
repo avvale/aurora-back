@@ -1506,6 +1506,24 @@ export interface StorageAccountFileManagerFileUploadedInput {
     meta?: Nullable<JSON>;
 }
 
+export interface SupportCreateConfigInput {
+    id: string;
+    apiKey?: Nullable<GraphQLString>;
+    listId?: Nullable<GraphQLString>;
+}
+
+export interface SupportUpdateConfigByIdInput {
+    id: string;
+    apiKey?: Nullable<GraphQLString>;
+    listId?: Nullable<GraphQLString>;
+}
+
+export interface SupportUpdateConfigsInput {
+    id?: Nullable<string>;
+    apiKey?: Nullable<GraphQLString>;
+    listId?: Nullable<GraphQLString>;
+}
+
 export interface SupportCreateIssueInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
@@ -1960,6 +1978,11 @@ export interface IQuery {
     searchEnginePaginateFields(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     storageAccountGetBase64FileFileManager(file: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerBase64> | Promise<Nullable<StorageAccountFileManagerBase64>>;
     storageAccountGetBase64FilesFileManager(files: StorageAccountFileManagerFileInput[]): Nullable<Nullable<StorageAccountFileManagerBase64>[]> | Promise<Nullable<Nullable<StorageAccountFileManagerBase64>[]>>;
+    supportFindConfig(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig> | Promise<Nullable<SupportConfig>>;
+    supportFindConfigById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig> | Promise<Nullable<SupportConfig>>;
+    supportGetConfigs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig>[] | Promise<Nullable<SupportConfig>[]>;
+    supportPaginateConfigs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    supportListConfig(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig>[] | Promise<Nullable<SupportConfig>[]>;
     supportFindIssue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportFindIssueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportGetIssues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue>[] | Promise<Nullable<SupportIssue>[]>;
@@ -2229,6 +2252,9 @@ export interface IMutation {
     storageAccountCopyFileManager(src: StorageAccountFileManagerFileInput, dest: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFileFileManager(file: StorageAccountFileManagerFileUploadedInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFilesFileManager(files: StorageAccountFileManagerFileUploadedInput[]): Nullable<StorageAccountFileManagerFile>[] | Promise<Nullable<StorageAccountFileManagerFile>[]>;
+    supportCreateConfig(payload: SupportCreateConfigInput): Nullable<SupportConfig> | Promise<Nullable<SupportConfig>>;
+    supportUpdateConfigById(payload: SupportUpdateConfigByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig> | Promise<Nullable<SupportConfig>>;
+    supportDeleteConfigById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportConfig> | Promise<Nullable<SupportConfig>>;
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
@@ -2898,6 +2924,16 @@ export interface StorageAccountFileManagerLibraryFile {
     size: GraphQLInt;
     url: GraphQLString;
     meta?: Nullable<JSON>;
+}
+
+export interface SupportConfig {
+    id: string;
+    rowId: GraphQLInt;
+    apiKey?: Nullable<GraphQLString>;
+    listId?: Nullable<GraphQLString>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
 export interface SupportIssue {

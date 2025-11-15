@@ -1,0 +1,63 @@
+type SupportConfig {
+    id: ID!
+    rowId: GraphQLInt!
+    apiKey: GraphQLString
+    listId: GraphQLString
+    createdAt: GraphQLTimestamp
+    updatedAt: GraphQLTimestamp
+    deletedAt: GraphQLTimestamp
+}
+
+input SupportCreateConfigInput {
+    id: ID!
+    apiKey: GraphQLString
+    listId: GraphQLString
+}
+
+input SupportUpdateConfigByIdInput {
+    id: ID!
+    apiKey: GraphQLString
+    listId: GraphQLString
+}
+
+input SupportUpdateConfigsInput {
+    id: ID
+    apiKey: GraphQLString
+    listId: GraphQLString
+}
+
+type Query {
+    supportFindConfig(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): SupportConfig
+
+    supportFindConfigById(id: ID, constraint: QueryStatement): SupportConfig
+
+    supportGetConfigs(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SupportConfig]!
+
+    supportPaginateConfigs(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): Pagination!
+
+    # additionalApis
+    supportListConfig(
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SupportConfig]!
+}
+
+type Mutation {
+    supportCreateConfig(payload: SupportCreateConfigInput!): SupportConfig
+
+    supportUpdateConfigById(
+        payload: SupportUpdateConfigByIdInput!
+        constraint: QueryStatement
+    ): SupportConfig
+
+    supportDeleteConfigById(id: ID!, constraint: QueryStatement): SupportConfig
+}

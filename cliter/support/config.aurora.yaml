@@ -1,0 +1,56 @@
+version: 0.0.1
+boundedContextName: support
+moduleName: config
+moduleNames: configs
+aggregateName: SupportConfig
+hasOAuth: true
+hasTenant: false
+hasAuditing: true
+front:
+  solidFontSetIcon: material-symbols-outlined
+  solidIcon: component_exchange
+  outlineFontSetIcon: material-symbols-outlined
+  outlineIcon: component_exchange
+aggregateProperties:
+  - name: id
+    type: id
+    primaryKey: true
+    nullable: false
+  - name: rowId
+    type: bigint
+    index: unique
+    autoIncrement: true
+    nullable: false
+  - name: apiKey
+    type: varchar
+    maxLength: 255
+    nullable: true
+  - name: listId
+    type: varchar
+    maxLength: 255
+    nullable: true
+  - name: createdAt
+    type: timestamp
+    nullable: true
+  - name: updatedAt
+    type: timestamp
+    nullable: true
+  - name: deletedAt
+    type: timestamp
+    nullable: true
+additionalApis:
+  - path: support/config/list
+    resolverType: query
+    httpMethod: post
+excludedOperations:
+  - count
+  - createBatch
+  - delete
+  - getRaw
+  - max
+  - min
+  - rawSql
+  - sum
+  - update
+  - updateAndIncrement
+  - upsert
