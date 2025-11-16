@@ -4,13 +4,13 @@ export const boundedContexts = [
         id: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         name: 'Support',
         root: 'support',
-        sort: 0,
+        sort: 70,
         isActive: true,
     },
 ];
 
 export const permissions = [
-    /* {
+    {
         id: '8eb1aa0e-0c79-4dc1-84e2-041f3ee3fbb4',
         name: 'support.access',
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
@@ -53,7 +53,6 @@ export const permissions = [
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },
- */
     {
         id: 'ca56da38-77ef-4993-a74f-f9d950d4b174',
         name: 'support.config.access',
@@ -67,26 +66,26 @@ export const permissions = [
         roleIds: [],
     },
     {
-        id: '39524d51-9a5a-4d3f-902d-680ec1fd4485',
-        name: 'support.config.create',
-        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
-        roleIds: [],
-    },
-    {
         id: 'bfe3d3cc-bc65-4702-b89c-b5c7008d763f',
         name: 'support.config.update',
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },
     {
-        id: '178e3b87-aec8-4e0a-8865-5b801b1a86f1',
-        name: 'support.config.upsert',
+        id: 'e0fc1ed5-2f7c-40d9-964d-a500e5cd3334',
+        name: 'clickup.space.get',
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },
     {
-        id: '05ce00c2-c2a8-4653-b837-57c95b05acc8',
-        name: 'support.config.delete',
+        id: 'c99bcac6-41c8-49ce-82ef-88beebcb15ae',
+        name: 'clickup.folder.get',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '1feaf495-0aae-4619-a074-a7446d5a9713',
+        name: 'clickup.list.get',
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },

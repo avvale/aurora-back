@@ -1,24 +1,31 @@
+import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
 import { IamCreatePermissionsCommand } from '@app/iam/permission';
-import { permissions } from '@app/support/support.seed';
-import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
-// import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
+import { boundedContexts, permissions } from '@app/support/support.seed';
+import { ICommandBus } from '@aurorajs.dev/core';
+import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
 
 @Injectable()
-export class SupportSeeder {
-    constructor(
-        private readonly commandBus: ICommandBus,
-        private readonly queryBus: IQueryBus,
-    ) {}
+export class SupportSeeder implements OnApplicationBootstrap {
+    constructor(private readonly commandBus: ICommandBus) {}
 
-    async main(): Promise<boolean> {
-        // await this.commandBus.dispatch(new IamCreateBoundedContextsCommand(boundedContexts, { timezone: process.env.TZ }));
+    async onApplicationBootstrap(): Promise<void> {
+        await this.commandBus.dispatch(
+            new IamCreateBoundedContextsCommand(boundedContexts, {
+                timezone: process.env.TZ,
+                repositoryOptions: {
+                    updateOnDuplicate: ['name', 'root', 'sort', 'isActive'],
+                    conflictAttributes: ['id'],
+                },
+            }),
+        );
         await this.commandBus.dispatch(
             new IamCreatePermissionsCommand(permissions, {
                 timezone: process.env.TZ,
+                repositoryOptions: {
+                    updateOnDuplicate: ['name', 'boundedContextId'],
+                    conflictAttributes: ['id'],
+                },
             }),
         );
-
-        return true;
     }
 }

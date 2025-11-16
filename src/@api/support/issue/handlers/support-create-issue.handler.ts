@@ -1,10 +1,10 @@
 import { SupportCreateIssueInput, SupportIssue } from '@api/graphql';
-import { SupportCreateIssueDto, SupportIssueDto } from '@api/support/issue';
 import {
-    ClickUpService,
-    SUPPORT_TASK_PLATFORM_API_KEY,
-    SUPPORT_TASK_PLATFORM_LIST_ID,
-} from '@api/support/shared';
+    CLICKUP_TASK_PLATFORM_API_KEY,
+    CLICKUP_TASK_PLATFORM_LIST_ID,
+    ClickupService,
+} from '@api/support/clickup/shared';
+import { SupportCreateIssueDto, SupportIssueDto } from '@api/support/issue';
 import {
     SupportCreateIssueCommand,
     SupportFindIssueByIdQuery,
@@ -13,14 +13,13 @@ import { AuditingMeta, ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
-import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class SupportCreateIssueHandler {
     constructor(
         private readonly commandBus: ICommandBus,
         private readonly queryBus: IQueryBus,
-        private readonly clickUpService: ClickUpService,
+        private readonly clickupService: ClickupService,
         @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
     ) {}
 
@@ -39,24 +38,26 @@ export class SupportCreateIssueHandler {
         );
 
         try {
-            const supportTaskPlatformApiKey =
+            const clickupTaskPlatformApiKey =
                 await this.cacheManager.get<string>(
-                    SUPPORT_TASK_PLATFORM_API_KEY,
+                    CLICKUP_TASK_PLATFORM_API_KEY,
                 );
 
-            const supportTaskPlatformListId =
+            const clickupTaskPlatformListId =
                 await this.cacheManager.get<string>(
-                    SUPPORT_TASK_PLATFORM_LIST_ID,
+                    CLICKUP_TASK_PLATFORM_LIST_ID,
                 );
             /*  const res = await lastValueFrom(
-                this.clickUpService
-                    .getFolders('90151058759'),
+                this.clickupService.getFolders('90154074844', {
+                    authorization:
+                        'pk_6857068_25VQHBFU16YYHZ5OBYITIRYQPV46GSTZ',
+                }),
             );
 
-            console.log('ClickUp folders response:', res.data); */
+            console.log('ClickUp folders response:', res); */
 
-            await lastValueFrom(
-                this.clickUpService.createTask(
+            /* await lastValueFrom(
+                this.clickupService.createTask(
                     '901516935164',
                     {
                         name: payload.subject,
@@ -64,7 +65,7 @@ export class SupportCreateIssueHandler {
                     },
                     { authorization: supportTaskPlatformApiKey },
                 ),
-            );
+            ); */
         } catch (error) {
             console.error('Error creating ClickUp task:', error);
         }

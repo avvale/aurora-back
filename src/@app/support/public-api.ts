@@ -1,30 +1,20 @@
 /* eslint-disable comma-dangle */
-import { SupportIssueHandlers, SupportIssueServices, SupportIssueModel, SupportIIssueRepository, SupportSequelizeIssueRepository, SupportIssueSagas } from './issue';
-import { SupportConfigHandlers, SupportConfigServices, SupportConfigModel, SupportIConfigRepository, SupportSequelizeConfigRepository, SupportConfigSagas } from './config';
-
-export const SupportHandlers = [
-    ...SupportIssueHandlers,
-    ...SupportConfigHandlers
-];
-export const SupportServices = [
-    ...SupportIssueServices,
-    ...SupportConfigServices
-];
-export const SupportModels = [
+import {
+    SupportIIssueRepository,
+    SupportIssueHandlers,
     SupportIssueModel,
-    SupportConfigModel
-];
+    SupportIssueSagas,
+    SupportIssueServices,
+    SupportSequelizeIssueRepository,
+} from './issue';
+
+export const SupportHandlers = [...SupportIssueHandlers];
+export const SupportServices = [...SupportIssueServices];
+export const SupportModels = [SupportIssueModel];
 export const SupportRepositories = [
     {
-        provide : SupportIIssueRepository,
+        provide: SupportIIssueRepository,
         useClass: SupportSequelizeIssueRepository,
     },
-    {
-        provide : SupportIConfigRepository,
-        useClass: SupportSequelizeConfigRepository,
-    }
 ];
-export const SupportSagas = [
-    SupportIssueSagas,
-    SupportConfigSagas
-];
+export const SupportSagas = [SupportIssueSagas];
