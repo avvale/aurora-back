@@ -1517,8 +1517,8 @@ export interface SupportCreateIssueInput {
     environment?: Nullable<GraphQLString>;
     subject: GraphQLString;
     description: GraphQLString;
-    attachments?: Nullable<JSON>;
-    video?: Nullable<JSON>;
+    attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
+    screenRecording?: Nullable<StorageAccountFileManagerFileUploadedInput>;
     meta?: Nullable<JSON>;
 }
 
@@ -1533,8 +1533,8 @@ export interface SupportUpdateIssueByIdInput {
     environment?: Nullable<GraphQLString>;
     subject?: Nullable<GraphQLString>;
     description?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    video?: Nullable<JSON>;
+    attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
+    screenRecording?: Nullable<StorageAccountFileManagerFileUploadedInput>;
     meta?: Nullable<JSON>;
 }
 
@@ -1549,8 +1549,8 @@ export interface SupportUpdateIssuesInput {
     environment?: Nullable<GraphQLString>;
     subject?: Nullable<GraphQLString>;
     description?: Nullable<GraphQLString>;
-    attachments?: Nullable<JSON>;
-    video?: Nullable<JSON>;
+    attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
+    screenRecording?: Nullable<StorageAccountFileManagerFileUploadedInput>;
     meta?: Nullable<JSON>;
 }
 
@@ -2956,7 +2956,7 @@ export interface SupportIssue {
     subject: GraphQLString;
     description: GraphQLString;
     attachments?: Nullable<JSON>;
-    video?: Nullable<JSON>;
+    screenRecording?: Nullable<JSON>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;

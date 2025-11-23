@@ -36,7 +36,7 @@ export class SupportAddIssuesContextEvent extends AggregateRoot {
                                 subject: issue.subject.value,
                                 description: issue.description.value,
                                 attachments: issue.attachments?.value,
-                                video: issue.video?.value,
+                                screenRecording: issue.screenRecording?.value,
                                 meta: issue.meta?.value,
                                 createdAt: issue.createdAt?.value,
                                 updatedAt: issue.updatedAt?.value,

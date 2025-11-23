@@ -18,8 +18,8 @@ import {
     SupportIssueId,
     SupportIssueMeta,
     SupportIssueRowId,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import {
     CommandBus,
@@ -98,8 +98,8 @@ describe('SupportUpdateIssueByIdService', () => {
                         attachments: new SupportIssueAttachments(
                             supportMockIssueData[0].attachments,
                         ),
-                        video: new SupportIssueVideo(
-                            supportMockIssueData[0].video,
+                        screenRecording: new SupportIssueScreenRecording(
+                            supportMockIssueData[0].screenRecording,
                         ),
                         meta: new SupportIssueMeta(
                             supportMockIssueData[0].meta,

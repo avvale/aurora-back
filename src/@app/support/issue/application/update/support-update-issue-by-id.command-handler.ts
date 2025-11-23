@@ -13,8 +13,8 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
@@ -60,7 +60,9 @@ export class SupportUpdateIssueByIdCommandHandler
                 attachments: new SupportIssueAttachments(
                     command.payload.attachments,
                 ),
-                video: new SupportIssueVideo(command.payload.video),
+                screenRecording: new SupportIssueScreenRecording(
+                    command.payload.screenRecording,
+                ),
                 meta: new SupportIssueMeta(command.payload.meta),
             },
             command.constraint,

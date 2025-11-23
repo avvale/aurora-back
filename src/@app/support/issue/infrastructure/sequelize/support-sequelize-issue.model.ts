@@ -232,11 +232,11 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
     attachments: any;
 
     @Column({
-        field: 'video',
+        field: 'screenRecording',
         allowNull: true,
         type: DataTypes.JSONB,
     })
-    video: any;
+    screenRecording: any;
 
     @Column({
         field: 'meta',

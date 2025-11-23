@@ -53,7 +53,8 @@ describe('SupportCreateIssueCommandHandler', () => {
                             subject: supportMockIssueData[0].subject,
                             description: supportMockIssueData[0].description,
                             attachments: supportMockIssueData[0].attachments,
-                            video: supportMockIssueData[0].video,
+                            screenRecording:
+                                supportMockIssueData[0].screenRecording,
                             meta: supportMockIssueData[0].meta,
                         },
                         { timezone: process.env.TZ },

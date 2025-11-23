@@ -20,9 +20,9 @@ import {
     SupportIssueId,
     SupportIssueMeta,
     SupportIssueRowId,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
@@ -40,7 +40,7 @@ export class SupportIssue extends AggregateRoot {
     subject: SupportIssueSubject;
     description: SupportIssueDescription;
     attachments: SupportIssueAttachments;
-    video: SupportIssueVideo;
+    screenRecording: SupportIssueScreenRecording;
     meta: SupportIssueMeta;
     createdAt: SupportIssueCreatedAt;
     updatedAt: SupportIssueUpdatedAt;
@@ -60,7 +60,7 @@ export class SupportIssue extends AggregateRoot {
         subject: SupportIssueSubject,
         description: SupportIssueDescription,
         attachments: SupportIssueAttachments,
-        video: SupportIssueVideo,
+        screenRecording: SupportIssueScreenRecording,
         meta: SupportIssueMeta,
         createdAt: SupportIssueCreatedAt,
         updatedAt: SupportIssueUpdatedAt,
@@ -80,7 +80,7 @@ export class SupportIssue extends AggregateRoot {
         this.subject = subject;
         this.description = description;
         this.attachments = attachments;
-        this.video = video;
+        this.screenRecording = screenRecording;
         this.meta = meta;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -101,7 +101,7 @@ export class SupportIssue extends AggregateRoot {
         subject: SupportIssueSubject,
         description: SupportIssueDescription,
         attachments: SupportIssueAttachments,
-        video: SupportIssueVideo,
+        screenRecording: SupportIssueScreenRecording,
         meta: SupportIssueMeta,
         createdAt: SupportIssueCreatedAt,
         updatedAt: SupportIssueUpdatedAt,
@@ -121,7 +121,7 @@ export class SupportIssue extends AggregateRoot {
             subject,
             description,
             attachments,
-            video,
+            screenRecording,
             meta,
             createdAt,
             updatedAt,
@@ -145,7 +145,7 @@ export class SupportIssue extends AggregateRoot {
                     subject: event.payload.subject.value,
                     description: event.payload.description.value,
                     attachments: event.payload.attachments?.value,
-                    video: event.payload.video?.value,
+                    screenRecording: event.payload.screenRecording?.value,
                     meta: event.payload.meta?.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
@@ -171,7 +171,7 @@ export class SupportIssue extends AggregateRoot {
                     subject: event.payload.subject?.value,
                     description: event.payload.description?.value,
                     attachments: event.payload.attachments?.value,
-                    video: event.payload.video?.value,
+                    screenRecording: event.payload.screenRecording?.value,
                     meta: event.payload.meta?.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
@@ -198,7 +198,7 @@ export class SupportIssue extends AggregateRoot {
                     subject: event.payload.subject.value,
                     description: event.payload.description.value,
                     attachments: event.payload.attachments?.value,
-                    video: event.payload.video?.value,
+                    screenRecording: event.payload.screenRecording?.value,
                     meta: event.payload.meta?.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
@@ -223,7 +223,7 @@ export class SupportIssue extends AggregateRoot {
             subject: this.subject.value,
             description: this.description.value,
             attachments: this.attachments?.value,
-            video: this.video?.value,
+            screenRecording: this.screenRecording?.value,
             meta: this.meta?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
@@ -246,7 +246,7 @@ export class SupportIssue extends AggregateRoot {
             subject: this.subject.value,
             description: this.description.value,
             attachments: this.attachments?.value,
-            video: this.video?.value,
+            screenRecording: this.screenRecording?.value,
             meta: this.meta?.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,

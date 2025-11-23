@@ -15,7 +15,7 @@ export class SupportCreatedIssueEvent {
                 subject: string;
                 description: string;
                 attachments: any;
-                video: any;
+                screenRecording: any;
                 meta: any;
                 createdAt: string;
                 updatedAt: string;

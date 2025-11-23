@@ -18,9 +18,9 @@ import {
     SupportIssueId,
     SupportIssueMeta,
     SupportIssueRowId,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import { MockRepository, Utils } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -70,7 +70,9 @@ export class SupportMockIssueRepository
                     new SupportIssueSubject(itemCollection.subject),
                     new SupportIssueDescription(itemCollection.description),
                     new SupportIssueAttachments(itemCollection.attachments),
-                    new SupportIssueVideo(itemCollection.video),
+                    new SupportIssueScreenRecording(
+                        itemCollection.screenRecording,
+                    ),
                     new SupportIssueMeta(itemCollection.meta),
                     new SupportIssueCreatedAt(itemCollection.createdAt),
                     new SupportIssueUpdatedAt(itemCollection.updatedAt),

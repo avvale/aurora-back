@@ -14,7 +14,7 @@ export class SupportIssueResponse {
         public readonly subject: string,
         public readonly description: string,
         public readonly attachments: any,
-        public readonly video: any,
+        public readonly screenRecording: any,
         public readonly meta: any,
         public readonly createdAt: string,
         public readonly updatedAt: string,

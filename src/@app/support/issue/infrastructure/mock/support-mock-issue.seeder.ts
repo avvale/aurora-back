@@ -14,9 +14,9 @@ import {
     SupportIssueId,
     SupportIssueMeta,
     SupportIssueRowId,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import { MockSeeder } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -49,7 +49,7 @@ export class SupportMockIssueSeeder extends MockSeeder<SupportIssue> {
                     new SupportIssueSubject(issue.subject),
                     new SupportIssueDescription(issue.description),
                     new SupportIssueAttachments(issue.attachments),
-                    new SupportIssueVideo(issue.video),
+                    new SupportIssueScreenRecording(issue.screenRecording),
                     new SupportIssueMeta(issue.meta),
                     new SupportIssueCreatedAt({ currentTimestamp: true }),
                     new SupportIssueUpdatedAt({ currentTimestamp: true }),

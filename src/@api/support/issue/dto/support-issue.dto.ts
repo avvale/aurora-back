@@ -84,9 +84,9 @@ export class SupportIssueDto {
 
     @ApiProperty({
         type: Object,
-        description: 'video [input here api field description]',
+        description: 'screenRecording [input here api field description]',
     })
-    video?: any;
+    screenRecording?: any;
 
     @ApiProperty({
         type: Object,

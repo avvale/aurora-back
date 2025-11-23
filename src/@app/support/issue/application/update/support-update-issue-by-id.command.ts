@@ -14,7 +14,7 @@ export class SupportUpdateIssueByIdCommand {
             subject?: string;
             description?: string;
             attachments?: any;
-            video?: any;
+            screenRecording?: any;
             meta?: any;
         },
         public readonly constraint?: QueryStatement,

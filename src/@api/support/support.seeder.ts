@@ -18,7 +18,7 @@ export class SupportSeeder implements OnApplicationBootstrap {
                 },
             }),
         );
-        await this.commandBus.dispatch(
+        void this.commandBus.dispatch(
             new IamCreatePermissionsCommand(permissions, {
                 timezone: process.env.TZ,
                 repositoryOptions: {

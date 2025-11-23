@@ -554,7 +554,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                         }
                     }
@@ -643,7 +643,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -693,7 +693,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                         }
                     }
@@ -735,7 +735,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -783,7 +783,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -827,7 +827,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -871,7 +871,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -911,7 +911,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -958,7 +958,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -1001,7 +1001,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -1049,7 +1049,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt
@@ -1093,7 +1093,7 @@ describe('issue', () => {
                             subject
                             description
                             attachments
-                            video
+                            screenRecording
                             meta
                             createdAt
                             updatedAt

@@ -11,9 +11,9 @@ import {
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -39,7 +39,7 @@ export class SupportUpdateIssueByIdService {
             subject?: SupportIssueSubject;
             description?: SupportIssueDescription;
             attachments?: SupportIssueAttachments;
-            video?: SupportIssueVideo;
+            screenRecording?: SupportIssueScreenRecording;
             meta?: SupportIssueMeta;
         },
         constraint?: QueryStatement,
@@ -59,7 +59,7 @@ export class SupportUpdateIssueByIdService {
             payload.subject,
             payload.description,
             payload.attachments,
-            payload.video,
+            payload.screenRecording,
             payload.meta,
             null, // createdAt
             new SupportIssueUpdatedAt({ currentTimestamp: true }),

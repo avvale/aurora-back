@@ -15,9 +15,9 @@ import {
     SupportIssueId,
     SupportIssueMeta,
     SupportIssueRowId,
+    SupportIssueScreenRecording,
     SupportIssueSubject,
     SupportIssueUpdatedAt,
-    SupportIssueVideo,
 } from '@app/support/issue/domain/value-objects';
 import {
     CQMetadata,
@@ -104,7 +104,9 @@ export class SupportIssueMapper implements IMapper {
             new SupportIssueAttachments(issue.attachments, {
                 undefinable: true,
             }),
-            new SupportIssueVideo(issue.video, { undefinable: true }),
+            new SupportIssueScreenRecording(issue.screenRecording, {
+                undefinable: true,
+            }),
             new SupportIssueMeta(issue.meta, { undefinable: true }),
             new SupportIssueCreatedAt(
                 issue.createdAt,
@@ -145,7 +147,7 @@ export class SupportIssueMapper implements IMapper {
             issue.subject.value,
             issue.description.value,
             issue.attachments.value,
-            issue.video.value,
+            issue.screenRecording.value,
             issue.meta.value,
             issue.createdAt.value,
             issue.updatedAt.value,

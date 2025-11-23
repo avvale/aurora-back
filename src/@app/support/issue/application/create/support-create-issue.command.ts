@@ -14,7 +14,7 @@ export class SupportCreateIssueCommand {
             subject: string;
             description: string;
             attachments?: any;
-            video?: any;
+            screenRecording?: any;
             meta?: any;
         },
         public readonly cQMetadata?: CQMetadata,

@@ -12,7 +12,7 @@ type SupportIssue {
     subject: GraphQLString!
     description: GraphQLString!
     attachments: JSON
-    video: JSON
+    screenRecording: JSON
     meta: JSON
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
@@ -30,8 +30,8 @@ input SupportCreateIssueInput {
     environment: GraphQLString
     subject: GraphQLString!
     description: GraphQLString!
-    attachments: JSON
-    video: JSON
+    attachments: [StorageAccountFileManagerFileUploadedInput]
+    screenRecording: StorageAccountFileManagerFileUploadedInput
     meta: JSON
 }
 
@@ -46,8 +46,8 @@ input SupportUpdateIssueByIdInput {
     environment: GraphQLString
     subject: GraphQLString
     description: GraphQLString
-    attachments: JSON
-    video: JSON
+    attachments: [StorageAccountFileManagerFileUploadedInput]
+    screenRecording: StorageAccountFileManagerFileUploadedInput
     meta: JSON
 }
 
@@ -62,8 +62,8 @@ input SupportUpdateIssuesInput {
     environment: GraphQLString
     subject: GraphQLString
     description: GraphQLString
-    attachments: JSON
-    video: JSON
+    attachments: [StorageAccountFileManagerFileUploadedInput]
+    screenRecording: StorageAccountFileManagerFileUploadedInput
     meta: JSON
 }
 
