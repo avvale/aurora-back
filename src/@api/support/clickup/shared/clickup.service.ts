@@ -20,6 +20,7 @@ export class ClickupService {
     // tasks
     apiCreateTask = '/api/v2/list/:listId/task';
     apiGetTask = '/api/v2/task/:taskId';
+    apiUpdateTask = '/api/v2/task/:taskId';
 
     // comments
     apiCreateComment = '/api/v2/task/:taskId/comment';
@@ -87,8 +88,34 @@ export class ClickupService {
         },
         options: { authorization: string },
     ): Observable<any> {
-        return this.httpService.post(
-            `${this.apiUrl}${Str.replaceParams(this.apiCreateTask, { listId })}`,
+        return this.httpService
+            .post(
+                `${this.apiUrl}${Str.replaceParams(this.apiCreateTask, { listId })}`,
+                {
+                    ...task,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: options.authorization,
+                    },
+                },
+            )
+            .pipe(map((response) => response.data));
+    }
+
+    updateTask(
+        taskId: string,
+        task: {
+            name?: string;
+            description?: string;
+            status?: string;
+            priority?: number;
+        },
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService.put(
+            `${this.apiUrl}${Str.replaceParams(this.apiUpdateTask, { taskId })}`,
             {
                 ...task,
             },

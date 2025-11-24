@@ -41,47 +41,42 @@ export class SupportCreateIssueHandler {
             }),
         );
 
-        if (payload.screenRecording) {
-            void this.storageAccountFileManagerService
-                .uploadFile({
-                    ...payload.screenRecording,
-                    name: payload.screenRecording.file.name,
-                })
-                .then(
-                    (screenRecordingUploaded) =>
-                        void this.commandBus.dispatch(
-                            new SupportUpdateIssueByIdCommand({
-                                id: payload.id,
-                                screenRecording: screenRecordingUploaded,
-                            }),
-                        ),
-                );
-        }
+        const screenRecordingUploaded = payload.screenRecording
+            ? await this.storageAccountFileManagerService.uploadFile({
+                  ...payload.screenRecording,
+                  name: payload.screenRecording.file.name,
+              })
+            : null;
 
-        try {
-            const clickupTaskPlatformApiKey =
-                await this.cacheManager.get<string>(
-                    CLICKUP_TASK_PLATFORM_API_KEY,
-                );
+        const clickupTaskPlatformApiKey = await this.cacheManager.get<string>(
+            CLICKUP_TASK_PLATFORM_API_KEY,
+        );
 
-            const clickupTaskPlatformListId =
-                await this.cacheManager.get<string>(
-                    CLICKUP_TASK_PLATFORM_LIST_ID,
-                );
+        const clickupTaskPlatformListId = await this.cacheManager.get<string>(
+            CLICKUP_TASK_PLATFORM_LIST_ID,
+        );
 
-            void lastValueFrom(
-                this.clickupService.createTask(
-                    clickupTaskPlatformListId,
-                    {
-                        name: payload.subject,
-                        description: payload.description,
-                    },
-                    { authorization: clickupTaskPlatformApiKey },
-                ),
-            );
-        } catch (error) {
-            console.error('Error creating ClickUp task:', error);
-        }
+        const task = await lastValueFrom(
+            this.clickupService.createTask(
+                clickupTaskPlatformListId,
+                {
+                    name: payload.subject,
+                    description: payload.description,
+                },
+                { authorization: clickupTaskPlatformApiKey },
+            ),
+        );
+
+        console.log('Created ClickUp Task:', task);
+
+        void this.commandBus.dispatch(
+            new SupportUpdateIssueByIdCommand({
+                id: payload.id,
+                screenRecording: screenRecordingUploaded,
+                externalId: task.id,
+                externalStatus: task.status.status,
+            }),
+        );
 
         return await this.queryBus.ask(
             new SupportFindIssueByIdQuery(
