@@ -1,11 +1,13 @@
-import { MessageAddInboxesContextEvent, MessageIInboxRepository, MessageInbox } from '@app/message/inbox';
+import {
+    MessageAddInboxesContextEvent,
+    MessageIInboxRepository,
+    MessageInbox,
+} from '@app/message/inbox';
 import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
     MessageInboxAttachments,
     MessageInboxBody,
-    MessageInboxCreatedAt,
-    MessageInboxDeletedAt,
     MessageInboxIcon,
     MessageInboxId,
     MessageInboxImage,
@@ -27,8 +29,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class MessageUpdateInboxesService
-{
+export class MessageUpdateInboxesService {
     constructor(
         private readonly publisher: EventPublisher,
         private readonly repository: MessageIInboxRepository,
@@ -58,11 +59,11 @@ export class MessageUpdateInboxesService
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
+    ): Promise<void> {
         // create aggregate with factory pattern
         const inbox = MessageInbox.register(
             payload.id,
+            undefined, // rowId
             payload.tenantIds,
             payload.messageId,
             payload.sort,
@@ -86,31 +87,23 @@ export class MessageUpdateInboxesService
         );
 
         // update
-        await this.repository.update(
-            inbox,
-            {
-                queryStatement,
-                constraint,
-                cQMetadata,
-                updateOptions: cQMetadata?.repositoryOptions,
-            },
-        );
+        await this.repository.update(inbox, {
+            queryStatement,
+            constraint,
+            cQMetadata,
+            updateOptions: cQMetadata?.repositoryOptions,
+        });
 
         // get objects to delete
-        const inboxes = await this.repository.get(
-            {
-                queryStatement,
-                constraint,
-                cQMetadata,
-            },
-        );
+        const inboxes = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
         const inboxesRegister = this.publisher.mergeObjectContext(
-            new MessageAddInboxesContextEvent(
-                inboxes,
-                cQMetadata,
-            ),
+            new MessageAddInboxesContextEvent(inboxes, cQMetadata),
         );
 
         inboxesRegister.updated(); // apply event to model events

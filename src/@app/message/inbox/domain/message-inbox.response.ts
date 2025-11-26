@@ -1,9 +1,9 @@
 import { MessageMessageResponse } from '@app/message/message';
 
-export class MessageInboxResponse
-{
+export class MessageInboxResponse {
     constructor(
         public readonly id: string,
+        public readonly rowId: number,
         public readonly tenantIds: string[],
         public readonly messageId: string,
         public readonly sort: number,

@@ -14,6 +14,7 @@ export { MessageInboxIsReadAtLeastOnce } from './message-inbox-is-read-at-least-
 export { MessageInboxLink } from './message-inbox-link';
 export { MessageInboxMessageId } from './message-inbox-message-id';
 export { MessageInboxMeta } from './message-inbox-meta';
+export { MessageInboxRowId } from './message-inbox-row-id';
 export { MessageInboxSentAt } from './message-inbox-sent-at';
 export { MessageInboxSort } from './message-inbox-sort';
 export { MessageInboxSubject } from './message-inbox-subject';

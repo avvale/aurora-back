@@ -16,6 +16,7 @@ import {
     MessageInboxLink,
     MessageInboxMessageId,
     MessageInboxMeta,
+    MessageInboxRowId,
     MessageInboxSentAt,
     MessageInboxSort,
     MessageInboxSubject,
@@ -27,25 +28,22 @@ import { Injectable } from '@nestjs/common';
 import * as _ from 'lodash';
 
 @Injectable()
-export class MessageMockInboxSeeder extends MockSeeder<MessageInbox>
-{
+export class MessageMockInboxSeeder extends MockSeeder<MessageInbox> {
     public collectionSource: MessageInbox[];
 
-    constructor()
-    {
+    constructor() {
         super();
         this._createMock();
     }
 
-    private _createMock(): void
-    {
+    private _createMock(): void {
         this.collectionSource = [];
 
-        for (const inbox of _.orderBy(messageMockInboxData, ['id']))
-        {
+        for (const inbox of _.orderBy(messageMockInboxData, ['id'])) {
             this.collectionSource.push(
                 MessageInbox.register(
                     new MessageInboxId(inbox.id),
+                    new MessageInboxRowId(inbox.rowId),
                     new MessageInboxTenantIds(inbox.tenantIds),
                     new MessageInboxMessageId(inbox.messageId),
                     new MessageInboxSort(inbox.sort),

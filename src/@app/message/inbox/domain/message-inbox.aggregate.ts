@@ -1,5 +1,9 @@
 /* eslint-disable key-spacing */
-import { MessageCreatedInboxEvent, MessageDeletedInboxEvent, MessageUpdatedInboxEvent } from '@app/message/inbox';
+import {
+    MessageCreatedInboxEvent,
+    MessageDeletedInboxEvent,
+    MessageUpdatedInboxEvent,
+} from '@app/message/inbox';
 import {
     MessageInboxAccountCode,
     MessageInboxAccountId,
@@ -17,6 +21,7 @@ import {
     MessageInboxLink,
     MessageInboxMessageId,
     MessageInboxMeta,
+    MessageInboxRowId,
     MessageInboxSentAt,
     MessageInboxSort,
     MessageInboxSubject,
@@ -27,9 +32,9 @@ import { MessageMessage } from '@app/message/message';
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
 
-export class MessageInbox extends AggregateRoot
-{
+export class MessageInbox extends AggregateRoot {
     id: MessageInboxId;
+    rowId: MessageInboxRowId;
     tenantIds: MessageInboxTenantIds;
     messageId: MessageInboxMessageId;
     sort: MessageInboxSort;
@@ -54,6 +59,7 @@ export class MessageInbox extends AggregateRoot
 
     constructor(
         id: MessageInboxId,
+        rowId: MessageInboxRowId,
         tenantIds: MessageInboxTenantIds,
         messageId: MessageInboxMessageId,
         sort: MessageInboxSort,
@@ -75,10 +81,10 @@ export class MessageInbox extends AggregateRoot
         updatedAt: MessageInboxUpdatedAt,
         deletedAt: MessageInboxDeletedAt,
         message?: MessageMessage,
-    )
-    {
+    ) {
         super();
         this.id = id;
+        this.rowId = rowId;
         this.tenantIds = tenantIds;
         this.messageId = messageId;
         this.sort = sort;
@@ -104,6 +110,7 @@ export class MessageInbox extends AggregateRoot
 
     static register(
         id: MessageInboxId,
+        rowId: MessageInboxRowId,
         tenantIds: MessageInboxTenantIds,
         messageId: MessageInboxMessageId,
         sort: MessageInboxSort,
@@ -125,10 +132,10 @@ export class MessageInbox extends AggregateRoot
         updatedAt: MessageInboxUpdatedAt,
         deletedAt: MessageInboxDeletedAt,
         message?: MessageMessage,
-    ): MessageInbox
-    {
+    ): MessageInbox {
         return new MessageInbox(
             id,
+            rowId,
             tenantIds,
             messageId,
             sort,
@@ -153,13 +160,7 @@ export class MessageInbox extends AggregateRoot
         );
     }
 
-    created(
-        event: {
-            payload: MessageInbox;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    created(event: { payload: MessageInbox; cQMetadata?: CQMetadata }): void {
         this.apply(
             new MessageCreatedInboxEvent({
                 payload: {
@@ -190,13 +191,7 @@ export class MessageInbox extends AggregateRoot
         );
     }
 
-    updated(
-        event: {
-            payload: MessageInbox;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    updated(event: { payload: MessageInbox; cQMetadata?: CQMetadata }): void {
         this.apply(
             new MessageUpdatedInboxEvent({
                 payload: {
@@ -227,17 +222,12 @@ export class MessageInbox extends AggregateRoot
         );
     }
 
-    deleted(
-        event: {
-            payload: MessageInbox;
-            cQMetadata?: CQMetadata;
-        },
-    ): void
-    {
+    deleted(event: { payload: MessageInbox; cQMetadata?: CQMetadata }): void {
         this.apply(
             new MessageDeletedInboxEvent({
                 payload: {
                     id: event.payload.id.value,
+                    rowId: event.payload.rowId.value,
                     tenantIds: event.payload.tenantIds?.value,
                     messageId: event.payload.messageId?.value,
                     sort: event.payload.sort.value,
@@ -264,10 +254,10 @@ export class MessageInbox extends AggregateRoot
         );
     }
 
-    toDTO(): LiteralObject
-    {
+    toDTO(): LiteralObject {
         return {
             id: this.id.value,
+            rowId: this.rowId.value,
             tenantIds: this.tenantIds?.value,
             messageId: this.messageId?.value,
             sort: this.sort.value,
@@ -293,8 +283,7 @@ export class MessageInbox extends AggregateRoot
     }
 
     // function called to get data for repository side effect methods
-    toRepository(): LiteralObject
-    {
+    toRepository(): LiteralObject {
         return {
             id: this.id.value,
             tenantIds: this.tenantIds?.value,

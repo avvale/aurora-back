@@ -2151,7 +2151,6 @@ export interface IMutation {
     messageCreateInboxes(payload: Nullable<MessageCreateInboxInput>[]): boolean | Promise<boolean>;
     messageUpdateInboxById(payload: MessageUpdateInboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageUpdateInboxes(payload: MessageUpdateInboxesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
-    messageUpsertInbox(payload: MessageUpdateInboxByIdInput): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
     messageDeleteInboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInbox>[] | Promise<Nullable<MessageInbox>[]>;
     messageCheckMessagesInbox(): boolean | Promise<boolean>;
@@ -2644,6 +2643,7 @@ export interface MessageInboxSetting {
 
 export interface MessageInbox {
     id: string;
+    rowId: GraphQLInt;
     tenantIds?: Nullable<Nullable<string>[]>;
     messageId?: Nullable<string>;
     message?: Nullable<MessageMessage>;
