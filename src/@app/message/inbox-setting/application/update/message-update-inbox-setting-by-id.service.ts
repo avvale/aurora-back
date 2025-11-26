@@ -1,8 +1,9 @@
-import { MessageIInboxSettingRepository, MessageInboxSetting } from '@app/message/inbox-setting';
+import {
+    MessageIInboxSettingRepository,
+    MessageInboxSetting,
+} from '@app/message/inbox-setting';
 import {
     MessageInboxSettingAccountId,
-    MessageInboxSettingCreatedAt,
-    MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
     MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
@@ -12,8 +13,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class MessageUpdateInboxSettingByIdService
-{
+export class MessageUpdateInboxSettingByIdService {
     constructor(
         private readonly publisher: EventPublisher,
         private readonly repository: MessageIInboxSettingRepository,
@@ -27,11 +27,11 @@ export class MessageUpdateInboxSettingByIdService
         },
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
+    ): Promise<void> {
         // create aggregate with factory pattern
         const inboxSetting = MessageInboxSetting.register(
             payload.id,
+            undefined, // rowId
             payload.accountId,
             payload.sort,
             null, // createdAt
@@ -40,21 +40,20 @@ export class MessageUpdateInboxSettingByIdService
         );
 
         // update by id
-        await this.repository.updateById(
-            inboxSetting,
-            {
-                constraint,
-                cQMetadata,
-                updateByIdOptions: cQMetadata?.repositoryOptions,
-            },
-        );
+        await this.repository.updateById(inboxSetting, {
+            constraint,
+            cQMetadata,
+            updateByIdOptions: cQMetadata?.repositoryOptions,
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
-        const inboxSettingRegister = this.publisher.mergeObjectContext(
-            inboxSetting,
-        );
+        const inboxSettingRegister =
+            this.publisher.mergeObjectContext(inboxSetting);
 
-        inboxSettingRegister.updated(inboxSetting); // apply event to model events
+        inboxSettingRegister.updated({
+            payload: inboxSetting,
+            cQMetadata,
+        }); // apply event to model events
         inboxSettingRegister.commit(); // commit all events of model
     }
 }

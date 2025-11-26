@@ -1,8 +1,10 @@
-import { MessageIInboxSettingRepository, MessageInboxSetting } from '@app/message/inbox-setting';
+import {
+    MessageIInboxSettingRepository,
+    MessageInboxSetting,
+} from '@app/message/inbox-setting';
 import {
     MessageInboxSettingAccountId,
     MessageInboxSettingCreatedAt,
-    MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
     MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
@@ -12,8 +14,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class MessageCreateInboxSettingService
-{
+export class MessageCreateInboxSettingService {
     constructor(
         private readonly publisher: EventPublisher,
         private readonly repository: MessageIInboxSettingRepository,
@@ -26,11 +27,11 @@ export class MessageCreateInboxSettingService
             sort: MessageInboxSettingSort;
         },
         cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
+    ): Promise<void> {
         // create aggregate with factory pattern
         const inboxSetting = MessageInboxSetting.register(
             payload.id,
+            undefined, // rowId
             payload.accountId,
             payload.sort,
             new MessageInboxSettingCreatedAt({ currentTimestamp: true }),
@@ -38,19 +39,18 @@ export class MessageCreateInboxSettingService
             null, // deletedAt
         );
 
-        await this.repository.create(
-            inboxSetting,
-            {
-                createOptions: cQMetadata?.repositoryOptions,
-            },
-        );
+        await this.repository.create(inboxSetting, {
+            createOptions: cQMetadata?.repositoryOptions,
+        });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
-        const inboxSettingRegister = this.publisher.mergeObjectContext(
-            inboxSetting,
-        );
+        const inboxSettingRegister =
+            this.publisher.mergeObjectContext(inboxSetting);
 
-        inboxSettingRegister.created(inboxSetting); // apply event to model events
+        inboxSettingRegister.created({
+            payload: inboxSetting,
+            cQMetadata,
+        }); // apply event to model events
         inboxSettingRegister.commit(); // commit all events of model
     }
 }

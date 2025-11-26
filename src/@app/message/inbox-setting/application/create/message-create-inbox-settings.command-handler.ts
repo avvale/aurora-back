@@ -9,25 +9,25 @@ import {
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(MessageCreateInboxSettingsCommand)
-export class MessageCreateInboxSettingsCommandHandler implements ICommandHandler<MessageCreateInboxSettingsCommand>
+export class MessageCreateInboxSettingsCommandHandler
+    implements ICommandHandler<MessageCreateInboxSettingsCommand>
 {
     constructor(
         private readonly createInboxSettingsService: MessageCreateInboxSettingsService,
     ) {}
 
-    async execute(command: MessageCreateInboxSettingsCommand): Promise<void>
-    {
+    async execute(command: MessageCreateInboxSettingsCommand): Promise<void> {
         // call to use case and implements ValueObjects
         await this.createInboxSettingsService.main(
-            command.payload
-                .map(inboxSetting =>
-                {
-                    return {
-                        id: new MessageInboxSettingId(inboxSetting.id),
-                        accountId: new MessageInboxSettingAccountId(inboxSetting.accountId),
-                        sort: new MessageInboxSettingSort(inboxSetting.sort),
-                    };
-                }),
+            command.payload.map((inboxSetting) => {
+                return {
+                    id: new MessageInboxSettingId(inboxSetting.id),
+                    accountId: new MessageInboxSettingAccountId(
+                        inboxSetting.accountId,
+                    ),
+                    sort: new MessageInboxSettingSort(inboxSetting.sort),
+                };
+            }),
             command.cQMetadata,
         );
     }

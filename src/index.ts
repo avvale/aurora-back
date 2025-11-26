@@ -5,3 +5,10 @@ export { SupportIssueMapper } from './@app/support/issue/domain/support-issue.ma
 export { supportMockIssueData } from './@app/support/issue/infrastructure/mock/support-mock-issue.data';
 export { SupportModule } from './@api/support/support.module';
 export { SupportIssueDto } from './@api/support/issue/dto/support-issue.dto';
+export { MessageInboxSetting } from './@app/message/inbox-setting/domain/message-inbox-setting.aggregate';
+export { MessageInboxSettingModel } from './@app/message/inbox-setting';
+export { MessageInboxSettingResponse } from './@app/message/inbox-setting/domain/message-inbox-setting.response';
+export { MessageInboxSettingMapper } from './@app/message/inbox-setting/domain/message-inbox-setting.mapper';
+export { messageMockInboxSettingData } from './@app/message/inbox-setting/infrastructure/mock/message-mock-inbox-setting.data';
+export { MessageModule } from './@api/message/message.module';
+export { MessageInboxSettingDto } from './@api/message/inbox-setting/dto/message-inbox-setting.dto';

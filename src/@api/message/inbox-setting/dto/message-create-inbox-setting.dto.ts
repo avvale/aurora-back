@@ -1,24 +1,22 @@
 /* eslint-disable indent */
 import { ApiProperty } from '@nestjs/swagger';
 
-export class MessageCreateInboxSettingDto
-{
+export class MessageCreateInboxSettingDto {
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'id [input here api field description]',
     })
     id: string;
 
     @ApiProperty({
-        type       : String,
+        type: String,
         description: 'accountId [input here api field description]',
     })
     accountId: string;
 
     @ApiProperty({
-        type       : Number,
+        type: Number,
         description: 'sort [input here api field description]',
     })
     sort: number;
-
 }

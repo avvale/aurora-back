@@ -1,18 +1,22 @@
 /* eslint-disable comma-dangle */
 import { MessageInboxHandlers, MessageInboxServices, MessageInboxModel, MessageIInboxRepository, MessageSequelizeInboxRepository, MessageInboxSagas } from './inbox';
 import { MessageMessageHandlers, MessageMessageServices, MessageMessageModel, MessageIMessageRepository, MessageSequelizeMessageRepository, MessageMessageSagas } from './message';
+import { MessageInboxSettingHandlers, MessageInboxSettingServices, MessageInboxSettingModel, MessageIInboxSettingRepository, MessageSequelizeInboxSettingRepository, MessageInboxSettingSagas } from './inbox-setting';
 
 export const MessageHandlers = [
     ...MessageInboxHandlers,
-    ...MessageMessageHandlers
+    ...MessageMessageHandlers,
+    ...MessageInboxSettingHandlers
 ];
 export const MessageServices = [
     ...MessageInboxServices,
-    ...MessageMessageServices
+    ...MessageMessageServices,
+    ...MessageInboxSettingServices
 ];
 export const MessageModels = [
     MessageInboxModel,
-    MessageMessageModel
+    MessageMessageModel,
+    MessageInboxSettingModel
 ];
 export const MessageRepositories = [
     {
@@ -22,9 +26,14 @@ export const MessageRepositories = [
     {
         provide : MessageIMessageRepository,
         useClass: MessageSequelizeMessageRepository,
+    },
+    {
+        provide : MessageIInboxSettingRepository,
+        useClass: MessageSequelizeInboxSettingRepository,
     }
 ];
 export const MessageSagas = [
     MessageInboxSagas,
-    MessageMessageSagas
+    MessageMessageSagas,
+    MessageInboxSettingSagas
 ];

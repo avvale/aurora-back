@@ -2145,7 +2145,6 @@ export interface IMutation {
     messageCreateInboxSettings(payload: Nullable<MessageCreateInboxSettingInput>[]): boolean | Promise<boolean>;
     messageUpdateInboxSettingById(payload: MessageUpdateInboxSettingByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageInboxSetting> | Promise<Nullable<MessageInboxSetting>>;
     messageUpdateInboxSettings(payload: MessageUpdateInboxSettingsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInboxSetting>[] | Promise<Nullable<MessageInboxSetting>[]>;
-    messageUpsertInboxSetting(payload: MessageUpdateInboxSettingByIdInput): Nullable<MessageInboxSetting> | Promise<Nullable<MessageInboxSetting>>;
     messageDeleteInboxSettingById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageInboxSetting> | Promise<Nullable<MessageInboxSetting>>;
     messageDeleteInboxSettings(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageInboxSetting>[] | Promise<Nullable<MessageInboxSetting>[]>;
     messageCreateInbox(payload: MessageCreateInboxInput): Nullable<MessageInbox> | Promise<Nullable<MessageInbox>>;
@@ -2635,6 +2634,7 @@ export interface IamUser {
 
 export interface MessageInboxSetting {
     id: string;
+    rowId: GraphQLInt;
     accountId: string;
     sort: GraphQLInt;
     createdAt?: Nullable<GraphQLTimestamp>;
