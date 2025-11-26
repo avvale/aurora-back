@@ -2879,8 +2879,8 @@ export interface StorageAccountFileManagerFile {
     relativePathSegments: GraphQLString[];
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
-    size: GraphQLInt;
-    url: GraphQLString;
+    size?: Nullable<GraphQLInt>;
+    url?: Nullable<GraphQLString>;
     isCropable: GraphQLBoolean;
     isUploaded: GraphQLBoolean;
     libraryId?: Nullable<string>;
