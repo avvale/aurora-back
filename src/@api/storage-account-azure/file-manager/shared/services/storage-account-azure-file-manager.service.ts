@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable max-len */
 import {
     StorageAccountFileManagerBase64,
@@ -7,17 +8,13 @@ import {
 } from '@api/graphql';
 import { StorageAccountFileManagerService } from '@api/storage-account/file-manager';
 import {
-    Fs,
-    getRelativePathSegments,
-    streamToBuffer,
-    uuid,
-} from '@aurorajs.dev/core';
+    getFileExtension,
+    getFilenameWithoutExtension,
+} from '@api/storage-account/shared';
+import { Fs, getRelativePathSegments, uuid } from '@aurorajs.dev/core';
 import { BlobServiceClient } from '@azure/storage-blob';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { extname } from 'node:path';
-import { Readable } from 'node:stream';
-import * as sharp from 'sharp';
 
 @Injectable()
 export class StorageAccountAzureFileManagerService
@@ -54,7 +51,7 @@ export class StorageAccountAzureFileManagerService
 
         // get container name from file or use default
         const containerName =
-            this.containerName || src.containerName || 'default';
+            src.containerName || this.containerName || 'default';
 
         const containerClient =
             this.blobServiceClient.getContainerClient(containerName);
@@ -80,7 +77,7 @@ export class StorageAccountAzureFileManagerService
     ): Promise<void> {
         // get container name from file or use default
         const containerName =
-            this.containerName || filePayload.containerName || 'default';
+            filePayload.containerName || this.containerName || 'default';
 
         const containerClient =
             this.blobServiceClient.getContainerClient(containerName);
@@ -98,7 +95,7 @@ export class StorageAccountAzureFileManagerService
     ): Promise<StorageAccountFileManagerBase64> {
         // get container name from file or use default
         const containerName =
-            this.containerName || filePayload.containerName || 'default';
+            filePayload.containerName || this.containerName || 'default';
 
         const containerClient =
             this.blobServiceClient.getContainerClient(containerName);
@@ -135,8 +132,71 @@ export class StorageAccountAzureFileManagerService
         return await Promise.all(responses);
     }
 
+    async getNextAvailableFilename(
+        containerName: string,
+        basePathSegments: string[],
+        filename: string,
+    ): Promise<string> {
+        const containerClient =
+            this.blobServiceClient.getContainerClient(containerName);
+        const extensionFile = getFileExtension(filename);
+        const filenameWithoutExtension = getFilenameWithoutExtension(filename);
+
+        let fileIndex = 1;
+        let nextAvailableFile = filenameWithoutExtension;
+
+        while (true) {
+            const fileSegments = [...basePathSegments, nextAvailableFile];
+            const filePrefix = fileSegments.join('/');
+
+            const allBlobs = containerClient.listBlobsFlat({
+                prefix: filePrefix,
+            });
+            const exists = !(await allBlobs.next()).done;
+
+            if (!exists) break;
+
+            nextAvailableFile = `${filenameWithoutExtension}-${fileIndex}${extensionFile}`;
+            fileIndex++;
+        }
+
+        return nextAvailableFile;
+    }
+
+    async getNextAvailableFoldername(
+        containerName: string,
+        basePathSegments: string[],
+        rootFolderSegment: string,
+    ): Promise<string> {
+        const containerClient =
+            this.blobServiceClient.getContainerClient(containerName);
+
+        let folderIndex = 1;
+        let nextAvailableFolder = rootFolderSegment;
+
+        while (true) {
+            const folderSegments = [...basePathSegments, nextAvailableFolder];
+            const folderPrefix = folderSegments.join('/') + '/';
+
+            const allBlobs = containerClient.listBlobsByHierarchy('/', {
+                prefix: folderPrefix,
+            });
+            const exists = !(await allBlobs.next()).done;
+
+            if (!exists) break;
+
+            nextAvailableFolder = `${rootFolderSegment}-${folderIndex}`;
+            folderIndex++;
+        }
+
+        return nextAvailableFolder;
+    }
+
     async uploadFile(
         filePayload: StorageAccountFileManagerFileUploadedInput,
+        {
+            filenameFormat = 'uuid',
+        }: { filenameFormat?: 'uuid' | 'filename' } = {},
     ): Promise<StorageAccountFileManagerFile> {
         // by default all files are saved in the tmp folder, so that after manipulation they are saved in the corresponding folder
         // if it is not necessary to manipulate the file, it can be saved directly in the corresponding folder.
@@ -146,38 +206,32 @@ export class StorageAccountAzureFileManagerService
 
         // get container name from file or use default
         const containerName =
-            this.containerName || filePayload.containerName || 'default';
+            filePayload.containerName || this.containerName || 'default';
 
-        // eslint-disable-next-line no-await-in-loop
-        const {
-            createReadStream,
-            filename: originFilename,
-            mimetype,
-            encoding,
-        } = await filePayload.file;
-        const extensionFile =
-            extname(originFilename).toLowerCase() === '.jpeg'
-                ? '.jpg'
-                : extname(originFilename).toLowerCase();
-        const filename = `${filePayload.id}${extensionFile}`;
+        const { stream, filename: originFilename, mimetype } = filePayload.file;
 
-        const filenamePath = [...relativePathSegments, filename].join('/');
+        const extensionFile = getFileExtension(originFilename);
+
+        const filenameWithoutExtension =
+            filenameFormat === 'uuid'
+                ? filePayload.id
+                : getFilenameWithoutExtension(originFilename);
+
+        const filename = `${filenameWithoutExtension}${extensionFile}`;
+        const absolutePath = [...relativePathSegments, filename].join('/');
 
         const containerClient =
             this.blobServiceClient.getContainerClient(containerName);
         const blockBlobClient =
-            containerClient.getBlockBlobClient(filenamePath);
-
-        const buffer = await streamToBuffer(createReadStream());
-        const streamForUpload = Readable.from(buffer);
+            containerClient.getBlockBlobClient(absolutePath);
 
         await blockBlobClient.uploadStream(
-            streamForUpload,
-            buffer.length, // bufferSize
+            stream,
+            4 * 1024 * 1024, // 4MB, // bufferSize
             5, // max concurrency
             {
                 blobHTTPHeaders: {
-                    blobContentType: filePayload.file.mimetype,
+                    blobContentType: mimetype,
                 },
             },
         );
@@ -188,9 +242,8 @@ export class StorageAccountAzureFileManagerService
             mimetype === 'image/png' ||
             mimetype === 'image/gif' ||
             mimetype === 'image/webp';
-        const fileMeta = isCropable
-            ? await sharp(buffer).metadata()
-            : undefined;
+
+        const sanitizedUrl = blockBlobClient.url.split('?')[0];
 
         const storageAccountFile: StorageAccountFileManagerFile = {
             id: filePayload.id,
@@ -199,15 +252,11 @@ export class StorageAccountAzureFileManagerService
             mimetype,
             extension: extensionFile,
             relativePathSegments,
-            width: fileMeta?.width,
-            height: fileMeta?.height,
-            size: buffer.length,
-            url: blockBlobClient.url,
+            size: null,
+            url: sanitizedUrl,
             isCropable,
             isUploaded: true,
-            meta: {
-                fileMeta,
-            },
+            meta: {},
         };
 
         // add cropable properties
@@ -255,10 +304,13 @@ export class StorageAccountAzureFileManagerService
 
     async uploadFiles(
         filePayloads: StorageAccountFileManagerFileUploadedInput[],
+        {
+            filenameFormat = 'uuid',
+        }: { filenameFormat?: 'uuid' | 'filename' } = {},
     ): Promise<StorageAccountFileManagerFile[]> {
         const responses = [];
         for (const filePayload of filePayloads) {
-            const savedFile = this.uploadFile(filePayload);
+            const savedFile = this.uploadFile(filePayload, { filenameFormat });
             responses.push(savedFile);
         }
         return Promise.all(responses);

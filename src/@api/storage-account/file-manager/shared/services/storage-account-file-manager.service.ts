@@ -35,8 +35,10 @@ export abstract class StorageAccountFileManagerService {
     ): Promise<string>;
     abstract uploadFile(
         filePayload: StorageAccountFileManagerFileUploadedInput,
+        props?: { filenameFormat?: 'uuid' | 'filename' },
     ): Promise<StorageAccountFileManagerFile>;
     abstract uploadFiles(
         filePayloads: StorageAccountFileManagerFileUploadedInput[],
+        props?: { filenameFormat?: 'uuid' | 'filename' },
     ): Promise<StorageAccountFileManagerFile[]>;
 }
