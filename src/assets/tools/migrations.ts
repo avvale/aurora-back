@@ -2,7 +2,7 @@ import { ToolsCreateMigrationTemplateInput } from '@api/graphql';
 
 export const migrations: ToolsCreateMigrationTemplateInput[] = [
     {
-        id: '758f52bd-2008-4b27-b689-def09b8840e1',
+        id: '2b9590da-a50f-45c5-8f7f-cfbbc564efd6',
         name: 'Rename sort to messageRowId in MessageInbox',
         version: '0.0.5',
         sort: 7,
@@ -16,7 +16,7 @@ export const migrations: ToolsCreateMigrationTemplateInput[] = [
         `,
     },
     {
-        id: '758f52bd-2008-4b27-b689-def09b8840e1',
+        id: '29c6ff91-bef9-493f-a990-bac81abddf44',
         name: 'Rename sort to lastReadMessageRowId in MessageInboxSetting',
         version: '0.0.5',
         sort: 6,
@@ -30,7 +30,7 @@ export const migrations: ToolsCreateMigrationTemplateInput[] = [
         `,
     },
     {
-        id: '758f52bd-2008-4b27-b689-def09b8840e1',
+        id: 'bf177b46-6671-410b-bf49-4ce97c29884e',
         name: 'Add rowId to MessageOutbox',
         version: '0.0.5',
         sort: 5,

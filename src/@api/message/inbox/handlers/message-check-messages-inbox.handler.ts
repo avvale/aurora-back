@@ -186,9 +186,9 @@ export class MessageCheckMessagesInboxHandler {
                     ),
                 );
 
-                // get max sort
-                const maxSort = await this.queryBus.ask(
-                    new MessageMaxInboxQuery('sort'),
+                // get max messageRowId
+                const maxMessageRowId = await this.queryBus.ask(
+                    new MessageMaxInboxQuery('messageRowId'),
                 );
 
                 // update inbox setting
@@ -196,7 +196,7 @@ export class MessageCheckMessagesInboxHandler {
                     new MessageUpdateInboxSettingByIdCommand(
                         {
                             id: inboxSetting.id,
-                            sort: maxSort,
+                            lastReadMessageRowId: maxMessageRowId,
                         },
                         {},
                         {
@@ -216,9 +216,9 @@ export class MessageCheckMessagesInboxHandler {
         // * if no existing inbox setting, create new inbox setting *
         // **********************************************************
 
-        // get max sort
-        const maxSort = await this.queryBus.ask(
-            new MessageMaxInboxQuery('sort'),
+        // get max messageRowId
+        const maxMessageRowId = await this.queryBus.ask(
+            new MessageMaxInboxQuery('messageRowId'),
         );
 
         // create inbox setting
@@ -227,7 +227,7 @@ export class MessageCheckMessagesInboxHandler {
                 {
                     id: uuid(),
                     accountId: account.id,
-                    sort: maxSort || 0,
+                    lastReadMessageRowId: maxMessageRowId || 0,
                 },
                 {
                     timezone,
