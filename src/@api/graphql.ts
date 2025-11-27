@@ -2161,7 +2161,6 @@ export interface IMutation {
     messageCreateMessages(payload: Nullable<MessageCreateMessageInput>[]): boolean | Promise<boolean>;
     messageUpdateMessageById(payload: MessageUpdateMessageByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageUpdateMessages(payload: MessageUpdateMessagesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
-    messageUpsertMessage(payload: MessageUpdateMessageByIdInput): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageDeleteMessageById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage> | Promise<Nullable<MessageMessage>>;
     messageDeleteMessages(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageMessage>[] | Promise<Nullable<MessageMessage>[]>;
     messageRemoveAttachmentMessage(message: MessageUpdateMessageByIdInput, attachmentId: string, constraint?: Nullable<QueryStatement>): boolean | Promise<boolean>;
@@ -2171,7 +2170,6 @@ export interface IMutation {
     messageCreateOutboxes(payload: Nullable<MessageCreateOutboxInput>[]): boolean | Promise<boolean>;
     messageUpdateOutboxById(payload: MessageUpdateOutboxByIdInput, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageUpdateOutboxes(payload: MessageUpdateOutboxesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox>[] | Promise<Nullable<MessageOutbox>[]>;
-    messageUpsertOutbox(payload: MessageUpdateOutboxByIdInput): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageDeleteOutboxById(id: string, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox> | Promise<Nullable<MessageOutbox>>;
     messageDeleteOutboxes(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<MessageOutbox>[] | Promise<Nullable<MessageOutbox>[]>;
     oAuthDeleteAccessTokenById(id: string, constraint?: Nullable<QueryStatement>): Nullable<OAuthAccessToken> | Promise<Nullable<OAuthAccessToken>>;
@@ -2669,6 +2667,7 @@ export interface MessageInbox {
 
 export interface MessageMessage {
     id: string;
+    rowId: GraphQLInt;
     tenantIds?: Nullable<Nullable<string>[]>;
     status: MessageMessageStatus;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
@@ -2694,9 +2693,9 @@ export interface MessageMessage {
 
 export interface MessageOutbox {
     id: string;
+    rowId: GraphQLInt;
     messageId: string;
     message?: Nullable<MessageMessage>;
-    sort: GraphQLInt;
     accountRecipientIds?: Nullable<Nullable<string>[]>;
     tenantRecipientIds?: Nullable<Nullable<string>[]>;
     scopeRecipients?: Nullable<Nullable<GraphQLString>[]>;

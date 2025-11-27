@@ -1,17 +1,17 @@
-import { IntValueObject, ValidationRules } from '@aurorajs.dev/core';
+import { BigintValueObject, ValidationRules } from '@aurorajs.dev/core';
 
-export class MessageMessageReads extends IntValueObject {
-    public readonly type: string = 'MessageMessageReads';
+export class MessageOutboxRowId extends BigintValueObject {
+    public readonly type: string = 'MessageOutboxRowId';
 
     constructor(value: number, validationRules: ValidationRules = {}) {
         super(
             value,
             Object.assign(
                 {
-                    name: 'MessageMessageReads',
+                    name: 'MessageOutboxRowId',
                     nullable: false,
                     undefinable: false,
-                    unsigned: true,
+                    unsigned: false,
                 },
                 validationRules,
             ),
