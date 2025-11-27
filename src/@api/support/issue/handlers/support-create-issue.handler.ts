@@ -67,7 +67,24 @@ export class SupportCreateIssueHandler {
             ),
         );
 
-        console.log('Created ClickUp Task:', task);
+        if (screenRecordingUploaded) {
+            await lastValueFrom(
+                this.clickupService.createAttachment(
+                    task.id,
+                    {
+                        ...payload.screenRecording,
+                        file: {
+                            stream: await this.storageAccountFileManagerService.getStreamFile(
+                                screenRecordingUploaded,
+                            ),
+                            filename: payload.screenRecording.file.filename,
+                            mimetype: payload.screenRecording.file.mimetype,
+                        },
+                    },
+                    { authorization: clickupTaskPlatformApiKey },
+                ),
+            );
+        }
 
         void this.commandBus.dispatch(
             new SupportUpdateIssueByIdCommand({

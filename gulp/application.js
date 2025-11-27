@@ -85,6 +85,7 @@ function editPackageJson() {
                 delete json.dependencies['@nestjs/schedule'];
                 delete json.dependencies['@openai/agents'];
                 delete json.dependencies['bullmq'];
+                delete json.dependencies['form-data'];
                 delete json.dependencies['handlebars'];
                 delete json.dependencies['jwks-rsa'];
                 delete json.dependencies['nodemailer'];

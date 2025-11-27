@@ -1,4 +1,5 @@
 import { SupportCreateIssueInput, SupportIssue } from '@api/graphql';
+import { mapResolverFileWithStream } from '@api/storage-account/shared';
 import { SupportCreateIssueHandler } from '@api/support/issue';
 import { Auth } from '@aurora/decorators';
 import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
@@ -15,6 +16,9 @@ export class SupportCreateIssueResolver {
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
     ): Promise<SupportIssue> {
+        payload.screenRecording = await mapResolverFileWithStream(
+            payload.screenRecording,
+        );
         return await this.handler.main(payload, timezone, auditing);
     }
 }

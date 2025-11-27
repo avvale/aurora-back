@@ -2876,6 +2876,7 @@ export interface StorageAccountFileManagerFile {
     mimetype: GraphQLString;
     extension: GraphQLString;
     relativePathSegments: GraphQLString[];
+    containerName?: Nullable<GraphQLString>;
     width?: Nullable<GraphQLInt>;
     height?: Nullable<GraphQLInt>;
     size?: Nullable<GraphQLInt>;

@@ -1,7 +1,13 @@
-import { ClickupFolder, ClickupList, ClickupSpace } from '@api/graphql';
+import {
+    ClickupFolder,
+    ClickupList,
+    ClickupSpace,
+    StorageAccountFileManagerFileUploadedInput,
+} from '@api/graphql';
 import { Str } from '@aurorajs.dev/core';
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import * as FormData from 'form-data';
 import { map, Observable } from 'rxjs';
 
 @Injectable()
@@ -21,6 +27,9 @@ export class ClickupService {
     apiCreateTask = '/api/v2/list/:listId/task';
     apiGetTask = '/api/v2/task/:taskId';
     apiUpdateTask = '/api/v2/task/:taskId';
+
+    // attachments
+    apiCreateAttachment = '/api/v2/task/:taskId/attachment';
 
     // comments
     apiCreateComment = '/api/v2/task/:taskId/comment';
@@ -126,5 +135,33 @@ export class ClickupService {
                 },
             },
         );
+    }
+
+    createAttachment(
+        taskId: string,
+        attachment: StorageAccountFileManagerFileUploadedInput,
+        options: { authorization: string },
+    ): Observable<any> {
+        // create form data for attachment
+        const form = new FormData();
+        form.append('attachment', attachment.file.stream, {
+            filename: attachment.file.filename,
+            contentType: attachment.file.mimetype,
+        });
+
+        return this.httpService
+            .post(
+                `${this.apiUrl}${Str.replaceParams(this.apiCreateAttachment, { taskId })}`,
+                form,
+                {
+                    headers: {
+                        Authorization: options.authorization,
+                        ...form.getHeaders(),
+                    },
+                    maxContentLength: Infinity,
+                    maxBodyLength: Infinity,
+                },
+            )
+            .pipe(map((response) => response.data));
     }
 }
