@@ -33,7 +33,7 @@ export class MessagePaginateCustomerMessagesInboxHandler {
                         'id',
                         'tenantIds',
                         'messageId',
-                        'sort',
+                        'messageRowId',
                         'accountId',
                         'accountCode',
                         'isImportant',

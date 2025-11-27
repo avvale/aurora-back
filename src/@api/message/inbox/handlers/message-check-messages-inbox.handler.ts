@@ -66,8 +66,8 @@ export class MessageCheckMessagesInboxHandler {
                 new MessageGetOutboxesQuery({
                     where: {
                         // get messages that are not already in the inbox yet
-                        sort: {
-                            [Operator.gt]: inboxSetting.sort,
+                        rowId: {
+                            [Operator.gt]: inboxSetting.lastReadMessageRowId,
                         },
                         [Operator.or]: [
                             {
@@ -129,7 +129,7 @@ export class MessageCheckMessagesInboxHandler {
                             association: 'message',
                         },
                     ],
-                    order: [['sort', 'ASC']],
+                    order: [['rowId', 'ASC']],
                 }),
             );
 
@@ -159,7 +159,7 @@ export class MessageCheckMessagesInboxHandler {
                             id: uuid(),
                             tenantIds: account.dTenants,
                             messageId: outboxMessage.messageId,
-                            sort: outboxMessage.sort,
+                            messageRowId: outboxMessage.rowId,
                             accountId: account.id,
                             accountCode: account.username,
                             isImportant: outboxMessage.message.isImportant,
