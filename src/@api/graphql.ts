@@ -1065,7 +1065,7 @@ export interface MessageCreateInboxInput {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
     messageId?: Nullable<string>;
-    sort: GraphQLInt;
+    messageRowId: GraphQLInt;
     accountId: string;
     accountCode?: Nullable<GraphQLString>;
     isImportant: GraphQLBoolean;
@@ -1086,7 +1086,7 @@ export interface MessageUpdateInboxByIdInput {
     id: string;
     tenantIds?: Nullable<Nullable<string>[]>;
     messageId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
+    messageRowId?: Nullable<GraphQLInt>;
     accountId?: Nullable<string>;
     accountCode?: Nullable<GraphQLString>;
     isImportant?: Nullable<GraphQLBoolean>;
@@ -1107,7 +1107,7 @@ export interface MessageUpdateInboxesInput {
     id?: Nullable<string>;
     tenantIds?: Nullable<Nullable<string>[]>;
     messageId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
+    messageRowId?: Nullable<GraphQLInt>;
     accountId?: Nullable<string>;
     accountCode?: Nullable<GraphQLString>;
     isImportant?: Nullable<GraphQLBoolean>;
@@ -2645,7 +2645,7 @@ export interface MessageInbox {
     tenantIds?: Nullable<Nullable<string>[]>;
     messageId?: Nullable<string>;
     message?: Nullable<MessageMessage>;
-    sort: GraphQLInt;
+    messageRowId: GraphQLInt;
     accountId: string;
     accountCode?: Nullable<GraphQLString>;
     isImportant: GraphQLBoolean;
