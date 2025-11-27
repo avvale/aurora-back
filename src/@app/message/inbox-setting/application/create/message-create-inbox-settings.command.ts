@@ -5,7 +5,7 @@ export class MessageCreateInboxSettingsCommand {
         public readonly payload: {
             id: string;
             accountId: string;
-            sort: number;
+            lastReadMessageRowId: number;
         }[],
         public readonly cQMetadata?: CQMetadata,
     ) {}

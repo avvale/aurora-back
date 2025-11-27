@@ -13,8 +13,8 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "mutation ($payload:MessageCreateInboxSettingInput!)\n{\n\tmessageCreateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t}\n}",
-                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 90433786935556110000, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 761044\n\t}\n}"
+                        "query": "mutation ($payload:MessageCreateInboxSettingInput!)\n{\n\tmessageCreateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 73653692664237120000, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"lastReadMessageRowId\": 90667715344636580000\n\t}\n}"
                     }
                 },
                 "url": {
@@ -34,7 +34,7 @@
                     "mode": "graphql",
                     "graphql": {
                         "query": "mutation ($payload:[MessageCreateInboxSettingInput]!)\n{\n\tmessageCreateInboxSettings (payload:$payload)\n}",
-                        "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"8eb8e872-5d71-4219-a9db-4117afe9ea20\", \n\t\t\t\"rowId\": 71029256135294665000, \n\t\t\t\"accountId\": \"c6103aa9-be5b-4813-8919-052b7de54b5f\", \n\t\t\t\"sort\": 328659\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"d1eda886-6552-4b5d-b298-a5dd69e8d468\", \n\t\t\t\"rowId\": 48502590105811730000, \n\t\t\t\"accountId\": \"601b51fa-b3d0-4d18-8943-0a4a72672132\", \n\t\t\t\"sort\": 299879\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ab3e1843-4cfb-4974-a076-8914b0eba205\", \n\t\t\t\"rowId\": 11353274633885784000, \n\t\t\t\"accountId\": \"6638cc05-22b5-4e1f-92bc-d20463800645\", \n\t\t\t\"sort\": 645338\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"22a1bf5d-b684-4908-b2a4-81c78684485a\", \n\t\t\t\"rowId\": 21400104155686076000, \n\t\t\t\"accountId\": \"284d200c-750d-4860-b918-6242096e7d9a\", \n\t\t\t\"sort\": 974062\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"60a5fabd-2181-4227-adc8-8d16840738b1\", \n\t\t\t\"rowId\": 39757977645257785000, \n\t\t\t\"accountId\": \"da02a685-e296-4cc3-9ed9-2200d9bc612f\", \n\t\t\t\"sort\": 812133\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"064d19c6-1e94-42b8-ab37-990ea21bd0c2\", \n\t\t\t\"rowId\": 17235371920652431000, \n\t\t\t\"accountId\": \"de02edd4-c313-42cb-8a08-5232f0a518b9\", \n\t\t\t\"sort\": 461227\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"b74702da-7eed-4409-aa5b-7e397b47350f\", \n\t\t\t\"rowId\": 45916225966751990000, \n\t\t\t\"accountId\": \"e05727cc-43b8-4e94-bc7a-22d011f0a0da\", \n\t\t\t\"sort\": 180783\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"548c2782-5ba7-4df7-98e8-2f9a07e37681\", \n\t\t\t\"rowId\": 85868692249443990000, \n\t\t\t\"accountId\": \"e8ec740c-4303-4344-86f9-3f84d835f83b\", \n\t\t\t\"sort\": 590562\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"1d8c237a-444b-43a8-a631-e34d6d0ef63e\", \n\t\t\t\"rowId\": 68324302168088410000, \n\t\t\t\"accountId\": \"ed5706bc-0410-4816-87de-fecdc8c72d38\", \n\t\t\t\"sort\": 891188\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"1399c70a-33c7-4959-a74d-4aac3979ea15\", \n\t\t\t\"rowId\": 76917820946720650000, \n\t\t\t\"accountId\": \"3eb55a2d-c7a4-4b47-ac5c-51bf867c31fa\", \n\t\t\t\"sort\": 447114\n\t\t}\n\t]\n}"
+                        "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"7a526243-ec30-4e01-bace-6cadb6b9070e\", \n\t\t\t\"rowId\": 88340379019018620000, \n\t\t\t\"accountId\": \"60d91e1e-253e-4d1f-95ed-f9a82db439ce\", \n\t\t\t\"lastReadMessageRowId\": 18671003856775470000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"77b65622-63c5-4bc1-ab5a-f535295069fd\", \n\t\t\t\"rowId\": 87562801772197840000, \n\t\t\t\"accountId\": \"994afe2f-1793-48d0-8036-ea4f402d86fd\", \n\t\t\t\"lastReadMessageRowId\": 53289928100139440000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"cb00bc8c-2dfb-4469-aab1-6d190ba5a174\", \n\t\t\t\"rowId\": 19791326073660785000, \n\t\t\t\"accountId\": \"3525d7a6-3068-425b-93aa-71b169c5e05e\", \n\t\t\t\"lastReadMessageRowId\": 71922634056064580000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"80c302da-6b70-4663-8a04-df24d4215749\", \n\t\t\t\"rowId\": 88375353951503900000, \n\t\t\t\"accountId\": \"e8160f9d-4c6f-4487-8ec6-64dbb7f11436\", \n\t\t\t\"lastReadMessageRowId\": 25807773266409083000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"777f1e7a-b327-4678-9a40-e41cc6768bcf\", \n\t\t\t\"rowId\": 23259777525206910000, \n\t\t\t\"accountId\": \"aa3ca7d9-26cb-4979-97fa-3b8f7f7ba9b4\", \n\t\t\t\"lastReadMessageRowId\": 25515035765144347000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"b3c47ab7-19dd-44c2-bf17-69269054939e\", \n\t\t\t\"rowId\": 91104935893167650000, \n\t\t\t\"accountId\": \"08c20774-78dd-4f8a-9421-e02438a700c5\", \n\t\t\t\"lastReadMessageRowId\": 65232962023414776000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"17925b2f-10b6-40d1-900d-a8f1c5436aba\", \n\t\t\t\"rowId\": 83451080241671880000, \n\t\t\t\"accountId\": \"15589127-fe6c-4b06-b074-1b93bd019831\", \n\t\t\t\"lastReadMessageRowId\": 31401522130603168000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"2a15b5ba-3e10-4ec6-ab10-57376d2c3d88\", \n\t\t\t\"rowId\": 38171517390635960000, \n\t\t\t\"accountId\": \"f1c2947b-75e3-4fa7-8d8d-ef5054d4facb\", \n\t\t\t\"lastReadMessageRowId\": 39207928471743270000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"d7ee9b8a-b1e0-4a49-9858-6acc54b3c6d2\", \n\t\t\t\"rowId\": 61663375048881260000, \n\t\t\t\"accountId\": \"039c5c54-ad28-4a61-81bc-c1cc3e0423b9\", \n\t\t\t\"lastReadMessageRowId\": 96621674241537570000\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"5ae6e1db-5830-412b-91c9-29a07dba319f\", \n\t\t\t\"rowId\": 23747514933222890000, \n\t\t\t\"accountId\": \"b42e63bc-ab4c-47af-950e-2e4b43d5f4d0\", \n\t\t\t\"lastReadMessageRowId\": 39143397363400114000\n\t\t}\n\t]\n}"
                     }
                 },
                 "url": {
@@ -73,7 +73,7 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "query ($query:QueryStatement)\n{\n\tmessageGetInboxSettings (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "query": "query ($query:QueryStatement)\n{\n\tmessageGetInboxSettings (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
                         "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
                     }
                 },
@@ -93,7 +93,7 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "query ($query:QueryStatement)\n{\n\tmessageFindInboxSetting (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "query": "query ($query:QueryStatement)\n{\n\tmessageFindInboxSetting (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
                         "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
                     }
                 },
@@ -113,7 +113,7 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "query ($id:ID)\n{\n\tmessageFindInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "query": "query ($id:ID)\n{\n\tmessageFindInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
                         "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
                     }
                 },
@@ -133,8 +133,8 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "mutation ($payload:MessageUpdateInboxSettingInput!)\n{\n\tmessageUpdateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 14374949137066740000, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"sort\": 911857\n\t}\n}"
+                        "query": "mutation ($payload:MessageUpdateInboxSettingInput!)\n{\n\tmessageUpdateInboxSetting (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 88804530224855420000, \n\t\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"lastReadMessageRowId\": 43751768362070420000\n\t}\n}"
                     }
                 },
                 "url": {
@@ -153,7 +153,7 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "mutation ($id:ID!)\n{\n\tmessageDeleteInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "query": "mutation ($id:ID!)\n{\n\tmessageDeleteInboxSettingById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
                         "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
                     }
                 },
@@ -173,7 +173,7 @@
                 "body": {
                     "mode": "graphql",
                     "graphql": {
-                        "query": "mutation ($query:QueryStatement)\n{\n\tmessageDeleteInboxSettings (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tsort\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+                        "query": "mutation ($query:QueryStatement)\n{\n\tmessageDeleteInboxSettings (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\taccountId\n\t\tlastReadMessageRowId\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
                         "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
                     }
                 },
@@ -199,7 +199,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 38552466151386415000, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 438037\n}",
+                    "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 76667080120055900000, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"lastReadMessageRowId\": 67784711466745220000\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -228,7 +228,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "[\n\t{\n\t\t\"id\": \"826d8ab1-3621-43c3-8f0c-e1f4a008b331\", \n\t\t\"rowId\": 87461133410351560000, \n\t\t\"accountId\": \"2e174919-812b-400a-8c66-ed50cd85d2d8\", \n\t\t\"sort\": 669371\n\t}, \n\t{\n\t\t\"id\": \"71e2d999-b208-42d7-8b10-f4e663526078\", \n\t\t\"rowId\": 17978900390090334000, \n\t\t\"accountId\": \"5ca2793a-b9a2-4ab7-8c8c-4f7837497dee\", \n\t\t\"sort\": 366526\n\t}, \n\t{\n\t\t\"id\": \"27d4224a-ab4e-46c4-bede-6d2ee7f8ca0d\", \n\t\t\"rowId\": 52681027971843970000, \n\t\t\"accountId\": \"47d04dd8-8d6f-4405-a227-dfd3d926c523\", \n\t\t\"sort\": 610507\n\t}, \n\t{\n\t\t\"id\": \"02851a28-352d-4e00-bf5f-b24cade3b5c6\", \n\t\t\"rowId\": 88873006442577310000, \n\t\t\"accountId\": \"1ac6dbec-3311-4ce5-8d2c-347e10d40572\", \n\t\t\"sort\": 809823\n\t}, \n\t{\n\t\t\"id\": \"6d63087a-9e3d-4f0f-a61a-8a37b361bf95\", \n\t\t\"rowId\": 48732560296308740000, \n\t\t\"accountId\": \"e3c12cc1-6ea0-4f6b-9fd6-f501948f26a9\", \n\t\t\"sort\": 519348\n\t}, \n\t{\n\t\t\"id\": \"25bd5bb9-b8bf-445d-a76a-c876dd39061f\", \n\t\t\"rowId\": 15545736307803742000, \n\t\t\"accountId\": \"4992ce43-721b-4b69-b49c-76afeb914e3e\", \n\t\t\"sort\": 132624\n\t}, \n\t{\n\t\t\"id\": \"47e917fd-e156-48e5-aa0a-2693b7f2683f\", \n\t\t\"rowId\": 89042660114269000000, \n\t\t\"accountId\": \"88a11bad-c065-4484-a8cb-d554165a9bdc\", \n\t\t\"sort\": 780061\n\t}, \n\t{\n\t\t\"id\": \"0405041b-f494-4757-89e5-f722cb1aa636\", \n\t\t\"rowId\": 22223287962462396000, \n\t\t\"accountId\": \"2bfb5465-4691-4488-b8ed-c2a911db0769\", \n\t\t\"sort\": 355737\n\t}, \n\t{\n\t\t\"id\": \"6667e513-b066-4d41-8012-509c56d03ab8\", \n\t\t\"rowId\": 10423557487183210000, \n\t\t\"accountId\": \"24bd11e9-9b69-4193-82c7-a07915cb6d03\", \n\t\t\"sort\": 677390\n\t}, \n\t{\n\t\t\"id\": \"eb8a668a-a118-4d27-ac81-b96d92b01bb7\", \n\t\t\"rowId\": 47676526602546970000, \n\t\t\"accountId\": \"d00f182f-0481-426f-b731-4e9afa155921\", \n\t\t\"sort\": 893960\n\t}\n]",
+                    "raw": "[\n\t{\n\t\t\"id\": \"ac1c493a-b433-46a3-8109-a7dd4f9859e5\", \n\t\t\"rowId\": 98913800780532320000, \n\t\t\"accountId\": \"a22ed183-7905-4ad6-ae77-3903e6f99f36\", \n\t\t\"lastReadMessageRowId\": 65718512521322580000\n\t}, \n\t{\n\t\t\"id\": \"aa39906e-c4fc-470a-bfd7-6be6071fb84b\", \n\t\t\"rowId\": 73851110410847030000, \n\t\t\"accountId\": \"17d98ca5-62cf-4ae0-be6b-c977a975dd19\", \n\t\t\"lastReadMessageRowId\": 41501369505360500000\n\t}, \n\t{\n\t\t\"id\": \"787ef24d-80bc-4ba1-aaad-a2daed204fff\", \n\t\t\"rowId\": 84320355925994910000, \n\t\t\"accountId\": \"9ddd4935-2b84-4dd5-8ece-acf4f97702c9\", \n\t\t\"lastReadMessageRowId\": 60036523538552630000\n\t}, \n\t{\n\t\t\"id\": \"5d242b03-399f-4fbd-8f67-25cb63d0169e\", \n\t\t\"rowId\": 39532419829140340000, \n\t\t\"accountId\": \"3ff2eb56-19f7-4b2d-869c-216707a8451d\", \n\t\t\"lastReadMessageRowId\": 60684655449560490000\n\t}, \n\t{\n\t\t\"id\": \"77b8562b-7955-4e11-89c8-3f8245a5d8c4\", \n\t\t\"rowId\": 83020748387185930000, \n\t\t\"accountId\": \"c7289234-573f-4ac2-bd61-f4c447f80729\", \n\t\t\"lastReadMessageRowId\": 97347752932905220000\n\t}, \n\t{\n\t\t\"id\": \"67f67b34-255c-4937-9d48-707066f700e7\", \n\t\t\"rowId\": 98947616968245700000, \n\t\t\"accountId\": \"eb26e2e7-b735-45e2-aa92-1653f9ef451a\", \n\t\t\"lastReadMessageRowId\": 60996245408126050000\n\t}, \n\t{\n\t\t\"id\": \"d522aa6c-b913-4d4c-a9f4-e571cbded88f\", \n\t\t\"rowId\": 64063688088389410000, \n\t\t\"accountId\": \"43548663-aaa8-4132-a5c9-55d5262f4c15\", \n\t\t\"lastReadMessageRowId\": 94352747352559000000\n\t}, \n\t{\n\t\t\"id\": \"e654fda5-742f-4f50-8ed6-75ad0689e316\", \n\t\t\"rowId\": 17999628075389043000, \n\t\t\"accountId\": \"7773585a-71dc-4375-af28-3887ae606b46\", \n\t\t\"lastReadMessageRowId\": 73803608039912010000\n\t}, \n\t{\n\t\t\"id\": \"17a463bb-d55c-4a46-9fc1-6d7c051e979c\", \n\t\t\"rowId\": 71853242435992060000, \n\t\t\"accountId\": \"d8fe71f0-6786-4899-bb66-0c707c604d3f\", \n\t\t\"lastReadMessageRowId\": 58433287355800805000\n\t}, \n\t{\n\t\t\"id\": \"50f4a272-7a82-41c3-bb9c-6f7b7ccbfc7b\", \n\t\t\"rowId\": 91459167960719970000, \n\t\t\"accountId\": \"828c3285-7cf8-423e-bc9b-183503531d84\", \n\t\t\"lastReadMessageRowId\": 56092870648803070000\n\t}\n]",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -390,7 +390,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 72394138685178460000, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"sort\": 766707\n}",
+                    "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 55816838885322320000, \n\t\"accountId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"lastReadMessageRowId\": 31782103938134450000\n}",
                     "options": {
                         "raw": {
                             "language": "json"

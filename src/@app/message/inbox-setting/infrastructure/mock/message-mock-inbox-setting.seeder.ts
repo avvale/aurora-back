@@ -7,8 +7,8 @@ import {
     MessageInboxSettingCreatedAt,
     MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingRowId,
-    MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
 } from '@app/message/inbox-setting/domain/value-objects';
 import { MockSeeder } from '@aurorajs.dev/core';
@@ -35,7 +35,9 @@ export class MessageMockInboxSettingSeeder extends MockSeeder<MessageInboxSettin
                     new MessageInboxSettingId(inboxSetting.id),
                     new MessageInboxSettingRowId(inboxSetting.rowId),
                     new MessageInboxSettingAccountId(inboxSetting.accountId),
-                    new MessageInboxSettingSort(inboxSetting.sort),
+                    new MessageInboxSettingLastReadMessageRowId(
+                        inboxSetting.lastReadMessageRowId,
+                    ),
                     new MessageInboxSettingCreatedAt({
                         currentTimestamp: true,
                     }),

@@ -138,18 +138,18 @@ describe('inbox-setting', () => {
             });
     });
 
-    test('/REST:POST message/inbox-setting/create - Got 400 Conflict, InboxSettingSort property can not to be null', () => {
+    test('/REST:POST message/inbox-setting/create - Got 400 Conflict, InboxSettingLastReadMessageRowId property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/message/inbox-setting/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                sort: null,
+                lastReadMessageRowId: null,
             })
             .expect(400)
             .then((res) => {
                 expect(res.body.message).toContain(
-                    'Value for MessageInboxSettingSort must be defined, can not be null',
+                    'Value for MessageInboxSettingLastReadMessageRowId must be defined, can not be null',
                 );
             });
     });
@@ -202,18 +202,18 @@ describe('inbox-setting', () => {
             });
     });
 
-    test('/REST:POST message/inbox-setting/create - Got 400 Conflict, InboxSettingSort property can not to be undefined', () => {
+    test('/REST:POST message/inbox-setting/create - Got 400 Conflict, InboxSettingLastReadMessageRowId property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/message/inbox-setting/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                sort: undefined,
+                lastReadMessageRowId: undefined,
             })
             .expect(400)
             .then((res) => {
                 expect(res.body.message).toContain(
-                    'Value for MessageInboxSettingSort must be defined, can not be undefined',
+                    'Value for MessageInboxSettingLastReadMessageRowId must be defined, can not be undefined',
                 );
             });
     });
@@ -246,22 +246,6 @@ describe('inbox-setting', () => {
             .then((res) => {
                 expect(res.body.message).toContain(
                     'Value for MessageInboxSettingAccountId is not allowed, must be a length of 36',
-                );
-            });
-    });
-
-    test('/REST:POST message/inbox-setting/create - Got 400 Conflict, InboxSettingSort has to be a integer value', () => {
-        return request(app.getHttpServer())
-            .post('/message/inbox-setting/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                sort: 100.1,
-            })
-            .expect(400)
-            .then((res) => {
-                expect(res.body.message).toContain(
-                    'Value for MessageInboxSettingSort has to be a integer value',
                 );
             });
     });
@@ -452,7 +436,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                         }
                     }
                 `,
@@ -532,7 +516,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -574,7 +558,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                         }
                     }
                 `,
@@ -607,7 +591,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -646,7 +630,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -681,7 +665,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -716,7 +700,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -747,7 +731,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -785,7 +769,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -819,7 +803,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -858,7 +842,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }
@@ -893,7 +877,7 @@ describe('inbox-setting', () => {
                             id
                             rowId
                             accountId
-                            sort
+                            lastReadMessageRowId
                             createdAt
                             updatedAt
                         }

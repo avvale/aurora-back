@@ -8,8 +8,8 @@ import {
     MessageInboxSettingCreatedAt,
     MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingRowId,
-    MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
 } from '@app/message/inbox-setting/domain/value-objects';
 import { MockRepository, Utils } from '@aurorajs.dev/core';
@@ -47,7 +47,9 @@ export class MessageMockInboxSettingRepository
                     new MessageInboxSettingId(itemCollection.id),
                     new MessageInboxSettingRowId(itemCollection.rowId),
                     new MessageInboxSettingAccountId(itemCollection.accountId),
-                    new MessageInboxSettingSort(itemCollection.sort),
+                    new MessageInboxSettingLastReadMessageRowId(
+                        itemCollection.lastReadMessageRowId,
+                    ),
                     new MessageInboxSettingCreatedAt(itemCollection.createdAt),
                     new MessageInboxSettingUpdatedAt(itemCollection.updatedAt),
                     new MessageInboxSettingDeletedAt(itemCollection.deletedAt),

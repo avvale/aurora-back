@@ -42,7 +42,9 @@ describe('MessageUpdateInboxSettingsCommandHandler', () => {
                             id: messageMockInboxSettingData[0].id,
                             rowId: messageMockInboxSettingData[0].rowId,
                             accountId: messageMockInboxSettingData[0].accountId,
-                            sort: messageMockInboxSettingData[0].sort,
+                            lastReadMessageRowId:
+                                messageMockInboxSettingData[0]
+                                    .lastReadMessageRowId,
                         },
                         {},
                         {},

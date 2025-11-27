@@ -7,7 +7,7 @@ export class MessageDeletedInboxSettingEvent {
                 id: string;
                 rowId: number;
                 accountId: string;
-                sort: number;
+                lastReadMessageRowId: number;
                 createdAt: string;
                 updatedAt: string;
                 deletedAt: string;

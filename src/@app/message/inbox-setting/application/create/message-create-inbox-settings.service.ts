@@ -7,7 +7,7 @@ import {
     MessageInboxSettingAccountId,
     MessageInboxSettingCreatedAt,
     MessageInboxSettingId,
-    MessageInboxSettingSort,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingUpdatedAt,
 } from '@app/message/inbox-setting/domain/value-objects';
 import { CQMetadata } from '@aurorajs.dev/core';
@@ -25,7 +25,7 @@ export class MessageCreateInboxSettingsService {
         payload: {
             id: MessageInboxSettingId;
             accountId: MessageInboxSettingAccountId;
-            sort: MessageInboxSettingSort;
+            lastReadMessageRowId: MessageInboxSettingLastReadMessageRowId;
         }[],
         cQMetadata?: CQMetadata,
     ): Promise<void> {
@@ -35,7 +35,7 @@ export class MessageCreateInboxSettingsService {
                 inboxSetting.id,
                 undefined, // rowId
                 inboxSetting.accountId,
-                inboxSetting.sort,
+                inboxSetting.lastReadMessageRowId,
                 new MessageInboxSettingCreatedAt({ currentTimestamp: true }),
                 new MessageInboxSettingUpdatedAt({ currentTimestamp: true }),
                 null, // deleteAt

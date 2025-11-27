@@ -1046,19 +1046,19 @@ export interface IamResetPasswordUserInput {
 export interface MessageCreateInboxSettingInput {
     id: string;
     accountId: string;
-    sort: GraphQLInt;
+    lastReadMessageRowId: GraphQLInt;
 }
 
 export interface MessageUpdateInboxSettingByIdInput {
     id: string;
     accountId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
+    lastReadMessageRowId?: Nullable<GraphQLInt>;
 }
 
 export interface MessageUpdateInboxSettingsInput {
     id?: Nullable<string>;
     accountId?: Nullable<string>;
-    sort?: Nullable<GraphQLInt>;
+    lastReadMessageRowId?: Nullable<GraphQLInt>;
 }
 
 export interface MessageCreateInboxInput {
@@ -2633,7 +2633,7 @@ export interface MessageInboxSetting {
     id: string;
     rowId: GraphQLInt;
     accountId: string;
-    sort: GraphQLInt;
+    lastReadMessageRowId: GraphQLInt;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

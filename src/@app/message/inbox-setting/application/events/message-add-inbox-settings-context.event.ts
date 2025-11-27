@@ -31,7 +31,8 @@ export class MessageAddInboxSettingsContextEvent extends AggregateRoot {
                             payload: {
                                 id: inboxSetting.id.value,
                                 accountId: inboxSetting.accountId.value,
-                                sort: inboxSetting.sort.value,
+                                lastReadMessageRowId:
+                                    inboxSetting.lastReadMessageRowId.value,
                                 createdAt: inboxSetting.createdAt?.value,
                                 updatedAt: inboxSetting.updatedAt?.value,
                                 deletedAt: inboxSetting.deletedAt?.value,
@@ -52,7 +53,8 @@ export class MessageAddInboxSettingsContextEvent extends AggregateRoot {
                             payload: {
                                 id: inboxSetting.id.value,
                                 accountId: inboxSetting.accountId.value,
-                                sort: inboxSetting.sort.value,
+                                lastReadMessageRowId:
+                                    inboxSetting.lastReadMessageRowId.value,
                                 createdAt: inboxSetting.createdAt?.value,
                                 updatedAt: inboxSetting.updatedAt?.value,
                                 deletedAt: inboxSetting.deletedAt?.value,
@@ -74,7 +76,8 @@ export class MessageAddInboxSettingsContextEvent extends AggregateRoot {
                                 id: inboxSetting.id.value,
                                 rowId: inboxSetting.rowId.value,
                                 accountId: inboxSetting.accountId.value,
-                                sort: inboxSetting.sort.value,
+                                lastReadMessageRowId:
+                                    inboxSetting.lastReadMessageRowId.value,
                                 createdAt: inboxSetting.createdAt?.value,
                                 updatedAt: inboxSetting.updatedAt?.value,
                                 deletedAt: inboxSetting.deletedAt?.value,

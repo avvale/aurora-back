@@ -162,11 +162,11 @@ export class MessageInboxSettingModel extends Model<MessageInboxSettingModel> {
     accountId: string;
 
     @Column({
-        field: 'sort',
+        field: 'lastReadMessageRowId',
         allowNull: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
     })
-    sort: number;
+    lastReadMessageRowId: number;
 
     @Column({
         field: 'createdAt',

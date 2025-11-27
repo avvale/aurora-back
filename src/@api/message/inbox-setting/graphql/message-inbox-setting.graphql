@@ -2,7 +2,7 @@ type MessageInboxSetting {
     id: ID!
     rowId: GraphQLInt!
     accountId: ID!
-    sort: GraphQLInt!
+    lastReadMessageRowId: GraphQLInt!
     createdAt: GraphQLTimestamp
     updatedAt: GraphQLTimestamp
     deletedAt: GraphQLTimestamp
@@ -11,19 +11,19 @@ type MessageInboxSetting {
 input MessageCreateInboxSettingInput {
     id: ID!
     accountId: ID!
-    sort: GraphQLInt!
+    lastReadMessageRowId: GraphQLInt!
 }
 
 input MessageUpdateInboxSettingByIdInput {
     id: ID!
     accountId: ID
-    sort: GraphQLInt
+    lastReadMessageRowId: GraphQLInt
 }
 
 input MessageUpdateInboxSettingsInput {
     id: ID
     accountId: ID
-    sort: GraphQLInt
+    lastReadMessageRowId: GraphQLInt
 }
 
 type Query {

@@ -4,7 +4,7 @@ import { MessageUpdateInboxSettingsService } from '@app/message/inbox-setting/ap
 import {
     MessageInboxSettingAccountId,
     MessageInboxSettingId,
-    MessageInboxSettingSort,
+    MessageInboxSettingLastReadMessageRowId,
 } from '@app/message/inbox-setting/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
@@ -27,9 +27,11 @@ export class MessageUpdateInboxSettingsCommandHandler
                     command.payload.accountId,
                     { undefinable: true },
                 ),
-                sort: new MessageInboxSettingSort(command.payload.sort, {
-                    undefinable: true,
-                }),
+                lastReadMessageRowId:
+                    new MessageInboxSettingLastReadMessageRowId(
+                        command.payload.lastReadMessageRowId,
+                        { undefinable: true },
+                    ),
             },
             command.queryStatement,
             command.constraint,

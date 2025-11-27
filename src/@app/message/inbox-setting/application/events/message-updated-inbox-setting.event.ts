@@ -6,7 +6,7 @@ export class MessageUpdatedInboxSettingEvent {
             payload: {
                 id: string;
                 accountId: string;
-                sort: number;
+                lastReadMessageRowId: number;
                 createdAt: string;
                 updatedAt: string;
                 deletedAt: string;

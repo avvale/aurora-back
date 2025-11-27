@@ -7,8 +7,8 @@ import {
     MessageInboxSettingCreatedAt,
     MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingRowId,
-    MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
 } from '@app/message/inbox-setting/domain/value-objects';
 import {
@@ -85,9 +85,10 @@ export class MessageInboxSettingMapper implements IMapper {
             new MessageInboxSettingAccountId(inboxSetting.accountId, {
                 undefinable: true,
             }),
-            new MessageInboxSettingSort(inboxSetting.sort, {
-                undefinable: true,
-            }),
+            new MessageInboxSettingLastReadMessageRowId(
+                inboxSetting.lastReadMessageRowId,
+                { undefinable: true },
+            ),
             new MessageInboxSettingCreatedAt(
                 inboxSetting.createdAt,
                 { undefinable: true },
@@ -115,7 +116,7 @@ export class MessageInboxSettingMapper implements IMapper {
             inboxSetting.id.value,
             inboxSetting.rowId.value,
             inboxSetting.accountId.value,
-            inboxSetting.sort.value,
+            inboxSetting.lastReadMessageRowId.value,
             inboxSetting.createdAt.value,
             inboxSetting.updatedAt.value,
             inboxSetting.deletedAt.value,

@@ -43,7 +43,9 @@ describe('MessageUpdateInboxSettingByIdCommandHandler', () => {
                             id: messageMockInboxSettingData[0].id,
                             rowId: messageMockInboxSettingData[0].rowId,
                             accountId: messageMockInboxSettingData[0].accountId,
-                            sort: messageMockInboxSettingData[0].sort,
+                            lastReadMessageRowId:
+                                messageMockInboxSettingData[0]
+                                    .lastReadMessageRowId,
                         },
                         {},
                         { timezone: process.env.TZ },

@@ -9,8 +9,8 @@ import {
     MessageInboxSettingCreatedAt,
     MessageInboxSettingDeletedAt,
     MessageInboxSettingId,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingRowId,
-    MessageInboxSettingSort,
     MessageInboxSettingUpdatedAt,
 } from '@app/message/inbox-setting/domain/value-objects';
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
@@ -20,7 +20,7 @@ export class MessageInboxSetting extends AggregateRoot {
     id: MessageInboxSettingId;
     rowId: MessageInboxSettingRowId;
     accountId: MessageInboxSettingAccountId;
-    sort: MessageInboxSettingSort;
+    lastReadMessageRowId: MessageInboxSettingLastReadMessageRowId;
     createdAt: MessageInboxSettingCreatedAt;
     updatedAt: MessageInboxSettingUpdatedAt;
     deletedAt: MessageInboxSettingDeletedAt;
@@ -29,7 +29,7 @@ export class MessageInboxSetting extends AggregateRoot {
         id: MessageInboxSettingId,
         rowId: MessageInboxSettingRowId,
         accountId: MessageInboxSettingAccountId,
-        sort: MessageInboxSettingSort,
+        lastReadMessageRowId: MessageInboxSettingLastReadMessageRowId,
         createdAt: MessageInboxSettingCreatedAt,
         updatedAt: MessageInboxSettingUpdatedAt,
         deletedAt: MessageInboxSettingDeletedAt,
@@ -38,7 +38,7 @@ export class MessageInboxSetting extends AggregateRoot {
         this.id = id;
         this.rowId = rowId;
         this.accountId = accountId;
-        this.sort = sort;
+        this.lastReadMessageRowId = lastReadMessageRowId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
@@ -48,7 +48,7 @@ export class MessageInboxSetting extends AggregateRoot {
         id: MessageInboxSettingId,
         rowId: MessageInboxSettingRowId,
         accountId: MessageInboxSettingAccountId,
-        sort: MessageInboxSettingSort,
+        lastReadMessageRowId: MessageInboxSettingLastReadMessageRowId,
         createdAt: MessageInboxSettingCreatedAt,
         updatedAt: MessageInboxSettingUpdatedAt,
         deletedAt: MessageInboxSettingDeletedAt,
@@ -57,7 +57,7 @@ export class MessageInboxSetting extends AggregateRoot {
             id,
             rowId,
             accountId,
-            sort,
+            lastReadMessageRowId,
             createdAt,
             updatedAt,
             deletedAt,
@@ -73,7 +73,8 @@ export class MessageInboxSetting extends AggregateRoot {
                 payload: {
                     id: event.payload.id.value,
                     accountId: event.payload.accountId.value,
-                    sort: event.payload.sort.value,
+                    lastReadMessageRowId:
+                        event.payload.lastReadMessageRowId.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
                     deletedAt: event.payload.deletedAt?.value,
@@ -92,7 +93,8 @@ export class MessageInboxSetting extends AggregateRoot {
                 payload: {
                     id: event.payload.id?.value,
                     accountId: event.payload.accountId?.value,
-                    sort: event.payload.sort?.value,
+                    lastReadMessageRowId:
+                        event.payload.lastReadMessageRowId?.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
                     deletedAt: event.payload.deletedAt?.value,
@@ -112,7 +114,8 @@ export class MessageInboxSetting extends AggregateRoot {
                     id: event.payload.id.value,
                     rowId: event.payload.rowId.value,
                     accountId: event.payload.accountId.value,
-                    sort: event.payload.sort.value,
+                    lastReadMessageRowId:
+                        event.payload.lastReadMessageRowId.value,
                     createdAt: event.payload.createdAt?.value,
                     updatedAt: event.payload.updatedAt?.value,
                     deletedAt: event.payload.deletedAt?.value,
@@ -127,7 +130,7 @@ export class MessageInboxSetting extends AggregateRoot {
             id: this.id.value,
             rowId: this.rowId.value,
             accountId: this.accountId.value,
-            sort: this.sort.value,
+            lastReadMessageRowId: this.lastReadMessageRowId.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
@@ -139,7 +142,7 @@ export class MessageInboxSetting extends AggregateRoot {
         return {
             id: this.id.value,
             accountId: this.accountId.value,
-            sort: this.sort.value,
+            lastReadMessageRowId: this.lastReadMessageRowId.value,
             createdAt: this.createdAt?.value,
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,

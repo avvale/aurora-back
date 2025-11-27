@@ -8,8 +8,8 @@ import { MessageUpdateInboxSettingByIdService } from '@app/message/inbox-setting
 import {
     MessageInboxSettingAccountId,
     MessageInboxSettingId,
+    MessageInboxSettingLastReadMessageRowId,
     MessageInboxSettingRowId,
-    MessageInboxSettingSort,
 } from '@app/message/inbox-setting/domain/value-objects';
 import {
     CommandBus,
@@ -63,9 +63,10 @@ describe('MessageUpdateInboxSettingByIdService', () => {
                         accountId: new MessageInboxSettingAccountId(
                             messageMockInboxSettingData[0].accountId,
                         ),
-                        sort: new MessageInboxSettingSort(
-                            messageMockInboxSettingData[0].sort,
-                        ),
+                        lastReadMessageRowId:
+                            new MessageInboxSettingLastReadMessageRowId(
+                                messageMockInboxSettingData[0].lastReadMessageRowId,
+                            ),
                     },
                     {},
                 ),

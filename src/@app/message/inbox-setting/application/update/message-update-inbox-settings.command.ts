@@ -5,7 +5,7 @@ export class MessageUpdateInboxSettingsCommand {
         public readonly payload: {
             id?: string;
             accountId?: string;
-            sort?: number;
+            lastReadMessageRowId?: number;
         },
         public readonly queryStatement?: QueryStatement,
         public readonly constraint?: QueryStatement,
