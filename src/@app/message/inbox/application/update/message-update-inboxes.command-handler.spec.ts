@@ -43,7 +43,7 @@ describe('MessageUpdateInboxesCommandHandler', () => {
                             rowId: messageMockInboxData[0].rowId,
                             tenantIds: messageMockInboxData[0].tenantIds,
                             messageId: messageMockInboxData[0].messageId,
-                            sort: messageMockInboxData[0].sort,
+                            messageRowId: messageMockInboxData[0].messageRowId,
                             accountId: messageMockInboxData[0].accountId,
                             accountCode: messageMockInboxData[0].accountCode,
                             isImportant: messageMockInboxData[0].isImportant,

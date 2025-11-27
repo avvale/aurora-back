@@ -4,7 +4,7 @@ type MessageInbox {
     tenantIds: [ID]
     messageId: ID
     message: MessageMessage
-    sort: GraphQLInt!
+    messageRowId: GraphQLInt!
     accountId: ID!
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
@@ -28,7 +28,7 @@ input MessageCreateInboxInput {
     id: ID!
     tenantIds: [ID]
     messageId: ID
-    sort: GraphQLInt!
+    messageRowId: GraphQLInt!
     accountId: ID!
     accountCode: GraphQLString
     isImportant: GraphQLBoolean!
@@ -49,7 +49,7 @@ input MessageUpdateInboxByIdInput {
     id: ID!
     tenantIds: [ID]
     messageId: ID
-    sort: GraphQLInt
+    messageRowId: GraphQLInt
     accountId: ID
     accountCode: GraphQLString
     isImportant: GraphQLBoolean
@@ -70,7 +70,7 @@ input MessageUpdateInboxesInput {
     id: ID
     tenantIds: [ID]
     messageId: ID
-    sort: GraphQLInt
+    messageRowId: GraphQLInt
     accountId: ID
     accountCode: GraphQLString
     isImportant: GraphQLBoolean

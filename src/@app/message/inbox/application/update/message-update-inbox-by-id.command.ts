@@ -6,7 +6,7 @@ export class MessageUpdateInboxByIdCommand {
             id: string;
             tenantIds?: string[];
             messageId?: string;
-            sort?: number;
+            messageRowId?: number;
             accountId?: string;
             accountCode?: string;
             isImportant?: boolean;

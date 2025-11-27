@@ -19,10 +19,10 @@ import {
     MessageInboxIsReadAtLeastOnce,
     MessageInboxLink,
     MessageInboxMessageId,
+    MessageInboxMessageRowId,
     MessageInboxMeta,
     MessageInboxRowId,
     MessageInboxSentAt,
-    MessageInboxSort,
     MessageInboxSubject,
     MessageInboxTenantIds,
 } from '@app/message/inbox/domain/value-objects';
@@ -76,7 +76,9 @@ describe('MessageCreateInboxService', () => {
                     messageId: new MessageInboxMessageId(
                         messageMockInboxData[0].messageId,
                     ),
-                    sort: new MessageInboxSort(messageMockInboxData[0].sort),
+                    messageRowId: new MessageInboxMessageRowId(
+                        messageMockInboxData[0].messageRowId,
+                    ),
                     accountId: new MessageInboxAccountId(
                         messageMockInboxData[0].accountId,
                     ),

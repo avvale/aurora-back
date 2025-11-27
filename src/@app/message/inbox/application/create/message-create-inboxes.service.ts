@@ -18,9 +18,9 @@ import {
     MessageInboxIsReadAtLeastOnce,
     MessageInboxLink,
     MessageInboxMessageId,
+    MessageInboxMessageRowId,
     MessageInboxMeta,
     MessageInboxSentAt,
-    MessageInboxSort,
     MessageInboxSubject,
     MessageInboxTenantIds,
     MessageInboxUpdatedAt,
@@ -41,7 +41,7 @@ export class MessageCreateInboxesService {
             id: MessageInboxId;
             tenantIds: MessageInboxTenantIds;
             messageId: MessageInboxMessageId;
-            sort: MessageInboxSort;
+            messageRowId: MessageInboxMessageRowId;
             accountId: MessageInboxAccountId;
             accountCode: MessageInboxAccountCode;
             isImportant: MessageInboxIsImportant;
@@ -66,7 +66,7 @@ export class MessageCreateInboxesService {
                 undefined, // rowId
                 inbox.tenantIds,
                 inbox.messageId,
-                inbox.sort,
+                inbox.messageRowId,
                 inbox.accountId,
                 inbox.accountCode,
                 inbox.isImportant,

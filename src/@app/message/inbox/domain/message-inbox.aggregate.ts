@@ -20,10 +20,10 @@ import {
     MessageInboxIsReadAtLeastOnce,
     MessageInboxLink,
     MessageInboxMessageId,
+    MessageInboxMessageRowId,
     MessageInboxMeta,
     MessageInboxRowId,
     MessageInboxSentAt,
-    MessageInboxSort,
     MessageInboxSubject,
     MessageInboxTenantIds,
     MessageInboxUpdatedAt,
@@ -37,7 +37,7 @@ export class MessageInbox extends AggregateRoot {
     rowId: MessageInboxRowId;
     tenantIds: MessageInboxTenantIds;
     messageId: MessageInboxMessageId;
-    sort: MessageInboxSort;
+    messageRowId: MessageInboxMessageRowId;
     accountId: MessageInboxAccountId;
     accountCode: MessageInboxAccountCode;
     isImportant: MessageInboxIsImportant;
@@ -62,7 +62,7 @@ export class MessageInbox extends AggregateRoot {
         rowId: MessageInboxRowId,
         tenantIds: MessageInboxTenantIds,
         messageId: MessageInboxMessageId,
-        sort: MessageInboxSort,
+        messageRowId: MessageInboxMessageRowId,
         accountId: MessageInboxAccountId,
         accountCode: MessageInboxAccountCode,
         isImportant: MessageInboxIsImportant,
@@ -87,7 +87,7 @@ export class MessageInbox extends AggregateRoot {
         this.rowId = rowId;
         this.tenantIds = tenantIds;
         this.messageId = messageId;
-        this.sort = sort;
+        this.messageRowId = messageRowId;
         this.accountId = accountId;
         this.accountCode = accountCode;
         this.isImportant = isImportant;
@@ -113,7 +113,7 @@ export class MessageInbox extends AggregateRoot {
         rowId: MessageInboxRowId,
         tenantIds: MessageInboxTenantIds,
         messageId: MessageInboxMessageId,
-        sort: MessageInboxSort,
+        messageRowId: MessageInboxMessageRowId,
         accountId: MessageInboxAccountId,
         accountCode: MessageInboxAccountCode,
         isImportant: MessageInboxIsImportant,
@@ -138,7 +138,7 @@ export class MessageInbox extends AggregateRoot {
             rowId,
             tenantIds,
             messageId,
-            sort,
+            messageRowId,
             accountId,
             accountCode,
             isImportant,
@@ -167,7 +167,7 @@ export class MessageInbox extends AggregateRoot {
                     id: event.payload.id.value,
                     tenantIds: event.payload.tenantIds?.value,
                     messageId: event.payload.messageId?.value,
-                    sort: event.payload.sort.value,
+                    messageRowId: event.payload.messageRowId.value,
                     accountId: event.payload.accountId.value,
                     accountCode: event.payload.accountCode?.value,
                     isImportant: event.payload.isImportant.value,
@@ -198,7 +198,7 @@ export class MessageInbox extends AggregateRoot {
                     id: event.payload.id?.value,
                     tenantIds: event.payload.tenantIds?.value,
                     messageId: event.payload.messageId?.value,
-                    sort: event.payload.sort?.value,
+                    messageRowId: event.payload.messageRowId?.value,
                     accountId: event.payload.accountId?.value,
                     accountCode: event.payload.accountCode?.value,
                     isImportant: event.payload.isImportant?.value,
@@ -230,7 +230,7 @@ export class MessageInbox extends AggregateRoot {
                     rowId: event.payload.rowId.value,
                     tenantIds: event.payload.tenantIds?.value,
                     messageId: event.payload.messageId?.value,
-                    sort: event.payload.sort.value,
+                    messageRowId: event.payload.messageRowId.value,
                     accountId: event.payload.accountId.value,
                     accountCode: event.payload.accountCode?.value,
                     isImportant: event.payload.isImportant.value,
@@ -260,7 +260,7 @@ export class MessageInbox extends AggregateRoot {
             rowId: this.rowId.value,
             tenantIds: this.tenantIds?.value,
             messageId: this.messageId?.value,
-            sort: this.sort.value,
+            messageRowId: this.messageRowId.value,
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,
             isImportant: this.isImportant.value,
@@ -288,7 +288,7 @@ export class MessageInbox extends AggregateRoot {
             id: this.id.value,
             tenantIds: this.tenantIds?.value,
             messageId: this.messageId?.value,
-            sort: this.sort.value,
+            messageRowId: this.messageRowId.value,
             accountId: this.accountId.value,
             accountCode: this.accountCode?.value,
             isImportant: this.isImportant.value,

@@ -34,8 +34,8 @@ aggregateProperties:
       key: id
       field: message
       avoidConstraint: true
-  - name: sort
-    type: int
+  - name: messageRowId
+    type: bigint
     nullable: false
   - name: accountId
     type: id

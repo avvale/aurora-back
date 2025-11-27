@@ -15,9 +15,9 @@ import {
     MessageInboxIsReadAtLeastOnce,
     MessageInboxLink,
     MessageInboxMessageId,
+    MessageInboxMessageRowId,
     MessageInboxMeta,
     MessageInboxSentAt,
-    MessageInboxSort,
     MessageInboxSubject,
     MessageInboxTenantIds,
 } from '@app/message/inbox/domain/value-objects';
@@ -38,9 +38,10 @@ export class MessageUpdateInboxByIdCommandHandler
                 id: new MessageInboxId(command.payload.id),
                 tenantIds: new MessageInboxTenantIds(command.payload.tenantIds),
                 messageId: new MessageInboxMessageId(command.payload.messageId),
-                sort: new MessageInboxSort(command.payload.sort, {
-                    undefinable: true,
-                }),
+                messageRowId: new MessageInboxMessageRowId(
+                    command.payload.messageRowId,
+                    { undefinable: true },
+                ),
                 accountId: new MessageInboxAccountId(
                     command.payload.accountId,
                     { undefinable: true },

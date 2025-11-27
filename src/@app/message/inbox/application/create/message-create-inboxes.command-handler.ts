@@ -15,9 +15,9 @@ import {
     MessageInboxIsReadAtLeastOnce,
     MessageInboxLink,
     MessageInboxMessageId,
+    MessageInboxMessageRowId,
     MessageInboxMeta,
     MessageInboxSentAt,
-    MessageInboxSort,
     MessageInboxSubject,
     MessageInboxTenantIds,
 } from '@app/message/inbox/domain/value-objects';
@@ -39,7 +39,9 @@ export class MessageCreateInboxesCommandHandler
                     id: new MessageInboxId(inbox.id),
                     tenantIds: new MessageInboxTenantIds(inbox.tenantIds),
                     messageId: new MessageInboxMessageId(inbox.messageId),
-                    sort: new MessageInboxSort(inbox.sort),
+                    messageRowId: new MessageInboxMessageRowId(
+                        inbox.messageRowId,
+                    ),
                     accountId: new MessageInboxAccountId(inbox.accountId),
                     accountCode: new MessageInboxAccountCode(inbox.accountCode),
                     isImportant: new MessageInboxIsImportant(inbox.isImportant),

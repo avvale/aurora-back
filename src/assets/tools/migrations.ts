@@ -3,7 +3,21 @@ import { ToolsCreateMigrationTemplateInput } from '@api/graphql';
 export const migrations: ToolsCreateMigrationTemplateInput[] = [
     {
         id: '758f52bd-2008-4b27-b689-def09b8840e1',
-        name: 'Rename sort to lastReadMessageRowId to MessageInboxSetting',
+        name: 'Rename sort to messageRowId in MessageInbox',
+        version: '0.0.5',
+        sort: 6,
+        upScript: `
+            ALTER TABLE public."MessageInbox" RENAME COLUMN "sort" TO "messageRowId";
+            ALTER TABLE public."MessageInbox" ALTER COLUMN "messageRowId" TYPE BIGINT;
+        `,
+        downScript: `
+            ALTER TABLE public."MessageInbox" RENAME COLUMN "messageRowId" TO "sort";
+            ALTER TABLE public."MessageInbox" ALTER COLUMN "sort" TYPE INT;
+        `,
+    },
+    {
+        id: '758f52bd-2008-4b27-b689-def09b8840e1',
+        name: 'Rename sort to lastReadMessageRowId in MessageInboxSetting',
         version: '0.0.5',
         sort: 5,
         upScript: `

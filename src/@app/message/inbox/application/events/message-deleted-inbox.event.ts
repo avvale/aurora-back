@@ -8,7 +8,7 @@ export class MessageDeletedInboxEvent {
                 rowId: number;
                 tenantIds: string[];
                 messageId: string;
-                sort: number;
+                messageRowId: number;
                 accountId: string;
                 accountCode: string;
                 isImportant: boolean;

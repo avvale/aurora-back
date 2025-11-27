@@ -6,7 +6,7 @@ export class MessageInboxResponse {
         public readonly rowId: number,
         public readonly tenantIds: string[],
         public readonly messageId: string,
-        public readonly sort: number,
+        public readonly messageRowId: number,
         public readonly accountId: string,
         public readonly accountCode: string,
         public readonly isImportant: boolean,

@@ -17,3 +17,9 @@ export { MessageInboxSettingResponse } from './@app/message/inbox-setting/domain
 export { MessageInboxSettingMapper } from './@app/message/inbox-setting/domain/message-inbox-setting.mapper';
 export { messageMockInboxSettingData } from './@app/message/inbox-setting/infrastructure/mock/message-mock-inbox-setting.data';
 export { MessageInboxSettingDto } from './@api/message/inbox-setting/dto/message-inbox-setting.dto';
+export { MessageInbox } from './@app/message/inbox/domain/message-inbox.aggregate';
+export { MessageInboxModel } from './@app/message/inbox';
+export { MessageInboxResponse } from './@app/message/inbox/domain/message-inbox.response';
+export { MessageInboxMapper } from './@app/message/inbox/domain/message-inbox.mapper';
+export { messageMockInboxData } from './@app/message/inbox/infrastructure/mock/message-mock-inbox.data';
+export { MessageInboxDto } from './@api/message/inbox/dto/message-inbox.dto';

@@ -180,11 +180,11 @@ export class MessageInboxModel extends Model<MessageInboxModel> {
     message: MessageMessageModel;
 
     @Column({
-        field: 'sort',
+        field: 'messageRowId',
         allowNull: false,
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
     })
-    sort: number;
+    messageRowId: number;
 
     @Column({
         field: 'accountId',

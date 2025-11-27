@@ -120,18 +120,18 @@ describe('inbox', () => {
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSort property can not to be null', () => {
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxMessageRowId property can not to be null', () => {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                sort: null,
+                messageRowId: null,
             })
             .expect(400)
             .then((res) => {
                 expect(res.body.message).toContain(
-                    'Value for MessageInboxSort must be defined, can not be null',
+                    'Value for MessageInboxMessageRowId must be defined, can not be null',
                 );
             });
     });
@@ -280,18 +280,18 @@ describe('inbox', () => {
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSort property can not to be undefined', () => {
+    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxMessageRowId property can not to be undefined', () => {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
             .set('Accept', 'application/json')
             .send({
                 ...mockData[0],
-                sort: undefined,
+                messageRowId: undefined,
             })
             .expect(400)
             .then((res) => {
                 expect(res.body.message).toContain(
-                    'Value for MessageInboxSort must be defined, can not be undefined',
+                    'Value for MessageInboxMessageRowId must be defined, can not be undefined',
                 );
             });
     });
@@ -522,21 +522,6 @@ describe('inbox', () => {
             });
     });
 
-    test('/REST:POST message/inbox/create - Got 400 Conflict, InboxSort has to be a integer value', () => {
-        return request(app.getHttpServer())
-            .post('/message/inbox/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                sort: 100.1,
-            })
-            .expect(400)
-            .then((res) => {
-                expect(res.body.message).toContain(
-                    'Value for MessageInboxSort has to be a integer value',
-                );
-            });
-    });
     test('/REST:POST message/inbox/create - Got 400 Conflict, InboxIsImportant has to be a boolean value', () => {
         return request(app.getHttpServer())
             .post('/message/inbox/create')
@@ -796,7 +781,7 @@ describe('inbox', () => {
                             rowId
                             tenantIds
                             messageId
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -890,7 +875,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -945,7 +930,7 @@ describe('inbox', () => {
                             rowId
                             tenantIds
                             messageId
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -992,7 +977,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1045,7 +1030,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1094,7 +1079,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1143,7 +1128,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1188,7 +1173,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1240,7 +1225,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1288,7 +1273,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1341,7 +1326,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant
@@ -1390,7 +1375,7 @@ describe('inbox', () => {
                             id
                             rowId
                             tenantIds
-                            sort
+                            messageRowId
                             accountId
                             accountCode
                             isImportant

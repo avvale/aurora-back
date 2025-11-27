@@ -23,9 +23,9 @@ export class MessageUpdateInboxByIdDto {
 
     @ApiProperty({
         type: Number,
-        description: 'sort [input here api field description]',
+        description: 'messageRowId [input here api field description]',
     })
-    sort?: number;
+    messageRowId?: number;
 
     @ApiProperty({
         type: String,
