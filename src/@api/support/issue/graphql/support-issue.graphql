@@ -95,4 +95,8 @@ type Mutation {
     ): SupportIssue
 
     supportDeleteIssueById(id: ID!, constraint: QueryStatement): SupportIssue
+
+    # additionalApis
+    supportCreateWebhookConfig: Boolean!
+    supportDeleteWebhookConfig: Boolean!
 }

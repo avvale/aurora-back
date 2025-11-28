@@ -1675,6 +1675,39 @@ export interface ToolsUpdateProceduresInput {
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsCreateWebhookInput {
+    id: string;
+    name: GraphQLString;
+    service: GraphQLString;
+    endpoint: GraphQLString;
+    externalId?: Nullable<GraphQLString>;
+    events?: Nullable<Nullable<GraphQLString>[]>;
+    secret?: Nullable<GraphQLString>;
+    meta?: Nullable<JSON>;
+}
+
+export interface ToolsUpdateWebhookByIdInput {
+    id: string;
+    name?: Nullable<GraphQLString>;
+    service?: Nullable<GraphQLString>;
+    endpoint?: Nullable<GraphQLString>;
+    externalId?: Nullable<GraphQLString>;
+    events?: Nullable<Nullable<GraphQLString>[]>;
+    secret?: Nullable<GraphQLString>;
+    meta?: Nullable<JSON>;
+}
+
+export interface ToolsUpdateWebhooksInput {
+    id?: Nullable<string>;
+    name?: Nullable<GraphQLString>;
+    service?: Nullable<GraphQLString>;
+    endpoint?: Nullable<GraphQLString>;
+    externalId?: Nullable<GraphQLString>;
+    events?: Nullable<Nullable<GraphQLString>[]>;
+    secret?: Nullable<GraphQLString>;
+    meta?: Nullable<JSON>;
+}
+
 export interface WhatsappCreateConversationInput {
     id: string;
     wabaConversationId: GraphQLString;
@@ -1979,6 +2012,10 @@ export interface IQuery {
     toolsFindProcedureById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsGetProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
     toolsPaginateProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    toolsFindWebhook(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
+    toolsFindWebhookById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
+    toolsGetWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook>[] | Promise<Nullable<ToolsWebhook>[]>;
+    toolsPaginateWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     whatsappFindConversation(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappFindConversationById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappGetConversations(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
@@ -2231,6 +2268,8 @@ export interface IMutation {
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportCreateWebhookConfig(): boolean | Promise<boolean>;
+    supportDeleteWebhookConfig(): boolean | Promise<boolean>;
     toolsCreateKeyValue(payload: ToolsCreateKeyValueInput): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsCreateKeyValues(payload: Nullable<ToolsCreateKeyValueInput>[]): boolean | Promise<boolean>;
     toolsUpdateKeyValueById(payload: ToolsUpdateKeyValueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
@@ -2255,6 +2294,11 @@ export interface IMutation {
     toolsDownScriptProcedure(procedureId: string): boolean | Promise<boolean>;
     toolsCheckScriptProcedure(procedureId: string): boolean | Promise<boolean>;
     toolsRunScriptsProcedure(): boolean | Promise<boolean>;
+    toolsCreateWebhook(payload: ToolsCreateWebhookInput): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
+    toolsCreateWebhooks(payload: Nullable<ToolsCreateWebhookInput>[]): boolean | Promise<boolean>;
+    toolsUpdateWebhookById(payload: ToolsUpdateWebhookByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
+    toolsDeleteWebhookById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
+    toolsDeleteWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook>[] | Promise<Nullable<ToolsWebhook>[]>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
@@ -3008,6 +3052,21 @@ export interface ToolsProcedure {
     hash?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface ToolsWebhook {
+    id: string;
+    rowId: GraphQLInt;
+    name: GraphQLString;
+    service: GraphQLString;
+    endpoint: GraphQLString;
+    externalId?: Nullable<GraphQLString>;
+    events?: Nullable<Nullable<GraphQLString>[]>;
+    secret?: Nullable<GraphQLString>;
+    meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

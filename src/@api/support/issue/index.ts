@@ -31,6 +31,14 @@ export { SupportGetIssuesResolver } from './resolvers/support-get-issues.resolve
 export { SupportPaginateIssuesResolver } from './resolvers/support-paginate-issues.resolver';
 export { SupportUpdateIssueByIdResolver } from './resolvers/support-update-issue-by-id.resolver';
 
+// export additionalApis
+export { SupportCreateWebhookConfigController } from './controllers/support-create-webhook-config.controller';
+export { SupportDeleteWebhookConfigController } from './controllers/support-delete-webhook-config.controller';
+export { SupportCreateWebhookConfigHandler } from './handlers/support-create-webhook-config.handler';
+export { SupportDeleteWebhookConfigHandler } from './handlers/support-delete-webhook-config.handler';
+export { SupportCreateWebhookConfigResolver } from './resolvers/support-create-webhook-config.resolver';
+export { SupportDeleteWebhookConfigResolver } from './resolvers/support-delete-webhook-config.resolver';
+
 // import controllers
 import { SupportCreateIssueController } from './controllers/support-create-issue.controller';
 import { SupportDeleteIssueByIdController } from './controllers/support-delete-issue-by-id.controller';
@@ -61,6 +69,14 @@ import { SupportUpdateIssueByIdHandler } from './handlers/support-update-issue-b
 // import seeder
 import { SupportIssueSeeder } from './seeder/support-issue.seeder';
 
+// import additionalApis
+import { SupportCreateWebhookConfigController } from './controllers/support-create-webhook-config.controller';
+import { SupportDeleteWebhookConfigController } from './controllers/support-delete-webhook-config.controller';
+import { SupportCreateWebhookConfigHandler } from './handlers/support-create-webhook-config.handler';
+import { SupportDeleteWebhookConfigHandler } from './handlers/support-delete-webhook-config.handler';
+import { SupportCreateWebhookConfigResolver } from './resolvers/support-create-webhook-config.resolver';
+import { SupportDeleteWebhookConfigResolver } from './resolvers/support-delete-webhook-config.resolver';
+
 export const SupportIssueApiControllers = [
     SupportCreateIssueController,
     SupportPaginateIssuesController,
@@ -69,6 +85,10 @@ export const SupportIssueApiControllers = [
     SupportFindIssueController,
     SupportUpdateIssueByIdController,
     SupportDeleteIssueByIdController,
+
+    // additionalApis
+    SupportCreateWebhookConfigController,
+    SupportDeleteWebhookConfigController,
 ];
 
 export const SupportIssueApiResolvers = [
@@ -79,6 +99,10 @@ export const SupportIssueApiResolvers = [
     SupportFindIssueResolver,
     SupportUpdateIssueByIdResolver,
     SupportDeleteIssueByIdResolver,
+
+    // additionalApis
+    SupportCreateWebhookConfigResolver,
+    SupportDeleteWebhookConfigResolver,
 ];
 
 export const SupportIssueApiHandlers = [
@@ -89,6 +113,10 @@ export const SupportIssueApiHandlers = [
     SupportFindIssueHandler,
     SupportUpdateIssueByIdHandler,
     SupportDeleteIssueByIdHandler,
+
+    // additionalApis
+    SupportCreateWebhookConfigHandler,
+    SupportDeleteWebhookConfigHandler,
 ];
 
 export const SupportIssueApiServices = [SupportIssueSeeder];

@@ -34,6 +34,10 @@ export class ClickupService {
     // comments
     apiCreateComment = '/api/v2/task/:taskId/comment';
 
+    // webhooks
+    apiCreateWebhook = '/api/v2/team/:teamId/webhook';
+    apiDeleteWebhook = '/api/v2/webhook/:webhookId';
+
     constructor(private readonly httpService: HttpService) {}
 
     getSpaces(
@@ -51,6 +55,51 @@ export class ClickupService {
                 },
             )
             .pipe(map((response) => response.data.spaces));
+    }
+
+    createWebhook(
+        teamId: string,
+        webhook: {
+            endpoint: string;
+            events: string[];
+            spaceId?: number;
+            folderId?: number;
+            listId?: number;
+            taskId?: string;
+        },
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService
+            .post(
+                `${this.apiUrl}${Str.replaceParams(this.apiCreateWebhook, { teamId })}`,
+                {
+                    ...webhook,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: options.authorization,
+                    },
+                },
+            )
+            .pipe(map((response) => response.data));
+    }
+
+    deleteWebhook(
+        webhookId: string,
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService
+            .delete(
+                `${this.apiUrl}${Str.replaceParams(this.apiDeleteWebhook, { webhookId })}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: options.authorization,
+                    },
+                },
+            )
+            .pipe(map((response) => response.data));
     }
 
     getFolders(

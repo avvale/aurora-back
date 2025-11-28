@@ -15,6 +15,8 @@ export const CLICKUP_TASK_PLATFORM_FOLDER_ID =
 export const CLICKUP_TASK_PLATFORM_LIST_ID = 'CLICKUP_TASK_PLATFORM_LIST_ID';
 export const CLICKUP_TASK_PLATFORM_SPACE_ID = 'CLICKUP_TASK_PLATFORM_SPACE_ID';
 export const CLICKUP_TASK_PLATFORM_TEAM_ID = 'CLICKUP_TASK_PLATFORM_TEAM_ID';
+export const CLICKUP_TASK_PLATFORM_WEBHOOK_ID =
+    'CLICKUP_TASK_PLATFORM_WEBHOOK_ID';
 
 @Injectable()
 export class SupportConfigService {
@@ -38,6 +40,7 @@ export class SupportConfigService {
                             CLICKUP_TASK_PLATFORM_LIST_ID,
                             CLICKUP_TASK_PLATFORM_SPACE_ID,
                             CLICKUP_TASK_PLATFORM_TEAM_ID,
+                            CLICKUP_TASK_PLATFORM_WEBHOOK_ID,
                         ],
                     },
                 },
@@ -168,5 +171,30 @@ export class SupportConfigService {
             );
         }
         /* #endregion CLICKUP_TASK_PLATFORM_LIST_ID */
+
+        /* #region CLICKUP_TASK_PLATFORM_WEBHOOK_ID */
+        const clickupTaskPlatformWebhookId = clickupConfigValues.find(
+            (value) => value.key === CLICKUP_TASK_PLATFORM_WEBHOOK_ID,
+        );
+
+        if (clickupTaskPlatformWebhookId) {
+            await this.cacheManager.set(
+                CLICKUP_TASK_PLATFORM_WEBHOOK_ID,
+                clickupTaskPlatformWebhookId.value,
+            );
+        } else {
+            void this.commandBus.dispatch(
+                new ToolsCreateKeyValueCommand({
+                    id: uuid(),
+                    key: CLICKUP_TASK_PLATFORM_WEBHOOK_ID,
+                    type: ToolsKeyValueType.STRING,
+                    value: null,
+                    isCached: true,
+                    isActive: true,
+                    description: 'Webhook ID for the clickup task platform',
+                }),
+            );
+        }
+        /* #endregion CLICKUP_TASK_PLATFORM_WEBHOOK_ID */
     }
 }

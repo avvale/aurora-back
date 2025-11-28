@@ -211,7 +211,7 @@
         },
         {
             "path": "src/@app/support/issue/infrastructure/mock/support-mock-issue.data.ts",
-            "integrity": "sha1:d75a78592be0a501c085a9bd1dfef664dc9936ca"
+            "integrity": "sha1:b1dc3d94fc6dc137bbd4c48e1d6523c5635962d6"
         },
         {
             "path": "src/@app/support/issue/infrastructure/mock/support-mock-issue.repository.ts",
@@ -234,72 +234,72 @@
             "integrity": "sha1:eb7047dd8383f861c0c7974365c2a01b3c77452a"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-front-version.ts",
-            "integrity": "sha1:7daeb4208d7aeeb480e9b3d8b6a4a8f6f421d506"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-external-status.ts",
-            "integrity": "sha1:99a348adcb357be7937c64e910e3db8ebd33123a"
-        },
-        {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-row-id.ts",
             "integrity": "sha1:94ba4529950220480822979c83930e022e6c92d6"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-username.ts",
-            "integrity": "sha1:855c5542757884f4512165538b638ade6386b1d1"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-id.ts",
             "integrity": "sha1:d5d1693aa995ec5f42148ebb9d5f45e42a5a2151"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-environment.ts",
-            "integrity": "sha1:033cb7432352e879c6111303e079a6260c3d343e"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-description.ts",
-            "integrity": "sha1:334ee910bc3d05be30f4984d71061a5669df4d57"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-id.ts",
-            "integrity": "sha1:40cb7588f1c90a97ec7d81a633ccf4021d68f830"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-back-version.ts",
-            "integrity": "sha1:1410eb3777a71fdcb400f4440ca73a070d8868a8"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-screen-recording.ts",
-            "integrity": "sha1:42f115e15e7f53ae787173640f8797d6a80c1ce3"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-updated-at.ts",
-            "integrity": "sha1:9b2b61789f2cb2aec23fd36897826389e503e99b"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-subject.ts",
-            "integrity": "sha1:fa56285aadfe9caa6dddeae0b2d27287ced15369"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-meta.ts",
-            "integrity": "sha1:61857543dc4797bed0684305d08ab9b6ff873119"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-attachments.ts",
-            "integrity": "sha1:dbe3b8de4b110a50b6a2b42c48ecae4034728dac"
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-external-status.ts",
+            "integrity": "sha1:99a348adcb357be7937c64e910e3db8ebd33123a"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-external-id.ts",
             "integrity": "sha1:574fb803d12c5aa10061beb6a3871685fbbd1ce4"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-created-at.ts",
-            "integrity": "sha1:4b9c409cd994aaf4ea7559b3418974bb320aecd3"
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-username.ts",
+            "integrity": "sha1:855c5542757884f4512165538b638ade6386b1d1"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-id.ts",
+            "integrity": "sha1:40cb7588f1c90a97ec7d81a633ccf4021d68f830"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-front-version.ts",
+            "integrity": "sha1:7daeb4208d7aeeb480e9b3d8b6a4a8f6f421d506"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-back-version.ts",
+            "integrity": "sha1:1410eb3777a71fdcb400f4440ca73a070d8868a8"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-environment.ts",
+            "integrity": "sha1:033cb7432352e879c6111303e079a6260c3d343e"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-subject.ts",
+            "integrity": "sha1:fa56285aadfe9caa6dddeae0b2d27287ced15369"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-description.ts",
+            "integrity": "sha1:334ee910bc3d05be30f4984d71061a5669df4d57"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-screen-recording.ts",
+            "integrity": "sha1:42f115e15e7f53ae787173640f8797d6a80c1ce3"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-attachments.ts",
+            "integrity": "sha1:dbe3b8de4b110a50b6a2b42c48ecae4034728dac"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-deleted-at.ts",
             "integrity": "sha1:9a1c324af3c10bd847db05fa0a1c125e11f6599a"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-meta.ts",
+            "integrity": "sha1:61857543dc4797bed0684305d08ab9b6ff873119"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-created-at.ts",
+            "integrity": "sha1:4b9c409cd994aaf4ea7559b3418974bb320aecd3"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-updated-at.ts",
+            "integrity": "sha1:9b2b61789f2cb2aec23fd36897826389e503e99b"
         },
         {
             "path": "src/@api/support/issue/controllers/support-create-issue.controller.spec.ts",
@@ -383,7 +383,7 @@
         },
         {
             "path": "src/@api/support/issue/graphql/support-issue.graphql",
-            "integrity": "sha1:53731214fd4db36f7426e672c85f4ae4c5f831c5"
+            "integrity": "sha1:afde3f9f3b1e590ac58b474c3d425c1ac1134cc7"
         },
         {
             "path": "src/@api/support/issue/handlers/support-create-issue.handler.spec.ts",
@@ -443,7 +443,7 @@
         },
         {
             "path": "src/@api/support/issue/index.ts",
-            "integrity": "sha1:d38422a283b4cbeca1ba098815fd0586b87366a9"
+            "integrity": "sha1:3add34e3d9451f92857d63529d52b7b9739d290d"
         },
         {
             "path": "src/@api/support/issue/resolvers/support-create-issue.resolver.spec.ts",
@@ -506,12 +506,60 @@
             "integrity": "sha1:4ebcc4fc83ee53fbbcfbeb1d2bef8cba1dc4d35c"
         },
         {
+            "path": "src/@api/support/issue/controllers/support-create-webhook-config.controller.spec.ts",
+            "integrity": "sha1:8c87fd78abbd3f7328219eb9bba8a40c7f28db95"
+        },
+        {
+            "path": "src/@api/support/issue/controllers/support-create-webhook-config.controller.ts",
+            "integrity": "sha1:634ec7bf0666e6a817311d0c249bccee3b3120bc"
+        },
+        {
+            "path": "src/@api/support/issue/handlers/support-create-webhook-config.handler.spec.ts",
+            "integrity": "sha1:af1b16fb8e004a7ee175fdf49f8c2fa221c69b47"
+        },
+        {
+            "path": "src/@api/support/issue/handlers/support-create-webhook-config.handler.ts",
+            "integrity": "sha1:eac56154f44060f75c16c26ebe6015a837095660"
+        },
+        {
+            "path": "src/@api/support/issue/resolvers/support-create-webhook-config.resolver.spec.ts",
+            "integrity": "sha1:93392d46ec39973b9bf720778edb618fd15a2b9b"
+        },
+        {
+            "path": "src/@api/support/issue/resolvers/support-create-webhook-config.resolver.ts",
+            "integrity": "sha1:e4de836141e32b1c3458ea6ca8da4aebb883cae1"
+        },
+        {
+            "path": "src/@api/support/issue/controllers/support-delete-webhook-config.controller.spec.ts",
+            "integrity": "sha1:7fd481e9ad25f3c85415e158dc969b8c03cf0bb9"
+        },
+        {
+            "path": "src/@api/support/issue/controllers/support-delete-webhook-config.controller.ts",
+            "integrity": "sha1:18c8dc8358cde7a451a68481eaaec23859a6ec45"
+        },
+        {
+            "path": "src/@api/support/issue/handlers/support-delete-webhook-config.handler.spec.ts",
+            "integrity": "sha1:c954fd41f0182684ec0deed5b9b90fb59a374fb7"
+        },
+        {
+            "path": "src/@api/support/issue/handlers/support-delete-webhook-config.handler.ts",
+            "integrity": "sha1:7507a356510c95d8010b8e535b0a9feac00fca07"
+        },
+        {
+            "path": "src/@api/support/issue/resolvers/support-delete-webhook-config.resolver.spec.ts",
+            "integrity": "sha1:5e233d48d9848ac4ebdcfb46e0d0b91b64b1fede"
+        },
+        {
+            "path": "src/@api/support/issue/resolvers/support-delete-webhook-config.resolver.ts",
+            "integrity": "sha1:58729ad3a0bb649dcfddf586c68f533dd4bc4e4c"
+        },
+        {
             "path": "test/acceptance/support/issue.e2e-spec.ts",
             "integrity": "sha1:69c8ba4cbf05839c6ee7577e20861a2f37d815bf"
         },
         {
             "path": "postman/support/support.issue.postman.json",
-            "integrity": "sha1:b49cae81a234e398235354aff0b2bde3c2a2abf6"
+            "integrity": "sha1:68bcd97fab5c3701f3d9298d721bcd59c065d411"
         }
     ]
 }
