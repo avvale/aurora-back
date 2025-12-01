@@ -2299,6 +2299,7 @@ export interface IMutation {
     toolsUpdateWebhookById(payload: ToolsUpdateWebhookByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
     toolsDeleteWebhookById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
     toolsDeleteWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook>[] | Promise<Nullable<ToolsWebhook>[]>;
+    toolsDigestWebhook(payload: JSON): boolean | Promise<boolean>;
     whatsappUpdateConversationById(payload: WhatsappUpdateConversationByIdInput, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;
     whatsappUpdateConversations(payload: WhatsappUpdateConversationsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation>[] | Promise<Nullable<WhatsappConversation>[]>;
     whatsappDeleteConversationById(id: string, constraint?: Nullable<QueryStatement>): Nullable<WhatsappConversation> | Promise<Nullable<WhatsappConversation>>;

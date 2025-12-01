@@ -6,6 +6,7 @@ export { ToolsWebhookExternalId } from './tools-webhook-external-id';
 export { ToolsWebhookId } from './tools-webhook-id';
 export { ToolsWebhookMeta } from './tools-webhook-meta';
 export { ToolsWebhookName } from './tools-webhook-name';
+export { ToolsWebhookPayload } from './tools-webhook-payload';
 export { ToolsWebhookRowId } from './tools-webhook-row-id';
 export { ToolsWebhookSecret } from './tools-webhook-secret';
 export { ToolsWebhookService } from './tools-webhook-service';

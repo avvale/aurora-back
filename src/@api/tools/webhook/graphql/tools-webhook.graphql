@@ -81,4 +81,7 @@ type Mutation {
         query: QueryStatement
         constraint: QueryStatement
     ): [ToolsWebhook]!
+
+    # additionalApis
+    toolsDigestWebhook(payload: JSON!): Boolean!
 }

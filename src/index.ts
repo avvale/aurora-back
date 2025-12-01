@@ -5,3 +5,10 @@ export { SupportIssueMapper } from './@app/support/issue/domain/support-issue.ma
 export { supportMockIssueData } from './@app/support/issue/infrastructure/mock/support-mock-issue.data';
 export { SupportModule } from './@api/support/support.module';
 export { SupportIssueDto } from './@api/support/issue/dto/support-issue.dto';
+export { ToolsWebhook } from './@app/tools/webhook/domain/tools-webhook.aggregate';
+export { ToolsWebhookModel } from './@app/tools/webhook';
+export { ToolsWebhookResponse } from './@app/tools/webhook/domain/tools-webhook.response';
+export { ToolsWebhookMapper } from './@app/tools/webhook/domain/tools-webhook.mapper';
+export { toolsMockWebhookData } from './@app/tools/webhook/infrastructure/mock/tools-mock-webhook.data';
+export { ToolsModule } from './@api/tools/tools.module';
+export { ToolsWebhookDto } from './@api/tools/webhook/dto/tools-webhook.dto';

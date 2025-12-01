@@ -3,6 +3,7 @@ export { ToolsCreateWebhookCommand } from './application/create/tools-create-web
 export { ToolsCreateWebhooksCommand } from './application/create/tools-create-webhooks.command';
 export { ToolsDeleteWebhookByIdCommand } from './application/delete/tools-delete-webhook-by-id.command';
 export { ToolsDeleteWebhooksCommand } from './application/delete/tools-delete-webhooks.command';
+export { ToolsDigestWebhookCommand } from './application/digest/tools-digest-webhook.command';
 export { ToolsUpdateWebhookByIdCommand } from './application/update/tools-update-webhook-by-id.command';
 
 // export queries
@@ -22,6 +23,7 @@ export { ToolsCreatedWebhookEvent } from './application/events/tools-created-web
 export { ToolsCreatedWebhooksEvent } from './application/events/tools-created-webhooks.event';
 export { ToolsDeletedWebhookEvent } from './application/events/tools-deleted-webhook.event';
 export { ToolsDeletedWebhooksEvent } from './application/events/tools-deleted-webhooks.event';
+export { ToolsDigestedWebhookEvent } from './application/events/tools-digested-webhook.event';
 export { ToolsUpdatedWebhookEvent } from './application/events/tools-updated-webhook.event';
 
 // export command handlers
@@ -31,6 +33,7 @@ export { ToolsUpdatedWebhookEvent } from './application/events/tools-updated-web
 // can not export application services, because Nest can't resolve dependencies
 
 // domain
+export { ToolsWebhookPayload } from './domain/tools-webhook-payload.aggregate';
 export { ToolsWebhook } from './domain/tools-webhook.aggregate';
 export { ToolsWebhookMapper } from './domain/tools-webhook.mapper';
 export { ToolsIWebhookRepository } from './domain/tools-webhook.repository';
@@ -48,6 +51,7 @@ import { ToolsCreateWebhookCommandHandler } from './application/create/tools-cre
 import { ToolsCreateWebhooksCommandHandler } from './application/create/tools-create-webhooks.command-handler';
 import { ToolsDeleteWebhookByIdCommandHandler } from './application/delete/tools-delete-webhook-by-id.command-handler';
 import { ToolsDeleteWebhooksCommandHandler } from './application/delete/tools-delete-webhooks.command-handler';
+import { ToolsDigestWebhookCommandHandler } from './application/digest/tools-digest-webhook.command-handler';
 import { ToolsUpdateWebhookByIdCommandHandler } from './application/update/tools-update-webhook-by-id.command-handler';
 
 // query handlers
@@ -61,6 +65,7 @@ import { ToolsCreatedWebhookEventHandler } from './application/events/tools-crea
 import { ToolsCreatedWebhooksEventHandler } from './application/events/tools-created-webhooks.event-handler';
 import { ToolsDeletedWebhookEventHandler } from './application/events/tools-deleted-webhook.event-handler';
 import { ToolsDeletedWebhooksEventHandler } from './application/events/tools-deleted-webhooks.event-handler';
+import { ToolsDigestedWebhookEventHandler } from './application/events/tools-digested-webhook.event-handler';
 import { ToolsUpdatedWebhookEventHandler } from './application/events/tools-updated-webhook.event-handler';
 
 // services
@@ -68,6 +73,7 @@ import { ToolsCreateWebhookService } from './application/create/tools-create-web
 import { ToolsCreateWebhooksService } from './application/create/tools-create-webhooks.service';
 import { ToolsDeleteWebhookByIdService } from './application/delete/tools-delete-webhook-by-id.service';
 import { ToolsDeleteWebhooksService } from './application/delete/tools-delete-webhooks.service';
+import { ToolsDigestWebhookService } from './application/digest/tools-digest-webhook.service';
 import { ToolsFindWebhookByIdService } from './application/find/tools-find-webhook-by-id.service';
 import { ToolsFindWebhookService } from './application/find/tools-find-webhook.service';
 import { ToolsGetWebhooksService } from './application/get/tools-get-webhooks.service';
@@ -81,6 +87,7 @@ export const ToolsWebhookHandlers = [
     ToolsUpdateWebhookByIdCommandHandler,
     ToolsDeleteWebhookByIdCommandHandler,
     ToolsDeleteWebhooksCommandHandler,
+    ToolsDigestWebhookCommandHandler,
 
     // queries
     ToolsPaginateWebhooksQueryHandler,
@@ -94,6 +101,7 @@ export const ToolsWebhookHandlers = [
     ToolsUpdatedWebhookEventHandler,
     ToolsDeletedWebhookEventHandler,
     ToolsDeletedWebhooksEventHandler,
+    ToolsDigestedWebhookEventHandler,
 ];
 
 export const ToolsWebhookServices = [
@@ -106,4 +114,5 @@ export const ToolsWebhookServices = [
     ToolsUpdateWebhookByIdService,
     ToolsDeleteWebhookByIdService,
     ToolsDeleteWebhooksService,
+    ToolsDigestWebhookService,
 ];
