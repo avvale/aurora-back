@@ -6,6 +6,6 @@ export class ToolsDigestedWebhookEventHandler
     implements IEventHandler<ToolsDigestedWebhookEvent>
 {
     handle(event: ToolsDigestedWebhookEvent): void {
-        console.log('ToolsDigestedWebhookEvent: ', event.event.payload.payload);
+        // console.log('ToolsDigestedWebhookEvent: ', event.event.payload.payload);
     }
 }
