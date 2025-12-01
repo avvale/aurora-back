@@ -90,7 +90,7 @@ export class SupportCreateWebhookConfigHandler {
                     id: webhookId,
                     name: 'Support ClickUp Webhook Subscription',
                     service: 'clickup',
-                    endpoint: `${this.configService.get('APP_URL')}/webhooks`,
+                    endpoint: `${this.configService.get('APP_URL')}/tools/webhook/digest`,
                     externalId: webhookResponse.webhook.id,
                     events,
                     secret: webhookResponse.webhook.secret,
