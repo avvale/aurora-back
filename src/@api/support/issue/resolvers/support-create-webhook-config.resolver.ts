@@ -1,3 +1,4 @@
+import { ToolsWebhook } from '@api/graphql';
 import { SupportCreateWebhookConfigHandler } from '@api/support/issue';
 import { Auth } from '@aurora/decorators';
 import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
@@ -12,7 +13,7 @@ export class SupportCreateWebhookConfigResolver {
     async main(
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
-    ): Promise<boolean> {
+    ): Promise<ToolsWebhook> {
         return await this.handler.main(timezone, auditing);
     }
 }

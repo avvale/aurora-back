@@ -2268,7 +2268,7 @@ export interface IMutation {
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
-    supportCreateWebhookConfig(): boolean | Promise<boolean>;
+    supportCreateWebhookConfig(): ToolsWebhook | Promise<ToolsWebhook>;
     supportDeleteWebhookConfig(): boolean | Promise<boolean>;
     toolsCreateKeyValue(payload: ToolsCreateKeyValueInput): Nullable<ToolsKeyValue> | Promise<Nullable<ToolsKeyValue>>;
     toolsCreateKeyValues(payload: Nullable<ToolsCreateKeyValueInput>[]): boolean | Promise<boolean>;
