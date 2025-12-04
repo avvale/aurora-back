@@ -1552,9 +1552,10 @@ export interface SupportCreateIssueInput {
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
+    frontEnvironment?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
+    backEnvironment?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
-    environment?: Nullable<GraphQLString>;
     subject: GraphQLString;
     description: GraphQLString;
     attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
@@ -1569,9 +1570,10 @@ export interface SupportUpdateIssueByIdInput {
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
+    frontEnvironment?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
+    backEnvironment?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
-    environment?: Nullable<GraphQLString>;
     subject?: Nullable<GraphQLString>;
     description?: Nullable<GraphQLString>;
     attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
@@ -1586,9 +1588,10 @@ export interface SupportUpdateIssuesInput {
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
+    frontEnvironment?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
+    backEnvironment?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
-    environment?: Nullable<GraphQLString>;
     subject?: Nullable<GraphQLString>;
     description?: Nullable<GraphQLString>;
     attachments?: Nullable<Nullable<StorageAccountFileManagerFileUploadedInput>[]>;
@@ -3064,9 +3067,10 @@ export interface SupportIssue {
     account?: Nullable<IamAccount>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
+    frontEnvironment?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
+    backEnvironment?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
-    environment?: Nullable<GraphQLString>;
     subject: GraphQLString;
     description: GraphQLString;
     attachments?: Nullable<JSON>;

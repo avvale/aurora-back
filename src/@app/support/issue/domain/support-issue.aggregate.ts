@@ -10,14 +10,15 @@ import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
     SupportIssueAttachments,
+    SupportIssueBackEnvironment,
     SupportIssueBackVersion,
     SupportIssueCreatedAt,
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
-    SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
+    SupportIssueFrontEnvironment,
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
@@ -37,9 +38,10 @@ export class SupportIssue extends AggregateRoot {
     accountId: SupportIssueAccountId;
     accountUsername: SupportIssueAccountUsername;
     displayName: SupportIssueDisplayName;
+    frontEnvironment: SupportIssueFrontEnvironment;
     frontVersion: SupportIssueFrontVersion;
+    backEnvironment: SupportIssueBackEnvironment;
     backVersion: SupportIssueBackVersion;
-    environment: SupportIssueEnvironment;
     subject: SupportIssueSubject;
     description: SupportIssueDescription;
     attachments: SupportIssueAttachments;
@@ -59,9 +61,10 @@ export class SupportIssue extends AggregateRoot {
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
         displayName: SupportIssueDisplayName,
+        frontEnvironment: SupportIssueFrontEnvironment,
         frontVersion: SupportIssueFrontVersion,
+        backEnvironment: SupportIssueBackEnvironment,
         backVersion: SupportIssueBackVersion,
-        environment: SupportIssueEnvironment,
         subject: SupportIssueSubject,
         description: SupportIssueDescription,
         attachments: SupportIssueAttachments,
@@ -81,9 +84,10 @@ export class SupportIssue extends AggregateRoot {
         this.accountId = accountId;
         this.accountUsername = accountUsername;
         this.displayName = displayName;
+        this.frontEnvironment = frontEnvironment;
         this.frontVersion = frontVersion;
+        this.backEnvironment = backEnvironment;
         this.backVersion = backVersion;
-        this.environment = environment;
         this.subject = subject;
         this.description = description;
         this.attachments = attachments;
@@ -104,9 +108,10 @@ export class SupportIssue extends AggregateRoot {
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
         displayName: SupportIssueDisplayName,
+        frontEnvironment: SupportIssueFrontEnvironment,
         frontVersion: SupportIssueFrontVersion,
+        backEnvironment: SupportIssueBackEnvironment,
         backVersion: SupportIssueBackVersion,
-        environment: SupportIssueEnvironment,
         subject: SupportIssueSubject,
         description: SupportIssueDescription,
         attachments: SupportIssueAttachments,
@@ -126,9 +131,10 @@ export class SupportIssue extends AggregateRoot {
             accountId,
             accountUsername,
             displayName,
+            frontEnvironment,
             frontVersion,
+            backEnvironment,
             backVersion,
-            environment,
             subject,
             description,
             attachments,
@@ -152,9 +158,10 @@ export class SupportIssue extends AggregateRoot {
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
+                    frontEnvironment: event.payload.frontEnvironment?.value,
                     frontVersion: event.payload.frontVersion?.value,
+                    backEnvironment: event.payload.backEnvironment?.value,
                     backVersion: event.payload.backVersion?.value,
-                    environment: event.payload.environment?.value,
                     subject: event.payload.subject.value,
                     description: event.payload.description.value,
                     attachments: event.payload.attachments?.value,
@@ -179,9 +186,10 @@ export class SupportIssue extends AggregateRoot {
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
+                    frontEnvironment: event.payload.frontEnvironment?.value,
                     frontVersion: event.payload.frontVersion?.value,
+                    backEnvironment: event.payload.backEnvironment?.value,
                     backVersion: event.payload.backVersion?.value,
-                    environment: event.payload.environment?.value,
                     subject: event.payload.subject?.value,
                     description: event.payload.description?.value,
                     attachments: event.payload.attachments?.value,
@@ -207,9 +215,10 @@ export class SupportIssue extends AggregateRoot {
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
+                    frontEnvironment: event.payload.frontEnvironment?.value,
                     frontVersion: event.payload.frontVersion?.value,
+                    backEnvironment: event.payload.backEnvironment?.value,
                     backVersion: event.payload.backVersion?.value,
-                    environment: event.payload.environment?.value,
                     subject: event.payload.subject.value,
                     description: event.payload.description.value,
                     attachments: event.payload.attachments?.value,
@@ -233,9 +242,10 @@ export class SupportIssue extends AggregateRoot {
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
             displayName: this.displayName?.value,
+            frontEnvironment: this.frontEnvironment?.value,
             frontVersion: this.frontVersion?.value,
+            backEnvironment: this.backEnvironment?.value,
             backVersion: this.backVersion?.value,
-            environment: this.environment?.value,
             subject: this.subject.value,
             description: this.description.value,
             attachments: this.attachments?.value,
@@ -258,9 +268,10 @@ export class SupportIssue extends AggregateRoot {
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
             displayName: this.displayName?.value,
+            frontEnvironment: this.frontEnvironment?.value,
             frontVersion: this.frontVersion?.value,
+            backEnvironment: this.backEnvironment?.value,
             backVersion: this.backVersion?.value,
-            environment: this.environment?.value,
             subject: this.subject.value,
             description: this.description.value,
             attachments: this.attachments?.value,

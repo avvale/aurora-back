@@ -199,6 +199,13 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
     displayName: string;
 
     @Column({
+        field: 'frontEnvironment',
+        allowNull: true,
+        type: DataTypes.STRING(36),
+    })
+    frontEnvironment: string;
+
+    @Column({
         field: 'frontVersion',
         allowNull: true,
         type: DataTypes.STRING(16),
@@ -206,18 +213,18 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
     frontVersion: string;
 
     @Column({
+        field: 'backEnvironment',
+        allowNull: true,
+        type: DataTypes.STRING(36),
+    })
+    backEnvironment: string;
+
+    @Column({
         field: 'backVersion',
         allowNull: true,
         type: DataTypes.STRING(16),
     })
     backVersion: string;
-
-    @Column({
-        field: 'environment',
-        allowNull: true,
-        type: DataTypes.STRING(36),
-    })
-    environment: string;
 
     @Column({
         field: 'subject',

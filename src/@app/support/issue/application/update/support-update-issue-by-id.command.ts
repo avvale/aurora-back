@@ -9,9 +9,10 @@ export class SupportUpdateIssueByIdCommand {
             accountId?: string;
             accountUsername?: string;
             displayName?: string;
+            frontEnvironment?: string;
             frontVersion?: string;
+            backEnvironment?: string;
             backVersion?: string;
-            environment?: string;
             subject?: string;
             description?: string;
             attachments?: any;

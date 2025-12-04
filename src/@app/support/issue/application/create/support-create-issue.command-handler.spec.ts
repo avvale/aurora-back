@@ -48,9 +48,12 @@ describe('SupportCreateIssueCommandHandler', () => {
                             accountUsername:
                                 supportMockIssueData[0].accountUsername,
                             displayName: supportMockIssueData[0].displayName,
+                            frontEnvironment:
+                                supportMockIssueData[0].frontEnvironment,
                             frontVersion: supportMockIssueData[0].frontVersion,
+                            backEnvironment:
+                                supportMockIssueData[0].backEnvironment,
                             backVersion: supportMockIssueData[0].backVersion,
-                            environment: supportMockIssueData[0].environment,
                             subject: supportMockIssueData[0].subject,
                             description: supportMockIssueData[0].description,
                             attachments: supportMockIssueData[0].attachments,

@@ -5,12 +5,13 @@ import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
     SupportIssueAttachments,
+    SupportIssueBackEnvironment,
     SupportIssueBackVersion,
     SupportIssueDescription,
     SupportIssueDisplayName,
-    SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
+    SupportIssueFrontEnvironment,
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
@@ -45,14 +46,17 @@ export class SupportUpdateIssueByIdCommandHandler
                 displayName: new SupportIssueDisplayName(
                     command.payload.displayName,
                 ),
+                frontEnvironment: new SupportIssueFrontEnvironment(
+                    command.payload.frontEnvironment,
+                ),
                 frontVersion: new SupportIssueFrontVersion(
                     command.payload.frontVersion,
                 ),
+                backEnvironment: new SupportIssueBackEnvironment(
+                    command.payload.backEnvironment,
+                ),
                 backVersion: new SupportIssueBackVersion(
                     command.payload.backVersion,
-                ),
-                environment: new SupportIssueEnvironment(
-                    command.payload.environment,
                 ),
                 subject: new SupportIssueSubject(command.payload.subject, {
                     undefinable: true,

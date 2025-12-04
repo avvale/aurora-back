@@ -4,8 +4,14 @@ import {
     SupportCreateIssueHandler,
     SupportIssueDto,
 } from '@api/support/issue';
+import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
+import {
+    Auditing,
+    AuditingMeta,
+    CurrentAccount,
+    Timezone,
+} from '@aurorajs.dev/core';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
@@ -22,10 +28,11 @@ export class SupportCreateIssueController {
         type: SupportIssueDto,
     })
     async main(
+        @CurrentAccount() account: IamAccountResponse,
         @Body() payload: SupportCreateIssueDto,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
     ) {
-        return await this.handler.main(payload, timezone, auditing);
+        return await this.handler.main(account, payload, timezone, auditing);
     }
 }

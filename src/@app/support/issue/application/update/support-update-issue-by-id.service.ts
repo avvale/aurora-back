@@ -3,12 +3,13 @@ import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
     SupportIssueAttachments,
+    SupportIssueBackEnvironment,
     SupportIssueBackVersion,
     SupportIssueDescription,
     SupportIssueDisplayName,
-    SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
+    SupportIssueFrontEnvironment,
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
@@ -35,9 +36,10 @@ export class SupportUpdateIssueByIdService {
             accountId?: SupportIssueAccountId;
             accountUsername?: SupportIssueAccountUsername;
             displayName?: SupportIssueDisplayName;
+            frontEnvironment?: SupportIssueFrontEnvironment;
             frontVersion?: SupportIssueFrontVersion;
+            backEnvironment?: SupportIssueBackEnvironment;
             backVersion?: SupportIssueBackVersion;
-            environment?: SupportIssueEnvironment;
             subject?: SupportIssueSubject;
             description?: SupportIssueDescription;
             attachments?: SupportIssueAttachments;
@@ -56,9 +58,10 @@ export class SupportUpdateIssueByIdService {
             payload.accountId,
             payload.accountUsername,
             payload.displayName,
+            payload.frontEnvironment,
             payload.frontVersion,
+            payload.backEnvironment,
             payload.backVersion,
-            payload.environment,
             payload.subject,
             payload.description,
             payload.attachments,

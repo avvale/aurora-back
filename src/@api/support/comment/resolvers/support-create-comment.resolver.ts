@@ -1,7 +1,13 @@
 import { SupportComment, SupportCreateCommentInput } from '@api/graphql';
 import { SupportCreateCommentHandler } from '@api/support/comment';
+import { IamAccountResponse } from '@app/iam/account';
 import { Auth } from '@aurora/decorators';
-import { Auditing, AuditingMeta, Timezone } from '@aurorajs.dev/core';
+import {
+    Auditing,
+    AuditingMeta,
+    CurrentAccount,
+    Timezone,
+} from '@aurorajs.dev/core';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
@@ -11,10 +17,11 @@ export class SupportCreateCommentResolver {
 
     @Mutation('supportCreateComment')
     async main(
+        @CurrentAccount() account: IamAccountResponse,
         @Args('payload') payload: SupportCreateCommentInput,
         @Timezone() timezone?: string,
         @Auditing() auditing?: AuditingMeta,
     ): Promise<SupportComment> {
-        return await this.handler.main(payload, timezone, auditing);
+        return await this.handler.main(account, payload, timezone, auditing);
     }
 }

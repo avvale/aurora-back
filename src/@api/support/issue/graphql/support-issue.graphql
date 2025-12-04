@@ -7,9 +7,10 @@ type SupportIssue {
     account: IamAccount
     accountUsername: GraphQLString
     displayName: GraphQLString
+    frontEnvironment: GraphQLString
     frontVersion: GraphQLString
+    backEnvironment: GraphQLString
     backVersion: GraphQLString
-    environment: GraphQLString
     subject: GraphQLString!
     description: GraphQLString!
     attachments: JSON
@@ -28,9 +29,10 @@ input SupportCreateIssueInput {
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
+    frontEnvironment: GraphQLString
     frontVersion: GraphQLString
+    backEnvironment: GraphQLString
     backVersion: GraphQLString
-    environment: GraphQLString
     subject: GraphQLString!
     description: GraphQLString!
     attachments: [StorageAccountFileManagerFileUploadedInput]
@@ -45,9 +47,10 @@ input SupportUpdateIssueByIdInput {
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
+    frontEnvironment: GraphQLString
     frontVersion: GraphQLString
+    backEnvironment: GraphQLString
     backVersion: GraphQLString
-    environment: GraphQLString
     subject: GraphQLString
     description: GraphQLString
     attachments: [StorageAccountFileManagerFileUploadedInput]
@@ -62,9 +65,10 @@ input SupportUpdateIssuesInput {
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
+    frontEnvironment: GraphQLString
     frontVersion: GraphQLString
+    backEnvironment: GraphQLString
     backVersion: GraphQLString
-    environment: GraphQLString
     subject: GraphQLString
     description: GraphQLString
     attachments: [StorageAccountFileManagerFileUploadedInput]

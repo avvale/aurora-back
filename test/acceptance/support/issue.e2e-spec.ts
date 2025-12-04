@@ -315,6 +315,22 @@ describe('issue', () => {
             });
     });
 
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueFrontEnvironment is too large, has a maximum length of 36', () => {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                frontEnvironment: '*************************************',
+            })
+            .expect(400)
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueFrontEnvironment is too large, has a maximum length of 36',
+                );
+            });
+    });
+
     test('/REST:POST support/issue/create - Got 400 Conflict, IssueFrontVersion is too large, has a maximum length of 16', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
@@ -331,6 +347,22 @@ describe('issue', () => {
             });
     });
 
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueBackEnvironment is too large, has a maximum length of 36', () => {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                backEnvironment: '*************************************',
+            })
+            .expect(400)
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueBackEnvironment is too large, has a maximum length of 36',
+                );
+            });
+    });
+
     test('/REST:POST support/issue/create - Got 400 Conflict, IssueBackVersion is too large, has a maximum length of 16', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
@@ -343,22 +375,6 @@ describe('issue', () => {
             .then((res) => {
                 expect(res.body.message).toContain(
                     'Value for SupportIssueBackVersion is too large, has a maximum length of 16',
-                );
-            });
-    });
-
-    test('/REST:POST support/issue/create - Got 400 Conflict, IssueEnvironment is too large, has a maximum length of 36', () => {
-        return request(app.getHttpServer())
-            .post('/support/issue/create')
-            .set('Accept', 'application/json')
-            .send({
-                ...mockData[0],
-                environment: '*************************************',
-            })
-            .expect(400)
-            .then((res) => {
-                expect(res.body.message).toContain(
-                    'Value for SupportIssueEnvironment is too large, has a maximum length of 36',
                 );
             });
     });
@@ -566,9 +582,10 @@ describe('issue', () => {
                             accountId
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -656,9 +673,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -707,9 +725,10 @@ describe('issue', () => {
                             accountId
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -750,9 +769,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -799,9 +819,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -844,9 +865,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -889,9 +911,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -930,9 +953,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -978,9 +1002,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -1022,9 +1047,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -1071,9 +1097,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments
@@ -1116,9 +1143,10 @@ describe('issue', () => {
                             externalStatus
                             accountUsername
                             displayName
+                            frontEnvironment
                             frontVersion
+                            backEnvironment
                             backVersion
-                            environment
                             subject
                             description
                             attachments

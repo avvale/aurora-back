@@ -6,6 +6,7 @@ import {
     ClickupService,
 } from '@api/support/clickup/shared';
 import { SupportCreateIssueDto, SupportIssueDto } from '@api/support/issue';
+import { IamAccountResponse } from '@app/iam/account/domain/iam-account.response';
 import {
     SupportCreateIssueCommand,
     SupportFindIssueByIdQuery,
@@ -28,17 +29,29 @@ export class SupportCreateIssueHandler {
     ) {}
 
     async main(
+        account: IamAccountResponse,
         payload: SupportCreateIssueInput | SupportCreateIssueDto,
         timezone?: string,
         auditing?: AuditingMeta,
     ): Promise<SupportIssue | SupportIssueDto> {
         await this.commandBus.dispatch(
-            new SupportCreateIssueCommand(payload, {
-                timezone,
-                repositoryOptions: {
-                    auditing,
+            new SupportCreateIssueCommand(
+                {
+                    ...payload,
+                    accountUsername: account.username,
+                    displayName:
+                        account.user.name +
+                        (account.user.surname
+                            ? ' ' + account.user.surname
+                            : ''),
                 },
-            }),
+                {
+                    timezone,
+                    repositoryOptions: {
+                        auditing,
+                    },
+                },
+            ),
         );
 
         const screenRecordingUploaded = payload.screenRecording

@@ -32,7 +32,9 @@ export class ClickupService {
     apiCreateAttachment = '/api/v2/task/:taskId/attachment';
 
     // comments
-    apiCreateComment = '/api/v2/task/:taskId/comment';
+    apiCreateTaskComment = '/api/v2/task/:taskId/comment';
+    apiUpdateComment = '/api/v2/comment/:commentId';
+    apiDeleteComment = '/api/v2/comment/:commentId';
 
     // webhooks
     apiCreateWebhook = '/api/v2/team/:teamId/webhook';
@@ -212,5 +214,72 @@ export class ClickupService {
                 },
             )
             .pipe(map((response) => response.data));
+    }
+
+    createTaskComment(
+        taskId: string,
+        comment: {
+            comment: string;
+            notifyAll?: boolean;
+        },
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService
+            .post(
+                `${this.apiUrl}${Str.replaceParams(this.apiCreateTaskComment, { taskId })}`,
+                {
+                    comment_text: comment.comment,
+                    notify_all: comment.notifyAll ?? true,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: options.authorization,
+                    },
+                },
+            )
+            .pipe(map((response) => response.data));
+    }
+
+    updateComment(
+        commentId: string,
+        comment: {
+            comment: string;
+            assignee?: number;
+            groupAssignee?: number;
+            resolved: boolean;
+        },
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService.put(
+            `${this.apiUrl}${Str.replaceParams(this.apiUpdateComment, { commentId })}`,
+            {
+                comment_text: comment.comment,
+                assignee: comment.assignee,
+                group_assignee: comment.groupAssignee,
+                resolved: comment.resolved ?? false,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: options.authorization,
+                },
+            },
+        );
+    }
+
+    deleteComment(
+        commentId: string,
+        options: { authorization: string },
+    ): Observable<any> {
+        return this.httpService.delete(
+            `${this.apiUrl}${Str.replaceParams(this.apiDeleteComment, { commentId })}`,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: options.authorization,
+                },
+            },
+        );
     }
 }

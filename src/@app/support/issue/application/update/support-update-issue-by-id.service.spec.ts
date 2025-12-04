@@ -9,12 +9,13 @@ import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
     SupportIssueAttachments,
+    SupportIssueBackEnvironment,
     SupportIssueBackVersion,
     SupportIssueDescription,
     SupportIssueDisplayName,
-    SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
+    SupportIssueFrontEnvironment,
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
@@ -84,14 +85,17 @@ describe('SupportUpdateIssueByIdService', () => {
                         displayName: new SupportIssueDisplayName(
                             supportMockIssueData[0].displayName,
                         ),
+                        frontEnvironment: new SupportIssueFrontEnvironment(
+                            supportMockIssueData[0].frontEnvironment,
+                        ),
                         frontVersion: new SupportIssueFrontVersion(
                             supportMockIssueData[0].frontVersion,
                         ),
+                        backEnvironment: new SupportIssueBackEnvironment(
+                            supportMockIssueData[0].backEnvironment,
+                        ),
                         backVersion: new SupportIssueBackVersion(
                             supportMockIssueData[0].backVersion,
-                        ),
-                        environment: new SupportIssueEnvironment(
-                            supportMockIssueData[0].environment,
                         ),
                         subject: new SupportIssueSubject(
                             supportMockIssueData[0].subject,

@@ -5,14 +5,15 @@ import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
     SupportIssueAttachments,
+    SupportIssueBackEnvironment,
     SupportIssueBackVersion,
     SupportIssueCreatedAt,
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
-    SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
+    SupportIssueFrontEnvironment,
     SupportIssueFrontVersion,
     SupportIssueId,
     SupportIssueMeta,
@@ -93,13 +94,16 @@ export class SupportIssueMapper implements IMapper {
             new SupportIssueDisplayName(issue.displayName, {
                 undefinable: true,
             }),
+            new SupportIssueFrontEnvironment(issue.frontEnvironment, {
+                undefinable: true,
+            }),
             new SupportIssueFrontVersion(issue.frontVersion, {
                 undefinable: true,
             }),
-            new SupportIssueBackVersion(issue.backVersion, {
+            new SupportIssueBackEnvironment(issue.backEnvironment, {
                 undefinable: true,
             }),
-            new SupportIssueEnvironment(issue.environment, {
+            new SupportIssueBackVersion(issue.backVersion, {
                 undefinable: true,
             }),
             new SupportIssueSubject(issue.subject, { undefinable: true }),
@@ -152,9 +156,10 @@ export class SupportIssueMapper implements IMapper {
             issue.accountId.value,
             issue.accountUsername.value,
             issue.displayName.value,
+            issue.frontEnvironment.value,
             issue.frontVersion.value,
+            issue.backEnvironment.value,
             issue.backVersion.value,
-            issue.environment.value,
             issue.subject.value,
             issue.description.value,
             issue.attachments.value,

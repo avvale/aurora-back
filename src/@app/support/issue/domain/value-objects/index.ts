@@ -1,14 +1,15 @@
 export { SupportIssueAccountId } from './support-issue-account-id';
 export { SupportIssueAccountUsername } from './support-issue-account-username';
 export { SupportIssueAttachments } from './support-issue-attachments';
+export { SupportIssueBackEnvironment } from './support-issue-back-environment';
 export { SupportIssueBackVersion } from './support-issue-back-version';
 export { SupportIssueCreatedAt } from './support-issue-created-at';
 export { SupportIssueDeletedAt } from './support-issue-deleted-at';
 export { SupportIssueDescription } from './support-issue-description';
 export { SupportIssueDisplayName } from './support-issue-display-name';
-export { SupportIssueEnvironment } from './support-issue-environment';
 export { SupportIssueExternalId } from './support-issue-external-id';
 export { SupportIssueExternalStatus } from './support-issue-external-status';
+export { SupportIssueFrontEnvironment } from './support-issue-front-environment';
 export { SupportIssueFrontVersion } from './support-issue-front-version';
 export { SupportIssueId } from './support-issue-id';
 export { SupportIssueMeta } from './support-issue-meta';

@@ -41,21 +41,27 @@ export class SupportUpdateIssuesDto {
 
     @ApiProperty({
         type: String,
+        description: 'frontEnvironment [input here api field description]',
+    })
+    frontEnvironment?: string;
+
+    @ApiProperty({
+        type: String,
         description: 'frontVersion [input here api field description]',
     })
     frontVersion?: string;
 
     @ApiProperty({
         type: String,
-        description: 'backVersion [input here api field description]',
+        description: 'backEnvironment [input here api field description]',
     })
-    backVersion?: string;
+    backEnvironment?: string;
 
     @ApiProperty({
         type: String,
-        description: 'environment [input here api field description]',
+        description: 'backVersion [input here api field description]',
     })
-    environment?: string;
+    backVersion?: string;
 
     @ApiProperty({
         type: String,
