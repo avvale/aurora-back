@@ -1,5 +1,6 @@
 /* eslint-disable key-spacing */
 import { IamAccount } from '@app/iam/account';
+import { SupportComment } from '@app/support/comment';
 import {
     SupportCreatedIssueEvent,
     SupportDeletedIssueEvent,
@@ -13,6 +14,7 @@ import {
     SupportIssueCreatedAt,
     SupportIssueDeletedAt,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -34,6 +36,7 @@ export class SupportIssue extends AggregateRoot {
     externalStatus: SupportIssueExternalStatus;
     accountId: SupportIssueAccountId;
     accountUsername: SupportIssueAccountUsername;
+    displayName: SupportIssueDisplayName;
     frontVersion: SupportIssueFrontVersion;
     backVersion: SupportIssueBackVersion;
     environment: SupportIssueEnvironment;
@@ -46,6 +49,7 @@ export class SupportIssue extends AggregateRoot {
     updatedAt: SupportIssueUpdatedAt;
     deletedAt: SupportIssueDeletedAt;
     account: IamAccount;
+    comments: SupportComment[];
 
     constructor(
         id: SupportIssueId,
@@ -54,6 +58,7 @@ export class SupportIssue extends AggregateRoot {
         externalStatus: SupportIssueExternalStatus,
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
+        displayName: SupportIssueDisplayName,
         frontVersion: SupportIssueFrontVersion,
         backVersion: SupportIssueBackVersion,
         environment: SupportIssueEnvironment,
@@ -66,6 +71,7 @@ export class SupportIssue extends AggregateRoot {
         updatedAt: SupportIssueUpdatedAt,
         deletedAt: SupportIssueDeletedAt,
         account?: IamAccount,
+        comments?: SupportComment[],
     ) {
         super();
         this.id = id;
@@ -74,6 +80,7 @@ export class SupportIssue extends AggregateRoot {
         this.externalStatus = externalStatus;
         this.accountId = accountId;
         this.accountUsername = accountUsername;
+        this.displayName = displayName;
         this.frontVersion = frontVersion;
         this.backVersion = backVersion;
         this.environment = environment;
@@ -86,6 +93,7 @@ export class SupportIssue extends AggregateRoot {
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
         this.account = account;
+        this.comments = comments;
     }
 
     static register(
@@ -95,6 +103,7 @@ export class SupportIssue extends AggregateRoot {
         externalStatus: SupportIssueExternalStatus,
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
+        displayName: SupportIssueDisplayName,
         frontVersion: SupportIssueFrontVersion,
         backVersion: SupportIssueBackVersion,
         environment: SupportIssueEnvironment,
@@ -107,6 +116,7 @@ export class SupportIssue extends AggregateRoot {
         updatedAt: SupportIssueUpdatedAt,
         deletedAt: SupportIssueDeletedAt,
         account?: IamAccount,
+        comments?: SupportComment[],
     ): SupportIssue {
         return new SupportIssue(
             id,
@@ -115,6 +125,7 @@ export class SupportIssue extends AggregateRoot {
             externalStatus,
             accountId,
             accountUsername,
+            displayName,
             frontVersion,
             backVersion,
             environment,
@@ -127,6 +138,7 @@ export class SupportIssue extends AggregateRoot {
             updatedAt,
             deletedAt,
             account,
+            comments,
         );
     }
 
@@ -139,6 +151,7 @@ export class SupportIssue extends AggregateRoot {
                     externalStatus: event.payload.externalStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
+                    displayName: event.payload.displayName?.value,
                     frontVersion: event.payload.frontVersion?.value,
                     backVersion: event.payload.backVersion?.value,
                     environment: event.payload.environment?.value,
@@ -165,6 +178,7 @@ export class SupportIssue extends AggregateRoot {
                     externalStatus: event.payload.externalStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
+                    displayName: event.payload.displayName?.value,
                     frontVersion: event.payload.frontVersion?.value,
                     backVersion: event.payload.backVersion?.value,
                     environment: event.payload.environment?.value,
@@ -192,6 +206,7 @@ export class SupportIssue extends AggregateRoot {
                     externalStatus: event.payload.externalStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
+                    displayName: event.payload.displayName?.value,
                     frontVersion: event.payload.frontVersion?.value,
                     backVersion: event.payload.backVersion?.value,
                     environment: event.payload.environment?.value,
@@ -217,6 +232,7 @@ export class SupportIssue extends AggregateRoot {
             externalStatus: this.externalStatus?.value,
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
+            displayName: this.displayName?.value,
             frontVersion: this.frontVersion?.value,
             backVersion: this.backVersion?.value,
             environment: this.environment?.value,
@@ -229,6 +245,7 @@ export class SupportIssue extends AggregateRoot {
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
             account: this.account?.toDTO(),
+            comments: this.comments?.map((item) => item.toDTO()),
         };
     }
 
@@ -240,6 +257,7 @@ export class SupportIssue extends AggregateRoot {
             externalStatus: this.externalStatus?.value,
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
+            displayName: this.displayName?.value,
             frontVersion: this.frontVersion?.value,
             backVersion: this.backVersion?.value,
             environment: this.environment?.value,
@@ -252,6 +270,7 @@ export class SupportIssue extends AggregateRoot {
             updatedAt: this.updatedAt?.value,
             deletedAt: this.deletedAt?.value,
             account: this.account?.toDTO(),
+            comments: this.comments?.map((item) => item.toDTO()),
         };
     }
 }

@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import { IamAccountDto } from '@api/iam/account';
+import { SupportCommentDto } from '@api/support/comment';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SupportIssueDto {
@@ -48,6 +49,12 @@ export class SupportIssueDto {
 
     @ApiProperty({
         type: String,
+        description: 'displayName [input here api field description]',
+    })
+    displayName?: string;
+
+    @ApiProperty({
+        type: String,
         description: 'frontVersion [input here api field description]',
     })
     frontVersion?: string;
@@ -87,6 +94,12 @@ export class SupportIssueDto {
         description: 'screenRecording [input here api field description]',
     })
     screenRecording?: any;
+
+    @ApiProperty({
+        type: () => [SupportCommentDto],
+        description: 'comments [input here api field description]',
+    })
+    comments?: SupportCommentDto[];
 
     @ApiProperty({
         type: Object,

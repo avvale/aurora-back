@@ -1,4 +1,5 @@
 import { IamAccountResponse } from '@app/iam/account';
+import { SupportCommentResponse } from '@app/support/comment';
 
 export class SupportIssueResponse {
     constructor(
@@ -8,6 +9,7 @@ export class SupportIssueResponse {
         public readonly externalStatus: string,
         public readonly accountId: string,
         public readonly accountUsername: string,
+        public readonly displayName: string,
         public readonly frontVersion: string,
         public readonly backVersion: string,
         public readonly environment: string,
@@ -20,5 +22,6 @@ export class SupportIssueResponse {
         public readonly updatedAt: string,
         public readonly deletedAt: string,
         public readonly account: IamAccountResponse,
+        public readonly comments: SupportCommentResponse[],
     ) {}
 }

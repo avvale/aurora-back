@@ -17,6 +17,7 @@ export const permissions = [
         roleIds: [],
     },
 
+    // issue
     {
         id: 'e6290c6c-cd15-49a5-a1b7-622d1e095af1',
         name: 'support.issue.access',
@@ -53,6 +54,46 @@ export const permissions = [
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },
+
+    // comment
+    {
+        id: 'd50f9a3d-4ee7-449d-9697-f225597164ce',
+        name: 'support.comment.access',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'ceeb8200-10ea-4440-b66d-28f7c0c20a06',
+        name: 'support.comment.get',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '77f1e292-8564-4f81-92e7-077a086831d8',
+        name: 'support.comment.create',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: '948f89ec-4128-4be2-9bba-8bb123d677b4',
+        name: 'support.comment.update',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'a3b999cf-0d9f-48df-b634-6a08082a3dc0',
+        name: 'support.comment.upsert',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+    {
+        id: 'a3def9af-a6ab-42f9-8920-5b7e4226c906',
+        name: 'support.comment.delete',
+        boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
+        roleIds: [],
+    },
+
+    // config
     {
         id: 'ca56da38-77ef-4993-a74f-f9d950d4b174',
         name: 'support.config.access',
@@ -71,6 +112,8 @@ export const permissions = [
         boundedContextId: 'bdc73dd9-16e7-4457-8a23-b548e9f49d5d',
         roleIds: [],
     },
+
+    // clickup
     {
         id: 'e0fc1ed5-2f7c-40d9-964d-a500e5cd3334',
         name: 'clickup.space.get',

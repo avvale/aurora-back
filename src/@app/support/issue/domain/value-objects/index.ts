@@ -5,6 +5,7 @@ export { SupportIssueBackVersion } from './support-issue-back-version';
 export { SupportIssueCreatedAt } from './support-issue-created-at';
 export { SupportIssueDeletedAt } from './support-issue-deleted-at';
 export { SupportIssueDescription } from './support-issue-description';
+export { SupportIssueDisplayName } from './support-issue-display-name';
 export { SupportIssueEnvironment } from './support-issue-environment';
 export { SupportIssueExternalId } from './support-issue-external-id';
 export { SupportIssueExternalStatus } from './support-issue-external-status';

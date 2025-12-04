@@ -1,4 +1,5 @@
 import { IamAccountMapper } from '@app/iam/account';
+import { SupportCommentMapper } from '@app/support/comment';
 import { SupportIssue, SupportIssueResponse } from '@app/support/issue';
 import {
     SupportIssueAccountId,
@@ -8,6 +9,7 @@ import {
     SupportIssueCreatedAt,
     SupportIssueDeletedAt,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -88,6 +90,9 @@ export class SupportIssueMapper implements IMapper {
             new SupportIssueAccountUsername(issue.accountUsername, {
                 undefinable: true,
             }),
+            new SupportIssueDisplayName(issue.displayName, {
+                undefinable: true,
+            }),
             new SupportIssueFrontVersion(issue.frontVersion, {
                 undefinable: true,
             }),
@@ -128,6 +133,11 @@ export class SupportIssueMapper implements IMapper {
                       eagerLoading: true,
                   }).mapModelToAggregate(issue.account, cQMetadata)
                 : undefined,
+            this.options.eagerLoading
+                ? new SupportCommentMapper({
+                      eagerLoading: true,
+                  }).mapModelsToAggregates(issue.comments, cQMetadata)
+                : undefined,
         );
     }
 
@@ -141,6 +151,7 @@ export class SupportIssueMapper implements IMapper {
             issue.externalStatus.value,
             issue.accountId.value,
             issue.accountUsername.value,
+            issue.displayName.value,
             issue.frontVersion.value,
             issue.backVersion.value,
             issue.environment.value,
@@ -156,6 +167,11 @@ export class SupportIssueMapper implements IMapper {
                 ? new IamAccountMapper({
                       eagerLoading: true,
                   }).mapAggregateToResponse(issue.account)
+                : undefined,
+            this.options.eagerLoading
+                ? new SupportCommentMapper({
+                      eagerLoading: true,
+                  }).mapAggregatesToResponses(issue.comments)
                 : undefined,
         );
     }

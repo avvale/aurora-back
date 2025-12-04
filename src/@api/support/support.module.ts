@@ -21,12 +21,14 @@ import {
     SupportIssueApiServices,
 } from './issue';
 import { SupportSeeder } from './support.seeder';
+import { SupportCommentApiControllers, SupportCommentApiResolvers, SupportCommentApiHandlers, SupportCommentApiServices } from './comment';
 
 @Module({
     imports: [SharedModule, SequelizeModule.forFeature([...SupportModels])],
     controllers: [
         ...SupportIssueApiControllers,
         ...SupportClickupApiControllers,
+        ...SupportCommentApiControllers
     ],
     providers: [
         SupportSeeder,
@@ -40,6 +42,9 @@ import { SupportSeeder } from './support.seeder';
         ...SupportClickupApiResolvers,
         ...SupportClickupApiHandlers,
         ...SupportClickupApiServices,
+        ...SupportCommentApiResolvers,
+        ...SupportCommentApiHandlers,
+        ...SupportCommentApiServices
     ],
 })
 export class SupportModule {}

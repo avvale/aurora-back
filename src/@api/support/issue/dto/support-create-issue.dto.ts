@@ -35,6 +35,12 @@ export class SupportCreateIssueDto {
 
     @ApiProperty({
         type: String,
+        description: 'displayName [input here api field description]',
+    })
+    displayName?: string;
+
+    @ApiProperty({
+        type: String,
         description: 'frontVersion [input here api field description]',
     })
     frontVersion?: string;

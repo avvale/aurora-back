@@ -47,6 +47,7 @@ describe('SupportUpdateIssueByIdCommandHandler', () => {
                             accountId: supportMockIssueData[0].accountId,
                             accountUsername:
                                 supportMockIssueData[0].accountUsername,
+                            displayName: supportMockIssueData[0].displayName,
                             frontVersion: supportMockIssueData[0].frontVersion,
                             backVersion: supportMockIssueData[0].backVersion,
                             environment: supportMockIssueData[0].environment,

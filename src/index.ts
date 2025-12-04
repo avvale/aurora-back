@@ -12,3 +12,9 @@ export { ToolsWebhookMapper } from './@app/tools/webhook/domain/tools-webhook.ma
 export { toolsMockWebhookData } from './@app/tools/webhook/infrastructure/mock/tools-mock-webhook.data';
 export { ToolsModule } from './@api/tools/tools.module';
 export { ToolsWebhookDto } from './@api/tools/webhook/dto/tools-webhook.dto';
+export { SupportComment } from './@app/support/comment/domain/support-comment.aggregate';
+export { SupportCommentModel } from './@app/support/comment';
+export { SupportCommentResponse } from './@app/support/comment/domain/support-comment.response';
+export { SupportCommentMapper } from './@app/support/comment/domain/support-comment.mapper';
+export { supportMockCommentData } from './@app/support/comment/infrastructure/mock/support-mock-comment.data';
+export { SupportCommentDto } from './@api/support/comment/dto/support-comment.dto';

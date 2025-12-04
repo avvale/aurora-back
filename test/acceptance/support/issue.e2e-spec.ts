@@ -298,6 +298,23 @@ describe('issue', () => {
             });
     });
 
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueDisplayName is too large, has a maximum length of 128', () => {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                displayName:
+                    '*********************************************************************************************************************************',
+            })
+            .expect(400)
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueDisplayName is too large, has a maximum length of 128',
+                );
+            });
+    });
+
     test('/REST:POST support/issue/create - Got 400 Conflict, IssueFrontVersion is too large, has a maximum length of 16', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
@@ -548,6 +565,7 @@ describe('issue', () => {
                             externalStatus
                             accountId
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -637,6 +655,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -687,6 +706,7 @@ describe('issue', () => {
                             externalStatus
                             accountId
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -729,6 +749,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -777,6 +798,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -821,6 +843,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -865,6 +888,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -905,6 +929,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -952,6 +977,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -995,6 +1021,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -1043,6 +1070,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment
@@ -1087,6 +1115,7 @@ describe('issue', () => {
                             externalId
                             externalStatus
                             accountUsername
+                            displayName
                             frontVersion
                             backVersion
                             environment

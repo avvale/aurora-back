@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable key-spacing */
 import { IamAccountModel } from '@app/iam/account';
+import { SupportCommentModel } from '@app/support/comment';
 import {
     AuditingSideEffectEvent,
     SequelizeAuditingAgent,
@@ -19,6 +20,7 @@ import {
     BelongsTo,
     Column,
     ForeignKey,
+    HasMany,
     Model,
     Table,
 } from 'sequelize-typescript';
@@ -190,6 +192,13 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
     accountUsername: string;
 
     @Column({
+        field: 'displayName',
+        allowNull: true,
+        type: DataTypes.STRING(128),
+    })
+    displayName: string;
+
+    @Column({
         field: 'frontVersion',
         allowNull: true,
         type: DataTypes.STRING(16),
@@ -237,6 +246,11 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
         type: DataTypes.JSONB,
     })
     screenRecording: any;
+
+    @HasMany(() => SupportCommentModel, {
+        constraints: false,
+    })
+    comments: SupportCommentModel[];
 
     @Column({
         field: 'meta',

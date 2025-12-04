@@ -30,6 +30,7 @@ export class SupportAddIssuesContextEvent extends AggregateRoot {
                                 externalStatus: issue.externalStatus?.value,
                                 accountId: issue.accountId?.value,
                                 accountUsername: issue.accountUsername?.value,
+                                displayName: issue.displayName?.value,
                                 frontVersion: issue.frontVersion?.value,
                                 backVersion: issue.backVersion?.value,
                                 environment: issue.environment?.value,

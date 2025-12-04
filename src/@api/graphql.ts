@@ -1506,12 +1506,52 @@ export interface StorageAccountFileManagerFileUploadedInput {
     meta?: Nullable<JSON>;
 }
 
+export interface SupportCreateCommentInput {
+    id: string;
+    externalId?: Nullable<GraphQLString>;
+    issueId?: Nullable<string>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
+    description: GraphQLString;
+    attachments?: Nullable<JSON>;
+    screenRecording?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
+export interface SupportUpdateCommentByIdInput {
+    id: string;
+    externalId?: Nullable<GraphQLString>;
+    issueId?: Nullable<string>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    attachments?: Nullable<JSON>;
+    screenRecording?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
+export interface SupportUpdateCommentsInput {
+    id?: Nullable<string>;
+    externalId?: Nullable<GraphQLString>;
+    issueId?: Nullable<string>;
+    accountId?: Nullable<string>;
+    accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
+    description?: Nullable<GraphQLString>;
+    attachments?: Nullable<JSON>;
+    screenRecording?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+}
+
 export interface SupportCreateIssueInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
     environment?: Nullable<GraphQLString>;
@@ -1528,6 +1568,7 @@ export interface SupportUpdateIssueByIdInput {
     externalStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
     environment?: Nullable<GraphQLString>;
@@ -1544,6 +1585,7 @@ export interface SupportUpdateIssuesInput {
     externalStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
     environment?: Nullable<GraphQLString>;
@@ -1996,6 +2038,10 @@ export interface IQuery {
     clickupSpaces(teamId?: Nullable<GraphQLString>): Nullable<ClickupSpace>[] | Promise<Nullable<ClickupSpace>[]>;
     clickupFolders(spaceId?: Nullable<GraphQLString>): Nullable<ClickupFolder>[] | Promise<Nullable<ClickupFolder>[]>;
     clickupLists(folderId?: Nullable<GraphQLString>): Nullable<ClickupList>[] | Promise<Nullable<ClickupList>[]>;
+    supportFindComment(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
+    supportFindCommentById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
+    supportGetComments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportComment>[] | Promise<Nullable<SupportComment>[]>;
+    supportPaginateComments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     supportFindIssue(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportFindIssueById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportGetIssues(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue>[] | Promise<Nullable<SupportIssue>[]>;
@@ -2265,6 +2311,9 @@ export interface IMutation {
     storageAccountCopyFileManager(src: StorageAccountFileManagerFileInput, dest: StorageAccountFileManagerFileInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFileFileManager(file: StorageAccountFileManagerFileUploadedInput): Nullable<StorageAccountFileManagerFile> | Promise<Nullable<StorageAccountFileManagerFile>>;
     storageAccountUploadFilesFileManager(files: StorageAccountFileManagerFileUploadedInput[]): Nullable<StorageAccountFileManagerFile>[] | Promise<Nullable<StorageAccountFileManagerFile>[]>;
+    supportCreateComment(payload: SupportCreateCommentInput): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
+    supportUpdateCommentById(payload: SupportUpdateCommentByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
+    supportDeleteCommentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
@@ -2987,6 +3036,25 @@ export interface ClickupList {
     override_statuses?: Nullable<GraphQLBoolean>;
 }
 
+export interface SupportComment {
+    id: string;
+    rowId: GraphQLInt;
+    externalId?: Nullable<GraphQLString>;
+    issueId?: Nullable<string>;
+    issue?: Nullable<SupportIssue>;
+    accountId?: Nullable<string>;
+    account?: Nullable<IamAccount>;
+    accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
+    description: GraphQLString;
+    attachments?: Nullable<JSON>;
+    screenRecording?: Nullable<JSON>;
+    meta?: Nullable<JSON>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
 export interface SupportIssue {
     id: string;
     rowId: GraphQLInt;
@@ -2995,6 +3063,7 @@ export interface SupportIssue {
     accountId?: Nullable<string>;
     account?: Nullable<IamAccount>;
     accountUsername?: Nullable<GraphQLString>;
+    displayName?: Nullable<GraphQLString>;
     frontVersion?: Nullable<GraphQLString>;
     backVersion?: Nullable<GraphQLString>;
     environment?: Nullable<GraphQLString>;
@@ -3002,6 +3071,7 @@ export interface SupportIssue {
     description: GraphQLString;
     attachments?: Nullable<JSON>;
     screenRecording?: Nullable<JSON>;
+    comments?: Nullable<Nullable<SupportComment>[]>;
     meta?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;

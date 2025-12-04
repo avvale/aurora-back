@@ -7,6 +7,7 @@ import {
     SupportIssueAttachments,
     SupportIssueBackVersion,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -40,6 +41,9 @@ export class SupportCreateIssueCommandHandler
                 accountId: new SupportIssueAccountId(command.payload.accountId),
                 accountUsername: new SupportIssueAccountUsername(
                     command.payload.accountUsername,
+                ),
+                displayName: new SupportIssueDisplayName(
+                    command.payload.displayName,
                 ),
                 frontVersion: new SupportIssueFrontVersion(
                     command.payload.frontVersion,

@@ -11,6 +11,7 @@ import {
     SupportIssueCreatedAt,
     SupportIssueDeletedAt,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -64,6 +65,7 @@ export class SupportMockIssueRepository
                     new SupportIssueAccountUsername(
                         itemCollection.accountUsername,
                     ),
+                    new SupportIssueDisplayName(itemCollection.displayName),
                     new SupportIssueFrontVersion(itemCollection.frontVersion),
                     new SupportIssueBackVersion(itemCollection.backVersion),
                     new SupportIssueEnvironment(itemCollection.environment),

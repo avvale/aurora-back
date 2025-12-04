@@ -10,6 +10,7 @@ export class SupportDeletedIssueEvent {
                 externalStatus: string;
                 accountId: string;
                 accountUsername: string;
+                displayName: string;
                 frontVersion: string;
                 backVersion: string;
                 environment: string;

@@ -7,23 +7,23 @@
         },
         {
             "path": "src/@app/support/issue/application/create/support-create-issue.command-handler.spec.ts",
-            "integrity": "sha1:b2ea08ebfc129edb4be86da12438b22d24032403"
+            "integrity": "sha1:0facaa95cf1614db37532eac3e320696ea209e0e"
         },
         {
             "path": "src/@app/support/issue/application/create/support-create-issue.command-handler.ts",
-            "integrity": "sha1:d252be3f9427952f84dfa47080f6d1e197edaf15"
+            "integrity": "sha1:0def8d87570c703960152f618ec291ec742b5404"
         },
         {
             "path": "src/@app/support/issue/application/create/support-create-issue.command.ts",
-            "integrity": "sha1:a830a0fa80115568d77428d34b56100c6f67f5b0"
+            "integrity": "sha1:c74213e5feb934cf798a463b6d4a1abed6f159f6"
         },
         {
             "path": "src/@app/support/issue/application/create/support-create-issue.service.spec.ts",
-            "integrity": "sha1:8fb1247629a8ab7d54ee9d916e97a145b43346b6"
+            "integrity": "sha1:9fd21f1e93a9a6cb8159d1f5fe0259d674078e60"
         },
         {
             "path": "src/@app/support/issue/application/create/support-create-issue.service.ts",
-            "integrity": "sha1:edab71b655a8b346a4467b9a4bc20c36550cfdcc"
+            "integrity": "sha1:ce625f82f800b0b22238c45b3b59941faaf2fe3f"
         },
         {
             "path": "src/@app/support/issue/application/delete/support-delete-issue-by-id.command-handler.spec.ts",
@@ -47,7 +47,7 @@
         },
         {
             "path": "src/@app/support/issue/application/events/support-add-issues-context.event.ts",
-            "integrity": "sha1:1e6d2d0b32693c468712a6f465b3c3fb9428a79c"
+            "integrity": "sha1:7c5b73f50529bd7ee87be145e0ca23a1c9637be1"
         },
         {
             "path": "src/@app/support/issue/application/events/support-created-issue.event-handler.ts",
@@ -55,7 +55,7 @@
         },
         {
             "path": "src/@app/support/issue/application/events/support-created-issue.event.ts",
-            "integrity": "sha1:e337d714a6b1bcdc9046e1763cab3f8410dcc0e4"
+            "integrity": "sha1:f2d05f067453d226259ea745ea79dd1dc3715fc8"
         },
         {
             "path": "src/@app/support/issue/application/events/support-created-issues.event-handler.ts",
@@ -71,7 +71,7 @@
         },
         {
             "path": "src/@app/support/issue/application/events/support-deleted-issue.event.ts",
-            "integrity": "sha1:57f622b925ed993bc7515dccdcd5e7b7405a04eb"
+            "integrity": "sha1:a0a5ba342783cade2b908873bc064a775c4d46fd"
         },
         {
             "path": "src/@app/support/issue/application/events/support-updated-issue.event-handler.ts",
@@ -79,7 +79,7 @@
         },
         {
             "path": "src/@app/support/issue/application/events/support-updated-issue.event.ts",
-            "integrity": "sha1:3a15d78d7a0be5d36c6d64cb44c47a853ffa26ff"
+            "integrity": "sha1:122cad7ecab64b3eeb52ef87a95bf99b9eb29d01"
         },
         {
             "path": "src/@app/support/issue/application/find/support-find-issue-by-id.query-handler.spec.ts",
@@ -167,31 +167,31 @@
         },
         {
             "path": "src/@app/support/issue/application/update/support-update-issue-by-id.command-handler.spec.ts",
-            "integrity": "sha1:de0c598430f083680935d5fbbea096e2cdd684cd"
+            "integrity": "sha1:44b6ad2ac080427873420c2a898edb8a80527375"
         },
         {
             "path": "src/@app/support/issue/application/update/support-update-issue-by-id.command-handler.ts",
-            "integrity": "sha1:ea0121c78ff5148ed7140623abea5cb45b168bbd"
+            "integrity": "sha1:0ff0b0e542985f4aa9eab25aedd8af310af6430b"
         },
         {
             "path": "src/@app/support/issue/application/update/support-update-issue-by-id.command.ts",
-            "integrity": "sha1:62b9c35b7f2572a0f00f66dfbc59c2c9c6189f3e"
+            "integrity": "sha1:67a8ba2e55c2f790ff887d103d53a50a630c67a9"
         },
         {
             "path": "src/@app/support/issue/application/update/support-update-issue-by-id.service.spec.ts",
-            "integrity": "sha1:3b2f5f2282d5bdbad89f5a36cab7cffad2e05e93"
+            "integrity": "sha1:f00e73d33d7a23579f1b68b3d7b6f26c18b54639"
         },
         {
             "path": "src/@app/support/issue/application/update/support-update-issue-by-id.service.ts",
-            "integrity": "sha1:b34401ea1dc881dceaccbcd8929605dc0396a978"
+            "integrity": "sha1:002fb355414194680d565ea69c3cbb1c57daaf49"
         },
         {
             "path": "src/@app/support/issue/domain/support-issue.aggregate.ts",
-            "integrity": "sha1:3bbf8b744e0ca66061549bbefe2f4f564cf42da1"
+            "integrity": "sha1:aacc0cad823f5850a60a44b04328bf25cebf6608"
         },
         {
             "path": "src/@app/support/issue/domain/support-issue.mapper.ts",
-            "integrity": "sha1:71027a62be497815722b31c92c75033608e159ca"
+            "integrity": "sha1:26bc853bd08904370eb6bda8419cdd455a0dfbe2"
         },
         {
             "path": "src/@app/support/issue/domain/support-issue.repository.ts",
@@ -199,11 +199,11 @@
         },
         {
             "path": "src/@app/support/issue/domain/support-issue.response.ts",
-            "integrity": "sha1:ed09426c93bc5877e4a8084821c0de942e1c71cd"
+            "integrity": "sha1:97b78df2a24bf6dce3d647cc6e2cf8ec938388da"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/index.ts",
-            "integrity": "sha1:2f60c9b4f1d70b91a1de82f004d7d7c5f353f7ed"
+            "integrity": "sha1:e2ce028672b957fdd7a7895d3c46837a47ea2766"
         },
         {
             "path": "src/@app/support/issue/index.ts",
@@ -211,19 +211,19 @@
         },
         {
             "path": "src/@app/support/issue/infrastructure/mock/support-mock-issue.data.ts",
-            "integrity": "sha1:b1dc3d94fc6dc137bbd4c48e1d6523c5635962d6"
+            "integrity": "sha1:2d86dfb23d1f086d7393a324f707a118a3a9b871"
         },
         {
             "path": "src/@app/support/issue/infrastructure/mock/support-mock-issue.repository.ts",
-            "integrity": "sha1:8e8c58ba87355596377d6793e52239a98c043c12"
+            "integrity": "sha1:3f609da2a426416b46ae58a3f9515d1964268c6a"
         },
         {
             "path": "src/@app/support/issue/infrastructure/mock/support-mock-issue.seeder.ts",
-            "integrity": "sha1:5beb404902cf18b2fa213caed9cb2104e3ed58a1"
+            "integrity": "sha1:004d4d8f213478e9e1736dab57d8c572d9244739"
         },
         {
             "path": "src/@app/support/issue/infrastructure/sequelize/support-sequelize-issue.model.ts",
-            "integrity": "sha1:8a4c5aaf9ee52f5d12edfd22f9b32207685b52b3"
+            "integrity": "sha1:724a83dc8ab11fccf00dfdb8f79f08d6b0d21c9c"
         },
         {
             "path": "src/@app/support/issue/infrastructure/sequelize/support-sequelize-issue.repository.ts",
@@ -234,28 +234,32 @@
             "integrity": "sha1:eb7047dd8383f861c0c7974365c2a01b3c77452a"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-row-id.ts",
-            "integrity": "sha1:94ba4529950220480822979c83930e022e6c92d6"
-        },
-        {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-id.ts",
             "integrity": "sha1:d5d1693aa995ec5f42148ebb9d5f45e42a5a2151"
-        },
-        {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-external-status.ts",
-            "integrity": "sha1:99a348adcb357be7937c64e910e3db8ebd33123a"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-external-id.ts",
             "integrity": "sha1:574fb803d12c5aa10061beb6a3871685fbbd1ce4"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-username.ts",
-            "integrity": "sha1:855c5542757884f4512165538b638ade6386b1d1"
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-external-status.ts",
+            "integrity": "sha1:99a348adcb357be7937c64e910e3db8ebd33123a"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-account-id.ts",
             "integrity": "sha1:40cb7588f1c90a97ec7d81a633ccf4021d68f830"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-row-id.ts",
+            "integrity": "sha1:94ba4529950220480822979c83930e022e6c92d6"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-account-username.ts",
+            "integrity": "sha1:855c5542757884f4512165538b638ade6386b1d1"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-display-name.ts",
+            "integrity": "sha1:478747957764c17f07f15453bbad789928903c5d"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-front-version.ts",
@@ -278,16 +282,12 @@
             "integrity": "sha1:334ee910bc3d05be30f4984d71061a5669df4d57"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-screen-recording.ts",
-            "integrity": "sha1:42f115e15e7f53ae787173640f8797d6a80c1ce3"
-        },
-        {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-attachments.ts",
             "integrity": "sha1:dbe3b8de4b110a50b6a2b42c48ecae4034728dac"
         },
         {
-            "path": "src/@app/support/issue/domain/value-objects/support-issue-deleted-at.ts",
-            "integrity": "sha1:9a1c324af3c10bd847db05fa0a1c125e11f6599a"
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-screen-recording.ts",
+            "integrity": "sha1:42f115e15e7f53ae787173640f8797d6a80c1ce3"
         },
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-meta.ts",
@@ -300,6 +300,10 @@
         {
             "path": "src/@app/support/issue/domain/value-objects/support-issue-updated-at.ts",
             "integrity": "sha1:9b2b61789f2cb2aec23fd36897826389e503e99b"
+        },
+        {
+            "path": "src/@app/support/issue/domain/value-objects/support-issue-deleted-at.ts",
+            "integrity": "sha1:9a1c324af3c10bd847db05fa0a1c125e11f6599a"
         },
         {
             "path": "src/@api/support/issue/controllers/support-create-issue.controller.spec.ts",
@@ -359,19 +363,19 @@
         },
         {
             "path": "src/@api/support/issue/dto/support-issue.dto.ts",
-            "integrity": "sha1:a1525cd2b2bcf1d3c3b86de8d2b455f7f170d820"
+            "integrity": "sha1:cb64e1c1bd2b5582c26400fc7ecdd94dd90d7131"
         },
         {
             "path": "src/@api/support/issue/dto/support-create-issue.dto.ts",
-            "integrity": "sha1:8beef5bd01cbe97c41dd79a0b6549f5b81ba5d1b"
+            "integrity": "sha1:37710024849f45e5bad6f405aad80310f6017b72"
         },
         {
             "path": "src/@api/support/issue/dto/support-update-issue-by-id.dto.ts",
-            "integrity": "sha1:ad6d2276bfc9b9c23e7431d70d3d4c8d8b90151c"
+            "integrity": "sha1:3e3af1db7292ad0506439246371bd20a13633ce9"
         },
         {
             "path": "src/@api/support/issue/dto/support-update-issues.dto.ts",
-            "integrity": "sha1:19ca96761290edebbd9c653f40237c15b80330ed"
+            "integrity": "sha1:a78986cbf15edc7d251852c266035ba233ab6984"
         },
         {
             "path": "src/@api/support/issue/dto/index.ts",
@@ -383,7 +387,7 @@
         },
         {
             "path": "src/@api/support/issue/graphql/support-issue.graphql",
-            "integrity": "sha1:afde3f9f3b1e590ac58b474c3d425c1ac1134cc7"
+            "integrity": "sha1:6401bdc0181370726e716cf504b207e8d0aacae3"
         },
         {
             "path": "src/@api/support/issue/handlers/support-create-issue.handler.spec.ts",
@@ -555,11 +559,11 @@
         },
         {
             "path": "test/acceptance/support/issue.e2e-spec.ts",
-            "integrity": "sha1:69c8ba4cbf05839c6ee7577e20861a2f37d815bf"
+            "integrity": "sha1:17fc27fb62f7a11c97b4fabfdc360ccc1d0ef0ad"
         },
         {
             "path": "postman/support/support.issue.postman.json",
-            "integrity": "sha1:68bcd97fab5c3701f3d9298d721bcd59c065d411"
+            "integrity": "sha1:eba6fcb3f66095e7ef6bc491b530fb917a7f866c"
         }
     ]
 }

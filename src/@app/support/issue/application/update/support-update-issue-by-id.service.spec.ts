@@ -11,6 +11,7 @@ import {
     SupportIssueAttachments,
     SupportIssueBackVersion,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -79,6 +80,9 @@ describe('SupportUpdateIssueByIdService', () => {
                         ),
                         accountUsername: new SupportIssueAccountUsername(
                             supportMockIssueData[0].accountUsername,
+                        ),
+                        displayName: new SupportIssueDisplayName(
+                            supportMockIssueData[0].displayName,
                         ),
                         frontVersion: new SupportIssueFrontVersion(
                             supportMockIssueData[0].frontVersion,

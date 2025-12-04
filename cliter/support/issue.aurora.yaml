@@ -41,6 +41,10 @@ aggregateProperties:
     type: varchar
     maxLength: 128
     nullable: true
+  - name: displayName
+    type: varchar
+    maxLength: 128
+    nullable: true
   - name: frontVersion
     type: varchar
     maxLength: 16
@@ -66,6 +70,15 @@ aggregateProperties:
   - name: screenRecording
     type: jsonb
     nullable: true
+  - name: comments
+    type: relationship
+    nullable: true
+    relationship:
+      type: one-to-many
+      singularName: comment
+      aggregateName: SupportComment
+      modulePath: support/comment
+      avoidConstraint: true
   - name: meta
     type: jsonb
     nullable: true

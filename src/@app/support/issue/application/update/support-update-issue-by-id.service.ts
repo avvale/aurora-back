@@ -5,6 +5,7 @@ import {
     SupportIssueAttachments,
     SupportIssueBackVersion,
     SupportIssueDescription,
+    SupportIssueDisplayName,
     SupportIssueEnvironment,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
@@ -33,6 +34,7 @@ export class SupportUpdateIssueByIdService {
             externalStatus?: SupportIssueExternalStatus;
             accountId?: SupportIssueAccountId;
             accountUsername?: SupportIssueAccountUsername;
+            displayName?: SupportIssueDisplayName;
             frontVersion?: SupportIssueFrontVersion;
             backVersion?: SupportIssueBackVersion;
             environment?: SupportIssueEnvironment;
@@ -53,6 +55,7 @@ export class SupportUpdateIssueByIdService {
             payload.externalStatus,
             payload.accountId,
             payload.accountUsername,
+            payload.displayName,
             payload.frontVersion,
             payload.backVersion,
             payload.environment,
