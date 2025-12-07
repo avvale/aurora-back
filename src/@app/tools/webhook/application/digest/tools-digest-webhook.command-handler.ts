@@ -1,6 +1,9 @@
 /* eslint-disable key-spacing */
 import { ToolsDigestWebhookCommand } from '@app/tools/webhook';
-import { ToolsWebhookPayload } from '@app/tools/webhook/domain/value-objects';
+import {
+    ToolsWebhookHeaders,
+    ToolsWebhookPayload,
+} from '@app/tools/webhook/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { ToolsDigestWebhookService } from './tools-digest-webhook.service';
 
@@ -15,6 +18,7 @@ export class ToolsDigestWebhookCommandHandler
     async execute(command: ToolsDigestWebhookCommand): Promise<void> {
         // call to use case and implements ValueObjects
         await this.digestWebhookService.main(
+            new ToolsWebhookHeaders(command.headers),
             new ToolsWebhookPayload(command.payload),
         );
     }

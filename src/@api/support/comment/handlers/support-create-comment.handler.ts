@@ -39,6 +39,7 @@ export class SupportCreateCommentHandler {
             new SupportCreateCommentCommand(
                 {
                     ...payload,
+                    accountId: account.id,
                     accountUsername: account.username,
                     displayName:
                         account.user.name +

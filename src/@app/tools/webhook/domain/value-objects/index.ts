@@ -3,6 +3,7 @@ export { ToolsWebhookDeletedAt } from './tools-webhook-deleted-at';
 export { ToolsWebhookEndpoint } from './tools-webhook-endpoint';
 export { ToolsWebhookEvents } from './tools-webhook-events';
 export { ToolsWebhookExternalId } from './tools-webhook-external-id';
+export { ToolsWebhookHeaders } from './tools-webhook-headers';
 export { ToolsWebhookId } from './tools-webhook-id';
 export { ToolsWebhookMeta } from './tools-webhook-meta';
 export { ToolsWebhookName } from './tools-webhook-name';

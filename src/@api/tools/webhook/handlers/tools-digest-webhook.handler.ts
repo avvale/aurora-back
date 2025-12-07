@@ -6,8 +6,10 @@ import { Injectable } from '@nestjs/common';
 export class ToolsDigestWebhookHandler {
     constructor(private readonly commandBus: ICommandBus) {}
 
-    async main(payload: any): Promise<boolean> {
-        await this.commandBus.dispatch(new ToolsDigestWebhookCommand(payload));
+    async main(headers: any, payload: any): Promise<boolean> {
+        await this.commandBus.dispatch(
+            new ToolsDigestWebhookCommand(headers, payload),
+        );
 
         return true;
     }

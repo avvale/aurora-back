@@ -15,7 +15,12 @@ import {
     QueryStatement,
 } from '@aurorajs.dev/core';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { Inject, Injectable } from '@nestjs/common';
+import {
+    BadRequestException,
+    Inject,
+    Injectable,
+    Logger,
+} from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import { lastValueFrom } from 'rxjs';
 
@@ -50,6 +55,11 @@ export class SupportDeleteCommentByIdHandler {
         );
 
         try {
+            if (!comment.externalId)
+                throw new BadRequestException(
+                    'Comment does not have an externalId',
+                );
+
             const clickupTaskPlatformApiKey =
                 await this.cacheManager.get<string>(
                     CLICKUP_TASK_PLATFORM_API_KEY,
@@ -61,7 +71,13 @@ export class SupportDeleteCommentByIdHandler {
                 }),
             );
         } catch (error) {
-            console.error('Error deleting ClickUp comment:', error);
+            if (error.status !== 400)
+                console.error('Error deleting ClickUp comment:', error);
+
+            Logger.error(
+                'Error deleting ClickUp comment: ' + error,
+                'SupportDeleteCommentByIdHandler',
+            );
         }
 
         return comment;
