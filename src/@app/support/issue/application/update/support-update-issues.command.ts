@@ -1,9 +1,9 @@
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 
-export class SupportUpdateIssueByIdCommand {
+export class SupportUpdateIssuesCommand {
     constructor(
         public readonly payload: {
-            id: string;
+            id?: string;
             externalId?: string;
             externalStatus?: string;
             externalColorStatus?: string;
@@ -20,6 +20,7 @@ export class SupportUpdateIssueByIdCommand {
             screenRecording?: any;
             meta?: any;
         },
+        public readonly queryStatement?: QueryStatement,
         public readonly constraint?: QueryStatement,
         public readonly cQMetadata?: CQMetadata,
     ) {}

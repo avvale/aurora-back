@@ -35,6 +35,10 @@ import {
             unique: true,
         },
         {
+            fields: ['externalId'],
+            unique: false,
+        },
+        {
             fields: ['accountId'],
             unique: false,
         },
@@ -169,6 +173,13 @@ export class SupportIssueModel extends Model<SupportIssueModel> {
         type: DataTypes.STRING(36),
     })
     externalStatus: string;
+
+    @Column({
+        field: 'externalColorStatus',
+        allowNull: true,
+        type: DataTypes.STRING(16),
+    })
+    externalColorStatus: string;
 
     @ForeignKey(() => IamAccountModel)
     @Column({

@@ -1,4 +1,8 @@
-import { SupportIIssueRepository, SupportIssue } from '@app/support/issue';
+import {
+    SupportAddIssuesContextEvent,
+    SupportIIssueRepository,
+    SupportIssue,
+} from '@app/support/issue';
 import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
@@ -23,7 +27,7 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class SupportUpdateIssueByIdService {
+export class SupportUpdateIssuesService {
     constructor(
         private readonly publisher: EventPublisher,
         private readonly repository: SupportIIssueRepository,
@@ -31,7 +35,7 @@ export class SupportUpdateIssueByIdService {
 
     async main(
         payload: {
-            id: SupportIssueId;
+            id?: SupportIssueId;
             externalId?: SupportIssueExternalId;
             externalStatus?: SupportIssueExternalStatus;
             externalColorStatus?: SupportIssueExternalColorStatus;
@@ -48,6 +52,7 @@ export class SupportUpdateIssueByIdService {
             screenRecording?: SupportIssueScreenRecording;
             meta?: SupportIssueMeta;
         },
+        queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         cQMetadata?: CQMetadata,
     ): Promise<void> {
@@ -75,20 +80,27 @@ export class SupportUpdateIssueByIdService {
             null, // deletedAt
         );
 
-        // update by id
-        await this.repository.updateById(issue, {
+        // update
+        await this.repository.update(issue, {
+            queryStatement,
             constraint,
             cQMetadata,
-            updateByIdOptions: cQMetadata?.repositoryOptions,
+            updateOptions: cQMetadata?.repositoryOptions,
+        });
+
+        // get objects to delete
+        const issues = await this.repository.get({
+            queryStatement,
+            constraint,
+            cQMetadata,
         });
 
         // merge EventBus methods with object returned by the repository, to be able to apply and commit events
-        const issueRegister = this.publisher.mergeObjectContext(issue);
+        const issuesRegister = this.publisher.mergeObjectContext(
+            new SupportAddIssuesContextEvent(issues, cQMetadata),
+        );
 
-        issueRegister.updated({
-            payload: issue,
-            cQMetadata,
-        }); // apply event to model events
-        issueRegister.commit(); // commit all events of model
+        issuesRegister.updated(); // apply event to model events
+        issuesRegister.commit(); // commit all events of model
     }
 }

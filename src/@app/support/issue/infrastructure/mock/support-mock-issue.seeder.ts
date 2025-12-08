@@ -9,6 +9,7 @@ import {
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -43,6 +44,9 @@ export class SupportMockIssueSeeder extends MockSeeder<SupportIssue> {
                     new SupportIssueRowId(issue.rowId),
                     new SupportIssueExternalId(issue.externalId),
                     new SupportIssueExternalStatus(issue.externalStatus),
+                    new SupportIssueExternalColorStatus(
+                        issue.externalColorStatus,
+                    ),
                     new SupportIssueAccountId(issue.accountId),
                     new SupportIssueAccountUsername(issue.accountUsername),
                     new SupportIssueDisplayName(issue.displayName),

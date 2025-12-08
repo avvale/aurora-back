@@ -16,6 +16,7 @@ import {
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -35,6 +36,7 @@ export class SupportIssue extends AggregateRoot {
     rowId: SupportIssueRowId;
     externalId: SupportIssueExternalId;
     externalStatus: SupportIssueExternalStatus;
+    externalColorStatus: SupportIssueExternalColorStatus;
     accountId: SupportIssueAccountId;
     accountUsername: SupportIssueAccountUsername;
     displayName: SupportIssueDisplayName;
@@ -58,6 +60,7 @@ export class SupportIssue extends AggregateRoot {
         rowId: SupportIssueRowId,
         externalId: SupportIssueExternalId,
         externalStatus: SupportIssueExternalStatus,
+        externalColorStatus: SupportIssueExternalColorStatus,
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
         displayName: SupportIssueDisplayName,
@@ -81,6 +84,7 @@ export class SupportIssue extends AggregateRoot {
         this.rowId = rowId;
         this.externalId = externalId;
         this.externalStatus = externalStatus;
+        this.externalColorStatus = externalColorStatus;
         this.accountId = accountId;
         this.accountUsername = accountUsername;
         this.displayName = displayName;
@@ -105,6 +109,7 @@ export class SupportIssue extends AggregateRoot {
         rowId: SupportIssueRowId,
         externalId: SupportIssueExternalId,
         externalStatus: SupportIssueExternalStatus,
+        externalColorStatus: SupportIssueExternalColorStatus,
         accountId: SupportIssueAccountId,
         accountUsername: SupportIssueAccountUsername,
         displayName: SupportIssueDisplayName,
@@ -128,6 +133,7 @@ export class SupportIssue extends AggregateRoot {
             rowId,
             externalId,
             externalStatus,
+            externalColorStatus,
             accountId,
             accountUsername,
             displayName,
@@ -155,6 +161,8 @@ export class SupportIssue extends AggregateRoot {
                     id: event.payload.id.value,
                     externalId: event.payload.externalId?.value,
                     externalStatus: event.payload.externalStatus?.value,
+                    externalColorStatus:
+                        event.payload.externalColorStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
@@ -183,6 +191,8 @@ export class SupportIssue extends AggregateRoot {
                     id: event.payload.id?.value,
                     externalId: event.payload.externalId?.value,
                     externalStatus: event.payload.externalStatus?.value,
+                    externalColorStatus:
+                        event.payload.externalColorStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
@@ -212,6 +222,8 @@ export class SupportIssue extends AggregateRoot {
                     rowId: event.payload.rowId.value,
                     externalId: event.payload.externalId?.value,
                     externalStatus: event.payload.externalStatus?.value,
+                    externalColorStatus:
+                        event.payload.externalColorStatus?.value,
                     accountId: event.payload.accountId?.value,
                     accountUsername: event.payload.accountUsername?.value,
                     displayName: event.payload.displayName?.value,
@@ -239,6 +251,7 @@ export class SupportIssue extends AggregateRoot {
             rowId: this.rowId.value,
             externalId: this.externalId?.value,
             externalStatus: this.externalStatus?.value,
+            externalColorStatus: this.externalColorStatus?.value,
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
             displayName: this.displayName?.value,
@@ -265,6 +278,7 @@ export class SupportIssue extends AggregateRoot {
             id: this.id.value,
             externalId: this.externalId?.value,
             externalStatus: this.externalStatus?.value,
+            externalColorStatus: this.externalColorStatus?.value,
             accountId: this.accountId?.value,
             accountUsername: this.accountUsername?.value,
             displayName: this.displayName?.value,

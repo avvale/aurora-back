@@ -4,7 +4,7 @@ import {
     supportMockIssueData,
     SupportMockIssueRepository,
 } from '@app/support/issue';
-import { SupportUpdateIssueByIdService } from '@app/support/issue/application/update/support-update-issue-by-id.service';
+import { SupportUpdateIssuesService } from '@app/support/issue/application/update/support-update-issues.service';
 import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
@@ -32,8 +32,8 @@ import {
 } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportUpdateIssueByIdService', () => {
-    let service: SupportUpdateIssueByIdService;
+describe('SupportUpdateIssuesService', () => {
+    let service: SupportUpdateIssuesService;
 
     beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -42,12 +42,15 @@ describe('SupportUpdateIssueByIdService', () => {
                 EventBus,
                 EventPublisher,
                 UnhandledExceptionBus,
-                SupportUpdateIssueByIdService,
+                SupportUpdateIssuesService,
                 SupportMockIssueRepository,
                 {
                     provide: SupportIIssueRepository,
                     useValue: {
-                        updateById: () => {
+                        update: () => {
+                            /**/
+                        },
+                        get: () => {
                             /**/
                         },
                     },
@@ -55,15 +58,15 @@ describe('SupportUpdateIssueByIdService', () => {
             ],
         }).compile();
 
-        service = module.get(SupportUpdateIssueByIdService);
+        service = module.get(SupportUpdateIssuesService);
     });
 
     describe('main', () => {
-        test('SupportUpdateIssueByIdService should be defined', () => {
+        test('UpdateIssuesService should be defined', () => {
             expect(service).toBeDefined();
         });
 
-        test('should update a issue and emit event', async () => {
+        test('should update a issues and emit event', async () => {
             expect(
                 await service.main(
                     {
@@ -118,6 +121,7 @@ describe('SupportUpdateIssueByIdService', () => {
                             supportMockIssueData[0].meta,
                         ),
                     },
+                    {},
                     {},
                 ),
             ).toBe(undefined);

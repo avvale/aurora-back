@@ -13,6 +13,7 @@ import {
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -61,6 +62,9 @@ export class SupportMockIssueRepository
                     new SupportIssueExternalId(itemCollection.externalId),
                     new SupportIssueExternalStatus(
                         itemCollection.externalStatus,
+                    ),
+                    new SupportIssueExternalColorStatus(
+                        itemCollection.externalColorStatus,
                     ),
                     new SupportIssueAccountId(itemCollection.accountId),
                     new SupportIssueAccountUsername(

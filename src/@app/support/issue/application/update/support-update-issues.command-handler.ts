@@ -1,6 +1,6 @@
 /* eslint-disable key-spacing */
-import { SupportCreateIssueCommand } from '@app/support/issue';
-import { SupportCreateIssueService } from '@app/support/issue/application/create/support-create-issue.service';
+import { SupportUpdateIssuesCommand } from '@app/support/issue';
+import { SupportUpdateIssuesService } from '@app/support/issue/application/update/support-update-issues.service';
 import {
     SupportIssueAccountId,
     SupportIssueAccountUsername,
@@ -21,19 +21,21 @@ import {
 } from '@app/support/issue/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-@CommandHandler(SupportCreateIssueCommand)
-export class SupportCreateIssueCommandHandler
-    implements ICommandHandler<SupportCreateIssueCommand>
+@CommandHandler(SupportUpdateIssuesCommand)
+export class SupportUpdateIssuesCommandHandler
+    implements ICommandHandler<SupportUpdateIssuesCommand>
 {
     constructor(
-        private readonly createIssueService: SupportCreateIssueService,
+        private readonly updateIssuesService: SupportUpdateIssuesService,
     ) {}
 
-    async execute(command: SupportCreateIssueCommand): Promise<void> {
+    async execute(command: SupportUpdateIssuesCommand): Promise<void> {
         // call to use case and implements ValueObjects
-        await this.createIssueService.main(
+        await this.updateIssuesService.main(
             {
-                id: new SupportIssueId(command.payload.id),
+                id: new SupportIssueId(command.payload.id, {
+                    undefinable: true,
+                }),
                 externalId: new SupportIssueExternalId(
                     command.payload.externalId,
                 ),
@@ -62,9 +64,12 @@ export class SupportCreateIssueCommandHandler
                 backVersion: new SupportIssueBackVersion(
                     command.payload.backVersion,
                 ),
-                subject: new SupportIssueSubject(command.payload.subject),
+                subject: new SupportIssueSubject(command.payload.subject, {
+                    undefinable: true,
+                }),
                 description: new SupportIssueDescription(
                     command.payload.description,
+                    { undefinable: true },
                 ),
                 attachments: new SupportIssueAttachments(
                     command.payload.attachments,
@@ -74,6 +79,8 @@ export class SupportCreateIssueCommandHandler
                 ),
                 meta: new SupportIssueMeta(command.payload.meta),
             },
+            command.queryStatement,
+            command.constraint,
             command.cQMetadata,
         );
     }

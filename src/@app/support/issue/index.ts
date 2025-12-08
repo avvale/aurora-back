@@ -2,6 +2,7 @@
 export { SupportCreateIssueCommand } from './application/create/support-create-issue.command';
 export { SupportDeleteIssueByIdCommand } from './application/delete/support-delete-issue-by-id.command';
 export { SupportUpdateIssueByIdCommand } from './application/update/support-update-issue-by-id.command';
+export { SupportUpdateIssuesCommand } from './application/update/support-update-issues.command';
 
 // export queries
 export { SupportFindIssueByIdQuery } from './application/find/support-find-issue-by-id.query';
@@ -20,6 +21,7 @@ export { SupportCreatedIssueEvent } from './application/events/support-created-i
 export { SupportCreatedIssuesEvent } from './application/events/support-created-issues.event';
 export { SupportDeletedIssueEvent } from './application/events/support-deleted-issue.event';
 export { SupportUpdatedIssueEvent } from './application/events/support-updated-issue.event';
+export { SupportUpdatedIssuesEvent } from './application/events/support-updated-issues.event';
 
 // export command handlers
 // can not export application command handlers, because Nest can't resolve dependencies
@@ -44,6 +46,7 @@ export { SupportIssueSagas } from './application/sagas/support-issue.sagas';
 import { SupportCreateIssueCommandHandler } from './application/create/support-create-issue.command-handler';
 import { SupportDeleteIssueByIdCommandHandler } from './application/delete/support-delete-issue-by-id.command-handler';
 import { SupportUpdateIssueByIdCommandHandler } from './application/update/support-update-issue-by-id.command-handler';
+import { SupportUpdateIssuesCommandHandler } from './application/update/support-update-issues.command-handler';
 
 // query handlers
 import { SupportFindIssueByIdQueryHandler } from './application/find/support-find-issue-by-id.query-handler';
@@ -56,6 +59,7 @@ import { SupportCreatedIssueEventHandler } from './application/events/support-cr
 import { SupportCreatedIssuesEventHandler } from './application/events/support-created-issues.event-handler';
 import { SupportDeletedIssueEventHandler } from './application/events/support-deleted-issue.event-handler';
 import { SupportUpdatedIssueEventHandler } from './application/events/support-updated-issue.event-handler';
+import { SupportUpdatedIssuesEventHandler } from './application/events/support-updated-issues.event-handler';
 
 // services
 import { SupportCreateIssueService } from './application/create/support-create-issue.service';
@@ -65,11 +69,13 @@ import { SupportFindIssueService } from './application/find/support-find-issue.s
 import { SupportGetIssuesService } from './application/get/support-get-issues.service';
 import { SupportPaginateIssuesService } from './application/paginate/support-paginate-issues.service';
 import { SupportUpdateIssueByIdService } from './application/update/support-update-issue-by-id.service';
+import { SupportUpdateIssuesService } from './application/update/support-update-issues.service';
 
 export const SupportIssueHandlers = [
     // commands
     SupportCreateIssueCommandHandler,
     SupportUpdateIssueByIdCommandHandler,
+    SupportUpdateIssuesCommandHandler,
     SupportDeleteIssueByIdCommandHandler,
 
     // queries
@@ -82,6 +88,7 @@ export const SupportIssueHandlers = [
     SupportCreatedIssueEventHandler,
     SupportCreatedIssuesEventHandler,
     SupportUpdatedIssueEventHandler,
+    SupportUpdatedIssuesEventHandler,
     SupportDeletedIssueEventHandler,
 ];
 
@@ -92,5 +99,6 @@ export const SupportIssueServices = [
     SupportFindIssueService,
     SupportFindIssueByIdService,
     SupportUpdateIssueByIdService,
+    SupportUpdateIssuesService,
     SupportDeleteIssueByIdService,
 ];

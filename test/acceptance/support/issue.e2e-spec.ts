@@ -281,6 +281,22 @@ describe('issue', () => {
             });
     });
 
+    test('/REST:POST support/issue/create - Got 400 Conflict, IssueExternalColorStatus is too large, has a maximum length of 16', () => {
+        return request(app.getHttpServer())
+            .post('/support/issue/create')
+            .set('Accept', 'application/json')
+            .send({
+                ...mockData[0],
+                externalColorStatus: '*****************',
+            })
+            .expect(400)
+            .then((res) => {
+                expect(res.body.message).toContain(
+                    'Value for SupportIssueExternalColorStatus is too large, has a maximum length of 16',
+                );
+            });
+    });
+
     test('/REST:POST support/issue/create - Got 400 Conflict, IssueAccountUsername is too large, has a maximum length of 128', () => {
         return request(app.getHttpServer())
             .post('/support/issue/create')
@@ -579,6 +595,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountId
                             accountUsername
                             displayName
@@ -671,6 +688,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -722,6 +740,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountId
                             accountUsername
                             displayName
@@ -767,6 +786,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -817,6 +837,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -863,6 +884,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -909,6 +931,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -951,6 +974,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -1000,6 +1024,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -1045,6 +1070,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -1095,6 +1121,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment
@@ -1141,6 +1168,7 @@ describe('issue', () => {
                             rowId
                             externalId
                             externalStatus
+                            externalColorStatus
                             accountUsername
                             displayName
                             frontEnvironment

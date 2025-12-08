@@ -8,6 +8,7 @@ import {
     SupportIssueCreatedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -34,6 +35,7 @@ export class SupportCreateIssueService {
             id: SupportIssueId;
             externalId: SupportIssueExternalId;
             externalStatus: SupportIssueExternalStatus;
+            externalColorStatus: SupportIssueExternalColorStatus;
             accountId: SupportIssueAccountId;
             accountUsername: SupportIssueAccountUsername;
             displayName: SupportIssueDisplayName;
@@ -55,6 +57,7 @@ export class SupportCreateIssueService {
             undefined, // rowId
             payload.externalId,
             payload.externalStatus,
+            payload.externalColorStatus,
             payload.accountId,
             payload.accountUsername,
             payload.displayName,

@@ -7,6 +7,7 @@ export class SupportIssueResponse {
         public readonly rowId: number,
         public readonly externalId: string,
         public readonly externalStatus: string,
+        public readonly externalColorStatus: string,
         public readonly accountId: string,
         public readonly accountUsername: string,
         public readonly displayName: string,

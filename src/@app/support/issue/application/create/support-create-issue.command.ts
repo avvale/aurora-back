@@ -6,6 +6,7 @@ export class SupportCreateIssueCommand {
             id: string;
             externalId?: string;
             externalStatus?: string;
+            externalColorStatus?: string;
             accountId?: string;
             accountUsername?: string;
             displayName?: string;

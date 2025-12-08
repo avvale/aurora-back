@@ -3,6 +3,7 @@ type SupportIssue {
     rowId: GraphQLInt!
     externalId: GraphQLString
     externalStatus: GraphQLString
+    externalColorStatus: GraphQLString
     accountId: ID
     account: IamAccount
     accountUsername: GraphQLString
@@ -26,6 +27,7 @@ input SupportCreateIssueInput {
     id: ID!
     externalId: GraphQLString
     externalStatus: GraphQLString
+    externalColorStatus: GraphQLString
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
@@ -44,6 +46,7 @@ input SupportUpdateIssueByIdInput {
     id: ID!
     externalId: GraphQLString
     externalStatus: GraphQLString
+    externalColorStatus: GraphQLString
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
@@ -62,6 +65,7 @@ input SupportUpdateIssuesInput {
     id: ID
     externalId: GraphQLString
     externalStatus: GraphQLString
+    externalColorStatus: GraphQLString
     accountId: ID
     accountUsername: GraphQLString
     displayName: GraphQLString
@@ -102,6 +106,12 @@ type Mutation {
         payload: SupportUpdateIssueByIdInput!
         constraint: QueryStatement
     ): SupportIssue
+
+    supportUpdateIssues(
+        payload: SupportUpdateIssuesInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SupportIssue]!
 
     supportDeleteIssueById(id: ID!, constraint: QueryStatement): SupportIssue
 

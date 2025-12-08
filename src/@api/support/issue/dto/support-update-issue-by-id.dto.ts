@@ -22,6 +22,12 @@ export class SupportUpdateIssueByIdDto {
 
     @ApiProperty({
         type: String,
+        description: 'externalColorStatus [input here api field description]',
+    })
+    externalColorStatus?: string;
+
+    @ApiProperty({
+        type: String,
         description: 'accountId [input here api field description]',
         example: 'bb311dbd-dd0b-5412-bf15-ca58a8aa48db',
     })

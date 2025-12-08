@@ -1549,6 +1549,7 @@ export interface SupportCreateIssueInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
+    externalColorStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
@@ -1567,6 +1568,7 @@ export interface SupportUpdateIssueByIdInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
+    externalColorStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
@@ -1585,6 +1587,7 @@ export interface SupportUpdateIssuesInput {
     id?: Nullable<string>;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
+    externalColorStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
     displayName?: Nullable<GraphQLString>;
@@ -2319,6 +2322,7 @@ export interface IMutation {
     supportDeleteCommentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
+    supportUpdateIssues(payload: SupportUpdateIssuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue>[] | Promise<Nullable<SupportIssue>[]>;
     supportDeleteIssueById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportCreateWebhookConfig(): ToolsWebhook | Promise<ToolsWebhook>;
     supportDeleteWebhookConfig(): boolean | Promise<boolean>;
@@ -3063,6 +3067,7 @@ export interface SupportIssue {
     rowId: GraphQLInt;
     externalId?: Nullable<GraphQLString>;
     externalStatus?: Nullable<GraphQLString>;
+    externalColorStatus?: Nullable<GraphQLString>;
     accountId?: Nullable<string>;
     account?: Nullable<IamAccount>;
     accountUsername?: Nullable<GraphQLString>;

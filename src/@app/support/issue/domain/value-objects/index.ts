@@ -7,6 +7,7 @@ export { SupportIssueCreatedAt } from './support-issue-created-at';
 export { SupportIssueDeletedAt } from './support-issue-deleted-at';
 export { SupportIssueDescription } from './support-issue-description';
 export { SupportIssueDisplayName } from './support-issue-display-name';
+export { SupportIssueExternalColorStatus } from './support-issue-external-color-status';
 export { SupportIssueExternalId } from './support-issue-external-id';
 export { SupportIssueExternalStatus } from './support-issue-external-status';
 export { SupportIssueFrontEnvironment } from './support-issue-front-environment';

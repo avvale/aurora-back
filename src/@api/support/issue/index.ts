@@ -12,6 +12,7 @@ export { SupportFindIssueHandler } from './handlers/support-find-issue.handler';
 export { SupportGetIssuesHandler } from './handlers/support-get-issues.handler';
 export { SupportPaginateIssuesHandler } from './handlers/support-paginate-issues.handler';
 export { SupportUpdateIssueByIdHandler } from './handlers/support-update-issue-by-id.handler';
+export { SupportUpdateIssuesHandler } from './handlers/support-update-issues.handler';
 
 // export controllers
 export { SupportCreateIssueController } from './controllers/support-create-issue.controller';
@@ -21,6 +22,7 @@ export { SupportFindIssueController } from './controllers/support-find-issue.con
 export { SupportGetIssuesController } from './controllers/support-get-issues.controller';
 export { SupportPaginateIssuesController } from './controllers/support-paginate-issues.controller';
 export { SupportUpdateIssueByIdController } from './controllers/support-update-issue-by-id.controller';
+export { SupportUpdateIssuesController } from './controllers/support-update-issues.controller';
 
 // export resolvers
 export { SupportCreateIssueResolver } from './resolvers/support-create-issue.resolver';
@@ -30,6 +32,7 @@ export { SupportFindIssueResolver } from './resolvers/support-find-issue.resolve
 export { SupportGetIssuesResolver } from './resolvers/support-get-issues.resolver';
 export { SupportPaginateIssuesResolver } from './resolvers/support-paginate-issues.resolver';
 export { SupportUpdateIssueByIdResolver } from './resolvers/support-update-issue-by-id.resolver';
+export { SupportUpdateIssuesResolver } from './resolvers/support-update-issues.resolver';
 
 // export additionalApis
 export { SupportCreateWebhookConfigController } from './controllers/support-create-webhook-config.controller';
@@ -47,6 +50,7 @@ import { SupportFindIssueController } from './controllers/support-find-issue.con
 import { SupportGetIssuesController } from './controllers/support-get-issues.controller';
 import { SupportPaginateIssuesController } from './controllers/support-paginate-issues.controller';
 import { SupportUpdateIssueByIdController } from './controllers/support-update-issue-by-id.controller';
+import { SupportUpdateIssuesController } from './controllers/support-update-issues.controller';
 
 // import resolvers
 import { SupportCreateIssueResolver } from './resolvers/support-create-issue.resolver';
@@ -56,6 +60,7 @@ import { SupportFindIssueResolver } from './resolvers/support-find-issue.resolve
 import { SupportGetIssuesResolver } from './resolvers/support-get-issues.resolver';
 import { SupportPaginateIssuesResolver } from './resolvers/support-paginate-issues.resolver';
 import { SupportUpdateIssueByIdResolver } from './resolvers/support-update-issue-by-id.resolver';
+import { SupportUpdateIssuesResolver } from './resolvers/support-update-issues.resolver';
 
 // import handlers
 import { SupportCreateIssueHandler } from './handlers/support-create-issue.handler';
@@ -65,6 +70,7 @@ import { SupportFindIssueHandler } from './handlers/support-find-issue.handler';
 import { SupportGetIssuesHandler } from './handlers/support-get-issues.handler';
 import { SupportPaginateIssuesHandler } from './handlers/support-paginate-issues.handler';
 import { SupportUpdateIssueByIdHandler } from './handlers/support-update-issue-by-id.handler';
+import { SupportUpdateIssuesHandler } from './handlers/support-update-issues.handler';
 
 // import seeder
 import { SupportIssueSeeder } from './seeder/support-issue.seeder';
@@ -84,6 +90,7 @@ export const SupportIssueApiControllers = [
     SupportFindIssueByIdController,
     SupportFindIssueController,
     SupportUpdateIssueByIdController,
+    SupportUpdateIssuesController,
     SupportDeleteIssueByIdController,
 
     // additionalApis
@@ -98,6 +105,7 @@ export const SupportIssueApiResolvers = [
     SupportFindIssueByIdResolver,
     SupportFindIssueResolver,
     SupportUpdateIssueByIdResolver,
+    SupportUpdateIssuesResolver,
     SupportDeleteIssueByIdResolver,
 
     // additionalApis
@@ -112,6 +120,7 @@ export const SupportIssueApiHandlers = [
     SupportFindIssueByIdHandler,
     SupportFindIssueHandler,
     SupportUpdateIssueByIdHandler,
+    SupportUpdateIssuesHandler,
     SupportDeleteIssueByIdHandler,
 
     // additionalApis

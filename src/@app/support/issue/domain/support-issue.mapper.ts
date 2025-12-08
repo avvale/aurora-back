@@ -11,6 +11,7 @@ import {
     SupportIssueDeletedAt,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -87,6 +88,9 @@ export class SupportIssueMapper implements IMapper {
             new SupportIssueExternalStatus(issue.externalStatus, {
                 undefinable: true,
             }),
+            new SupportIssueExternalColorStatus(issue.externalColorStatus, {
+                undefinable: true,
+            }),
             new SupportIssueAccountId(issue.accountId, { undefinable: true }),
             new SupportIssueAccountUsername(issue.accountUsername, {
                 undefinable: true,
@@ -153,6 +157,7 @@ export class SupportIssueMapper implements IMapper {
             issue.rowId.value,
             issue.externalId.value,
             issue.externalStatus.value,
+            issue.externalColorStatus.value,
             issue.accountId.value,
             issue.accountUsername.value,
             issue.displayName.value,

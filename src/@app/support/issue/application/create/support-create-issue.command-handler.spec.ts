@@ -44,6 +44,8 @@ describe('SupportCreateIssueCommandHandler', () => {
                             externalId: supportMockIssueData[0].externalId,
                             externalStatus:
                                 supportMockIssueData[0].externalStatus,
+                            externalColorStatus:
+                                supportMockIssueData[0].externalColorStatus,
                             accountId: supportMockIssueData[0].accountId,
                             accountUsername:
                                 supportMockIssueData[0].accountUsername,

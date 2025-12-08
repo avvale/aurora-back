@@ -9,6 +9,7 @@ import {
     SupportIssueBackVersion,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -38,6 +39,9 @@ export class SupportUpdateIssueByIdCommandHandler
                 ),
                 externalStatus: new SupportIssueExternalStatus(
                     command.payload.externalStatus,
+                ),
+                externalColorStatus: new SupportIssueExternalColorStatus(
+                    command.payload.externalColorStatus,
                 ),
                 accountId: new SupportIssueAccountId(command.payload.accountId),
                 accountUsername: new SupportIssueAccountUsername(

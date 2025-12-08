@@ -8,6 +8,7 @@ export class SupportDeletedIssueEvent {
                 rowId: number;
                 externalId: string;
                 externalStatus: string;
+                externalColorStatus: string;
                 accountId: string;
                 accountUsername: string;
                 displayName: string;

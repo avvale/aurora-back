@@ -13,6 +13,7 @@ import {
     SupportIssueBackVersion,
     SupportIssueDescription,
     SupportIssueDisplayName,
+    SupportIssueExternalColorStatus,
     SupportIssueExternalId,
     SupportIssueExternalStatus,
     SupportIssueFrontEnvironment,
@@ -72,6 +73,9 @@ describe('SupportCreateIssueService', () => {
                     ),
                     externalStatus: new SupportIssueExternalStatus(
                         supportMockIssueData[0].externalStatus,
+                    ),
+                    externalColorStatus: new SupportIssueExternalColorStatus(
+                        supportMockIssueData[0].externalColorStatus,
                     ),
                     accountId: new SupportIssueAccountId(
                         supportMockIssueData[0].accountId,

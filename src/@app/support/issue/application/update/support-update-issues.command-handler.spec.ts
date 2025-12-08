@@ -1,20 +1,20 @@
 import {
     supportMockIssueData,
-    SupportUpdateIssueByIdCommand,
+    SupportUpdateIssuesCommand,
 } from '@app/support/issue';
-import { SupportUpdateIssueByIdCommandHandler } from '@app/support/issue/application/update/support-update-issue-by-id.command-handler';
-import { SupportUpdateIssueByIdService } from '@app/support/issue/application/update/support-update-issue-by-id.service';
+import { SupportUpdateIssuesCommandHandler } from '@app/support/issue/application/update/support-update-issues.command-handler';
+import { SupportUpdateIssuesService } from '@app/support/issue/application/update/support-update-issues.service';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SupportUpdateIssueByIdCommandHandler', () => {
-    let commandHandler: SupportUpdateIssueByIdCommandHandler;
+describe('SupportUpdateIssuesCommandHandler', () => {
+    let commandHandler: SupportUpdateIssuesCommandHandler;
 
     beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                SupportUpdateIssueByIdCommandHandler,
+                SupportUpdateIssuesCommandHandler,
                 {
-                    provide: SupportUpdateIssueByIdService,
+                    provide: SupportUpdateIssuesService,
                     useValue: {
                         main: () => {
                             /**/
@@ -24,20 +24,20 @@ describe('SupportUpdateIssueByIdCommandHandler', () => {
             ],
         }).compile();
 
-        commandHandler = module.get<SupportUpdateIssueByIdCommandHandler>(
-            SupportUpdateIssueByIdCommandHandler,
+        commandHandler = module.get<SupportUpdateIssuesCommandHandler>(
+            SupportUpdateIssuesCommandHandler,
         );
     });
 
     describe('main', () => {
-        test('UpdateIssueByIdCommandHandler should be defined', () => {
+        test('UpdateIssuesCommandHandler should be defined', () => {
             expect(commandHandler).toBeDefined();
         });
 
-        test('should return an issue created', async () => {
+        test('should return an issues updated', async () => {
             expect(
                 await commandHandler.execute(
-                    new SupportUpdateIssueByIdCommand(
+                    new SupportUpdateIssuesCommand(
                         {
                             id: supportMockIssueData[0].id,
                             rowId: supportMockIssueData[0].rowId,
@@ -63,6 +63,7 @@ describe('SupportUpdateIssueByIdCommandHandler', () => {
                                 supportMockIssueData[0].screenRecording,
                             meta: supportMockIssueData[0].meta,
                         },
+                        {},
                         {},
                         { timezone: process.env.TZ },
                     ),

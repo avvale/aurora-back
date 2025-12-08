@@ -7,6 +7,7 @@ export class SupportUpdatedIssueEvent {
                 id: string;
                 externalId: string;
                 externalStatus: string;
+                externalColorStatus: string;
                 accountId: string;
                 accountUsername: string;
                 displayName: string;
