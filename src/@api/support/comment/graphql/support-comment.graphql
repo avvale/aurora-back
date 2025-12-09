@@ -83,6 +83,12 @@ type Mutation {
         constraint: QueryStatement
     ): SupportComment
 
+    supportUpdateComments(
+        payload: SupportUpdateCommentsInput!
+        query: QueryStatement
+        constraint: QueryStatement
+    ): [SupportComment]!
+
     supportDeleteCommentById(
         id: ID!
         constraint: QueryStatement

@@ -34,6 +34,10 @@ import {
             unique: true,
         },
         {
+            fields: ['externalId'],
+            unique: false,
+        },
+        {
             fields: ['accountId'],
             unique: false,
         },
