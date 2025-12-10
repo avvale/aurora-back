@@ -21,6 +21,7 @@ function copyApplication() {
             '**/*',
             '.husky/**',
             '.gitignore',
+            '.prettierrc',
             '!cliter/auditing/**',
             '!cliter/common/**',
             '!cliter/iam/**',
@@ -71,7 +72,7 @@ function editPackageJson() {
             jeditor(function (json) {
                 // modify @aurorajs.dev/core version
                 delete json.scripts['install:core'];
-                json.dependencies['@aurorajs.dev/core'] = '^4.0.0';
+                json.dependencies['@aurorajs.dev/core'] = '^4.3.0';
 
                 delete json.scripts['install:typesense'];
                 delete json.dependencies['@aurorajs.dev/typesense'];
@@ -254,6 +255,16 @@ async function cleanAppModule() {
         'Module',
         'imports',
         'ToolsModule',
+    );
+
+    // remove supportModule
+    codeWriter.removeImport(sourceFile, '@api/support/support.module');
+    codeWriter.removeDecoratorProperty(
+        sourceFile,
+        'AppModule',
+        'Module',
+        'imports',
+        'SupportModule',
     );
 
     // remove MessageModule
