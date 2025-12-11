@@ -6,6 +6,7 @@ const fse = require('fs-extra');
 const { src, dest, series } = require('gulp');
 const jeditor = require('gulp-json-editor');
 const codeWriter = require('./helpers/code-writer');
+const ImportDriver = require('./helpers/drivers/import.driver').ImportDriver;
 
 function cleanSourceDirectory(cb) {
     cp.exec('find . -name ".DS_Store" -delete', () => cb());
@@ -470,6 +471,11 @@ async function cleanAuthGuard() {
         '@aurora',
         'decorators',
         'auth.decorator.ts',
+    ]);
+
+    ImportDriver.createImportItems(sourceFile, '@aurorajs.dev/core', [
+        'AuthenticationDisabledAdapterGuard',
+        'AuthorizationDisabledAdapterGuard',
     ]);
 
     codeWriter.removeImport(
