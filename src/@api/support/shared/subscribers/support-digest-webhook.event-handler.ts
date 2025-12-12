@@ -93,6 +93,7 @@ export class SupportDigestedWebhookEventHandler
                                 externalId: firstHistory.comment.id,
                                 description: firstHistory.comment.text_content,
                                 issueId: task.id,
+                                displayName: firstHistory.user.username,
                             }),
                         );
                     } else {
