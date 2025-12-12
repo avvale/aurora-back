@@ -1508,7 +1508,9 @@ export interface StorageAccountFileManagerFileUploadedInput {
 
 export interface SupportCreateCommentInput {
     id: string;
+    parentId?: Nullable<string>;
     externalId?: Nullable<GraphQLString>;
+    externalParentId?: Nullable<string>;
     issueId?: Nullable<string>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
@@ -1521,7 +1523,9 @@ export interface SupportCreateCommentInput {
 
 export interface SupportUpdateCommentByIdInput {
     id: string;
+    parentId?: Nullable<string>;
     externalId?: Nullable<GraphQLString>;
+    externalParentId?: Nullable<string>;
     issueId?: Nullable<string>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
@@ -1534,7 +1538,9 @@ export interface SupportUpdateCommentByIdInput {
 
 export interface SupportUpdateCommentsInput {
     id?: Nullable<string>;
+    parentId?: Nullable<string>;
     externalId?: Nullable<GraphQLString>;
+    externalParentId?: Nullable<string>;
     issueId?: Nullable<string>;
     accountId?: Nullable<string>;
     accountUsername?: Nullable<GraphQLString>;
@@ -3046,8 +3052,12 @@ export interface ClickupList {
 
 export interface SupportComment {
     id: string;
+    parentId?: Nullable<string>;
+    parent?: Nullable<SupportComment>;
     rowId: GraphQLInt;
     externalId?: Nullable<GraphQLString>;
+    externalParentId?: Nullable<string>;
+    externalParent?: Nullable<SupportComment>;
     issueId?: Nullable<string>;
     issue?: Nullable<SupportIssue>;
     accountId?: Nullable<string>;

@@ -77,29 +77,29 @@ export class SupportDigestedWebhookEventHandler
                     }),
                 );
 
-                try {
-                    await this.queryBus.ask(
-                        new SupportFindCommentQuery({
-                            where: {
-                                externalId: firstHistory.comment.id,
-                            },
-                        }),
-                    );
-                } catch (error) {
-                    if (error.status === 404) {
-                        await this.commandBus.dispatch(
-                            new SupportCreateCommentCommand({
-                                id: uuid(),
-                                externalId: firstHistory.comment.id,
-                                description: firstHistory.comment.text_content,
-                                issueId: task.id,
-                                displayName: firstHistory.user.username,
-                            }),
-                        );
-                    } else {
-                        throw error; // rethrow other errors
-                    }
-                }
+                // avoid duplicate comments, if a comment is created from Aurora, it will be created via API in
+                // the task manager and this webhook will arrive, but the comment already exists in Aurora
+                const comment = await this.queryBus.ask(
+                    new SupportFindCommentQuery({
+                        where: {
+                            externalId: firstHistory.comment.id,
+                        },
+                    }),
+                );
+
+                if (comment) break;
+
+                await this.commandBus.dispatch(
+                    new SupportCreateCommentCommand({
+                        id: uuid(),
+                        parentId: null,
+                        externalId: firstHistory.comment.id,
+                        externalParentId: firstHistory.comment.parent,
+                        description: firstHistory.comment.text_content,
+                        issueId: task.id,
+                        displayName: firstHistory.user.username,
+                    }),
+                );
 
                 break;
             }

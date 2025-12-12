@@ -1,4 +1,7 @@
-import { SearchEngineCollection, SearchEngineCollectionResponse } from '@app/search-engine/collection';
+import {
+    SearchEngineCollection,
+    SearchEngineCollectionResponse,
+} from '@app/search-engine/collection';
 import {
     SearchEngineCollectionAlias,
     SearchEngineCollectionCreatedAt,
@@ -14,20 +17,24 @@ import {
     SearchEngineCollectionUpdatedAt,
 } from '@app/search-engine/collection/domain/value-objects';
 import { SearchEngineFieldMapper } from '@app/search-engine/field';
-import { CQMetadata, IMapper, LiteralObject, MapperOptions } from '@aurorajs.dev/core';
+import {
+    CQMetadata,
+    IMapper,
+    LiteralObject,
+    MapperOptions,
+} from '@aurorajs.dev/core';
 
-export class SearchEngineCollectionMapper implements IMapper
-{
-    constructor(
-        public options: MapperOptions = { eagerLoading: true },
-    ) {}
+export class SearchEngineCollectionMapper implements IMapper {
+    constructor(public options: MapperOptions = { eagerLoading: true }) {}
 
     /**
      * Map object to aggregate
      * @param collection
      */
-    mapModelToAggregate(collection: LiteralObject, cQMetadata?: CQMetadata): SearchEngineCollection
-    {
+    mapModelToAggregate(
+        collection: LiteralObject,
+        cQMetadata?: CQMetadata,
+    ): SearchEngineCollection {
         if (!collection) return;
 
         return this.makeAggregate(collection, cQMetadata);
@@ -37,19 +44,24 @@ export class SearchEngineCollectionMapper implements IMapper
      * Map array of objects to array aggregates
      * @param collections
      */
-    mapModelsToAggregates(collections: LiteralObject[], cQMetadata?: CQMetadata): SearchEngineCollection[]
-    {
+    mapModelsToAggregates(
+        collections: LiteralObject[],
+        cQMetadata?: CQMetadata,
+    ): SearchEngineCollection[] {
         if (!Array.isArray(collections)) return;
 
-        return collections.map(collection => this.makeAggregate(collection, cQMetadata));
+        return collections.map((collection) =>
+            this.makeAggregate(collection, cQMetadata),
+        );
     }
 
     /**
      * Map aggregate to response
      * @param collection
      */
-    mapAggregateToResponse(collection: SearchEngineCollection): SearchEngineCollectionResponse
-    {
+    mapAggregateToResponse(
+        collection: SearchEngineCollection,
+    ): SearchEngineCollectionResponse {
         return this.makeResponse(collection);
     }
 
@@ -57,35 +69,76 @@ export class SearchEngineCollectionMapper implements IMapper
      * Map array of aggregates to array responses
      * @param collections
      */
-    mapAggregatesToResponses(collections: SearchEngineCollection[]): SearchEngineCollectionResponse[]
-    {
+    mapAggregatesToResponses(
+        collections: SearchEngineCollection[],
+    ): SearchEngineCollectionResponse[] {
         if (!Array.isArray(collections)) return;
 
-        return collections.map(collection => this.makeResponse(collection));
+        return collections.map((collection) => this.makeResponse(collection));
     }
 
-    private makeAggregate(collection: LiteralObject, cQMetadata?: CQMetadata): SearchEngineCollection
-    {
+    private makeAggregate(
+        collection: LiteralObject,
+        cQMetadata?: CQMetadata,
+    ): SearchEngineCollection {
         return SearchEngineCollection.register(
             new SearchEngineCollectionId(collection.id, { undefinable: true }),
-            new SearchEngineCollectionName(collection.name, { undefinable: true }),
-            new SearchEngineCollectionAlias(collection.alias, { undefinable: true }),
-            new SearchEngineCollectionStatus(collection.status, { undefinable: true }),
-            new SearchEngineCollectionDocumentsNumber(collection.documentsNumber, { undefinable: true }),
-            new SearchEngineCollectionDefaultSortingField(collection.defaultSortingField, { undefinable: true }),
-            new SearchEngineCollectionNumMemoryShards(collection.numMemoryShards, { undefinable: true }),
-            new SearchEngineCollectionTimestampCreatedAt(collection.timestampCreatedAt, { undefinable: true }),
-            new SearchEngineCollectionIsEnableNestedFields(collection.isEnableNestedFields, { undefinable: true }),
-            new SearchEngineCollectionCreatedAt(collection.createdAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            new SearchEngineCollectionUpdatedAt(collection.updatedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            new SearchEngineCollectionDeletedAt(collection.deletedAt, { undefinable: true }, { addTimezone: cQMetadata?.timezone }),
-            this.options.eagerLoading ? new SearchEngineFieldMapper({ eagerLoading: true }).mapModelsToAggregates(collection.fields, cQMetadata) : undefined,
+            new SearchEngineCollectionName(collection.name, {
+                undefinable: true,
+            }),
+            new SearchEngineCollectionAlias(collection.alias, {
+                undefinable: true,
+            }),
+            new SearchEngineCollectionStatus(collection.status, {
+                undefinable: true,
+            }),
+            new SearchEngineCollectionDocumentsNumber(
+                collection.documentsNumber,
+                { undefinable: true },
+            ),
+            new SearchEngineCollectionDefaultSortingField(
+                collection.defaultSortingField,
+                { undefinable: true },
+            ),
+            new SearchEngineCollectionNumMemoryShards(
+                collection.numMemoryShards,
+                { undefinable: true },
+            ),
+            new SearchEngineCollectionTimestampCreatedAt(
+                collection.timestampCreatedAt,
+                { undefinable: true },
+            ),
+            new SearchEngineCollectionIsEnableNestedFields(
+                collection.isEnableNestedFields,
+                { undefinable: true },
+            ),
+            new SearchEngineCollectionCreatedAt(
+                collection.createdAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            new SearchEngineCollectionUpdatedAt(
+                collection.updatedAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            new SearchEngineCollectionDeletedAt(
+                collection.deletedAt,
+                { undefinable: true },
+                { addTimezone: cQMetadata?.timezone },
+            ),
+            this.options.eagerLoading
+                ? new SearchEngineFieldMapper({
+                      eagerLoading: true,
+                  }).mapModelsToAggregates(collection.fields, cQMetadata)
+                : undefined,
         );
     }
 
-    private makeResponse(collection: SearchEngineCollection): SearchEngineCollectionResponse
-    {
-        if (!collection) return;
+    private makeResponse(
+        collection: SearchEngineCollection,
+    ): SearchEngineCollectionResponse {
+        if (!collection) return null;
 
         return new SearchEngineCollectionResponse(
             collection.id.value,
@@ -100,7 +153,11 @@ export class SearchEngineCollectionMapper implements IMapper
             collection.createdAt.value,
             collection.updatedAt.value,
             collection.deletedAt.value,
-            this.options.eagerLoading ? new SearchEngineFieldMapper({ eagerLoading: true }).mapAggregatesToResponses(collection.fields) : undefined,
+            this.options.eagerLoading
+                ? new SearchEngineFieldMapper({
+                      eagerLoading: true,
+                  }).mapAggregatesToResponses(collection.fields)
+                : undefined,
         );
     }
 }
