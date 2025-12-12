@@ -1,5 +1,6 @@
 import {
     SupportCreateCommentCommand,
+    SupportFindCommentQuery,
     SupportUpdateCommentsCommand,
 } from '@app/support/comment';
 import {
@@ -76,14 +77,29 @@ export class SupportDigestedWebhookEventHandler
                     }),
                 );
 
-                await this.commandBus.dispatch(
-                    new SupportCreateCommentCommand({
-                        id: uuid(),
-                        externalId: firstHistory.comment.id,
-                        description: firstHistory.comment.text_content,
-                        issueId: task.id,
-                    }),
-                );
+                try {
+                    await this.queryBus.ask(
+                        new SupportFindCommentQuery({
+                            where: {
+                                externalId: firstHistory.comment.id,
+                            },
+                        }),
+                    );
+                } catch (error) {
+                    if (error.status === 404) {
+                        await this.commandBus.dispatch(
+                            new SupportCreateCommentCommand({
+                                id: uuid(),
+                                externalId: firstHistory.comment.id,
+                                description: firstHistory.comment.text_content,
+                                issueId: task.id,
+                            }),
+                        );
+                    } else {
+                        throw error; // rethrow other errors
+                    }
+                }
+
                 break;
             }
 
