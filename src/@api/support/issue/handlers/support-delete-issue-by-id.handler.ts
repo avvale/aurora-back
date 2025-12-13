@@ -57,7 +57,7 @@ export class SupportDeleteIssueByIdHandler {
         );
 
         if (issue.screenRecording) {
-            await this.storageAccountFileManagerService.deleteFile(
+            void this.storageAccountFileManagerService.deleteFile(
                 issue.screenRecording,
             );
         }
