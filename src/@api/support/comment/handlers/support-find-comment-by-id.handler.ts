@@ -18,10 +18,11 @@ export class SupportFindCommentByIdHandler {
             }),
         );
 
-        if (!comment)
+        if (!comment) {
             throw new NotFoundException(
                 `SupportComment with id: ${id}, not found`,
             );
+        }
 
         return comment;
     }

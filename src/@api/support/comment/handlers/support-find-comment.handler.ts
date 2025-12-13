@@ -18,7 +18,9 @@ export class SupportFindCommentHandler {
             }),
         );
 
-        if (!comment) throw new NotFoundException(`SupportComment not found`);
+        if (!comment) {
+            throw new NotFoundException(`SupportComment not found`);
+        }
 
         return comment;
     }

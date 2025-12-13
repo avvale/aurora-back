@@ -239,7 +239,7 @@
         },
         {
             "path": "src/@app/support/comment/infrastructure/mock/support-mock-comment.data.ts",
-            "integrity": "sha1:9a54a6ef8def2c79e2dee86bcc77c6c75304624e"
+            "integrity": "sha1:ce02d5503539bdb88eb1ab3ce4c30e61a1c370ff"
         },
         {
             "path": "src/@app/support/comment/infrastructure/mock/support-mock-comment.repository.ts",
@@ -251,7 +251,7 @@
         },
         {
             "path": "src/@app/support/comment/infrastructure/sequelize/support-sequelize-comment.model.ts",
-            "integrity": "sha1:122a46738ce8d6141fd70f70b5424e726e698cfe"
+            "integrity": "sha1:c553a78e726aca5ec3d2d3e02971abf2be9a9ff7"
         },
         {
             "path": "src/@app/support/comment/infrastructure/sequelize/support-sequelize-comment.repository.ts",
@@ -274,6 +274,14 @@
             "integrity": "sha1:b275b18f7179de90e809fe3a4561e7672fbf554a"
         },
         {
+            "path": "src/@app/support/comment/domain/value-objects/support-comment-external-id.ts",
+            "integrity": "sha1:5ac6b3e5f7b8704c7e7ed5c11e82d8fcd0d91fbd"
+        },
+        {
+            "path": "src/@app/support/comment/domain/value-objects/support-comment-external-parent-id.ts",
+            "integrity": "sha1:608b4b83b6bd1d9232e8fb1b59da081a021c0750"
+        },
+        {
             "path": "src/@app/support/comment/domain/value-objects/support-comment-issue-id.ts",
             "integrity": "sha1:7ba96911c9acb16d84096b6f2746aee47cc2aa87"
         },
@@ -282,24 +290,16 @@
             "integrity": "sha1:2cae8f7803667426dcf4c39220ad711231c5f0ec"
         },
         {
-            "path": "src/@app/support/comment/domain/value-objects/support-comment-external-parent-id.ts",
-            "integrity": "sha1:70bd3122ca9813810a30c7881ad381afcac02f45"
-        },
-        {
-            "path": "src/@app/support/comment/domain/value-objects/support-comment-external-id.ts",
-            "integrity": "sha1:5ac6b3e5f7b8704c7e7ed5c11e82d8fcd0d91fbd"
-        },
-        {
             "path": "src/@app/support/comment/domain/value-objects/support-comment-account-username.ts",
             "integrity": "sha1:3b3177215802c0162b81e9dd8dcddd8db4959b66"
         },
         {
-            "path": "src/@app/support/comment/domain/value-objects/support-comment-display-name.ts",
-            "integrity": "sha1:f816fd2e2ed3de0cfe6e825fddb0a0f534e6d627"
-        },
-        {
             "path": "src/@app/support/comment/domain/value-objects/support-comment-description.ts",
             "integrity": "sha1:778e28de681cdc0d9ee0d417e365cdf38a958eab"
+        },
+        {
+            "path": "src/@app/support/comment/domain/value-objects/support-comment-display-name.ts",
+            "integrity": "sha1:f816fd2e2ed3de0cfe6e825fddb0a0f534e6d627"
         },
         {
             "path": "src/@app/support/comment/domain/value-objects/support-comment-attachments.ts",
@@ -318,12 +318,12 @@
             "integrity": "sha1:f93367a2acbb6d9fe892d00eb26a389553b2d499"
         },
         {
-            "path": "src/@app/support/comment/domain/value-objects/support-comment-deleted-at.ts",
-            "integrity": "sha1:ad3ed81327cf82c141aa5c987aa8e2151793fb3f"
-        },
-        {
             "path": "src/@app/support/comment/domain/value-objects/support-comment-updated-at.ts",
             "integrity": "sha1:6e1eb6916ecfdb0eb5fa9b08215d94212562599f"
+        },
+        {
+            "path": "src/@app/support/comment/domain/value-objects/support-comment-deleted-at.ts",
+            "integrity": "sha1:ad3ed81327cf82c141aa5c987aa8e2151793fb3f"
         },
         {
             "path": "src/@api/support/comment/controllers/support-create-comment.controller.spec.ts",
@@ -431,7 +431,7 @@
         },
         {
             "path": "src/@api/support/comment/handlers/support-delete-comment-by-id.handler.ts",
-            "integrity": "sha1:3c1f0016c8471090a71709954a7127fc43635f5a"
+            "integrity": "sha1:82d780f35ac843004c9473d235e98114dc31110c"
         },
         {
             "path": "src/@api/support/comment/handlers/support-find-comment-by-id.handler.spec.ts",
@@ -439,7 +439,7 @@
         },
         {
             "path": "src/@api/support/comment/handlers/support-find-comment-by-id.handler.ts",
-            "integrity": "sha1:2dce7fa4e65365cb3438d6d818b7ec88a069da6f"
+            "integrity": "sha1:4d248fe6f00c64ebb118232d0d2a53b250e8e549"
         },
         {
             "path": "src/@api/support/comment/handlers/support-find-comment.handler.spec.ts",
@@ -447,7 +447,7 @@
         },
         {
             "path": "src/@api/support/comment/handlers/support-find-comment.handler.ts",
-            "integrity": "sha1:3f79dd5fd19d6f3f724311768181f30e93a47ad4"
+            "integrity": "sha1:c50f8f8949b0c49507c9a763f93cd5941eead5f2"
         },
         {
             "path": "src/@api/support/comment/handlers/support-get-comments.handler.spec.ts",
@@ -471,7 +471,7 @@
         },
         {
             "path": "src/@api/support/comment/handlers/support-update-comment-by-id.handler.ts",
-            "integrity": "sha1:5f7d700674edd9331d800af8a09fb19d21412668"
+            "integrity": "sha1:1906d42786e17775586375567dcbb66b455e151f"
         },
         {
             "path": "src/@api/support/comment/handlers/support-update-comments.handler.spec.ts",
@@ -555,11 +555,11 @@
         },
         {
             "path": "test/acceptance/support/comment.e2e-spec.ts",
-            "integrity": "sha1:339bf36a0bde053a250118f563efbe32deeec9db"
+            "integrity": "sha1:40b8d851483850b033d0fb70eebd49e45089669e"
         },
         {
             "path": "postman/support/support.comment.postman.json",
-            "integrity": "sha1:63b6947e804a2dd80a7e8cee3e3b4ba72e66103c"
+            "integrity": "sha1:789605bbf2edbba745cc97049f4e877cd6a083fa"
         }
     ]
 }
