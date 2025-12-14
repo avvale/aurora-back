@@ -15,6 +15,8 @@ export const getKeyValue = async <
         new ToolsFindKeyValueQuery({ where: { key } }),
     );
 
+    if (!keyValue) return null;
+
     if (keyValue.type === ToolsKeyValueType.SECRET)
         keyValue.value = Crypt.decryptWithAuroraPrivateKey(
             keyValue.value as string,

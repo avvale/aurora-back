@@ -1729,6 +1729,27 @@ export interface ToolsUpdateProceduresInput {
     checkedAt?: Nullable<GraphQLTimestamp>;
 }
 
+export interface ToolsCreateWebhookLogInput {
+    id: string;
+    url: GraphQLString;
+    headerRequest?: Nullable<JSON>;
+    bodyRequest?: Nullable<JSON>;
+}
+
+export interface ToolsUpdateWebhookLogByIdInput {
+    id: string;
+    url?: Nullable<GraphQLString>;
+    headerRequest?: Nullable<JSON>;
+    bodyRequest?: Nullable<JSON>;
+}
+
+export interface ToolsUpdateWebhookLogsInput {
+    id?: Nullable<string>;
+    url?: Nullable<GraphQLString>;
+    headerRequest?: Nullable<JSON>;
+    bodyRequest?: Nullable<JSON>;
+}
+
 export interface ToolsCreateWebhookInput {
     id: string;
     name: GraphQLString;
@@ -2070,6 +2091,10 @@ export interface IQuery {
     toolsFindProcedureById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure> | Promise<Nullable<ToolsProcedure>>;
     toolsGetProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsProcedure>[] | Promise<Nullable<ToolsProcedure>[]>;
     toolsPaginateProcedures(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
+    toolsFindWebhookLog(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog> | Promise<Nullable<ToolsWebhookLog>>;
+    toolsFindWebhookLogById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog> | Promise<Nullable<ToolsWebhookLog>>;
+    toolsGetWebhookLogs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog>[] | Promise<Nullable<ToolsWebhookLog>[]>;
+    toolsPaginateWebhookLogs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
     toolsFindWebhook(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
     toolsFindWebhookById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
     toolsGetWebhooks(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook>[] | Promise<Nullable<ToolsWebhook>[]>;
@@ -2357,6 +2382,11 @@ export interface IMutation {
     toolsDownScriptProcedure(procedureId: string): boolean | Promise<boolean>;
     toolsCheckScriptProcedure(procedureId: string): boolean | Promise<boolean>;
     toolsRunScriptsProcedure(): boolean | Promise<boolean>;
+    toolsCreateWebhookLog(payload: ToolsCreateWebhookLogInput): Nullable<ToolsWebhookLog> | Promise<Nullable<ToolsWebhookLog>>;
+    toolsCreateWebhookLogs(payload: Nullable<ToolsCreateWebhookLogInput>[]): boolean | Promise<boolean>;
+    toolsUpdateWebhookLogById(payload: ToolsUpdateWebhookLogByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog> | Promise<Nullable<ToolsWebhookLog>>;
+    toolsDeleteWebhookLogById(id: string, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog> | Promise<Nullable<ToolsWebhookLog>>;
+    toolsDeleteWebhookLogs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhookLog>[] | Promise<Nullable<ToolsWebhookLog>[]>;
     toolsCreateWebhook(payload: ToolsCreateWebhookInput): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
     toolsCreateWebhooks(payload: Nullable<ToolsCreateWebhookInput>[]): boolean | Promise<boolean>;
     toolsUpdateWebhookById(payload: ToolsUpdateWebhookByIdInput, constraint?: Nullable<QueryStatement>): Nullable<ToolsWebhook> | Promise<Nullable<ToolsWebhook>>;
@@ -3143,6 +3173,17 @@ export interface ToolsProcedure {
     hash?: Nullable<GraphQLString>;
     executedAt?: Nullable<GraphQLTimestamp>;
     checkedAt?: Nullable<GraphQLTimestamp>;
+    createdAt?: Nullable<GraphQLTimestamp>;
+    updatedAt?: Nullable<GraphQLTimestamp>;
+    deletedAt?: Nullable<GraphQLTimestamp>;
+}
+
+export interface ToolsWebhookLog {
+    id: string;
+    rowId: GraphQLInt;
+    url: GraphQLString;
+    headerRequest?: Nullable<JSON>;
+    bodyRequest?: Nullable<JSON>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;
     deletedAt?: Nullable<GraphQLTimestamp>;

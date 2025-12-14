@@ -52,6 +52,8 @@ export class ToolsUpdateKeyValueByIdHandler {
                 dataToUpdate.value = Crypt.encryptWithAuroraPublicKey(
                     dataToUpdate.value,
                 );
+            if (payload.type === ToolsKeyValueType.BOOLEAN)
+                dataToUpdate.value = dataToUpdate.value === 'true';
         }
 
         if ('type' in dataToUpdate) {
