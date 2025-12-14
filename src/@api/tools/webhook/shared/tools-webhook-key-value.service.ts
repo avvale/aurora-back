@@ -21,7 +21,7 @@ export class ToolsWebhookKeyValueService {
             WEBHOOK_ACTIVATE_LOGGER,
         );
 
-        if (webhookLoggerKeyValue) {
+        if (webhookLoggerKeyValue !== null) {
             await this.cacheManager.set(
                 WEBHOOK_ACTIVATE_LOGGER,
                 webhookLoggerKeyValue,
