@@ -143,6 +143,14 @@ export const permissions = [
         roleIds: [],
     },
 
+    // tools.webhooks
+    {
+        id: '36210631-ce49-4432-8215-907bab7ebcb0',
+        name: 'tools.webhooks.access',
+        boundedContextId: '82cdf742-62ee-40f5-82e7-530e39710304',
+        roleIds: [],
+    },
+
     // tools.webhook
     {
         id: 'f9eb7593-52a2-43fd-8820-c7a7e541b6d6',
