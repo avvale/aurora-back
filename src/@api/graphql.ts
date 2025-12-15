@@ -1500,6 +1500,7 @@ export interface StorageAccountFileManagerFileInput {
 export interface StorageAccountFileManagerFileUploadedInput {
     id: string;
     file: Upload;
+    size?: Nullable<GraphQLInt>;
     relativePathSegments: Nullable<GraphQLString>[];
     containerName?: Nullable<GraphQLString>;
     hasCreateLibrary?: Nullable<GraphQLBoolean>;
