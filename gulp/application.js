@@ -377,6 +377,26 @@ async function cleanShareModule() {
         'StorageAccountFileManagerService',
     );
 
+    // remove StorageAccountSharedAccessSignatureService
+    codeWriter.removeImport(
+        sourceFile,
+        '@app/storage-account/shared-access-signature',
+    );
+    codeWriter.removeDecoratorPropertyAdapter(
+        sourceFile,
+        'SharedModule',
+        'Module',
+        'providers',
+        'StorageAccountSharedAccessSignatureService',
+    );
+    codeWriter.removeDecoratorProperty(
+        sourceFile,
+        'SharedModule',
+        'Module',
+        'exports',
+        'StorageAccountSharedAccessSignatureService',
+    );
+
     // remove AuthJwtStrategyRegistryModule
     codeWriter.removeImport(sourceFile, '@app/o-auth/shared');
     codeWriter.removeDecoratorProperty(

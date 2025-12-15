@@ -1,9 +1,31 @@
-import { AuditingAxiosInterceptorService, AuditingRunnerAuroraImplementationService } from '@api/auditing/shared';
-import { CommonAttachmentsService, CommonGetFallbackLangFromDbService, CommonGetLangsFromDbService } from '@api/common/shared';
-import { StorageAccountFileManagerService, StorageAccountLocalFileManagerService } from '@api/storage-account/file-manager';
+import {
+    AuditingAxiosInterceptorService,
+    AuditingRunnerAuroraImplementationService,
+} from '@api/auditing/shared';
+import {
+    CommonAttachmentsService,
+    CommonGetFallbackLangFromDbService,
+    CommonGetLangsFromDbService,
+} from '@api/common/shared';
+import {
+    StorageAccountFileManagerService,
+    StorageAccountLocalFileManagerService,
+} from '@api/storage-account/file-manager';
 import { AuthJwtStrategyRegistryModule } from '@app/o-auth/shared';
-import { CoreGetFallbackLangFromJsonService, CoreGetLangsFromJsonService } from '@aurora/modules';
-import { AuditingRunner, AuditingRunnerDisabledImplementationService, AuroraMetadataModule, CoreAddI18nConstraintService, CoreGetContentLanguageObjectService, CoreGetFallbackLangService, CoreGetLangsService, CoreGetSearchKeyLangService, CoreModule } from '@aurorajs.dev/core';
+import {
+    StorageAccountLocalSharedAccessSignatureService,
+    StorageAccountSharedAccessSignatureService,
+} from '@app/storage-account/shared-access-signature';
+import {
+    AuditingRunner,
+    AuroraMetadataModule,
+    CoreAddI18nConstraintService,
+    CoreGetContentLanguageObjectService,
+    CoreGetFallbackLangService,
+    CoreGetLangsService,
+    CoreGetSearchKeyLangService,
+    CoreModule,
+} from '@aurorajs.dev/core';
 import { HttpModule } from '@nestjs/axios';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
@@ -17,19 +39,22 @@ import { SentryModule } from './modules';
         AuthJwtStrategyRegistryModule.forRoot(),
         CacheModule.register({ isGlobal: true, ttl: 0 }),
         ConfigModule.forRoot({
-            isGlobal   : true,
+            isGlobal: true,
             envFilePath: ['../.env', '.env'],
         }),
         CoreModule,
         CqrsModule,
         HttpModule,
         SentryModule.forRootAsync({
-            imports   : [ConfigModule],
-            inject    : [ConfigService],
+            imports: [ConfigModule],
+            inject: [ConfigService],
             useFactory: (configService: ConfigService) => ({
-                dsn        : configService.get('SENTRY_DSN'),
+                dsn: configService.get('SENTRY_DSN'),
                 environment: configService.get('SENTRY_ENVIRONMENT'),
-                release    : configService.get('SENTRY_PROJECT') + '@' + process.env.npm_package_version,
+                release:
+                    configService.get('SENTRY_PROJECT') +
+                    '@' +
+                    process.env.npm_package_version,
             }),
         }),
     ],
@@ -40,20 +65,24 @@ import { SentryModule } from './modules';
         CoreGetContentLanguageObjectService,
         CoreGetSearchKeyLangService,
         {
-            provide : AuditingRunner,
+            provide: AuditingRunner,
             useClass: AuditingRunnerAuroraImplementationService,
         },
         {
-            provide : CoreGetLangsService,
+            provide: CoreGetLangsService,
             useClass: CommonGetLangsFromDbService,
         },
         {
-            provide : CoreGetFallbackLangService,
+            provide: CoreGetFallbackLangService,
             useClass: CommonGetFallbackLangFromDbService,
         },
         {
-            provide : StorageAccountFileManagerService,
+            provide: StorageAccountFileManagerService,
             useClass: StorageAccountLocalFileManagerService,
+        },
+        {
+            provide: StorageAccountSharedAccessSignatureService,
+            useClass: StorageAccountLocalSharedAccessSignatureService,
         },
     ],
     exports: [

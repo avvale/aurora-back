@@ -2,7 +2,7 @@ import { IamAccountMapper } from '@app/iam/account';
 import {
     storageAccountApplySharedAccessSignatureFunction,
     StorageAccountSharedAccessSignatureService,
-} from '@app/storage-account';
+} from '@app/storage-account/shared-access-signature';
 import { SupportCommentMapper } from '@app/support/comment';
 import { SupportIssue, SupportIssueResponse } from '@app/support/issue';
 import {
