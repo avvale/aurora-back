@@ -2,7 +2,7 @@ import {
     SharedAccessSignatureExpiration,
     SharedAccessSignaturePermissions,
     StorageAccountSharedAccessSignatureService,
-} from '@api/storage-account/file-manager/shared';
+} from '@app/storage-account/shared-access-signature';
 import {
     BlobSASPermissions,
     BlobServiceClient,
