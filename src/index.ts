@@ -5,3 +5,9 @@ export { SupportIssueMapper } from './@app/support/issue/domain/support-issue.ma
 export { supportMockIssueData } from './@app/support/issue/infrastructure/mock/support-mock-issue.data';
 export { SupportModule } from './@api/support/support.module';
 export { SupportIssueDto } from './@api/support/issue/dto/support-issue.dto';
+export { SupportComment } from './@app/support/comment/domain/support-comment.aggregate';
+export { SupportCommentModel } from './@app/support/comment';
+export { SupportCommentResponse } from './@app/support/comment/domain/support-comment.response';
+export { SupportCommentMapper } from './@app/support/comment/domain/support-comment.mapper';
+export { supportMockCommentData } from './@app/support/comment/infrastructure/mock/support-mock-comment.data';
+export { SupportCommentDto } from './@api/support/comment/dto/support-comment.dto';

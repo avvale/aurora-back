@@ -2353,6 +2353,7 @@ export interface IMutation {
     supportUpdateCommentById(payload: SupportUpdateCommentByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
     supportUpdateComments(payload: SupportUpdateCommentsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportComment>[] | Promise<Nullable<SupportComment>[]>;
     supportDeleteCommentById(id: string, constraint?: Nullable<QueryStatement>): Nullable<SupportComment> | Promise<Nullable<SupportComment>>;
+    supportDeleteComments(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportComment>[] | Promise<Nullable<SupportComment>[]>;
     supportCreateIssue(payload: SupportCreateIssueInput): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssueById(payload: SupportUpdateIssueByIdInput, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue> | Promise<Nullable<SupportIssue>>;
     supportUpdateIssues(payload: SupportUpdateIssuesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<SupportIssue>[] | Promise<Nullable<SupportIssue>[]>;
