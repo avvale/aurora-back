@@ -100,6 +100,7 @@ import { SentryModule } from './modules';
         HttpModule,
         SentryModule,
         StorageAccountFileManagerService,
+        StorageAccountSharedAccessSignatureService,
     ],
 })
 export class SharedModule {}

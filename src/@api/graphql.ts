@@ -901,6 +901,7 @@ export interface IamUpdateRolesAccountsInput {
 export interface IamCreateRoleInput {
     id: string;
     name: GraphQLString;
+    defaultRedirection?: Nullable<GraphQLString>;
     isMaster: GraphQLBoolean;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -909,6 +910,7 @@ export interface IamCreateRoleInput {
 export interface IamUpdateRoleByIdInput {
     id: string;
     name?: Nullable<GraphQLString>;
+    defaultRedirection?: Nullable<GraphQLString>;
     isMaster?: Nullable<GraphQLBoolean>;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -917,6 +919,7 @@ export interface IamUpdateRoleByIdInput {
 export interface IamUpdateRolesInput {
     id?: Nullable<string>;
     name?: Nullable<GraphQLString>;
+    defaultRedirection?: Nullable<GraphQLString>;
     isMaster?: Nullable<GraphQLBoolean>;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -2234,7 +2237,6 @@ export interface IMutation {
     iamCreateRoles(payload: Nullable<IamCreateRoleInput>[]): boolean | Promise<boolean>;
     iamUpdateRoleById(payload: IamUpdateRoleByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamUpdateRoles(payload: IamUpdateRolesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
-    iamUpsertRole(payload: IamUpdateRoleByIdInput): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoleById(id: string, constraint?: Nullable<QueryStatement>): Nullable<IamRole> | Promise<Nullable<IamRole>>;
     iamDeleteRoles(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamRole>[] | Promise<Nullable<IamRole>[]>;
     iamInheritPermissionsRoleRole(payload: IamInheritRoleInput): boolean | Promise<boolean>;
@@ -2704,6 +2706,7 @@ export interface IamRole {
     id: string;
     rowId: GraphQLInt;
     name: GraphQLString;
+    defaultRedirection?: Nullable<GraphQLString>;
     isMaster: GraphQLBoolean;
     permissions?: Nullable<Nullable<IamPermission>[]>;
     accounts?: Nullable<Nullable<IamAccount>[]>;
