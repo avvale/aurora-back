@@ -30,3 +30,15 @@ export { IamRoleAccountResponse } from './@app/iam/role-account/domain/iam-role-
 export { IamRoleAccountMapper } from './@app/iam/role-account/domain/iam-role-account.mapper';
 export { iamMockRoleAccountData } from './@app/iam/role-account/infrastructure/mock/iam-mock-role-account.data';
 export { IamRoleAccountDto } from './@api/iam/role-account/dto/iam-role-account.dto';
+export { IamAccount } from './@app/iam/account/domain/iam-account.aggregate';
+export { IamAccountModel } from './@app/iam/account';
+export { IamAccountResponse } from './@app/iam/account/domain/iam-account.response';
+export { IamAccountMapper } from './@app/iam/account/domain/iam-account.mapper';
+export { iamMockAccountData } from './@app/iam/account/infrastructure/mock/iam-mock-account.data';
+export { IamAccountDto } from './@api/iam/account/dto/iam-account.dto';
+export { IamTenantAccount } from './@app/iam/tenant-account/domain/iam-tenant-account.aggregate';
+export { IamTenantAccountModel } from './@app/iam/tenant-account';
+export { IamTenantAccountResponse } from './@app/iam/tenant-account/domain/iam-tenant-account.response';
+export { IamTenantAccountMapper } from './@app/iam/tenant-account/domain/iam-tenant-account.mapper';
+export { iamMockTenantAccountData } from './@app/iam/tenant-account/infrastructure/mock/iam-mock-tenant-account.data';
+export { IamTenantAccountDto } from './@api/iam/tenant-account/dto/iam-tenant-account.dto';
