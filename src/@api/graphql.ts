@@ -902,6 +902,7 @@ export interface IamCreateRoleInput {
     id: string;
     name: GraphQLString;
     defaultRedirection?: Nullable<GraphQLString>;
+    hasHiddenVerticalNavigation?: Nullable<GraphQLBoolean>;
     isMaster: GraphQLBoolean;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -911,6 +912,7 @@ export interface IamUpdateRoleByIdInput {
     id: string;
     name?: Nullable<GraphQLString>;
     defaultRedirection?: Nullable<GraphQLString>;
+    hasHiddenVerticalNavigation?: Nullable<GraphQLBoolean>;
     isMaster?: Nullable<GraphQLBoolean>;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -920,6 +922,7 @@ export interface IamUpdateRolesInput {
     id?: Nullable<string>;
     name?: Nullable<GraphQLString>;
     defaultRedirection?: Nullable<GraphQLString>;
+    hasHiddenVerticalNavigation?: Nullable<GraphQLBoolean>;
     isMaster?: Nullable<GraphQLBoolean>;
     permissionIds?: Nullable<Nullable<string>[]>;
     accountIds?: Nullable<Nullable<string>[]>;
@@ -2706,6 +2709,7 @@ export interface IamRole {
     rowId: GraphQLInt;
     name: GraphQLString;
     defaultRedirection?: Nullable<GraphQLString>;
+    hasHiddenVerticalNavigation?: Nullable<GraphQLBoolean>;
     isMaster: GraphQLBoolean;
     permissions?: Nullable<Nullable<IamPermission>[]>;
     accounts?: Nullable<Nullable<IamAccount>[]>;
