@@ -6,6 +6,13 @@ aggregateName: IamAccount
 hasOAuth: true
 hasTenant: false
 hasAuditing: true
+description: >
+  Core authentication and authorization module managing user and service accounts.
+  Accounts represent authenticated entities in the system with assigned roles and permissions.
+  Supports multi-tenancy, OAuth 2.0 integration, and denormalized permission structures
+  for fast authorization checks. Each account can be of type USER (person) or SERVICE
+  (API integration) and must be associated with an OAuth client.
+  Related modules: iam/user (personal info), iam/role (permissions), iam/tenant (organizations).
 front:
   solidIcon: mat_solid:manage_accounts
   outlineIcon: mat_outline:manage_accounts
