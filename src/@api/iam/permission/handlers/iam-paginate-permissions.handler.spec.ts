@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPaginatePermissionsHandler } from '@api/iam/permission';
 import { iamMockPermissionData } from '@app/iam/permission';
 import { IQueryBus } from '@aurorajs.dev/core';

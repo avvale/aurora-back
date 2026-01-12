@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { iamMockPermissionData, IamPermission } from '@app/iam/permission';
 import {
     IamPermissionBoundedContextId,

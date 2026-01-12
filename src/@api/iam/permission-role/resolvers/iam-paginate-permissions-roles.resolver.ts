@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { Pagination } from '@api/graphql';
 import { IamPaginatePermissionsRolesHandler } from '@api/iam/permission-role';
 import { Auth } from '@aurora/decorators';

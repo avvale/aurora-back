@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamBoundedContext } from '@app/iam/bounded-context';
 import {
     IamCreatedPermissionEvent,

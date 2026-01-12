@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { BigintValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class IamPermissionRowId extends BigintValueObject {

@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPermission } from '@app/iam/permission';
 import {
     CQMetadata,

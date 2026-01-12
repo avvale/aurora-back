@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamUpdatePermissionByIdCommand } from '@app/iam/permission';
 import { IamUpdatePermissionByIdService } from '@app/iam/permission/application/update/iam-update-permission-by-id.service';
 import {

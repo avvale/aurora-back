@@ -1,5 +1,8 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPermission } from '@api/graphql';
-import { IamPermissionDto } from '@api/iam/permission';
 import {
     IamDeletePermissionsCommand,
     IamGetPermissionsQuery,
@@ -24,7 +27,7 @@ export class IamDeletePermissionsHandler {
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<IamPermission[] | IamPermissionDto[]> {
+    ): Promise<IamPermission[]> {
         const permissions = await this.queryBus.ask(
             new IamGetPermissionsQuery(queryStatement, constraint, {
                 timezone,

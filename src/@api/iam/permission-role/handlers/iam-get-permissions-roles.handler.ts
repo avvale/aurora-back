@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermissionRole } from '@api/graphql';
 import { IamGetPermissionsRolesQuery } from '@app/iam/permission-role';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';

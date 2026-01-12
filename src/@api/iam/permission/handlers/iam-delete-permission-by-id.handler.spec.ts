@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamDeletePermissionByIdHandler } from '@api/iam/permission';
 import { iamMockPermissionData } from '@app/iam/permission';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';

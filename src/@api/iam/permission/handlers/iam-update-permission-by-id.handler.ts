@@ -1,8 +1,8 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPermission, IamUpdatePermissionByIdInput } from '@api/graphql';
-import {
-    IamPermissionDto,
-    IamUpdatePermissionByIdDto,
-} from '@api/iam/permission';
 import {
     IamFindPermissionByIdQuery,
     IamUpdatePermissionByIdCommand,
@@ -14,7 +14,7 @@ import {
     IQueryBus,
     QueryStatement,
 } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class IamUpdatePermissionByIdHandler {
@@ -24,16 +24,22 @@ export class IamUpdatePermissionByIdHandler {
     ) {}
 
     async main(
-        payload: IamUpdatePermissionByIdInput | IamUpdatePermissionByIdDto,
+        payload: IamUpdatePermissionByIdInput,
         constraint?: QueryStatement,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<IamPermission | IamPermissionDto> {
+    ): Promise<IamPermission> {
         const permission = await this.queryBus.ask(
             new IamFindPermissionByIdQuery(payload.id, constraint, {
                 timezone,
             }),
         );
+
+        if (!permission) {
+            throw new NotFoundException(
+                `IamPermission with id: ${payload.id}, not found`,
+            );
+        }
 
         const dataToUpdate = diff(payload, permission);
 

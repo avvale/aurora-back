@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 // export commands
 export { IamCreatePermissionRoleCommand } from './application/create/iam-create-permission-role.command';
 export { IamCreatePermissionsRolesCommand } from './application/create/iam-create-permissions-roles.command';

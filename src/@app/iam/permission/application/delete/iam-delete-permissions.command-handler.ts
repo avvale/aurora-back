@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamDeletePermissionsCommand } from '@app/iam/permission';
 import { IamDeletePermissionsService } from '@app/iam/permission/application/delete/iam-delete-permissions.service';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';

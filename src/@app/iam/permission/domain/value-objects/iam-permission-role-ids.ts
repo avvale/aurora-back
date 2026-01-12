@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { UuidArrayValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class IamPermissionRoleIds extends UuidArrayValueObject {

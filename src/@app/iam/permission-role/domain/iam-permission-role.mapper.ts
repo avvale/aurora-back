@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermissionMapper } from '@app/iam/permission';
 import {
     IamPermissionRole,

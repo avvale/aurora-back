@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermissionRole } from '@api/graphql';
 import { IamFindPermissionRoleHandler } from '@api/iam/permission-role';
 import { Auth } from '@aurora/decorators';

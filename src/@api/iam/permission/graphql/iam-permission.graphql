@@ -1,3 +1,6 @@
+# @aurora-generated
+# @source cliter/iam/permission.aurora.yaml
+
 type IamPermission {
     """
     UUID for permission

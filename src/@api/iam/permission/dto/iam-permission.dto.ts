@@ -1,4 +1,7 @@
-/* eslint-disable indent */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamBoundedContextDto } from '@api/iam/bounded-context';
 import { IamRoleDto } from '@api/iam/role';
 import { ApiProperty } from '@nestjs/swagger';

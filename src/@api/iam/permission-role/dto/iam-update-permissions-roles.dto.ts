@@ -1,4 +1,7 @@
-/* eslint-disable indent */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { ApiProperty } from '@nestjs/swagger';
 
 export class IamUpdatePermissionsRolesDto {

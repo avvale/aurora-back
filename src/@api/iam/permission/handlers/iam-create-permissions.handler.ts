@@ -1,5 +1,8 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamCreatePermissionInput } from '@api/graphql';
-import { IamCreatePermissionDto } from '@api/iam/permission';
 import { IamCreatePermissionsCommand } from '@app/iam/permission';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -9,7 +12,7 @@ export class IamCreatePermissionsHandler {
     constructor(private readonly commandBus: ICommandBus) {}
 
     async main(
-        payload: IamCreatePermissionInput[] | IamCreatePermissionDto[],
+        payload: IamCreatePermissionInput[],
         timezone?: string,
         auditing?: AuditingMeta,
     ): Promise<boolean> {

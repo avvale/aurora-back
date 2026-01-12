@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { Pagination } from '@api/graphql';
 import { IamPaginatePermissionsQuery } from '@app/iam/permission';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';

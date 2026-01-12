@@ -1,5 +1,7 @@
-/* eslint-disable indent */
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermissionModel } from '@app/iam/permission';
 import { IamRoleModel } from '@app/iam/role';
 import {

@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 
 export class IamDeletePermissionRoleByIdCommand {

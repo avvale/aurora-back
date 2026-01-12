@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 // export DTOs
 export { IamCreatePermissionDto } from './dto/iam-create-permission.dto';
 export { IamPermissionDto } from './dto/iam-permission.dto';

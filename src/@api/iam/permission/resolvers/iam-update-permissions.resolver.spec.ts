@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamUpdatePermissionsInput } from '@api/graphql';
 import {
     IamUpdatePermissionsHandler,

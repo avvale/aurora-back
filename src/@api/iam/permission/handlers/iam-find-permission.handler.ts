@@ -1,8 +1,11 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPermission } from '@api/graphql';
-import { IamPermissionDto } from '@api/iam/permission';
 import { IamFindPermissionQuery } from '@app/iam/permission';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class IamFindPermissionHandler {
@@ -12,11 +15,17 @@ export class IamFindPermissionHandler {
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         timezone?: string,
-    ): Promise<IamPermission | IamPermissionDto> {
-        return await this.queryBus.ask(
+    ): Promise<IamPermission> {
+        const permission = await this.queryBus.ask(
             new IamFindPermissionQuery(queryStatement, constraint, {
                 timezone,
             }),
         );
+
+        if (!permission) {
+            throw new NotFoundException(`IamPermission not found`);
+        }
+
+        return permission;
     }
 }

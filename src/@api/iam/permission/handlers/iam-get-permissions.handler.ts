@@ -1,5 +1,8 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPermission } from '@api/graphql';
-import { IamPermissionDto } from '@api/iam/permission';
 import { IamGetPermissionsQuery } from '@app/iam/permission';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
@@ -12,7 +15,7 @@ export class IamGetPermissionsHandler {
         queryStatement?: QueryStatement,
         constraint?: QueryStatement,
         timezone?: string,
-    ): Promise<IamPermission[] | IamPermissionDto[]> {
+    ): Promise<IamPermission[]> {
         return await this.queryBus.ask(
             new IamGetPermissionsQuery(queryStatement, constraint, {
                 timezone,

@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamUpdatePermissionsRolesCommand } from '@app/iam/permission-role';
 import { IamUpdatePermissionsRolesService } from '@app/iam/permission-role/application/update/iam-update-permissions-roles.service';
 import {

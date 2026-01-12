@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamIPermissionRepository } from '@app/iam/permission';
 import { IamPermissionId } from '@app/iam/permission/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';

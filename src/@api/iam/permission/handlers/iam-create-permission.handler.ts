@@ -1,5 +1,8 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamCreatePermissionInput, IamPermission } from '@api/graphql';
-import { IamCreatePermissionDto, IamPermissionDto } from '@api/iam/permission';
 import {
     IamCreatePermissionCommand,
     IamFindPermissionByIdQuery,
@@ -15,10 +18,10 @@ export class IamCreatePermissionHandler {
     ) {}
 
     async main(
-        payload: IamCreatePermissionInput | IamCreatePermissionDto,
+        payload: IamCreatePermissionInput,
         timezone?: string,
         auditing?: AuditingMeta,
-    ): Promise<IamPermission | IamPermissionDto> {
+    ): Promise<IamPermission> {
         await this.commandBus.dispatch(
             new IamCreatePermissionCommand(payload, {
                 timezone,

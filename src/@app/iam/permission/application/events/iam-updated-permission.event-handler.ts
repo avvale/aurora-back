@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamUpdatedPermissionEvent } from '@app/iam/permission';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 
@@ -6,6 +10,6 @@ export class IamUpdatedPermissionEventHandler
     implements IEventHandler<IamUpdatedPermissionEvent>
 {
     handle(event: IamUpdatedPermissionEvent): void {
-        // console.log('UpdatedPermissionEvent: ', event);
+        // 'UpdatedPermissionEvent'
     }
 }

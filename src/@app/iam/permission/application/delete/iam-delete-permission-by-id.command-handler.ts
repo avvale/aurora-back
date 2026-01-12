@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamDeletePermissionByIdCommand } from '@app/iam/permission';
 import { IamDeletePermissionByIdService } from '@app/iam/permission/application/delete/iam-delete-permission-by-id.service';
 import { IamPermissionId } from '@app/iam/permission/domain/value-objects';

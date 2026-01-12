@@ -1,4 +1,11 @@
-import { IamPaginatePermissionsQuery } from '@app/iam/permission';
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
+import {
+    IamPaginatePermissionsQuery,
+    IamPermissionMapper,
+} from '@app/iam/permission';
 import { IamPaginatePermissionsService } from '@app/iam/permission/application/paginate/iam-paginate-permissions.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
@@ -7,6 +14,8 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 export class IamPaginatePermissionsQueryHandler
     implements IQueryHandler<IamPaginatePermissionsQuery>
 {
+    private readonly mapper: IamPermissionMapper = new IamPermissionMapper();
+
     constructor(
         private readonly paginatePermissionsService: IamPaginatePermissionsService,
     ) {}
@@ -24,7 +33,7 @@ export class IamPaginatePermissionsQueryHandler
         return new PaginationResponse(
             total,
             count,
-            rows.map((item) => item.toDTO()),
+            this.mapper.mapAggregatesToResponses(rows),
         );
     }
 }

@@ -1,4 +1,7 @@
-/* eslint-disable indent */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermissionDto } from '@api/iam/permission';
 import { IamRoleDto } from '@api/iam/role';
 import { ApiProperty } from '@nestjs/swagger';

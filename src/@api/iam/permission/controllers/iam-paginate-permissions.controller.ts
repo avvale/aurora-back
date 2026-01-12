@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamPaginatePermissionsHandler } from '@api/iam/permission';
 import { Auth } from '@aurora/decorators';
 import { Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';

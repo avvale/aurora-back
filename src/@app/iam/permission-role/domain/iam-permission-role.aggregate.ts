@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamPermission } from '@app/iam/permission';
 import {
     IamCreatedPermissionRoleEvent,

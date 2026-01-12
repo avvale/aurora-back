@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamDeletePermissionRoleByIdCommand } from '@app/iam/permission-role';
 import { IamDeletePermissionRoleByIdService } from '@app/iam/permission-role/application/delete/iam-delete-permission-role-by-id.service';
 import {

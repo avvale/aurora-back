@@ -1,5 +1,7 @@
-/* eslint-disable indent */
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamBoundedContextModel } from '@app/iam/bounded-context';
 import { IamPermissionRoleModel } from '@app/iam/permission-role';
 import { IamRoleModel } from '@app/iam/role';

@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { CQMetadata } from '@aurorajs.dev/core';
 
 export class IamCreatePermissionsCommand {

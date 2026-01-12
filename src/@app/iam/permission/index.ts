@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 /* #region customizations */
 export { IamPermissionHelper } from './domain/iam-permission-helper';
 /* #endregion customizations */

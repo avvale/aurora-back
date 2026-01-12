@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { IamCreatePermissionInput, IamPermission } from '@api/graphql';
 import { IamCreatePermissionHandler } from '@api/iam/permission';
 import { Auth } from '@aurora/decorators';

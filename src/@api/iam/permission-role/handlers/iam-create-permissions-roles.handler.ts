@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission-role.aurora.yaml
+ */
 import { IamCreatePermissionRoleInput } from '@api/graphql';
 import { IamCreatePermissionsRolesCommand } from '@app/iam/permission-role';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';

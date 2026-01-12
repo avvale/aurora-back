@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/permission.aurora.yaml
+ */
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -10,7 +14,6 @@ export class IamPermissionSagas {
                 ofType(CreatedPermissionEvent),
                 delay(1000),
                 map(event => {
-                    console.log('Inside [HeroesGameSagas] Saga');
                     return 'command';
                 }),
             );
