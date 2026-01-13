@@ -2,10 +2,8 @@ import { Module } from '@nestjs/common';
 import { CqrsConfigModule } from '../cqrs/cqrs-config.module';
 
 @Module({
-    imports: [
-        CqrsConfigModule,
-    ],
+    imports: [CqrsConfigModule],
     providers: [],
-    exports  : [],
+    exports: [],
 })
 export class RootModule {}
