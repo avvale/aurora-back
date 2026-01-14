@@ -51,6 +51,75 @@ Analyze `*.aurora.yaml` files and propose improvements for:
 - Asegúrate de que el YAML resultante sea válido
 - Preserva el formato y la indentación del archivo original
 
+## Module Header Structure
+
+Cada archivo `*.aurora.yaml` debe tener una cabecera con la descripción del
+módulo. La propiedad `description` debe ir **antes** de `aggregateProperties:`.
+
+### ✅ Estructura correcta:
+
+```yaml
+version: 0.0.1
+packageName: iam
+moduleName: permission
+moduleNames: permissions
+aggregateName: IamPermission
+hasOAuth: true
+hasTenant: false
+hasAuditing: true
+front:
+    outlineIcon: mat_outline:local_police
+    solidIcon: mat_solid:local_police
+description: >
+    Module containing the permissions associated with each package, to be used
+    to manage access to each API.
+aggregateProperties: ...
+```
+
+### ❌ Estructura incorrecta (sin description):
+
+```yaml
+version: 0.0.1
+packageName: iam
+moduleName: permission
+moduleNames: permissions
+aggregateName: IamPermission
+hasOAuth: true
+hasTenant: false
+hasAuditing: true
+front:
+    outlineIcon: mat_outline:local_police
+    solidIcon: mat_solid:local_police
+aggregateProperties: ...
+```
+
+### Guía para escribir la description del módulo:
+
+La descripción debe explicar:
+
+1. **Qué contiene** el módulo (entidad principal)
+2. **Para qué se usa** (propósito)
+3. **Cómo se relaciona** con otros módulos del mismo package
+
+**Ejemplos:**
+
+```yaml
+# Módulo permission en package iam
+description: >
+    Module containing the permissions associated with each package, to be used
+    to manage access to each API.
+
+# Módulo user en package iam
+description: >
+    Core module for user management. Stores user credentials and profile data.
+    Referenced by permission and role modules for access control.
+
+# Módulo order en package sales
+description: >
+    Represents customer orders. Links to customer module for buyer info and
+    to product module for line items. Central to the sales workflow.
+```
+
 ## Edition Operations
 
 ### Creating Fields
@@ -72,6 +141,7 @@ Cuando se te pida crear un campo:
 - [ ] Incluye descripción significativa
 - [ ] No duplica un campo existente
 - [ ] Es consistente con campos similares en otros módulos
+- [ ] **Si es tipo `id`, NO incluir `length`**
 
 ### Editing Fields
 
@@ -356,19 +426,22 @@ Each YAML will be headed by the module definition:
 
 - Is the moduleName clear and descriptive?
 - Does it follow conventions (camelCase, prefixes for booleans)?
-- Does it have a description?
+- **Does it have a `description`?** (REQUIRED - must be before
+  `aggregateProperties:`)
 - Does the description add value beyond the moduleName?
+- Does it explain the module's role within its package?
 
 ### 3. Analyze Each Field
 
 For each field in `aggregateProperties`, evaluate:
 
 - Is the name clear and self-descriptive?
-- Does it follow conventions (camelCase, prefixes for booleans)?
+- Does it follow conventions (camelCase, prefixes for booleanos)?
 - Does it have a description?
 - Does the description add value beyond the name?
 - Is the data type the most appropriate?
 - Are enum values clear and meaningful?
+- **If type is `id`, ensure there is NO `length` property**
 
 ### 4. Generate Report
 
@@ -380,6 +453,13 @@ For each field in `aggregateProperties`, evaluate:
 - Total fields: X
 - Fields without description: Y
 - Fields with improvable names: Z
+- Module has description: Yes/No
+
+### Module Description ❌ (if missing)
+
+Suggested description:
+
+> [Suggested description explaining purpose and role within package]
 
 ### Fields Without Description ❌
 
@@ -394,6 +474,12 @@ For each field in `aggregateProperties`, evaluate:
 | ------- | --------- | ---------------------- |
 | dt      | createdAt | Ambiguous abbreviation |
 | active  | isActive  | Boolean convention     |
+
+### Fields with Incorrect Properties ⚠️
+
+| Field | Issue                             | Fix             |
+| ----- | --------------------------------- | --------------- |
+| id    | Has `length: 36` but type is `id` | Remove `length` |
 
 ### Descriptions to Improve 📝
 
@@ -413,6 +499,31 @@ For each field in `aggregateProperties`, evaluate:
 Generate the YAML with improvements applied so the user can compare.
 
 ## Type Recommendations
+
+### ID Fields
+
+**IMPORTANT: Fields of type `id` must NOT have a `length` property.**
+
+```yaml
+# ✅ CORRECT
+- name: id
+  type: id
+  primaryKey: true
+  nullable: false
+  description: >
+      Unique identifier for the record. UUID v4 format, generated automatically
+      on creation.
+
+# ❌ INCORRECT - Do not include length for id type
+- name: id
+  type: id
+  length: 36 # ← REMOVE THIS
+  primaryKey: true
+  nullable: false
+  description: >
+      Unique identifier for the record. UUID v4 format, generated automatically
+      on creation.
+```
 
 ### Strings
 
@@ -519,6 +630,9 @@ grep -L "description:" cliter/**/*.aurora.yaml
 
 # Verify dependencies before deleting a field
 grep -r "fieldName" cliter/ --include="*.aurora.yaml"
+
+# Find id fields with length (incorrect)
+grep -A2 "type: id" cliter/**/*.aurora.yaml | grep "length:"
 ```
 
 ## Language
@@ -542,8 +656,13 @@ When making modifications, document them:
 #### Modified
 
 - `fieldName`: Changed [attribute] from [old] to [new] - Reason
+- Module: Added `description` property
 
 #### Deleted
 
 - `fieldName` - Reason for deletion, confirmed no dependencies
+
+#### Fixed
+
+- `id`: Removed `length` property (not needed for id type)
 ```
