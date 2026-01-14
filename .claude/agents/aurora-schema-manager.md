@@ -30,7 +30,7 @@ Analyze `*.aurora.yaml` files and propose improvements for:
 
 1. **Module name** - Claridad, consistencia, convenciones
 2. **Module description** - Que explique el propósito del módulo y su papel ante
-   el resto de módulos del mismo package
+   el resto de módulos del mismo bounded context
 3. **Field names** - Claridad, consistencia, convenciones
 4. **descriptions** - Que expliquen el propósito del campo
 5. **Data types** - Que sean los más apropiados
@@ -60,7 +60,7 @@ módulo. La propiedad `description` debe ir **antes** de `aggregateProperties:`.
 
 ```yaml
 version: 0.0.1
-packageName: iam
+boundedContextName: iam
 moduleName: permission
 moduleNames: permissions
 aggregateName: IamPermission
@@ -71,7 +71,7 @@ front:
     outlineIcon: mat_outline:local_police
     solidIcon: mat_solid:local_police
 description: >
-    Module containing the permissions associated with each package, to be used
+    Module containing the permissions associated with each bounded context, to be used
     to manage access to each API.
 aggregateProperties: ...
 ```
@@ -80,7 +80,7 @@ aggregateProperties: ...
 
 ```yaml
 version: 0.0.1
-packageName: iam
+boundedContextName: iam
 moduleName: permission
 moduleNames: permissions
 aggregateName: IamPermission
@@ -99,22 +99,22 @@ La descripción debe explicar:
 
 1. **Qué contiene** el módulo (entidad principal)
 2. **Para qué se usa** (propósito)
-3. **Cómo se relaciona** con otros módulos del mismo package
+3. **Cómo se relaciona** con otros módulos del mismo bounded context
 
 **Ejemplos:**
 
 ```yaml
-# Módulo permission en package iam
+# Módulo permission en bounded context iam
 description: >
-    Module containing the permissions associated with each package, to be used
+    Module containing the permissions associated with each bounded context, to be used
     to manage access to each API.
 
-# Módulo user en package iam
+# Módulo user en bounded context iam
 description: >
     Core module for user management. Stores user credentials and profile data.
     Referenced by permission and role modules for access control.
 
-# Módulo order en package sales
+# Módulo order en bounded context sales
 description: >
     Represents customer orders. Links to customer module for buyer info and
     to product module for line items. Central to the sales workflow.
@@ -429,7 +429,7 @@ Each YAML will be headed by the module definition:
 - **Does it have a `description`?** (REQUIRED - must be before
   `aggregateProperties:`)
 - Does the description add value beyond the moduleName?
-- Does it explain the module's role within its package?
+- Does it explain the module's role within its bounded context?
 
 ### 3. Analyze Each Field
 
@@ -459,7 +459,7 @@ For each field in `aggregateProperties`, evaluate:
 
 Suggested description:
 
-> [Suggested description explaining purpose and role within package]
+> [Suggested description explaining purpose and role within bounded context]
 
 ### Fields Without Description ❌
 
