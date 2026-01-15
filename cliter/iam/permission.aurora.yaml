@@ -9,42 +9,31 @@ hasAuditing: true
 front:
   outlineIcon: mat_outline:local_police
   solidIcon: mat_solid:local_police
-description: >
-    Module containing the permissions associated with each bounded context, to be used
-    to manage access to each API. Each permission represents a specific capability that
-    can be granted to roles, enabling fine-grained access control across the system.
+description: |
+  Module containing the permissions associated with each bounded context, to be used to manage access to each API. Each permission represents a specific capability that can be granted to roles, enabling fine-grained access control across the system.
 aggregateProperties:
   - name: id
-    description: >
-        Unique identifier for the permission. UUID v4 format, generated automatically
-        on creation. Used as primary key for referencing this permission across the
-        system.
+    description: |
+      Unique identifier for the permission. UUID v4 format, generated automatically on creation. Used as primary key for referencing this permission across the system.
     type: id
     primaryKey: true
     nullable: false
   - name: rowId
-    description: >
-        Unique sequential identifier for internal database operations. Auto-incremented
-        integer used for ordering and optimized queries. Not exposed in the API.
+    description: |
+      Unique sequential identifier for internal database operations. Auto-incremented integer used for ordering and optimized queries. Not exposed in the API.
     type: bigint
     index: unique
     autoIncrement: true
     nullable: false
   - name: name
-    description: >
-        Unique permission name used to evaluate authorization. Format follows
-        convention: [BoundedContext].[Action][Resource] (e.g., 'Iam.CreateUser').
-        Used by the authorization system to check if a user can access specific
-        resources or perform certain actions.
+    description: |
+      Unique permission name used to evaluate authorization. Format follows convention: [BoundedContext].[Action][Resource] (e.g., 'Iam.CreateUser'). Used by the authorization system to check if a user can access specific resources or perform certain actions.
     type: varchar
     maxLength: 128
     nullable: false
   - name: boundedContextId
-    description: >
-        Foreign key reference to the bounded context this permission belongs to.
-        Each permission is scoped to a specific bounded context, grouping all
-        permissions related to a particular business domain. Used to organize
-        permissions by functional areas of the application.
+    description: |
+      Foreign key reference to the bounded context this permission belongs to. Each permission is scoped to a specific bounded context, grouping all permissions related to a particular business domain. Used to organize permissions by functional areas of the application.
     type: id
     nullable: false
     relationship:
@@ -59,10 +48,8 @@ aggregateProperties:
     webComponent:
       type: select
   - name: roles
-    description: >
-        Many-to-many relationship with roles. Represents all roles that have been
-        granted this permission. Used to determine which roles can perform the
-        actions covered by this permission.
+    description: |
+      Many-to-many relationship with roles. Represents all roles that have been granted this permission. Used to determine which roles can perform the actions covered by this permission.
     type: relationship
     nullable: true
     relationship:
@@ -109,23 +96,18 @@ aggregateProperties:
           - updateAndIncrement
           - upsert
   - name: createdAt
-    description: >
-        Timestamp when the permission was created. Automatically set on record
-        creation. Part of the audit trail for tracking permission lifecycle.
+    description: |
+      Timestamp when the permission was created. Automatically set on record creation. Part of the audit trail for tracking permission lifecycle.
     type: timestamp
     nullable: true
   - name: updatedAt
-    description: >
-        Timestamp of the last modification to this permission. Automatically
-        updated on any change. Used for tracking permission evolution and cache
-        invalidation.
+    description: |
+      Timestamp of the last modification to this permission. Automatically updated on any change. Used for tracking permission evolution and cache invalidation.
     type: timestamp
     nullable: true
   - name: deletedAt
-    description: >
-        Soft delete timestamp. NULL indicates an active permission. When set,
-        the permission is hidden from normal queries but preserved for audit
-        purposes. Permissions with deletedAt set cannot be assigned to new roles.
+    description: |
+      Soft delete timestamp. NULL indicates an active permission. When set, the permission is hidden from normal queries but preserved for audit purposes. Permissions with deletedAt set cannot be assigned to new roles.
     type: timestamp
     nullable: true
 excludedOperations:

@@ -5,3 +5,15 @@ export { IamBoundedContextMapper } from './@app/iam/bounded-context/domain/iam-b
 export { iamMockBoundedContextData } from './@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.data';
 export { IamModule } from './@api/iam/iam.module';
 export { IamBoundedContextDto } from './@api/iam/bounded-context/dto/iam-bounded-context.dto';
+export { IamPermission } from './@app/iam/permission/domain/iam-permission.aggregate';
+export { IamPermissionModel } from './@app/iam/permission';
+export { IamPermissionResponse } from './@app/iam/permission/domain/iam-permission.response';
+export { IamPermissionMapper } from './@app/iam/permission/domain/iam-permission.mapper';
+export { iamMockPermissionData } from './@app/iam/permission/infrastructure/mock/iam-mock-permission.data';
+export { IamPermissionDto } from './@api/iam/permission/dto/iam-permission.dto';
+export { IamPermissionRole } from './@app/iam/permission-role/domain/iam-permission-role.aggregate';
+export { IamPermissionRoleModel } from './@app/iam/permission-role';
+export { IamPermissionRoleResponse } from './@app/iam/permission-role/domain/iam-permission-role.response';
+export { IamPermissionRoleMapper } from './@app/iam/permission-role/domain/iam-permission-role.mapper';
+export { iamMockPermissionRoleData } from './@app/iam/permission-role/infrastructure/mock/iam-mock-permission-role.data';
+export { IamPermissionRoleDto } from './@api/iam/permission-role/dto/iam-permission-role.dto';
