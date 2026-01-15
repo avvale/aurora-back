@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamDeleteBoundedContextsHandler } from '@api/iam/bounded-context';
 import { iamMockBoundedContextData } from '@app/iam/bounded-context';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';

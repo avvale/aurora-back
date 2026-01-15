@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamUpdateBoundedContextsCommand } from '@app/iam/bounded-context';
 import { IamUpdateBoundedContextsService } from '@app/iam/bounded-context/application/update/iam-update-bounded-contexts.service';
 import {

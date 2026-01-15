@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamBoundedContext, IamCreateBoundedContextInput } from '@api/graphql';
 import { IamCreateBoundedContextHandler } from '@api/iam/bounded-context';
 import { Auth } from '@aurora/decorators';

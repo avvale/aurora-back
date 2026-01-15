@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamDeleteBoundedContextsCommand } from '@app/iam/bounded-context';
 import { IamDeleteBoundedContextsCommandHandler } from '@app/iam/bounded-context/application/delete/iam-delete-bounded-contexts.command-handler';
 import { IamDeleteBoundedContextsService } from '@app/iam/bounded-context/application/delete/iam-delete-bounded-contexts.service';

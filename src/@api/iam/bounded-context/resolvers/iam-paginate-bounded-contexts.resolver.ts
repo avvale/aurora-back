@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { Pagination } from '@api/graphql';
 import { IamPaginateBoundedContextsHandler } from '@api/iam/bounded-context';
 import { Auth } from '@aurora/decorators';

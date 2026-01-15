@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamBoundedContext } from '@api/graphql';
 import {
     IamDeleteBoundedContextByIdCommand,
@@ -30,10 +34,11 @@ export class IamDeleteBoundedContextByIdHandler {
             }),
         );
 
-        if (!boundedContext)
+        if (!boundedContext) {
             throw new NotFoundException(
                 `IamBoundedContext with id: ${id}, not found`,
             );
+        }
 
         await this.commandBus.dispatch(
             new IamDeleteBoundedContextByIdCommand(id, constraint, {

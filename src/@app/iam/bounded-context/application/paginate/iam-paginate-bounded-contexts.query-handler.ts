@@ -1,4 +1,11 @@
-import { IamPaginateBoundedContextsQuery } from '@app/iam/bounded-context';
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
+import {
+    IamBoundedContextMapper,
+    IamPaginateBoundedContextsQuery,
+} from '@app/iam/bounded-context';
 import { IamPaginateBoundedContextsService } from '@app/iam/bounded-context/application/paginate/iam-paginate-bounded-contexts.service';
 import { PaginationResponse } from '@aurorajs.dev/core';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
@@ -7,6 +14,9 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 export class IamPaginateBoundedContextsQueryHandler
     implements IQueryHandler<IamPaginateBoundedContextsQuery>
 {
+    private readonly mapper: IamBoundedContextMapper =
+        new IamBoundedContextMapper();
+
     constructor(
         private readonly paginateBoundedContextsService: IamPaginateBoundedContextsService,
     ) {}
@@ -24,7 +34,7 @@ export class IamPaginateBoundedContextsQueryHandler
         return new PaginationResponse(
             total,
             count,
-            rows.map((item) => item.toDTO()),
+            this.mapper.mapAggregatesToResponses(rows),
         );
     }
 }

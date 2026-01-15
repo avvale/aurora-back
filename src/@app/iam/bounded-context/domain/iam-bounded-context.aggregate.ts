@@ -1,4 +1,7 @@
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import {
     IamCreatedBoundedContextEvent,
     IamDeletedBoundedContextEvent,

@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import {
     IamBoundedContext,
     IamUpdateBoundedContextByIdInput,
@@ -34,10 +38,11 @@ export class IamUpdateBoundedContextByIdHandler {
             }),
         );
 
-        if (!boundedContext)
+        if (!boundedContext) {
             throw new NotFoundException(
                 `IamBoundedContext with id: ${payload.id}, not found`,
             );
+        }
 
         const dataToUpdate = diff(payload, boundedContext);
 

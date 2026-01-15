@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 // export commands
 export { IamCreateBoundedContextCommand } from './application/create/iam-create-bounded-context.command';
 export { IamCreateBoundedContextsCommand } from './application/create/iam-create-bounded-contexts.command';

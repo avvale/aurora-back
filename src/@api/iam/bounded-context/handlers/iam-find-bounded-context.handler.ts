@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamBoundedContext } from '@api/graphql';
 import { IamFindBoundedContextQuery } from '@app/iam/bounded-context';
 import { IQueryBus, QueryStatement } from '@aurorajs.dev/core';
@@ -18,8 +22,9 @@ export class IamFindBoundedContextHandler {
             }),
         );
 
-        if (!boundedContext)
+        if (!boundedContext) {
             throw new NotFoundException(`IamBoundedContext not found`);
+        }
 
         return boundedContext;
     }

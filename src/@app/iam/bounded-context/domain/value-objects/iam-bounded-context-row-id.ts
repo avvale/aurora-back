@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { BigintValueObject, ValidationRules } from '@aurorajs.dev/core';
 
 export class IamBoundedContextRowId extends BigintValueObject {

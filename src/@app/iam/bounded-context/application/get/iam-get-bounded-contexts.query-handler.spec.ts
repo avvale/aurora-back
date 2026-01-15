@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import {
     IamBoundedContextMapper,
     IamGetBoundedContextsQuery,

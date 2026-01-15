@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamCreateBoundedContextInput } from '@api/graphql';
 import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
 import { AuditingMeta, ICommandBus } from '@aurorajs.dev/core';

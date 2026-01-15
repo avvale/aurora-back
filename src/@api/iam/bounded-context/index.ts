@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 // export DTOs
 export { IamBoundedContextDto } from './dto/iam-bounded-context.dto';
 export { IamCreateBoundedContextDto } from './dto/iam-create-bounded-context.dto';

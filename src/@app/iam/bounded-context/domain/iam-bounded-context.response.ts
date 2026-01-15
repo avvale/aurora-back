@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamPermissionResponse } from '@app/iam/permission';
 
 export class IamBoundedContextResponse {

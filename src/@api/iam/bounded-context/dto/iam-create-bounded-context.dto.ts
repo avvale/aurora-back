@@ -1,4 +1,7 @@
-/* eslint-disable indent */
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { ApiProperty } from '@nestjs/swagger';
 
 export class IamCreateBoundedContextDto {

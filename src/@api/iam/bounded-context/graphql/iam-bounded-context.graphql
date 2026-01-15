@@ -1,3 +1,6 @@
+# @aurora-generated
+# @source cliter/iam/bounded-context.aurora.yaml
+
 type IamBoundedContext {
     """
     UUID for bounded context

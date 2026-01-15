@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamDeletedBoundedContextsEvent } from '@app/iam/bounded-context';
 import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 
@@ -6,6 +10,6 @@ export class IamDeletedBoundedContextsEventHandler
     implements IEventHandler<IamDeletedBoundedContextsEvent>
 {
     handle(event: IamDeletedBoundedContextsEvent): void {
-        // console.log('DeletedBoundedContextsEvent: ', event);
+        // 'DeletedBoundedContextsEvent'
     }
 }

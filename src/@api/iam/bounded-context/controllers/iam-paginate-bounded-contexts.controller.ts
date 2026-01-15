@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamPaginateBoundedContextsHandler } from '@api/iam/bounded-context';
 import { Auth } from '@aurora/decorators';
 import { Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';

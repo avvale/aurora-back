@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/iam/bounded-context.aurora.yaml
+ */
 import { IamBoundedContext } from '@api/graphql';
 import { IamDeleteBoundedContextByIdHandler } from '@api/iam/bounded-context';
 import { Auth } from '@aurora/decorators';
