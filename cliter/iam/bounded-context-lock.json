@@ -287,7 +287,7 @@
         },
         {
             "path": "src/@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.data.ts",
-            "integrity": "sha1:b9582f482db4a3bf1b6232ab6558b2b3f93c79d8"
+            "integrity": "sha1:dfc8bccce9db68a01a1d2f00ba3e4b28a388d31b"
         },
         {
             "path": "src/@app/iam/bounded-context/infrastructure/mock/iam-mock-bounded-context.repository.ts",
@@ -310,16 +310,16 @@
             "integrity": "sha1:7e65a2ed66226269548e1d3568ccd0d75f64dd02"
         },
         {
-            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-name.ts",
-            "integrity": "sha1:1a8c693e9cc3ef9fd2aec93fbd8492b4503865f1"
+            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-id.ts",
+            "integrity": "sha1:5cafdce7d009cc7a1436beacfba6c5ef3c535748"
         },
         {
             "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-row-id.ts",
             "integrity": "sha1:defa1836ab19d965ff3700a6432f202aed244b77"
         },
         {
-            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-id.ts",
-            "integrity": "sha1:5cafdce7d009cc7a1436beacfba6c5ef3c535748"
+            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-name.ts",
+            "integrity": "sha1:1a8c693e9cc3ef9fd2aec93fbd8492b4503865f1"
         },
         {
             "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-sort.ts",
@@ -330,12 +330,12 @@
             "integrity": "sha1:7bf1a0537d36e6dc1fe7943db9ef4d80f3499083"
         },
         {
-            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-created-at.ts",
-            "integrity": "sha1:06ae23c64db913ee24c364f5640363aeafe0f1eb"
-        },
-        {
             "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-is-active.ts",
             "integrity": "sha1:231f32a9b061c4e06f336dedcdacd7f781fbbf9a"
+        },
+        {
+            "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-created-at.ts",
+            "integrity": "sha1:06ae23c64db913ee24c364f5640363aeafe0f1eb"
         },
         {
             "path": "src/@app/iam/bounded-context/domain/value-objects/iam-bounded-context-deleted-at.ts",
@@ -427,19 +427,19 @@
         },
         {
             "path": "src/@api/iam/bounded-context/dto/iam-bounded-context.dto.ts",
-            "integrity": "sha1:266057b9556c827815e3e3b3ed06e81b6bfc6b60"
+            "integrity": "sha1:6cb7e99e2f0cc601a3743cc9fedfbe04c94e7bbd"
         },
         {
             "path": "src/@api/iam/bounded-context/dto/iam-create-bounded-context.dto.ts",
-            "integrity": "sha1:40f53f9b01abfdb3d8937758ec27d343347a8488"
+            "integrity": "sha1:ccd96778a5ca6bdb0dc1950344dda34d375d18af"
         },
         {
             "path": "src/@api/iam/bounded-context/dto/iam-update-bounded-context-by-id.dto.ts",
-            "integrity": "sha1:9da3c3d9714677fad31f5f0f99fdf210f26d066f"
+            "integrity": "sha1:9d3e9b7e3a5af6fbd4cc3b24edd1e86006d86e7e"
         },
         {
             "path": "src/@api/iam/bounded-context/dto/iam-update-bounded-contexts.dto.ts",
-            "integrity": "sha1:8fe5816beaa9336ea4c923afbfc29ce54148d526"
+            "integrity": "sha1:1220fe52a663d8d59efd237e56774e8817c29004"
         },
         {
             "path": "src/@api/iam/bounded-context/dto/index.ts",
@@ -451,7 +451,7 @@
         },
         {
             "path": "src/@api/iam/bounded-context/graphql/iam-bounded-context.graphql",
-            "integrity": "sha1:3ad99efde1a8e23522ce80782f2f84363c387168"
+            "integrity": "sha1:2999443dbb414e33eadc438f7afa2d3671c75402"
         },
         {
             "path": "src/@api/iam/bounded-context/handlers/iam-create-bounded-context.handler.spec.ts",
@@ -627,7 +627,7 @@
         },
         {
             "path": "postman/iam/iam.bounded-context.postman.json",
-            "integrity": "sha1:7836e643a80a5b7da4a90c2e425e36189a7a274f"
+            "integrity": "sha1:acd77dd444363b90f692db731d4890120a1b8ace"
         }
     ]
 }
