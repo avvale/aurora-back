@@ -180,15 +180,15 @@ export class CreateBookCommandHandler implements ICommandHandler<CreateBookComma
 
     async execute(command: CreateBookCommand): Promise<void> {
         // ✅ ZONA EDITABLE - Añadir lógica aquí
-        
+
         // Validación custom
         await this.isbnValidator.validate(command.payload.isbn);
-        
+
         // Lógica de negocio específica
         if (command.payload.publishDate > new Date()) {
             throw new BookPublishDateException();
         }
-        
+
         // El resto es estándar Aurora
         const book = Book.register(command.payload);
         await this.repository.create(book);
