@@ -1,5 +1,18 @@
 {
   "enabledPlugins": {
     "context7@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git restore:*)",
+      "Bash(grep:*)",
+      "Bash(fd:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm test:*)",
+      "Skill(conventional-commits)"
+    ]
   }
 }

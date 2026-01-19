@@ -1,9 +1,9 @@
 ---
 name: aurora-schema-manager
-description:
-    'Analiza YAMLs de Aurora, propone mejoras en nombres de campos y del módulo,
+description: >
+    Analiza YAMLs de Aurora, propone mejoras en nombres de campos y del módulo,
     descripciones y semántica de campos y módulo. Puede crear, editar y borrar
-    campos cuando lo indica aurora-back-architect o el usuario.'
+    campos cuando lo indica aurora-back-architect o el usuario
 tools: Glob, Grep, Read, Write, Edit, WebFetch, TodoWrite, WebSearch
 model: sonnet
 color: yellow
@@ -666,3 +666,56 @@ When making modifications, document them:
 
 - `id`: Removed `length` property (not needed for id type)
 ```
+
+---
+
+## TRACKING PROTOCOL
+
+Al finalizar tu ejecución (después de analizar o modificar YAMLs), DEBES invocar el skill `agent-logger`:
+
+```
+useSkill('agent-logger', {
+  action: 'log',
+  agentName: 'aurora-schema-manager',
+  skillsUsed: [],
+  subAgents: [],
+  filesModified: [{lista-de-archivos-yaml-modificados}],
+  summary: '{resumen-de-una-oración}',
+  status: 'completed'
+});
+```
+
+**Ejemplo para modo edición:**
+```
+useSkill('agent-logger', {
+  action: 'log',
+  agentName: 'aurora-schema-manager',
+  skillsUsed: [],
+  subAgents: [],
+  filesModified: ['cliter/tesla/tesla-model.aurora.yaml'],
+  summary: 'Added isActive field with boolean type and semantic description',
+  status: 'completed'
+});
+```
+
+**Ejemplo para modo análisis:**
+```
+useSkill('agent-logger', {
+  action: 'log',
+  agentName: 'aurora-schema-manager',
+  skillsUsed: [],
+  subAgents: [],
+  filesModified: [],
+  summary: 'Analyzed tesla module schema: 3 fields missing descriptions, 1 naming improvement suggested',
+  status: 'completed'
+});
+```
+
+**Qué incluir:**
+- **skillsUsed:** Normalmente `[]` (no consumes skills típicamente)
+- **subAgents:** Siempre `[]` (no coordinas otros agentes)
+- **filesModified:** Lista de archivos YAML que modificaste (modo edición) o `[]` (modo análisis)
+- **summary:** Resumen en una oración de lo que hiciste (campos creados/modificados/eliminados, o hallazgos del análisis)
+- **status:** `'completed'` si todo salió bien, `'failed'` si hubo errores
+
+**IMPORTANTE:** Este paso es OBLIGATORIO al finalizar tu trabajo, antes de retornar control.
