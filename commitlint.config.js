@@ -18,8 +18,8 @@ module.exports = {
                 'revert',
             ],
         ],
-        // Subject
-        'subject-case': [2, 'always', 'lower-case'],
+        // Subject (disabled to allow uppercase in file names like CONTEXT.md)
+        'subject-case': [0],
         'subject-empty': [2, 'never'],
         'subject-max-length': [2, 'always', 72],
         // Body

@@ -53,8 +53,11 @@ standards.
 | Business logic in handlers, guards, interceptors, pipes, DI    | `.claude/skills/aurora-development/SKILL.md`       |
 | Project structure, folder organization, navigating codebase    | `.claude/skills/aurora-project-structure/SKILL.md` |
 | Analyzing or editing \*.aurora.yaml files, schema validation   | `.claude/skills/aurora-schema/SKILL.md`            |
+| Generate CONTEXT.md for bounded contexts from code exploration | `.claude/skills/bounded-context-generator/SKILL.md`|
 | Migrations SQL, procedures, functions, triggers (tools)        | `.claude/skills/aurora-tools-scripts/SKILL.md`     |
 | Git commits, commit messages, conventional commits             | `.claude/skills/conventional-commits/SKILL.md`     |
+| Commit and push changes (/commit command)                      | `.claude/skills/commit/SKILL.md`                   |
+| Commit, push and create PR (/commit-pr command)                | `.claude/skills/commit-pr/SKILL.md`                |
 | Testing (unit, e2e, mocking in NestJS/Aurora)                  | `.claude/skills/jest-nestjs/SKILL.md`              |
 | Session logging and reporting                                  | `.claude/skills/logger/SKILL.md`                   |
 | PostgreSQL queries, extensions, types, indexing, optimization  | `.claude/skills/postgresql/SKILL.md`               |
@@ -70,3 +73,9 @@ standards.
 3. Apply ALL patterns and rules from the skill
 4. Multiple skills can apply (e.g., aurora-criteria + typescript +
    aurora-project-structure)
+
+## Bounded Context Documentation
+
+Before working on any bounded context, check if `cliter/[bounded-context]/CONTEXT.md`
+exists and read it to understand the business domain, modules, and rules.
+This file contains business logic documentation specific to each installed bounded context.
