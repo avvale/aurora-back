@@ -245,10 +245,13 @@ aggregateProperties:
       with data retention policies while maintaining referential integrity.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

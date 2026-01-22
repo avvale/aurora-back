@@ -102,7 +102,8 @@ aggregateProperties:
       special terms). When set, invoices become overdue if unpaid after this date.
   - name: status
     type: enum
-    enumOptions: [DRAFT, SENT, PAID, PARTIALLY_PAID, OVERDUE, CANCELLED, REFUNDED]
+    enumOptions:
+      [DRAFT, SENT, PAID, PARTIALLY_PAID, OVERDUE, CANCELLED, REFUNDED]
     nullable: false
     defaultValue: DRAFT
     index: index
@@ -244,10 +245,13 @@ aggregateProperties:
       referential integrity. Consider using CANCELLED status instead for voided invoices.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

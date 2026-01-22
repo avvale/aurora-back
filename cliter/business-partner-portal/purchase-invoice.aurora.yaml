@@ -124,7 +124,17 @@ aggregateProperties:
       working capital and supplier relationships.
   - name: status
     type: enum
-    enumOptions: [DRAFT, RECEIVED, APPROVED, PAID, PARTIALLY_PAID, OVERDUE, CANCELLED, REFUNDED]
+    enumOptions:
+      [
+        DRAFT,
+        RECEIVED,
+        APPROVED,
+        PAID,
+        PARTIALLY_PAID,
+        OVERDUE,
+        CANCELLED,
+        REFUNDED,
+      ]
     nullable: false
     defaultValue: DRAFT
     index: index
@@ -270,10 +280,13 @@ aggregateProperties:
       referential integrity. Consider using CANCELLED status instead for voided invoices.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

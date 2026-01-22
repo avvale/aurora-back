@@ -214,10 +214,13 @@ aggregateProperties:
       deleted when parent invoice is deleted or when lines are removed during editing.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

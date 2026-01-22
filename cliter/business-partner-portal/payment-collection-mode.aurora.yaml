@@ -229,10 +229,13 @@ aggregateProperties:
       PCI-DSS requirements, and maintaining referential integrity.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert

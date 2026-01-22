@@ -75,7 +75,18 @@ aggregateProperties:
       supporting documents. SAP VIM uses this to apply appropriate processing rules.
   - name: status
     type: enum
-    enumOptions: [PENDING_UPLOAD, UPLOADED, VALIDATING, SENT_TO_SAP, PROCESSING, PROCESSED, LINKED, ERROR, REJECTED]
+    enumOptions:
+      [
+        PENDING_UPLOAD,
+        UPLOADED,
+        VALIDATING,
+        SENT_TO_SAP,
+        PROCESSING,
+        PROCESSED,
+        LINKED,
+        ERROR,
+        REJECTED,
+      ]
     nullable: false
     defaultValue: PENDING_UPLOAD
     index: index
@@ -346,10 +357,13 @@ aggregateProperties:
       retained per retention policy even when record is soft-deleted.
 excludedOperations:
   - count
+  - createBatch
+  - delete
   - getRaw
   - max
   - min
   - rawSql
   - sum
+  - update
   - updateAndIncrement
   - upsert
