@@ -71,6 +71,7 @@ aggregateProperties:
 | `*At` | Timestamps | `createdAt`, `updatedAt`, `publishedAt` |
 | `*Date` | Date-only fields | `birthDate`, `startDate`, `endDate` |
 | `*Id` | Foreign keys | `authorId`, `categoryId`, `parentId` |
+| `sort` | Display/UI ordering | `sort` (NOT `displayOrder`, `order`, `position`) |
 
 **Anti-patterns:**
 
@@ -82,6 +83,9 @@ aggregateProperties:
 - name: active        # → isActive (boolean prefix)
 - name: author        # → authorId (if it's a foreign key)
   type: id
+- name: displayOrder  # → sort (standard name for ordering)
+- name: order         # → sort (ambiguous, conflicts with order entity)
+- name: position      # → sort (use sort for UI ordering)
 
 # ✅ GOOD
 - name: status
@@ -90,6 +94,9 @@ aggregateProperties:
 - name: isActive
 - name: authorId
   type: id
+- name: sort          # Standard field for UI display ordering
+  type: smallint
+  unsigned: true
 ```
 
 ---
@@ -420,6 +427,21 @@ If field is referenced in relationships:
   description: >
       ISO 4217 currency code (USD, EUR, GBP). Must be valid and supported.
 ```
+
+### Sort Order Fields
+
+```yaml
+- name: sort
+  type: smallint
+  unsigned: true
+  nullable: true
+  description: >
+      Sort order for displaying records in user interfaces. Lower numbers
+      appear first. NULL indicates no specific order preference (alphabetical
+      fallback). Used to prioritize items in selection lists and forms.
+```
+
+**Note:** Always use `sort` instead of `displayOrder`, `order`, `position`, or `sortOrder`.
 
 ### URL-Friendly Slugs
 

@@ -272,6 +272,25 @@ aurora-schema-manager: Entendido. Voy a crear el campo siguiendo las convencione
 - name: endDate
 ```
 
+**Ordering/sorting fields:**
+
+```yaml
+# ❌ Bad
+- name: displayOrder  # Too verbose
+- name: order         # Ambiguous, conflicts with order entity
+- name: position      # Not standard
+- name: sortOrder     # Redundant
+
+# ✅ Good
+- name: sort
+  type: smallint
+  unsigned: true
+  nullable: true
+  description: >
+      Sort order for displaying records in user interfaces. Lower numbers
+      appear first. NULL indicates no specific order preference.
+```
+
 **Clear IDs and references:**
 
 ```yaml
@@ -672,6 +691,21 @@ These lengths are optimized for PostgreSQL byte storage efficiency:
       ISO 4217 currency code (e.g., USD, EUR, GBP). Must be a valid, supported
       currency.
 ```
+
+### Sort Order Fields
+
+```yaml
+- name: sort
+  type: smallint
+  unsigned: true
+  nullable: true
+  description: >
+      Sort order for displaying records in user interfaces. Lower numbers
+      appear first. NULL indicates no specific order preference (alphabetical
+      fallback). Used to prioritize items in selection lists and forms.
+```
+
+**Note:** Always use `sort` instead of `displayOrder`, `order`, `position`, or `sortOrder`.
 
 ### Slugs and URLs
 
