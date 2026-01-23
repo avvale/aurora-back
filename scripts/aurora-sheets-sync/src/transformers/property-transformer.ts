@@ -119,13 +119,11 @@ export function sheetRowToProperty(row: SheetPropertyRow): AuroraProperty {
 
   // Add optional fields only if they have values
   if (parseBooleanValue(row.primaryKey)) property.primaryKey = true;
-  // nullable needs special handling: only set if explicitly TRUE or FALSE
-  if (row.nullable) {
-    const isNullable = parseBooleanValue(row.nullable);
-    const isFalse =
-      row.nullable.trim().toUpperCase() === 'FALSE' || row.nullable === '';
-    if (isNullable) property.nullable = true;
-    else if (isFalse) property.nullable = false;
+  // nullable: ✓ = true, empty/not checked = false
+  if (parseBooleanValue(row.nullable)) {
+    property.nullable = true;
+  } else {
+    property.nullable = false;
   }
   if (row.index) property.index = row.index;
   if (row.indexUsing) property.indexUsing = row.indexUsing;
