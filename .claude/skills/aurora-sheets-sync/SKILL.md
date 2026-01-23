@@ -1,259 +1,169 @@
-# Aurora Sheets Sync Skill
+---
+name: aurora-sheets-sync
+description: >
+  Bidirectional sync between Aurora YAML schemas and Google Sheets.
+  Trigger: When syncing schemas to/from spreadsheets, push/pull commands, google sheets sync.
+license: MIT
+metadata:
+  author: aurora
+  version: "2.0"
+  auto_invoke: "sync schemas, google sheets, push schemas, pull schemas, spreadsheet sync"
+allowed-tools: Read, Edit, Write, Glob, Grep, Bash
+---
 
-Bidirectional synchronization between Aurora YAML schemas (`cliter/[bounded-context]/*.aurora.yaml`) and Google Sheets.
+## When to Use
 
-## Triggers
+- User wants to sync YAML schemas to Google Sheets (`push`)
+- User wants to sync Google Sheets to YAML schemas (`pull`)
+- User mentions "sincronizar", "spreadsheet", "google sheets", "exportar schemas"
+- Troubleshooting sync issues or configuration problems
 
-Use this skill when the user mentions:
-- "sync schemas", "google sheets", "export schemas", "spreadsheet"
-- "sincronizar schemas", "exportar a sheets", "importar de sheets"
-- "push schemas", "pull schemas", "diff schemas"
+---
 
-## Prerequisites
+## Critical Patterns
 
-### 1. Google Cloud Setup
+### 1. Spreadsheet Structure
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable **Google Sheets API** (APIs & Services → Library → Search "Google Sheets API" → Enable)
-4. Create Service Account:
-   - Go to APIs & Services → Credentials
-   - Create Credentials → Service Account
-   - Download JSON key file
-   - Save to `scripts/aurora-sheets-sync/credentials/service-account.json`
+| Sheet | Purpose |
+|-------|---------|
+| `DATA` | Dropdown values, validations (don't modify) |
+| `TEMPLATE` | Template duplicated for new modules |
+| `MODULES` | Index with hyperlinks to module sheets |
+| `{module-name}` | One sheet per module (e.g., `business-partner`) |
 
-### 2. Configuration
+### 2. Module Sheet Format
 
-Create `aurora-sheets.config.json` in project root (or use `aurora-sheets init`):
+- **Row 1**: Headers (read dynamically)
+- **Row 2+**: Properties (one per row)
+- **Booleans**: `✓` (CHAR 9989) = true, empty = false
 
-```json
-{
-    "credentialsPath": "./scripts/aurora-sheets-sync/credentials/service-account.json",
-    "boundedContexts": {
-        "iam": {
-            "spreadsheetId": "1abc123...",
-            "description": "Identity and Access Management"
-        }
-    },
-    "backupsPath": "backups/aurora-schemas",
-    "cliterPath": "cliter"
+### 3. Pull is Idempotent
+
+**Rule**: If no content changes in spreadsheet, YAML files must NOT be modified.
+
+```typescript
+// Content comparison before writing
+if (normalizeYamlForComparison(existing) === normalizeYamlForComparison(new)) {
+  // Skip write - preserves original formatting
 }
 ```
 
-### 3. Share Spreadsheets
+### 4. Preserve Fields Not in Spreadsheet
 
-Share each Google Spreadsheet with the service account email (found in the JSON key file as `client_email`).
+Fields in YAML without spreadsheet columns are preserved on pull:
+- `relationship.singularName`, `relationship.aggregateName`, `relationship.modulePath`
+- `relationship.key`, `relationship.field`, `relationship.avoidConstraint`
+- `webComponent`
+
+### 5. Field Mappings
+
+| Sheet Column | YAML Field | Notes |
+|--------------|------------|-------|
+| `relationship` | `relationship.type` | `1:1`, `N:1`, `1:N`, `N:N` |
+| `master` | `relationship.modulePath` | Module name only |
+| `subtype` | `arrayOptions.type` | When `type=array` |
+| `values` | Multiple | `enumOptions`, `decimals`, or `arrayOptions.enumOptions` |
+| `hasAuth` | `hasOAuth` | Header mapping |
+
+### 6. Array Format in YAML
+
+These arrays use inline format `[A, B, C]`:
+- `enumOptions`
+- `decimals`
+- `excludedOperations`
+- `excludedFiles`
+- `defaultValue` (when array)
+
+---
 
 ## Commands
 
-### Push: YAML → Google Sheets
-
 ```bash
-# Push specific bounded context
-cd scripts/aurora-sheets-sync && npm run push -- --bc iam
+# Navigate to tool directory
+cd scripts/aurora-sheets-sync
 
-# Push all configured bounded contexts
-npm run push -- --all
+# Install dependencies (first time)
+npm install
 
-# Dry run (show what would change)
-npm run push -- --bc iam --dry-run
-```
+# Push: YAML → Google Sheets
+npx ts-node src/index.ts push --bc business-partner-portal
+npx ts-node src/index.ts push --all
+npx ts-node src/index.ts push --bc iam --dry-run
 
-### Pull: Google Sheets → YAML
+# Pull: Google Sheets → YAML
+npx ts-node src/index.ts pull --bc business-partner-portal
+npx ts-node src/index.ts pull --bc iam --no-backup
+npx ts-node src/index.ts pull --all --dry-run
 
-```bash
-# Pull specific bounded context (creates backup automatically)
-npm run pull -- --bc iam
-
-# Pull without backup
-npm run pull -- --bc iam --no-backup
-
-# Dry run
-npm run pull -- --bc iam --dry-run
-```
-
-### Diff: Compare YAML vs Sheets
-
-```bash
-# Compare specific bounded context
-npm run diff -- --bc iam
-
-# Compare all and show summary only
-npm run diff -- --all --summary
-```
-
-### Other Commands
-
-```bash
-# Initialize config file
-npm run dev -- init
+# Validate connection
+npx ts-node src/index.ts validate --bc business-partner-portal
 
 # List configured bounded contexts
-npm run dev -- list
-
-# Validate sheet format and connection
-npm run dev -- validate --bc iam
+npx ts-node src/index.ts list
 ```
 
-## Google Sheet Structure
+---
 
-### Index Sheet ("Índice")
+## Configuration
 
-First sheet with module overview:
+### aurora-sheets.config.json
 
-| Module Name | Aggregate Name | Description | Fields | OAuth | Tenant | Auditing | Last Sync |
-|-------------|----------------|-------------|--------|-------|--------|----------|-----------|
-| account     | IamAccount     | Core auth...| 18     | TRUE  | FALSE  | TRUE     | 2026-01-22|
-
-### Module Sheets
-
-Each module gets its own sheet with:
-
-**Metadata Section (rows 1-11):**
-- Module Name, Module Names (plural), Aggregate Name
-- Bounded Context, Version
-- Has OAuth, Has Tenant, Has Auditing (dropdowns)
-- Description, Solid Icon, Outline Icon
-
-**Properties Section (from row 13):**
-
-| name | type | primaryKey | nullable | index | maxLength | ... | description |
-|------|------|------------|----------|-------|-----------|-----|-------------|
-| id   | id   | TRUE       | FALSE    |       |           | ... | Unique ID   |
-
-**Pivot Sections (for many-to-many relationships):**
-
-Visual separator followed by pivot metadata and properties:
-```
-══════ PIVOT: role-account ══════
+```json
+{
+  "credentialsPath": "./scripts/aurora-sheets-sync/credentials/service-account.json",
+  "boundedContexts": {
+    "business-partner-portal": {
+      "spreadsheetId": "1ABC123xyz...",
+      "description": "Business Partner Portal"
+    }
+  },
+  "backupsPath": "backups/aurora-schemas",
+  "cliterPath": "cliter"
+}
 ```
 
-## Property Columns Reference
+### Google Cloud Setup (Quick Reference)
 
-| Column | Description | Example |
-|--------|-------------|---------|
-| name | Property name (camelCase) | `clientId` |
-| type | Data type | `id`, `varchar`, `enum`, `relationship` |
-| primaryKey | Is primary key | `TRUE` / `FALSE` |
-| nullable | Allows null | `TRUE` / `FALSE` |
-| index | Index type | `index`, `unique` |
-| indexUsing | Index method | `GIN`, `BTREE` |
-| maxLength | Max string length | `128` |
-| decimals | Decimal precision | `16,14` (precision,scale) |
-| defaultValue | Default value | `false`, `0` |
-| enumOptions | Enum values (comma-sep) | `USER,SERVICE` |
-| arrayOptions.type | Array element type | `varchar`, `id` |
-| arrayOptions.maxLength | Array element max length | `64` |
-| rel.type | Relationship type | `many-to-one`, `many-to-many` |
-| rel.aggregateName | Target aggregate | `OAuthClient` |
-| rel.modulePath | Target module path | `o-auth/client` |
-| rel.key | Foreign key field | `id` |
-| rel.field | Local field name | `client` |
-| rel.avoidConstraint | Skip FK constraint | `TRUE` |
-| autoIncrement | Auto increment | `TRUE` |
-| isI18n | Internationalized | `TRUE` |
-| example | Example value | `john@gmail.com` |
-| description | Field description | (text) |
+1. Create project in [Google Cloud Console](https://console.cloud.google.com/)
+2. Enable **Google Sheets API** (APIs & Services → Library)
+3. Create **Service Account** (APIs & Services → Credentials)
+4. Download JSON key → save to `credentials/service-account.json`
+5. Share spreadsheet with service account email (Editor role)
 
-## Backups
-
-Pull operations automatically create backups at:
-```
-backups/aurora-schemas/{bounded-context}/{timestamp}/
-```
-
-## Workflow Examples
-
-### Initial Export to Sheets
-
-```bash
-# 1. Setup (first time only)
-cd scripts/aurora-sheets-sync
-npm install
-npm run dev -- init
-
-# 2. Configure aurora-sheets.config.json with your spreadsheet IDs
-
-# 3. Push all schemas
-npm run push -- --all
-```
-
-### Collaborative Editing Workflow
-
-```bash
-# 1. Check for differences
-npm run diff -- --bc iam
-
-# 2. If sheet has changes, pull them
-npm run pull -- --bc iam
-
-# 3. After local YAML changes, push back
-npm run push -- --bc iam
-```
-
-### Conflict Resolution
-
-When both YAML and Sheet have changes:
-
-```bash
-# 1. Review differences
-npm run diff -- --bc iam
-
-# 2. Option A: Keep YAML (discard sheet changes)
-npm run push -- --bc iam
-
-# 2. Option B: Keep Sheet (backup and overwrite YAML)
-npm run pull -- --bc iam
-
-# 2. Option C: Manual merge
-# - Pull to separate folder, compare, merge manually
-```
+---
 
 ## Troubleshooting
 
-### "Access denied to spreadsheet"
+| Error | Solution |
+|-------|----------|
+| `The caller does not have permission` | Share spreadsheet with service account email |
+| `Google Sheets API has not been enabled` | Enable API in Google Cloud Console |
+| `Could not load credentials` | Check `credentialsPath` in config |
+| `Skipped: X (empty or invalid)` | Sheet missing headers or `name`/`type` columns |
+| Pull shows "(no changes)" | Idempotent - content unchanged, file preserved |
 
-- Verify spreadsheet is shared with service account email
-- Check service account has at least Editor access
+---
 
-### "Configuration file not found"
-
-- Run `npm run dev -- init` to create template
-- Or copy `aurora-sheets.config.example.json` to `aurora-sheets.config.json`
-
-### "Service account credentials not found"
-
-- Download JSON key from Google Cloud Console
-- Save to `scripts/aurora-sheets-sync/credentials/service-account.json`
-
-## File Locations
+## Key Files
 
 ```
-aurora-back/
-├── aurora-sheets.config.json          # Main config (gitignored)
-├── aurora-sheets.config.example.json  # Template config
-├── scripts/aurora-sheets-sync/
-│   ├── credentials/
-│   │   └── service-account.json       # Google credentials (gitignored)
-│   ├── src/
-│   │   ├── index.ts                   # CLI entry point
-│   │   ├── auth/                      # Google auth
-│   │   ├── config/                    # Config management
-│   │   ├── sync/                      # Push/pull/diff logic
-│   │   ├── transformers/              # YAML ↔ Sheet conversion
-│   │   └── validators/                # Schema validation
-│   └── package.json
-├── backups/aurora-schemas/            # Automatic backups
-└── cliter/                            # Aurora YAML schemas
+scripts/aurora-sheets-sync/
+├── src/
+│   ├── index.ts                    # CLI entry point
+│   ├── sync/
+│   │   ├── yaml-to-sheet.ts        # Push logic
+│   │   └── sheet-to-yaml.ts        # Pull logic (idempotent)
+│   └── transformers/
+│       └── property-transformer.ts  # YAML ↔ Row conversion
+├── credentials/
+│   └── service-account.json        # Google credentials (gitignored)
+├── CONTEXT.md                      # Technical documentation
+└── README.md                       # User guide
 ```
 
-## Summary Table
+---
 
-| Command | Direction | Description |
-|---------|-----------|-------------|
-| `push --bc <name>` | YAML → Sheet | Export schemas to Google Sheets |
-| `pull --bc <name>` | Sheet → YAML | Import schemas from Google Sheets |
-| `diff --bc <name>` | Compare | Show differences without changes |
-| `init` | Setup | Create configuration template |
-| `validate --bc <name>` | Check | Validate sheet format |
-| `list` | Info | List configured bounded contexts |
+## Resources
+
+- **Technical Context**: See [CONTEXT.md](../../../scripts/aurora-sheets-sync/CONTEXT.md)
+- **User Guide**: See [README.md](../../../scripts/aurora-sheets-sync/README.md)
