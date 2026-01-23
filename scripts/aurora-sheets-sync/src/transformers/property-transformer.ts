@@ -145,8 +145,15 @@ export function sheetRowToProperty(row: SheetPropertyRow): AuroraProperty {
     property.decimals = parseDecimals(row.decimals);
   }
 
-  if (row.defaultValue)
-    property.defaultValue = parseDefaultValue(row.defaultValue);
+  if (row.defaultValue) {
+    const parsedDefault = parseDefaultValue(row.defaultValue);
+    // If type is array, wrap defaultValue in array (if not already)
+    if (row.type === 'array' && !Array.isArray(parsedDefault)) {
+      property.defaultValue = [parsedDefault];
+    } else {
+      property.defaultValue = parsedDefault;
+    }
+  }
   if (parseBooleanValue(row.autoIncrement)) property.autoIncrement = true;
   if (parseBooleanValue(row.isI18n)) property.isI18n = true;
   if (row.example) property.example = parseExample(row.example);
