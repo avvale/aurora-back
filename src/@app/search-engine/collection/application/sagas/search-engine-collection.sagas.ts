@@ -1,13 +1,8 @@
-import { SearchEngineCreatedCollectionEvent } from '@app/search-engine/collection';
 import { Injectable } from '@nestjs/common';
-import { ICommand, ofType, Saga } from '@nestjs/cqrs';
-import { Observable } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
 
 @Injectable()
-export class SearchEngineCollectionSagas
-{
-    /* @Saga()
+export class SearchEngineCollectionSagas {
+  /* @Saga()
     dragonKilled = (events$: Observable<any>): Observable<ICommand> =>
     {
         return events$

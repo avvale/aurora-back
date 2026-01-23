@@ -6,25 +6,21 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.update')
-export class SearchEngineUpdateFieldsResolver
-{
-    constructor(
-        private readonly handler: SearchEngineUpdateFieldsHandler,
-    ) {}
+export class SearchEngineUpdateFieldsResolver {
+  constructor(private readonly handler: SearchEngineUpdateFieldsHandler) {}
 
-    @Mutation('searchEngineUpdateFields')
-    async main(
-        @Args('payload') payload: SearchEngineUpdateFieldsInput,
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<SearchEngineField>
-    {
-        return await this.handler.main(
-            payload,
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Mutation('searchEngineUpdateFields')
+  async main(
+    @Args('payload') payload: SearchEngineUpdateFieldsInput,
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<SearchEngineField> {
+    return await this.handler.main(
+      payload,
+      queryStatement,
+      constraint,
+      timezone,
+    );
+  }
 }

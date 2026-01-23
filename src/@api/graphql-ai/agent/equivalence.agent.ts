@@ -6,13 +6,12 @@ import { MODEL } from '../orchestrator/types';
 const weighting = Number(process.env.MCP_HIGHLIGHT_WEIGHTING ?? '0.7');
 
 export const equivalenceAgentFactory = async (
-    mcpBaseUrl: string,
-): Promise<Agent<any, any>> =>
-{
-    return new Agent({
-        name        : 'GraphQL Semantic Equivalence Agent',
-        model       : MODEL.GPT_4_1_NANO,
-        instructions: `You map user-language tables/fields to GraphQL operation and canonical field names.
+  mcpBaseUrl: string,
+): Promise<Agent<any, any>> => {
+  return new Agent({
+    name: 'GraphQL Semantic Equivalence Agent',
+    model: MODEL.GPT_4_1_NANO,
+    instructions: `You map user-language tables/fields to GraphQL operation and canonical field names.
 Resources available via MCP:
 - "graphql-highlight-schema" (weight ${weighting})
 - "graphql-common-schema"   (weight ${1 - weighting})
@@ -24,8 +23,6 @@ Process:
 4) If resolved, set "operationName" and rewrite "query" field names accordingly (e.g., "correo electrónico" -> "email").
 5) Do NOT change operators here; only names and operationName.
 `,
-        mcpServers: [
-            await getMcpServer(mcpBaseUrl, 'readOnly'),
-        ],
-    });
+    mcpServers: [await getMcpServer(mcpBaseUrl, 'readOnly')],
+  });
 };

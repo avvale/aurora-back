@@ -84,38 +84,38 @@ import { IamUpdateBoundedContextByIdService } from './application/update/iam-upd
 import { IamUpdateBoundedContextsService } from './application/update/iam-update-bounded-contexts.service';
 
 export const IamBoundedContextHandlers = [
-    // commands
-    IamCreateBoundedContextCommandHandler,
-    IamCreateBoundedContextsCommandHandler,
-    IamUpdateBoundedContextByIdCommandHandler,
-    IamUpdateBoundedContextsCommandHandler,
-    IamDeleteBoundedContextByIdCommandHandler,
-    IamDeleteBoundedContextsCommandHandler,
+  // commands
+  IamCreateBoundedContextCommandHandler,
+  IamCreateBoundedContextsCommandHandler,
+  IamUpdateBoundedContextByIdCommandHandler,
+  IamUpdateBoundedContextsCommandHandler,
+  IamDeleteBoundedContextByIdCommandHandler,
+  IamDeleteBoundedContextsCommandHandler,
 
-    // queries
-    IamPaginateBoundedContextsQueryHandler,
-    IamGetBoundedContextsQueryHandler,
-    IamFindBoundedContextQueryHandler,
-    IamFindBoundedContextByIdQueryHandler,
+  // queries
+  IamPaginateBoundedContextsQueryHandler,
+  IamGetBoundedContextsQueryHandler,
+  IamFindBoundedContextQueryHandler,
+  IamFindBoundedContextByIdQueryHandler,
 
-    // events
-    IamCreatedBoundedContextEventHandler,
-    IamCreatedBoundedContextsEventHandler,
-    IamUpdatedBoundedContextEventHandler,
-    IamUpdatedBoundedContextsEventHandler,
-    IamDeletedBoundedContextEventHandler,
-    IamDeletedBoundedContextsEventHandler,
+  // events
+  IamCreatedBoundedContextEventHandler,
+  IamCreatedBoundedContextsEventHandler,
+  IamUpdatedBoundedContextEventHandler,
+  IamUpdatedBoundedContextsEventHandler,
+  IamDeletedBoundedContextEventHandler,
+  IamDeletedBoundedContextsEventHandler,
 ];
 
 export const IamBoundedContextServices = [
-    IamCreateBoundedContextService,
-    IamCreateBoundedContextsService,
-    IamPaginateBoundedContextsService,
-    IamGetBoundedContextsService,
-    IamFindBoundedContextService,
-    IamFindBoundedContextByIdService,
-    IamUpdateBoundedContextByIdService,
-    IamUpdateBoundedContextsService,
-    IamDeleteBoundedContextByIdService,
-    IamDeleteBoundedContextsService,
+  IamCreateBoundedContextService,
+  IamCreateBoundedContextsService,
+  IamPaginateBoundedContextsService,
+  IamGetBoundedContextsService,
+  IamFindBoundedContextService,
+  IamFindBoundedContextByIdService,
+  IamUpdateBoundedContextByIdService,
+  IamUpdateBoundedContextsService,
+  IamDeleteBoundedContextByIdService,
+  IamDeleteBoundedContextsService,
 ];

@@ -5,62 +5,63 @@ import { searchEngineMockFieldData } from '@app/search-engine/field';
 import { ICommandBus, IQueryBus } from '@aurorajs.dev/core';
 import { Test, TestingModule } from '@nestjs/testing';
 
-describe('SearchEngineUpdateFieldsHandler', () =>
-{
-    let handler: SearchEngineUpdateFieldsHandler;
-    let queryBus: IQueryBus;
+describe('SearchEngineUpdateFieldsHandler', () => {
+  let handler: SearchEngineUpdateFieldsHandler;
+  let queryBus: IQueryBus;
 
-    beforeAll(async () =>
-    {
-        const module: TestingModule = await Test.createTestingModule({
-            imports: [
-            ],
-            providers: [
-                SearchEngineUpdateFieldsHandler,
-                {
-                    provide : IQueryBus,
-                    useValue: {
-                        ask: () => { /**/ },
-                    },
-                },
-                {
-                    provide : ICommandBus,
-                    useValue: {
-                        dispatch: () => { /**/ },
-                    },
-                },
-            ],
-        })
-            .compile();
-
-        handler = module.get<SearchEngineUpdateFieldsHandler>(SearchEngineUpdateFieldsHandler);
-        queryBus = module.get<IQueryBus>(IQueryBus);
-    });
-
-    test('SearchEngineUpdateFieldsHandler should be defined', () =>
-    {
-        expect(handler).toBeDefined();
-    });
-
-    describe('main', () =>
-    {
-        test('SearchEngineUpdateFieldsHandler should be defined', () =>
+  beforeAll(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      imports: [],
+      providers: [
+        SearchEngineUpdateFieldsHandler,
         {
-            expect(handler).toBeDefined();
-        });
-
-        test('should return a fields updated', async () =>
+          provide: IQueryBus,
+          useValue: {
+            ask: () => {
+              /**/
+            },
+          },
+        },
         {
-            jest.spyOn(queryBus, 'ask').mockImplementation(() => new Promise(resolve => resolve(searchEngineMockFieldData[0])));
-            expect(
-                await handler.main(
-                    <SearchEngineUpdateFieldsInput>searchEngineMockFieldData[0],
-                    {},
-                    {},
-                    'Europe/Madrid',
-                ),
-            )
-                .toBe(searchEngineMockFieldData[0]);
-        });
+          provide: ICommandBus,
+          useValue: {
+            dispatch: () => {
+              /**/
+            },
+          },
+        },
+      ],
+    }).compile();
+
+    handler = module.get<SearchEngineUpdateFieldsHandler>(
+      SearchEngineUpdateFieldsHandler,
+    );
+    queryBus = module.get<IQueryBus>(IQueryBus);
+  });
+
+  test('SearchEngineUpdateFieldsHandler should be defined', () => {
+    expect(handler).toBeDefined();
+  });
+
+  describe('main', () => {
+    test('SearchEngineUpdateFieldsHandler should be defined', () => {
+      expect(handler).toBeDefined();
     });
+
+    test('should return a fields updated', async () => {
+      jest
+        .spyOn(queryBus, 'ask')
+        .mockImplementation(
+          () => new Promise((resolve) => resolve(searchEngineMockFieldData[0])),
+        );
+      expect(
+        await handler.main(
+          <SearchEngineUpdateFieldsInput>searchEngineMockFieldData[0],
+          {},
+          {},
+          'Europe/Madrid',
+        ),
+      ).toBe(searchEngineMockFieldData[0]);
+    });
+  });
 });

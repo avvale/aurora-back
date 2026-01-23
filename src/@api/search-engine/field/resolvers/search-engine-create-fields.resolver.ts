@@ -6,21 +6,14 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.create')
-export class SearchEngineCreateFieldsResolver
-{
-    constructor(
-        private readonly handler: SearchEngineCreateFieldsHandler,
-    ) {}
+export class SearchEngineCreateFieldsResolver {
+  constructor(private readonly handler: SearchEngineCreateFieldsHandler) {}
 
-    @Mutation('searchEngineCreateFields')
-    async main(
-        @Args('payload') payload: SearchEngineCreateFieldInput[],
-        @Timezone() timezone?: string,
-    ): Promise<boolean>
-    {
-        return await this.handler.main(
-            payload,
-            timezone,
-        );
-    }
+  @Mutation('searchEngineCreateFields')
+  async main(
+    @Args('payload') payload: SearchEngineCreateFieldInput[],
+    @Timezone() timezone?: string,
+  ): Promise<boolean> {
+    return await this.handler.main(payload, timezone);
+  }
 }

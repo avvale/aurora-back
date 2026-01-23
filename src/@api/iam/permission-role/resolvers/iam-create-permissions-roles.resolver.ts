@@ -11,14 +11,14 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 @Resolver()
 @Auth('iam.permissionRole.create')
 export class IamCreatePermissionsRolesResolver {
-    constructor(private readonly handler: IamCreatePermissionsRolesHandler) {}
+  constructor(private readonly handler: IamCreatePermissionsRolesHandler) {}
 
-    @Mutation('iamCreatePermissionsRoles')
-    async main(
-        @Args('payload') payload: IamCreatePermissionRoleInput[],
-        @Timezone() timezone?: string,
-        @Auditing() auditing?: AuditingMeta,
-    ): Promise<boolean> {
-        return await this.handler.main(payload, timezone, auditing);
-    }
+  @Mutation('iamCreatePermissionsRoles')
+  async main(
+    @Args('payload') payload: IamCreatePermissionRoleInput[],
+    @Timezone() timezone?: string,
+    @Auditing() auditing?: AuditingMeta,
+  ): Promise<boolean> {
+    return await this.handler.main(payload, timezone, auditing);
+  }
 }

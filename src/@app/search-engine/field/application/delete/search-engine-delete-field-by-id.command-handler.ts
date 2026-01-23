@@ -4,19 +4,19 @@ import { SearchEngineFieldId } from '@app/search-engine/field/domain/value-objec
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineDeleteFieldByIdCommand)
-export class SearchEngineDeleteFieldByIdCommandHandler implements ICommandHandler<SearchEngineDeleteFieldByIdCommand>
+export class SearchEngineDeleteFieldByIdCommandHandler
+  implements ICommandHandler<SearchEngineDeleteFieldByIdCommand>
 {
-    constructor(
-        private readonly deleteFieldByIdService: SearchEngineDeleteFieldByIdService,
-    ) {}
+  constructor(
+    private readonly deleteFieldByIdService: SearchEngineDeleteFieldByIdService,
+  ) {}
 
-    async execute(command: SearchEngineDeleteFieldByIdCommand): Promise<void>
-    {
-        // call to use case and implements ValueObjects
-        await this.deleteFieldByIdService.main(
-            new SearchEngineFieldId(command.id),
-            command.constraint,
-            command.cQMetadata,
-        );
-    }
+  async execute(command: SearchEngineDeleteFieldByIdCommand): Promise<void> {
+    // call to use case and implements ValueObjects
+    await this.deleteFieldByIdService.main(
+      new SearchEngineFieldId(command.id),
+      command.constraint,
+      command.cQMetadata,
+    );
+  }
 }

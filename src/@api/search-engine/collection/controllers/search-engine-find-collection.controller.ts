@@ -1,35 +1,39 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { SearchEngineCollectionDto, SearchEngineFindCollectionHandler } from '@api/search-engine/collection';
+import {
+  SearchEngineCollectionDto,
+  SearchEngineFindCollectionHandler,
+} from '@api/search-engine/collection';
 import { Auth } from '@aurora/decorators';
 import { QueryStatement, Timezone } from '@aurorajs.dev/core';
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
-import { ApiBody, ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiOkResponse,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 
 @ApiTags('[search-engine] collection')
 @Controller('search-engine/collection/find')
 @Auth('searchEngine.collection.get')
-export class SearchEngineFindCollectionController
-{
-    constructor(
-        private readonly handler: SearchEngineFindCollectionHandler,
-    ) {}
+export class SearchEngineFindCollectionController {
+  constructor(private readonly handler: SearchEngineFindCollectionHandler) {}
 
-    @Post()
-    @HttpCode(200)
-    @ApiOperation({ summary: 'Find collection according to query' })
-    @ApiOkResponse({ description: 'The record has been successfully created.', type: SearchEngineCollectionDto })
-    @ApiBody({ type: QueryStatement })
-    @ApiQuery({ name: 'query', type: QueryStatement })
-    async main(
-        @Body('query') queryStatement?: QueryStatement,
-        @Body('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    )
-    {
-        return await this.handler.main(
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Post()
+  @HttpCode(200)
+  @ApiOperation({ summary: 'Find collection according to query' })
+  @ApiOkResponse({
+    description: 'The record has been successfully created.',
+    type: SearchEngineCollectionDto,
+  })
+  @ApiBody({ type: QueryStatement })
+  @ApiQuery({ name: 'query', type: QueryStatement })
+  async main(
+    @Body('query') queryStatement?: QueryStatement,
+    @Body('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ) {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

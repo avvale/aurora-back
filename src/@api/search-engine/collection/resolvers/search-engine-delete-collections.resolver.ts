@@ -6,23 +6,15 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.delete')
-export class SearchEngineDeleteCollectionsResolver
-{
-    constructor(
-        private readonly handler: SearchEngineDeleteCollectionsHandler,
-    ) {}
+export class SearchEngineDeleteCollectionsResolver {
+  constructor(private readonly handler: SearchEngineDeleteCollectionsHandler) {}
 
-    @Mutation('searchEngineDeleteCollections')
-    async main(
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<SearchEngineCollection[]>
-    {
-        return await this.handler.main(
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Mutation('searchEngineDeleteCollections')
+  async main(
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<SearchEngineCollection[]> {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

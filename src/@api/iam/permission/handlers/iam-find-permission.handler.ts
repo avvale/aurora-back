@@ -9,23 +9,23 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class IamFindPermissionHandler {
-    constructor(private readonly queryBus: IQueryBus) {}
+  constructor(private readonly queryBus: IQueryBus) {}
 
-    async main(
-        queryStatement?: QueryStatement,
-        constraint?: QueryStatement,
-        timezone?: string,
-    ): Promise<IamPermission> {
-        const permission = await this.queryBus.ask(
-            new IamFindPermissionQuery(queryStatement, constraint, {
-                timezone,
-            }),
-        );
+  async main(
+    queryStatement?: QueryStatement,
+    constraint?: QueryStatement,
+    timezone?: string,
+  ): Promise<IamPermission> {
+    const permission = await this.queryBus.ask(
+      new IamFindPermissionQuery(queryStatement, constraint, {
+        timezone,
+      }),
+    );
 
-        if (!permission) {
-            throw new NotFoundException(`IamPermission not found`);
-        }
-
-        return permission;
+    if (!permission) {
+      throw new NotFoundException(`IamPermission not found`);
     }
+
+    return permission;
+  }
 }

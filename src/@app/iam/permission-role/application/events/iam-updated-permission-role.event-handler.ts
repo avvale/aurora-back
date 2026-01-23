@@ -7,9 +7,9 @@ import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 
 @EventsHandler(IamUpdatedPermissionRoleEvent)
 export class IamUpdatedPermissionRoleEventHandler
-    implements IEventHandler<IamUpdatedPermissionRoleEvent>
+  implements IEventHandler<IamUpdatedPermissionRoleEvent>
 {
-    handle(event: IamUpdatedPermissionRoleEvent): void {
-        // 'UpdatedPermissionRoleEvent'
-    }
+  handle(event: IamUpdatedPermissionRoleEvent): void {
+    // 'UpdatedPermissionRoleEvent'
+  }
 }

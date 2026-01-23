@@ -1,78 +1,72 @@
-import { SearchEngineCollection, SearchEngineICollectionRepository } from '@app/search-engine/collection';
 import {
-    SearchEngineCollectionAlias,
-    SearchEngineCollectionCreatedAt,
-    SearchEngineCollectionDefaultSortingField,
-    SearchEngineCollectionDeletedAt,
-    SearchEngineCollectionDocumentsNumber,
-    SearchEngineCollectionId,
-    SearchEngineCollectionIsEnableNestedFields,
-    SearchEngineCollectionName,
-    SearchEngineCollectionNumMemoryShards,
-    SearchEngineCollectionStatus,
-    SearchEngineCollectionTimestampCreatedAt,
-    SearchEngineCollectionUpdatedAt,
+  SearchEngineCollection,
+  SearchEngineICollectionRepository,
+} from '@app/search-engine/collection';
+import {
+  SearchEngineCollectionAlias,
+  SearchEngineCollectionDefaultSortingField,
+  SearchEngineCollectionDocumentsNumber,
+  SearchEngineCollectionId,
+  SearchEngineCollectionIsEnableNestedFields,
+  SearchEngineCollectionName,
+  SearchEngineCollectionNumMemoryShards,
+  SearchEngineCollectionStatus,
+  SearchEngineCollectionTimestampCreatedAt,
+  SearchEngineCollectionUpdatedAt,
 } from '@app/search-engine/collection/domain/value-objects';
 import { CQMetadata, QueryStatement } from '@aurorajs.dev/core';
 import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class SearchEngineUpdateCollectionByIdService
-{
-    constructor(
-        private readonly publisher: EventPublisher,
-        private readonly repository: SearchEngineICollectionRepository,
-    ) {}
+export class SearchEngineUpdateCollectionByIdService {
+  constructor(
+    private readonly publisher: EventPublisher,
+    private readonly repository: SearchEngineICollectionRepository,
+  ) {}
 
-    async main(
-        payload: {
-            id: SearchEngineCollectionId;
-            name?: SearchEngineCollectionName;
-            alias?: SearchEngineCollectionAlias;
-            status?: SearchEngineCollectionStatus;
-            documentsNumber?: SearchEngineCollectionDocumentsNumber;
-            defaultSortingField?: SearchEngineCollectionDefaultSortingField;
-            numMemoryShards?: SearchEngineCollectionNumMemoryShards;
-            timestampCreatedAt?: SearchEngineCollectionTimestampCreatedAt;
-            isEnableNestedFields?: SearchEngineCollectionIsEnableNestedFields;
-        },
-        constraint?: QueryStatement,
-        cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
-        // create aggregate with factory pattern
-        const collection = SearchEngineCollection.register(
-            payload.id,
-            payload.name,
-            payload.alias,
-            payload.status,
-            payload.documentsNumber,
-            payload.defaultSortingField,
-            payload.numMemoryShards,
-            payload.timestampCreatedAt,
-            payload.isEnableNestedFields,
-            null, // createdAt
-            new SearchEngineCollectionUpdatedAt({ currentTimestamp: true }),
-            null, // deletedAt
-        );
+  async main(
+    payload: {
+      id: SearchEngineCollectionId;
+      name?: SearchEngineCollectionName;
+      alias?: SearchEngineCollectionAlias;
+      status?: SearchEngineCollectionStatus;
+      documentsNumber?: SearchEngineCollectionDocumentsNumber;
+      defaultSortingField?: SearchEngineCollectionDefaultSortingField;
+      numMemoryShards?: SearchEngineCollectionNumMemoryShards;
+      timestampCreatedAt?: SearchEngineCollectionTimestampCreatedAt;
+      isEnableNestedFields?: SearchEngineCollectionIsEnableNestedFields;
+    },
+    constraint?: QueryStatement,
+    cQMetadata?: CQMetadata,
+  ): Promise<void> {
+    // create aggregate with factory pattern
+    const collection = SearchEngineCollection.register(
+      payload.id,
+      payload.name,
+      payload.alias,
+      payload.status,
+      payload.documentsNumber,
+      payload.defaultSortingField,
+      payload.numMemoryShards,
+      payload.timestampCreatedAt,
+      payload.isEnableNestedFields,
+      null, // createdAt
+      new SearchEngineCollectionUpdatedAt({ currentTimestamp: true }),
+      null, // deletedAt
+    );
 
-        // update by id
-        await this.repository.updateById(
-            collection,
-            {
-                constraint,
-                cQMetadata,
-                updateByIdOptions: cQMetadata?.repositoryOptions,
-            },
-        );
+    // update by id
+    await this.repository.updateById(collection, {
+      constraint,
+      cQMetadata,
+      updateByIdOptions: cQMetadata?.repositoryOptions,
+    });
 
-        // merge EventBus methods with object returned by the repository, to be able to apply and commit events
-        const collectionRegister = this.publisher.mergeObjectContext(
-            collection,
-        );
+    // merge EventBus methods with object returned by the repository, to be able to apply and commit events
+    const collectionRegister = this.publisher.mergeObjectContext(collection);
 
-        collectionRegister.updated(collection); // apply event to model events
-        collectionRegister.commit(); // commit all events of model
-    }
+    collectionRegister.updated(collection); // apply event to model events
+    collectionRegister.commit(); // commit all events of model
+  }
 }

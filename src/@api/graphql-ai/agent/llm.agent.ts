@@ -30,14 +30,13 @@ Campos a extraer:
  */
 
 export const llmAgentFactory = (
-    requestEnvelopeSchema: z.ZodObject<any>,
-): Agent<any, any> =>
-{
-    return new Agent({
-        name        : 'LLM Agent',
-        model       : MODEL.GPT_4_1_NANO,
-        outputType  : requestEnvelopeSchema,
-        instructions: rc => `
+  requestEnvelopeSchema: z.ZodObject<any>,
+): Agent<any, any> => {
+  return new Agent({
+    name: 'LLM Agent',
+    model: MODEL.GPT_4_1_NANO,
+    outputType: requestEnvelopeSchema,
+    instructions: (rc) => `
 # IDENTITY
 You are an expert agent in extracting from a request, objective information for
 to perform queries to a database.
@@ -62,7 +61,7 @@ Fields to be extracted:
 - In case of missing data error, set ONLY the "request.status" property to "ERROR" and the "request.error" property with a message describing the problem.
 - Don't MODIFY any other property not mentioned.
 - Return the schema as final output.
- ${JSON.stringify((rc.context).envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {}})}
+ ${JSON.stringify(rc.context.envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {} })}
         `,
-    });
+  });
 };

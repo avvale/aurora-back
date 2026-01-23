@@ -8,18 +8,18 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(IamDeletePermissionsCommand)
 export class IamDeletePermissionsCommandHandler
-    implements ICommandHandler<IamDeletePermissionsCommand>
+  implements ICommandHandler<IamDeletePermissionsCommand>
 {
-    constructor(
-        private readonly deletePermissionsService: IamDeletePermissionsService,
-    ) {}
+  constructor(
+    private readonly deletePermissionsService: IamDeletePermissionsService,
+  ) {}
 
-    async execute(command: IamDeletePermissionsCommand): Promise<void> {
-        // call to use case and implements ValueObjects
-        await this.deletePermissionsService.main(
-            command.queryStatement,
-            command.constraint,
-            command.cQMetadata,
-        );
-    }
+  async execute(command: IamDeletePermissionsCommand): Promise<void> {
+    // call to use case and implements ValueObjects
+    await this.deletePermissionsService.main(
+      command.queryStatement,
+      command.constraint,
+      command.cQMetadata,
+    );
+  }
 }

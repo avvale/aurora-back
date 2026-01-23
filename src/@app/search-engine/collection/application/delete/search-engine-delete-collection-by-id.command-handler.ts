@@ -4,19 +4,21 @@ import { SearchEngineCollectionId } from '@app/search-engine/collection/domain/v
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(SearchEngineDeleteCollectionByIdCommand)
-export class SearchEngineDeleteCollectionByIdCommandHandler implements ICommandHandler<SearchEngineDeleteCollectionByIdCommand>
+export class SearchEngineDeleteCollectionByIdCommandHandler
+  implements ICommandHandler<SearchEngineDeleteCollectionByIdCommand>
 {
-    constructor(
-        private readonly deleteCollectionByIdService: SearchEngineDeleteCollectionByIdService,
-    ) {}
+  constructor(
+    private readonly deleteCollectionByIdService: SearchEngineDeleteCollectionByIdService,
+  ) {}
 
-    async execute(command: SearchEngineDeleteCollectionByIdCommand): Promise<void>
-    {
-        // call to use case and implements ValueObjects
-        await this.deleteCollectionByIdService.main(
-            new SearchEngineCollectionId(command.id),
-            command.constraint,
-            command.cQMetadata,
-        );
-    }
+  async execute(
+    command: SearchEngineDeleteCollectionByIdCommand,
+  ): Promise<void> {
+    // call to use case and implements ValueObjects
+    await this.deleteCollectionByIdService.main(
+      new SearchEngineCollectionId(command.id),
+      command.constraint,
+      command.cQMetadata,
+    );
+  }
 }

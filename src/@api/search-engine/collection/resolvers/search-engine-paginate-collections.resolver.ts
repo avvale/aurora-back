@@ -6,23 +6,17 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.get')
-export class SearchEnginePaginateCollectionsResolver
-{
-    constructor(
-        private readonly handler: SearchEnginePaginateCollectionsHandler,
-    ) {}
+export class SearchEnginePaginateCollectionsResolver {
+  constructor(
+    private readonly handler: SearchEnginePaginateCollectionsHandler,
+  ) {}
 
-    @Query('searchEnginePaginateCollections')
-    async main(
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<Pagination>
-    {
-        return await this.handler.main(
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Query('searchEnginePaginateCollections')
+  async main(
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<Pagination> {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

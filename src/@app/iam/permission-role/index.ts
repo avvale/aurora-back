@@ -84,38 +84,38 @@ import { IamUpdatePermissionRoleByIdService } from './application/update/iam-upd
 import { IamUpdatePermissionsRolesService } from './application/update/iam-update-permissions-roles.service';
 
 export const IamPermissionRoleHandlers = [
-    // commands
-    IamCreatePermissionRoleCommandHandler,
-    IamCreatePermissionsRolesCommandHandler,
-    IamUpdatePermissionRoleByIdCommandHandler,
-    IamUpdatePermissionsRolesCommandHandler,
-    IamDeletePermissionRoleByIdCommandHandler,
-    IamDeletePermissionsRolesCommandHandler,
+  // commands
+  IamCreatePermissionRoleCommandHandler,
+  IamCreatePermissionsRolesCommandHandler,
+  IamUpdatePermissionRoleByIdCommandHandler,
+  IamUpdatePermissionsRolesCommandHandler,
+  IamDeletePermissionRoleByIdCommandHandler,
+  IamDeletePermissionsRolesCommandHandler,
 
-    // queries
-    IamPaginatePermissionsRolesQueryHandler,
-    IamGetPermissionsRolesQueryHandler,
-    IamFindPermissionRoleQueryHandler,
-    IamFindPermissionRoleByIdQueryHandler,
+  // queries
+  IamPaginatePermissionsRolesQueryHandler,
+  IamGetPermissionsRolesQueryHandler,
+  IamFindPermissionRoleQueryHandler,
+  IamFindPermissionRoleByIdQueryHandler,
 
-    // events
-    IamCreatedPermissionRoleEventHandler,
-    IamCreatedPermissionsRolesEventHandler,
-    IamUpdatedPermissionRoleEventHandler,
-    IamUpdatedPermissionsRolesEventHandler,
-    IamDeletedPermissionRoleEventHandler,
-    IamDeletedPermissionsRolesEventHandler,
+  // events
+  IamCreatedPermissionRoleEventHandler,
+  IamCreatedPermissionsRolesEventHandler,
+  IamUpdatedPermissionRoleEventHandler,
+  IamUpdatedPermissionsRolesEventHandler,
+  IamDeletedPermissionRoleEventHandler,
+  IamDeletedPermissionsRolesEventHandler,
 ];
 
 export const IamPermissionRoleServices = [
-    IamCreatePermissionRoleService,
-    IamCreatePermissionsRolesService,
-    IamPaginatePermissionsRolesService,
-    IamGetPermissionsRolesService,
-    IamFindPermissionRoleService,
-    IamFindPermissionRoleByIdService,
-    IamUpdatePermissionRoleByIdService,
-    IamUpdatePermissionsRolesService,
-    IamDeletePermissionRoleByIdService,
-    IamDeletePermissionsRolesService,
+  IamCreatePermissionRoleService,
+  IamCreatePermissionsRolesService,
+  IamPaginatePermissionsRolesService,
+  IamGetPermissionsRolesService,
+  IamFindPermissionRoleService,
+  IamFindPermissionRoleByIdService,
+  IamUpdatePermissionRoleByIdService,
+  IamUpdatePermissionsRolesService,
+  IamDeletePermissionRoleByIdService,
+  IamDeletePermissionsRolesService,
 ];

@@ -6,23 +6,17 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.collection.get')
-export class SearchEngineFindCollectionByIdResolver
-{
-    constructor(
-        private readonly handler: SearchEngineFindCollectionByIdHandler,
-    ) {}
+export class SearchEngineFindCollectionByIdResolver {
+  constructor(
+    private readonly handler: SearchEngineFindCollectionByIdHandler,
+  ) {}
 
-    @Query('searchEngineFindCollectionById')
-    async main(
-        @Args('id') id: string,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<SearchEngineCollection>
-    {
-        return await this.handler.main(
-            id,
-            constraint,
-            timezone,
-        );
-    }
+  @Query('searchEngineFindCollectionById')
+  async main(
+    @Args('id') id: string,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<SearchEngineCollection> {
+    return await this.handler.main(id, constraint, timezone);
+  }
 }

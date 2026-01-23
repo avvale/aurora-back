@@ -7,9 +7,9 @@ import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 
 @EventsHandler(IamDeletedBoundedContextsEvent)
 export class IamDeletedBoundedContextsEventHandler
-    implements IEventHandler<IamDeletedBoundedContextsEvent>
+  implements IEventHandler<IamDeletedBoundedContextsEvent>
 {
-    handle(event: IamDeletedBoundedContextsEvent): void {
-        // 'DeletedBoundedContextsEvent'
-    }
+  handle(event: IamDeletedBoundedContextsEvent): void {
+    // 'DeletedBoundedContextsEvent'
+  }
 }

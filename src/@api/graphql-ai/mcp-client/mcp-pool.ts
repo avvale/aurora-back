@@ -19,67 +19,64 @@ const instances = new Map<Key, MCPServerStreamableHttp>();
  * @returns A configured `MCPServerStreamableHttp` instance.
  */
 const makeMCPServer = (
-    url: string,
-    profile: Profile,
-): MCPServerStreamableHttp =>
-{
-    const baseCfg = {
-        url,
-        cacheToolsList: true,
-        name          : `Aurora GraphQL Server MCP (${profile})`,
-    };
+  url: string,
+  profile: Profile,
+): MCPServerStreamableHttp => {
+  const baseCfg = {
+    url,
+    cacheToolsList: true,
+    name: `Aurora GraphQL Server MCP (${profile})`,
+  };
 
-    switch (profile)
-    {
-        case 'readOnly':
-            return new MCPServerStreamableHttp({
-                ...baseCfg,
-                // Hide ALL tools (only resources/prompts)
-                toolFilter: () => Promise.resolve(false),
-            });
+  switch (profile) {
+    case 'readOnly':
+      return new MCPServerStreamableHttp({
+        ...baseCfg,
+        // Hide ALL tools (only resources/prompts)
+        toolFilter: () => Promise.resolve(false),
+      });
 
-        case 'highlighted':
-            return new MCPServerStreamableHttp({
-                ...baseCfg,
-                // Only gql-query-* tools
-                toolFilter: (_ctx, tool) => Promise.resolve(/^gql-query-/.test(tool.name)),
-            });
+    case 'highlighted':
+      return new MCPServerStreamableHttp({
+        ...baseCfg,
+        // Only gql-query-* tools
+        toolFilter: (_ctx, tool) =>
+          Promise.resolve(/^gql-query-/.test(tool.name)),
+      });
 
-        case 'execute':
-            return new MCPServerStreamableHttp({
-                ...baseCfg,
-                // Only graphql-execute
-                toolFilter: (_ctx, tool) => Promise.resolve(tool.name === 'graphql-execute'),
-            });
-    }
+    case 'execute':
+      return new MCPServerStreamableHttp({
+        ...baseCfg,
+        // Only graphql-execute
+        toolFilter: (_ctx, tool) =>
+          Promise.resolve(tool.name === 'graphql-execute'),
+      });
+  }
 };
 
 export const getMcpServer = async (
-    baseUrl: string,
-    profile: Profile,
-    url: string = '/mcp',
-): Promise<MCPServerStreamableHttp> =>
-{
-    const key: Key = `${baseUrl}|${profile}`;
-    let mcpServer = instances.get(key);
-    if (!mcpServer)
-    {
-        mcpServer = makeMCPServer(`${baseUrl}${url}`, profile);
-        instances.set(key, mcpServer);
+  baseUrl: string,
+  profile: Profile,
+  url: string = '/mcp',
+): Promise<MCPServerStreamableHttp> => {
+  const key: Key = `${baseUrl}|${profile}`;
+  let mcpServer = instances.get(key);
+  if (!mcpServer) {
+    mcpServer = makeMCPServer(`${baseUrl}${url}`, profile);
+    instances.set(key, mcpServer);
 
-        await mcpServer.connect(); // connect ONCE
-    }
-    else
-    {
-        await mcpServer.connect(); // ensure connection if needed
-    }
+    await mcpServer.connect(); // connect ONCE
+  } else {
+    await mcpServer.connect(); // ensure connection if needed
+  }
 
-    return mcpServer;
+  return mcpServer;
 };
 
 // Optional: graceful shutdown
-export const closeAllMcpServers = async (): Promise<void> =>
-{
-    await Promise.all([...instances.values()].map(i => i.close().catch(() => {})));
-    instances.clear();
+export const closeAllMcpServers = async (): Promise<void> => {
+  await Promise.all(
+    [...instances.values()].map((i) => i.close().catch(() => {})),
+  );
+  instances.clear();
 };

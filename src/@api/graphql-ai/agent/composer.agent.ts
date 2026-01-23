@@ -29,15 +29,14 @@ en la propiedad "query" del schema de salida una consulta en formato Sequelize.
  */
 
 export const composerAgentFactory = (
-    requestEnvelopeSchema: z.ZodObject<any>,
-): Agent<any, any> =>
-{
-    return new Agent({
-        name        : 'GraphQL Composer Agent',
-        model       : MODEL.GPT_4_1_NANO,
-        // todo, CADA AGENTE SU ESTRUCTURA DE SALIDA
-        outputType  : requestEnvelopeSchema,
-        instructions: rc => `
+  requestEnvelopeSchema: z.ZodObject<any>,
+): Agent<any, any> => {
+  return new Agent({
+    name: 'GraphQL Composer Agent',
+    model: MODEL.GPT_4_1_NANO,
+    // todo, CADA AGENTE SU ESTRUCTURA DE SALIDA
+    outputType: requestEnvelopeSchema,
+    instructions: (rc) => `
 # IDENTITY
 You are an expert agent in Sequelize syntax:
 - "attributes options"
@@ -61,7 +60,7 @@ in the "query" property of the output schema a query in Sequelize format.
 - In case of missing data error, set ONLY the "request.status" property to "ERROR" and the "request.error" property with a message describing the problem.
 - Do not MODIFY any other property not mentioned.
 - Return the schema as final output.
- ${JSON.stringify((rc.context).envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {}})}
+ ${JSON.stringify(rc.context.envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {} })}
         `,
-    });
+  });
 };

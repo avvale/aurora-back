@@ -9,18 +9,18 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 @CommandHandler(IamDeleteBoundedContextByIdCommand)
 export class IamDeleteBoundedContextByIdCommandHandler
-    implements ICommandHandler<IamDeleteBoundedContextByIdCommand>
+  implements ICommandHandler<IamDeleteBoundedContextByIdCommand>
 {
-    constructor(
-        private readonly deleteBoundedContextByIdService: IamDeleteBoundedContextByIdService,
-    ) {}
+  constructor(
+    private readonly deleteBoundedContextByIdService: IamDeleteBoundedContextByIdService,
+  ) {}
 
-    async execute(command: IamDeleteBoundedContextByIdCommand): Promise<void> {
-        // call to use case and implements ValueObjects
-        await this.deleteBoundedContextByIdService.main(
-            new IamBoundedContextId(command.id),
-            command.constraint,
-            command.cQMetadata,
-        );
-    }
+  async execute(command: IamDeleteBoundedContextByIdCommand): Promise<void> {
+    // call to use case and implements ValueObjects
+    await this.deleteBoundedContextByIdService.main(
+      new IamBoundedContextId(command.id),
+      command.constraint,
+      command.cQMetadata,
+    );
+  }
 }

@@ -6,23 +6,15 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.get')
-export class SearchEnginePaginateFieldsResolver
-{
-    constructor(
-        private readonly handler: SearchEnginePaginateFieldsHandler,
-    ) {}
+export class SearchEnginePaginateFieldsResolver {
+  constructor(private readonly handler: SearchEnginePaginateFieldsHandler) {}
 
-    @Query('searchEnginePaginateFields')
-    async main(
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<Pagination>
-    {
-        return await this.handler.main(
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Query('searchEnginePaginateFields')
+  async main(
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<Pagination> {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

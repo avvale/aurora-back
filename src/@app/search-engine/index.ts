@@ -1,32 +1,46 @@
-import { SearchEngineCollectionHandlers, SearchEngineCollectionServices, SearchEngineCollectionModel, SearchEngineICollectionRepository, SearchEngineSequelizeCollectionRepository, SearchEngineCollectionSagas } from './collection';
-import { SearchEngineFieldHandlers, SearchEngineFieldServices, SearchEngineFieldModel, SearchEngineIFieldRepository, SearchEngineSequelizeFieldRepository, SearchEngineFieldSagas } from './field';
+import {
+  SearchEngineCollectionHandlers,
+  SearchEngineCollectionModel,
+  SearchEngineCollectionSagas,
+  SearchEngineCollectionServices,
+  SearchEngineICollectionRepository,
+  SearchEngineSequelizeCollectionRepository,
+} from './collection';
+import {
+  SearchEngineFieldHandlers,
+  SearchEngineFieldModel,
+  SearchEngineFieldSagas,
+  SearchEngineFieldServices,
+  SearchEngineIFieldRepository,
+  SearchEngineSequelizeFieldRepository,
+} from './field';
 
 export * from './collection';
 export * from './field';
 
 export const SearchEngineHandlers = [
-    ...SearchEngineCollectionHandlers,
-    ...SearchEngineFieldHandlers
+  ...SearchEngineCollectionHandlers,
+  ...SearchEngineFieldHandlers,
 ];
 export const SearchEngineServices = [
-    ...SearchEngineCollectionServices,
-    ...SearchEngineFieldServices
+  ...SearchEngineCollectionServices,
+  ...SearchEngineFieldServices,
 ];
 export const SearchEngineModels = [
-    SearchEngineCollectionModel,
-    SearchEngineFieldModel
+  SearchEngineCollectionModel,
+  SearchEngineFieldModel,
 ];
 export const SearchEngineRepositories = [
-    {
-        provide : SearchEngineICollectionRepository,
-        useClass: SearchEngineSequelizeCollectionRepository
-    },
-    {
-        provide : SearchEngineIFieldRepository,
-        useClass: SearchEngineSequelizeFieldRepository
-    }
+  {
+    provide: SearchEngineICollectionRepository,
+    useClass: SearchEngineSequelizeCollectionRepository,
+  },
+  {
+    provide: SearchEngineIFieldRepository,
+    useClass: SearchEngineSequelizeFieldRepository,
+  },
 ];
 export const SearchEngineSagas = [
-    SearchEngineCollectionSagas,
-    SearchEngineFieldSagas
+  SearchEngineCollectionSagas,
+  SearchEngineFieldSagas,
 ];

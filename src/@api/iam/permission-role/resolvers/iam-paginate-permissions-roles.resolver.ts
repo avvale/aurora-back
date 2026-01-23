@@ -11,14 +11,14 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 @Resolver()
 @Auth('iam.permissionRole.get')
 export class IamPaginatePermissionsRolesResolver {
-    constructor(private readonly handler: IamPaginatePermissionsRolesHandler) {}
+  constructor(private readonly handler: IamPaginatePermissionsRolesHandler) {}
 
-    @Query('iamPaginatePermissionsRoles')
-    async main(
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<Pagination> {
-        return await this.handler.main(queryStatement, constraint, timezone);
-    }
+  @Query('iamPaginatePermissionsRoles')
+  async main(
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<Pagination> {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

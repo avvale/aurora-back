@@ -6,23 +6,15 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.get')
-export class SearchEngineFindFieldResolver
-{
-    constructor(
-        private readonly handler: SearchEngineFindFieldHandler,
-    ) {}
+export class SearchEngineFindFieldResolver {
+  constructor(private readonly handler: SearchEngineFindFieldHandler) {}
 
-    @Query('searchEngineFindField')
-    async main(
-        @Args('query') queryStatement?: QueryStatement,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<SearchEngineField>
-    {
-        return await this.handler.main(
-            queryStatement,
-            constraint,
-            timezone,
-        );
-    }
+  @Query('searchEngineFindField')
+  async main(
+    @Args('query') queryStatement?: QueryStatement,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<SearchEngineField> {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
 }

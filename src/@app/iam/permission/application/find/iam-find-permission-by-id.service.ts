@@ -9,16 +9,16 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class IamFindPermissionByIdService {
-    constructor(private readonly repository: IamIPermissionRepository) {}
+  constructor(private readonly repository: IamIPermissionRepository) {}
 
-    async main(
-        id: IamPermissionId,
-        constraint?: QueryStatement,
-        cQMetadata?: CQMetadata,
-    ): Promise<IamPermission> {
-        return await this.repository.findById(id, {
-            constraint,
-            cQMetadata,
-        });
-    }
+  async main(
+    id: IamPermissionId,
+    constraint?: QueryStatement,
+    cQMetadata?: CQMetadata,
+  ): Promise<IamPermission> {
+    return await this.repository.findById(id, {
+      constraint,
+      cQMetadata,
+    });
+  }
 }

@@ -11,14 +11,14 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 @Resolver()
 @Auth('iam.boundedContext.create')
 export class IamCreateBoundedContextResolver {
-    constructor(private readonly handler: IamCreateBoundedContextHandler) {}
+  constructor(private readonly handler: IamCreateBoundedContextHandler) {}
 
-    @Mutation('iamCreateBoundedContext')
-    async main(
-        @Args('payload') payload: IamCreateBoundedContextInput,
-        @Timezone() timezone?: string,
-        @Auditing() auditing?: AuditingMeta,
-    ): Promise<IamBoundedContext> {
-        return await this.handler.main(payload, timezone, auditing);
-    }
+  @Mutation('iamCreateBoundedContext')
+  async main(
+    @Args('payload') payload: IamCreateBoundedContextInput,
+    @Timezone() timezone?: string,
+    @Auditing() auditing?: AuditingMeta,
+  ): Promise<IamBoundedContext> {
+    return await this.handler.main(payload, timezone, auditing);
+  }
 }

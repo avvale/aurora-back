@@ -3,15 +3,14 @@ import { z } from 'zod';
 import { MODEL } from '../orchestrator/types';
 
 export const validatorAgentFactory = (
-    requestEnvelopeSchema: z.ZodObject<any>,
-): Agent<any, any> =>
-{
-    return new Agent({
-        name        : 'Validator Agent',
-        // Un modelo menor a GPT_4_1_MINI no realiza bien las instrucciones
-        model       : MODEL.GPT_4_1_MINI,
-        outputType  : requestEnvelopeSchema,
-        instructions: rc => `
+  requestEnvelopeSchema: z.ZodObject<any>,
+): Agent<any, any> => {
+  return new Agent({
+    name: 'Validator Agent',
+    // Un modelo menor a GPT_4_1_MINI no realiza bien las instrucciones
+    model: MODEL.GPT_4_1_MINI,
+    outputType: requestEnvelopeSchema,
+    instructions: (rc) => `
 # IDENTIDAD
 Eres un agente experto en analizar estructuras JSON para evaluar si
 es posible realizar consultas SQL con la información aportada en el JSON.
@@ -31,7 +30,7 @@ es lo suficientemente claro y completo para reconocer una intención de consulta
 - En caso de error por falta de datos, establece SOLO la propiedad "request.status" a "ERROR" y la propiedad "request.error" con un mensaje descriptivo del problema.
 - No MODIFICUES ninguna otra propiedad que no se haya mencionado.
 - Devuelve el schema como salida final.
- ${JSON.stringify((rc.context).envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {}})}
+ ${JSON.stringify(rc.context.envelope ?? { history: [], request: { step: 'LLM', status: 'DONE' }, llm: {} })}
     `,
-    });
+  });
 };

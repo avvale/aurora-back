@@ -3,30 +3,30 @@
  * @source cliter/iam/bounded-context.aurora.yaml
  */
 import {
-    DataValueObject,
-    TimestampValueObject,
-    ValidationRules,
+  DataValueObject,
+  TimestampValueObject,
+  ValidationRules,
 } from '@aurorajs.dev/core';
 
 export class IamBoundedContextDeletedAt extends TimestampValueObject {
-    public readonly type: string = 'IamBoundedContextDeletedAt';
+  public readonly type: string = 'IamBoundedContextDeletedAt';
 
-    constructor(
-        value: string | DataValueObject,
-        validationRules: ValidationRules = {},
-        data: DataValueObject = {},
-    ) {
-        super(
-            value,
-            Object.assign(
-                {
-                    name: 'IamBoundedContextDeletedAt',
-                    nullable: true,
-                    undefinable: true,
-                },
-                validationRules,
-            ),
-            data,
-        );
-    }
+  constructor(
+    value: string | DataValueObject,
+    validationRules: ValidationRules = {},
+    data: DataValueObject = {},
+  ) {
+    super(
+      value,
+      Object.assign(
+        {
+          name: 'IamBoundedContextDeletedAt',
+          nullable: true,
+          undefinable: true,
+        },
+        validationRules,
+      ),
+      data,
+    );
+  }
 }

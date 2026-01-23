@@ -5,44 +5,34 @@ import { Injectable } from '@nestjs/common';
 import { EventPublisher } from '@nestjs/cqrs';
 
 @Injectable()
-export class SearchEngineDeleteFieldByIdService
-{
-    constructor(
-        private readonly publisher: EventPublisher,
-        private readonly repository: SearchEngineIFieldRepository,
-    ) {}
+export class SearchEngineDeleteFieldByIdService {
+  constructor(
+    private readonly publisher: EventPublisher,
+    private readonly repository: SearchEngineIFieldRepository,
+  ) {}
 
-    async main(
-        id: SearchEngineFieldId,
-        constraint?: QueryStatement,
-        cQMetadata?: CQMetadata,
-    ): Promise<void>
-    {
-        // get object to delete
-        const field = await this.repository
-            .findById(
-                id,
-                {
-                    constraint,
-                    cQMetadata,
-                },
-            );
+  async main(
+    id: SearchEngineFieldId,
+    constraint?: QueryStatement,
+    cQMetadata?: CQMetadata,
+  ): Promise<void> {
+    // get object to delete
+    const field = await this.repository.findById(id, {
+      constraint,
+      cQMetadata,
+    });
 
-        // it is not necessary to pass the constraint in the delete, if the object
-        // is not found in the findById, an exception will be thrown.
-        await this.repository
-            .deleteById(
-                field.id,
-                {
-                    deleteOptions: cQMetadata?.repositoryOptions,
-                    cQMetadata,
-                },
-            );
+    // it is not necessary to pass the constraint in the delete, if the object
+    // is not found in the findById, an exception will be thrown.
+    await this.repository.deleteById(field.id, {
+      deleteOptions: cQMetadata?.repositoryOptions,
+      cQMetadata,
+    });
 
-        // insert EventBus in object, to be able to apply and commit events
-        const fieldRegister = this.publisher.mergeObjectContext(field);
+    // insert EventBus in object, to be able to apply and commit events
+    const fieldRegister = this.publisher.mergeObjectContext(field);
 
-        fieldRegister.deleted(field); // apply event to model events
-        fieldRegister.commit(); // commit all events of model
-    }
+    fieldRegister.deleted(field); // apply event to model events
+    fieldRegister.commit(); // commit all events of model
+  }
 }

@@ -4,10 +4,10 @@ import { Permissions } from '@aurorajs.dev/core';
 import { applyDecorators, UseGuards } from '@nestjs/common';
 
 export function Auth(
-    ...permissions: string[]
+  ...permissions: string[]
 ): MethodDecorator & ClassDecorator {
-    return applyDecorators(
-        Permissions(...permissions),
-        UseGuards(AuthenticationJwtGuard, AuthorizationPermissionsGuard),
-    );
+  return applyDecorators(
+    Permissions(...permissions),
+    UseGuards(AuthenticationJwtGuard, AuthorizationPermissionsGuard),
+  );
 }

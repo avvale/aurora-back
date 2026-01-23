@@ -1,15 +1,14 @@
 import { CQMetadata } from '@aurorajs.dev/core';
 
-export class SearchEngineUpsertFieldCommand
-{
-    constructor(
-        public readonly payload: {
-            id: string;
-            collectionId?: string;
-            name?: string;
-            type?: string;
-            isNullable?: boolean;
-        },
-        public readonly cQMetadata?: CQMetadata,
-    ) {}
+export class SearchEngineUpsertFieldCommand {
+  constructor(
+    public readonly payload: {
+      id: string;
+      collectionId?: string;
+      name?: string;
+      type?: string;
+      isNullable?: boolean;
+    },
+    public readonly cQMetadata?: CQMetadata,
+  ) {}
 }

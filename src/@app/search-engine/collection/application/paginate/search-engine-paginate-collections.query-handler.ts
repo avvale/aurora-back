@@ -4,24 +4,26 @@ import { PaginationResponse } from '@aurorajs.dev/core';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 @QueryHandler(SearchEnginePaginateCollectionsQuery)
-export class SearchEnginePaginateCollectionsQueryHandler implements IQueryHandler<SearchEnginePaginateCollectionsQuery>
+export class SearchEnginePaginateCollectionsQueryHandler
+  implements IQueryHandler<SearchEnginePaginateCollectionsQuery>
 {
-    constructor(
-        private readonly paginateCollectionsService: SearchEnginePaginateCollectionsService,
-    ) {}
+  constructor(
+    private readonly paginateCollectionsService: SearchEnginePaginateCollectionsService,
+  ) {}
 
-    async execute(query: SearchEnginePaginateCollectionsQuery): Promise<PaginationResponse>
-    {
-        const { total, count, rows } = await this.paginateCollectionsService.main(
-            query.queryStatement,
-            query.constraint,
-            query.cQMetadata,
-        );
+  async execute(
+    query: SearchEnginePaginateCollectionsQuery,
+  ): Promise<PaginationResponse> {
+    const { total, count, rows } = await this.paginateCollectionsService.main(
+      query.queryStatement,
+      query.constraint,
+      query.cQMetadata,
+    );
 
-        return new PaginationResponse(
-            total,
-            count,
-            rows.map(item => item.toDTO()),
-        );
-    }
+    return new PaginationResponse(
+      total,
+      count,
+      rows.map((item) => item.toDTO()),
+    );
+  }
 }

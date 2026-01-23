@@ -6,23 +6,15 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 @Resolver()
 @Auth('searchEngine.field.delete')
-export class SearchEngineDeleteFieldByIdResolver
-{
-    constructor(
-        private readonly handler: SearchEngineDeleteFieldByIdHandler,
-    ) {}
+export class SearchEngineDeleteFieldByIdResolver {
+  constructor(private readonly handler: SearchEngineDeleteFieldByIdHandler) {}
 
-    @Mutation('searchEngineDeleteFieldById')
-    async main(
-        @Args('id') id: string,
-        @Args('constraint') constraint?: QueryStatement,
-        @Timezone() timezone?: string,
-    ): Promise<SearchEngineField>
-    {
-        return await this.handler.main(
-            id,
-            constraint,
-            timezone,
-        );
-    }
+  @Mutation('searchEngineDeleteFieldById')
+  async main(
+    @Args('id') id: string,
+    @Args('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ): Promise<SearchEngineField> {
+    return await this.handler.main(id, constraint, timezone);
+  }
 }

@@ -1,16 +1,29 @@
-import { DataValueObject, UuidValueObject, ValidationRules } from '@aurorajs.dev/core';
+import {
+  DataValueObject,
+  UuidValueObject,
+  ValidationRules,
+} from '@aurorajs.dev/core';
 
-export class SearchEngineCollectionId extends UuidValueObject
-{
-    public readonly type: string = 'SearchEngineCollectionId';
+export class SearchEngineCollectionId extends UuidValueObject {
+  public readonly type: string = 'SearchEngineCollectionId';
 
-    constructor(value: string, validationRules: ValidationRules = {}, data: DataValueObject = {})
-    {
-        super(value, Object.assign({
-            name       : 'SearchEngineCollectionId',
-            nullable   : false,
-            undefinable: false,
-            length     : 36,
-        }, validationRules), data);
-    }
+  constructor(
+    value: string,
+    validationRules: ValidationRules = {},
+    data: DataValueObject = {},
+  ) {
+    super(
+      value,
+      Object.assign(
+        {
+          name: 'SearchEngineCollectionId',
+          nullable: false,
+          undefinable: false,
+          length: 36,
+        },
+        validationRules,
+      ),
+      data,
+    );
+  }
 }

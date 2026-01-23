@@ -7,9 +7,9 @@ import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 
 @EventsHandler(IamDeletedPermissionsRolesEvent)
 export class IamDeletedPermissionsRolesEventHandler
-    implements IEventHandler<IamDeletedPermissionsRolesEvent>
+  implements IEventHandler<IamDeletedPermissionsRolesEvent>
 {
-    handle(event: IamDeletedPermissionsRolesEvent): void {
-        // 'DeletedPermissionsRolesEvent'
-    }
+  handle(event: IamDeletedPermissionsRolesEvent): void {
+    // 'DeletedPermissionsRolesEvent'
+  }
 }
