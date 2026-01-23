@@ -61,7 +61,7 @@ aggregateProperties:
     index: index
     indexUsing: GIN
     nullable: false
-    defaultValue: ["OTHER"]
+    defaultValue: [OTHER]
     description: >
       Classification of the business partner relationship. CUSTOMER: Buys products/services.
       SUPPLIER: Provides goods to the company. VENDOR: Provides services to the company.
