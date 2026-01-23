@@ -224,20 +224,50 @@ if (existingNorm === sheetNorm && existing.description) {
 
 ### 5. Array Format in YAML
 
-**Rule**: Certain arrays must use inline format `[A, B, C]` instead of multiline.
+**Rule**: Certain arrays use inline format `[A, B, C]` for compactness.
 
 **Implementation** (`convertArraysToInlineFormat()`):
 ```typescript
-const inlineArrayKeys = [
-  'enumOptions',
-  'decimals',
-  'excludedOperations',
-  'excludedFiles',
-  'defaultValue',  // When it's an array
-];
+// Inline format (compact)
+const inlineArrayKeys = ['enumOptions', 'decimals', 'defaultValue'];
+
+// Multi-line format (readability): excludedOperations, excludedFiles
 ```
 
-### 6. Description YAML Style
+### 6. Nullable Default Value
+
+**Rule**: If `nullable` is not checked (✓) in spreadsheet, it defaults to `false`.
+
+**Implementation** (`sheetRowToProperty()`):
+```typescript
+if (parseBooleanValue(row.nullable)) {
+  property.nullable = true;
+} else {
+  property.nullable = false;  // Always set, never undefined
+}
+```
+
+### 7. DefaultValue for Array Types
+
+**Rule**: When property `type` is `array`, `defaultValue` is wrapped in an array.
+
+**Implementation** (`sheetRowToProperty()`):
+```typescript
+if (row.type === 'array' && !Array.isArray(parsedDefault)) {
+  property.defaultValue = [parsedDefault];  // "OTHER" → ["OTHER"]
+}
+```
+
+### 8. Description Format Preservation
+
+**Rule**: Preserve multi-line description format even when field is renamed.
+
+**Implementation** (`restoreOriginalDescriptions()`):
+- First tries to match by property name
+- If no match, tries to match by normalized description content
+- Preserves original `>` or `|` style formatting
+
+### 9. Description YAML Style
 
 **Rule**: Use folded style `>` (not `>-`) for descriptions.
 

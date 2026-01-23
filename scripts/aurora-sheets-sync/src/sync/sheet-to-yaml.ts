@@ -297,13 +297,8 @@ async function readModuleSheet(
  */
 function convertArraysToInlineFormat(yamlContent: string): string {
   // Keys that should have inline array format
-  const inlineArrayKeys = [
-    'enumOptions',
-    'decimals',
-    'excludedOperations',
-    'excludedFiles',
-    'defaultValue',
-  ];
+  // Note: excludedOperations and excludedFiles are kept multi-line for readability
+  const inlineArrayKeys = ['enumOptions', 'decimals', 'defaultValue'];
 
   const lines = yamlContent.split('\n');
   const result: string[] = [];

@@ -67,12 +67,20 @@ Fields in YAML without spreadsheet columns are preserved on pull:
 
 ### 6. Array Format in YAML
 
-These arrays use inline format `[A, B, C]`:
+**Inline format** `[A, B, C]`:
 - `enumOptions`
 - `decimals`
+- `defaultValue` (when array)
+
+**Multi-line format** (for readability):
 - `excludedOperations`
 - `excludedFiles`
-- `defaultValue` (when array)
+
+### 7. Nullable and DefaultValue Rules
+
+- **nullable**: If not checked (✓), defaults to `false` (never undefined)
+- **defaultValue**: Wrapped in array `[value]` when `type=array`
+- **description**: Format preserved even when field is renamed (matched by content)
 
 ---
 
