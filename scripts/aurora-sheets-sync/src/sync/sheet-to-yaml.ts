@@ -97,10 +97,11 @@ export async function pullBoundedContext(
         // Try to read existing YAML to preserve metadata and fields not in spreadsheet
         const existingFilePath = path.join(bcPath, `${sheetName}.aurora.yaml`);
         let existingSchema: AuroraSchema | undefined;
+        let existingYamlContent: string | undefined;
 
         if (await fs.pathExists(existingFilePath)) {
-          const existingContent = await fs.readFile(existingFilePath, 'utf-8');
-          existingSchema = yaml.load(existingContent) as AuroraSchema;
+          existingYamlContent = await fs.readFile(existingFilePath, 'utf-8');
+          existingSchema = yaml.load(existingYamlContent) as AuroraSchema;
         }
 
         const schema = await readModuleSheet(
@@ -121,13 +122,47 @@ export async function pullBoundedContext(
         // Ensure descriptions end with newline for proper YAML folded style (> instead of >-)
         normalizeDescriptions(schema);
 
-        const yamlContent = yaml.dump(schema, {
+        // Use large lineWidth to avoid re-wrapping existing descriptions
+        // New descriptions will have their original wrapping from the spreadsheet
+        let yamlContent = yaml.dump(schema, {
           indent: 2,
-          lineWidth: 120,
+          lineWidth: 500,
           noRefs: true,
           sortKeys: false,
           quotingType: '"',
         });
+
+        // Convert multiline arrays to inline format for specific keys (enumOptions, decimals, excludedOperations, etc.)
+        yamlContent = convertArraysToInlineFormat(yamlContent);
+
+        // Restore original descriptions from existing YAML if content matches
+        if (existingYamlContent && existingSchema) {
+          yamlContent = restoreOriginalDescriptions(
+            yamlContent,
+            existingYamlContent,
+            schema,
+            existingSchema,
+          );
+        }
+
+        // Ensure file ends with newline
+        if (!yamlContent.endsWith('\n')) {
+          yamlContent += '\n';
+        }
+
+        // Check if content actually changed (ignore formatting differences)
+        if (existingYamlContent) {
+          const existingNormalized =
+            normalizeYamlForComparison(existingYamlContent);
+          const newNormalized = normalizeYamlForComparison(yamlContent);
+
+          if (existingNormalized === newNormalized) {
+            // No content changes, skip writing to preserve original formatting
+            result.modulesProcessed++;
+            result.messages.push(`✓ Pulled: ${sheetName} (no changes)`);
+            continue;
+          }
+        }
 
         await fs.writeFile(filePath, yamlContent, 'utf-8');
         result.modulesProcessed++;
@@ -239,10 +274,83 @@ async function readModuleSheet(
         aggregateProperties: properties,
       };
 
+  // Preserve exact description format from existing schema if content is same
+  if (existingSchema?.description && schema.description) {
+    const existingNorm = normalizeText(existingSchema.description);
+    const currentNorm = normalizeText(schema.description);
+    if (existingNorm === currentNorm) {
+      schema.description = existingSchema.description;
+    }
+  }
+
   // Merge pivot data back into relationships
   mergePivotsIntoProperties(schema.aggregateProperties, pivots);
 
   return schema;
+}
+
+/**
+ * Convert multiline arrays to inline format for specific keys
+ * This matches the original YAML format used in Aurora schemas
+ */
+function convertArraysToInlineFormat(yamlContent: string): string {
+  // Keys that should have inline array format
+  const inlineArrayKeys = [
+    'enumOptions',
+    'decimals',
+    'excludedOperations',
+    'excludedFiles',
+    'defaultValue',
+  ];
+
+  const lines = yamlContent.split('\n');
+  const result: string[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Check if this line is a key that should have inline array
+    let foundKey = false;
+    for (const key of inlineArrayKeys) {
+      if (trimmed === `${key}:` || trimmed.startsWith(`${key}: `)) {
+        // Check if next line starts an array
+        if (i + 1 < lines.length && lines[i + 1].trim().startsWith('- ')) {
+          // Collect array items
+          const indent = line.indexOf(key);
+          const items: string[] = [];
+          let j = i + 1;
+
+          while (j < lines.length) {
+            const arrayLine = lines[j];
+            const arrayTrimmed = arrayLine.trim();
+            if (arrayTrimmed.startsWith('- ')) {
+              items.push(arrayTrimmed.substring(2).trim());
+              j++;
+            } else if (arrayTrimmed === '') {
+              j++;
+            } else {
+              break;
+            }
+          }
+
+          // Write inline array
+          result.push(`${' '.repeat(indent)}${key}: [${items.join(', ')}]`);
+          i = j;
+          foundKey = true;
+          break;
+        }
+      }
+    }
+
+    if (!foundKey) {
+      result.push(line);
+      i++;
+    }
+  }
+
+  return result.join('\n');
 }
 
 /**
@@ -261,6 +369,198 @@ function normalizeDescriptions(schema: AuroraSchema): void {
       prop.description = prop.description + '\n';
     }
   }
+}
+
+/**
+ * Restore original description blocks from existing YAML if content matches
+ * This bypasses yaml.dump's reformatting for descriptions that haven't changed
+ */
+function restoreOriginalDescriptions(
+  newYaml: string,
+  existingYaml: string,
+  newSchema: AuroraSchema,
+  existingSchema: AuroraSchema,
+): string {
+  let result = newYaml;
+
+  // Build map of property descriptions from existing YAML
+  const existingDescriptions = extractDescriptionBlocks(existingYaml);
+
+  // Restore module-level description if content matches
+  if (newSchema.description && existingSchema.description) {
+    const newNorm = normalizeText(newSchema.description);
+    const existNorm = normalizeText(existingSchema.description);
+
+    if (newNorm === existNorm && existingDescriptions.has('__module__')) {
+      const newBlock = extractModuleDescriptionBlock(result);
+      const existBlock = existingDescriptions.get('__module__');
+      if (newBlock && existBlock) {
+        result = result.replace(newBlock, existBlock);
+      }
+    }
+  }
+
+  // Restore property descriptions if content matches
+  for (const prop of newSchema.aggregateProperties || []) {
+    if (!prop.description) continue;
+
+    const existingProp = existingSchema.aggregateProperties?.find(
+      (p) => p.name === prop.name,
+    );
+    if (!existingProp?.description) continue;
+
+    const newNorm = normalizeText(prop.description);
+    const existNorm = normalizeText(existingProp.description);
+
+    if (newNorm === existNorm && existingDescriptions.has(prop.name)) {
+      const newBlock = extractPropertyDescriptionBlock(result, prop.name);
+      const existBlock = existingDescriptions.get(prop.name);
+      if (newBlock && existBlock) {
+        result = result.replace(newBlock, existBlock);
+      }
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Extract all description blocks from YAML content
+ * Returns map of property name (or '__module__' for module description) to description block
+ */
+function extractDescriptionBlocks(yamlContent: string): Map<string, string> {
+  const blocks = new Map<string, string>();
+  const lines = yamlContent.split('\n');
+
+  // Find module-level description
+  const moduleBlock = extractModuleDescriptionBlock(yamlContent);
+  if (moduleBlock) {
+    blocks.set('__module__', moduleBlock);
+  }
+
+  // Find property descriptions
+  let currentPropName: string | null = null;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // Detect property name (format: "  - name: propName")
+    const propMatch = line.match(/^\s{2}- name:\s*(.+)$/);
+    if (propMatch) {
+      currentPropName = propMatch[1].trim();
+      continue;
+    }
+
+    // Detect description start for current property (format: "    description: >")
+    if (currentPropName && line.match(/^\s{4}description:\s*[>|][-+]?\s*$/)) {
+      // Collect the full description block
+      let block = line + '\n';
+      let j = i + 1;
+
+      // Description content has 6 spaces indentation
+      while (j < lines.length) {
+        const contentLine = lines[j];
+        // Check if still part of description (6+ spaces or empty line within description)
+        if (contentLine.match(/^\s{6}/) || contentLine.trim() === '') {
+          block += contentLine + '\n';
+          j++;
+        } else {
+          break;
+        }
+      }
+
+      // Remove trailing empty lines but keep the last newline
+      block = block.replace(/\n+$/, '\n');
+      blocks.set(currentPropName, block);
+    }
+  }
+
+  return blocks;
+}
+
+/**
+ * Extract module-level description block from YAML
+ */
+function extractModuleDescriptionBlock(yamlContent: string): string | null {
+  const lines = yamlContent.split('\n');
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // Module description is at root level: "description: >"
+    if (line.match(/^description:\s*[>|][-+]?\s*$/)) {
+      let block = line + '\n';
+      let j = i + 1;
+
+      // Module description content has 2 spaces indentation
+      while (j < lines.length) {
+        const contentLine = lines[j];
+        if (contentLine.match(/^\s{2}\S/) && !contentLine.match(/^\s{2}-/)) {
+          // Part of the description (2 spaces + content, not a list item)
+          block += contentLine + '\n';
+          j++;
+        } else if (contentLine.trim() === '') {
+          // Empty line might be part of description
+          j++;
+        } else {
+          break;
+        }
+      }
+
+      block = block.replace(/\n+$/, '\n');
+      return block;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Extract a specific property's description block from YAML
+ */
+function extractPropertyDescriptionBlock(
+  yamlContent: string,
+  propName: string,
+): string | null {
+  const lines = yamlContent.split('\n');
+  let foundProp = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // Find the property
+    const propMatch = line.match(/^\s{2}- name:\s*(.+)$/);
+    if (propMatch && propMatch[1].trim() === propName) {
+      foundProp = true;
+      continue;
+    }
+
+    // If we found the property and now see another property, stop
+    if (foundProp && line.match(/^\s{2}- name:/)) {
+      return null;
+    }
+
+    // Find description within the property
+    if (foundProp && line.match(/^\s{4}description:\s*[>|][-+]?\s*$/)) {
+      let block = line + '\n';
+      let j = i + 1;
+
+      while (j < lines.length) {
+        const contentLine = lines[j];
+        if (contentLine.match(/^\s{6}/) || contentLine.trim() === '') {
+          block += contentLine + '\n';
+          j++;
+        } else {
+          break;
+        }
+      }
+
+      block = block.replace(/\n+$/, '\n');
+      return block;
+    }
+  }
+
+  return null;
 }
 
 /**
@@ -311,8 +611,60 @@ const HEADER_TO_PROPERTY_FIELD: Record<string, keyof AuroraProperty> = {
 };
 
 /**
+ * Normalize text for comparison (remove extra whitespace, newlines)
+ */
+function normalizeText(text: string | undefined): string {
+  if (!text) return '';
+  return text.replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Normalize YAML content for comparison
+ * Parses the YAML and re-dumps with consistent formatting to compare content
+ */
+function normalizeYamlForComparison(content: string): string {
+  try {
+    const parsed = yaml.load(content);
+    // Dump with consistent, minimal formatting for comparison
+    return yaml.dump(parsed, {
+      indent: 2,
+      lineWidth: -1, // No line wrapping
+      noRefs: true,
+      sortKeys: true, // Sort keys for consistent comparison
+    });
+  } catch {
+    return content;
+  }
+}
+
+/**
+ * Compare two defaultValue values for equivalence
+ * Handles different representations: array vs string, boolean vs string, etc.
+ */
+function areDefaultValuesEquivalent(
+  existing: unknown,
+  fromSheet: unknown,
+): boolean {
+  // Normalize both values to comparable format
+  const normalizeValue = (val: unknown): string => {
+    if (val === undefined || val === null) return '';
+    if (Array.isArray(val)) {
+      // Array like ["OTHER"] -> "OTHER" for comparison
+      return val.map(String).join(',').toUpperCase();
+    }
+    if (typeof val === 'boolean') {
+      return val ? 'TRUE' : 'FALSE';
+    }
+    return String(val).toUpperCase().trim();
+  };
+
+  return normalizeValue(existing) === normalizeValue(fromSheet);
+}
+
+/**
  * Merge existing property with sheet property
  * Preserves fields from existing that don't have a corresponding column in the sheet
+ * Preserves exact description format if content is the same
  */
 function mergeProperties(
   existing: AuroraProperty,
@@ -345,25 +697,71 @@ function mergeProperties(
         delete merged.arrayOptions;
       }
     } else if (field === 'relationship') {
-      // Special handling for relationship - merge if both exist
+      // Special handling for relationship - deep merge to preserve fields not in spreadsheet
       if (fromSheet.relationship) {
-        merged.relationship = fromSheet.relationship;
+        if (existing.relationship) {
+          // Merge: keep existing fields, override with sheet fields that have values
+          merged.relationship = {
+            ...existing.relationship,
+            ...Object.fromEntries(
+              Object.entries(fromSheet.relationship).filter(
+                ([, v]) => v !== undefined && v !== null && v !== '',
+              ),
+            ),
+          };
+        } else {
+          merged.relationship = fromSheet.relationship;
+        }
       } else if (
         headers.includes('relationship') ||
         headers.includes('rel.type')
       ) {
-        // Sheet has relationship columns but no relationship data - remove from merged
-        delete merged.relationship;
+        // Sheet has relationship columns but no relationship data - keep existing if any
+        // Only remove if existing didn't have relationship either
+        if (!existing.relationship) {
+          delete merged.relationship;
+        }
       }
+    } else if (field === 'description') {
+      // Special handling for description - preserve exact format if content is same
+      const existingNorm = normalizeText(existing.description);
+      const sheetNorm = normalizeText(fromSheet.description);
+      if (existingNorm === sheetNorm && existing.description) {
+        // Content is the same, keep original formatting
+        merged.description = existing.description;
+      } else if (fromSheet.description) {
+        // Content changed, use new description
+        merged.description = fromSheet.description;
+      }
+    } else if (field === 'defaultValue') {
+      // Special handling for defaultValue - preserve original format if content is equivalent
+      if (
+        existing.defaultValue !== undefined &&
+        fromSheet.defaultValue !== undefined
+      ) {
+        if (
+          areDefaultValuesEquivalent(
+            existing.defaultValue,
+            fromSheet.defaultValue,
+          )
+        ) {
+          // Content is equivalent, keep original format (array, boolean, string, etc.)
+          merged.defaultValue = existing.defaultValue;
+        } else {
+          // Content changed, use new value
+          merged.defaultValue = fromSheet.defaultValue;
+        }
+      } else if (fromSheet.defaultValue !== undefined) {
+        merged.defaultValue = fromSheet.defaultValue;
+      }
+      // If sheet value is undefined/empty, preserve existing value
     } else {
-      // For simple fields, take the sheet value (even if undefined)
+      // For simple fields, take the sheet value if it has a value
       const sheetValue = fromSheet[field];
       if (sheetValue !== undefined) {
         (merged as unknown as Record<string, unknown>)[field] = sheetValue;
-      } else {
-        // If sheet has the column but value is empty/undefined, remove from merged
-        delete (merged as unknown as Record<string, unknown>)[field];
       }
+      // If sheet value is undefined/empty, preserve existing value (don't delete)
     }
   }
 
