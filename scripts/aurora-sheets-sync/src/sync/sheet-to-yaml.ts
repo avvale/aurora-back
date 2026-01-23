@@ -14,7 +14,6 @@ import {
   AuroraPivot,
   AuroraProperty,
   AuroraSchema,
-  parseBooleanValue,
   SheetPropertyRow,
 } from '../types';
 
@@ -95,10 +94,20 @@ export async function pullBoundedContext(
       const sheetName = sheet.properties!.title!;
 
       try {
+        // Try to read existing YAML to preserve metadata and fields not in spreadsheet
+        const existingFilePath = path.join(bcPath, `${sheetName}.aurora.yaml`);
+        let existingSchema: AuroraSchema | undefined;
+
+        if (await fs.pathExists(existingFilePath)) {
+          const existingContent = await fs.readFile(existingFilePath, 'utf-8');
+          existingSchema = yaml.load(existingContent) as AuroraSchema;
+        }
+
         const schema = await readModuleSheet(
           sheetsApi,
           bcConfig.spreadsheetId,
           sheetName,
+          existingSchema,
         );
 
         if (!schema) {
@@ -108,6 +117,10 @@ export async function pullBoundedContext(
 
         // Write YAML file
         const filePath = path.join(bcPath, `${sheetName}.aurora.yaml`);
+
+        // Ensure descriptions end with newline for proper YAML folded style (> instead of >-)
+        normalizeDescriptions(schema);
+
         const yamlContent = yaml.dump(schema, {
           indent: 2,
           lineWidth: 120,
@@ -137,11 +150,14 @@ export async function pullBoundedContext(
 
 /**
  * Read a single module sheet and convert to AuroraSchema
+ * New structure: Row 1 = headers, Row 2+ = properties
+ * Metadata comes from existing YAML file
  */
 async function readModuleSheet(
   api: sheets_v4.Sheets,
   spreadsheetId: string,
   sheetName: string,
+  existingSchema?: AuroraSchema,
 ): Promise<AuroraSchema | null> {
   // Read all data from the sheet
   const response = await api.spreadsheets.values.get({
@@ -150,126 +166,36 @@ async function readModuleSheet(
   });
 
   const rows = response.data.values || [];
-  if (rows.length < 13) return null; // Not enough rows for metadata + header
+  if (rows.length < 2) return null; // Need at least headers + 1 property
 
-  // Parse metadata (rows 1-11)
-  const metadata = parseMetadata(rows.slice(0, 11));
+  // Row 0 = headers, Row 1+ = properties
+  const headers = rows[0] as (keyof SheetPropertyRow)[];
 
-  // Find properties section
-  const propertiesHeaderIdx = rows.findIndex(
-    (row, idx) => idx > 10 && row[0] === 'name' && row[1] === 'type',
-  );
-
-  if (propertiesHeaderIdx === -1) return null;
-
-  // Parse properties
-  const { properties, pivots } = parsePropertiesSection(
-    rows.slice(propertiesHeaderIdx),
-  );
-
-  // Build schema
-  const schema: AuroraSchema = {
-    version: metadata.version || '0.0.1',
-    boundedContextName: metadata.boundedContextName,
-    moduleName: metadata.moduleName || sheetName,
-    moduleNames: metadata.moduleNames,
-    aggregateName: metadata.aggregateName,
-    hasOAuth: parseBooleanValue(metadata.hasOAuth),
-    hasTenant: parseBooleanValue(metadata.hasTenant),
-    hasAuditing: parseBooleanValue(metadata.hasAuditing),
-    description: metadata.description,
-    aggregateProperties: properties,
-  };
-
-  // Add front icons if present
-  if (metadata.solidIcon || metadata.outlineIcon) {
-    schema.front = {
-      solidIcon: metadata.solidIcon || undefined,
-      outlineIcon: metadata.outlineIcon || undefined,
-    };
+  // Validate headers
+  if (!headers.includes('name') || !headers.includes('type')) {
+    return null;
   }
 
-  // Merge pivot data back into relationships
-  mergePivotsIntoProperties(schema.aggregateProperties, pivots);
-
-  return schema;
-}
-
-/**
- * Parse metadata from the first rows
- */
-function parseMetadata(rows: string[][]): Record<string, string> {
-  const metadata: Record<string, string> = {};
-
-  const labelMap: Record<string, string> = {
-    'Module Name': 'moduleName',
-    'Module Names (plural)': 'moduleNames',
-    'Aggregate Name': 'aggregateName',
-    'Bounded Context': 'boundedContextName',
-    Version: 'version',
-    'Has OAuth': 'hasOAuth',
-    'Has Tenant': 'hasTenant',
-    'Has Auditing': 'hasAuditing',
-    Description: 'description',
-    'Solid Icon': 'solidIcon',
-    'Outline Icon': 'outlineIcon',
-  };
-
-  for (const row of rows) {
-    const label = row[0]?.trim();
-    const value = row[1]?.trim();
-
-    if (label && labelMap[label]) {
-      metadata[labelMap[label]] = value || '';
-    }
-  }
-
-  return metadata;
-}
-
-/**
- * Parse properties section including pivots
- */
-function parsePropertiesSection(rows: string[][]): {
-  properties: AuroraProperty[];
-  pivots: Map<string, AuroraPivot>;
-} {
+  // Parse properties from row 1 onwards
   const properties: AuroraProperty[] = [];
   const pivots = new Map<string, AuroraPivot>();
 
-  if (rows.length < 2) return { properties, pivots };
-
-  const headers = rows[0] as (keyof SheetPropertyRow)[];
-  let i = 1;
-
-  // Parse main properties until we hit a pivot separator or end
-  while (i < rows.length) {
+  for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
 
+    // Skip empty rows
+    if (!row[0]?.trim()) continue;
+
+    // Check for pivot separator
     if (isPivotSeparator(row)) {
-      // Parse pivot section
       const pivotName = extractPivotNameFromSeparator(row);
       if (pivotName) {
         const { pivot, endIdx } = parsePivotSection(rows, i);
         if (pivot) {
           pivots.set(pivotName, pivot);
         }
-        i = endIdx;
-      } else {
-        i++;
+        i = endIdx - 1; // -1 because loop will increment
       }
-      continue;
-    }
-
-    // Skip empty rows
-    if (!row[0]?.trim()) {
-      i++;
-      continue;
-    }
-
-    // Skip section headers like "Properties"
-    if (row[0] === 'Properties' || row[0] === 'name') {
-      i++;
       continue;
     }
 
@@ -278,11 +204,170 @@ function parsePropertiesSection(rows: string[][]): {
     for (let j = 0; j < headers.length; j++) {
       propObj[headers[j]] = row[j] || '';
     }
-    properties.push(sheetRowToProperty(propObj as unknown as SheetPropertyRow));
-    i++;
+    const sheetProperty = sheetRowToProperty(
+      propObj as unknown as SheetPropertyRow,
+    );
+
+    // Merge with existing property to preserve fields not in spreadsheet
+    if (existingSchema) {
+      const existingProp = existingSchema.aggregateProperties?.find(
+        (p) => p.name === sheetProperty.name,
+      );
+      if (existingProp) {
+        // Preserve fields from existing that aren't handled by spreadsheet
+        properties.push(mergeProperties(existingProp, sheetProperty, headers));
+      } else {
+        properties.push(sheetProperty);
+      }
+    } else {
+      properties.push(sheetProperty);
+    }
   }
 
-  return { properties, pivots };
+  // Build schema using existing metadata or defaults
+  const schema: AuroraSchema = existingSchema
+    ? {
+        ...existingSchema,
+        aggregateProperties: properties,
+      }
+    : {
+        version: '0.0.1',
+        boundedContextName: '',
+        moduleName: sheetName,
+        moduleNames: sheetName + 's',
+        aggregateName: toPascalCase(sheetName),
+        aggregateProperties: properties,
+      };
+
+  // Merge pivot data back into relationships
+  mergePivotsIntoProperties(schema.aggregateProperties, pivots);
+
+  return schema;
+}
+
+/**
+ * Normalize descriptions in schema to ensure proper YAML folded style
+ * Adds trailing newline so yaml.dump uses '>' instead of '>-'
+ */
+function normalizeDescriptions(schema: AuroraSchema): void {
+  // Normalize module description
+  if (schema.description && !schema.description.endsWith('\n')) {
+    schema.description = schema.description + '\n';
+  }
+
+  // Normalize property descriptions
+  for (const prop of schema.aggregateProperties || []) {
+    if (prop.description && !prop.description.endsWith('\n')) {
+      prop.description = prop.description + '\n';
+    }
+  }
+}
+
+/**
+ * Convert kebab-case to PascalCase
+ */
+function toPascalCase(str: string): string {
+  return str
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
+/**
+ * Map of spreadsheet headers to AuroraProperty field names
+ * Used to determine which fields should be overwritten from spreadsheet
+ */
+const HEADER_TO_PROPERTY_FIELD: Record<string, keyof AuroraProperty> = {
+  name: 'name',
+  type: 'type',
+  primaryKey: 'primaryKey',
+  nullable: 'nullable',
+  index: 'index',
+  indexUsing: 'indexUsing',
+  maxLength: 'maxLength',
+  decimals: 'decimals',
+  defaultValue: 'defaultValue',
+  enumOptions: 'enumOptions',
+  autoIncrement: 'autoIncrement',
+  isI18n: 'isI18n',
+  example: 'example',
+  description: 'description',
+  // Array options handled separately
+  subtype: 'arrayOptions',
+  values: 'enumOptions', // or arrayOptions.enumOptions or decimals
+  'arrayOptions.type': 'arrayOptions',
+  'arrayOptions.maxLength': 'arrayOptions',
+  'arrayOptions.enumOptions': 'arrayOptions',
+  // Relationship handled separately
+  relationship: 'relationship',
+  master: 'relationship',
+  'rel.type': 'relationship',
+  'rel.singularName': 'relationship',
+  'rel.aggregateName': 'relationship',
+  'rel.modulePath': 'relationship',
+  'rel.key': 'relationship',
+  'rel.field': 'relationship',
+  'rel.avoidConstraint': 'relationship',
+};
+
+/**
+ * Merge existing property with sheet property
+ * Preserves fields from existing that don't have a corresponding column in the sheet
+ */
+function mergeProperties(
+  existing: AuroraProperty,
+  fromSheet: AuroraProperty,
+  headers: string[],
+): AuroraProperty {
+  // Start with existing property
+  const merged: AuroraProperty = { ...existing };
+
+  // Determine which top-level fields are controlled by the spreadsheet
+  const sheetControlledFields = new Set<keyof AuroraProperty>();
+  for (const header of headers) {
+    const field = HEADER_TO_PROPERTY_FIELD[header];
+    if (field) {
+      sheetControlledFields.add(field);
+    }
+  }
+
+  // Override fields that are controlled by the spreadsheet
+  for (const field of sheetControlledFields) {
+    if (field === 'arrayOptions') {
+      // Special handling for arrayOptions - merge if both exist
+      if (fromSheet.arrayOptions) {
+        merged.arrayOptions = fromSheet.arrayOptions;
+      } else if (
+        headers.includes('subtype') ||
+        headers.includes('arrayOptions.type')
+      ) {
+        // Sheet has array columns but no array data - remove from merged
+        delete merged.arrayOptions;
+      }
+    } else if (field === 'relationship') {
+      // Special handling for relationship - merge if both exist
+      if (fromSheet.relationship) {
+        merged.relationship = fromSheet.relationship;
+      } else if (
+        headers.includes('relationship') ||
+        headers.includes('rel.type')
+      ) {
+        // Sheet has relationship columns but no relationship data - remove from merged
+        delete merged.relationship;
+      }
+    } else {
+      // For simple fields, take the sheet value (even if undefined)
+      const sheetValue = fromSheet[field];
+      if (sheetValue !== undefined) {
+        (merged as unknown as Record<string, unknown>)[field] = sheetValue;
+      } else {
+        // If sheet has the column but value is empty/undefined, remove from merged
+        delete (merged as unknown as Record<string, unknown>)[field];
+      }
+    }
+  }
+
+  return merged;
 }
 
 /**
