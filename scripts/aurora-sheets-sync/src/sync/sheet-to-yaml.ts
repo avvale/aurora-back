@@ -418,18 +418,29 @@ function restoreOriginalDescriptions(
   for (const prop of newSchema.aggregateProperties || []) {
     if (!prop.description) continue;
 
-    const existingProp = existingSchema.aggregateProperties?.find(
+    const newNorm = normalizeText(prop.description);
+
+    // First try to match by property name
+    let existingProp = existingSchema.aggregateProperties?.find(
       (p) => p.name === prop.name,
     );
+
+    // If no match by name, try to find by normalized description content
+    if (!existingProp?.description) {
+      existingProp = existingSchema.aggregateProperties?.find(
+        (p) => p.description && normalizeText(p.description) === newNorm,
+      );
+    }
+
     if (!existingProp?.description) continue;
 
-    const newNorm = normalizeText(prop.description);
     const existNorm = normalizeText(existingProp.description);
 
-    if (newNorm === existNorm && existingDescriptions.has(prop.name)) {
+    if (newNorm === existNorm && existingDescriptions.has(existingProp.name)) {
       const newBlock = extractPropertyDescriptionBlock(result, prop.name);
-      const existBlock = existingDescriptions.get(prop.name);
+      const existBlock = existingDescriptions.get(existingProp.name);
       if (newBlock && existBlock) {
+        // Adjust the existing block to use the new property name's indentation
         result = result.replace(newBlock, existBlock);
       }
     }
