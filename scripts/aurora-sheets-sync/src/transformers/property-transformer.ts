@@ -301,6 +301,10 @@ function parseExample(value: string): unknown {
 
 function cleanDescription(desc?: string): string {
   if (!desc) return '';
-  // Remove leading/trailing whitespace and normalize line breaks
-  return desc.trim().replace(/\s+/g, ' ');
+  // Preserve line breaks but normalize multiple spaces and trim each line
+  return desc
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n')
+    .trim();
 }

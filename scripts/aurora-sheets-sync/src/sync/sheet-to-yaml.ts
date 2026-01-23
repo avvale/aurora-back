@@ -239,6 +239,7 @@ async function readModuleSheet(
     for (let j = 0; j < headers.length; j++) {
       propObj[headers[j]] = row[j] || '';
     }
+
     const sheetProperty = sheetRowToProperty(
       propObj as unknown as SheetPropertyRow,
     );
@@ -250,7 +251,8 @@ async function readModuleSheet(
       );
       if (existingProp) {
         // Preserve fields from existing that aren't handled by spreadsheet
-        properties.push(mergeProperties(existingProp, sheetProperty, headers));
+        const merged = mergeProperties(existingProp, sheetProperty, headers);
+        properties.push(merged);
       } else {
         properties.push(sheetProperty);
       }
@@ -317,26 +319,38 @@ function convertArraysToInlineFormat(yamlContent: string): string {
       if (trimmed === `${key}:` || trimmed.startsWith(`${key}: `)) {
         // Check if next line starts an array
         if (i + 1 < lines.length && lines[i + 1].trim().startsWith('- ')) {
-          // Collect array items
-          const indent = line.indexOf(key);
+          // Calculate the expected indentation for array items
+          // Key is at some indent, array items should be at indent + 2
+          const keyIndent = line.length - line.trimStart().length;
+          const expectedArrayItemIndent = keyIndent + 2;
+
+          // Collect array items only at the expected indentation level
           const items: string[] = [];
           let j = i + 1;
 
           while (j < lines.length) {
             const arrayLine = lines[j];
             const arrayTrimmed = arrayLine.trim();
-            if (arrayTrimmed.startsWith('- ')) {
+
+            // Check indentation of this line
+            const lineIndent = arrayLine.length - arrayLine.trimStart().length;
+
+            if (
+              arrayTrimmed.startsWith('- ') &&
+              lineIndent === expectedArrayItemIndent
+            ) {
               items.push(arrayTrimmed.substring(2).trim());
               j++;
             } else if (arrayTrimmed === '') {
               j++;
             } else {
+              // Different indentation or not an array item - stop
               break;
             }
           }
 
           // Write inline array
-          result.push(`${' '.repeat(indent)}${key}: [${items.join(', ')}]`);
+          result.push(`${' '.repeat(keyIndent)}${key}: [${items.join(', ')}]`);
           i = j;
           foundKey = true;
           break;
