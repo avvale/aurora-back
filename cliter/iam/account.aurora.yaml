@@ -24,7 +24,6 @@ aggregateProperties:
     nullable: false
     description: >
       Unique identifier for the account. Used as primary key across the system.
-
   - name: rowId
     type: bigint
     index: unique
@@ -34,12 +33,9 @@ aggregateProperties:
       Auto-incrementing sequential identifier for the account. Used for internal
       ordering and legacy system compatibility. Unlike the UUID 'id', this
       provides a human-readable sequential number.
-
   - name: type
     type: enum
-    enumOptions:
-      - USER
-      - SERVICE
+    enumOptions: [USER, SERVICE]
     nullable: false
     example: IamAccountType.USER
     description: >
@@ -48,7 +44,6 @@ aggregateProperties:
       person. SERVICE: Service account for API integrations and automated
       systems, typically without login UI access. Service accounts may have
       different permission scopes.
-
   - name: code
     type: varchar
     maxLength: 64
@@ -59,7 +54,6 @@ aggregateProperties:
       external system integrations or customer-facing account numbers. Must be
       unique across all accounts. Can be NULL for accounts that don't require
       external identification codes.
-
   - name: email
     type: varchar
     maxLength: 128
@@ -113,7 +107,6 @@ aggregateProperties:
     type: array
     arrayOptions:
       type: varchar
-      maxLength: 64
     nullable: true
     index: index
     indexUsing: GIN
@@ -127,7 +120,6 @@ aggregateProperties:
     type: array
     arrayOptions:
       type: varchar
-      maxLength: 64
     nullable: true
     description: >
       OAuth 2.0 scopes defining the access permissions for this account. Scopes
@@ -138,7 +130,6 @@ aggregateProperties:
     type: array
     arrayOptions:
       type: varchar
-      maxLength: 128
     nullable: false
     description: >
       Denormalized array of application codes that this account has access to.
