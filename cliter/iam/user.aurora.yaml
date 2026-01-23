@@ -122,16 +122,17 @@ aggregateProperties:
       Cannot be disabled without proper identity verification to prevent account takeover.
   - name: twoFactorAuthenticationSecret
     type: varchar
-    maxLength: 16
+    maxLength: 32
     nullable: true
     description: >
       Base32-encoded secret key for TOTP (Time-based One-Time Password) generation.
-      16 characters in Base32 alphabet (A-Z, 2-7) as per RFC 4648. NULL when 2FA is
-      disabled. Generated during 2FA setup and shared with user via QR code for
-      authenticator app (Google Authenticator, Authy, etc.). MUST be stored encrypted
-      at rest for security. Used by authentication service to validate TOTP codes
-      during login. Should NEVER be exposed in APIs or logs. If compromised, must be
-      regenerated through 2FA reset flow. Paired with isTwoFactorAuthenticationEnabled flag.
+      Up to 32 characters in Base32 alphabet (A-Z, 2-7) per RFC 4648 and RFC 6238.
+      Longer secrets (160+ bits) provide stronger security against brute-force attacks.
+      NULL when 2FA is disabled. Generated during 2FA setup and shared with user via
+      QR code for authenticator app (Google Authenticator, Authy, etc.). MUST be stored
+      encrypted at rest for security. Used by authentication service to validate TOTP
+      codes during login. Should NEVER be exposed in APIs or logs. If compromised,
+      must be regenerated through 2FA reset flow. Paired with isTwoFactorAuthenticationEnabled.
   - name: rememberToken
     type: varchar
     maxLength: 255

@@ -38,14 +38,15 @@ aggregateProperties:
   - name: name
     type: varchar
     maxLength: 64
+    index: unique
     nullable: false
     description: >
       The tag name or label (e.g., "VIP", "Beta-Tester", "EMEA-Region", "Finance-Department").
       Limited to 64 characters for consistency with account.tags array elements.
       Should be descriptive and follow organizational naming conventions.
       Case-sensitive for precise matching. Recommended format: PascalCase or kebab-case
-      for multi-word tags. Cannot be empty. While not enforced as unique in the schema,
-      duplicate tag names should be avoided for clarity and consistency.
+      for multi-word tags. Cannot be empty. Enforced as unique at database level to
+      prevent duplicate tags and ensure consistent referencing across accounts.
   - name: createdAt
     type: timestamp
     nullable: true
