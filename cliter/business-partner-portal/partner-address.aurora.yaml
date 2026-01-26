@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_partner_addr_bp_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalBusinessPartner
@@ -102,6 +103,7 @@ aggregateProperties:
     type: id
     nullable: true
     index: index
+    indexName: bpp_partner_addr_admin_area_lvl1_id
     relationship:
       type: many-to-one
       aggregateName: CommonAdministrativeAreaLevel1
@@ -117,6 +119,7 @@ aggregateProperties:
     type: id
     nullable: true
     index: index
+    indexName: bpp_partner_addr_admin_area_lvl2_id
     relationship:
       type: many-to-one
       aggregateName: CommonAdministrativeAreaLevel2
@@ -132,6 +135,7 @@ aggregateProperties:
     type: id
     nullable: true
     index: index
+    indexName: bpp_partner_addr_admin_area_lvl3_id
     relationship:
       type: many-to-one
       aggregateName: CommonAdministrativeAreaLevel3

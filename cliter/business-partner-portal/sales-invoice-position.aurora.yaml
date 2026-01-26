@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_sales_inv_pos_hdr_id
     relationship:
       type: many-to-one
       field: salesInvoiceHeader
@@ -56,6 +57,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: index
+    indexName: bpp_sales_inv_pos_prod_code
     description: |
       Product or service code/SKU for this position. Used for inventory tracking, product analytics, and integration with catalog systems. NULL indicates a custom item or one-time charge without a standard product code. When set, can be used to auto-populate description, price, and tax information from product catalog. Indexed for fast product-based queries and reporting.
   - name: quantity

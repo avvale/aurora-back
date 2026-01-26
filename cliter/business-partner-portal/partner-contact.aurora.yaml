@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_partner_contact_bp_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalBusinessPartner

@@ -223,7 +223,7 @@
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/infrastructure/mock/business-partner-portal-mock-payment-collection-mode.data.ts",
-            "integrity": "sha1:549d455a435f5490c760be422c345ea30d71a17e"
+            "integrity": "sha1:a7d9d943f74f4f82bb88ba82243dfcbca840e719"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/infrastructure/mock/business-partner-portal-mock-payment-collection-mode.repository.ts",
@@ -235,7 +235,7 @@
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/infrastructure/sequelize/business-partner-portal-sequelize-payment-collection-mode.model.ts",
-            "integrity": "sha1:f6071f10cea5e6abc901415a722bb1183bbceeee"
+            "integrity": "sha1:4ebc38fdc012c4474ec0ea578569cc55b450ab77"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/infrastructure/sequelize/business-partner-portal-sequelize-payment-collection-mode.repository.ts",
@@ -250,60 +250,64 @@
             "integrity": "sha1:f856711ac58073dcd7d3a109cb801d1504114e19"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-payment-mode-id.ts",
-            "integrity": "sha1:450731dba678506d0d13ca8f30ff8fc0af0781f4"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-row-id.ts",
+            "integrity": "sha1:61c6c421f78bdf3d8cbe6fd3c55656ee3ddab35b"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-business-partner-id.ts",
             "integrity": "sha1:416b0db992a4058e7c0bb494ee6161d083276533"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-row-id.ts",
-            "integrity": "sha1:61c6c421f78bdf3d8cbe6fd3c55656ee3ddab35b"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-payment-mode-id.ts",
+            "integrity": "sha1:450731dba678506d0d13ca8f30ff8fc0af0781f4"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-account-number.ts",
             "integrity": "sha1:2a65d3042bb8a1da54a17aae07c61b4711d27e76"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-label.ts",
-            "integrity": "sha1:96ccf3847a7de663617fa1fd7384d32b0563118a"
-        },
-        {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-account-holder-name.ts",
             "integrity": "sha1:554f285d040e8d2c1e4eceae0420b92aa67f5e8c"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-routing-number.ts",
-            "integrity": "sha1:e43fd957340dfa0e15369731401bc46c25283e05"
-        },
-        {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-currency-code.ts",
-            "integrity": "sha1:7be4ea513899174d1a77935a4373963cdd6dfc51"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-label.ts",
+            "integrity": "sha1:96ccf3847a7de663617fa1fd7384d32b0563118a"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-bank-name.ts",
             "integrity": "sha1:0701d80f1384f4ac9c18be9cb1effc1603773136"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-is-primary.ts",
-            "integrity": "sha1:4f44767e66299d426ee84761542734358070a92b"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-routing-number.ts",
+            "integrity": "sha1:e43fd957340dfa0e15369731401bc46c25283e05"
+        },
+        {
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-swift-code.ts",
+            "integrity": "sha1:f1028462cd9dfb65fc3348c6afb8faeb09450b1a"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-iban.ts",
             "integrity": "sha1:1bf836564c19625c57170b78efdcac46c8e06859"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-is-active.ts",
-            "integrity": "sha1:47c7faf188f29880823ad80356eab4d7b8c59c96"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-currency-code.ts",
+            "integrity": "sha1:7be4ea513899174d1a77935a4373963cdd6dfc51"
+        },
+        {
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-is-primary.ts",
+            "integrity": "sha1:4f44767e66299d426ee84761542734358070a92b"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-expiration-date.ts",
             "integrity": "sha1:4b0012643341e3e63fd905cab8c8745f6f0e1d50"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-swift-code.ts",
-            "integrity": "sha1:f1028462cd9dfb65fc3348c6afb8faeb09450b1a"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-is-active.ts",
+            "integrity": "sha1:47c7faf188f29880823ad80356eab4d7b8c59c96"
+        },
+        {
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-notes.ts",
+            "integrity": "sha1:68e0fab8db405c230238186ff123d87c8e045bf9"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-last-used-at.ts",
@@ -314,16 +318,12 @@
             "integrity": "sha1:31e885c102c559f1ee71b5c2f7205146516e2826"
         },
         {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-notes.ts",
-            "integrity": "sha1:68e0fab8db405c230238186ff123d87c8e045bf9"
+            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-updated-at.ts",
+            "integrity": "sha1:196f3eb6bc478d80527d9b61f9d75331450f2e1e"
         },
         {
             "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-deleted-at.ts",
             "integrity": "sha1:d1c724e5f5bdda13d74fc5c9befdf83483f8788d"
-        },
-        {
-            "path": "src/@app/business-partner-portal/payment-collection-mode/domain/value-objects/business-partner-portal-payment-collection-mode-updated-at.ts",
-            "integrity": "sha1:196f3eb6bc478d80527d9b61f9d75331450f2e1e"
         },
         {
             "path": "src/@api/business-partner-portal/payment-collection-mode/controllers/business-partner-portal-create-payment-collection-mode.controller.spec.ts",
@@ -531,7 +531,7 @@
         },
         {
             "path": "postman/business-partner-portal/business-partner-portal.payment-collection-mode.postman.json",
-            "integrity": "sha1:21daaf23e31a46dd3d36378246dba614d3bc16e6"
+            "integrity": "sha1:357f961cfc3e54d5c9c14f3d1d074284ece293d6"
         }
     ]
 }

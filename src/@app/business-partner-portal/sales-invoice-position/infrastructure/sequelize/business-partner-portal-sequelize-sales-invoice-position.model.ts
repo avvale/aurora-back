@@ -37,10 +37,12 @@ import {
     {
       fields: ['salesInvoiceHeaderId'],
       unique: false,
+      name: 'bpp_sales_inv_pos_hdr_id',
     },
     {
       fields: ['productCode'],
       unique: false,
+      name: 'bpp_sales_inv_pos_prod_code',
     },
   ],
 })

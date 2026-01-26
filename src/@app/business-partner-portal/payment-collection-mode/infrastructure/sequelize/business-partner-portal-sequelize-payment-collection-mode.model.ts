@@ -38,10 +38,12 @@ import {
     {
       fields: ['businessPartnerId'],
       unique: false,
+      name: 'bpp_pay_coll_mode_bp_id',
     },
     {
       fields: ['paymentModeId'],
       unique: false,
+      name: 'bpp_pay_coll_mode_payment_mode_id',
     },
   ],
 })

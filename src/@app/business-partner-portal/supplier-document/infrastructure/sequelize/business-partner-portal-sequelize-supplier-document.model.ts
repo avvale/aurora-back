@@ -38,10 +38,12 @@ import {
     {
       fields: ['businessPartnerId'],
       unique: false,
+      name: 'bpp_sup_doc_bp_id',
     },
     {
       fields: ['documentNumber'],
       unique: true,
+      name: 'bpp_sup_doc_doc_number',
     },
     {
       fields: ['status'],
@@ -54,14 +56,17 @@ import {
     {
       fields: ['supplierInvoiceNumber'],
       unique: false,
+      name: 'bpp_sup_doc_sup_inv_number',
     },
     {
       fields: ['externalDocumentId'],
       unique: false,
+      name: 'bpp_sup_doc_ext_doc_id',
     },
     {
       fields: ['purchaseInvoiceHeaderId'],
       unique: false,
+      name: 'bpp_sup_doc_pur_inv_hdr_id',
     },
     {
       fields: ['errorCode'],

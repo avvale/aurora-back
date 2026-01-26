@@ -30,6 +30,7 @@ aggregateProperties:
     maxLength: 64
     nullable: false
     index: unique
+    indexName: bpp_sales_inv_hdr_inv_number
     description: |
       Unique invoice number used for identification and legal compliance. Follows company-specific or country-specific numbering conventions (e.g., "INV-2024-001", "FAC-A-00001234"). Must be unique across all sales invoices. Used in customer communications, accounting, and tax reporting. Cannot be changed once issued to maintain legal and audit integrity.
   - name: externalId
@@ -49,6 +50,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_sales_inv_hdr_bp_id
     relationship:
       type: many-to-one
       field: businessPartner
@@ -63,6 +65,7 @@ aggregateProperties:
     type: date
     nullable: false
     index: index
+    indexName: bpp_sales_inv_hdr_inv_date
     description: |
       Date when the invoice was issued. Used for accounting period classification, aging reports, and legal compliance. Cannot be in the future. Required field for all invoices. Typically set to today's date when creating new invoices. Used as reference point for calculating due dates and payment terms.
   - name: dueDate
@@ -121,6 +124,7 @@ aggregateProperties:
     nullable: false
     defaultValue: 0
     index: index
+    indexName: bpp_sales_inv_hdr_total_amount
     description: |
       Final total amount due from the customer. Calculated as: subtotal + taxAmount - discountAmount. Stored in the invoice currency. Required field, defaults to 0.00. This is the amount the customer must pay. Used in accounts receivable, payment processing, and financial reporting. Indexed for filtering and sorting.
   - name: paidAmount

@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_pur_inv_pos_hdr_id
     relationship:
       type: many-to-one
       field: purchaseInvoiceHeader
@@ -56,6 +57,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: index
+    indexName: bpp_pur_inv_pos_prod_code
     description: |
       Product or service code/SKU for this position. May be our internal code or the supplier's product code. Used for inventory receiving, expense categorization, and analytics. NULL indicates a custom item or one-time expense without a standard product code. When set, can be used for automated expense classification and cost analysis. Indexed for fast product-based queries and reporting.
   - name: quantity
@@ -135,6 +137,7 @@ aggregateProperties:
     maxLength: 128
     nullable: true
     index: index
+    indexName: bpp_pur_inv_pos_exp_cat
     description: |
       Expense category or account code for this position. Used for accounting classification, budget tracking, and financial reporting (e.g., "Office Supplies", "Marketing", "Travel", "Cost of Goods Sold"). NULL indicates category not yet assigned or not applicable. Should align with company chart of accounts. Indexed for fast expense reporting and analysis. Important for budget control and cost allocation.
   - name: notes

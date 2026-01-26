@@ -39,10 +39,12 @@ import {
     {
       fields: ['invoiceNumber'],
       unique: true,
+      name: 'bpp_pur_inv_hdr_inv_number',
     },
     {
       fields: ['supplierInvoiceNumber'],
       unique: false,
+      name: 'bpp_pur_inv_hdr_sup_inv_number',
     },
     {
       fields: ['externalId'],
@@ -51,14 +53,17 @@ import {
     {
       fields: ['businessPartnerId'],
       unique: false,
+      name: 'bpp_pur_inv_hdr_bp_id',
     },
     {
       fields: ['invoiceDate'],
       unique: false,
+      name: 'bpp_pur_inv_hdr_inv_date',
     },
     {
       fields: ['dueDate'],
       unique: false,
+      name: 'bpp_pur_inv_hdr_due_date',
     },
     {
       fields: ['status'],
@@ -67,6 +72,7 @@ import {
     {
       fields: ['totalAmount'],
       unique: false,
+      name: 'bpp_pur_inv_hdr_total_amount',
     },
   ],
 })

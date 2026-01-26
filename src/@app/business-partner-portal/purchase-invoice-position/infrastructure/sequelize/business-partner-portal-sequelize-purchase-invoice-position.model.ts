@@ -37,14 +37,17 @@ import {
     {
       fields: ['purchaseInvoiceHeaderId'],
       unique: false,
+      name: 'bpp_pur_inv_pos_hdr_id',
     },
     {
       fields: ['productCode'],
       unique: false,
+      name: 'bpp_pur_inv_pos_prod_code',
     },
     {
       fields: ['expenseCategory'],
       unique: false,
+      name: 'bpp_pur_inv_pos_exp_cat',
     },
   ],
 })

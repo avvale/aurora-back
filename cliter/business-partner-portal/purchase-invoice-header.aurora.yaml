@@ -30,6 +30,7 @@ aggregateProperties:
     maxLength: 64
     nullable: false
     index: unique
+    indexName: bpp_pur_inv_hdr_inv_number
     description: |
       Internal unique invoice number for this purchase invoice in our system. Follows company-specific numbering conventions (e.g., "PINV-2024-001", "PO-INV-00123"). Must be unique across all purchase invoices. Used for internal tracking, accounting, and accounts payable management. Cannot be changed once created to maintain audit integrity. Different from supplierInvoiceNumber which is the supplier's reference.
   - name: supplierInvoiceNumber
@@ -37,6 +38,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: index
+    indexName: bpp_pur_inv_hdr_sup_inv_number
     description: |
       Invoice number provided by the supplier/vendor on their invoice document. Used for cross-referencing with supplier records, payment verification, and dispute resolution. NULL indicates supplier number not yet recorded. Should match exactly what appears on the supplier's invoice. Important for reconciliation and communication with suppliers. Indexed for fast lookup when referencing supplier documents.
   - name: externalId
@@ -56,6 +58,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_pur_inv_hdr_bp_id
     relationship:
       type: many-to-one
       field: businessPartner
@@ -70,6 +73,7 @@ aggregateProperties:
     type: date
     nullable: false
     index: index
+    indexName: bpp_pur_inv_hdr_inv_date
     description: |
       Date when the supplier issued their invoice. Used for accounting period classification, aging reports, and legal compliance. Should match the date on the supplier's invoice document. Required field. May differ from the date we received or recorded the invoice. Used as reference point for calculating due dates and payment terms.
   - name: receivedDate
@@ -81,6 +85,7 @@ aggregateProperties:
     type: date
     nullable: true
     index: index
+    indexName: bpp_pur_inv_hdr_due_date
     description: |
       Date when payment to the supplier is due. May be specified on supplier invoice or calculated from invoiceDate plus payment terms (paymentTermDays). Used for accounts payable scheduling, cash flow planning, and avoiding late payment penalties. NULL indicates no specific due date or special terms. Important for managing working capital and supplier relationships.
   - name: status
@@ -134,6 +139,7 @@ aggregateProperties:
     nullable: false
     defaultValue: 0
     index: index
+    indexName: bpp_pur_inv_hdr_total_amount
     description: |
       Final total amount owed to the supplier. Calculated as: subtotal + taxAmount - discountAmount. Stored in the invoice currency. Required field, defaults to 0.00. This is the amount we must pay. Used in accounts payable, payment processing, cash flow planning, and expense reporting. Indexed for filtering and sorting.
   - name: paidAmount

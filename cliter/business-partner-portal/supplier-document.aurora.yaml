@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_sup_doc_bp_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalBusinessPartner
@@ -45,6 +46,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: unique
+    indexName: bpp_sup_doc_doc_number
     description: |
       Unique internal document number assigned on upload. Follows sequential format (e.g., "SDOC-2024-000001"). Used as primary reference in communications with supplier and integration logs. Cannot be changed after creation. Generated automatically by the system.
   - name: documentType
@@ -93,6 +95,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: index
+    indexName: bpp_sup_doc_sup_inv_number
     description: |
       Invoice number as provided by the supplier on upload or extracted from document by OCR. Used for reference before processing completes. May differ from OCR-extracted value (see ocrInvoiceNumber). NULL if not provided by supplier. Indexed for supplier lookups when checking upload status.
   - name: supplierInvoiceDate
@@ -119,6 +122,7 @@ aggregateProperties:
     maxLength: 64
     nullable: true
     index: index
+    indexName: bpp_sup_doc_ext_doc_id
     description: |
       Document ID assigned by the external processing system after successful processing. Format depends on external system configuration. NULL until processing completes. Used to query external system for processing results and link back. Primary reference for external integration. Indexed for fast lookups on webhook callbacks.
   - name: externalCompanyCode
@@ -137,6 +141,7 @@ aggregateProperties:
     type: id
     nullable: true
     index: index
+    indexName: bpp_sup_doc_pur_inv_hdr_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalPurchaseInvoiceHeader

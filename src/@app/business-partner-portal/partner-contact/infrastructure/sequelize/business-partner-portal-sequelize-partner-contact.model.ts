@@ -38,6 +38,7 @@ import {
     {
       fields: ['businessPartnerId'],
       unique: false,
+      name: 'bpp_partner_contact_bp_id',
     },
     {
       fields: ['lastName'],

@@ -223,7 +223,7 @@
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/infrastructure/mock/business-partner-portal-mock-partner-address.data.ts",
-            "integrity": "sha1:9c18c48dcb839235dca21821c3b6af8a8a8f2f36"
+            "integrity": "sha1:b7d0bd1631f656fa47d2109c74c12a75eca48c2b"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/infrastructure/mock/business-partner-portal-mock-partner-address.repository.ts",
@@ -235,7 +235,7 @@
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/infrastructure/sequelize/business-partner-portal-sequelize-partner-address.model.ts",
-            "integrity": "sha1:7ec16cc0d02245c20dbca07870ede133800b3a83"
+            "integrity": "sha1:4f24db44c09d61fa2601171235524781d9e490ff"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/infrastructure/sequelize/business-partner-portal-sequelize-partner-address.repository.ts",
@@ -254,32 +254,32 @@
             "integrity": "sha1:84aef1d22f2827e8f820c257daef0765d502e6c5"
         },
         {
-            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-type.ts",
-            "integrity": "sha1:85e15190ffb22fc596afd56ab5e394e4256c1998"
-        },
-        {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-business-partner-id.ts",
             "integrity": "sha1:15f2d275e44afc2b7d87353b1b5f80d37196272c"
         },
         {
-            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-address-line-1.ts",
-            "integrity": "sha1:2b03e96b1cc13838ab7a54e8af0bdd1c45adeda1"
-        },
-        {
-            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-city.ts",
-            "integrity": "sha1:efa1775b61d0d58a45fa63a11e3881fc0dc85f27"
-        },
-        {
-            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-label.ts",
-            "integrity": "sha1:b8b270433636c790cd26c8f9a5c773b06ac6f1a7"
+            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-type.ts",
+            "integrity": "sha1:85e15190ffb22fc596afd56ab5e394e4256c1998"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-address-line-2.ts",
             "integrity": "sha1:cf3feff5f3a9977d4165d7430b4fe569ec1efe43"
         },
         {
+            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-address-line-1.ts",
+            "integrity": "sha1:2b03e96b1cc13838ab7a54e8af0bdd1c45adeda1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-label.ts",
+            "integrity": "sha1:b8b270433636c790cd26c8f9a5c773b06ac6f1a7"
+        },
+        {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-postal-code.ts",
             "integrity": "sha1:bd9e50add4b63910a4090541b87635f31c6791c8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-city.ts",
+            "integrity": "sha1:efa1775b61d0d58a45fa63a11e3881fc0dc85f27"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-administrative-area-level-1-id.ts",
@@ -314,16 +314,16 @@
             "integrity": "sha1:a162073bfe3549c151db088d15c40b83763de51f"
         },
         {
-            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-created-at.ts",
-            "integrity": "sha1:d0eb42c0f88dc5894fff8264aa7a48e92a6e959b"
-        },
-        {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-notes.ts",
             "integrity": "sha1:ab90d28a7b8c3e454383754d686528115f256fad"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-updated-at.ts",
             "integrity": "sha1:026a9e34dcbcefeea944644c5d4561029054b339"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-created-at.ts",
+            "integrity": "sha1:d0eb42c0f88dc5894fff8264aa7a48e92a6e959b"
         },
         {
             "path": "src/@app/business-partner-portal/partner-address/domain/value-objects/business-partner-portal-partner-address-deleted-at.ts",
@@ -539,7 +539,7 @@
         },
         {
             "path": "postman/business-partner-portal/business-partner-portal.partner-address.postman.json",
-            "integrity": "sha1:aee19f3cb8370709a78a1aaa28297ed0f23dceac"
+            "integrity": "sha1:2cd85382cc9000fd56b1f7eb6f35e7ca57393f57"
         }
     ]
 }

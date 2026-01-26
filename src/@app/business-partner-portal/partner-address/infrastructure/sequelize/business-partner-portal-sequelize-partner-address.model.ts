@@ -41,6 +41,7 @@ import {
     {
       fields: ['businessPartnerId'],
       unique: false,
+      name: 'bpp_partner_addr_bp_id',
     },
     {
       fields: ['countryId'],
@@ -49,14 +50,17 @@ import {
     {
       fields: ['administrativeAreaLevel1Id'],
       unique: false,
+      name: 'bpp_partner_addr_admin_area_lvl1_id',
     },
     {
       fields: ['administrativeAreaLevel2Id'],
       unique: false,
+      name: 'bpp_partner_addr_admin_area_lvl2_id',
     },
     {
       fields: ['administrativeAreaLevel3Id'],
       unique: false,
+      name: 'bpp_partner_addr_admin_area_lvl3_id',
     },
   ],
 })

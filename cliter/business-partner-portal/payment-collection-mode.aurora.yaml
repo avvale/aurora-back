@@ -29,6 +29,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_pay_coll_mode_bp_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalBusinessPartner
@@ -44,6 +45,7 @@ aggregateProperties:
     type: id
     nullable: false
     index: index
+    indexName: bpp_pay_coll_mode_payment_mode_id
     relationship:
       type: many-to-one
       aggregateName: BusinessPartnerPortalPaymentMode
