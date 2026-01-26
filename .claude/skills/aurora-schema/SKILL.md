@@ -522,6 +522,35 @@ If field is referenced in relationships:
 
 ---
 
+## Index Names (63-char limit)
+
+PostgreSQL limits index names to **63 characters**. Aurora generates:
+`{boundedContext}_{module}_{fieldName}` (snake_case). If > 63 chars, Sequelize
+enters infinite loop trying to create the truncated index.
+
+**Solution:** Use `indexName` property with abbreviated name:
+
+```yaml
+- name: administrativeAreaLevel1Id
+  type: id
+  index: index
+  indexName: bpp_partner_addr_admin_area_lvl1_id # < 63 chars
+```
+
+**Abbreviation pattern:** BC acronym + short module + short field
+
+| Bounded Context           | Abbrev |
+| ------------------------- | ------ |
+| `business-partner-portal` | `bpp`  |
+| `common`                  | `cmn`  |
+| `whatsapp`                | `wa`   |
+| `queue-manager`           | `qm`   |
+
+Common word abbreviations: `administrative` → `admin`, `address` → `addr`,
+`level` → `lvl`, `position` → `pos`, `configuration` → `config`
+
+---
+
 ## Commands
 
 ```bash
