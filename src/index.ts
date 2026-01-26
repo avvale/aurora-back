@@ -35,3 +35,9 @@ export { BusinessPartnerPortalSupplierDocumentResponse } from './@app/business-p
 export { BusinessPartnerPortalSupplierDocumentMapper } from './@app/business-partner-portal/supplier-document/domain/business-partner-portal-supplier-document.mapper';
 export { businessPartnerPortalMockSupplierDocumentData } from './@app/business-partner-portal/supplier-document/infrastructure/mock/business-partner-portal-mock-supplier-document.data';
 export { BusinessPartnerPortalSupplierDocumentDto } from './@api/business-partner-portal/supplier-document/dto/business-partner-portal-supplier-document.dto';
+export { BusinessPartnerPortalBusinessPartner } from './@app/business-partner-portal/business-partner/domain/business-partner-portal-business-partner.aggregate';
+export { BusinessPartnerPortalBusinessPartnerModel } from './@app/business-partner-portal/business-partner';
+export { BusinessPartnerPortalBusinessPartnerResponse } from './@app/business-partner-portal/business-partner/domain/business-partner-portal-business-partner.response';
+export { BusinessPartnerPortalBusinessPartnerMapper } from './@app/business-partner-portal/business-partner/domain/business-partner-portal-business-partner.mapper';
+export { businessPartnerPortalMockBusinessPartnerData } from './@app/business-partner-portal/business-partner/infrastructure/mock/business-partner-portal-mock-business-partner.data';
+export { BusinessPartnerPortalBusinessPartnerDto } from './@api/business-partner-portal/business-partner/dto/business-partner-portal-business-partner.dto';

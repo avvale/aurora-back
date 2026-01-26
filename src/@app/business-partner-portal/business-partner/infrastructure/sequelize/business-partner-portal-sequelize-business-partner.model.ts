@@ -219,7 +219,7 @@ export class BusinessPartnerPortalBusinessPartnerModel extends Model<BusinessPar
         'OTHER',
       ),
     ),
-    defaultValue: 'OTHER',
+    defaultValue: ['OTHER'],
   })
   type: string[];
 
