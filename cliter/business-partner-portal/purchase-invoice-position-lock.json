@@ -1,0 +1,533 @@
+{
+    "version": "0.0.1",
+    "files": [
+        {
+            "path": "src/@app/business-partner-portal/business-partner-portal.seed.ts",
+            "integrity": "sha1:9529b67fbed63eff95d2231a56bf5c980b2add09"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/create/business-partner-portal-create-purchase-invoice-position.command-handler.spec.ts",
+            "integrity": "sha1:46861ec70e420963cd6c9505c14135fbd059332e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/create/business-partner-portal-create-purchase-invoice-position.command-handler.ts",
+            "integrity": "sha1:a5d2325c30344e8005e941cf4d336b2eef186414"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/create/business-partner-portal-create-purchase-invoice-position.command.ts",
+            "integrity": "sha1:21cafbd75ef0fb40031d21fd5a04b42649f139d4"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/create/business-partner-portal-create-purchase-invoice-position.service.spec.ts",
+            "integrity": "sha1:a76023fed3558abd1b79d4869a088311b29e366e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/create/business-partner-portal-create-purchase-invoice-position.service.ts",
+            "integrity": "sha1:dc5b84e4e97096a53459c373648fb61cc74e89f1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/delete/business-partner-portal-delete-purchase-invoice-position-by-id.command-handler.spec.ts",
+            "integrity": "sha1:0a45795edc4439fac16d91deddb2e5cb77858a27"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/delete/business-partner-portal-delete-purchase-invoice-position-by-id.command-handler.ts",
+            "integrity": "sha1:f24e7b491d36cf445ec8cd6a2c21e0b8f8875225"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/delete/business-partner-portal-delete-purchase-invoice-position-by-id.command.ts",
+            "integrity": "sha1:f9bcef3eeb1a6f72c6fd532bf4117a386814bf0c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/delete/business-partner-portal-delete-purchase-invoice-position-by-id.service.spec.ts",
+            "integrity": "sha1:6a7a831c5b1fe297665fcfa767ca4b934de3e81e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/delete/business-partner-portal-delete-purchase-invoice-position-by-id.service.ts",
+            "integrity": "sha1:71389266e64399db1d744afd0e13e568c506d1d0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-add-purchase-invoice-positions-context.event.ts",
+            "integrity": "sha1:ff227fae1f769f2e246384d69aba3042e4b33f58"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-created-purchase-invoice-position.event-handler.ts",
+            "integrity": "sha1:fcfcdd4493cbbb10bf61d4a3f1b20d1aacccaf45"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-created-purchase-invoice-position.event.ts",
+            "integrity": "sha1:329755c414af1578a0a4803564dd6bd27f1b2a98"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-created-purchase-invoice-positions.event-handler.ts",
+            "integrity": "sha1:1164818b33524100a324d2189b788cb12a8c0a5e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-created-purchase-invoice-positions.event.ts",
+            "integrity": "sha1:b8c2d53917ff0a3982123d051f058238e91923f5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-deleted-purchase-invoice-position.event-handler.ts",
+            "integrity": "sha1:4e3d6d49946160432069f91df24d9ecf9d358eaf"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-deleted-purchase-invoice-position.event.ts",
+            "integrity": "sha1:f9106063720c4776ef82fae6dfab41f3507f92f0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-updated-purchase-invoice-position.event-handler.ts",
+            "integrity": "sha1:f84f1cae774fcf50c2b81757519c54c3ba59e8a3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/events/business-partner-portal-updated-purchase-invoice-position.event.ts",
+            "integrity": "sha1:e619cc1769969680b299468417c90928a3c8df7d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position-by-id.query-handler.spec.ts",
+            "integrity": "sha1:117b5b369ed9303d2e9e1fe01398172617574fe4"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position-by-id.query-handler.ts",
+            "integrity": "sha1:3715fb562efd64625a00b70de694ae72611062ab"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position-by-id.query.ts",
+            "integrity": "sha1:64523446c442d5c9482ef5663055a362d18ecbf9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position-by-id.service.spec.ts",
+            "integrity": "sha1:b4c7be71ec2c55365c3327888184090858b9e73b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position-by-id.service.ts",
+            "integrity": "sha1:75f449a278d9946235b12856084509fd210ea623"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position.query-handler.spec.ts",
+            "integrity": "sha1:aeac1f3fd8149f0024f17c4106b3206169620c5a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position.query-handler.ts",
+            "integrity": "sha1:7b368dcafda6bbe0b27005c8278bf120df953de1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position.query.ts",
+            "integrity": "sha1:06662540387283dffff9ab75b992b0f7ce53109b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position.service.spec.ts",
+            "integrity": "sha1:5abe0205f624d46bbb6b5481e3f2c504f9aca823"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/find/business-partner-portal-find-purchase-invoice-position.service.ts",
+            "integrity": "sha1:68de88b8c2145c69bafe04f711cf770e70520432"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/get/business-partner-portal-get-purchase-invoice-positions.query-handler.spec.ts",
+            "integrity": "sha1:4c6bc86df4a2ef049db7dc7ce975d7cf1982d9b1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/get/business-partner-portal-get-purchase-invoice-positions.query-handler.ts",
+            "integrity": "sha1:351dd287a901e727bdc25a3bbf6318acddbd5371"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/get/business-partner-portal-get-purchase-invoice-positions.query.ts",
+            "integrity": "sha1:73a86617049cf4113f4506c3c0215dba2c5841a5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/get/business-partner-portal-get-purchase-invoice-positions.service.spec.ts",
+            "integrity": "sha1:4101f7a7302007ad250d05e91dba1e229f356c1b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/get/business-partner-portal-get-purchase-invoice-positions.service.ts",
+            "integrity": "sha1:9114365b91ad0646e062e695c858005c43430c70"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/paginate/business-partner-portal-paginate-purchase-invoice-positions.query-handler.spec.ts",
+            "integrity": "sha1:ce424a4be7b35883b76a2cea2cbfddb7121fd9c3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/paginate/business-partner-portal-paginate-purchase-invoice-positions.query-handler.ts",
+            "integrity": "sha1:af776dbd900654c7752a1a110313b7eb6bc8c83a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/paginate/business-partner-portal-paginate-purchase-invoice-positions.query.ts",
+            "integrity": "sha1:a6b8d17c9db6d233ad923f74ea822ad3b50e3e31"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/paginate/business-partner-portal-paginate-purchase-invoice-positions.service.spec.ts",
+            "integrity": "sha1:9b7be282e37ae53ec2f21c27f2802f42ee83ff7c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/paginate/business-partner-portal-paginate-purchase-invoice-positions.service.ts",
+            "integrity": "sha1:f7482c9129156e6b5ef39c17d7489eba6d6982a8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/sagas/business-partner-portal-purchase-invoice-position.sagas.ts",
+            "integrity": "sha1:084d532e3269bf59024200ed17169d65aed67c4f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/update/business-partner-portal-update-purchase-invoice-position-by-id.command-handler.spec.ts",
+            "integrity": "sha1:6f8951deda074c50bbb7fda2789f39fdb6a2cc51"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/update/business-partner-portal-update-purchase-invoice-position-by-id.command-handler.ts",
+            "integrity": "sha1:a293630d58c1fa216598dcc56035183dfc0ff39f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/update/business-partner-portal-update-purchase-invoice-position-by-id.command.ts",
+            "integrity": "sha1:89701dfc67f418ed7964ddb0da8f4ea1faeb13ba"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/update/business-partner-portal-update-purchase-invoice-position-by-id.service.spec.ts",
+            "integrity": "sha1:cc4a2f6c4be03366e5734fa1034b5e14c988f485"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/application/update/business-partner-portal-update-purchase-invoice-position-by-id.service.ts",
+            "integrity": "sha1:4845e7c79a91629dfe597e5d265ff0489cb3ec8f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/business-partner-portal-purchase-invoice-position.aggregate.ts",
+            "integrity": "sha1:4cba32a99a5c5b9b7cbf917f2794fbaf623ece35"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/business-partner-portal-purchase-invoice-position.mapper.ts",
+            "integrity": "sha1:2fbf14170da0ee788be3981bae38875a2ecdb9cc"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/business-partner-portal-purchase-invoice-position.repository.ts",
+            "integrity": "sha1:e32ebf22eafaa83f2eadadee303ad379c2873491"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/business-partner-portal-purchase-invoice-position.response.ts",
+            "integrity": "sha1:ed0088407812b0b07c66a8d9b3eda422ae6b13ce"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/types/index.ts",
+            "integrity": "sha1:aa14651bb80caa0776c774eca38d919ed2b79d5d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/types/public-api.ts",
+            "integrity": "sha1:2df8543a80c660f81a458ac91783b8085e1cf7dc"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/index.ts",
+            "integrity": "sha1:aa14651bb80caa0776c774eca38d919ed2b79d5d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/public-api.ts",
+            "integrity": "sha1:9a3f769a1dc4babbeabbd432bd31f61d666856b0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/index.ts",
+            "integrity": "sha1:15163f44d9d5d2277b991b485516deb9e8cd44f2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/infrastructure/mock/business-partner-portal-mock-purchase-invoice-position.data.ts",
+            "integrity": "sha1:67f12abc8ff528da21151a5a4408cbacb3e9d91c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/infrastructure/mock/business-partner-portal-mock-purchase-invoice-position.repository.ts",
+            "integrity": "sha1:bdd5ff8bb7e600f35546d5f97fa6c550f4795d82"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/infrastructure/mock/business-partner-portal-mock-purchase-invoice-position.seeder.ts",
+            "integrity": "sha1:a65f344bddaff8d60c629a304706a33b8bd624c8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/infrastructure/sequelize/business-partner-portal-sequelize-purchase-invoice-position.model.ts",
+            "integrity": "sha1:d95faf29d8cae09644b35f32a9bd263895c8a749"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/infrastructure/sequelize/business-partner-portal-sequelize-purchase-invoice-position.repository.ts",
+            "integrity": "sha1:db35e5d6640ac515b718124a1a6f56eed110883a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/business-partner-portal.seeder.ts",
+            "integrity": "sha1:68e1b574face2228e7741bd41a31a38e8eae74fa"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-id.ts",
+            "integrity": "sha1:5c3a2645b5bad1f8b2a6999b05e95d6855600a27"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-row-id.ts",
+            "integrity": "sha1:c001fabac8fd27206920b568e980bd679e69748a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-purchase-invoice-header-id.ts",
+            "integrity": "sha1:7ad221d82b746755fb950e3a42d0174b5d89e6da"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-description.ts",
+            "integrity": "sha1:37ccc5e89330a7e74e0978918514eb26b1ee218e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-position-number.ts",
+            "integrity": "sha1:ec258d79a55b86a01bcb1ce35080b14bc9b40956"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-product-code.ts",
+            "integrity": "sha1:c219c440a7c70b71c37cd0d3046df340b0bce9a7"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-unit-price.ts",
+            "integrity": "sha1:f8bc76695fe81d8c17afcfa1d99186be45fd0501"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-quantity.ts",
+            "integrity": "sha1:3cccd950d4d28b6b3587e9904f0978a2c874912a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-discount-percent.ts",
+            "integrity": "sha1:6d9ae9646b1aaa7d0e524c43205d517aeb240519"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-discount-amount.ts",
+            "integrity": "sha1:794778b438d3b62cd2d1886d5e34a464458f938f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-tax-amount.ts",
+            "integrity": "sha1:cb0d5a4cc35c394e14cbcc3728a65132abc1f0bf"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-tax-percent.ts",
+            "integrity": "sha1:33e0a5cb5a0f3d7e990005f3c7432d321e4f8e08"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-position-total.ts",
+            "integrity": "sha1:71609b73b42a337a0fa52075d7b8c5ed5d2fe6a2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-created-at.ts",
+            "integrity": "sha1:a50e6b60905714f3b151f79f2d8cfdc0c1799284"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-subtotal.ts",
+            "integrity": "sha1:7ce8b8e572ab4a3ab16e8ae83119fd07f7c00a89"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-deleted-at.ts",
+            "integrity": "sha1:20cbcfb8c2a0992819dc68f2ef4f3a300d3e9aaa"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-expense-category.ts",
+            "integrity": "sha1:f5f8d7cc032951c14fd52f62e0e2efdf9f845a76"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-notes.ts",
+            "integrity": "sha1:0b34bb88588c2d8168d3991bb6ea6bd360af4fd3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/purchase-invoice-position/domain/value-objects/business-partner-portal-purchase-invoice-position-updated-at.ts",
+            "integrity": "sha1:6889081b3b72be18040c9bb7430ec2a0f44cf8ee"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-create-purchase-invoice-position.controller.spec.ts",
+            "integrity": "sha1:07c9d70cbb2e9c79be7bebdd926eea6e9ffe1e9f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-create-purchase-invoice-position.controller.ts",
+            "integrity": "sha1:c890ddf3d5e3e2887531cb62c95a3ca448bdcfd2"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-delete-purchase-invoice-position-by-id.controller.spec.ts",
+            "integrity": "sha1:e18c9242e12d471c3423b71408ea03cadc035cc6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-delete-purchase-invoice-position-by-id.controller.ts",
+            "integrity": "sha1:8714214f8d8520b183792682e23724648417d0c6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-find-purchase-invoice-position-by-id.controller.spec.ts",
+            "integrity": "sha1:d2e8b49d3a636b3689c13e2654b3b4ef7d947539"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-find-purchase-invoice-position-by-id.controller.ts",
+            "integrity": "sha1:dc8f18ccff0a9ec791148763030c38cc746ee24c"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-find-purchase-invoice-position.controller.spec.ts",
+            "integrity": "sha1:18d1254877751b8949fb78039a3541b2c5edf522"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-find-purchase-invoice-position.controller.ts",
+            "integrity": "sha1:ff3b564174e9addf795de41c06549a6c1f1c13d2"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-get-purchase-invoice-positions.controller.spec.ts",
+            "integrity": "sha1:fe795ebc6502896389db197b98cd9d0d103113eb"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-get-purchase-invoice-positions.controller.ts",
+            "integrity": "sha1:c63fbe1937ae51be8166d238f7f548eb48ae1dbf"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-paginate-purchase-invoice-positions.controller.spec.ts",
+            "integrity": "sha1:c802e215f96167de3128648c7175068d3fbf4393"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-paginate-purchase-invoice-positions.controller.ts",
+            "integrity": "sha1:42e7040bf2d1ed7bbf1cab41a60d1e594a97808c"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-update-purchase-invoice-position-by-id.controller.spec.ts",
+            "integrity": "sha1:5a288a0740fdf73aa84633b2fde75a1c7a547c94"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/controllers/business-partner-portal-update-purchase-invoice-position-by-id.controller.ts",
+            "integrity": "sha1:438213927ac04e14f530ed04d2ff9d6145beeebc"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/business-partner-portal-purchase-invoice-position.dto.ts",
+            "integrity": "sha1:243c9f45a944744eb23ae27d89e0a7044b3e5598"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/business-partner-portal-create-purchase-invoice-position.dto.ts",
+            "integrity": "sha1:7f3f0ba0c6d3afbc846b8003025fea24604583f0"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/business-partner-portal-update-purchase-invoice-position-by-id.dto.ts",
+            "integrity": "sha1:9230ab33067e62b8546e892c4269147c802e13b6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/business-partner-portal-update-purchase-invoice-positions.dto.ts",
+            "integrity": "sha1:1902345f383c31d588a4d0485444a51594d629c0"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/index.ts",
+            "integrity": "sha1:aa14651bb80caa0776c774eca38d919ed2b79d5d"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/dto/public-api.ts",
+            "integrity": "sha1:8085918d15f3433827a8d07dc2a5cf09514be076"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/graphql/business-partner-portal-purchase-invoice-position.graphql",
+            "integrity": "sha1:480f3dce6a5254dbc12928b5e829504d028ee891"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-create-purchase-invoice-position.handler.spec.ts",
+            "integrity": "sha1:e21f9e32f5ae92a55fad7ef746f273e8782753d4"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-create-purchase-invoice-position.handler.ts",
+            "integrity": "sha1:e01085866131f4f7401adc62ada183c3e9cc8636"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-delete-purchase-invoice-position-by-id.handler.spec.ts",
+            "integrity": "sha1:25cbd0fbe7eda23607f822d8329d2f2a269310d5"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-delete-purchase-invoice-position-by-id.handler.ts",
+            "integrity": "sha1:f17cfa05fade30994b3af4f8c2c082a1de94be7a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-find-purchase-invoice-position-by-id.handler.spec.ts",
+            "integrity": "sha1:12afae19ea4a755fa058d3fe2854a65da9e4ed0e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-find-purchase-invoice-position-by-id.handler.ts",
+            "integrity": "sha1:f4eea876a325cbf3fe4fe44a6063a4b94f16d5d9"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-find-purchase-invoice-position.handler.spec.ts",
+            "integrity": "sha1:4231efcd849ccd7e85b4f171f6350494d3bb72bd"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-find-purchase-invoice-position.handler.ts",
+            "integrity": "sha1:8c8ae6b268485ebdce900f816deff23a075964fe"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-get-purchase-invoice-positions.handler.spec.ts",
+            "integrity": "sha1:81faef956ee7225ec548f09ba45280c83a0335ea"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-get-purchase-invoice-positions.handler.ts",
+            "integrity": "sha1:8fb24f368bb13910b2a1181fbd8a3e32924d3a92"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-paginate-purchase-invoice-positions.handler.spec.ts",
+            "integrity": "sha1:029988d7efbb1d7c59ac10662c7d4cbe54845c47"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-paginate-purchase-invoice-positions.handler.ts",
+            "integrity": "sha1:d83dc1cc2d03c340525211a4e6c7f4258fb3000e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-update-purchase-invoice-position-by-id.handler.spec.ts",
+            "integrity": "sha1:c35d941c34feafe0a24fe6caf8e422b0240846e9"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/handlers/business-partner-portal-update-purchase-invoice-position-by-id.handler.ts",
+            "integrity": "sha1:b990fd38f435067d372ab1165849308bf4406372"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/index.ts",
+            "integrity": "sha1:26a31b46333fa7d21b29cbbdc6ce3dda1ccfedb2"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-create-purchase-invoice-position.resolver.spec.ts",
+            "integrity": "sha1:1bf1d728d310bbfee17af10719e360ae75646853"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-create-purchase-invoice-position.resolver.ts",
+            "integrity": "sha1:5ac5c491d98be544b5a18f9281ec5cf7588ec96f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-delete-purchase-invoice-position-by-id.resolver.spec.ts",
+            "integrity": "sha1:4d665c957568bf4efc14e71a01193bd1bc34475a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-delete-purchase-invoice-position-by-id.resolver.ts",
+            "integrity": "sha1:15f9ed7cdf15c8479641797279396d47f7ef0ed6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-find-purchase-invoice-position-by-id.resolver.spec.ts",
+            "integrity": "sha1:7d9e6fb1d5e7f448db5ddac86b6a167a6c1a2dfd"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-find-purchase-invoice-position-by-id.resolver.ts",
+            "integrity": "sha1:12390503174890ce2db736c1d53fad796ac39257"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-find-purchase-invoice-position.resolver.spec.ts",
+            "integrity": "sha1:29e7135df6828448e99934619556e6481508d997"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-find-purchase-invoice-position.resolver.ts",
+            "integrity": "sha1:ebf3fbcbe806c4cd8b46b63535857a930fb23a2a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-get-purchase-invoice-positions.resolver.spec.ts",
+            "integrity": "sha1:7aeb75d0eed2ca54b01bed475ad81df5d0b3e547"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-get-purchase-invoice-positions.resolver.ts",
+            "integrity": "sha1:ca872bcf64fa1fed60294bb717d94ac86649db35"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-paginate-purchase-invoice-positions.resolver.spec.ts",
+            "integrity": "sha1:528d06462d7a9919e0f4cb57afa36aa1339abf78"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-paginate-purchase-invoice-positions.resolver.ts",
+            "integrity": "sha1:221ca2df2924292d3c6e971b02ea23baf7110c6e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-update-purchase-invoice-position-by-id.resolver.spec.ts",
+            "integrity": "sha1:6033d9959b03faa75b8d2f76b5aef6234444e277"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/resolvers/business-partner-portal-update-purchase-invoice-position-by-id.resolver.ts",
+            "integrity": "sha1:d5b4b8e842fbd072fceae972b596ecfe9f998b98"
+        },
+        {
+            "path": "src/@api/business-partner-portal/purchase-invoice-position/seeder/business-partner-portal-purchase-invoice-position.seeder.ts",
+            "integrity": "sha1:49e228aa3d4f6af4529371ccef2c6354f05efc9a"
+        },
+        {
+            "path": "postman/business-partner-portal/business-partner-portal.purchase-invoice-position.postman.json",
+            "integrity": "sha1:3ef5d0c125a1afbd6ef2dc8077c5184d73ec8710"
+        }
+    ]
+}

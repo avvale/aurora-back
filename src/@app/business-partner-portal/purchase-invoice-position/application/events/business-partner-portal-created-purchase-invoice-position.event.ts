@@ -1,0 +1,33 @@
+/**
+ * @aurora-generated
+ * @source cliter/business-partner-portal/purchase-invoice-position.aurora.yaml
+ */
+import { CQMetadata } from '@aurorajs.dev/core';
+
+export class BusinessPartnerPortalCreatedPurchaseInvoicePositionEvent {
+  constructor(
+    public readonly event: {
+      payload: {
+        id: string;
+        purchaseInvoiceHeaderId: string;
+        positionNumber: number;
+        description: string;
+        productCode: string;
+        quantity: number;
+        unitPrice: number;
+        discountPercent: number;
+        discountAmount: number;
+        taxPercent: number;
+        taxAmount: number;
+        subtotal: number;
+        positionTotal: number;
+        expenseCategory: string;
+        notes: string;
+        createdAt: string;
+        updatedAt: string;
+        deletedAt: string;
+      };
+      cQMetadata?: CQMetadata;
+    },
+  ) {}
+}

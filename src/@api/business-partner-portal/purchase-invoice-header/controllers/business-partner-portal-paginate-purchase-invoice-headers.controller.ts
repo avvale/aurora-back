@@ -1,0 +1,40 @@
+/**
+ * @aurora-generated
+ * @source cliter/business-partner-portal/purchase-invoice-header.aurora.yaml
+ */
+import { BusinessPartnerPortalPaginatePurchaseInvoiceHeadersHandler } from '@api/business-partner-portal/purchase-invoice-header';
+import { Auth } from '@aurora/decorators';
+import { Pagination, QueryStatement, Timezone } from '@aurorajs.dev/core';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import {
+  ApiOkResponse,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
+
+@ApiTags('[business-partner-portal] purchase-invoice-header')
+@Controller('business-partner-portal/purchase-invoice-headers/paginate')
+@Auth('businessPartnerPortal.purchaseInvoiceHeader.get')
+export class BusinessPartnerPortalPaginatePurchaseInvoiceHeadersController {
+  constructor(
+    private readonly handler: BusinessPartnerPortalPaginatePurchaseInvoiceHeadersHandler,
+  ) {}
+
+  @Post()
+  @HttpCode(200)
+  @ApiOperation({ summary: 'Paginate purchase-invoice-headers' })
+  @ApiOkResponse({
+    description: 'The records has been paginated successfully.',
+    type: Pagination,
+  })
+  @ApiQuery({ name: 'queryStatement', type: QueryStatement })
+  @ApiQuery({ name: 'constraint', type: QueryStatement })
+  async main(
+    @Body('query') queryStatement?: QueryStatement,
+    @Body('constraint') constraint?: QueryStatement,
+    @Timezone() timezone?: string,
+  ) {
+    return await this.handler.main(queryStatement, constraint, timezone);
+  }
+}

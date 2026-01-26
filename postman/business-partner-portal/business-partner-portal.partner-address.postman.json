@@ -1,0 +1,480 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/partner-address",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePartnerAddress",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreatePartnerAddressInput!)\n{\n\tbusinessPartnerPortalCreatePartnerAddress (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tbusinessPartnerId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tcountryId\n\t\tadministrativeAreaLevel1Id\n\t\tadministrativeAreaLevel2Id\n\t\tadministrativeAreaLevel3Id\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 46948494147601700000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"type\": 'HEADQUARTERS', \n\t\t\"label\": \"5y9kzg7jp0x5gmemd62yeqpdzrb9h8kxv8g02xlpx1zoby50qsg5360zqtyzqpdhx0pfs0fnpea03cvey2wgw39uhsklygn7s6zo7r3xedqjlaokv5v2bsi4qnpfskm\", \n\t\t\"addressLine1\": \"pybsonwt8j30z2e85rqmznygwpj9uehu9la20q5jaslpkmxkdcirrv1fxvgb7fpm5rigyp4tj1ju6c8ljuv2wh2ihvpap140l464i9tdw1pagh6linya43o7esiuecorjnao0o1wt4moxl5ewf9ri4xk9e68jk9srozgggcsz8q4kj83o9kmt900sxzsuss8xckhy2gs4yi2dxbnsw7red64xrpcllzxssq48jijoeldvx9pch32ux954uapgx\", \n\t\t\"addressLine2\": \"8pv83djvs7nx851h0bnzogbw3lfaus06zm76qk61idwtfs7kfdumt0kegjefl4wou5404pzvlnvoj98mkec76t6mso10id64y9fulln39gkh1li18dwpbgkhhzy8akhouhmyuhoksr5ottuc0fclh1e88xqwqs6asw5wphnr26ujudfk80ou3q4gel4ntu6dd3pt59pab0duqhsznju1jdd7rkw1iqg4wdng8p7xgts1wetwi9pswvfpewkrsh\", \n\t\t\"city\": \"qrzo2qnpn2ds9pasvgsu1ep9007qhkyonl5023pkrppbtaz1jdkv8le8pbypqr2yr8fypqziliq9ibi70ei4leebdo654sf2vf9avjipo7u4qflxtpitmzhhvo2sglq\", \n\t\t\"postalCode\": \"r0act5lfedmnqas5snpqbbbzv3ajm5wm8ir2hvwmbxgx3m96ansz3krcitksi9w\", \n\t\t\"countryId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel1Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel2Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel3Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"latitude\": 46.90548701409941, \n\t\t\"longitude\": 813.7879685796476, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Impedit voluptatibus itaque est nesciunt. Est omnis ipsa nemo adipisci deleniti et recusandae. Nobis reiciendis et ut voluptatem. Et quis iusto deleniti sed occaecati facilis nemo. Enim consequatur accusantium non consectetur eveniet animi.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePartnerAddresses",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreatePartnerAddressInput]!)\n{\n\tbusinessPartnerPortalCreatePartnerAddresses (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"d0796538-29c0-4b93-844b-8afc03caa975\", \n\t\t\t\"rowId\": 23293855866388636000, \n\t\t\t\"businessPartnerId\": \"f82872a4-1950-4883-88da-2398c7c0fc53\", \n\t\t\t\"type\": 'WAREHOUSE', \n\t\t\t\"label\": \"u80vaw4ds05uc4j248d8sna17p63s4sd2r7a8mkt2gwo4vgqsw4f426h28wjdf6ygvl46gnr9z3mv0ynrq98zydtbtv78kg2i6f1e2027hn6x5werwj8un9pk8dq5s9\", \n\t\t\t\"addressLine1\": \"i49u3338pl0lucbnluwd1rhsdhfnonalnltpbytjs3h5prp17bsblre904p70in7byirv5cufe5m98yb5jueb9tbp3zab1ad9xzwn1zj9e7ubu85oqgvaeygh0k1usvuwwqst8uaaiv90qkh2163kwbjtbeonxktgp0odxckcj0la1x3up8s2p2wuw3rrm766t9s7oc9jv3tmkha8p6i5i3e08nwbqvovczp69yd92l6c4j90scnzeql0a2ahy\", \n\t\t\t\"addressLine2\": \"tvicf7s6fgnmvlv15c2h2wnki8e45sk2tjqutgiczhtkq2xaad64x8qy7zlwbtzu238jx9n7al49tv9a09potqi596poilpwp76iqp3w4mouqfmtm4srwplul0jhy68zyjzj8adct4cy6vm1cbeb7vip6f44w16bwx76krk0r7awiczj7m8j8mcful2ftzm16h2tq9dp639o1xasb45v54thca4qeqqfi72ufu5d7xzm001oscsz6n4sjetgw7\", \n\t\t\t\"city\": \"21x7alp8xazt5lbcu1qp12ay6blqutthss93js2aubqicx78g1tluvf4h39y59ary0kbd5ctro6moo070mt0h3ny70m2p7mnwd4340l2gwpdqx4zkamupa0bjxeu92p\", \n\t\t\t\"postalCode\": \"u0767y5uuy42tc32d9y8r2fk8bgd0wflhziws09wt0jwffgi0bo9a2nwsw389i5\", \n\t\t\t\"countryId\": \"220cd545-80a1-436e-8169-37f468deff4a\", \n\t\t\t\"administrativeAreaLevel1Id\": \"417f470d-672a-4f9c-b71d-bf5334bbee45\", \n\t\t\t\"administrativeAreaLevel2Id\": \"42a2766b-15c2-41ac-b13b-e89ecd068e98\", \n\t\t\t\"administrativeAreaLevel3Id\": \"244d2380-64d1-4443-b890-85a202e1ad06\", \n\t\t\t\"latitude\": 52.47431558092833, \n\t\t\t\"longitude\": 350.69648890091133, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Non repellat error magni voluptatem qui. Incidunt ipsam earum repellendus architecto quia perspiciatis porro. Culpa debitis qui voluptas. Suscipit eaque sunt ratione ipsam quia voluptatem adipisci sunt molestiae.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"bb3c78dc-cb57-4b5b-8fb8-7bfab246811c\", \n\t\t\t\"rowId\": 62562226199645410000, \n\t\t\t\"businessPartnerId\": \"e396443b-b6cb-4749-82d1-f8966f5999f5\", \n\t\t\t\"type\": 'OFFICE', \n\t\t\t\"label\": \"1jd86y1kc9s4m1hf7w3r6k05vckip18n3g7jkzlqr4hfpwu3tjui84iet95j7nz3u3e5kxycu7q7rwdxliwy2l3h1xxy4p3ct0lgpyoi6gviou1mawr0zouta8ty9tr\", \n\t\t\t\"addressLine1\": \"e9r0baupamqaaef2w1zezrnc5oezqazd4mmn7cmixzvi93144tx9byrvccz6zj70aj4t3yxaslj344nf1s9o6crdlhekxncwcazjmovg7o0yaismlw56g3505oy7nfcobmnfn6ul2vhzzy08h8l7fjkucniryuqmqz99yf8bgjk49kfhsbtpzsg63u7i3t6vuy1khiz8moh7ghipbent1e4n5cc7p9sfi5jrk9q7kehlusr0sg6e94ze6p59py\", \n\t\t\t\"addressLine2\": \"1796eru496yh4irjky0biz1xadlxqom0hi7aup8zcq0cqe87oahn9api2qvt3efirlq6ted50lrnxskhm6p7madztcq92e5kllvof1e5fb4d4g1g6dzsfye63wbrx9d6ngu6uqnsebnjbioet3w5clad4sw7g0r1dxo0ftn04m8rk7ggiav2j716frwu9zids25cie01cz5gwxclw5r1u2zp0x6qymt5vozz8xxbsxkm0r5a4dxoifjmwr71vn\", \n\t\t\t\"city\": \"ky3aw1c73lunf6rbltc13jimwqv4fxph5zrimgyqezou398tjqnkjetixrwcgq4r62zoduje8d13xp4ampfkc7pcmyzps6uqnobs812yyt7gjfm8q0717k9od5qcb4m\", \n\t\t\t\"postalCode\": \"9lldg6fgbealnzqy5lwu3a3t3p3gz26sp5sossl7w6zcc4vblv241zvh9pp6icc\", \n\t\t\t\"countryId\": \"527babf7-e65e-43a0-b0fc-30eb2c82c44b\", \n\t\t\t\"administrativeAreaLevel1Id\": \"4b6b4f7c-e753-4fc4-a7b5-c9f57810cdc0\", \n\t\t\t\"administrativeAreaLevel2Id\": \"6a14a737-e8b0-4037-a9bc-6ab5a4caeddf\", \n\t\t\t\"administrativeAreaLevel3Id\": \"2383dd58-205a-4883-9f01-dfce98650fad\", \n\t\t\t\"latitude\": 74.77098809588601, \n\t\t\t\"longitude\": 715.2672744898854, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Inventore nam dolores repellendus. Porro qui excepturi. Delectus accusantium magni reprehenderit. Asperiores amet sed commodi.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"d8f6cb67-4ad6-40ab-ab34-3d41b7c8eaa9\", \n\t\t\t\"rowId\": 18783897638894560000, \n\t\t\t\"businessPartnerId\": \"907362d9-d8a5-4e2c-bc2b-91a49b0377fe\", \n\t\t\t\"type\": 'HEADQUARTERS', \n\t\t\t\"label\": \"1iau32omu7y7xu3l7qn1vw0hnsv7dca3u6bgsgcnbrvtu0hwv1g5kscef20rn46ookmmnyvfz62h1obn1yr14dz7kqkc1zxbm8tr1sswza0676bhh257tsgf4e451pa\", \n\t\t\t\"addressLine1\": \"y6fw9g7yd8rubx5ble7yf5dg2g92abg03s10qieod1geh1flc85qc0f429ogjm9kfifyz22evcdimsfi50aiadn7bhai2g6jqdbts1o381zntmojo3ao6165wlc46u4hvnuysiwmnjw2ub3rm9fodmwa961sm3cwli4n6wirukbpijenn1s3xv128rk6w6kqfsa82xgfsyjjo16itmxirmd24u6j6zxxzdhjkf4gxay10q1wo7mxuyrhxckq2w\", \n\t\t\t\"addressLine2\": \"dilx7fummiz3nr53cm9iiw0yy0wvtmyvm3xs3pki47h4h3tx5nkrs8i58lr4152l59db2rlxu2c4bv2nic3p55wkr2yjn0001ts53jrihc591ksydz3rda2afij8s0wl1dw5z0ez71xx9ro6ncsr9nbddguzlfuotdpuwn8fn68vn81uvviim58l7i7xccokxnnb9rl7gngtlujyfvlys5nex70e1x7h3ar746y2tecj9fwp0u5ltpql93dqvr\", \n\t\t\t\"city\": \"8rn7v0000p462ywkml3fsqjsphiqbym90dt3d80ir7eq1vl0ow3nu0ah6f9qbm5fykx4jj9yybb7vkexeja43f0v7bfbrec7pz2ork29phdnaa5698upttxiycbc94f\", \n\t\t\t\"postalCode\": \"76cid2bom79i2wvl454h0yp8z3a7u8wny1xml76in9ddtuvkxd3flkem3fyeo3i\", \n\t\t\t\"countryId\": \"a5a090aa-f7df-4b34-a74a-df5e2b6d0d9f\", \n\t\t\t\"administrativeAreaLevel1Id\": \"1e57229d-917c-4484-a6f6-1e639ea7afe4\", \n\t\t\t\"administrativeAreaLevel2Id\": \"d43e1951-84c5-4e10-96ca-07d838745b4b\", \n\t\t\t\"administrativeAreaLevel3Id\": \"55565063-56b7-43cb-99e3-b507220d5652\", \n\t\t\t\"latitude\": 21.40231984313028, \n\t\t\t\"longitude\": 704.3076344949136, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Quia eveniet officiis fugit nisi consequatur non rerum officiis et. Non fugit natus blanditiis. Facilis aperiam dolor doloribus distinctio.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0f7bd8b6-1b0a-4475-ac9a-1d84504621ad\", \n\t\t\t\"rowId\": 34940207458030530000, \n\t\t\t\"businessPartnerId\": \"f937e3f5-da03-4d45-b7b3-47e9d3bf2175\", \n\t\t\t\"type\": 'SHIPPING', \n\t\t\t\"label\": \"bpon6u2f0gp1gifwgpgo6tkzgy67tpthwjfsn2qk3ktrt7rcjh2doxf6yptzuxcbtxpton7c6sqt8h7sr0m6wztgrckp2wdqo6zj7md7727wv2r3gtm8wgzikc02vhg\", \n\t\t\t\"addressLine1\": \"qf8zwdkfj4v32pe87f8rlgbr0rwy2pgw2tff9bbw6n44e5qksmp0r2o4uy328l1p155eadve9b3rkp7sfj9jpnaqr60os5zzomubzv2aqyi5u1s236zevaa40py90tog8mfjkmhrb14p21umgv6aprd6xq3cuememblt8ypd5qjh9tiuqink2ypu0n7ed20f4qgbxmgj9ls7nhrdaympmjlkze8tpy3bolwqfpg4da77zdzojd59azwsvv2kv1\", \n\t\t\t\"addressLine2\": \"x4q9tb98e89jg1ocbkr4wyrs4kc2zmtoywasnenu143uv7culacnoou01gebvjr45ibeqobmmcagyvma60u89nxr8628nh3xfqkp9hbe7m93qm112qkt97bo5ki9c0ke2q81mql5wkoao38was6k5gddpsskhpijczwiuqheazzxvwg63gek2eujzdsg3fts3yycwscrk6ng7rakm7h2mkcn5914pi823e2xqnl46rofv2453ljf3kkwgr23k7\", \n\t\t\t\"city\": \"w53zmsdbhpq9pqhauorewdpupusp8goesj4l0okmj49tuevfag0606u8uy9iv6frnznteixany8uqrhkwsgvmrivw5t4hmsoo62scismwladow9077cb9t97rsqs6ng\", \n\t\t\t\"postalCode\": \"7rh9pcltm3bi1kyvw2k52p2u3f7mowrnmj400kcq8koskajwl4zla43txiehiz8\", \n\t\t\t\"countryId\": \"bd7f5f11-b3b7-4ea6-817e-64e7381eff99\", \n\t\t\t\"administrativeAreaLevel1Id\": \"f8cf9de1-5b44-4827-8de9-87d807a33ff8\", \n\t\t\t\"administrativeAreaLevel2Id\": \"e119f34b-382e-4756-85b2-16ad6f376532\", \n\t\t\t\"administrativeAreaLevel3Id\": \"927407fa-7a75-421c-acdc-37beb9cf29ef\", \n\t\t\t\"latitude\": 85.94397226869876, \n\t\t\t\"longitude\": 241.62025802930287, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Aut eos modi inventore nemo voluptate nemo nihil consequuntur eius. Omnis atque quas reiciendis. Qui dolorem cum velit autem voluptate dolor.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ea4fe0ac-4d16-4f32-92a6-9f0673580c6f\", \n\t\t\t\"rowId\": 24199953308052333000, \n\t\t\t\"businessPartnerId\": \"e37cd8cc-a141-4369-8b1a-ec045cd61ffb\", \n\t\t\t\"type\": 'OTHER', \n\t\t\t\"label\": \"tuzm92tgjlh586vid6ywn10mhtro43tv1za4nd8e7300ew51ul7bcoxvlp8kit603zx2fa8qz4t8qgumn7ucfxslueg33thlcdqit8am7uyrp7w7pdxt0qqshaolevh\", \n\t\t\t\"addressLine1\": \"vqsr8rjggrnhahmlzg2h73lsci66eaqlb9s0pn9wdh6zpordyrnnhylruw83gk9r246t9f0gn9khz0t1v7mxy9vr71ztmnt2ijvpf5iotv6yh7u4l2ju2bewq7kyuzpilbdnssgzvew2eehr9q5x05y2jauq93daldt0ch4yweis42f8mzey54tb7g3m30qq1d9qr77h0zfd5vesbi6wdyhf20hor0e3ac8q3spgtwp2jowt5vs1jeerj09t6z\", \n\t\t\t\"addressLine2\": \"cmkfu5k20miu7gful6k18r72fxpvmvmyjypdspimgaxhdf4ovqvb3z4omm2f5anh8iv1777pi4aokit3qdsfyb3xo5bpih086in8u6k5mw9tui2gujjemsb0ujaacr654oy3ku19pn8cd42r5o8tfygeituteckfhw7a216zd4y9jiisrg3mostbt0thkbm70o82n5ktnj74wcihxr2hgm0sfajvv2rw10z1wcokvm8c948wr28kw7ybeorgzu\", \n\t\t\t\"city\": \"agmvorx4ut7r0eoa6zjgfonrh49rpnhjuq0uwmx7sch01bp6hkdg4u7rhvc2alf10jttxr9vv5kksenchlgwl336tf5fhmee2ocfa51tzxn6iqhwohry5b3o7vzc6vw\", \n\t\t\t\"postalCode\": \"uchjmjmiw6trfvfimwve5wdns7k4rrfirvp4yn3rviee077ibxm8tt1oqxkvtpj\", \n\t\t\t\"countryId\": \"5eefa1dd-9544-403b-852e-79c1d42846b9\", \n\t\t\t\"administrativeAreaLevel1Id\": \"fcf327ca-9bed-4328-95e3-ef16904313c6\", \n\t\t\t\"administrativeAreaLevel2Id\": \"4572c9d0-4301-4f6e-8fc7-dca65d3ae19e\", \n\t\t\t\"administrativeAreaLevel3Id\": \"be77251c-ec8c-435e-99a3-9f113c3f38f2\", \n\t\t\t\"latitude\": 56.41361585039723, \n\t\t\t\"longitude\": 599.1402487843546, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Ab ut quisquam necessitatibus repudiandae architecto rerum quas cupiditate. Et sequi aliquid ut doloribus recusandae aut ipsam aut ducimus. Qui hic ut reprehenderit. Enim laborum pariatur earum explicabo ut.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"6f6f0df5-8136-4345-8e03-f33b6c5cd97f\", \n\t\t\t\"rowId\": 95135014290036060000, \n\t\t\t\"businessPartnerId\": \"d4f4beea-e59c-4db7-90aa-21f73ed6d5f1\", \n\t\t\t\"type\": 'OFFICE', \n\t\t\t\"label\": \"xmg5ynj7bmtsts932hw5a0azesvscislqo2um9yqyhd9t0sztix7f3o0wavs1wq55mgvaj2esdmqnmu2vivg5fl0g0mi4f2r0n368astxj7d9kcn0usviktwynixsjg\", \n\t\t\t\"addressLine1\": \"13lpufcadovve2a7uhxmjjif0lkd78mqzluhfod4dq8shb6bnx14f488vj3vhs7tsm4nuszcf5izmb1akmpous85sqg6mrjvrvkpo1w30l9nsq48vt6rowuzzwi3142hkg33m6lf5eq1m66mvz9vooimvlyg6f91ui1h4utm6napcjamdb24x1h817vz8aj9rj3d9sggiqdmfazx3yvttn5kv4tlpl4cbaxiw5ex280ak2a2qqdmk09238ycld\", \n\t\t\t\"addressLine2\": \"pxno1e3kv65vy7xrtdz3c8m9re5xkd4boyvsexmrwdjqtrbq9cixzhadh0mxy7ee228avr31f5oamdytcariv5nr5jiixjvxpdtb26vpvqgf2ro45ccvpuh8iksuxz4t21ykf0o3h0ed8akslxsg1gf7akb3k7e6ecvg6gt6tlpl15kijrbeu82i5qxjg6kc8xvzfisstphvid4aoe4nky7s4kjzjijtih8xf3o0b537zouwu54oid6ffhaah6\", \n\t\t\t\"city\": \"d5s3ekrg3n443p76ygh31zpmcsrn5ne314jzfdftr10i3f8qvsp4q4ws9pt7e635nbb2t9hvzt9yafke0tbfi3j0lskf1s84hkqna0b1xwviflsfkhlaa3jfhis3yyx\", \n\t\t\t\"postalCode\": \"l8m4u4wsch2xb20ryj5o7n9s546lz0ft3n0temi1j7w1907dy8apuyi6s66wovg\", \n\t\t\t\"countryId\": \"052c88bc-9d47-4d41-88c0-8be45ea7952c\", \n\t\t\t\"administrativeAreaLevel1Id\": \"cdc0b123-df0f-49fc-8c1b-58f27b2493e2\", \n\t\t\t\"administrativeAreaLevel2Id\": \"be2144d7-2269-4fcb-a8cf-40abee27bb34\", \n\t\t\t\"administrativeAreaLevel3Id\": \"305fbf41-d296-4a47-b24c-594721e009ac\", \n\t\t\t\"latitude\": 57.51199042273427, \n\t\t\t\"longitude\": 272.71819938766106, \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Necessitatibus dolorum placeat est eaque. Rem ullam modi inventore deleniti modi. Commodi quis ut dolor corrupti reprehenderit eaque odit. Molestiae quae est voluptates in quibusdam inventore dolorum at natus. Dignissimos aliquid dolore modi officia dignissimos voluptatem. Ea ipsam laborum enim architecto mollitia molestiae et id est.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"81cf6c7c-e950-4615-a467-4f99d8989404\", \n\t\t\t\"rowId\": 48147137790309710000, \n\t\t\t\"businessPartnerId\": \"0b0c0dcf-84a1-45d4-aec7-292e4ca7db91\", \n\t\t\t\"type\": 'OFFICE', \n\t\t\t\"label\": \"mawcrhv560oektewpln3avizxw6gsxzw03f749cfpwjf889nu4neksltsxorelpv6zvdnqcriku1qy2r8dia0jg9t7oyo6n22vpsurpcwdpl3kwoc4z53xt4shrmdtb\", \n\t\t\t\"addressLine1\": \"8ou2f0wqtrdcc0om8o4aimwnlsz35997lz01all6o043uhvz9aswypfejzhvlq62og8nl750vk1jonqbi7296dmhee7u7ek1n5cqyo19d6k7djagopgqvspjsge6ke860bz7c6cr8133a0e1lt3fup6bitdxg3xmwx8hwgzpbog0rjd08kffo9ed09rcmurspt6libt6hzv8czd2og0toxu91fyxcauqkppu2f6pu2cw46mitj37v76jix35bw\", \n\t\t\t\"addressLine2\": \"xfuu8g0tm83os9umh24p8lnqgt7jvvmm0n1k8ks39bv4s1p15s6ytr6mxx2eevzufg03alrisssat1c7l7bcmandggodmquyo8r5bqdumhlst991dw595gtz9ih3jawqp3e5svfb6bossz9rqtcx4j2whxmyuv8kd2jtrp9jqsxftlko2xwvrs55cmtlja0xz4yzs1sih7pbmq56bdv43j519wehkz2tx9gpplaj5uskpsv3rbs48df6urooar\", \n\t\t\t\"city\": \"qztoxowhdz96lcs4wioytovoyzet7x9kqdlmgfomfczkcl27guxhpj8inpqje7dk5kvjgewvzlcesdk9d1mzc52e7dvjj3uopb5k4icfxs1i65q7jwl3aixn8e1k2qa\", \n\t\t\t\"postalCode\": \"abbway9012mslikz2bmtba5pjzd80o5qljne5t9zkv2v4r7m16fco2m0qg6u3uh\", \n\t\t\t\"countryId\": \"0c719ec7-361d-4e11-b4c1-f4b8fbb63f1a\", \n\t\t\t\"administrativeAreaLevel1Id\": \"4fcba8ba-772c-48eb-8524-9c6e2a84adff\", \n\t\t\t\"administrativeAreaLevel2Id\": \"bd1f2a5b-1c6a-49b0-8dcb-9d4e7dd4dd4c\", \n\t\t\t\"administrativeAreaLevel3Id\": \"c1ba4107-b459-44a1-a3b0-10861ea98d7a\", \n\t\t\t\"latitude\": 47.88672389005995, \n\t\t\t\"longitude\": 294.66345468236347, \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Nesciunt recusandae autem id et atque alias repudiandae quia. Tempore voluptate distinctio animi eius repudiandae. Dignissimos culpa aliquid quasi praesentium praesentium nulla. Quas voluptatibus ea.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ad2a5404-533b-43ff-977f-c212589a3166\", \n\t\t\t\"rowId\": 54515645753365380000, \n\t\t\t\"businessPartnerId\": \"06afc48d-ea7e-4105-8455-8bd131436d64\", \n\t\t\t\"type\": 'BILLING', \n\t\t\t\"label\": \"qgyypv773darzspet8od4uiucpnckvwmvhodooz3qen4jo5v98wxjsottl6r8hbm8dgqgnth86q8l8hysoxoqebxoiczvw3d1b47jfjbpkz33sulq6nuv7mnd4rj69v\", \n\t\t\t\"addressLine1\": \"ayzif0ozmk7v6momzesfbqxnsmv8vskrd0d1dyqhznkgkwfw9k3qdfj0109dq8sh9n9xpbg4sxda4ssqvvqx8sxau8zbjln8ul5hkyj9hc1ayjbopyx7mlxmzoycwpb5syej5nublen6408velnqspq6j6ibau3w3ipxpzjsah9damdg1k0if7h6g4r1k1n3x9j4y7ijtsannkcn8s4eaq9vg35jalpms4np8x5tqn61eplgekkwfch1rd0lei\", \n\t\t\t\"addressLine2\": \"8rbcwe01s9h85vc1c0xfjqdxibbkj0o2lazj7kpbwr1yy71mt8c877xsmg6wld39jfaprf8nhwuj0ou5c21ed8t92gl6qegpm97t0i9cslejpi7t0g3plxxfj02qqlvkqo4wk0apahyy3pa35zarb4c1p9exomd6u9djvtv0ksoaxipcte37f37ewb3ron6jbqokjrotu6xza5mp4rd8dhnpyw8hqrdfzt7tn923sb58tn8u1mw77yyzx729dg\", \n\t\t\t\"city\": \"3bc8j2cvdbqyee45wnofd36eqmumio589imgve6bb92cl1n6z8fswxnhcqkofan9n5ky48f718l75rrmpzhx5qz27743t2v2xzou7wkg8v86k1kg9dwor3q9ij4nj10\", \n\t\t\t\"postalCode\": \"he6iaxr7ind7fcl0lwmas951oqqw9vo6gpsk0fzw9di0zaq5mf224g31rwkdtzf\", \n\t\t\t\"countryId\": \"6d46a297-4447-4fb7-918d-7e7a40295d86\", \n\t\t\t\"administrativeAreaLevel1Id\": \"4f6487d3-9e16-4926-accc-46d207e0e713\", \n\t\t\t\"administrativeAreaLevel2Id\": \"db223347-5b0c-4866-97d3-03b70b6bc586\", \n\t\t\t\"administrativeAreaLevel3Id\": \"a1204fc2-f423-4caf-bf52-64275f527f53\", \n\t\t\t\"latitude\": 41.19286839943848, \n\t\t\t\"longitude\": 462.82323080564476, \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Maxime dolore vel adipisci quibusdam harum. Ea qui consequatur placeat incidunt quo delectus voluptatem. Voluptas molestias eos ipsam.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"263082e5-b6f7-4aef-9f47-1452551d5e8b\", \n\t\t\t\"rowId\": 20488989882763702000, \n\t\t\t\"businessPartnerId\": \"314b7653-4dca-45a8-a9e6-6727de79fb60\", \n\t\t\t\"type\": 'OTHER', \n\t\t\t\"label\": \"i98ybee61nq3vmi7kx2k8od7bgfnb983tn7p0lui17bdbpx3rbwn2fyro4egi2rd957t9mmqdxkmgrn68a1kt3a2oedhsefpz81er3ffo7oqe61n9svw1uv7ffpaudn\", \n\t\t\t\"addressLine1\": \"7a8i7j7uejqzvxe7dhp3qhifrbb9m8bnrublo8awgmljsg195aaxjpwmiisz4nihlcahspqy3kv73dqub3q8nzxnawuki0t08zjzqe633pn86f4vha4n2ue53advfakmhniee9c2wkreh51jjmgqwlc94z2squduqew2xc56mh5q9erzmrfgq6clts23cs7r86f3acf15g5so269bbtxzedwcsfsw6hv8vuacc6a6lnyidi9z4gl6okqrwscz2\", \n\t\t\t\"addressLine2\": \"uj8ew0n05nky8dy3yqq0e9ykv3fofcwsagu3lytw1y7z9e3vpk35gb3702h28xxte1vrf04yt6k2tmyyy2xvamy0in5t0uhstdzr8dzue1m79qfcwmb5wry2mhwz5spv19rueqlz0zgo5sh2dzqjv80znh86bujpu6ouacpv0jt9igth03bo56xrbws125fwagsjp4xlqkxt7stvbztfgq8kflo8dextbn3y1xnrxxmj4p125367vro26te7fu\", \n\t\t\t\"city\": \"jw28ulg85txyggl7wh04sy3tcf18o6is1swq5sf0ovu6hrwc0i8g98nuv6w2a524axei141ysqwxk6ome4verc01eplqxdt5buh9hktknyprqdrhnulpchfdxjqeacy\", \n\t\t\t\"postalCode\": \"pfo9tpgx00b41so4sgd1lm2o66k1bm77tt7oh48ahzdc0seewwbsfs9p9hqg2n0\", \n\t\t\t\"countryId\": \"2970748d-f621-4ba3-af3d-acc03ba11543\", \n\t\t\t\"administrativeAreaLevel1Id\": \"9fb03291-2366-4deb-aa20-3e0b46b40117\", \n\t\t\t\"administrativeAreaLevel2Id\": \"1f28fac9-cde2-4737-8572-2259e9744b4b\", \n\t\t\t\"administrativeAreaLevel3Id\": \"9634c91e-0bac-408b-9d3a-291d849caf79\", \n\t\t\t\"latitude\": 66.32781601615648, \n\t\t\t\"longitude\": 884.3874835401916, \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Ut corrupti quas consequatur tenetur. Sed perspiciatis dolores consequatur recusandae sit id et et. Ut et commodi non. Qui totam pariatur. Facere nulla dolore inventore voluptatem eaque magnam exercitationem qui.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"df339c88-e60c-4b2c-b2ec-1361f389df83\", \n\t\t\t\"rowId\": 27384584844066214000, \n\t\t\t\"businessPartnerId\": \"8a155960-83a4-4285-a6b9-113074f9fd3c\", \n\t\t\t\"type\": 'OFFICE', \n\t\t\t\"label\": \"yub9s1elj8cfqqcym95w0lfx8u4cqu8huy5ed53e9nk9zdfoq9jygt21zl4y53apurcmyi8u5ifxvwncsc3u55bqiil2m2bjaf4gp7kp68jnxss96ictv9ryjxujx22\", \n\t\t\t\"addressLine1\": \"loshoa9plx38w6knddeey0h94bpft4rtw8eytksvt4vw55atv4it1y6h7zafrk4o6di68hrgvu2x4huji6kvx5egor56bt54m0sq9ge72016q6cioshnygru9gxwp3xtc996okbckyyt3dzb11me2w8xfeuv38qh1uzbbhbrfbp79xofcj7u7f3bknynkaris2zzciqwq5ysnfemu3n3ovbsnatvhfr1c8u26z7rl0bxz68lvtf8mtkrquxde5\", \n\t\t\t\"addressLine2\": \"5pei7ely0gl28vydms14ptyztbf71juy9dsssbji1cbaa8fost2stzvvhyketpbn6prthfrstt2m1k8papnww3n2nr3ejjuch5mdeom0a3t5xdzdscss1dmyz5352qcxgpxt1ntlnzv2f52llvm6x94ce62qitqirjy4fwb6fthetqt6c9gcn8y68mtb6n4fyew834ss8pajw027y58l7uxp3n4xdl6nl1sdkp4mlbptfdmc2qwmmw55zeq52d\", \n\t\t\t\"city\": \"h2o9v3zy2n6gwaae4aiidpkzot5rllwx3khu8wlz0kbzszth4vvsmkjcc2z8zz77oazgis8lr2tt04oew7nf17nxz5wh03txwvacgp1bbkfn0a2pml320rxm8uretay\", \n\t\t\t\"postalCode\": \"xc57x0dwtrr9hk4nett89gwrkl6twego69tk30kmyhsd7ju3bui7uvkomwq9s8c\", \n\t\t\t\"countryId\": \"e89974db-4692-46cd-822c-75a99f013e3e\", \n\t\t\t\"administrativeAreaLevel1Id\": \"c199f2ec-a354-40a8-aaa4-9339d8ac7674\", \n\t\t\t\"administrativeAreaLevel2Id\": \"894c07dc-51b5-4486-98ef-cdfc5fb8758c\", \n\t\t\t\"administrativeAreaLevel3Id\": \"b80b3ba2-11ce-44a2-921f-ae6d28e9cfe4\", \n\t\t\t\"latitude\": 16.68463182528936, \n\t\t\t\"longitude\": 845.7973011414438, \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Sunt nisi aut voluptas. Nostrum quam aut distinctio. Impedit excepturi et explicabo ipsum repellat iusto corrupti. Voluptates ut voluptatibus fugit debitis exercitationem nam libero.\"\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginatePartnerAddresses",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginatePartnerAddresses (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetPartnerAddresses",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetPartnerAddresses (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPartnerAddress",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindPartnerAddress (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPartnerAddressById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindPartnerAddressById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdatePartnerAddress",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdatePartnerAddressInput!)\n{\n\tbusinessPartnerPortalUpdatePartnerAddress (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 44582862785724320000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"type\": 'WAREHOUSE', \n\t\t\"label\": \"qkrg96uid1mlwmhhehz7izfp6jceqalk5lyd5gephvnr1hje9v5tgpl7xan7rpc5mgr4905q3l708yo93sif0j9z1mjki4stli8wfvu8m0wq6n4rab915t33gyi52no\", \n\t\t\"addressLine1\": \"vkv1f1oy8e464jbhng6flnsf1xz3amo91lr1akb2i2jemn1cyy72dqb8v2r6zrucax7z129ihyxs6b6pjb937t8hmh7thbj18hwxf70yjvpzclpdsqurisafp534ohzn6qu9lpu04bmgr0vg9lvmaxr21ui2r6jt93cdluapxj3lxu1ei30grlpubs71jgq0futica986e9m6pe7dmhbvaeo4xao41gd38mexh9jw6pn7j7cse9isb6xpdta7p\", \n\t\t\"addressLine2\": \"cw12b28t7pwy7v7mspwbb5nol31eywodpum8u0tx4bkjir8yteyu9u2ml89fcj8houubqd0uhj1l63abm7yerov63qiekc52zbmsgvpeojhh3u5884ws6d4rommd3vuawcxx8psx1r99awg9reqaka864l3c3yjet0rczraezwojp0eyltcpnja4ll61zworgkmnaxg6tn19mv531n2sm0t0jxr2giyv04k8noaieyvx4ljrp5ya0w6hbbgzjz\", \n\t\t\"city\": \"cagef76z1hp3gnkx793x872vlkox0yybsq1gz57a4x2rd6bdzrdvgcu9uvtu3vje3u0mxldltqq470kcftp8375zeerw617fhu8abei93mjdu621lmyp9u2yhjssirf\", \n\t\t\"postalCode\": \"eyb4v7t5owbqvbq8qr3fas05gu867q2284thiuvhk69bur95emmpyby5httaew5\", \n\t\t\"countryId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel1Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel2Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"administrativeAreaLevel3Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"latitude\": 81.39739648786728, \n\t\t\"longitude\": 248.9266893894351, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Ut voluptatem sunt tenetur non commodi commodi natus. Harum tenetur beatae similique autem accusantium magni optio voluptas omnis. Quas dolorem non. Labore velit occaecati totam. Et voluptate minus voluptate sunt voluptas inventore.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePartnerAddressById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeletePartnerAddressById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePartnerAddresses",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeletePartnerAddresses (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\ttype\n\t\tlabel\n\t\taddressLine1\n\t\taddressLine2\n\t\tcity\n\t\tpostalCode\n\t\tlatitude\n\t\tlongitude\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-address/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 13971855774774060000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"type\": 'OTHER', \n\t\"label\": \"cf2zycfla2xcuj56i9djnoqz8ogs5x2oypcx1xdwqcxzz85xp2crini0cjmba2wnwrb3gwjz1jblytuas0mh0qdzsz9e57p4ky00wxrs8jfyuqsfxdq3gu716bgo3cd\", \n\t\"addressLine1\": \"5r4h6rhtrvm8qvzarzv2d8f3s1fqn0ib0rmden85uzfptait0cz8kzsd34h35eqdhsue6kzocq81jk9vi5zeglr4ljv1rtjdg7nouilkitnx7inaey3ykngan20ll7obbxf7qyf5vy3v8st1rebq8q8il8sh8yb1vp8z5m7dh0xf8tog80eoy0ggz2xhi5zegnmoypvanplfhtntmozm42c7473r9d7mgd0u2f8y6t9glxlo5makim70wag54p\", \n\t\"addressLine2\": \"sgucsusu1ac4e9g8mu7zqysftwbcokhk5l685pr1pcbho0ag0av2jr2pz6s5seztscibfxzpnvf36ekl0lea6vhjg7sdxedl6xiytjak5z9lzfwbk1km2kwg48plq3r3s9v1n8ovqb89rh3m2mfu9bcev9d8vhdaa3wie7xhbajhcnliy5f64p2lna21ruf60sddqho3dnymqrvlaicd74q2959rdg2ixwb2n9pmz3sw7e5yju23azeqlwjc4s\", \n\t\"city\": \"6q7quz7tfdr8k74ne3926973bhgymawz934pkjebvnigkaiaqouymih19at1ufxvjk2szjo1bbzzkbdowrp09c1l15vb7xuv8xlfbnntvna0vmesrvx1324o01l7931\", \n\t\"postalCode\": \"r7os4fmrb4rv043nd94s8wtq2xc1syhh0q8m27u9oithgitcgy65xkhuehshhet\", \n\t\"countryId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel1Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel2Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel3Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"latitude\": 28.29508722963012, \n\t\"longitude\": 570.9029714470647, \n\t\"isPrimary\": true, \n\t\"isActive\": true, \n\t\"notes\": \"Earum nihil odio. Voluptas non atque doloremque ipsam laboriosam ipsam molestiae et. Numquam itaque cum. Non iusto aut voluptas sint quae. Eligendi asperiores iusto laboriosam ut omnis debitis.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-address/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-address", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-addresses/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"b3824b83-c2dc-483d-b255-8e0153d6e5fc\", \n\t\t\"rowId\": 19020488541384245000, \n\t\t\"businessPartnerId\": \"3ad1730f-986c-4b04-bf07-a9f908c5c2bb\", \n\t\t\"type\": 'BILLING', \n\t\t\"label\": \"sc0iavjgrvsvbntnwmomzjljao1x8lrrjmb6hns3r8j0mylffe4pda51yv6naetw6lxg1r9ifafgjf5z9j6zz5b1c6rxtbpdbjob83hgk0yv8h5toejkkqdknidquvm\", \n\t\t\"addressLine1\": \"jzza1yvt38peifgkpif53y4ptpe49ftc6z44fd3q8nul1wzs77dxzcdcrdj3d332fre9t2y8vlluq1a31w99hkaikgk7n6poveahfagt4qmozeoo0gisnogvc5y9p1iu74j0v6ooz8qugmzt1zaevewx82nzcujhsq2v1m0dlazp1qkydcdthdik2dgff5z4462q8xp1xh0rzhr3eidebt9ope3jiom8w0tn8lzav49eubl94yfkympf9ib5na\", \n\t\t\"addressLine2\": \"fgf0mbtb95wppfi4y7h4bssh9zxx92r5svk9hu6bdusxsf7e5xu980kp7aluiygfdxocydkwim67n1okkb0wlhpjn98ytee7s7tx8aq7n8x1vq8xmu5ufqxsw81zciorf7pan34txxe8nspukrykl76ku5t0yidce0x4mxsuou2jh5ryy4x0tz52ee06wkisc399ud7z3vwd6q74u5l4f6hf0ayckmxreignuvc8er9fd8y09sfl4rqppo5hhr\", \n\t\t\"city\": \"xyvzfeuu5hqhnbnfzt3ut7l22dm0p8li64jtudbj0mwg1dlziwujq0r8wy05yllaiv5np8uiywilclqp81jlt95mp44kcezuiq6ia2bqsd8quic596yopi8m4tch8at\", \n\t\t\"postalCode\": \"qipkdkdzpihqrtzzcx2mse0cvsamv2b1xbm9cph2lvklpf4795vypzznac8jyww\", \n\t\t\"countryId\": \"a726f693-f655-4122-a4f5-8487eea8fef8\", \n\t\t\"administrativeAreaLevel1Id\": \"60b87a45-a3f5-4a4b-a468-c8a9a5b3fc8b\", \n\t\t\"administrativeAreaLevel2Id\": \"66a40a85-7a1d-49d9-ae3a-904e63caa8ea\", \n\t\t\"administrativeAreaLevel3Id\": \"11274f05-6c5d-48ff-a243-da91ebed378b\", \n\t\t\"latitude\": 68.93737802121375, \n\t\t\"longitude\": 249.87659253903175, \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Recusandae nihil eum minus minus. Culpa non quis repudiandae et et. Molestiae unde nihil dolorum magni aut libero. Iste voluptas ut expedita eius aut reprehenderit ut. Dicta quia ducimus.\"\n\t}, \n\t{\n\t\t\"id\": \"111be6be-1272-4568-acde-45ca17356585\", \n\t\t\"rowId\": 61892476778918630000, \n\t\t\"businessPartnerId\": \"66780141-d6bc-4607-8b75-2d45990e5e08\", \n\t\t\"type\": 'HEADQUARTERS', \n\t\t\"label\": \"y9jkf1lmj3ngndp76xe25yg1qslwchr30lrczgav5dzzkdzyzige4y57d0hqdppsrxjkvebckp2igpqso5l1dblk4xaedwl2baqfm73t8aqv02p8dxybqfdvhplnic3\", \n\t\t\"addressLine1\": \"dibr1htg1q30f13xhuf1yqw9gxdkcc9unm2m8kcfmljz5nl8akf1do642856k52189eb62e9r92exkdtw3p4tg8x6p69cygdbdibvmxjln770aexrdesp1zuuzfsvdct8te6vrsl92kqah5lnu2hged12vwzhbqigoytglldxgmfrds9sm6tol66gyt8xtrsnkmpar937n6wutqe5fclg1fh83gxsj4k0jcnhgenrz5ciwd4j76w4rf7cgun1o\", \n\t\t\"addressLine2\": \"4ki38us4ohtrga2goe86p5vy8c29v3nf1xltmx3nbjmp87m077zay0na8elatnfnshsdaas4kxyetlfiq4asc4bir2mr77ers4d76god65o1fs994w31d4mipj0j6zmwk7t3lcrwfzexxxg6x979h43s4kpow77c85gnbcxpp69d6ele269jrzmy2c98088nt3q0lbugowl7xhqitlvoobnq4q0kruiuf8lzlrbhhsj3j0bmz4y802myecd2uv\", \n\t\t\"city\": \"cud0rqka8ulsfmj1tn5btga6f9w55574hh6yqbvrks6gkhgmbp2p7e61m6eik3toqly7e959r2exeekajqzve0zhfq7ma3rjwxtfvdqmg3dgxa45q5j1o5feo7epde6\", \n\t\t\"postalCode\": \"gwpbr9idx3ibn9ewrl39l0g7n4jdovv7prtkp92xi4lmjrzizctbzpdl90vdxi9\", \n\t\t\"countryId\": \"d08c49f5-f4ad-4d04-9e5c-7d79868be807\", \n\t\t\"administrativeAreaLevel1Id\": \"b6953598-fe04-4cf0-a2f5-f0920298cc08\", \n\t\t\"administrativeAreaLevel2Id\": \"4018903d-b6c4-4de3-987b-2f1b23a235f1\", \n\t\t\"administrativeAreaLevel3Id\": \"49cb9e0f-bf3a-498a-80b8-8fe032502b39\", \n\t\t\"latitude\": 50.13990104893241, \n\t\t\"longitude\": 175.16968830178948, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Odio ratione assumenda aut enim dolor temporibus molestias. Rem est minima aliquid. Officia culpa deleniti omnis ut dolore accusamus. Delectus deserunt repellat sapiente quo totam aut ex vero. Iure deleniti sed fugit possimus dolores asperiores alias eius.\"\n\t}, \n\t{\n\t\t\"id\": \"aace126a-0846-4e4a-9081-5a5485573c05\", \n\t\t\"rowId\": 40904426421962620000, \n\t\t\"businessPartnerId\": \"a97d4c59-5eca-49a6-9887-d0484bb07ca0\", \n\t\t\"type\": 'HEADQUARTERS', \n\t\t\"label\": \"ljp936l6nn4z8cfzr29netwn2bkqfodevcl2hrog7a8wiuxlvan6fe36s9g7rt36cs56bt8kl61rb3g8s1i6dotr9ohazhkkqo6l61f8sw0x3fmuj89e62ycnm64gyc\", \n\t\t\"addressLine1\": \"gnwo9athx1c3gqi1p9ervfv83xx0c1f4lsikzadkx9fkx9bv58738kvxg84esjztj91xtdukrr6uqwoqb48l9upwiqvghcjust1sf76pa1bkgqtoe7a3hsafzil1ix90fslgof3zj694yrg78fqjd4zgqs3jr9sn6itbwut1tg0g1mwer1eut9qf5qy10k0y5o9dtzaw742godlyfdwb1mdkjk0a0dxkdkydgnz36l506xm13a199mj1yvo6wr\", \n\t\t\"addressLine2\": \"st2f31e87d70sl4bbe4voub033b8fvyucejndcg3oexp6w85jdeyasb7gj6uyecbjzsxueptrerblsjuau7ket5puz9rbdqy92pkfzlh5nahi3qop1qe8w2x37m3stri56qmsojkrjjy1d6ncm26xc1bxk8v9crl1sbyamg8fgxsthenvwfsy1u02a91k9qtd7csko33fruknh2wo4u1r85uylydi7jmxc6vosqsquqcy7n01zffcp5jg8ualj\", \n\t\t\"city\": \"rxqonxaur1dsbvovi20kkclghf4ka8boeddc7v6e7o36hrixdd6xu84hux85gywdp5vu26edgbwz50deiq51p6g51w6tygfvv03k7si7klq3n238u6x55eu5vcvj89k\", \n\t\t\"postalCode\": \"vwyzmzi27eafg26dego4g42pl2q6mwhmgrst3ldf6tp60kes7aggnvtom532tam\", \n\t\t\"countryId\": \"80b8d831-bb8e-4a3c-8fb8-a4bc9587e4de\", \n\t\t\"administrativeAreaLevel1Id\": \"758f2a1a-3531-44d1-9a8e-715b829e9206\", \n\t\t\"administrativeAreaLevel2Id\": \"83159f74-0d0b-417e-946b-46f4cc255f4d\", \n\t\t\"administrativeAreaLevel3Id\": \"f5363ea6-e910-4b85-9233-dde857f5e22f\", \n\t\t\"latitude\": 39.30186001979715, \n\t\t\"longitude\": 324.51525696471765, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Nihil quia qui voluptas magnam. Nesciunt temporibus sit quo et non. Laboriosam at sunt tempore ut dolores incidunt sunt in. Ipsam illum nihil quis et.\"\n\t}, \n\t{\n\t\t\"id\": \"ecdceec8-b567-48d1-a57f-6d75a3b6dd8d\", \n\t\t\"rowId\": 60065070416526040000, \n\t\t\"businessPartnerId\": \"7ff5d3b1-4959-495f-addd-6574269f294d\", \n\t\t\"type\": 'BILLING', \n\t\t\"label\": \"wafb59npbdudfak91o0w7v8e8aznyknom53zuuubimi0576rtr2n670ovl0ifr0my015zwpmhhinj7uy3eczeo9kqlicmdyo8okfbxdfgjvzp9j7d0ec9qtty016k73\", \n\t\t\"addressLine1\": \"899ceu5jqq2k4ptht68f16fgh806ss9hy0kyuz5ynt11kbs03i5pvi5ob9bp70xb9i4ifqvjxk083109ivn7uqdy46tfpnz8q94t7v3g8yhelidd6djb2iog6ulqoa61cwuqpqzwma1d70bicbontt7e5cx77ckoma2quqcthys14qdd2c5fv1j9f8v9hjlgt8v9zbjrcu3wsp488avpn1ng812j01gcdgcaan35nnltog5qkoy01rzssce4fg\", \n\t\t\"addressLine2\": \"uxh2026gvvoi4c10dwmjbx56azwph4p8eev61v98rjrssejzh59rc9ynj7v0aavmbnepxsmbp1hpfgg3z863a7qk1r1yrkellhfyo561une6rt6tsbidijvfs0vun3lr0omce4d0xa6bxdo5rek91rwz5udu21caadnmeny44r6h0hgyvbj86oa74fodg8yk45j1hukzbfw6p3gwgpk04fncckb8hmh2wne2kx8sesbomzwyhpap111io5o1u6\", \n\t\t\"city\": \"w4kqfi4300w6zjvjljkia425td1p1546oc26qk0tcui8cl6sn3r353p59426lozv8lis34o314hcnc776o1cpz3phmge2aq0etdzerxybx0cg1h3wmu312xk6bapoj7\", \n\t\t\"postalCode\": \"eekxhk00tkly7m72m77qot38vv83ihchio51y3t7oa3jjlzvqladueij8jdruwo\", \n\t\t\"countryId\": \"6e7d5c5b-0d4b-40b9-adde-6c25e20bac9f\", \n\t\t\"administrativeAreaLevel1Id\": \"d36b3335-4ba8-4f79-a5d0-402a291bc648\", \n\t\t\"administrativeAreaLevel2Id\": \"4971d8c7-a767-4b60-96da-cf7c44ac8f65\", \n\t\t\"administrativeAreaLevel3Id\": \"66fbc7af-1912-4d86-92e3-6a0085428b80\", \n\t\t\"latitude\": 90.91293068559337, \n\t\t\"longitude\": 592.4450190314882, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Tempora eum quam. Labore ad debitis voluptatem corrupti consequatur aspernatur quia et. Doloribus dolorem aut dolores corrupti magni. Esse expedita incidunt. Consequatur cupiditate blanditiis autem ad eaque veniam esse in. Et aliquam molestiae est et.\"\n\t}, \n\t{\n\t\t\"id\": \"bb3c9b09-b475-4edd-a4c4-45a19799b202\", \n\t\t\"rowId\": 28510439474947473000, \n\t\t\"businessPartnerId\": \"a7ea69a2-84af-4c3d-b5f5-15236aa4684f\", \n\t\t\"type\": 'HEADQUARTERS', \n\t\t\"label\": \"vzmn67gn5awr7x83nfgc98khcs6w7n6ejx8ylgesyy9pupi19wmme8o818xm893upwzcjmwwhnq01067z0b6o1v1i9rhm8r0cl8bgtz9gic5ceklez9qyzfdp7zlcs3\", \n\t\t\"addressLine1\": \"sifke1h6v4we9nyzbj8urvevn9lw3b2i538f318ah24p0f1ildyz0gdqq63myhqofdbnen63w910862dd6lgquy7alzgk7vrwdai1qsvrkdjp94bvhcu4pgeajso8t3hus4bmpfa1os0nq01ogj6tkwqvbj84uacecg0f1mzxf9i2t4x70ra0ub8n3hdeor80tdd1pz1pay6wt10u6nedbbvj8qzbao1h0yn65fclvmb7u5tcn2ij0vmgsoga9\", \n\t\t\"addressLine2\": \"64lozkmaifxxicg8xqy3kv6kb93r5fy94hawxx5z8t1swqpjeiyqg00abjazyzkjspgtixmbmvkmif6g27ge4bsdkqdig8yztotw6n4958uxwt4f9s0jlmmac86fkjvizb24fex9r07hyrkpr9v1tqc47gvo3xve03w5bahtobkqw7qpazdq8upfko0mnq01dm6sscbv3t4p9z4s8oc6kc7n4ihkk348wc56dld21irx2vyru21zh0hlj4ztri\", \n\t\t\"city\": \"u7k2shqh3q2wfu8zfxn8dgxtveyjt0tr85mqwpvoak53e4ntr0wmwygn51mtfe6cthd399vcmualtclqztai7rncuoakthai62ms88n01b84iz842n4orsli8onsfye\", \n\t\t\"postalCode\": \"0574m7ubqf8w415icq94gh60f5ispmykz5slql794iw6rmru7pmlji7acwgwtul\", \n\t\t\"countryId\": \"55e40615-22a1-4e94-a78a-44440a178437\", \n\t\t\"administrativeAreaLevel1Id\": \"416c2006-18ef-4e48-a712-69bb198a9f1e\", \n\t\t\"administrativeAreaLevel2Id\": \"66e30480-cb6a-4a7c-a1c9-1a7ac9780aca\", \n\t\t\"administrativeAreaLevel3Id\": \"eced2fe9-b189-42bd-94a7-74dc9e176bdf\", \n\t\t\"latitude\": 75.1146633729273, \n\t\t\"longitude\": 972.9142171737143, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Rerum quia nostrum beatae suscipit illo vero. Maiores autem aut autem. Omnis eius sit consequuntur quam voluptate culpa maiores. Et sit ea necessitatibus dolorem omnis quia consequuntur voluptatem dolorem. Soluta maxime ad. Voluptas omnis sunt.\"\n\t}, \n\t{\n\t\t\"id\": \"0cf17238-5913-4ec3-a98c-7922e2f14470\", \n\t\t\"rowId\": 67401930854202440000, \n\t\t\"businessPartnerId\": \"eb670b21-eefa-4a8d-bf50-44f4939e537a\", \n\t\t\"type\": 'OTHER', \n\t\t\"label\": \"l7qody95wwq4cdll7evt6c45d6sztyv8062db8qefj4oo8r5m1d0pm2mxibgp6xofmze3jdsm8inifmbwevb9nfq2utybp0i3skotyr052b4n5uo8dhdr0ml06l19ix\", \n\t\t\"addressLine1\": \"dzlp8cjpd7gasjcdwmsubh4n1j5mc9u1czbex2ttud7cdbdsz7a18o6qv0rtjt6zoug87gbc6fon913pdsr35xeqalw43tezdza8d9hqw3oakqjin8c0uc0s0atceaz99ybzo33mae3vh50ttpu7ygmg6zvfvis8zv90d4f4x5bhgaunlh1u8pgdyz9wpj3zoitd4471e7yzm01tx31qs32dj4z1zkt5s7uh13j2r0qeg8vbzqukm8o2b3ly49\", \n\t\t\"addressLine2\": \"n9o3fmh1fj2mcai72yp7buq43iiyug5a1eo6zf5trjuabb97e01p8b4pqfksncfcx1w5rkjnzln5xs4efe7anojgs84rauget35jznhzgattjnjpywdnuyl2ds3k2p2ixf92k3bcm0z7jwmanmwbfwwq6rz7pizw1k0yc3iod0ds2i15k7c5058mfmlijudsbw9iwtu10hgn1gqphvu4mnudrl9nqz9160q8b20w4i9sn6gddg0ykljopinhxc\", \n\t\t\"city\": \"j5bm5h32grg89oytje74xk7zqkoyzlowdkudnj17vhjh67flaveic0u2hu8mlnw1r0ttr3aenby0lg98jn6sz1bfwdttm6jpk0jjkavbrcfw1tabhnwjuzmvinysvwy\", \n\t\t\"postalCode\": \"lkay5gshgwxfm8mcnvt2cuf49eedjbxsxh1tkgxuv9qg672cizhkwq1hckdze7t\", \n\t\t\"countryId\": \"15154227-3c2d-4045-a91b-1c6348c56767\", \n\t\t\"administrativeAreaLevel1Id\": \"1bff03f5-f0a9-4d20-bbf2-696da9049f04\", \n\t\t\"administrativeAreaLevel2Id\": \"2030e478-0d23-4f40-8c02-05efd8de7697\", \n\t\t\"administrativeAreaLevel3Id\": \"df3b39b3-7e50-41a7-a0bc-6375b9c5c4e0\", \n\t\t\"latitude\": 57.89234360271478, \n\t\t\"longitude\": 876.5000076256408, \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Consequatur in aliquid rerum itaque suscipit eum perspiciatis. Quidem est et dolorem. A sunt et consequatur. Est sapiente autem ipsa.\"\n\t}, \n\t{\n\t\t\"id\": \"483eb99b-e339-49bb-9e03-4366170e7c1e\", \n\t\t\"rowId\": 83629121034984720000, \n\t\t\"businessPartnerId\": \"fa5ac0cc-2aae-4808-ab7a-bdfcd5adf654\", \n\t\t\"type\": 'SHIPPING', \n\t\t\"label\": \"8lbryeehuca0tst3gcqnpn96j9canaeuffqwq6zskctkky45ei6bmkl51921lvcbrcirmu5rfxiy75a7glzoruqij6ux8wzo7gpd7qwbrg3vn0lxhjorljrlayo5suu\", \n\t\t\"addressLine1\": \"5fl12wjx59l1xe55vzx4bt93vxd1sk9q772bok8t0u3g43g5ht2yitmvbet20xts0ufj6zhumr0gdb6obdiz2xjd5jtu3hb2xod9pxzwhl9abw5fbwygclxjsc2rcv8pi2fvqrkhcvosxev7rpmn2cujpb47a8llxnba3mufz83ob3hkt2z7kpvtxhh4k61js8kzcgutribotjviyzsmoc4ep74c9mcw5d84agiexfs3i13qz33faj1j945auq\", \n\t\t\"addressLine2\": \"8zwhdun3zp5sqqpf138vugulwy3zgip5ze9vnugjj7rlkzwwn5dxn34q67uf826z5iasiw4isb4p3bb67wr87qnr67qvdk3pr7gu217pzbqhowxo6aaxubyy0v8wrg3fw1tga86glggung9hqvjqydzyog6xb2pnpjex9rejg8a1luwiu20pbro0u44z06kqpk947vh8958cqpbbtmcioqgvin3kzx1ao7rbqds5ut6l3157dx6dj7l7zwrnjn\", \n\t\t\"city\": \"c1gs7vwmhom1w1hsq3lmdit2jq0v2bus49roejflfz0v4cyzxwoiai8ns2q1kueg335775iz9zl72f5mmkrwdihou114h75hc8s4ygstz7kra1gip4knth45l4fqg14\", \n\t\t\"postalCode\": \"3a8q2l7rqnwstc7kwo9caaystdvs4l8cnddwycm0z040c582sdkjx8bxpse6mqo\", \n\t\t\"countryId\": \"e9ba4a0d-98c8-4c1c-a1ad-b5874d345673\", \n\t\t\"administrativeAreaLevel1Id\": \"b9ff0328-0433-43f1-ba44-e99ed33c3e62\", \n\t\t\"administrativeAreaLevel2Id\": \"1d7058eb-2bc3-4ab6-b1aa-359bc83e84d6\", \n\t\t\"administrativeAreaLevel3Id\": \"ec71e9fd-d4e1-4a96-a4ab-45191273847e\", \n\t\t\"latitude\": 77.36993070649413, \n\t\t\"longitude\": 583.4726965565839, \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Nesciunt earum eos non cupiditate provident facilis libero. Suscipit cum autem et libero deserunt. Est perferendis laboriosam ipsa.\"\n\t}, \n\t{\n\t\t\"id\": \"5642c1fc-333d-4f60-9557-0fe0558ad9f4\", \n\t\t\"rowId\": 29974945439422510000, \n\t\t\"businessPartnerId\": \"88ef59b8-a66a-4710-9209-ee3c4a385af4\", \n\t\t\"type\": 'OFFICE', \n\t\t\"label\": \"3hyea2dmppv0i7ezo8tmyx9plladgkf8vyxi0kawzc64f1mbcm4iwczgpfsi8dpyivasdrevyq7j9j7mqqyj6zz7kk4rlskd8d3ey9t8ns0ryanvugtaeo9eqblw8eu\", \n\t\t\"addressLine1\": \"4fzrzkdsglc030kbkre75tp933mpz8asym0hv0rixukey4yq9dx53etdiepkeevg9d3aj1k0w9mhles2juzh8o8dnmcmdn083rr95wvh8uafoagnexpio63aitgfvwbhi4f54pviv2gay97wtzjsnenvhsnwycvniok2tpkkelph19ddlbomhsq5x3pg8nao6bk4qeu9tyri6v8tto6ayewqkbc33v5t5qh127eue3g5n35sk1vuybz6uqxy7u\", \n\t\t\"addressLine2\": \"8p1narpm8bi7rijdql1lopbifmav56fsah53hv9eune9i40s8mnm8k7ebdl530ztdcymouy1jcdakntv08bsbdlzqw4zb85xghm8erru4rour14l60eb70luovhwy3km7cj8ttj3szutljc4ntr9v16rsy4c9vfq9ywl27m1kq3yo9qmzcrigwxu90l6zp6clk26ozgt5fah0z82tpfjzgn3qtxc095ppizyxdoqybfmb7wvyspfn2zznmby3g\", \n\t\t\"city\": \"nihg2k1s1i3e5ot73q89aml71yefjagzln7cosmbht7fna4ohbiaz8rukyeumuyfh5lmgd17fgvhnqk1ya2xy9cg6bsf9a2jxszphw1rzll9dp4vtkp4b1n5w9vrimg\", \n\t\t\"postalCode\": \"gmvhoqg8bb6tyrt7re88bypjkgojbltbx5434jt4lgwt76svjhi71h8pby5k31a\", \n\t\t\"countryId\": \"00f5b526-e067-4eb8-9ef2-ec13a428dd42\", \n\t\t\"administrativeAreaLevel1Id\": \"391f6599-857a-48dd-9233-55182d9284b4\", \n\t\t\"administrativeAreaLevel2Id\": \"8a1165f0-fc15-46e7-b143-ac934cc78eb2\", \n\t\t\"administrativeAreaLevel3Id\": \"da7d5993-fcc8-4ab7-971b-ccd41de370ea\", \n\t\t\"latitude\": 51.35324061444411, \n\t\t\"longitude\": 870.8433029087014, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Dolorem minima et adipisci. Molestiae dicta alias perspiciatis aut sed temporibus. Ipsum perspiciatis cupiditate accusantium sed odit officiis. Ut illum quo.\"\n\t}, \n\t{\n\t\t\"id\": \"6abe2bc5-87f2-483e-bf56-ae2f8cdf9d9c\", \n\t\t\"rowId\": 89046544053871150000, \n\t\t\"businessPartnerId\": \"aa6baa63-3a20-42ad-97a8-1f56d2ca4c1b\", \n\t\t\"type\": 'WAREHOUSE', \n\t\t\"label\": \"m8c5rahytktczc7tbx74vd0moz8dz3pm7rpksgphg2g8gv4oazsmz9o7evj2ix9egsq2erpa9a3wyp0zso71rwotm00ho0cojxd6r9hnmymrpo7bkbsmutbwnvl2h2g\", \n\t\t\"addressLine1\": \"3gg4lyvdtn6cajfcwck05j6wrh8ksrs07c4tis4nst7kt7bcdcgn3zdt834zewrfg3ia03yy8xmwbt6anjhkbhjhc0vvmjvk7fpdsbbfeejfl14l9q4hbsx85upsabcsvsc5qm6hd90yebg69dydq3rgwynuo5sjg39w6pew4mpopfwb1jyojemelobob1nakaxkkktny1rn2f4qom7f9o84pvix7e1mc41luii494vco6u4pcc7zf6bnk9mq6\", \n\t\t\"addressLine2\": \"9bt4kfdoew270bos0cwcoj2gyj45xyb4574qa8ppnhacsdid6b86sn0xwmh1g0dd7j414pttpmh6fs5gjhojwyl6yiotbg3d7s3uaojz8v6twwyvq12c4a4cqfa3571g8sap18pozhvlxz3zlhsergndp2e4qlj7c3dw6zl9b66bo9sc9au76fjnecr7xdc6e8rph9oqp9ds53bi0u2ewwf2f6o1o22ai4jweu5chayuqwneax4qy0zzc5zszs\", \n\t\t\"city\": \"gna9md9pht2htt77p6mrfwzgxsl2x44mg1q2mdugqeghbfkawgmmh1ylarmk03jz8nyzpc6w9oqsx90ovemvped9d876l59pwu9sel44i786cjrzpxnief7gp0srlzw\", \n\t\t\"postalCode\": \"ez48kk37nrqalg9gfnyo6t7u3rnwsz7848gt5da584ppc3ppumru9mmir3tso6w\", \n\t\t\"countryId\": \"086fd69e-d073-43ef-971b-758114b4a58a\", \n\t\t\"administrativeAreaLevel1Id\": \"7e625bbb-b2cd-4b65-ba33-c81250942027\", \n\t\t\"administrativeAreaLevel2Id\": \"2c274170-9058-4852-8c9c-685da5d9b8c8\", \n\t\t\"administrativeAreaLevel3Id\": \"b8a4ce6b-d274-4a3f-83c0-8b5ed1a9239c\", \n\t\t\"latitude\": 16.42221057402249, \n\t\t\"longitude\": 981.2456080858783, \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Nihil quibusdam molestiae molestias impedit rerum occaecati. Omnis est repellat et ad. Molestias voluptatem eos omnis est eum laborum aut maiores non.\"\n\t}, \n\t{\n\t\t\"id\": \"42841b9b-6dde-4b5f-8424-ed4de86343cf\", \n\t\t\"rowId\": 13170498521951064000, \n\t\t\"businessPartnerId\": \"f90ce308-b5b5-4917-93f6-72795dec75b6\", \n\t\t\"type\": 'BILLING', \n\t\t\"label\": \"yqfyp97ggmo9rhjccjrnvd3h883f2l1jmqorch8dm6tlod8w11bh5f8sqhfyhd2g72veh1ggiap3515yhs1tv9xugofp795vd5dnwu5j965oc06k6jw6d8y50mcuv94\", \n\t\t\"addressLine1\": \"wuxvc0eksrwcp8foq6m85ck1ylsyi2ratl8gbtdbdc8ixmzi0q5mp7sg71dr7a84si8clbjtxtmo82hew9zzfxg497rovcsa7luxd6snmhyw3o0vzfb08es79jmlmgud3ci6tbwynbon7c33kpmk7qm68jd657gcwvj5i8j33djw2edccjzjbxm4srct9eo3ww6qqj6334dpo81u185p4mfqfzv73md61o0l6jcwxy1rmfv7nyaychkxh05x2w\", \n\t\t\"addressLine2\": \"drgk1qs63ckltt10z7uoyvop9gievu5jofi4zs00dhl9ba5jdppll8b8zr3wra3bsf98zkjtyr11hyvko3lh3hmqnzr30mfwp1bladz6hwkww66jk5r0b8qc9l0t1cih1iacnhegulzv7l63u4pb75bub3ijv4t5bvrwyw7wy5u1ztg6y539cv31ypefndkgvp2sv9v33mztbgah57dnzcqjjds17im0859vbc94v404d15b1efh5zyp634w2q\", \n\t\t\"city\": \"t4ytiblsuaecsf7avivpgigt7jgj1qbiovn2ctrokiuvbgck61qfz5u3bzy9x802o1wfuzk23cdwq3zd4frgl9ylcoc5n8rfncqkccjmp51n7fepcvhf57fetdkkvlf\", \n\t\t\"postalCode\": \"lqjj4z8zwam87m6rsfrgqf7r34jjm1z6r843fz4nw8ept2pldo5h0ufware1v5h\", \n\t\t\"countryId\": \"5f78e48e-4561-4a9d-9ff3-9d70fc65c22d\", \n\t\t\"administrativeAreaLevel1Id\": \"a930a571-d53d-4026-be4c-1a49f2a057fd\", \n\t\t\"administrativeAreaLevel2Id\": \"e2f51436-fb3e-4330-bedb-45b937d8cc2f\", \n\t\t\"administrativeAreaLevel3Id\": \"e2ab10ac-1448-4c35-8d59-1fa3b5097034\", \n\t\t\"latitude\": 34.95127806949032, \n\t\t\"longitude\": 349.87484763477283, \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Ea alias repellendus aliquam. Sapiente ut cumque maiores minima ex dolor qui. Autem eveniet dolor voluptas ea accusantium molestiae labore rerum velit. Vel quis velit enim. Consequatur dolorem deleniti et aut inventore.\"\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-addresses/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-addresses", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-addresses/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-addresses/paginate",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-addresses", "paginate"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-addresses/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-addresses/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-addresses", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-address/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-address/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-address", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-address/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-address/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "partner-address",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-address/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 36499397014582150000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"type\": 'SHIPPING', \n\t\"label\": \"upyqloqlnoush5lfdmd3jh0guq1q1uei7ww9skrmi3s8pff8wwye7eapmg3cwcne2rddulgoxlfsbsjb6by31cgwtcy48tszmbhbudrbrj1uiskr9zcz7tj3qut72md\", \n\t\"addressLine1\": \"5opp6gwoblqh71vlfp5mb3nmua5ryout9oslsc9mfvuy4ytyvzhkbl9menrc7t4zk1hew8hgsh4nibnq2wcgob9do286gf9u09zpf5gvs745ryx9wzjh0ehdvs4sxeyvf0j8vmvsh870v5rn4f6nyq9073h7csgqo48w8i3fb2mij6yaev5iyw4d0ebjbelklf2u28o6zn9lt4o8z78ew4o8b7z4xn5e6g5gkrcln6iegl61qzsv3y5eumkrwb\", \n\t\"addressLine2\": \"ghd8ng8zmzr5z5em656kkzw8npj7b2744e50lpypuk0k7axkl6wj20pdw02l5l0d9g951ivhst1a713bu7f0hpkgdc7g31b03th97y373qfg7x5vftj21lcav8jbdcrauqdxuwqtmzj9qp9ie77mpj35y0hrx9m67ds1qr8ixg2ipywqih4sje0dx492w0vq4kfu6xk1x1ls29pkmrq9wasl1uw872o9rvvt9h1x8eyjzck1c23d2dtmt6igh3\", \n\t\"city\": \"7xvzu6ubepa4mp3d9a60v3xhxmcr1zwvzibcaaanmd3kyf80vzw6ltbm4bk4fdj4wbj2m664mnbp1g45ekw3hrrld3wyv30wccqam8zpdqysvzutvj2y292ssullxg4\", \n\t\"postalCode\": \"c8j24kvwbb16yu0o0xo7yffn6fdy52pgb0rqitxh2sae862polub73e2k1b86h8\", \n\t\"countryId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel1Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel2Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"administrativeAreaLevel3Id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"latitude\": 51.17862051739585, \n\t\"longitude\": 625.126820643706, \n\t\"isPrimary\": false, \n\t\"isActive\": false, \n\t\"notes\": \"Perferendis quia omnis quas error nisi non ipsa voluptas. Explicabo non dolorem sunt vero rerum consequatur dolor. In sed veniam voluptas id eos ipsam laborum eligendi ea. Ut molestiae illum.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-address/update",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-address", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-address/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-address/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "partner-address",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-addresses/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-addresses/delete",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-addresses", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

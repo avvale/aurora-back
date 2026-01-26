@@ -1,0 +1,480 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/partner-contact",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePartnerContact",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreatePartnerContactInput!)\n{\n\tbusinessPartnerPortalCreatePartnerContact (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tbusinessPartnerId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 53877026729085320000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"firstName\": \"9hw7hzj16fmkk30hp5e9ullha1o19nujiijhm0mg9ezps6toteeqg711nkpnu4m0g4hknjdc0z8oj8rr59kv2df9ilgzmoumk1ykbbscvbzrsb018jsq6nj3jb3hnyo\", \n\t\t\"lastName\": \"vv2onczk9kz5y9x5fnctau6jzv7x1p43qvfpib6q482b75u9003ckrwgppg7uecz1xz72e57e9hkzs5tgv7xrivmtjr66v00qi8aju1anw9nj00s0tsffuwjh5mq5bt\", \n\t\t\"position\": \"wrvu8tvs5pbyt95h1bqtgasj007dr72wqnus94p187pqfyc2natzrrbddexkjj9bjfgdboj5hyksjqvvc5f3b70ozog5u564ypgd6o1z981flofylh9ncjv1xc98ocj\", \n\t\t\"department\": \"m2446a4or7qq332wi2i1lr6d8rtjlnszqp3qwszhgm81hxywseg4p6yzmrvov0d6afpmon3thz2kq0hekxks044djjgor7gbn540ilhesk3gmq7px2bzdzbjqv0eiss\", \n\t\t\"email\": \"p424pw9o303xeino85yptkb8k2ow1l1e5wvwgbigtv4xew5eupyys57t2tkvfdkymem3yudq0fz15yluxk89i26yf6e3o9a18wcdir8j399sm67rlghewkdl1vqm91z\", \n\t\t\"phone\": \"o6dvtysqdahld6wrqqw6qh2x2prg4k8i80wb2lzrg9nts974exz6vq5ip0zimkz\", \n\t\t\"mobile\": \"h434y6a4pneyo2u2ldznka2kut5c3pp81k3oia30wqwqv136meuwurqlwje4861\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"preferredLanguage\": \"tm\", \n\t\t\"notes\": \"Quam mollitia sapiente eveniet. Recusandae aspernatur officiis. Maxime magnam accusamus. Eligendi quam saepe maiores consectetur.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePartnerContacts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreatePartnerContactInput]!)\n{\n\tbusinessPartnerPortalCreatePartnerContacts (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"7cbf7c7f-b8fc-438f-9d2d-3d59450394c7\", \n\t\t\t\"rowId\": 88484889821226400000, \n\t\t\t\"businessPartnerId\": \"b569ba8a-527c-40f2-a3d4-7f9e7914d02d\", \n\t\t\t\"firstName\": \"df7sqwnjugvnt3gmmwf2eecnubj8wupco645sr5sufr9z1s1xk1pjj3zvsq8fqdv8iavw4db2bhd74lubeqyt6frawssvsa2f9wuvz3uoitpbqvob961l4z29y1m2nt\", \n\t\t\t\"lastName\": \"ylkb2tdk4fj7eq32guzsmqpwxtc7ix6dwmbf26s4gn6a5loswe54binmnzthqmwjba5rxg0s9d848c0b9r03uvrf8amde7ndo7tdd1nlmeyavunh34hfyly50mxc62c\", \n\t\t\t\"position\": \"hbwdqgkj0q6esnpzb3jake8n1sep82qeh12vsjcn3wbmnsqbpte4y8upmis7bx24spxghgiknr5p5ppyk2o2hz0d2gf06t8ijauognbu0itzd9n3dpkuoicvvb6hwya\", \n\t\t\t\"department\": \"nw9v5xoc3ou9h3yox1qtl3aolcx2upo5zt1q6e3u4rc0lpp2vo189lru2m7x7w71cj7y56wmmznm8kzt4de7k8bbi2oycozk68rvx6aout7v7pky6vh0ijyga44c5qs\", \n\t\t\t\"email\": \"7k1frbgq0nsaj4kgen4d7qu99jhcsr2shfevr6fjmc5zwwyseekylxt7ovyr0x6k2iq2gju63ybsvo42zk1va8m6wfugrysq6n7geo8s20urk0zxt4j3aiebv6p713b\", \n\t\t\t\"phone\": \"upjdiuonzbj1pqgu6na00bxgey1kwgwsipq7z72qcr71xte63u836rmdgm7ci2d\", \n\t\t\t\"mobile\": \"mcxc03svpzmwko1hbb4hngjnlp6112upamv58kkylj9uv5yjziimmoh53glhkrb\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": false, \n\t\t\t\"userId\": \"7b96a79e-fb2f-4488-bf18-d7b8ce7ee72d\", \n\t\t\t\"preferredLanguage\": \"4z\", \n\t\t\t\"notes\": \"Asperiores minima incidunt ipsa laborum labore porro. Dolores nesciunt occaecati sapiente non quidem consequatur. Recusandae ad neque incidunt. Assumenda nostrum ad reprehenderit. Et aut nobis eveniet cupiditate eius recusandae nam quis. Minus eligendi reiciendis enim rem.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"cac3663e-1bd4-43cc-a425-0a606691f588\", \n\t\t\t\"rowId\": 21795566782433240000, \n\t\t\t\"businessPartnerId\": \"26a2461d-e51a-4bc3-94f4-9d98769ab342\", \n\t\t\t\"firstName\": \"utlxd06g0k8djes3t1wuz99eh9b2e5kqov7fz8y4kxckr7jfwauxa2ttbud7w4gkplu4uysh6hqeldk3btrusbh0j6a7wx9kzppgs6n2up91sp0avy48kw5v3b9b5rk\", \n\t\t\t\"lastName\": \"v1i33r1u782cvgrgj8ytof5lnyulvtzlw4hqg742pnog750y0j8j3t1n0h7ex0qfw8puofet0lpq80krgpwcgpmbbmboub6e3l72t4c9inr5qlgulwaa3jbgak86fqm\", \n\t\t\t\"position\": \"anzo9hk6i16kx2eh5cq1ea1uwrcib5a2pi2fg76whdr2ymbyngbw23cn2n6v94c95mhf985vdrxwxd0tq7vz4gezuhtaul4x5gtfo5sthg37wbjuuah2u3b7aksjdal\", \n\t\t\t\"department\": \"x5d6lt6bxlqh8d7v5wc5633pmg37w8eptcth39zcix8gc48qiye6u9jlviec5x99ibsb1gy7twnx1pnhy7rit7e0w3w3npv49xnielefs08b7kzwj6rs3s9e147ayjs\", \n\t\t\t\"email\": \"0j3qu0q4apz0fdc8jr3s4tj3l5xf0wiqy7qyrvjqf4cv0xavb4dwcsf18baxnsi5ae6zd49en38txvjn9llzxg954ehbgbk9m5u49amvxg86ye7vvuk200g5f74yswm\", \n\t\t\t\"phone\": \"mrkgshcq1hgvlvpu3teg7notewdigbh093izej9y998chtzut6huk68zsrqcmub\", \n\t\t\t\"mobile\": \"fl8562tfgt7bbd7xkw5izh2fqpw74lobgdzhbsoh1lcjpu4ciqhbmgu4f215pjh\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"isUser\": true, \n\t\t\t\"userId\": \"cb0209a2-11b5-417a-a98e-5ab63557a018\", \n\t\t\t\"preferredLanguage\": \"ky\", \n\t\t\t\"notes\": \"In laudantium itaque voluptatem adipisci quis blanditiis. Laborum sit laboriosam. Quas modi est tempora quaerat repellendus possimus. Illo iste numquam omnis beatae officiis vero expedita.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e68f80d7-9780-4e74-8cbc-3cb635fec83a\", \n\t\t\t\"rowId\": 31522697060864980000, \n\t\t\t\"businessPartnerId\": \"7b507f78-4da9-4b4b-ae55-ff78eb549f15\", \n\t\t\t\"firstName\": \"smk8ay1wncnh3wpuxl2yd975t9y5fewr4mwijwdyzkc40em0ryywc3febspkl0e73rugxgy2khdyl49k7je6meusqlyfknbs4ibhuani6nvf1z8z114nen8aczgerlg\", \n\t\t\t\"lastName\": \"olsm1gg6ov1ltz5awwiie7nz41bhevnxs2epk798n6tq4jhjil3ew942q4gnjz74g0tpdbplsmbw4i6u8yg41s07hsdqpiq936blnon4tza25wpvlu73dtsh1f1ckyq\", \n\t\t\t\"position\": \"b8l5p95fwvkefrelff4i4mtoemfhfc4f9hf5ts8juouvlu30cdz6iyagq58ut5rjgh69bfjazxvs7acu2q56owthg9ut37aopsjq4np7pq730527ybzmpzxzm1tsxex\", \n\t\t\t\"department\": \"9xcuo7ltzm49g6jqu522gbvyjivzw6i5dyjrjwj47kpyqcmttiajnkn8tzpd9msksr3mjg8fby7g087d6eyflxn9rgcgyt62yx85lced1pl7txm3a5uo9ycgf3axshs\", \n\t\t\t\"email\": \"ld27he6p6vqtoa5zhwx8eth212d28o2x3cc7lgc3il7hzt2zlgbhzr3sxne43hkpmyr3mtwr80i7do6v1tr9f6lwvlfb8e258fftdwwfixec3nic9ehol0x349ucvcq\", \n\t\t\t\"phone\": \"x36g3pddmnx2nyz6pgxowc2kk0y70ysxipc63dxzylg78iw73qeua5haagqisu4\", \n\t\t\t\"mobile\": \"hwq46pbbs7sedv3y6nahrfwzy4fpqrdog5zdmtmql4qtmfziiwxdehk8x51nubb\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"isUser\": false, \n\t\t\t\"userId\": \"2822ff87-94f9-4fcc-9315-8133b3595bf6\", \n\t\t\t\"preferredLanguage\": \"7w\", \n\t\t\t\"notes\": \"Aut adipisci a ipsum modi consequatur porro. Ipsum vero cumque ex adipisci natus commodi. Officiis modi molestiae sed quae eos sunt. Voluptatem deserunt et perspiciatis velit vel aliquam dolor.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"5518adae-dec7-48fa-a8c4-94cca94df23d\", \n\t\t\t\"rowId\": 91626518487319760000, \n\t\t\t\"businessPartnerId\": \"a7a9392e-39b2-481f-b80d-dd1023145ded\", \n\t\t\t\"firstName\": \"7a73g57zahr2nzxt0p4aidmuf7ib9j6hfvr4wdf6rzghs327616ra0ltbha27ev7tdicj82ep3d4uz5czfkaa7w888clm8hkynq0brf1z5ydxsae56wri2ixzcwszcs\", \n\t\t\t\"lastName\": \"w48znw988rn55kl26so4lvw75ac909hb2ny10t2xcfz9w9rn36l2yg39sjixliq0d0czh1z9m181ku7sl5fdk4o6a09a4w71b7en6v1fz0sdrbx24lhci9nqxtn08a0\", \n\t\t\t\"position\": \"bojf9hujnwcr5j8ts6391po8fh7okmse1jlyu4o45p68kp706qfbjc4fv8c2g5nf0tce1caovtag60sfgbmkww7auy8kqbp6vey20vjsepezr261ruqjeddqesn0yi8\", \n\t\t\t\"department\": \"e264ar17wgtisj7bk6ihk9jed3gdvbu40pjb23d8f8do8sz9w515jgdhaqdw2hjqjlo8j0t8k6r1p13i0qj5f98fv12awpyhbom0h0pm00vowi882n2wfrcbvg1c2iz\", \n\t\t\t\"email\": \"we9ftlp12jkhmcy0fpb9tco6ttaasgweaqe863ruakkk7r57gd8kpknpfxlg3i7nheq8fzemcllo9q2j2pe5n7snb5k0mevvfvgzh8weuuxhay3riwzk6cz32q5e7bt\", \n\t\t\t\"phone\": \"e0d8h7b32rept6rezdfqxmqudb74q2hzcbrvssvmbd3666xjo6xz2fj9vqfg88w\", \n\t\t\t\"mobile\": \"s9bui6ybrqyacf3lffnuxms0bvab97j427c4n2vwb0w9v70nott662jef63uah4\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": false, \n\t\t\t\"userId\": \"c05a1b1b-423c-44dc-af75-9c6fb5bb1e6a\", \n\t\t\t\"preferredLanguage\": \"a4\", \n\t\t\t\"notes\": \"Molestias ut aut eaque corporis iusto omnis id voluptatibus voluptate. Fugiat tempora rerum repellendus eligendi ad nostrum deleniti. Voluptas molestiae in natus esse ut repellat. Ullam eum enim quisquam impedit. Sit provident illum. Unde labore occaecati omnis architecto amet similique.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"9164a6dd-d5cf-46d7-bfd5-12d5fdd6ec5c\", \n\t\t\t\"rowId\": 14793588660360700000, \n\t\t\t\"businessPartnerId\": \"b1443cc8-f308-441c-af70-aa51b98f267e\", \n\t\t\t\"firstName\": \"z4uqvicjthmjn8deyu1gvwxxufgrngjs4ewwlbm92u94dzj4qf837xayzx3svrl14x0x9lxkilm45x1wke3v5xy2bec7qd9g9u57nw2rss8mjh9i6tuxfxd84c033mn\", \n\t\t\t\"lastName\": \"pj1el1kglggq5tn87yx3q50vnwilbjzt8d5hg0i9d82bqaispirxw0bgbomnzhs2mhheyj0l8rfyao019jlyln8bqvs68w1ij1yqdn8w54xymp95v54x3doeos9xxdi\", \n\t\t\t\"position\": \"1zz13qwt9kx037sxnhhmlrf5001y1k1vtetc92aqb97ec9dd4qlsuecrq82ndyc0a0cjv32tlw3tsicy0io4n7rl09vyiv72p0n0si85san3gyu1qk8lc2rhs5at6kw\", \n\t\t\t\"department\": \"sy7ms0s54u16iz9qamo7hkxm8ergsjw7rqk9jeyok0zuimr2oeccm8qpqcdhc5rcuau3wyk3doaedfj4psym71cr6wlbln1q9evyrwp5z1mbghh3qj4ssa2qk1yb84y\", \n\t\t\t\"email\": \"idsbofvyzwtc7t8jawl73lgumyjobufhcj9lrnc7zl21n3elxt6f7rgzqor1p9d0bvcwu35d3km165edbolcxmje0ghg14hoxcsrendlck3fp5zsq4o62quapdhscu3\", \n\t\t\t\"phone\": \"048ik9jk0lvt82rvzb6j0foq7lpfw0r3yt07kjr3deemiz78x3k6dgil4r2pkf7\", \n\t\t\t\"mobile\": \"h8x596psxeryk28t2ag9vd0gb0agx9fcm3f3k871flto1ql3iarmznsd389cioz\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": false, \n\t\t\t\"userId\": \"c63ad719-3913-4d90-b7b1-348da001a1ea\", \n\t\t\t\"preferredLanguage\": \"nm\", \n\t\t\t\"notes\": \"Illo et corrupti ut dignissimos et molestiae molestiae. Deserunt error et assumenda. Dicta architecto occaecati. Molestiae et consequatur necessitatibus doloremque quibusdam dolorem quia. Eum illo sit id tempore consectetur porro.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"dfdc3973-8c05-4945-92e1-9cdd1ac7c18a\", \n\t\t\t\"rowId\": 52818844907557050000, \n\t\t\t\"businessPartnerId\": \"a927784c-4a44-480e-a275-ceeccd441de9\", \n\t\t\t\"firstName\": \"49dj57z19iklt7fizpg1yp112216hqe8obb5yewe71xlr9tp1yaxx3cje37972k1ud09aszwu08zl15w970l6qooz7rh29qtrzrie5a97nkezqbacerhb9fic74kys8\", \n\t\t\t\"lastName\": \"yn64qbm9ycj2y1d2mzy9w2921woxjij6o51wwj3j3i2ibvnu6hdn58nlbizt2i6ah827mt00ajche8atv88d7c01qyc3qcvmcyge09n071p5cmup4dcb50w675xwg6z\", \n\t\t\t\"position\": \"g9j0orlf7nppwpaxpytdmjh3a5eq2kzz6eassbzn65pqd7qh66w3ougn5dao625jlh6fndhwcfbf4otle5ocyst6a0rilf0wrsrrycru6ayv85uh4yit6es2nikcsf0\", \n\t\t\t\"department\": \"0xmt2dgkrvizq83yrb7z2ptoopgfaa0k4gi3axbo72ku4azccl5zv2mr4fz3qq27486wzwsmywrbz1xenhy7tldepkf3tx8izdy17ewj6zc8agn5z2dly8xfa4jnwyh\", \n\t\t\t\"email\": \"klbx69l5kx476iaa898394y7iypoy9hp76z5rpjm7kxf6ewgz1p6imbit7yi9s99wkfzm3ltp7wo8625cfywval9r9e4zzdhykip2yimlyzfnlu1sa4af3gfo92wsxp\", \n\t\t\t\"phone\": \"5ut62qslsoiecqqb0puokji9o3wiz2jyt2km86et6zd6ovtqja235gxs8sjih7o\", \n\t\t\t\"mobile\": \"iozxvt4r8q1bpi7e1v9p0boovm5la8gxs48ylok352ih270dyylxetp7zzx2qac\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"isUser\": false, \n\t\t\t\"userId\": \"8231a21b-9adf-4928-9b70-3b6902883125\", \n\t\t\t\"preferredLanguage\": \"8l\", \n\t\t\t\"notes\": \"Ex enim sed sapiente minima eos aspernatur vel soluta debitis. Voluptates qui autem est aut aut reiciendis. Eligendi blanditiis laudantium quaerat ad sed est. Aliquid id quis. Quia quia et.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"71f52a7c-27dd-44dd-a1c1-ba318733a236\", \n\t\t\t\"rowId\": 60734787012298785000, \n\t\t\t\"businessPartnerId\": \"d7feda1a-5bd5-402f-b5f5-986124c2bffc\", \n\t\t\t\"firstName\": \"9xgcp2oa9ew6el7yu5qae83p2ga4vrq04ruzpbd0bcckf2zu1kol444jescwch8mjodtlwjhq4g81q88ado8w8gykkevd760xj2e7abu2101edeyrkynws734r63vtd\", \n\t\t\t\"lastName\": \"6v6ospxnoy06ht7yvpcos36vqy8a75vi5ulrhkvna6eg64eenccf1hne7ih05dcz6mh4mv86h2mhpz6v63ur4gdcjs1dbr5vcuerievohtxl72batyeu8h6tuj6de4g\", \n\t\t\t\"position\": \"528v41tsc1dbna7yi55hfkkspnocasre2geka9ven0wcvcxs67hn422ge2bskqut0uax4qs3yk4uwtlhaphwccnezoq8wtf30ldcow314qgfz2kbfzfab7htha410cn\", \n\t\t\t\"department\": \"ay5k6o8n4pvxzdk9og4uk4mlaflztw326tv87a9xn3yrd8ip5srmqszioc5i8rsdxuexp531csdtdwn808v5bcgg96gxgjx5vbbc4wozy25tma39s0ht4i5xn7p7scg\", \n\t\t\t\"email\": \"ubpkf10fo6u8x5hulzw5r9ml01miu5de1nk8rrjd8z0a8mypglv30ps47a63u5iqpa5si1tfu34b3s4w0kresr10ello8hfnd52gaoebmttxj4s034upis9wbw1zz5z\", \n\t\t\t\"phone\": \"83743uizxzohoc51pjsztryv2htl3onp0yaovy8cjt5ml5yq97d6cje657rehra\", \n\t\t\t\"mobile\": \"312oxg31b2w9b2tgl27yu16btjtxlk5xfruzvnhcb5rl8fhsg63ksn4gvgf4h9d\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": true, \n\t\t\t\"userId\": \"30da1bbc-48ef-4a6a-ba9a-68ed0369d4a4\", \n\t\t\t\"preferredLanguage\": \"8b\", \n\t\t\t\"notes\": \"Quas fuga adipisci itaque dolorem sed. Consequatur illum accusamus. Sapiente quasi est mollitia mollitia numquam omnis magni consequuntur id. Quisquam rerum id fugit eos cum libero iste recusandae. Nesciunt inventore officia.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"7155b9db-9856-4cdf-b586-f5e76a18d51e\", \n\t\t\t\"rowId\": 32801616137669018000, \n\t\t\t\"businessPartnerId\": \"64ce58b7-4362-4669-a292-59586d06792e\", \n\t\t\t\"firstName\": \"fbebd30a20rpkh9xndrf18dojq095lw6e4perhs869slfm20xyrhhzyb135vx1bpqat7rrvpq91oizr8lbjz3xxlgbvib50mj8mvsntic3dit9vb0xgj6b2g9fq9197\", \n\t\t\t\"lastName\": \"2zntvx9ugqspg9ab9z7d7a2o97yvqedbcg20b90ontf70nkt3338jnbvbp3338faptwxan6uoobj6wpdiko2ayj07zgy7v9lskks0jnqkv747h149mw2p95qvby1cbr\", \n\t\t\t\"position\": \"a4tm3yw26e8g8veea46yf7qs840zlieyyv8icijnk8sxnepkgr2bokxtzgjejazn7pgbg5wsi5zvjt5f0ip34iqdaqrmpeqtcgios7jwgmijssc3b3ens4vc20yky96\", \n\t\t\t\"department\": \"yh0at0kgc6y09fmtb6r9htp1264uax9ku1yeb549yq5dpkvavn9hxy3hrse2x7o7z82cjgfz6hdn6kj0gdorasb0o6fa7yi7dhon596e95r1klnq7q8gfognhgm6zah\", \n\t\t\t\"email\": \"byck5cqibl0mu4naxqzl73u1yrtzvw0aek5qxeesrio36czoc6fd9n9hhimpw78xrr9m70t84itp4o4o46yg5re64gk3z2imdf44tgaonpz1qrvoqw5xz7nq7xr2l4n\", \n\t\t\t\"phone\": \"kpegfmfxeb5q754c1i4c5on5gxbjua9311jphin6u3tph7oi1howvkb7gg7qgw1\", \n\t\t\t\"mobile\": \"bagwac88gxfpvrlgw3qw2ue6wo98vye6fchuszoeyuzhhuw6m0zksj6kmdb1lvo\", \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": true, \n\t\t\t\"userId\": \"49b7ac30-8228-4d1c-9969-4db4f2df8412\", \n\t\t\t\"preferredLanguage\": \"r9\", \n\t\t\t\"notes\": \"Similique veniam voluptate occaecati magnam maxime a non culpa. Voluptas quod dolores accusamus recusandae tenetur in sint et nihil. Ut autem enim consectetur ut temporibus. Autem eum id et facere.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"eeb2d130-ad87-406b-9ca1-e85458e92aca\", \n\t\t\t\"rowId\": 69520873169711860000, \n\t\t\t\"businessPartnerId\": \"a085fb24-6e86-4eac-8d33-b0ac353bad40\", \n\t\t\t\"firstName\": \"92sksa5eaauthq1b65jtdhe9s18nmdoivtm17wjnai3ea9n6mt1ytypanucmwb3efjs45b6xwefg82jce8hsvs4sdork6livgegjppfbzwwqnu7rimeel73hpk8hvp3\", \n\t\t\t\"lastName\": \"w3xrulj3sghi37ls26d52jzwc9k6qsz5h10ka0xlciodh9dug6qic3unp78gkohny28zm2gy0p4kg92lfr3sfivkf76dw38fqytwocwkjkgz7suevzonm3foujtqhxq\", \n\t\t\t\"position\": \"mo517qb6896bfjkr8qjshbrlzzeb8hc9r2uxgmz5hakgo5m21n9hgqnhi8wuhelri6ks47vaynst192mtim1bb36cq8yvrx0kyrawszyjpz7mw3xsb832bpnm8yvap3\", \n\t\t\t\"department\": \"8b2k2e0ssfj6a9z88svrp2fwqnj9en0bqzp6dol7cxjfzivx50i08v0da2r45i8g260tfotkltsr9glnaz6adfh37hnm7z02fun54asryju2dzuu0h0lbtbt7x05epz\", \n\t\t\t\"email\": \"l6v3foitnlxbs7ga684b4bzt6fs6jl5vg4cyp7sxekiubzssefenf5sq0sedmick2tjmtftlvh9g1ln8dmewlg9ljoa2q9j1kjdu8rlcqp90jwp9dss479pl9v6wixh\", \n\t\t\t\"phone\": \"ztmt5jjyxv34mujg6vjkwwqy7hans0658vx419f98pa3g4ux857jwdsq1n2ts0e\", \n\t\t\t\"mobile\": \"05homu60xzzblent3hloxwpj75jgv4h7hxx27d5agdvi1jriu11nsul8i6lzw4i\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"isUser\": true, \n\t\t\t\"userId\": \"e34245f2-22fd-4ae3-b0b5-3a706cb3c998\", \n\t\t\t\"preferredLanguage\": \"8d\", \n\t\t\t\"notes\": \"Ut est non. Atque doloribus dicta consectetur. Et minima ea placeat. Recusandae non magnam quia perspiciatis dolores error labore. Ea pariatur sed reiciendis nisi non aut voluptatibus beatae. At consequatur quam omnis quis repudiandae perspiciatis aut.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f2f7c1c1-74e5-483a-9d1a-e521e59ba681\", \n\t\t\t\"rowId\": 63362457087961810000, \n\t\t\t\"businessPartnerId\": \"d01787d0-80e0-4f4c-8af6-5a64a2109cc1\", \n\t\t\t\"firstName\": \"fw6n1tqla6cxjckz1cvuzl22vy34g4ntg1if4mbn1jmmsdjsvhhru1tzbbueaz0bdnzlmukek04a1qze1wu13pzki8wy2qq2r2dohea0b6bahwhsewwv2f5f1yrzp8k\", \n\t\t\t\"lastName\": \"dmn7xmacs0zwx0yjtjit5g5bk402gmi9xlqutbgbx523b63u2nugjznpa33jtww0qy70bf2bczw8kihh726x1keugvelgrfw83kw21t2jmagoguom4ywdq8ufbu9vli\", \n\t\t\t\"position\": \"kuk1fm7o8pmbjt4fwu9n121jkpc0zqum0iaewhregm8hs5qh5xzyv35hmkyynghcp1v3v81frmmkh78w5akotx2vfowtu0wi1d9ak16n2vxlkpduzfgs8mmmqf4tk8a\", \n\t\t\t\"department\": \"d6f1vjdp7fw6vdpkl6zewu7z4lin0zghkg8wanzhaqbb2duzb1q6cx7wveejr9pca6ws073inzogdxufrpttu1wq6vweb7plshep81gkrmwy3yej3ak68v1tceyta0w\", \n\t\t\t\"email\": \"qzktmpyffe1ts3nmahio6qhiyvhvyylv4gu4y0lih03orfy0bo2fuamej78qhe24szu30zmqxof44rv7o5ebskbbrnf18zfgakeaw3vbdh5e8t2jog5rpaptwraaurv\", \n\t\t\t\"phone\": \"zj5lqtwxafbitm85f7iyh2byyzl8yafwwje3hw10sxfy2afr8j63oagulhfh3es\", \n\t\t\t\"mobile\": \"wipcpz3vq8r34kngg51r2v5eg56udn304ij28e8culktrgi7oav7y3o2is93j5o\", \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": false, \n\t\t\t\"isUser\": true, \n\t\t\t\"userId\": \"ce2765b1-403b-4a3e-9741-f1e7acb4005d\", \n\t\t\t\"preferredLanguage\": \"1f\", \n\t\t\t\"notes\": \"Consectetur dolores molestias et dolor facere rerum iure. Sit minus illum voluptatum sit ullam quam odit. Eveniet accusantium corporis rerum illo possimus dolorem in. Dignissimos qui maiores eius voluptatem.\"\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginatePartnerContacts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginatePartnerContacts (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetPartnerContacts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetPartnerContacts (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPartnerContact",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindPartnerContact (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPartnerContactById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindPartnerContactById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdatePartnerContact",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdatePartnerContactInput!)\n{\n\tbusinessPartnerPortalUpdatePartnerContact (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 96132842486999740000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"firstName\": \"xq7q0nc7lwag8rs2hi1ge81i7t0m4cuhdm8h27j5wj8gycglf6mby2ywhio8vsrk60ce5la227klmyydnkyawowypr4s2wz7v3skbshksmbeqakiocvmwo6fxfbo8wy\", \n\t\t\"lastName\": \"eeuwqoz83le7mvi1owqfs792epzvfv19l0v4qvxa6xooeupuolep0s6nu7e185eyxqze216d94i2uya055avoiz64cub7hybohpz70wjkm3trfjmmrlo6s40l8zo9ho\", \n\t\t\"position\": \"bzxnlw615fcrl274081xbx6c9zizxpu22rubp2r1qcjc782afjak1ma5kk8ix6pb39makkx4728zlrycxbe684d07so3dzmofs7nez4ex0gcnw1p9jbt5g5l6amosdh\", \n\t\t\"department\": \"5hfl4pogjgbr9597ioduqzhtob1qeeqw9dddwb7t15oi9hi3ko5tg5pion4auv4ogtkryu1rk07wvfepmg6mi4ldes1a1nruvovkzeb324nf7ycajoqldbfqem0ebeo\", \n\t\t\"email\": \"w6x5y1l8yw0cg1en22uscl1e95w32wba7ji5wlzyaz3s7vrue8jn5beqhy4le7j1v9dz16bprcad1wpn7tj5sj9k2vmcceqfrfu8fqmb48qqyfggz2rucov8brkvuvy\", \n\t\t\"phone\": \"6dnrnp8gwyroga7139jvkx7p8u3p8elz57yvbm0nqbzqwi2hrmjrqw316w37iv8\", \n\t\t\"mobile\": \"4x7w1ugnztfw2zfm8ksdvydrupl8tljhzds2ds3vudgcr2mo1viikc0cqpbbp3o\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"preferredLanguage\": \"ho\", \n\t\t\"notes\": \"Et repudiandae facere vel expedita minus sint. Architecto magni praesentium sed eos. Incidunt velit ducimus consequatur nihil et et.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePartnerContactById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeletePartnerContactById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePartnerContacts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeletePartnerContacts (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tfirstName\n\t\tlastName\n\t\tposition\n\t\tdepartment\n\t\temail\n\t\tphone\n\t\tmobile\n\t\tisPrimary\n\t\tisActive\n\t\tisUser\n\t\tuserId\n\t\tpreferredLanguage\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contact/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 81420645683167430000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"firstName\": \"ooifdawwg1rvwism4nf8fvxeedh4ahbk7iubgmbhj6kxtmpbhxsltsvkdbecdzlet45ywqoij0e8v0qxghyaj4nsykhm4ii861a10dg2n7kiekkcziv87cifjyqjnek\", \n\t\"lastName\": \"r3sefinvkfp3wo3e6ys8b8kk3uifo2k8nlq987osbtvrfn64o64hzxb9dwa4ihq6hnk10vysnrhvww31h5iawtkfw5rgxylnww6gg03b0qb7t0m8oyk1dnw87in4mx1\", \n\t\"position\": \"bvo5s6utnnk38dnbqfj8bfclwhsmu8bom2xydeu3oehmku4qhhc0zahrntl99845td5odqphflumn3b1bhvdw7jfq81mmknl99wo6ftynmr6gziot6mzac6vfcwdlqw\", \n\t\"department\": \"ab2z0vb9z3d4if4a71ro1zqhoc071ffksk5245hk9ww6ktbxuyeae6snjtyfll0801jh16j3r55c6w6tv254x6its11d5lj6l88lk5v20i7f5uhy25gbuznxvgc1x6p\", \n\t\"email\": \"vwdr3xncr3p9kaiawserl2tdzz1n2xsydyisvxr4biiekagx6plzukioa5qq3382icm4qgawthhz4w3c9iwhsabn49w5l3xa4cq6jn4xbvsgvd5mfb6434zac1k0f7q\", \n\t\"phone\": \"j4jdb7u57scv4xvre5to8v36dfluwb9fb6bvwtmiz5bynxusddoziuoygzpmbmy\", \n\t\"mobile\": \"wob8uebpdejmncnxl6eebewg94q7iglrdp705vubkcslg1ckjv3fy91qhg20ccu\", \n\t\"isPrimary\": true, \n\t\"isActive\": true, \n\t\"isUser\": true, \n\t\"userId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"preferredLanguage\": \"uz\", \n\t\"notes\": \"Natus porro consequatur ipsam iste occaecati laudantium. Dolores molestiae dolor quis odio velit neque quia. Perferendis ipsam ea sint nemo aut non odit et. Culpa optio qui.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contact/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contact", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contacts/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"5be861c3-a297-4b31-b099-ec14addc5f06\", \n\t\t\"rowId\": 52963873616839450000, \n\t\t\"businessPartnerId\": \"745a1d89-5a8c-449f-84d0-f5a0b45d0fa2\", \n\t\t\"firstName\": \"yaqyn3lnszdesalf0utd6k5ms25mht4bvshafy62kj6mp9az1948mri3yfq6jmg3v5bcbtyw4iazm67fyqk3z6utsrmbh1pq8kxo7olb6h8inqu2oyq3nebivi3im36\", \n\t\t\"lastName\": \"wmj2kxl28xpz2ixvfspcn6j3sgmnl0x0nznmd572b881ac321r7z9hgyqec97t4y4dz6ionstrpdxs8gn3rh5znemt5x9yl24qnw7xs87y6sgohv9a3yc0lvkogsx7l\", \n\t\t\"position\": \"d2ep24d6332gokjoma2tgb54r9xfwgk610wsgamg0ysjoer7uf05ihkyjit9xinl490qrxc80i9u1ykugo1cgrb5vhbuuomzsv17yo13c8ltsv6vo28kqg3rodxpvh0\", \n\t\t\"department\": \"7wa6jns9d6m2jg13qyeb7e3ee2nstnw34b1r12ggqnl0363jdlr16e6ig66litb4hhblja44621jomd2mwjslwgky0oifqx32q0tbmk4e6rf8nwnl01ide96zklnhmy\", \n\t\t\"email\": \"cg4qppoel9ywz0bhigfg7n6v1xg7m0ulau8f75ixmqfd1iuav3q2q4hhttqoj0gzl0efoyd6hy4gip5087kv006ebkftl6jg515vfaiqku1yege5i4q4fj7ih13zjuo\", \n\t\t\"phone\": \"05xv2p25dm5ky4knzxsc1s89ehbawb0g9ax0jlljes9rnymhofmh88p3z41chn6\", \n\t\t\"mobile\": \"tgovlgwg3uh1ps6ilfvn6nva59i1gx4sux43bj1x6mafrj8lojpuhy75to7g191\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"e8a1fdc1-c92d-4ea6-a6cc-6251e52720f3\", \n\t\t\"preferredLanguage\": \"fe\", \n\t\t\"notes\": \"Quisquam illo vitae voluptate. Labore qui perspiciatis ab autem consequatur officia ducimus. Eos at deserunt temporibus nam aut possimus et dolorem. Harum itaque magni inventore pariatur omnis aut asperiores.\"\n\t}, \n\t{\n\t\t\"id\": \"c1dab999-7508-43d8-a9aa-707426b62e07\", \n\t\t\"rowId\": 91973761441140300000, \n\t\t\"businessPartnerId\": \"d86ab62e-51bc-412a-b35b-d1f6966c7a07\", \n\t\t\"firstName\": \"0sww34epzvd1hakdu3yvthbgol2l9xyxfz2zn55nw91v0vaoca6uss7swa7bykaooqwqihelhoda0tulbpz9nqs8kssoykm5tq6hywhv54fhdlvm3r2zhxc4q03ym5n\", \n\t\t\"lastName\": \"pq6e8q97edagcmve3xa6htr0dwibptx96hxdwvy3wlxyp49864spanoye0hl4aznv4dkkv3jabm09qdmrwge7osr675uw7fkkyzlddf1zdconeblcltku4hqemklx8a\", \n\t\t\"position\": \"wnem9khsduxciojgx0par9qw74dinpkpo5i5ztopa1tv55hj5rg29xb7mh9hohm3ye8bw45rz381p2qaui55fpu85fjka12blf2a09e71lyh5jsi2ci7airasq8vrz7\", \n\t\t\"department\": \"5p4jhgfzbhpm33g918s2i14ha9f893bfghhi8tenbztgr5wgxvjyo0t3r9e3bdmhxspjbly6kqxlcqfwavi6zj3jgni0fb2xke4qn94hjql1u4mbjqbowxzlwxodelf\", \n\t\t\"email\": \"wgz99u9sggxc2rvklax7rinp7q2epuooxr5y1t0lkp284uo17f9amd9q98est72ncluly4r9lfp1jle7lcpe2bt706lwhs76xhtzoozhmyei970x20xvoe4mfnqyvwh\", \n\t\t\"phone\": \"3ivoypvla7u1v5bo42gucom3nn7z1ztf7oeojtapf7xv05mgbng2r1qt2knpotf\", \n\t\t\"mobile\": \"htrap2p2up8316abkupk52wn21elsn3a4pqb1gl6299p406czptwfattfyjftaf\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"d3452675-9a61-4edf-995d-d906ba2c7a43\", \n\t\t\"preferredLanguage\": \"3k\", \n\t\t\"notes\": \"Facilis quibusdam voluptatem. Asperiores atque quisquam nulla. Sunt sed vero et aliquam porro sit laborum eum. Quis sit enim voluptatem. Similique optio rem maiores in voluptas voluptas. Dolor doloremque natus corporis tempore pariatur voluptatum repellendus id.\"\n\t}, \n\t{\n\t\t\"id\": \"64e85e4c-098b-4fa6-b15c-c374a9cb164c\", \n\t\t\"rowId\": 28182465610337673000, \n\t\t\"businessPartnerId\": \"f6a0e730-0f76-4967-8940-4976c643bb18\", \n\t\t\"firstName\": \"tlsxg1zh6tbpyuput1oujpdy9tpbx5k4a24hxob2d0enzdvsbw8vjtqnqewlkn9v8w9whrrb7wkxb2lc7aawbi63hnjl5xxcxv16saigqa7v17az8mw2mjiljny8woy\", \n\t\t\"lastName\": \"lgzd468cvinas58lc0hraputsmomteubya2n4lhydfoyitxxmzonvcr7tg5blsdz088ruzktb2ycfvmevgxd5bljvb87kp6z7cb0etaucy7ncvrmw9zyf0quc0q29gb\", \n\t\t\"position\": \"bf5fiqce5vp8cecowjnpmy9adeirdmmu1p60h23zosf0istlwljhs1yopzzl6vqcmniaeppi7uoc801fhek1l6is2jhj5daq7fu4haytv3uzp2mdj9w5igk80zejxpj\", \n\t\t\"department\": \"adu8lko07lx0rnhqggnazwoiz3grzlukmhk5jupvu4wkr10i217pp6gzm0y43r3u1raov2oq9inbo5acqaixh3w43k1amd9g28fbf6n5ncey8v1izynwz65lmkvxq5o\", \n\t\t\"email\": \"i49df8xs3p073ebonwp84kt1e9r7ontc6w3plfq4gzdcwwuf0rcizadxhgs02wsv1thkrhrxizqux8s9daazlelb3cga0xcx5qnu1o6zw5egbv5fas20s7rbxufd2jr\", \n\t\t\"phone\": \"uuynmn1tbvvb168mkll7s0ty1h8d49rs4fw1n5kujetk2ibkqci7pkqqljcelcp\", \n\t\t\"mobile\": \"1pfmmgbpyl6e891e249nip9zbe43n3lca6k90z5ccy3rzr3omp21r7kj5wgp27g\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"73bbbb83-0946-4ee9-88cb-8b6c443effbb\", \n\t\t\"preferredLanguage\": \"z6\", \n\t\t\"notes\": \"Est enim a rem voluptatibus debitis porro deleniti et. Vel sunt dolorem aspernatur magni. Amet qui asperiores ut ratione accusantium error odio. Quas autem et sint aut magni occaecati animi. Eaque accusantium iste odit.\"\n\t}, \n\t{\n\t\t\"id\": \"cb08361a-8abe-4b33-92e2-b64e76f339f5\", \n\t\t\"rowId\": 57401235394710450000, \n\t\t\"businessPartnerId\": \"f96e1535-8865-4d67-b9ae-936950f9b291\", \n\t\t\"firstName\": \"k3u47dp8jtehvixlj7kguzum9orwahvme5s0u5if8rd5s3mzt4jvhtbtvfmzd8px04ydmaxlvi80wlujvyq71mg4cb742ii2zepzaa4pxgw8mb005snhgel18cf84yf\", \n\t\t\"lastName\": \"8eob0lsek8y08e7e9avfc9iqh0g8b00yf052balvz5gdvwzteaq295rxzohwmom8a5iw0npy7j4ijg1j2683dwzz7szfi86o9vuiedn7mciilaadk41bw7lb4zj13tp\", \n\t\t\"position\": \"w4m7r42ir603z4avjkdkqrbpiohn5bsbsipnz7c73sg2gryszoyg9fv4h839kdzr5ze8zi5c4hqwyl7sw1ay1gbcgn6d40fafcf6cgubasmmqb0iwmdqs1rpe4sy2bi\", \n\t\t\"department\": \"jlibzy40af43gcwavvc13k005vsr532qkxkdu5ifoiq5eg8bchkg9slkever01gar9sisl5e7dhlw0yssqvblgydq42w28wyseq0rnpu64gje83ln36kyuikqzmtiv3\", \n\t\t\"email\": \"7sqgaabsorlzlgyla448wffog08ic4xbipypphtu51rzjugbe1l4oc4dm5ci8v5uaa394gnpufzpur07h03dzo7f3z7isydpiixcoopuef7mwlvoujuphsbkax6umve\", \n\t\t\"phone\": \"c4g1k9w05zh29gczcg6lct2uxks8ll5rpurf42l6dlp72fh54qdgx770p7oga5z\", \n\t\t\"mobile\": \"xtnxb73eyene7gpr3bgoz4keh85dm7u4efmr5jq86q4c5vr4v4czji0zh0jtgeb\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"913ce1a1-2626-4ab9-8823-9f89d35b60e4\", \n\t\t\"preferredLanguage\": \"at\", \n\t\t\"notes\": \"Qui eius molestias et facilis ut recusandae facilis qui. Aut facere quis iste eaque quaerat voluptatem ut aliquid. Officia facilis nulla. Nulla libero sit provident qui commodi est enim perspiciatis hic. Cupiditate aliquam perspiciatis aspernatur voluptate aperiam sed ab ratione ea.\"\n\t}, \n\t{\n\t\t\"id\": \"493c57a7-a0a9-4925-b0c4-b429026d9c0d\", \n\t\t\"rowId\": 81627356360545200000, \n\t\t\"businessPartnerId\": \"bc81d875-517d-4147-8c82-46dd3f9d2e40\", \n\t\t\"firstName\": \"1oroll42cngcvbhd8br7dmcs8hjzqdtplj2jokalojwo22s6pjrislxbeb5rnzddkhny8ri4tqyycn1ps2qnhjdfs5xhb42evpei803x5kwnkf0p50z2kfb46j0bqlk\", \n\t\t\"lastName\": \"eks4rfw2ylndz408ova7qdq7sxfby6zp4gapberr0e8zwk5sno92p2781bgnrp4wu7c1zgu0vmzxgp78wzl7jdx5qmph9c4iz8d8fo79tbwftbjdxlh2ua0ebvcyfnx\", \n\t\t\"position\": \"v5cxw74jxg9p4xye4rom6o6krct1ln5e49o9rneyn8041pff5ior0hcpm0tgxd787g0g0re5t25o4bxxtewzp4u8dw9w3hibssww4n3oknedgvjabwsahvouqqzukez\", \n\t\t\"department\": \"05hsezovj80t6bukoqoqpyuiqavxqnlwdq6gk94f6jxrisi10gp4h6deh5ijixsoterj77abvuxrliz2zn8dlths5774e04mhaul51mi6yse75y3dnc52y9pplixje6\", \n\t\t\"email\": \"4fpideifzazaub3p86flaj1sjf5g3ldk943b7xbansgirj32xzxlm9bu79m9y2u1r0dmsyvp36cri4sqdf6eypd8wnt4d9otkn6vxael3z8np41uizg1dk8ymthrfap\", \n\t\t\"phone\": \"c77t9mm1kcdvxtutm30g5ze09kcubsom8e1imc80f5gvknv2a2sg74f0wj5y4mq\", \n\t\t\"mobile\": \"g3k5nmsz17s9x06xrgfdllro21d2ovb8vifxe077bcxp00mvye8et3dp4ss0uk5\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"76bc3538-26a2-4625-943e-3172cc1dd444\", \n\t\t\"preferredLanguage\": \"ol\", \n\t\t\"notes\": \"Eos nulla illo. Omnis aliquam et autem pariatur laborum. Vel optio voluptas vero facere ut. Fugit aut labore voluptatum qui. Molestiae eaque exercitationem modi sit sint et alias in.\"\n\t}, \n\t{\n\t\t\"id\": \"0403d308-c854-4cba-9018-db710080c285\", \n\t\t\"rowId\": 69711990404070670000, \n\t\t\"businessPartnerId\": \"3a3de4e9-bd47-45e4-8734-456708ba8cd1\", \n\t\t\"firstName\": \"rekzmibn7d0jpckoxbld0o7ajfcqdegaosucwi0j404pbsotfy8g1kki2vgyasxs13h03km1qt9hf9rcx1l1teomjmtbja3jhwqugm5e6f5r1zuqg1dp7k4gcbp2rqy\", \n\t\t\"lastName\": \"u9tgdli0pz8su672w92unupby4xps71hxvhi23ixl6oe1i4eslvzw3wblz3s2bncfy2pmozh3zn7xwhq5fnq2i0uzwpzjycwzjeui1wjq0yxju9dbh0s7ev6rs3z9x1\", \n\t\t\"position\": \"tt0iie82ruj47dk2a2sxs1nq45puitxhak7ynga2n97gc4b3zshat9m8c8zcryuqfwxwo0dfconm1njqnscopme5smxpo2jrb1gylap878bc5eq3jmlw7d9rag679eb\", \n\t\t\"department\": \"fecvuwxkxc7axtpwbnr2yn6vv9vv80xoj6a87wanv84fbov56dyj4r37p9luav72fwdw4o8twe80ft2r7atmuh9do0zj71lgq8drl77qhcx8qv0gphzad0a6mrjaqv3\", \n\t\t\"email\": \"o7ec3b4pxq0gqcnydy8lxzsnkoxz22cohfguzqgd8kqwahyzcasmfrrmz96dm2rlk2g7tq6ci55y2m93we8e51jihkuomr6k3vz6mv4ywtkjyswzbuvgqudsr6xjerh\", \n\t\t\"phone\": \"c0071wh28ok2g2qymg6rc1up9j09b240t2s70qc53nn8nvjllhuej72ob2ygive\", \n\t\t\"mobile\": \"l3m3wnmjtvssa7yw1bxiuhm0gnonhrbvvgb6di4zu7nn78kcb6xxoe4hjte8fiw\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"96af63fc-4f77-4cad-8f0d-5021fe0b4247\", \n\t\t\"preferredLanguage\": \"7l\", \n\t\t\"notes\": \"Maxime eius est ullam fugiat vitae aspernatur consequatur et modi. Similique similique aliquam voluptatibus ducimus placeat sunt reprehenderit. Nemo voluptatem iure sint quibusdam voluptates ipsum eos ad.\"\n\t}, \n\t{\n\t\t\"id\": \"6ffd8e94-1feb-4576-a7ae-0b3b115d082c\", \n\t\t\"rowId\": 69759421537548255000, \n\t\t\"businessPartnerId\": \"d22085c9-5510-41b0-aea8-36dc9e81eb30\", \n\t\t\"firstName\": \"0yrvhhgl5viij0nymgcc99olf00vadvrtkvg2rnin33nq51aa29fmj07el630iwmfuhgcdx021frrc9x42onxmfj19qc06kv8mkmothxf289g7najao8oddjm4ewgfn\", \n\t\t\"lastName\": \"278bmtebg73dwbai5qwn7jf6fpxzi7c4d07iubwff2f23isikv8d6ogps5o9y1e9exq1iy7rp67gwm0xxnuoq0bwhmhisy018qbgg50pzatm3dnqxsjwy603havzc51\", \n\t\t\"position\": \"olz28qi508u1wy2msryu5rysodx5k4m17atl6o8zy8qg0jwnt3tp4ky2b1ktihqowkypcxwv8j7tp07tnre05rqx1863bu249siy0hfxbro5afm7p50dqvvepptjcjn\", \n\t\t\"department\": \"224k705pehcj1n78378bq4f6bjlu4qxugi6u11dm10y24sdnktiqkg3s4733wn06tuxuxo7aa0fmv2bts9kmn5opjwol6wb41e7nxqwo4ebts6cqria8vufwj89dcle\", \n\t\t\"email\": \"i1doigbe9uq5u47gpmc8138cb5bqk3cpo9rjnm37d0yd3d7it983cogmjqa2bceh75sd38h5xjw65y2ax5c3gugohckv8qqtde7om24lflu03pi18eor5gd1h7fqm9f\", \n\t\t\"phone\": \"pieqrz7qm12akwj10drghrf9kstpvnxw3os0ge6ul1030ldfpvksmv1h6xsqvt4\", \n\t\t\"mobile\": \"dzosxqa8t2musaqm8fd7gdgkhlxfey99pd68m6cerimyhqlyrtu47plq2ctc1wb\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"fe5536a9-6ae6-4fad-91eb-7e8e26416f9a\", \n\t\t\"preferredLanguage\": \"47\", \n\t\t\"notes\": \"Tenetur et omnis et et ullam velit minima. Sapiente neque et minus aut. Eius neque magni vel dolores cumque. A consectetur voluptas vero expedita quasi ut rerum non cumque. Voluptatem ratione ea nesciunt sit magnam corporis eius debitis aut.\"\n\t}, \n\t{\n\t\t\"id\": \"487e586c-d063-4dea-a690-c3a996639999\", \n\t\t\"rowId\": 49254959728059654000, \n\t\t\"businessPartnerId\": \"aac1bcae-7b9c-45cc-b95e-9c3f28dc9197\", \n\t\t\"firstName\": \"k0aljt45hr3ophn4xvk16zffhet28ckb8g5nlvzffpu59squ0941bnirjllpwsldsbls5hjckfq9nzbt4v8ljdn5ci2ko920ze4sr66pqygp94onel1g0h0fauqp3ad\", \n\t\t\"lastName\": \"iz9tjia9yntyy3vr4io6n7fbgi5pbrj9cie59aexb70rr475614bkvadwijjlvawkgq5dwxs0jln82ncnez2cpxmvjhyekyyjwmb0hpj7o660wrz94dqw6y9rxid4n3\", \n\t\t\"position\": \"915291g5ovvgzrvxdnakjv5xwrqmntfj709dz5rj4se1pib6ogkc466gpuuf11sl33j1iu51uhlhrdbtukelu0h6ghe0s4e820rkzix1tmi0qj8zb6lu6f2wdh662z8\", \n\t\t\"department\": \"7fs6itnpmktuhqurehdd2fbfuiamzcyln8f94b9wxizqi999xstbcxtxsup0993vmlf6c5khixkg9ujqt74v87e9jk2j7wx3lfthi16b1jn4s0v86qu8yyhh3fu0wau\", \n\t\t\"email\": \"dqybmwjvp1wtmt8n2cd1o0khze1iepqgy5r9fmahwa0xes4yyspz8q4dfowqf8nrkvz6m8anbgll3qr6x570lqo00b2twyo3gmokmtv3s79p8bemisgcuocv3kxsetf\", \n\t\t\"phone\": \"61k7d9lssl34fl3a7fstdgirrqwqe7ve97mbi9ju6mv4gveopt6l3gc9mkewc8y\", \n\t\t\"mobile\": \"gesf55kh8qgthvr20a63o7c75wqrvyeq8cwgxg7f0k735qsmmlq4gh5i8dyw2ml\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"d03971ce-0dcf-4a09-b99d-a91dfa8af260\", \n\t\t\"preferredLanguage\": \"8p\", \n\t\t\"notes\": \"Exercitationem nisi ea id esse. Odio perferendis ut voluptate. In aperiam quos. Ducimus distinctio quasi ipsam esse in vitae doloribus in. Similique vel voluptatibus dolore est maiores voluptate illo tempore. Ipsum laudantium vel libero nobis beatae vero.\"\n\t}, \n\t{\n\t\t\"id\": \"fdc3c696-09e0-4849-8df1-89f1a420ce77\", \n\t\t\"rowId\": 40463838691819380000, \n\t\t\"businessPartnerId\": \"370b80b2-089c-4432-a3a3-b8bf453b3da8\", \n\t\t\"firstName\": \"igdo7uz3bymx5jxl59kdvnmnc4gmamhvlb1t248kywcdtnm1afvoiknlhb3jeaq39rh00lbv0g0l7a7kd2zzls1icoanxv1k3sqrzsmgbw1wtu1m2h113iuuu5wzpc5\", \n\t\t\"lastName\": \"30wehqkxw2ddihf4m71vpb4xjr60yytqo71kautsioyvlykgmhbo5b7wwwx68x3njnpy93j98ad8z3iz33l39zqkcqy37homjzpwqznija0rg2ewyqgw8emrg6dskqi\", \n\t\t\"position\": \"pnaki5a6q9cxzuo8v6ikalev7c85yx39gpp0rfc6cdgiqo569mfsltvamiqmthkepfatoc1t6to1p4x48tjgm3wq3d9u9it2q64tbigzd8xq0nw22zvz8hn172rhz3x\", \n\t\t\"department\": \"1lenad8uhoqtazkksfxgivqs7m51x84hhmk911aghmnbbrkyr3lqdronqymt3lt1obj9gdcid60n8h5lljkxe10fuwg2mz63s4qtjhsol8ojz5dfmowy16w6qyvfpk2\", \n\t\t\"email\": \"0wbffde7gd86e9aan1it54bu99jvpizdp72nloaa85zj6krl52yvhsnx3iitskeji4vxmgo5m4avkohtuwfikmrg7le4x85bhijtcm9xxfh1r615vywtc3vzav4bsn3\", \n\t\t\"phone\": \"mj7qizgpq9eotz9ft1gqwizl4s27r17ykthsyxl6fizteua8votmgpedvdcv6bo\", \n\t\t\"mobile\": \"jgxeph3mrkoorjjwblaqyrjjcc4qx4e7nd8rblk5o50scvnu4v79fjlckjq9goz\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"isUser\": false, \n\t\t\"userId\": \"ae412c50-64e7-4333-9f82-6d7842488e22\", \n\t\t\"preferredLanguage\": \"jl\", \n\t\t\"notes\": \"Distinctio quidem facere. Provident molestiae excepturi doloribus qui at quis delectus et. Voluptas magnam consequatur velit qui natus tempora.\"\n\t}, \n\t{\n\t\t\"id\": \"64ba48b3-664f-4c5d-b760-10e68d10c981\", \n\t\t\"rowId\": 65850207686587300000, \n\t\t\"businessPartnerId\": \"582620a0-4ca0-434b-b145-3206e1a0ec36\", \n\t\t\"firstName\": \"gvj4w1xiw208fxcrmfj23f3xvz5wccvzfeyj45ddjch27ockvugutnv21298abehxsxe3hjyshq48a8vap4iuw642hepkcvktbrp88exlnelkowqgwyt25ga2oa7ogw\", \n\t\t\"lastName\": \"ktg1lhjd0237sr5edft7z8q859bzd2vlqrrn92j46g8hdoaej6qnrk4yppodea7djjfpm59red9sbmjsrj4o08tqnlb4921336in7mjajzsb88cxlpjwgwvzls1r5yq\", \n\t\t\"position\": \"u00d0xpq96tcms6wgvozizsxc629sugmfo2uzfdksc009t0r34n49rhcol3hutozw14w64oxlri2t3gf1i5dqbv6erksk2t7vst3bm34q6sko5o7k5y4mr7imvdp3pf\", \n\t\t\"department\": \"pgavnuj9atlgr4hwi215qes257y3ybfqef6d506dw7dzzh9veemy3uqhy1fmpvcc33ob67yjr00pj3e74ynkb3pcbd4z1nkj8rnvoxhjf1j7s6fzfsjg9bq19pmjqtd\", \n\t\t\"email\": \"pxfqgu5nlxuxinzfri986qehz6suhe0i5skonfm8w6fsjcc6xtsgd3y6sk14ysgbnr14xzpv9apsy1sgzsr2qpxsz3inw2vetmdg2so624usagh4asbg3vc646ws46z\", \n\t\t\"phone\": \"mf6epbs9xxm8cya4z8vfadgtgrbzl0flm7bqnp0r9aj39vsxfijwl399f0999gu\", \n\t\t\"mobile\": \"5lisimmsfxe3snjhr3aw4xzfv210fabg8z3khqm8e6zlx3z8ez4vf6kkcv1b44e\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"isUser\": true, \n\t\t\"userId\": \"f94a76e3-ad4b-42f5-9f0d-3419e6fd3635\", \n\t\t\"preferredLanguage\": \"36\", \n\t\t\"notes\": \"Suscipit qui numquam. Deserunt id amet officia quam dolor. Dolore eligendi illum.\"\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contacts/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contacts", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contacts/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contacts/paginate",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contacts", "paginate"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contacts/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contacts/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contacts", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contact/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contact/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contact", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contact/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contact/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "partner-contact",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contact/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 87619385394723900000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"firstName\": \"uru080f7npbmcnmjqspctfyr74tzm7nr3p6mfo91kc7orp99wng0p7x18g5axc0pzn8oclo8b2x9jomd6fqci4hqb6lqpsen8f8j46odiaqpou8vay8wrvge1ubpas1\", \n\t\"lastName\": \"01266brrpl2yojew0olu2ap4z8ves5r8uo6599jz8hrkodr3ypvld1h2rs20lj6p52zma5ecijnerv8w7owkf8v7aig8mh142tv2udefv5uzcafx4hdd0c87np0prly\", \n\t\"position\": \"qr7g937gis3cryg7nra12puyl0r3102z382sx2ntrfmcsj4znsf7wxjk6cdj8s2hpjlgcnpf4fzrytx2cezbi555qlcbw4u7hbuw9iayk87gmfoztt46suaw1oiqzhl\", \n\t\"department\": \"ywejowdycar0vuzv6b2j8w8avpp0dkb4ki4n9wtu49h2qsionzajjoer7ljsk2j1qo3rya3yncz3vijibviz2dyjf7cj2fqml1o9drae6vjg2qf5ilqrepg612r5vv4\", \n\t\"email\": \"zszfenp82euq9a2le7ifzjxtkr6ylds0rh9imai7csoayh7bc3wf9jk5qdr81hp6arlnlvsh6roezivg8z4lp0nexqz7s1jjs6vo15ag27wrqhe5hf9nx6gdhi9wsqu\", \n\t\"phone\": \"bmuo5gcda0gmcao9n2rmekbs2dkwz9h7dthf9cvp9r7urn0gvxjp61gqj2j9v9z\", \n\t\"mobile\": \"25j3r5sxn09qrdnkd5svvdmpz6apk2xvropqgmfhjngdlmsmqnq6jgbo7gsr2my\", \n\t\"isPrimary\": false, \n\t\"isActive\": false, \n\t\"isUser\": true, \n\t\"userId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"preferredLanguage\": \"hr\", \n\t\"notes\": \"Quas earum eum est. Temporibus est aut aliquid non necessitatibus eum voluptas. Ut adipisci mollitia porro et inventore harum quo.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contact/update",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contact", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contact/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contact/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "partner-contact",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/partner-contacts/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/partner-contacts/delete",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "partner-contacts", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

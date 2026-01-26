@@ -1,0 +1,39 @@
+/**
+ * @aurora-generated
+ * @source cliter/business-partner-portal/payment-mode.aurora.yaml
+ */
+import { CQMetadata } from '@aurorajs.dev/core';
+
+export class BusinessPartnerPortalDeletedPaymentModeEvent {
+  constructor(
+    public readonly event: {
+      payload: {
+        id: string;
+        rowId: number;
+        externalId: string;
+        code: string;
+        name: string;
+        description: string;
+        type:
+          | 'ELECTRONIC'
+          | 'CASH'
+          | 'CHECK'
+          | 'CARD'
+          | 'WIRE'
+          | 'DIRECT_DEBIT'
+          | 'DIGITAL_WALLET'
+          | 'OTHER';
+        isAccountNumberRequired: boolean;
+        isRoutingInfoRequired: boolean;
+        isRecurringSupported: boolean;
+        sort: number;
+        isActive: boolean;
+        meta: any;
+        createdAt: string;
+        updatedAt: string;
+        deletedAt: string;
+      };
+      cQMetadata?: CQMetadata;
+    },
+  ) {}
+}

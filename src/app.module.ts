@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 
 // modules
 import { AuditingModule } from '@api/auditing/auditing.module';
+import { BusinessPartnerPortalModule } from '@api/business-partner-portal/business-partner-portal.module';
 import { CommonModule } from '@api/common/common.module';
 import { IamModule } from '@api/iam/iam.module';
 import { MessageModule } from '@api/message/message.module';
@@ -41,6 +42,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     // McpModule,
     // GraphQLAIModule,
     SupportModule,
+    BusinessPartnerPortalModule,
   ],
   controllers: [AppController],
   providers: [AppService],

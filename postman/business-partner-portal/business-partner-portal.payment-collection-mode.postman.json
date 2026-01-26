@@ -1,0 +1,500 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/payment-collection-mode",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePaymentCollectionMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreatePaymentCollectionModeInput!)\n{\n\tbusinessPartnerPortalCreatePaymentCollectionMode (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tbusinessPartnerId\n\t\tpaymentModeId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 83674279803349860000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"paymentModeId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"label\": \"ykln72ct2vyoryqb9tin72r3dtdcvm3jkqbgp7uvum57cv1zfymi59xvukcw7rj5m3keisqjj9lqeutooz8hzjjr2fx624kti6zsem7n88w6sbwyro4j52iwb7906dp\", \n\t\t\"accountNumber\": \"tyvd7xizeuvv1lg6ekecqs0yuj3ydzfdtejckwlpnhawhw151oemrwm2ey98ygx4yeb604gm1c8l9ioiw365ttg80kstdng84apipwhvfsw0pk9017blpqf32vlqxjf\", \n\t\t\"accountHolderName\": \"d6fw0x1gpqeulv1wwpe2bzdmay93ww9iwg1wojaoaca4be85g9b2dgghnvd3pm3r15qn2bolp97p8uf31hjbj265m6m6xwqefgzzr96uxgutxw7r48sjyd2y7huisyp\", \n\t\t\"bankName\": \"se5nymybz2uhgqvyj1nksp97cy98e27u6rzflzuzvfr72w5oc0s5o6i5y59l9n2m8g53bnwop79r8z106s3pgfehe448asco7v3sjrmlqd7i2n0c63hh8rrq915q4ms\", \n\t\t\"routingNumber\": \"richb2dtim8ajpaozratab5vjn843y1qjbmhwl91i8j9dtvfzgh6w180rl7ubul\", \n\t\t\"iban\": \"hj98wbv358flgucqnvw48zek76sije9aw\", \n\t\t\"swiftCode\": \"7qrcitf455\", \n\t\t\"currencyCode\": \"hwx\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Eveniet dicta aliquam sunt perspiciatis. Quidem nulla dicta et odit. In nihil cum accusantium eum praesentium ut doloribus perspiciatis. Dolorem eveniet cumque animi et sit laboriosam facilis quia.\", \n\t\t\"lastUsedAt\": \"2026-01-26 06:31:16\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePaymentCollectionModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreatePaymentCollectionModeInput]!)\n{\n\tbusinessPartnerPortalCreatePaymentCollectionModes (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"faa865d1-78fa-44a1-b9d9-dbb8638d6aa3\", \n\t\t\t\"rowId\": 46679546767996000000, \n\t\t\t\"businessPartnerId\": \"fd56dc28-cb9e-48a8-a4ca-c20be46fb5e1\", \n\t\t\t\"paymentModeId\": \"c66f2c77-6ad1-40ab-8431-bce382959454\", \n\t\t\t\"label\": \"ngz0pwqsk9cs4a370fhac9r1a8g48fjjlg4jh2ibek1knnx26wfsd6528dudfkcyg9wqojqaixarb249wn447poas9mtvhfgxdyv48nh69xbfl51yxohlevtv2wxbky\", \n\t\t\t\"accountNumber\": \"z5m3r7uabbt9q98qpe1ppbuq5vd1s7o85oiddusd3kjcemile620kqkmnuwm5s16xzc58ldqz4brdfeqau41kma0glm0xh0mxv74wytrut8y66062z7x30xagm4x2le\", \n\t\t\t\"accountHolderName\": \"vdl1h5hiblocm4qte1xpx1wii8eakwks90hflvz46h9e7ste7p38bjp51gdcfz28nan0wtivttc3t9yrwbcuvaoyyp7xfl1pnj0105q4n8047t96rv27sn1q6uwi1hp\", \n\t\t\t\"bankName\": \"jnircgvn2ipo9f1ci7vxhastyrt4vil2qxq8kkdyjsrc1xvqvtcia57b3pl8tu6195ra4rxlq3rd2q51mrhj0m83aqutuqt6fpnqcy1jekurtrf9nzqjtgqp7eu8mwv\", \n\t\t\t\"routingNumber\": \"s4nfhvj573mr8pkdwdgbfy7rtje4e8htub4hm4rd6vy62uhavijh248ukusrxjk\", \n\t\t\t\"iban\": \"uf0edxawq66huau72xgq2ey29nobuqxjx\", \n\t\t\t\"swiftCode\": \"bljr8ngqp5\", \n\t\t\t\"currencyCode\": \"nrk\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Sit enim officia qui non eum praesentium iure nam. Reprehenderit non nihil sapiente. Amet neque delectus qui perferendis.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 15:21:22\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"2448c886-2fb5-4c96-b4ab-3d8083646598\", \n\t\t\t\"rowId\": 15096923656914704000, \n\t\t\t\"businessPartnerId\": \"34d2aaf8-d6d8-48d5-862b-9b48f711687f\", \n\t\t\t\"paymentModeId\": \"599796ba-5e40-4dc5-8b90-1da98b4436ad\", \n\t\t\t\"label\": \"m5si4xigrz6edt0upcrltv8qtxf79axcrpguttlh0kcvkp02i1iaed7zmvjinro8o6qkzapefn5ht7w0ywwmwhdm2wfw2f4xtatqkalv0tqfnp4wo1kgooiawjy8h0l\", \n\t\t\t\"accountNumber\": \"b7eycldoy8zke2tf6tayth6255vaw6hfvqd7ida1xf8lakw2b7f5gspgfkwom314plsnxmov0pdx1ey0arcu9cv4sa85dkedfk28iaajj52ls421hgh5dagzh0uz1rv\", \n\t\t\t\"accountHolderName\": \"nz4xuhuakpe18xn1sw7fezgtmthq40idsve5ccyvwe9c1ivuctblpt8homvwm5rz8yn0eiv9vhbm6kczpv2boji8kwh6n4b7x2tolg6xs5g48x8i5txumyee9i2iv76\", \n\t\t\t\"bankName\": \"uv18poe4khvy03erog84tomcc4zwkw9616tqz6z27d6hh2aah4o8oa8suyxzv8ot365o2a2ojckik9ngv3524ow88p0roox2orbhg71pighglazo8dxlzuw36x4zeud\", \n\t\t\t\"routingNumber\": \"ja8eva34h9rxfg49yf607fgrx94dlyqvozsz97f2c22xho2pbukkr3ter100jaz\", \n\t\t\t\"iban\": \"4pkxlmelqn6m0u2v3tsatt34nn9wrmqc5\", \n\t\t\t\"swiftCode\": \"zdbubu8gsh\", \n\t\t\t\"currencyCode\": \"n1i\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Sed rerum recusandae fuga deleniti saepe omnis ipsa sit sunt. Placeat debitis suscipit maxime eos quis aliquam. In iste omnis neque earum id. Et sapiente sit quis sed et recusandae harum voluptates. Et harum minima necessitatibus officiis et fugiat ut.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 09:01:01\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"dfb67131-c64d-44ba-ac3e-7f3e4a149afc\", \n\t\t\t\"rowId\": 72802945938167415000, \n\t\t\t\"businessPartnerId\": \"f1954bad-e9cf-4b2a-a7eb-27f3984922f3\", \n\t\t\t\"paymentModeId\": \"79ed3821-4b17-4d7b-82bc-2a6f2f613719\", \n\t\t\t\"label\": \"fgwjpnam0vq2bkfxrm4srzwexz7rgzs4849a6mdje13glvw4o490ohdmga013cymlqczyut28tykyrf7fzsfv5xneschfhjctrf2hjnus3cqrwcgq2smkh0dxoo2er4\", \n\t\t\t\"accountNumber\": \"exz2e360vvq6vlvjfnaosc10qe3sel8qbljzihmrebtjq1ax7rsjkktrp6l91fshrzdsejm5jjwr08x3ipa14klxehbovecu1henzlblneeqgr061p9qt0w3ypeqpc6\", \n\t\t\t\"accountHolderName\": \"isuv9svopf44bm5djlmh1bsqjj7raexcyzjg2tffhuk3hnsqiwbljzpmahud1trg3x7ze7t44whkawbraf5uj2trmp64ej2c5rmqj9d1qw2kzlgq0cmdilmktehgycy\", \n\t\t\t\"bankName\": \"yv96qd2oia0qtyoj81kyrnf033jb797yki1sbbhas8x446k2telt1g0habmbjyl7x2http3wj733j1yzwmmr0zbigvjls0l1npoli14vbxrolaqt5i5h1ue5ybnmxt8\", \n\t\t\t\"routingNumber\": \"femqsp2ofkp7semv7ubn5zvzodz4x1w6uay9uyuj5iovt3fjvy6frutfuj9yv97\", \n\t\t\t\"iban\": \"i0jsnum7fv1x8qj3ekwdnwwmey5oh9jod\", \n\t\t\t\"swiftCode\": \"s1wxbm5b9v\", \n\t\t\t\"currencyCode\": \"iyy\", \n\t\t\t\"expirationDate\": \"2026-01-25\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Voluptas ut iusto delectus necessitatibus. Temporibus officiis sapiente animi et eum itaque veritatis expedita eaque. Quasi enim magnam similique nesciunt voluptatum provident unde repudiandae. Nihil ab nam eveniet libero nemo ipsam magnam laudantium.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 18:07:19\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0ea86d9a-d05d-4e3e-b444-fbba77d5244f\", \n\t\t\t\"rowId\": 55403621409879860000, \n\t\t\t\"businessPartnerId\": \"b64456d9-e428-498a-b715-1f4252fcd449\", \n\t\t\t\"paymentModeId\": \"196e0617-e948-4439-92ab-195013721024\", \n\t\t\t\"label\": \"9t3ocvkie1s2y8i4onmwb3z3k6pnzho7z6n88go9bb6pzofu8ip4q6igsqibfefbmkfz3gdzi3adkslt26cwpr7uu7b0mc9zugi4i0e1o9xlr6x3qz04uopx69imnwl\", \n\t\t\t\"accountNumber\": \"ds47p686r7w2b4bhvyeea3dzmpk22uj5ljq7nsfdkd8jo392kh7rk2qlrbc7eh6vguv2qd0vf2li8jt1ehqddg7h5az2r469ns66j475zmrufstcffh8jtooij1ejm5\", \n\t\t\t\"accountHolderName\": \"ug97qdagbsdexy23fdx1cgwahzb1v9p7screiti31oi7kyzgyx4stu3ybeowruqex0altvu72iwgzcc6hu4w36mxvkmd258nmdz12p78twq7lxp6mp4568e1n8ta5in\", \n\t\t\t\"bankName\": \"zjtwxvgi11dg0fduthwvs5cb9f1fsfxfceqbno7juj5cjlf1vogj7mc4ivxjj6p6bqf9vi5t12czyflhtqt3in39potg07ursom16o8rnxp3j109jqaoaf3xpadyqkw\", \n\t\t\t\"routingNumber\": \"868ff6vfprcqy9e9x6ca0zq4ymzj2jqurc4n4adda7dw8bx72yaxu9qzsod5ani\", \n\t\t\t\"iban\": \"u69e0elvv8kw80s2l849us8c41lc3cgil\", \n\t\t\t\"swiftCode\": \"ieganhm76d\", \n\t\t\t\"currencyCode\": \"6un\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Adipisci et nulla aut. Necessitatibus omnis officia. Facilis sint sed consequatur. Repellendus suscipit similique minus quia autem exercitationem. Ipsa ratione dignissimos iusto quas.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 10:25:28\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"238e8504-6c33-4bf3-b275-acfd8d96932f\", \n\t\t\t\"rowId\": 57392334190859210000, \n\t\t\t\"businessPartnerId\": \"01475e91-081a-41b4-9c33-df0884a1a46d\", \n\t\t\t\"paymentModeId\": \"e05a0da7-a1e8-4a21-bf12-eecf3ce9d2f9\", \n\t\t\t\"label\": \"ib3korikykeag1rsl8xiaruknioqonbo4z6ko3ik101lwovowbn2b5d0zwl94gqv4h7zxty06nd7ba5q1fseuwkhba7qe21ps7kkor3nhxahwvg963y8ssfbri43rvl\", \n\t\t\t\"accountNumber\": \"46eahqnz4vfd5tipdcojwgejnbplijw4o7ve6pzb53qge14bct7bys9s8s4p0agc612y1ot40mdyb7l3z403yav3i4ulikmba389d7mmlgrlrp7dcp6vc7u2qo3ahe0\", \n\t\t\t\"accountHolderName\": \"q30q5joy7l4h1j8cf6108tmhrkjwfmz3rvitq6ku7t7hxjidlhhqael8czq163p87jh92lo2cusbklbeq5qdc3nk3pv7ubb9tlqbi0rotypuvcdrf42nhuvd45nurz3\", \n\t\t\t\"bankName\": \"3f2nuwqkaslakln2802awt36zwsdertm7o5quhh7a0nyh5fc9qoka1yff023z0y15f43is7ofmnulh7fcmuiirj290kshtwrojkjk1bs96ry4hn7miiizujb4ggcik0\", \n\t\t\t\"routingNumber\": \"33ae5w0u9qztvateapuvlly7uyo5ly50ytm63512qiss5d2hf8tpm8hpm9vby9n\", \n\t\t\t\"iban\": \"hmazkxs73otxdnf3w1c8h1fk9vjj5q0nt\", \n\t\t\t\"swiftCode\": \"lqhe241vlz\", \n\t\t\t\"currencyCode\": \"1bu\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Natus rerum sequi assumenda nemo inventore placeat qui reiciendis. Earum fugiat quia. Et voluptas delectus et quo ut doloribus sed autem.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 11:36:33\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"7844f783-32e8-416e-b17a-53f634fb39ab\", \n\t\t\t\"rowId\": 68287509321865480000, \n\t\t\t\"businessPartnerId\": \"b9b19db0-c74d-4a6e-8648-4b770d989fee\", \n\t\t\t\"paymentModeId\": \"0cf787c0-d70c-4c55-a2d1-050afdcfdc09\", \n\t\t\t\"label\": \"k8jn0t3okja6depyswp3ak4oauiaq3rihwrwa7pz0d9ge0k44o1vj5fdbbswd3gu46yn2w62fslclx1zvr2war2sz3tc7csfk0eoe744zyxwdra3nb1ok8gryyjppby\", \n\t\t\t\"accountNumber\": \"9k33q30kfrje6ixbv9bfxyk8ddn81j91peidhdh7whjf3lu5nmpn3op2023xdpb7le57cp94w44kj4ooyr2zkr55ycfajrmrbbim3zkqvyls1vb68hu1vuks7x4vovm\", \n\t\t\t\"accountHolderName\": \"dqzqkbf0g2h11ssit0bgd5minfc47na9s97nh44loaqrrpvvtxwj89rwolpat2mdvazn6aqu98pj67m2evbt95ql6u6tzf12h6s9p1gbddnubuqmtnmtl61k0b8yqkf\", \n\t\t\t\"bankName\": \"nmspi5tucgnk2t37mzmiv1ypjdrrnq51ua6qjw4s590o5jz7zq6o2hk492vag2kpekayrxxhqx3m6picdcai0iws6indifgmnnmqx1iom66zkjykflfwgxrbbci271k\", \n\t\t\t\"routingNumber\": \"7zxru7ivpr73bp7ibdvlps9u4zgb6x3awmtjqucd10eub1trn73m4c6m520rl52\", \n\t\t\t\"iban\": \"46smt4bq43ft7iv1dsogt7fycamf61jdt\", \n\t\t\t\"swiftCode\": \"d5e5j9rz6i\", \n\t\t\t\"currencyCode\": \"nfo\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Rerum aut eaque non. Quia qui voluptatem et dolor molestias sit consequatur quidem. Aliquam placeat maxime sequi aliquam praesentium. Maiores at inventore aut et aspernatur.\", \n\t\t\t\"lastUsedAt\": \"2026-01-25 20:17:22\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c65e379d-0a4b-4191-bc93-79dd57ab5435\", \n\t\t\t\"rowId\": 63269107754010190000, \n\t\t\t\"businessPartnerId\": \"10c5da72-db33-42ee-acbf-aa1e3cb569b5\", \n\t\t\t\"paymentModeId\": \"2096d285-4601-4adf-b388-a6fc9af59037\", \n\t\t\t\"label\": \"burrdw8pq1ll0dwsaqmesvgjwdr8qhr5qn55ed1lrcbg420m8koczercscotqc6kqaee5j5imyjrxg6uq23d6as3250s1h4gyqx2ai539uoelydhspkn9y7ong735hp\", \n\t\t\t\"accountNumber\": \"2ik7oq493w78w7zajb37dhx4cgxgna3092020ntjuxdsniuh91j843odqt6hr657ccvsyrt0ur0a9961nz72xckxkvxy8bzgdsc3vuoubcc2ob14c9kvek7x4k0s1mf\", \n\t\t\t\"accountHolderName\": \"c3qin7s94aefq90b5i2wmntj9yn4xuokxjrtgvuiupp79ib0xdbx5w9gh4otyopeq56rpdb3d7bx4nrindzz77s1lib97a1vjxln1iz9n0idxb7ei2fr29nybo8b8l9\", \n\t\t\t\"bankName\": \"yeds4slm2x31c5eahf92fhycu568bbxfd75e8c3igbo2qzejig42kuqhlrtr5tjpo75lyamr2amhl44ng0e48knferxqvgx6q1uyxc4oboc2pkvodxvhruf6oxs0vyo\", \n\t\t\t\"routingNumber\": \"dzqlp64ncn22elaou6kdbeatvvmaomfvg5nwahsvotmv6jt3qf99h24534v8xk0\", \n\t\t\t\"iban\": \"sm7a6q3kafbrtbll2jsw69wokal4vkwnb\", \n\t\t\t\"swiftCode\": \"u0srrki3gf\", \n\t\t\t\"currencyCode\": \"n7y\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Voluptatem fuga laboriosam totam. Iusto voluptatem eos blanditiis repudiandae est iure. Ut qui dolorum dolor voluptatem cupiditate.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 07:22:41\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"67a29a5f-4497-4de5-bb5d-5ba0cb58e4f4\", \n\t\t\t\"rowId\": 98781116330003600000, \n\t\t\t\"businessPartnerId\": \"73a11c33-4238-4867-91d5-9c7341c4c902\", \n\t\t\t\"paymentModeId\": \"0b44bf9d-45c9-4857-b6fb-14809c047708\", \n\t\t\t\"label\": \"t987rbvs5nbkpbc3unes6aey2v75s6hori57fibm2lh1d82nia7mww0q5kbu4hhvkplao4ja951lw8xtedgk0x27kwgemj75onesi8x0pt14lr9gydfs43qztqkxp70\", \n\t\t\t\"accountNumber\": \"viydq5e6945q6bl0ftdqqvkwvn0gws4qy6rap34urzcv3b7eza330kpjl7wtzg7yl2umwx93uebp6ghslyeyvhg31fmlw3liuayt5w3mrwqendthk03khi8ngniuooa\", \n\t\t\t\"accountHolderName\": \"ba5bm9yph9u82cqqre5nfjzjfu38p4qnlp5orj5t18qoqkra6q33v0qa0d1sgwni3045wl3x10rbj2uj7metla8tnea93jtgpvvmeeehelohbhe9mhc5onpmxp10fw0\", \n\t\t\t\"bankName\": \"183ck9gve5eiashtq09d1c6tt2o91xa41xamx5fua8ja5ebolaan23sn1n7wkgxnaitnydkovvyegdh5rtxru8unbtmjrr3s68bl75jx742u2pl5sud2pus0f9bxvqp\", \n\t\t\t\"routingNumber\": \"xens2qufbx8skxq0khw4v63g38es9t0mfqprkj1th49m6ioaz364gjr96b9r1j3\", \n\t\t\t\"iban\": \"u1boppl64gepont9t8uj82nddfdhk6gc6\", \n\t\t\t\"swiftCode\": \"89gnfnu1y4\", \n\t\t\t\"currencyCode\": \"hy6\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": false, \n\t\t\t\"isActive\": true, \n\t\t\t\"notes\": \"Tempora vel possimus fuga consequuntur sunt. Harum ullam alias eos eaque voluptates cupiditate. Perferendis omnis blanditiis maxime explicabo quaerat sed odio ut in. Et illo porro ut rerum voluptatum molestiae perferendis est aut. Ea aut aut suscipit et dolores sequi.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 14:08:20\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"cbf391ce-b700-4a7d-97df-10da4245b38f\", \n\t\t\t\"rowId\": 76532225048977830000, \n\t\t\t\"businessPartnerId\": \"7bb09458-78db-4947-acd3-fb2faf5349c2\", \n\t\t\t\"paymentModeId\": \"f2408cd1-874e-440d-80ab-3511f986cc2c\", \n\t\t\t\"label\": \"aj5rdz7iyq8dyzq44veoz4bqkisotg9bdof1azy9arbngze2kt8mkxb2xwccpk1vxnuvdmhupagjf5tcqvzwlzujba8505v1y97vtwug1og4ssuboa9g1fhdagbic3g\", \n\t\t\t\"accountNumber\": \"rbx1z68iuhf8mkptbmbscajemoc0rf4ixdo3rjq37pqb8etfickcdn33kclmidzrrzqm18r8zsqksf4pgdr2o8e7opiyk5jpvypcvytpqjbwzlocpxu61rg1gvge7tg\", \n\t\t\t\"accountHolderName\": \"a81vi3pu3l4dhxkmyxq5uiakb7uqrupe5hbxhi83gkhx5wz2j30s2lok4crbj6he1rgkqyb6aabpwzp2kp8zdr1xjqkhpgypdejqfon6pjatqaxriskcoujak970cxx\", \n\t\t\t\"bankName\": \"nu6jddxp8zpj4h3peddp62ll2b5yagg2egsiyfdxjjkyfmz4owh3eb7ju39aslcgfqadmln8uy1jb0iiycd8gvm7xrcpzva8j1w4301xldaeksz2xtykajfqjur2v1b\", \n\t\t\t\"routingNumber\": \"qj6vbngvctf6bghoxyeyz85o0maep20f3kqilwdneeodgh7hd7aaktgoqmsp5s6\", \n\t\t\t\"iban\": \"3oij86p9rui0kfdcwvm7uy0uamtgz922m\", \n\t\t\t\"swiftCode\": \"gejaejgcqz\", \n\t\t\t\"currencyCode\": \"w4f\", \n\t\t\t\"expirationDate\": \"2026-01-25\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Dolorum omnis dolores totam veniam possimus magni corrupti. Architecto dolore quis consequuntur. Qui aperiam sed sapiente et. Enim maxime est necessitatibus. Eveniet qui quae eum nam.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 20:07:08\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"a27e4f9f-d0f4-444e-8a97-793e36533f69\", \n\t\t\t\"rowId\": 28566641962379960000, \n\t\t\t\"businessPartnerId\": \"4c70aba6-6cd1-4757-82f2-320a866f4741\", \n\t\t\t\"paymentModeId\": \"2fcee36a-3029-4fb0-a82c-faa4ab55c2d3\", \n\t\t\t\"label\": \"dn7yxoklwxzq8u7o6i3om69s015p3a2nwgzctdkteqqox3c33nwhz6l9mtjsovq72sok57lfx4phummjjlfoleikb2gq00awvt57ta7llg3jbbrram2y8igjfcyk16s\", \n\t\t\t\"accountNumber\": \"1rrboyolpnpzi1yajj0t7ssd2v4omdez3fisy88mcnvucxvgszajd24zzwgzgunfb4k1ymg3gmff1wlird7npu06tnq3znufwljewe7b8qnrqm09w05v487wlo2haw3\", \n\t\t\t\"accountHolderName\": \"v0i7z52ifkyc83hvkxlbzicddk1y3xcidyrj4gnnvpd7e49ufmkp5auvgo9q72gj5ope6kxande4ksturtihehhh0wxjg5c1d793e1op8l1gmmljdesz3yr6l1vrqsv\", \n\t\t\t\"bankName\": \"5hb69qqin4c8hoaybzfeonrdf34q7v6oe0vljzci2dcemel2zj2nodj250v0pzthxzn1brbkluprmfrkn80fv4odjaag40ynjjgiuwewtceqth9jnctetjjw76f3ne3\", \n\t\t\t\"routingNumber\": \"pwjm2n550imnn3o424l7g6hwt0vet879yz3i3mv5s4tgvrd1ql5m7021z5sxbvt\", \n\t\t\t\"iban\": \"wru3j5xl8u8yqmfusn03xvdqaprjoiozg\", \n\t\t\t\"swiftCode\": \"jprhx470eu\", \n\t\t\t\"currencyCode\": \"zyy\", \n\t\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\t\"isPrimary\": true, \n\t\t\t\"isActive\": false, \n\t\t\t\"notes\": \"Dolore nesciunt culpa blanditiis repudiandae harum. Voluptates deleniti earum et deleniti. Libero enim qui doloribus numquam.\", \n\t\t\t\"lastUsedAt\": \"2026-01-26 00:19:32\"\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginatePaymentCollectionModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginatePaymentCollectionModes (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetPaymentCollectionModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetPaymentCollectionModes (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPaymentCollectionMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindPaymentCollectionMode (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPaymentCollectionModeById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindPaymentCollectionModeById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdatePaymentCollectionMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdatePaymentCollectionModeInput!)\n{\n\tbusinessPartnerPortalUpdatePaymentCollectionMode (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 32839114746161836000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"paymentModeId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"label\": \"nw6thbxrgiscvwmyip94v4jphcuxb7su012yr3ci72g0homlqn0mzyv5s9qhhr4ltwg2k97ejx85eui2jb0ue5o1iocd04k2yrec42qz9g57zhg2j0kw5z0qs35lebm\", \n\t\t\"accountNumber\": \"zpi3vf4myr7emptuablur35s4ka2oynntkaest85s17874tos3r0o1qnm8a0w8v594yjvn77uqz1ifm9abm5taf8gf0psqi6rb7tlbv8a4ebnwheiu12ijcxift9shv\", \n\t\t\"accountHolderName\": \"r13x7y53l9u3cfjrzi6w55xtkpu24eyutrbrq5c0tsvktxsfwbgx4uqqrvq7wgjuhsv7fqcm96d5kzix99iqqqfxd81jk9cfotw1d0m38k0v8177nhk6076farx3fi9\", \n\t\t\"bankName\": \"gqt3xmewgf0emc0wafruz4mmqxcmlfa09amw3wio39x5kt34m55xio02sl9nk4f25reb87oy68k2n6m2zyu58dn3gvaf1754y07viqozcbm01e8vscaf6trh9spp7j4\", \n\t\t\"routingNumber\": \"jh2kb94wj2x14hlh4rf8ykqrt7gxe2whyqdjo79yj1f9au8n5w9tg9wytbsdwcw\", \n\t\t\"iban\": \"rp36gp0yaub6cw60wq5mjyv34ebmfxj86\", \n\t\t\"swiftCode\": \"m1n29e82pf\", \n\t\t\"currencyCode\": \"kll\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Voluptas fugiat consectetur culpa natus. Velit modi exercitationem optio illum autem. Velit eum occaecati reprehenderit repudiandae quo. Aut eum ab voluptas quaerat consequatur fugiat qui ratione. Quis molestiae consequatur. Quis tempora facere ut.\", \n\t\t\"lastUsedAt\": \"2026-01-26 18:01:43\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePaymentCollectionModeById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeletePaymentCollectionModeById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePaymentCollectionModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeletePaymentCollectionModes (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tlabel\n\t\taccountNumber\n\t\taccountHolderName\n\t\tbankName\n\t\troutingNumber\n\t\tiban\n\t\tswiftCode\n\t\tcurrencyCode\n\t\texpirationDate\n\t\tisPrimary\n\t\tisActive\n\t\tnotes\n\t\tlastUsedAt\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-mode/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 74832905749063630000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"paymentModeId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"label\": \"6atux5kcurkp2tcexi64j2lc9nn1zv8a6t4wwjes2nhs129onud2eywglbaosoixymzg3suosvz8ux31kkkymiljttany5wurtfawcjgdzrukzlcb2dl718eku4a01g\", \n\t\"accountNumber\": \"8hkqmr6l09odfwump6hjkhlej9sjtc9j7kyz7zhz4uyyhvsmjeusd1o76v50jajlpqq0hy8a2a2zpgag37onszky7vclffqb7joc2kgz2606xmr7i217rdbqhx95lkh\", \n\t\"accountHolderName\": \"3hc9xg5qnxmtqou0ijaa6q82wuml9a8cryhe4bd43v7mvsqdtgir8kqg04hh393z0iyi6ed7ln7n2xbo9ud6fdy6e52x9hc7gqdo5pqt0arlxmvddoxrycqvgrh722i\", \n\t\"bankName\": \"331obj5m5xbvfvxgp19znx8gkdvypr2e1nw7l22337zmwel6tdsbh14ezhjgjfyh30lrjaugropsstdh154hx4qz3nt8kb6nd1xt341jkrtb2i3wey3h7f9hg04uwf7\", \n\t\"routingNumber\": \"oh97qlzzmns97gysnk1ga3xp23j7f8wnjgf455qn4kaflbqm37qw3fpikcbcodp\", \n\t\"iban\": \"eqc14mqm7jejstgryd464clspxigd2ul1\", \n\t\"swiftCode\": \"m7ca41s1yr\", \n\t\"currencyCode\": \"jql\", \n\t\"expirationDate\": \"2026-01-26\", \n\t\"isPrimary\": true, \n\t\"isActive\": false, \n\t\"notes\": \"Perspiciatis dolore beatae sed voluptatem eaque distinctio omnis. Sunt occaecati amet optio. Tenetur autem numquam inventore dolor assumenda dolor asperiores sint veniam. Ab voluptatem odio ipsum sunt praesentium non aut. Et facilis ipsum aliquid quisquam numquam. Sed nesciunt est cum esse culpa ut expedita et assumenda.\", \n\t\"lastUsedAt\": \"2026-01-26 04:15:51\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-mode/create",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-mode",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-modes/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"639d3db9-6449-413d-8059-f23731a4f054\", \n\t\t\"rowId\": 84483884001864600000, \n\t\t\"businessPartnerId\": \"7a1b357a-6697-411f-9fd9-a2d0801d73ef\", \n\t\t\"paymentModeId\": \"c689dadc-cd6b-4752-a5f4-8c0cb2e4d3c5\", \n\t\t\"label\": \"pfq4waay5ak81q3hfhvotoadyik3es2xw1ao4h6klksrqo3aq3y16awqorh6nhhqd4upo6n8nitc8hdfq9no4ri5f13n7gnw090idzlnny4duhzs7dajostsvzm870l\", \n\t\t\"accountNumber\": \"vkry50yxw8csnxmv0ki3ceotvkfbywplg9eauhx3ji11a889r8lh3k807pko3kcpx9cfzd7j0udtatii1bg9jxyump5zewkvph5ctto1lo3yrkleb2nt5m6jnu2jl2p\", \n\t\t\"accountHolderName\": \"mjawoaluykjq7n0w39jql7ybp6frxs2jddifeshijzucjweeibb6iidyly3h4o52a57d7ctsmp0dv0wvkqettx7m3eyhqido5k9u2cojlwxgohtnlvpknwr0ndebja0\", \n\t\t\"bankName\": \"feqzuyyyupc4jzx7jzx3jvqr3va880qf7z1jvim0uyth16ynlqwh8a2mozuh0rh7xa00vl2f25hhxo2ngfqru53dxe4kpcbjmvt86rp8bv5bw1q0x7dwwik4ib3n6nh\", \n\t\t\"routingNumber\": \"q50ly6bqfrsbeqj2chavscnzivgjqkvdc0rohdrltitn3vzd6ns4i23i5bnf9yr\", \n\t\t\"iban\": \"2k9c15llf9wn6k22tckhqinug73t1gyek\", \n\t\t\"swiftCode\": \"0s2gweeblp\", \n\t\t\"currencyCode\": \"sm1\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Eligendi dolorem numquam molestias dignissimos et omnis. Est quaerat magnam qui autem sit voluptatem at. Quod eaque nesciunt accusantium.\", \n\t\t\"lastUsedAt\": \"2026-01-26 09:21:13\"\n\t}, \n\t{\n\t\t\"id\": \"4fa83fed-30fe-40dc-a1d8-7b2ea5cac2d7\", \n\t\t\"rowId\": 24456948451821863000, \n\t\t\"businessPartnerId\": \"b51689a2-11b0-4ac1-a321-fbfdc227c1d7\", \n\t\t\"paymentModeId\": \"ec1f8714-389b-4b87-9d9a-c0df58687c15\", \n\t\t\"label\": \"2w3h88h9xpdro1418rtyhvkq2bt9xevynmf2gfi2sjgi23xw5pgnmnhool7z7qlhofvwwz2so03tyo4a0mecsr2qkimb0p2t29zyesqmqr8b8frvnx1py7ltxt9pkpo\", \n\t\t\"accountNumber\": \"48emdny8sbeed7ooc5n1nraslg184x76jlgb9zdimwo0usoe5io9wr20sn0nz18uadtur9dkr5nevfoitr72e4jperyaxpp05d5hb067v37mpkotyp2hi8g1argnot2\", \n\t\t\"accountHolderName\": \"mbn29gdsy1jy026mxz99m0dsaput1pc2awc49sdac2urj3ej46fqnshwv83fu4sdbyajcpmrsftuqf9a8njawccfzfhqzp4mg6mj4nbg7r9z9zr9vf02z099nomfj08\", \n\t\t\"bankName\": \"b40umt0lnl2zjh3mw94452j4f86tlklax9beelt95o4ribicp44pqywct5nd2xvo6lhil65qp7f2b6inx1c5sdbbq02lhe28h4s3gaue4g51u3vmiofrg8ubxckgszl\", \n\t\t\"routingNumber\": \"r259bvbrfi5g8yqnz59yoeiuflsbi53j7ofu3okmj2mgdbf90g5i51w8ve4bl9g\", \n\t\t\"iban\": \"d1vtev66u556tu2mc8l6tuopczjn9efof\", \n\t\t\"swiftCode\": \"bz58tuzscl\", \n\t\t\"currencyCode\": \"0a1\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Nisi in dolorum molestiae et. Perspiciatis doloribus iste aut dicta omnis eligendi eos asperiores. Et id perferendis omnis. Provident quia ea nulla eos fugiat voluptate earum ratione nesciunt. Dolores sunt quidem magni consequatur est vel cupiditate et. Fugiat quae dolores.\", \n\t\t\"lastUsedAt\": \"2026-01-26 05:57:41\"\n\t}, \n\t{\n\t\t\"id\": \"e3cdb3c1-864b-41b4-ad89-2433f8789e19\", \n\t\t\"rowId\": 87424861634072310000, \n\t\t\"businessPartnerId\": \"13488d7b-7e81-47f7-b262-e0b5ca0d6474\", \n\t\t\"paymentModeId\": \"7ea0808c-487e-4803-9298-364d27723e61\", \n\t\t\"label\": \"n2gyavsa6c7wbi0u686yrg5vg5fxsearbqgpxoemi3f0u9o7eqv4w3fog0qcnror47etv0mdaybju2fy72sgipfzmdepqoksl8x3idw6sjx72j9i4cpg7akz7m1lou4\", \n\t\t\"accountNumber\": \"y3mycn13ha7ha30qv226y5c2lg49eulpgfwxut2qc3orbhcpse5kkldcm1oczen2ft6h8vix2d70f4s86w9o4l9m067acqhikgzgdso7px4jh0yvlln8o53r9psz42j\", \n\t\t\"accountHolderName\": \"v49xsbkvmeyily1c4p949aod4hv57zfkw7djt3unej9thm5e7iewod38u6sd5nda6ul2yvxwo01eh3vbnrb5qxn0n4dn8mkxd50wj6o7m9lmr6oloa2fzo59s6uhj9q\", \n\t\t\"bankName\": \"fszy8iszpc05j8h4pxc1dxayh9rwixtb22d4olxvx72sy5scxzecfml3v5eat9ec0arz0ndlar2ctu1ubvvcoh0fwcqz11si19ltf3l5fiqbcnva3yxf18z1uchczm7\", \n\t\t\"routingNumber\": \"noyq87jw8eed3f3f997fnjjg8wccb3weui2mfdmkhmvhxtfm6azfrxwr36ypqq2\", \n\t\t\"iban\": \"es29rwj5b41s6scaz73j6amth3m3ov8jo\", \n\t\t\"swiftCode\": \"twtzohf0st\", \n\t\t\"currencyCode\": \"0wk\", \n\t\t\"expirationDate\": \"2026-01-25\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Nobis et laborum occaecati dolorem odit omnis porro qui. Architecto tempore blanditiis ullam voluptatem quo eos iusto. Quos sequi et quia debitis. Cum ipsa quos repudiandae sed perspiciatis molestiae porro harum ducimus. Hic recusandae vel ex dolore asperiores. Ipsa laboriosam tempora qui nostrum omnis dolores aperiam et voluptas.\", \n\t\t\"lastUsedAt\": \"2026-01-25 23:58:13\"\n\t}, \n\t{\n\t\t\"id\": \"b7634fe5-c673-44d3-a8b8-587c450a6b73\", \n\t\t\"rowId\": 88441097122072410000, \n\t\t\"businessPartnerId\": \"1d35ac30-2e9c-45f7-80b3-3f0044dc55c7\", \n\t\t\"paymentModeId\": \"5dd29103-0a4d-4c06-b731-b40850dead9b\", \n\t\t\"label\": \"8v5o6ab8m6w40wcjwd5ox0ryjrs0yiuohj7mimiectkbv0wfvlx66nubq0uuarq9jnpwca8baqb7hagkshi2x4869ihs5tvoocht7gafvgx5po9pzs6pm39jxej2nqc\", \n\t\t\"accountNumber\": \"b5c64unyyqs0udmqzd3t9g4hs19tj1cfy2wm68u1iay5qxtgcxj6coenvdagf23gdaximuoi31ubd21rp736xqnehlo8xy2ih97pk3baz4lhh6o64nvnlf046slaqn5\", \n\t\t\"accountHolderName\": \"jd2tg7yv982ogchd5j56jed7ysqle4481nhe0tzxcw1jdxqesvuw03fwp3gmlwrttzau5wlt4rkfla14ee01y2mus1bhv05wzox2x9yn1cx1pm6x337c2wl3mcgiwos\", \n\t\t\"bankName\": \"hht3vi9yexpakje0bd71u7bksdgenh1s1y3y75wkqfhj81fytrvu8dljl2bwum8ah7tvdr667pb3akjbpi731eog6un2mftn43oaasjyzre5j3sphmyndhoav380vo2\", \n\t\t\"routingNumber\": \"rju89oxkz8knbkfaes86k8stxx3plshx6ad41wotweuo5q5lij8vqe1mabhyrt8\", \n\t\t\"iban\": \"23akwfzeiwnumdr7go8vvfst0dmomnebb\", \n\t\t\"swiftCode\": \"42ic07jpfq\", \n\t\t\"currencyCode\": \"ckw\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Laborum consequatur reprehenderit consequatur facilis nam et ut praesentium placeat. Doloribus et illo modi sequi deleniti odio sequi et. Fugit labore mollitia molestiae libero. Perspiciatis sequi velit perferendis eveniet odit doloremque qui dolor. Reprehenderit et dolores vero et consequatur id veritatis. Qui porro dolorum dolor rerum odit error dicta.\", \n\t\t\"lastUsedAt\": \"2026-01-26 02:18:50\"\n\t}, \n\t{\n\t\t\"id\": \"6effc512-477f-4f20-bcb7-1723beb21a19\", \n\t\t\"rowId\": 74154799432014860000, \n\t\t\"businessPartnerId\": \"32e2d853-7924-456c-b944-e6b97db7117b\", \n\t\t\"paymentModeId\": \"5152c1ce-0859-4b78-bfeb-03e28ca8fa6a\", \n\t\t\"label\": \"iym0umyj9rjid7vurptobwz0qh1h1eiaw78upik4yphp5yjfly2s5o4fm1j0nt29w02p5trgbeaenxev8xntuh6hsu0usmsywhuxyy97lxxpre6ezxq0civjmtlsy35\", \n\t\t\"accountNumber\": \"6ysne5xspiq277lqzr01aulldwcgu8mx2sp4u6sb4w8dmncfbwakan3xp4el6drqqwfe5jntbjifrn5aiabp5vipqgawmvuz3vqc4kvzvi9zvyk5max3uoivwfunn5z\", \n\t\t\"accountHolderName\": \"1p25mkf2pkpic1zxpos21cmtlfb8qns7hvdhlijaom1wnjbp17ckfgrp1lt53p0wbfk8qkzrvmhaq5bwu2ktdzhnndxaki1u2llk1u8kff9cjvakobzys0jikhk59ot\", \n\t\t\"bankName\": \"46856tvs5toh9nbsgrcg7b7vterhiil9xlp98ue06xlipnjqess3r1gbfbwa84v658tva6ct94o0kns6603ykvtspj37455a81wqa31h5g13e95f8kyjni3h37jv2os\", \n\t\t\"routingNumber\": \"oqoxnknm9vy2zzw56h1durvc585yc65w41931cpkv5zxwrbw8v1ebnf2udhlix2\", \n\t\t\"iban\": \"ej0fmh3ys7flbo87yytv6k6evdbr8zbfs\", \n\t\t\"swiftCode\": \"jamnwu5vdx\", \n\t\t\"currencyCode\": \"7h1\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Omnis unde cumque autem nobis aut ipsum nemo perspiciatis sunt. Animi sed dignissimos tempore vero quam hic dolores aliquid iusto. Dolor soluta sed cum vel. Illo magnam modi sequi porro qui sed.\", \n\t\t\"lastUsedAt\": \"2026-01-25 20:50:18\"\n\t}, \n\t{\n\t\t\"id\": \"1e41cdb8-b556-4a40-bf3b-f0ce6917c845\", \n\t\t\"rowId\": 10621836995261370000, \n\t\t\"businessPartnerId\": \"2f60dec8-57aa-4ed8-ae04-11c3897149ba\", \n\t\t\"paymentModeId\": \"4ed33004-f1f2-44d6-abfe-617811857306\", \n\t\t\"label\": \"vp8x2zvti4e4xjnx4x6217smg2gr6tc72br46hxxssivzp7qphlt2wkipavti7v852hefy77cvktc73zg1f6in6gk7mv48pqy40um5d6acxdsnzwh71z1kuxs7rxk2t\", \n\t\t\"accountNumber\": \"h8yseqf00c9c8qn2pb43zltkzr3t4su5dy17dk0ycok2ngdvj77fdowm6rgtyincawyzoobbvyeanpexefk14aw12stdmx86rn49q170e31gv357hn1455aoqs77juh\", \n\t\t\"accountHolderName\": \"wzrh3spy8t50qhr6ep20a23rtx5zugoetjsfpec5fz06gq37kyeq993zvhzvbk6wwnpa6oz8hn6l3455lxwjeh6ufn7p0p6316odosmyzuosj9cor8zx0dpxnpkuh8l\", \n\t\t\"bankName\": \"lmqmj7wiymn2645xsy45p5r7ecjddih4z3kvqusvyzjx5i06mjg1ohc4ox81pm3nx7eb6qi9hb8cjaf4j5xffvgy76bveevwcz7iby7re9up6s76xxwr0ygrrclavik\", \n\t\t\"routingNumber\": \"h2199aufr04998xaz2lwrbrsmeaxnj6asib8aqtnengps00rh9u460bvj7dgfn9\", \n\t\t\"iban\": \"mdy772abtnekhu0i7vt8iayuocw2z6egi\", \n\t\t\"swiftCode\": \"0qmbt4rfb7\", \n\t\t\"currencyCode\": \"4gx\", \n\t\t\"expirationDate\": \"2026-01-25\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Quia mollitia vel maxime qui perferendis illo. Harum dolor eum sed sint tenetur recusandae eaque ut. Sed rerum placeat qui cumque. Quia veniam non inventore possimus id velit.\", \n\t\t\"lastUsedAt\": \"2026-01-26 14:51:07\"\n\t}, \n\t{\n\t\t\"id\": \"8665c05f-6086-473a-9821-1db1bbc4ccca\", \n\t\t\"rowId\": 33532242328229230000, \n\t\t\"businessPartnerId\": \"e0c37dd3-a80f-4e68-a28c-25cbdc4b026b\", \n\t\t\"paymentModeId\": \"dcd025dd-ae7b-4e09-9a1f-063fa2fe10b6\", \n\t\t\"label\": \"lwpp4tay0eeu6vs7w2jovcjpamueuvrixnrde0j21muyeh9nwmrbams7ywwcokkxo5adbiy9d91ilogqhsvk9xociwgpny05ykst2vztngce6jmyorfgy4idv7hhd4d\", \n\t\t\"accountNumber\": \"1xtyl6w7g42skh2m8vgznvkvds8x8jxbk7lk6k8ndttlcrv1yaq3e9x0vyfx8u5tm9rjs579mtqikyl2g2bbrh71mjmcjso8qabp0go0oyu3j7skhvxdkuyltahulo8\", \n\t\t\"accountHolderName\": \"hwgzbplpctttci2zfmyxo8pluab5skeqbum1zmcyhpjta25xwcm7tlclwi8jnzmylnns9gfe2rg5m3oytbbagwdvmla8l4regow4rzkej5zmtn24bmz8de9v7iecd1i\", \n\t\t\"bankName\": \"16gpzl3ygyc93inaiz4fosjeedpn16rbyc0611bccjkh3jsa0qq2ov1tks3tp7b820tcwieu6f13zxmiof64j1i9d771da0oe21chu02dcmhpelalukkzwftf0r9ir8\", \n\t\t\"routingNumber\": \"dz9dqu512w39aywbch4ms40ddwy3wkq7kj2gtryxtrps2giogmv8hcob23k8k3y\", \n\t\t\"iban\": \"71042hsk4uu1tjvsbtwufpfz6a8fftbk0\", \n\t\t\"swiftCode\": \"b40t8ceu2y\", \n\t\t\"currencyCode\": \"ty2\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Quibusdam quam natus sed qui accusamus libero magni rem perferendis. Nulla autem saepe iste magnam aliquid neque nihil. Eum aspernatur et a perferendis aut vel recusandae. Et eos minus id est soluta repudiandae similique.\", \n\t\t\"lastUsedAt\": \"2026-01-26 09:51:46\"\n\t}, \n\t{\n\t\t\"id\": \"2ea4e465-0bf8-4d36-8e02-ea8257bb9037\", \n\t\t\"rowId\": 78303777633448230000, \n\t\t\"businessPartnerId\": \"91a3d9bf-1d13-4ff9-8b67-f49e985b7c90\", \n\t\t\"paymentModeId\": \"6187f319-dab9-40bf-8dcd-9579e1a6dca0\", \n\t\t\"label\": \"5wew6a5504mh871vaemnmihpgtddfkp6zgoz5kbtv07ud0031uznxicf7xla3ujct5r25jww83zcfa2uf685rmba7ixzmwgy0hz8qcnkgfgo7jeln2l9c7oavt5h6yp\", \n\t\t\"accountNumber\": \"tib1hbrhc9f02tet68390fvzxjql6p2tl0amg1a99btn1fb5s7rsug26lso7d9g6nldlg44ubym2ferhtk1tl1o3r0tlwrgd6kuenytb8kl6ay5zbjlvk742i29zb0z\", \n\t\t\"accountHolderName\": \"ztwqpd4wq0xbapgyz30uwum65uai65rrsio69k2ain76blyvnrm6vhyinhwxmlih9l86g91o12fudnjl9mxuganfww4jjprc2b24pc8aakmgbfmgampfkzns705yeah\", \n\t\t\"bankName\": \"rcqdu624f588i95846aqo84hkb2qaiwkgox0fys2bfopmmkxr5lxsjtzkuescbu6gzkaoc5u4z2zb6b3c7cyqm4762dqgeshrcejmxe2msu55rgx5av0tzasvkz9358\", \n\t\t\"routingNumber\": \"gp8o635nw0zkunudb79pjm56zbpol3cg6vsa30rh8jslupzvjtq9k05inygkjdj\", \n\t\t\"iban\": \"8nnk4rg2fyv97lyt8z0lb94oe49e2bxfz\", \n\t\t\"swiftCode\": \"vsuzdl03w0\", \n\t\t\"currencyCode\": \"u6a\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": true, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Eos quam et natus aut voluptate sunt et delectus unde. Dolor aut et. Consequuntur sed aliquam possimus odit optio vel temporibus neque saepe. Ratione aut ea. Aut assumenda velit eos non nihil dicta repellendus ut. Autem asperiores error enim rem.\", \n\t\t\"lastUsedAt\": \"2026-01-25 22:57:26\"\n\t}, \n\t{\n\t\t\"id\": \"4dfd5379-b70c-4d4b-8ff3-1ffee2a14f81\", \n\t\t\"rowId\": 18518948990622552000, \n\t\t\"businessPartnerId\": \"da6841cc-8c3a-4ab6-b3dd-24c58fa22fd6\", \n\t\t\"paymentModeId\": \"547cf1b8-d325-4f58-a409-13746ef30046\", \n\t\t\"label\": \"px1xuy0tmyt3r2opbiqed001hvs1895zftfm66gr1nyqmn1v6ailw0njttmrfamod8s5r9m8cwd1phxikqskfhdmd83otsk4seq7nijpeqhmzriaeonmpf18x0zq0m9\", \n\t\t\"accountNumber\": \"ctty089xvio27nrj2on1tcpfcj2503zxrprz4gsb7x61j7msqqpesophgl2177liox2vns0apc17og6pbcl3tllt9wl5qs2ri5dj7lkedqeuaok07h4tx335jo07h5c\", \n\t\t\"accountHolderName\": \"a750457ljj6zsr77zaxaj4k90nfz8zym14fckv3jokq4e6dwma19fp7gxiw3dqo1dbisp0ezn92fsb9rnymos6bshb52cfqm8gepwmnrj0k2noojn0jfoe4ntw5ie52\", \n\t\t\"bankName\": \"iitzk1essdq63krraskmurqebwg82arm8quxpjf21am40y3lnpc3i3pupq8xerbssskfi3nzvzcymo76vtn8xylntipcmqeyfsitdrjik8mo5f5ybc3qtnsgkt09q8l\", \n\t\t\"routingNumber\": \"r62gdmjjqmg3u20ebdd9m7gk36ovwwhz50pwehhvi45ycdwifpxljdqho1nz5f5\", \n\t\t\"iban\": \"vui3lkpipcmt8cjs2jozfawkicejam5fm\", \n\t\t\"swiftCode\": \"mihoee7x6t\", \n\t\t\"currencyCode\": \"goa\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": true, \n\t\t\"notes\": \"Qui incidunt cumque asperiores quae in iure sunt odio hic. Facere tenetur rerum. Deserunt corrupti voluptatibus. Saepe aliquam inventore iste et ullam odit id in reprehenderit.\", \n\t\t\"lastUsedAt\": \"2026-01-26 11:26:05\"\n\t}, \n\t{\n\t\t\"id\": \"2abb8a28-7e97-421a-8718-ebca4424c5dc\", \n\t\t\"rowId\": 28597642645261296000, \n\t\t\"businessPartnerId\": \"9627f984-6efe-4962-a0c4-e0507e7a07a1\", \n\t\t\"paymentModeId\": \"91a5751a-a547-4d2b-b17a-89db7dcade4a\", \n\t\t\"label\": \"r3hgsdmq2ay4j36hte9ei1q09dwk5nm6l8yde18atgdk235pn220sv9xiniu3mb5ik9gab2s5nskoijjhxdjwj8m2b8j8ohslwu7oill19fkbwkddccnuor8cogyyy1\", \n\t\t\"accountNumber\": \"0cx4t2ahk17i5zf1g4hamv19yrnqr6i2bdj34doqmnamro85npnxug4a5p4jyy2okgpl4hcoabzdc1sm77a0fpqm0wn5wf3cgkt8nmf82wwj91wj6ovvun88u004gkd\", \n\t\t\"accountHolderName\": \"of0cfv56iv39yf3fmlbmv9yi4rgjfdm5wsmhojy0h648cgyy9damkczl3fm0enl7te1ljoug29byadekoo742jibimrw4lax6lx4iojq2upnpicg1u9y1qk9kt8w9lq\", \n\t\t\"bankName\": \"0ugxwf0x3we9naesxkpzt3rj0gv9gjps4i00pkcln6l9va59jjcdp95p4xuf7jygatyxwc7enpynus2rvzedlu7idqn01aderxxwtordd59f5h0mycdd3gp0tikfw4j\", \n\t\t\"routingNumber\": \"du27d7kicezbn11d1ca2clypwcsbjpdy80t031kniixsnbol3nmu66cpwko24v3\", \n\t\t\"iban\": \"u9wxlz0v2vchxberba6d1hy65b0t4vl6i\", \n\t\t\"swiftCode\": \"1mqqz7rq8v\", \n\t\t\"currencyCode\": \"uju\", \n\t\t\"expirationDate\": \"2026-01-26\", \n\t\t\"isPrimary\": false, \n\t\t\"isActive\": false, \n\t\t\"notes\": \"Alias voluptatum tenetur ex esse aspernatur ut nobis a. Rem ea incidunt ut omnis voluptatem dolores. Atque voluptate omnis molestiae. Et quisquam facere beatae qui libero dolores occaecati quis nam. Magnam explicabo fuga consequatur tempora.\", \n\t\t\"lastUsedAt\": \"2026-01-26 07:50:54\"\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-modes/create",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-modes",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-modes/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-modes/paginate",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-modes",
+            "paginate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-modes/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-modes/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-collection-modes", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-mode/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-mode/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-collection-mode", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-mode/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-mode/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-mode",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-mode/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 17571964282410500000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"paymentModeId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"label\": \"bssykcb77zj7n5p6yvjqd1c13ibeagukx4mha2khjqqc2merf60wz6v9owsytxjal1fsg58ra4h7jc5cl05pwmshhi12xssajnxbu0qvlz23s8p6f4chermi5xu36d2\", \n\t\"accountNumber\": \"26bnnv57km71lv4ywhkjkqguxqrwqjzc64i0rq0oc9sqcagumrf68sjwiu5xhzmo52gh6tno5v0o8rzt78bx1xt8ryzowvoo9sc2sacvr8v5v91nu0uuvcx0jx4xfb3\", \n\t\"accountHolderName\": \"1vc2eekjaqhe2mklegomc8qo40u9pkgbhqojmgp0maeurm2kurqq0mglliebw8smvrwwvzodurla9xpnalc369eb98ikb15ycaycc2xyvdycal4mvsp7yr96n5s18bm\", \n\t\"bankName\": \"sjkhcn41lmsu8vlsigtecdugso0owgbhhvv0rhgy1etlubb06l1h0idvnaw07cmlts6hrtdi0adro3sdchm0asw9u6nffn7vp2d5st9kqkdjh24lrka14jwzap8ptr9\", \n\t\"routingNumber\": \"zhg0f3na4908ki1a3cgqw8d8fm0iuwonnv19p3ow0nmngpb36206guw8svy8z4s\", \n\t\"iban\": \"0nsa9dcw9rs958qcapbxsqlcvsuicodlq\", \n\t\"swiftCode\": \"3lbegpllpp\", \n\t\"currencyCode\": \"4vf\", \n\t\"expirationDate\": \"2026-01-25\", \n\t\"isPrimary\": true, \n\t\"isActive\": false, \n\t\"notes\": \"Ea excepturi autem. Asperiores optio dolorem odio accusamus repellat harum maxime. Atque quaerat architecto enim quasi autem minus. Fugiat aspernatur perferendis minima assumenda voluptatem placeat.\", \n\t\"lastUsedAt\": \"2026-01-25 23:59:59\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-mode/update",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-mode",
+            "update"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-mode/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-mode/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-mode",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-collection-modes/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-collection-modes/delete",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-collection-modes",
+            "delete"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/purchase-invoice-position",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePurchaseInvoicePosition",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreatePurchaseInvoicePositionInput!)\n{\n\tbusinessPartnerPortalCreatePurchaseInvoicePosition (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tpurchaseInvoiceHeaderId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 28437549386091720000, \n\t\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"positionNumber\": 6965, \n\t\t\"description\": \"nt5cmwfla2fv73pnam76cv23a5n2kmnhsyofdr4cxx93pbr9v28uvbfxqislnnwjr5pvmjybayc2amq5hdzu0ixwsq1uzf1qxadrww0n2i35aehau7rddbuodn15mqbst6otna690puwmn1swjf5pppv20jpx7lifik119g7ydjlv6fu5xe7ok2hp81otoxr0f7xi567elcjlwqb0u30fgsrj5tzkdul6xaxhpzrgcw77i13tnhbb1pxgmtave5n1laea6grevdatc1y3yalr8owpcxokdhbe7ut6w83yipxyynnhryi9rofaq8uoa0tjc7rufk2n671u0wsus2limt0h4w2egs50qymi5n164wssjaodtf6ovr7swfg0r5chsta83bjypzp8a308bk9h61ycdd4qx5jif77xfufyl0e97yys8kkxd02uc72tk7oaycr6wgyqngkazxaswoz4yewyy8njsalo6wgjchuitwxkon9l197ly7hotq6c\", \n\t\t\"productCode\": \"dalj2kbt3gnzxmcuhguhnv779l5hx3abfd69gk09invch3t3e71qhl0o1x3cxqw\", \n\t\t\"quantity\": 554832.3677, \n\t\t\"unitPrice\": 7449176822.35, \n\t\t\"discountPercent\": 562.14, \n\t\t\"discountAmount\": 4346383855.73, \n\t\t\"taxPercent\": 380.14, \n\t\t\"taxAmount\": 7233792737.84, \n\t\t\"subtotal\": 9749248438.29, \n\t\t\"positionTotal\": 6374002460.61, \n\t\t\"expenseCategory\": \"6hvl9eazwygr5o3alx39zhtnq1spfbkipxxsylc7m32izju9v75xo4oo59ostiwvhgkxd9g38iorqv39wn5mxpjcnybhbda8fjsjxcins6lub0yljxgs6sszivubfwk\", \n\t\t\"notes\": \"Ab enim et molestias nesciunt totam et quia. Consequatur reiciendis eum vel rerum placeat velit ut consequatur. Rem asperiores recusandae.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePurchaseInvoicePositions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreatePurchaseInvoicePositionInput]!)\n{\n\tbusinessPartnerPortalCreatePurchaseInvoicePositions (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"41b62eb6-a272-477b-89ee-ec4365d236e8\", \n\t\t\t\"rowId\": 76809585643831840000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"3f570bd3-ed9c-4f4d-b1e8-3898608d81f0\", \n\t\t\t\"positionNumber\": 4351, \n\t\t\t\"description\": \"1rlwjcjaiki859rrbslap7ss4bm4dbpv4w95o5gxd89p23z00vroyf6v01eob9dx32c9nkdbhjad05x37l22k4yo0j58z6wkvy7cdas2qndami0v4ohocnf09ncv8cl0hdc5tw6iblw9l2lb71aovmgjiyh7y2yedqfnnghf2fg4bd4itqpnx2puar478et7izh2nyg3u96dzbmeu71crpnse594ilefxpym0wjsozrehnylatatg03b9zfqdeb7lcdjnzeivfpx4aqar3puhd5k6gmyaqsf5r99uyum1e0tc4j1ikla2umbys5unkvv8h64aiujwr8m3huj30jmq3w16ygd2mj43moa02a2opzi1feygsu9xfgymt3z2ai4maaqedvnk7y7s6fmqk8hwh1gnjmyt4spg20gx7f2z6ntjf18pd2b4css6xgu9q98dx2u7wg4lkev05vxikfpyeusbbrwezb62vd7aotjslsoh2noytsxjsktsfh6p\", \n\t\t\t\"productCode\": \"q1e4z6r6jj4hxwp2hcigskw4ee9xaum5j6xconzxrd0lx6988iypfjv58m286r6\", \n\t\t\t\"quantity\": 953645.3359, \n\t\t\t\"unitPrice\": 8863817796.65, \n\t\t\t\"discountPercent\": 515.64, \n\t\t\t\"discountAmount\": 9439502110.65, \n\t\t\t\"taxPercent\": 410.92, \n\t\t\t\"taxAmount\": 1966421305.53, \n\t\t\t\"subtotal\": 1993486454.27, \n\t\t\t\"positionTotal\": 3325280418.49, \n\t\t\t\"expenseCategory\": \"rnxyg344zjtpxgswho7mwz270cto2lisyirabamwg8ing4k4aykdmaa8h7f2b81etshhfhbk0071nf3a9q569ayfszbp41w47ltv8x5wclxl8a8rmphics431zu49eu\", \n\t\t\t\"notes\": \"Aliquid magni voluptas sit odio veniam dolor ipsa eum accusantium. Ratione sit minima ex id repellendus velit quo sequi sequi. Tempore maiores asperiores aut ratione. Illo omnis necessitatibus accusamus perferendis sed cumque. Molestiae nobis in vitae modi omnis eum est. Velit consectetur eius sed delectus.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c85baa38-d1f7-4381-af18-6c51e7cc0253\", \n\t\t\t\"rowId\": 53118980597541310000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"9f17b043-fa06-48e6-84a8-3b50ba34e062\", \n\t\t\t\"positionNumber\": 9604, \n\t\t\t\"description\": \"25g59flwdjohx45vtv7mk4ndbg1n2ts7eot9f1wupr8pdv4yd34qsps1c94kvtu6cjrcuehup1tv7zv372d7mjnxusinxactzwl94pqt6lgns99dbsze9i05vvg8kar3yna9n2xknspdwag9gei4p4bj3ywe5z69y2dpauu8u9mhx5o0pjz0yozroqsq0fpt4o1l7t0ky0rzdhguee5glpngdgz67iveymoj35u7l3l8k1zbgturq5107cvzh3k6kqpheb5mqlio0ntnc0ecrxeb3mifgoxyjmu99g8fuele8rnocj5ptmv29aftkhyd8hg5fyz4f59qkjmmc7qai62ouuhno580xo1qjil54db6px4m554yc4yb95wyuscszc01uvacptphvpauwbkyt0xkfbvg6jt2mm3ka7tecdzo1k61xnkisa56juchs987fg3j3o6i8k9jqk3b0mqj4yw317kg0tmp8xbz3una9c0aqjqqsqh2gino569x5\", \n\t\t\t\"productCode\": \"l730hv5ts8clxosgbtwnvohsulwrxgilstz9fn3d3viq4q5lni49st6fvavaiu7\", \n\t\t\t\"quantity\": 696003.3877, \n\t\t\t\"unitPrice\": 7605303690.11, \n\t\t\t\"discountPercent\": 322.46, \n\t\t\t\"discountAmount\": 6861213504.24, \n\t\t\t\"taxPercent\": 493.55, \n\t\t\t\"taxAmount\": 1917010739.83, \n\t\t\t\"subtotal\": 7756058620.98, \n\t\t\t\"positionTotal\": 7344358326.47, \n\t\t\t\"expenseCategory\": \"7i8t8z68308tkicl55pewse9r34petwu1jyjgxd2v1vgvh6nch50p9ck03jv9fmayzajz1yfbthi4r23x53j1bagxozp5l0k8atn6qbsl042t0zxzjyimpha541n86v\", \n\t\t\t\"notes\": \"Reiciendis similique ab consequuntur illum voluptatem. Veniam est nisi facilis ad. Animi omnis numquam.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c49436ce-2a97-41ea-98b5-7b2de49be388\", \n\t\t\t\"rowId\": 34099826153220900000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"ffe3676a-4bb8-4651-8f73-7b92f721b0de\", \n\t\t\t\"positionNumber\": 1064, \n\t\t\t\"description\": \"noylg8q9srm4kn1xx3eys8y8tpax8ay6wilksra6wilpzdnjhygxd4hdobtx1eungas3ixxm8yp0i385jmsvpl2h6dv645q2vmmbagxm9j2lpl3gdeghkql17c9pvw7lbmhridozyvvhi7e3ri2gpi5vvpelpw3i5wllg6dcjsmuy4oce8zucgvpvngd1yhq8fq0ay011rnxdvd90b9wieh5j48zxr6b7nu1b0u44lsfs66j3oocg7fr5upuz9ynkrp8p0qhzsfr8rver3m45ddzmjxnkh5if837lw382o7bt8sq0gi6kpb14j96xbo7zduwz96nw0huo7i2p3xsy7zhy6s17nmxqnp4l5l3cr4r9oualeegatt3zmv8449xu7kujw6ihrnfkqrrh701qygapuxfhjhfahzlv5ijofmnl7wcm673l6yt4j39knmcezdtr333tqob31q39279ng4orgl94c7od3w2z4czs0084i4bjex9db4in0m1a\", \n\t\t\t\"productCode\": \"o4vpshinzyx7a6h6lmkcxdc0qnswqduagx0g00iwl6o8bd8d5riserrm0jh7p62\", \n\t\t\t\"quantity\": 319190.3421, \n\t\t\t\"unitPrice\": 2366062148.15, \n\t\t\t\"discountPercent\": 539.85, \n\t\t\t\"discountAmount\": 9170286815.57, \n\t\t\t\"taxPercent\": 260.21, \n\t\t\t\"taxAmount\": 8618149337.16, \n\t\t\t\"subtotal\": 2205348153.84, \n\t\t\t\"positionTotal\": 1886221354.95, \n\t\t\t\"expenseCategory\": \"0e8twi2bwknz1swhy6xzh2qkupwwtgnixu2hc7rcj2wnlahe7kv00zzp9j67cnfeu8yldxqhgdhlilkdhdoc39uryfnfce6r5iom0rb81w9a2ob265upavoqmcpo477\", \n\t\t\t\"notes\": \"Nihil consequuntur ducimus. Numquam deleniti officiis nesciunt voluptates quis. Praesentium aut rerum.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ea5f3e7f-0999-4c0e-a31a-5f5b1bcc7911\", \n\t\t\t\"rowId\": 91038353939680800000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"d8e251d8-c473-43f0-8804-50f7bfcf244d\", \n\t\t\t\"positionNumber\": 5950, \n\t\t\t\"description\": \"lhxviskoas1j5hol4rckyy38moow1dxkc7o8ko86jvl22q85m66g0v2719tmiji0u5970klhucjt6aoa214rmw9xdbn6med3wzd8tslc801x7bbzivletmf0ow0ddo64vnkoxj8g7o67am45vkombch5awe3wypzgryhalnmsk2qmqe8op91nl31nm7a078xl1j7u2j86hkk0k1aeg1xtx9mc6h95pgx1hc7k0iedz59wb9alla5l3ytpbozzmzb76q17f272be1lvjfbqvr41ldj7uzhrv9f3dsv0ls5zxn2dxfq1ng63o9xt98dxgguzwi51lvjk0zhmxztyhub61199wlc452o0l8yfd2pzw337ady46fuwcn5r1hlvuenln3uh9whfh88asgr2j1zo3h07a21iaxu995fzqinzz34y4bpjs19im59s22n2dqhypdt87hn5lnexdmot82z3mzpo2s0ikzan7g7huogec18gilyuvo47u72kin6\", \n\t\t\t\"productCode\": \"zefacbvbxsdj0qmmqh4ztm9vsrsr8mavc8bri554nt4rbhpuv6697tuj31754en\", \n\t\t\t\"quantity\": 127610.8428, \n\t\t\t\"unitPrice\": 5315151467.26, \n\t\t\t\"discountPercent\": 988.64, \n\t\t\t\"discountAmount\": 4318814394.41, \n\t\t\t\"taxPercent\": 565.46, \n\t\t\t\"taxAmount\": 8002435747.21, \n\t\t\t\"subtotal\": 6439722107.69, \n\t\t\t\"positionTotal\": 4902926671.49, \n\t\t\t\"expenseCategory\": \"wtwjmvk33l0jby932opj8xht2u4xms4zxetwfvxymckpv2e02ums83ubm1dgaaazblmgseprs0nki496k39pkjbuxfk3akonjtbqhjw42jrkf72imm21dpi0cthgrkw\", \n\t\t\t\"notes\": \"Rerum hic dolore quas voluptatem molestias unde nobis corporis. Voluptas consequatur magnam iusto eveniet ullam architecto nam labore quae. Aut ad sequi fugit molestiae molestias. Voluptatum quis ducimus sunt sint voluptas et deserunt.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"70ad21cf-3e5d-4f95-b00a-9d69c645ef02\", \n\t\t\t\"rowId\": 23421003837514860000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"6a1245e8-5deb-4571-8793-3ff558fa7ed4\", \n\t\t\t\"positionNumber\": 9718, \n\t\t\t\"description\": \"thwv6sbmn3ussfcco41q3f2nqcbhlwvq6flk1g1j5u7eisc28a0ry8kevpjhmtql2zqx7wuuz67pva62o5qry7teb988cwxpm8h67hdjh7mt3lrlipvvjh4ijgf1y0e8wjutml1mk22ju91xsdfued8u3j9ppf7ox9qyotm6ta5wzg93wf8tu9xp2cwhf3tb58plbjfjm4caluwv7b3hvoquz4og2e9zqobw1x2u7ccjyji697tklkej5yy4f80vlc8idqg9jlip2knt9b1ch2dbq7ft43swg4v32pjjgch28twm9ifrz49qyjcw19fripp75d1sdljcn8jaj49nj7zcdfgrcpao0t0alkayutgks7as6txugcvjuvrzyh5x89kj07bhj2aysknmglq6nj3y8g0zxlgzlsxjllrdrxqvkd9l1b3uu0lz71tdw71tctq6jhmq3o13bsim1c68lochhthqj2vye0vf6lmwizkr91b7qkoevhr0elb63\", \n\t\t\t\"productCode\": \"goqorrvao4odvycpge304q8sjtypgv2rqufjovmf5bssij5v3cusyyl6m7yaa44\", \n\t\t\t\"quantity\": 750004.3671, \n\t\t\t\"unitPrice\": 8101472624.97, \n\t\t\t\"discountPercent\": 863.24, \n\t\t\t\"discountAmount\": 3553264189.54, \n\t\t\t\"taxPercent\": 828.87, \n\t\t\t\"taxAmount\": 2748365907.67, \n\t\t\t\"subtotal\": 4508665164.72, \n\t\t\t\"positionTotal\": 2993939066.77, \n\t\t\t\"expenseCategory\": \"4f9tqng88t668iyaktnarixobao0lrw3j81og17ubmp6r42uw6cw0p7o9zkfi8yb2wwjwwyne6j1uxwwmyt36b7tjs4oxmzxv7g2q994mod6zu38lvgliu7mgpnhrs8\", \n\t\t\t\"notes\": \"Ipsa perspiciatis ab fugiat sed ab quia non nulla. Rem qui et amet blanditiis sunt quia quibusdam. Et natus nulla veniam maxime sed explicabo dolores neque. Officia non in blanditiis nobis illo quia.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"94b9bfe4-ddcf-4efc-a814-b7663fd2d416\", \n\t\t\t\"rowId\": 45909702711514870000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"bcbd4c0f-ad56-4820-a284-5136259cf960\", \n\t\t\t\"positionNumber\": 1695, \n\t\t\t\"description\": \"9lmaw1l6gsjeoamxkwdnrf6she25ybovdlqftmjjkpor1rm8dr13swx0kc9x75y6tzk5aqcieikq3mgpkai3u5hxaxa4d2ur88tk33kr5i2veszoc9zpewxwtd1oehbo5ofcjusrgkng03oghtx9ln1eookh61n5dtoekacysgfrgfp0557ucpaz0vekawt7ep63h65pg34q68kz4ecdoq5t0ncdpvql06syy915tavsbb3b844tm6e17gm1vk1884lvld142mmfgevypo6zuzkmati0wtw46hmwstkby6iw7m0bznui67f778vbrqrmkmq5zoq3hg2h0ewwbwyc47q5g48vft2fpd20l8sf1d8jeame5y6l1z1johyullmdg79mekpzsnb2t6d4tifvzblpy2qlith6bvug38vthen7llhwbd9wbs0b36dc2t66sw4ovwr03dv4kjo8c0wdqcicp3o5kiicl17gwcsx58fpxverxkmjmuew8s28o\", \n\t\t\t\"productCode\": \"vobm9lux4c2xbp9e6l7381cgzbqbicrocuqks69p7f3oc1nl8klmg7ykablfz5g\", \n\t\t\t\"quantity\": 260963.4593, \n\t\t\t\"unitPrice\": 8294357020.41, \n\t\t\t\"discountPercent\": 910.32, \n\t\t\t\"discountAmount\": 9252029755.32, \n\t\t\t\"taxPercent\": 567.25, \n\t\t\t\"taxAmount\": 6079495801.21, \n\t\t\t\"subtotal\": 6651274044.68, \n\t\t\t\"positionTotal\": 6229768531.18, \n\t\t\t\"expenseCategory\": \"vn5rlj3ktw40lccp5sh6zlbvd7i4bj5acw305s4ybro66ts6erc7pvn6pi4bhgtd1v3yl572skdlf7wyzzs6slicitwuoih5v083k871uwqidh4gewb2a9xv411azvc\", \n\t\t\t\"notes\": \"Quos dolores rem temporibus est non tempore repellat et culpa. Rerum quaerat autem quo voluptas qui quos nemo non. Animi sit voluptatem aliquam maiores qui totam.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"8842c811-1bc4-41b4-ba13-a4309a510788\", \n\t\t\t\"rowId\": 89948552619004380000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"220c6c48-3dd2-49fb-94ef-c8db7e90030a\", \n\t\t\t\"positionNumber\": 4955, \n\t\t\t\"description\": \"986sqr522tlrh60jaljtzkl9i4fyw91vy9p5oqzgffv99hyy9jnob2ztudp2ze25wt7p1xzqp3lhzx3kwqp3c9tgp02tu0jx6ncm4w9w0f2b7264y8wz700d7c3t886x4r33ega75sjpcid8ip3p915dteac73qxenk7kny1oo0lcmze8064f4v7c1hgd7a3hj79966w303lx06jhaq94p8z57yq2xqmnugat6f9632pjnh5zemd60ipjdd34bed2ckqd0u1rb153zpfnc3bg61l15gj2brwbgp3u1if2cxkx1s0r8kzz2mwagzlurz3iqs09fk82hupbnbe6rfc0310tsonp1wcgsbkw3z1wavf7bruu9w7gcykkduj7t70o7zti0ude4vgzwrbbeyxgj9fhdjijdkwqhpfj914au0zm2i6m4a3dbvbhqor566z7rujblojrgsd4bir5wj6plbfsgzm44nnpc0whr2a2gwuou6jmcrq3e4hvny0h\", \n\t\t\t\"productCode\": \"pjg4wu1hpcgffgaofe6f02fpg8sixrgcfyqeg4twex73jn71z9g0dv0k0o7k980\", \n\t\t\t\"quantity\": 881857.8221, \n\t\t\t\"unitPrice\": 9942612450.67, \n\t\t\t\"discountPercent\": 361.58, \n\t\t\t\"discountAmount\": 2335072650.87, \n\t\t\t\"taxPercent\": 207.65, \n\t\t\t\"taxAmount\": 6936942162.44, \n\t\t\t\"subtotal\": 8544273020.55, \n\t\t\t\"positionTotal\": 2563991224.27, \n\t\t\t\"expenseCategory\": \"y7hmq1vsqaryat7p288jeepxsoc7cjb2pouxobkbwzczv8qjhfiuijem6mutbw45lar0rthkt1rgpvqiknedqa9vxifem4pgi66y4aiioympsgkp787ukp4o1yw97z8\", \n\t\t\t\"notes\": \"Quo quam occaecati dolore natus eum. Perspiciatis voluptas odio sunt velit illo. Eos illum explicabo quis voluptatem quo voluptatem ad eos sint. Sint dolor in eum adipisci voluptate ad qui et ratione. Libero natus commodi alias quibusdam vel earum ea. Eos voluptatibus tempora aspernatur.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"765c1c55-7ed0-456e-986c-13906b239355\", \n\t\t\t\"rowId\": 77307724595561040000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"5f51076c-a2f1-4f4e-8611-f4458fba9b3a\", \n\t\t\t\"positionNumber\": 5516, \n\t\t\t\"description\": \"7wvox2sheg41nbb178w61cure0xyq8p8mxphp1o9sonoc0v5iiz75rjr3lxd414dk3qzsz0aw4fm8cfmm1bvivsc3t81ic1gbp4mkn3rostbhdwtew7sg7vwcngv0u4fk4djp2t9s9brzxdclyq7o15wlu1zcld62uccynulgkv4tsmutunr63o1l4ry67x7y9gfeqgffl6lji5ydewbjfobasd4n7l5yuzx720rabq2g9ez58hguwuox0267m7obacn6mzsvw4lthg4uh1aezg9ssu2ivl8vh43qgdx2rcslhkgadkgalp81d5tgrjkzyaqvatj84kas9xpdn1nte27v7w0p3op4bdzqy7alw6guwwropxmrk3dke2frynx3l6k0jye69u3epygd86b0p28y984w7hlzrj3vy6z7s4zlheqjk6sss3chtxfggajrxqojora5xitef59emo5jcljzgdiuh8t60kstnuwl2cnxf30jtfequ8z1un9c\", \n\t\t\t\"productCode\": \"wiyv7x5dqpiedqqjpymnxfa1u180waw6y8ikd79fgwe9nif3d9k5838bvjq5sts\", \n\t\t\t\"quantity\": 311043.5191, \n\t\t\t\"unitPrice\": 4103432856.16, \n\t\t\t\"discountPercent\": 104.45, \n\t\t\t\"discountAmount\": 8420060564.31, \n\t\t\t\"taxPercent\": 109.78, \n\t\t\t\"taxAmount\": 3282850323.81, \n\t\t\t\"subtotal\": 9995087758.95, \n\t\t\t\"positionTotal\": 9807861529.74, \n\t\t\t\"expenseCategory\": \"mdieuozd25ywveabbf3is9875iy1p52x1rtgj0s4b4lj9cwur67x9u58sojihvgx8ad6y3ulijt1v7pxzhj5jp0i9zytx6hv1e8t87tyxvre47ceecdt6onzg3h97qx\", \n\t\t\t\"notes\": \"Consequuntur ut rem sequi assumenda. Iusto quidem necessitatibus doloremque libero. Sunt commodi saepe reiciendis tempora sit nulla placeat. Voluptas aliquam sunt illo necessitatibus.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"700873af-7383-4d04-9978-08521c6b9208\", \n\t\t\t\"rowId\": 66777396583693860000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"ee21f88f-2899-43e6-8e78-b159da044d1b\", \n\t\t\t\"positionNumber\": 9894, \n\t\t\t\"description\": \"ji18qb4awgbpgb0xlu8quznp6hslt4xt8vztd8s6vkkqkl5c9hr0roi8uismifn6q8x15ldgqa09afpijcxvjxp6vntc9zajr763jbjwkrmx5gw8kvvg3z2y449z8d6uz9399tgirn2juz1gwkt2rfj92mp9sazak1msrhlfu9ucen7mp7hxnnxvqclz7hamfh99barkcxwqbchsmw1k68l4i32hkmmmgfuy6hhhx17tradxad36cmd5ja8bno41fwu0ap5jpr0md2xlee2pcnljyjd4lqd09w04s3ik4iicj02w0tq3u5q4k33ok09ijzeujo4kc71u3ayhvxe12qxtge8q86v33mmiqxnks463n40fxtso4hh724qudhjgpryooqrnvc0zk2c7wyj6gbsch9xcycaq778gtctzcif4plvxvu80ssy2aorwx8qxb9bxxkjf9jrhvbvuhvipcw6pu62v29e62068rpkr32enjne8uef5xm4t5vfyl\", \n\t\t\t\"productCode\": \"bfrft17miynet3x31oeq66wyulsep9wqxk11wlwvp5bxaaz79qesxflu9ijydni\", \n\t\t\t\"quantity\": 314399.7911, \n\t\t\t\"unitPrice\": 8720610053.76, \n\t\t\t\"discountPercent\": 882.35, \n\t\t\t\"discountAmount\": 8887353682.78, \n\t\t\t\"taxPercent\": 341.73, \n\t\t\t\"taxAmount\": 2732662794.13, \n\t\t\t\"subtotal\": 6174573057.91, \n\t\t\t\"positionTotal\": 6624128731.39, \n\t\t\t\"expenseCategory\": \"d8oszaigtf3dqulv0uk3m9flycczaziebu3si1pr8eymksgn1duabi60f46knvw4s5a0peujysafs8nvp3fk39jgyrwabprbs4ekuxl6huk1l3k7zhdr5u8pd0bbk0a\", \n\t\t\t\"notes\": \"Cumque animi corporis eius ut sed repudiandae. Sint officia quo officiis vel blanditiis amet ipsa et voluptatum. Praesentium cupiditate dolorem non aliquam et sequi modi. Voluptas facere odit et. Modi inventore in cum sint et vero recusandae.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"570836a5-e51f-47ab-afa8-6aedd7271ff9\", \n\t\t\t\"rowId\": 27893284553647280000, \n\t\t\t\"purchaseInvoiceHeaderId\": \"8af88759-db03-48b3-aaf7-00ae1d720107\", \n\t\t\t\"positionNumber\": 2167, \n\t\t\t\"description\": \"dxzit9yo9zob0ra1m5ecpsobl9gpt9jd4vj2ultkkywxst9z5h595o81zdfm0uup2616gb69vfmy8cwsrf5edhz3n4e7ac9a9dh81o8e8aahc3s55zpiz3oyzn2y9nolfr0w3dfrccf05lfn3sobdy0ne5ftfi5vqh40ijff7dqq3u1xhncjtz6l5el508fbamp05rjfx016l4e0bzz6ll9tyac898wjkm1p4o1lbiss9e6oa17ig3gzzdz16qzbe0dvszmqyyek219fcsxun2p3bo6ngyhst7zr99nqe4wprcbhbt5dgszdoce1i3kn4cwktm7s06965ur4cti0pss50rwl1u44bd9j751ooj0ikpvyb4nd68gon1cqss04vvacmiw17v820tlcgcmjqrtcv5i18gcu4k02xz4mu0najhbnb8oiiuv70ld3ommhq4iw8znyem5t4qcpzsh4z8i7bu5wijyx1rt6fg38jtbdmfz75637ey5icvaqw\", \n\t\t\t\"productCode\": \"8jo9iwfggny6d9ojib1i4znfq3fp4j5wh11gwlgcw09xut5d2cbugudipqm618r\", \n\t\t\t\"quantity\": 389543.3102, \n\t\t\t\"unitPrice\": 2264761640.11, \n\t\t\t\"discountPercent\": 750.46, \n\t\t\t\"discountAmount\": 6740352677.51, \n\t\t\t\"taxPercent\": 994.44, \n\t\t\t\"taxAmount\": 6189985448.43, \n\t\t\t\"subtotal\": 4391786296.67, \n\t\t\t\"positionTotal\": 2556898877.24, \n\t\t\t\"expenseCategory\": \"mnbvzwm0mtw63os8mn4iue9ck2dkyae8i8efv51zibrsu0gb8n139aejrdlsjy0w3v8cu8xmr20qq9v7qmso3g958dqj514vffbbc9dfpu9kraz6e46khw6s8z1bb76\", \n\t\t\t\"notes\": \"Alias iure cumque ut eos. Iusto aspernatur sit. Et qui quis consequatur voluptas ipsam quis in qui. Illum debitis commodi porro et culpa deserunt error reprehenderit doloremque. Sint natus illum.\"\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginatePurchaseInvoicePositions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginatePurchaseInvoicePositions (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetPurchaseInvoicePositions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetPurchaseInvoicePositions (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPurchaseInvoicePosition",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindPurchaseInvoicePosition (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPurchaseInvoicePositionById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindPurchaseInvoicePositionById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdatePurchaseInvoicePosition",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdatePurchaseInvoicePositionInput!)\n{\n\tbusinessPartnerPortalUpdatePurchaseInvoicePosition (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 29491679348737057000, \n\t\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"positionNumber\": 7661, \n\t\t\"description\": \"9s47khpfflr0kdbcwn36kw3zbbqy8cechbets4gm3xqiqfthaneunoa8il9e4g9n793iybnhqlgdowylnd3ot5c2zapmns6g2yzve15yfzraqqjic04kbi55kovxxt549syqvdhuzc1fgkpxug3kc530c1psaky8anhcweoheac4e0rntmrmtqjqtgoy5qv8rbfk23jlvcsasm9ddu1z5lne4hvgfz0kc3v26qk98c0u504v2tzld4dhd132wfcnzq1gdad17oqkdwrlja8jj4ss4gxokdpuqfk8ubbcpswg3ie89p5bukxaw7y6yb0ag8caamcmt8f8b308621opexp8rmumzhh8nvtuygokmxiqu2pjjbjq4ff0rz28othv8xcv7g72slk00x4tbc1jnl2lcieoo8hn1y682a5sijpege1dlq5mdpaquqla7bbjs2ud95u2lm9s5m3fyjechd7803qta2jwf7lhcothhoya9b0fmim7dxv6k3oi\", \n\t\t\"productCode\": \"g7xkjvoc1nohusfbvyltnsgshjzzav4p8rs6wegjfmg6klbv2o71plx8ewcu7h6\", \n\t\t\"quantity\": 132232.5815, \n\t\t\"unitPrice\": 6194736198.23, \n\t\t\"discountPercent\": 420.15, \n\t\t\"discountAmount\": 3445381834.55, \n\t\t\"taxPercent\": 292.72, \n\t\t\"taxAmount\": 4646932950.47, \n\t\t\"subtotal\": 7201264818.97, \n\t\t\"positionTotal\": 7016524078.78, \n\t\t\"expenseCategory\": \"cvnr4t2shpggtcw9unm2s02igt9vzerarnm7c6ajrtf6b2iixsrfao57c9eriwl8wwseth6lnjn7r31e1kwg0bk74k6567dzld01324p80fzyinv80vzm5uq979tvgz\", \n\t\t\"notes\": \"Et mollitia et culpa doloribus nemo maxime. Rem enim eum et. Rem qui et corrupti veritatis enim.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePurchaseInvoicePositionById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeletePurchaseInvoicePositionById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePurchaseInvoicePositions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeletePurchaseInvoicePositions (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tpositionNumber\n\t\tdescription\n\t\tproductCode\n\t\tquantity\n\t\tunitPrice\n\t\tdiscountPercent\n\t\tdiscountAmount\n\t\ttaxPercent\n\t\ttaxAmount\n\t\tsubtotal\n\t\tpositionTotal\n\t\texpenseCategory\n\t\tnotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-position/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 95557259856895770000, \n\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"positionNumber\": 4567, \n\t\"description\": \"seyjp9f4qreyvx6gk9tozauud0t116kgp9ac9x995pfgyjd0d3oyc7kvskw32rhjavhzu26mksctpwk3iytrvaqbu3rqdrz898by6a1zlcuwltshw690ump7z7vfled0yktdl0a8gh137cwwgb92v2r7sb9y3vrtylitue6k1wgyxzb3fmr95ujsal8v5lv2dp13655ag7fo64joxpoj1mctcfwoat96jm7wnx9yp2xml3hagog3u6xfklyhuj4xhbg74v4hh381b8vxm6pvysmj546t5adhzp5108dvlluf3zolo7dzeptcdqotn227rur02wadbyecs78hwvh6gzg1es4dhfhig0neatxtzsypbm564yh9vgd3hsu9rcb3vb8cjq36fkiudz6p3k7aj0ryqw9pj1sod7h55rd546q23ww4x298fw1ctx9f6kxa4xstvc5yhtx3n2efvf4m36yhpf0n8p78z8ftdx2qf878jf8qmqrboshf9uh4m\", \n\t\"productCode\": \"d6niu5u2f576qyc8owmndclof3edwvapjag4p0hdvz003hqb2v41i1vz25a0k1l\", \n\t\"quantity\": 660364.3955, \n\t\"unitPrice\": 4332527311.47, \n\t\"discountPercent\": 118.43, \n\t\"discountAmount\": 7915391626.17, \n\t\"taxPercent\": 697.88, \n\t\"taxAmount\": 9400358480.92, \n\t\"subtotal\": 3907041792.92, \n\t\"positionTotal\": 2779313665.88, \n\t\"expenseCategory\": \"w0sysy02qh5580vmxj4qpkqth1p5dbr1b66rdvloxdzq2bjo492eu95lsmswbk0utewoi1ehbgeqtuvlebvs1sh2uqkjr50d7svu40xxjiibu1mnvwwt3iqcylyxcd8\", \n\t\"notes\": \"Omnis magnam qui veniam. Quo provident corporis omnis vitae magni neque placeat qui. Eius veniam voluptas natus laborum doloremque. Ipsa maiores veritatis maxime maxime omnis ducimus.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-position/create",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-position",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-positions/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"41fdc9a7-1950-4d5b-8262-1ad6e4decd59\", \n\t\t\"rowId\": 19599752538907025000, \n\t\t\"purchaseInvoiceHeaderId\": \"41bacbf7-fc6a-42fd-b994-3c44b065748f\", \n\t\t\"positionNumber\": 4968, \n\t\t\"description\": \"jli9x8yjfx5qoty5cntf70oggtpfx2xsusynyfh76syb3xpmqu6ss3ck608t06so32gspvtktda7fng4e1p2t9bh5t5zu7jn79f6s3vxzbx78n0q25ao3hhwlsas2bnvqsx3h3mvbkcsd5f1yzyox7qslszp6t520ype6x8rozwg6g0q2qobfl9guz5k2d9e66mf2hdptlfhxridjc57aydeespbet1td2fphm5kzem34zsxnimbgjg9t9i909of1z8rf9j9w3skho5fvsdp1u4thyrrxr5r0uaj610ztbld5vomfuvcu7ztxyul30h217ftc6i1bv3lwnvu8tirv9diip3r090b5i3l9s4n6js2bmwasy93l86fsufbjho86t4iaum4v7rdthmzz1sgvcm2s4iv5qrrfotj9m8tog714ctr51j84gmt2xpl1pb5l6xt8eejpr14libmwljvrl7b4fwhg5lwxpokb7u4negmd011i1v3dkupnxv05\", \n\t\t\"productCode\": \"czn5evbxhakwcvzjpcuccpo6i1za83yxmev14qtrcpv6vaz6zbdppg5cr9yfk7s\", \n\t\t\"quantity\": 715790.1667, \n\t\t\"unitPrice\": 1638853572.32, \n\t\t\"discountPercent\": 857.22, \n\t\t\"discountAmount\": 4509228000.82, \n\t\t\"taxPercent\": 163.82, \n\t\t\"taxAmount\": 7880740657.54, \n\t\t\"subtotal\": 2254138293.49, \n\t\t\"positionTotal\": 1041750539.16, \n\t\t\"expenseCategory\": \"kvfvs2rgyfmpnjvudtxiyw94jdvvbiprzipudle1g02yey12zpt6rx6yfvd9namh299jkm8ww5nk1wfsi29ez4g7dxwnh30iyjafrp8iqwz6foiy62crqdxj73obpz0\", \n\t\t\"notes\": \"Repellat necessitatibus aut rerum quos recusandae. Incidunt delectus et ad temporibus ut ipsam beatae. Recusandae dignissimos soluta laborum molestiae velit ut voluptatem aut. Pariatur tempore nostrum et non ea tempore veritatis.\"\n\t}, \n\t{\n\t\t\"id\": \"8f91140a-348a-4c42-8b71-09e10c06c6ff\", \n\t\t\"rowId\": 38762070370336100000, \n\t\t\"purchaseInvoiceHeaderId\": \"9343f936-9475-4dc2-9b14-9ce1860b88f5\", \n\t\t\"positionNumber\": 7143, \n\t\t\"description\": \"i24491ek57oca6i8bvy9yke2lhp8xezvayxld9rmf13ghzt52u8gf474zkg8xwvfmxe4d6ysb7jzx192ez9zec7xmqghruvytqlgs4shwwdoyl5j0lj2pi8bj4k2rbnvz125xs0snp6bilrcnlfp91ban536ph8c1ahj3l0q59vp0fn67pp9k9k0mho0v4ubxsp1allzpzupv6khjspom7e18v3hdzn4k5sjqa3v82gpnfzy32ode3ac8seqjzgkwtxcw10doaowc0wlb9ztqat219o80z84t0wz09h4cdx50vz9qduqdd9rthkcnjbivo5360mb7ww750t9cyxaimlsr2uvsloxtf1dqic8sacwgwfyth3555ped01doz4zjlx2xg7orphrtjojpwlkj2pxkfom99rx9vd3so26h0kr0lyc22xfy7337q62dvu3mcx9tj2tnkbd1lux29h624elkjms2b9er7mdkb39ti3ei8px7am1p28r2sey7\", \n\t\t\"productCode\": \"jvsqtm3d3rl32lci4aydvrfoglyjh9s7x72v1vt9czoathatrkm38sb8y503hog\", \n\t\t\"quantity\": 602618.8245, \n\t\t\"unitPrice\": 5622852430.57, \n\t\t\"discountPercent\": 724.89, \n\t\t\"discountAmount\": 5463304352.48, \n\t\t\"taxPercent\": 224.93, \n\t\t\"taxAmount\": 4991878262.85, \n\t\t\"subtotal\": 5703879148.93, \n\t\t\"positionTotal\": 6613853772.98, \n\t\t\"expenseCategory\": \"0s3deqfbcyn3mvj1lmm26la9kdoaidi41m8zrbv4y5x94fhnhvvc5nu7wmamhrapqbiktdlbirr367bkc7gnfclmxgigth7w12ne2j4m77vuqoebogen2kx4u3voihv\", \n\t\t\"notes\": \"Est nihil alias aperiam labore molestiae in deserunt quidem dolor. Error et quas quae. Sint atque id dolore possimus architecto magnam. Aut quia optio sequi est neque consequuntur ea voluptates voluptatem. Sed necessitatibus vel sequi et ex. Nihil et dolores accusamus autem.\"\n\t}, \n\t{\n\t\t\"id\": \"8a52ab10-debd-4f50-b203-46f2efb55cd7\", \n\t\t\"rowId\": 78137857658814090000, \n\t\t\"purchaseInvoiceHeaderId\": \"2444e8c7-24ce-4358-b82a-a0e1b9fa839b\", \n\t\t\"positionNumber\": 2547, \n\t\t\"description\": \"8ub0xa898f8no8xx9mnunmd68ybhgdb3bicyguljoj1sc0f5udl8l8yx265d0ww1n7c7wytkqgcwke1ko71k2ut1q8zh3xvai8bq3aueja79nayrqvyav00xtemn16vjc8v243zt6g2ohk9hqxiesaud6jjo22ahao31oqb8xohq5f9tyagqse1nhrradsl2zyyk4lu537pevnc6hghyk0el4shhicbhjbixaumbw4zvqxa1fjnsk70tkivzom9nbqe735x4remzemfv4ncixarc5i9n0vho707ckklvukoc3x4pq0fekz2c0afmhj3s3l404bvwvhv5s02tocq9r9i7b7crfvxev0j7pelof9htyvi4tyxystkf3vuzdopq4o286hfv1f63tmfp4w3wuebv7rf4ulf4jxay8q873x8ltkw4pt4yu1503y1lf3ck4pwhgh7qsv4z3lnyocyd7go3uavk3n5tku4j25l6fn094urjjnv02qbxqhljl\", \n\t\t\"productCode\": \"dbk28tt1hhewj5b3xivrzg5dpet5awkp4ssff6cxxy3e1buyn9genzpbfuamrxm\", \n\t\t\"quantity\": 408516.3534, \n\t\t\"unitPrice\": 9920321102.21, \n\t\t\"discountPercent\": 989.66, \n\t\t\"discountAmount\": 2506514687.72, \n\t\t\"taxPercent\": 276.69, \n\t\t\"taxAmount\": 1597090340.23, \n\t\t\"subtotal\": 4350048384.22, \n\t\t\"positionTotal\": 9984179808.74, \n\t\t\"expenseCategory\": \"01l8e6oa6mdbdvddvg685lbl681rm8ij1304bw1z7kde16qcw69niz6qqpfigyx0bjuip3u1l5w45lvrvnt0nhctwrba5s0x1akwmfxgvxi4xt2iz4nupzeimyn4ne3\", \n\t\t\"notes\": \"Ab animi sapiente commodi. Nisi aspernatur temporibus ex aspernatur voluptas unde magni adipisci. Odio neque illum unde. Nam eos quam libero tempora ut autem. Hic odit non unde quis dolore quam molestiae. Excepturi id aut ea tempora facere expedita omnis cupiditate.\"\n\t}, \n\t{\n\t\t\"id\": \"af2f2d26-147e-420c-b0d4-1a088a59341c\", \n\t\t\"rowId\": 81978586509624870000, \n\t\t\"purchaseInvoiceHeaderId\": \"07b15b26-93d9-4305-9012-c6a75bb7f34f\", \n\t\t\"positionNumber\": 3353, \n\t\t\"description\": \"agfjai59in2x5hbwztw9syd3h90e4yspvpmtom32ag9t2ky8c08zzhg7xd4317vjo8k4qdyb6at8mftuh8dakqrdyiho37tt5r53st85o6mv35mb66ipbjgq6fn9l4eoo1rwj5kz9xj7l6psaxgetbrd2daxe42d72dez534i54phjvwx1n9eqsrqjvg87c8x17f3l697r8248s541ty8hkvi1txc0igzd8ivbms0j3jwpz6sgf0849wkw3fe5e8m681d1j6h7zq07dh953ho6yzwpnt50msh38puo3v90zy2bw3m0ukqr8vpaim3qunu1v073sn0d7cfjbm8f9iezps9dccd0jd05vkd6rci4cypsnyrvyvsdwwldt029qpazii5kifr7bw9r4bu3u1xrc6b3rtiyzc22f1w6cko40x7vo00x90ye3wvpsfv9a5aqb5rq4hhmniebg9zrbrehdp86owgbu7ag1ktqgiua63rf8hiybyr9zfy30j5\", \n\t\t\"productCode\": \"8xdja7nfterbzf837isgy0ahbv3hpbqwc6xebdimdn26g8di9nuzagxy3w6v8cs\", \n\t\t\"quantity\": 375430.8041, \n\t\t\"unitPrice\": 3015750613.31, \n\t\t\"discountPercent\": 529.89, \n\t\t\"discountAmount\": 9733735846.89, \n\t\t\"taxPercent\": 933.95, \n\t\t\"taxAmount\": 6853323283.99, \n\t\t\"subtotal\": 2958429322.47, \n\t\t\"positionTotal\": 1259044542.42, \n\t\t\"expenseCategory\": \"72cjkbfe9v74jhl16oq8b9jkmmoqj1110buy0zetdtsd19a5ecax077sson0ocp9riayu6l8ca7hvf1b7v9sk2ch31od3uiu4ct0a0f1bwhb16ri45a5u72n2pdio9m\", \n\t\t\"notes\": \"Qui magni laborum suscipit molestiae. Est reiciendis fuga sapiente. Et totam veritatis. Officia necessitatibus molestias non ut excepturi. Consequatur aut qui rem similique quasi omnis. Maxime quos a atque.\"\n\t}, \n\t{\n\t\t\"id\": \"4419f33e-4e1f-4d89-8afb-18942be4ad90\", \n\t\t\"rowId\": 29510156881459820000, \n\t\t\"purchaseInvoiceHeaderId\": \"051f0c67-72b7-4132-be42-009f09cafeb3\", \n\t\t\"positionNumber\": 8449, \n\t\t\"description\": \"m1mohofn1azq09xmdvtxzkbg3uunzu4rww0qcqqg6j2eiajvjpawtzvx69ex71m2izrk0718nnb1sekgo3vp1ztj6k76alcunys8se0tykf3q094oj5celnrhngv3ecsocqdfwjvd1unfs46whslcjdy79bp8tzgz8oylh5spv81oigcallz2cmraxibb7j8jjo1fo59krjh89thlz3oevpct0y5weyc68wjx9oj6qrb464804etzcv0rg1ffa9faqn3kq54vu5ch83zmr52n5hdsg26zggeb8bqwm81htlg3az9erwuht1g04axmcy8bdznxm38eklrvtoo4mfbsmd2l267l1yuec57yjpaikw8qlsg77977y7lh0ci3za546d48ejhxpupvduec2g4tyn8e654moidhesjpv2ochbxg7g8xqvse7e6m3xq3vtbu3ipvqn6tcux0n0pz9nnqxqk5ytp875pdv463k1xsgjr4svs8ph43aulolty2\", \n\t\t\"productCode\": \"jlrl0k8ucblnkug6jz37zuwm1z9wx42qbzqkkkxwrdceohc0ljppu97vmbvsgco\", \n\t\t\"quantity\": 386534.3748, \n\t\t\"unitPrice\": 3406728294.96, \n\t\t\"discountPercent\": 885.22, \n\t\t\"discountAmount\": 5091405724.22, \n\t\t\"taxPercent\": 433.47, \n\t\t\"taxAmount\": 6303853360.44, \n\t\t\"subtotal\": 1438473549.87, \n\t\t\"positionTotal\": 5697095513.13, \n\t\t\"expenseCategory\": \"qjfjuiaoldr00npf0k0qxhe0463q58zh0f6n1rgglqtoll0wfni65tmje98rqcb45jbaf8eloj0ftctph6x91lv9zvuxsftyk832lt8wbdklea10yxlmj1dq83objes\", \n\t\t\"notes\": \"Quos quo a. Perspiciatis qui non incidunt porro molestias sint nesciunt ipsam inventore. Quaerat ipsum error dolorem id necessitatibus alias aut. Debitis est et doloribus qui velit eum incidunt qui et. Fugiat et possimus deleniti dolorum hic dolores totam. Aspernatur omnis vel sint et ut numquam recusandae sed sunt.\"\n\t}, \n\t{\n\t\t\"id\": \"73dc0f35-42a6-492e-ae56-9851c6dca683\", \n\t\t\"rowId\": 89165650366120720000, \n\t\t\"purchaseInvoiceHeaderId\": \"87f0c661-3668-4aad-b472-1236e72962e0\", \n\t\t\"positionNumber\": 8784, \n\t\t\"description\": \"n17dkagkbtobdvaob7jt56v4nfuo23zv35qbbk6d9zftsgrzcj620ph2fkclyaisp1npz308u8fr5x1c4qi2itic82qt20xk2u88g1rastedbd9b5z8o5p7a1apa3mu3s88nfhimdz49wg4o4ad8diebls9ix3wi3kv2cc71p3ndhtlmueylbug8a9d9fhuxg7w8i61bkyidcjfxsucnyux3yjozixuabyvyutkkbfdcz5su7b9k7sxqlwgvdd767tekv0c5ew5drkiy2dx6wn4jrxpo0cmvu3a92c2v13w4c6rg7y9gsxuz9fbtc78esoy6vbajk4svi4dxqcjllwhzv6keyvvby7av4r0eq9s4kac1b06t6vxn7wfjuq32biul6s7onh27bjcwzaaf8f4hikcsvbutbqp2w84628h6gmehg1m1inbdidh8n3j3604kjfws9dj4il7akx1rlue9w7ubsm7vk6sj48gvkgif8ui2k189g3qg2b47x\", \n\t\t\"productCode\": \"g4hzsc03zknmz7x6hmepfccnil1jiv487xhww418nt7f2eubsisnfl84cogm0tw\", \n\t\t\"quantity\": 261702.5288, \n\t\t\"unitPrice\": 3940327676.76, \n\t\t\"discountPercent\": 979.24, \n\t\t\"discountAmount\": 2305901015.38, \n\t\t\"taxPercent\": 792.61, \n\t\t\"taxAmount\": 2550722869.54, \n\t\t\"subtotal\": 4872559684.75, \n\t\t\"positionTotal\": 9932411723.27, \n\t\t\"expenseCategory\": \"l6jh2cd9anwg26hk0sjuen91h9zznbxytj9wyu85qdlz04agfenmwle17yqg8sdauxnhfmhksl2rug5wea0h7a9lr55iaqpf78tqadcmuwueubgx1a0m9ymt81yul4z\", \n\t\t\"notes\": \"Et dolor harum aperiam fugit omnis. Non alias aut dolores omnis quos et magnam eum. Aliquam non reprehenderit vel mollitia voluptatem. Ut et neque praesentium rem facere ab. Sunt dolor et vel. Commodi nihil quidem doloremque saepe id.\"\n\t}, \n\t{\n\t\t\"id\": \"9acf38d9-8563-4668-b8ed-b1a8bb25fbeb\", \n\t\t\"rowId\": 41726182990928220000, \n\t\t\"purchaseInvoiceHeaderId\": \"97dd6388-458b-4608-a5f7-a972bac96267\", \n\t\t\"positionNumber\": 4987, \n\t\t\"description\": \"213n9d84bul6qnzgjy9hnjjaarh4llnyv0l5kecr8aod9625p29wphbsvf560mie8hx5aetjaq44q51qq7r03y4gccb9mth48js9n7mp714hnkp267zww0d0u4ugs7ldce87e9f369xhpfh5ianylslvl0okznt1qt7w4py8cyyxdip37cu1og8v5aai9yqxkkabt5ze7wrffv992muqk6ek7ugfsu1jhixbuhpoomtjkx1284afaql4iige3pgwjyy9pu5dsih0u9fsq4rhg5yzs1u1rf57pij16aske7btbmio1at0e8q4lk7g7ajmk2vvexn11ub637jjbq4t1d5mdzmvw7tavwuzxjircnkuyi9bb6ao48xglbbhphnvb9uqstac78j44f4oa3uu7ezs919ujp2qnyfnpysuak83aqprc6bmw3of7h37nc3dn3f0p7m2n8k88ip6b0gzf4cdxxqvkyoh4ri8du5zain0wopuc091zin7bxuen\", \n\t\t\"productCode\": \"qsxp2a1pfl9zq7stndghmqnnya9jmcvb4pj41enyxfxu3uo3522xnou49aw607w\", \n\t\t\"quantity\": 769444.9086, \n\t\t\"unitPrice\": 1721375072.23, \n\t\t\"discountPercent\": 311.52, \n\t\t\"discountAmount\": 6474388597.78, \n\t\t\"taxPercent\": 948.29, \n\t\t\"taxAmount\": 7059564443.16, \n\t\t\"subtotal\": 1506268766.11, \n\t\t\"positionTotal\": 9550908086.43, \n\t\t\"expenseCategory\": \"dmoa7pj2gopwgift6vpbznzu9553d547xpl72l4nvrupb2za8mudgaikhantgihvwwuym25c73b9mme6p6tn73uy37z08u4ff3rznayqso5anb3ujm65c3rff3q1hwp\", \n\t\t\"notes\": \"Consequatur vitae labore in quae quam et iure. Commodi atque quia eius quisquam. Voluptatem quidem repellat. Perspiciatis accusantium officia molestias. Neque quis sit asperiores sed sed qui. Perferendis est cupiditate repudiandae cum blanditiis ut est.\"\n\t}, \n\t{\n\t\t\"id\": \"30045e1b-3017-40f4-8de3-5e9da52286e3\", \n\t\t\"rowId\": 88697819749035030000, \n\t\t\"purchaseInvoiceHeaderId\": \"39a072fb-d327-496c-a4d1-692178a5256a\", \n\t\t\"positionNumber\": 3122, \n\t\t\"description\": \"oi9actgnj80224tpo9d5yulz4klwmrhhwkossd6h5tnfvgre89oilgb8r5m0d4jife8oonesohok6uift62ajwib7xc4mr1g4qts60n7glje6kproradiqlkdqn4seufygml0dmrro2unqd5u9r1trkqvsbw6hogz90mako3olgvf2qesahcuxxa52zbg19aicj8wyi0zizyu67lzk8eohfcfnvmv5593cn4i79n2ji1cugbz08zf2z5hhdapogml7klmyhytir3i92ozbmw2aopb3474eljy9hf0govbbv30qgc6o63b12klsg0r0d39a1ptax9srkr38no88p13hxpwykuxzni50mwmffgzowr1km5r7tybf26xv7t4ovzod93f7d8210v4g6xxx9mr5hizxfe0lmkw8daodwpjv8taxx11s3hzgnd8zxp266ul6vod9nat9meduaaglrc9yzh0w5p1vk7pk1x5z64ir2y2f05cy7sw4tn7aph0\", \n\t\t\"productCode\": \"f4hvmqw1jvz5cjirddkynqms2hybrx0zzi57azuklpxch38zl0wlosbldohukf9\", \n\t\t\"quantity\": 542475.2441, \n\t\t\"unitPrice\": 5237543887.34, \n\t\t\"discountPercent\": 909.19, \n\t\t\"discountAmount\": 1745640232.55, \n\t\t\"taxPercent\": 489.64, \n\t\t\"taxAmount\": 1469733090.42, \n\t\t\"subtotal\": 2178105022.44, \n\t\t\"positionTotal\": 6031068132.27, \n\t\t\"expenseCategory\": \"3ak2s9ujbxxwh8pfhxpenfjqotmlozeqvaadpwkj8iddh7br581j0gi3ghmqpnxc5u7tm0wytj9648d3crr9dvshynpg3powinm7gy9sceb08y10r3t9we9ajtegr7w\", \n\t\t\"notes\": \"Aut voluptatibus non qui omnis delectus nesciunt eaque aperiam. Accusamus nostrum perferendis sunt voluptatem ut ea odit ut. Commodi qui eveniet nostrum id.\"\n\t}, \n\t{\n\t\t\"id\": \"04cd3c0f-f894-4148-96c5-8e55528a7598\", \n\t\t\"rowId\": 77079397570552740000, \n\t\t\"purchaseInvoiceHeaderId\": \"d686591d-fae9-4ffc-bc07-d51040659d1f\", \n\t\t\"positionNumber\": 6706, \n\t\t\"description\": \"yxtftqnuyw80qrvk1gsttrrqkj2jl4t32eu6n33ed4i9ztwtksnie1d13kxshy3w5wojymzsi4e9j2dnsrsbtnv9tw8hk5o967rekze9az0hwzck4wj0qzshbcwdru0q53t5aq44j4gpclt6vi8ewn6bvt7pp976244nw6q0tkahd9d3359tbf95wsh7dgjf23ue0w4ej6n3z9hhmglmdhpe1o44xaxe1j7bx0vamp232gh0e1vcj4qzdfbiub9wh153ar15928pegffd37jxnayn0baj1qeym40sh1zktfqmhbbby9eb55h28voa4aokvf1lhvkp759sieps1hqy65l4zxbwuvi9j0v91cre3grhdgjd21xlk02wnw709lf57iffvgj56zsex1tzl6ncqj5p9zg35334hxcg0iongn0sjrs0u0mktvz332kdjeeuycwjebt7cuionv2v23vfq6noxvxzup5i0m38yi0nom64pxftlmiaqs43e53q\", \n\t\t\"productCode\": \"qzo6qd1kh3yf2dtgrmn0leo3ukb7pjh5navym7dzgp4ql87dyvy76osubm64hv9\", \n\t\t\"quantity\": 520755.8704, \n\t\t\"unitPrice\": 2187470312.78, \n\t\t\"discountPercent\": 267.94, \n\t\t\"discountAmount\": 3517937224.82, \n\t\t\"taxPercent\": 903.68, \n\t\t\"taxAmount\": 9041357742.19, \n\t\t\"subtotal\": 9659187828.94, \n\t\t\"positionTotal\": 1285071686.77, \n\t\t\"expenseCategory\": \"mwz97acdc63siom6x0jptplwghmztysj2udtu4g4i2y1w8fhrpx1txqrgc629vrk1sqjz5ib40zh3fmf89gcapdgfjjjnmqvmnsr9tda47wieexv2bop22lxe5sku0s\", \n\t\t\"notes\": \"Illum accusamus rem exercitationem voluptatem consequuntur aut voluptatem. Consequatur sit blanditiis modi veritatis sed quaerat. Et eum amet quos commodi molestias nobis facere dicta. Deleniti quam ea maiores. Quasi occaecati aspernatur repellendus. Rem voluptatem qui similique tenetur hic eius quos sunt.\"\n\t}, \n\t{\n\t\t\"id\": \"1c53ec89-8cb8-4c0b-a44a-84955ede69fd\", \n\t\t\"rowId\": 90255976401993650000, \n\t\t\"purchaseInvoiceHeaderId\": \"10c01a3d-dee5-49b2-977a-a55ba7517885\", \n\t\t\"positionNumber\": 3378, \n\t\t\"description\": \"z8mvfg6bwtulo9kl6hcfesdr8w5wjm63g2vf8eeyfuq82rlocrsolusg00uzcd0103frahi2kcsavtlp3fdkeu9u0tvgt3fpkwlg86zdsl3sp4kubk9dbt3yat1s4i7isvxbiotv0lkupkbumxhcdjmmjqzrhjurgupai2tm3ywkts2ifvitnv1qt29xl01ej2pl6sgbeb6d0gtpcgn341gk5yf9z78p41ovm25vw6x93phqfmt8c3xvfna8i53x5gdtku6q5usmrgui8ymsp71xkoti7irxeb54fx70uz40n62mc6qg5pg6oik80s32mzfm03tfyi1ygl47jprqtr1cz8125fnbv112sz9xshzbe2cie3x22vtjge9mjnd95hcswapyrrimo1ai1x0fb3gcnphhv2niczgeqqto8ldz19m8kyt1uetav7sa9z5se68538o6lzpa3hx96nu64if58glafuk72o228eeu5pktocud95gn34irhjvhz\", \n\t\t\"productCode\": \"ssl94xyqzd10evk1zlv48hrjk4j8g3oksz3v9zeyrpbzgvgzhxxkhbnk8o61x3k\", \n\t\t\"quantity\": 472360.3307, \n\t\t\"unitPrice\": 5174432794.53, \n\t\t\"discountPercent\": 480.79, \n\t\t\"discountAmount\": 8831964987.43, \n\t\t\"taxPercent\": 352.44, \n\t\t\"taxAmount\": 7424896497.81, \n\t\t\"subtotal\": 2557559136.17, \n\t\t\"positionTotal\": 6758351496.51, \n\t\t\"expenseCategory\": \"htpkr6t33luk1dhuh3rq7rebj1xa5kkshgk2bye3w4785gx9smqvrkfsjggcowtl1v81ocem9n5lx6f43tv4i03r76oqrhiue9tesc8rxqhf435kr3zf8gdum8dy5rh\", \n\t\t\"notes\": \"Suscipit consequuntur sit minus quo sed magni distinctio asperiores optio. Ipsum ab enim repellendus tenetur neque quam harum rerum incidunt. Distinctio nulla qui saepe dignissimos sed. Inventore perferendis aliquam quasi iure aut. Est nisi consequatur qui. Commodi natus est.\"\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-positions/create",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-positions",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-positions/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-positions/paginate",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-positions",
+            "paginate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-positions/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-positions/get",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-positions",
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-position/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-position/find",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-position",
+            "find"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-position/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-position/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-position",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-position/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 53185733142759060000, \n\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"positionNumber\": 6398, \n\t\"description\": \"hqovvlgz7rwnf93uggm5s7ew4bxb8ameen82xpihwnu6mmx2t4wbdceytr9w6qpbica6uk00mh4jr3z26swed0cdqxohvvvl7avixjfm5e092j4wsoeixpya1dpc62grxx6dev0zzaeupf2xojjea56fwkoq3bwv3yhtsrmb8ul261ottani0tzhnrmusll2zpb65w0dwy19gspu85y3mikp46rtt921fb3o7up8zwxprt682edfm2imaeubtx1cx3ermhvih0lpw9vwjy6l7fwgn3ed50jaod2w776wbwei2ckd90rv93njcybmjk5hjalx2xakdc8b1pzl2fysgnyad5xxge991i1p44vk5wifw1vt1i6elbq3kmmqze2d5vg6jmsoz14ckdr1xf8gdekw1u8udekan5imx6fdr64zro6v50441kj62n4qqh6ywbhd2b3o1bgvq4ryrfo05per8u8eo1t56l5wywh2hp04u10zjiu0qj87eiiwm\", \n\t\"productCode\": \"v2h5v2h6kcqrp29nkzz2xc5yqxcojeigkhnzjjvp8nm8j6jop6jsg53n4q6i9dn\", \n\t\"quantity\": 477260.1767, \n\t\"unitPrice\": 6301633854.86, \n\t\"discountPercent\": 420.92, \n\t\"discountAmount\": 2474536467.85, \n\t\"taxPercent\": 986.47, \n\t\"taxAmount\": 7801538470.79, \n\t\"subtotal\": 2571441932.43, \n\t\"positionTotal\": 5557904542.47, \n\t\"expenseCategory\": \"qck90hb2kw8hioa6lnr6p337ie668qe9kpt8jr9h2pia1h9n7kx41kh1a6mbv6kcv52zc5l5umq9jigktxhgtvl5xnrnvo3ue6x0cwypp8iau86x4seivmlwo4kf9k5\", \n\t\"notes\": \"Recusandae deserunt perspiciatis voluptatibus at in. Non provident eligendi labore mollitia blanditiis excepturi. Veritatis ut ipsum pariatur commodi quis et dicta dolores enim. Dignissimos et ducimus ab incidunt. Non enim commodi accusamus hic. Hic et mollitia minus facere eum quibusdam quia repellat est.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-position/update",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-position",
+            "update"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-position/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-position/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-position",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/purchase-invoice-positions/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/purchase-invoice-positions/delete",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "purchase-invoice-positions",
+            "delete"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

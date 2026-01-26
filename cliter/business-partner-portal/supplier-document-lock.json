@@ -1,0 +1,589 @@
+{
+    "version": "0.0.1",
+    "files": [
+        {
+            "path": "src/@app/business-partner-portal/business-partner-portal.seed.ts",
+            "integrity": "sha1:9529b67fbed63eff95d2231a56bf5c980b2add09"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/create/business-partner-portal-create-supplier-document.command-handler.spec.ts",
+            "integrity": "sha1:3be90ec88b3682bc8848d1badbd16a47501bfbee"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/create/business-partner-portal-create-supplier-document.command-handler.ts",
+            "integrity": "sha1:e33ee0ae539039ddba5255cd2ac3f45ccd825e71"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/create/business-partner-portal-create-supplier-document.command.ts",
+            "integrity": "sha1:193c42fefb9801e0185527a6dfb07feed34df30e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/create/business-partner-portal-create-supplier-document.service.spec.ts",
+            "integrity": "sha1:96029285860bf546d12e71b48237de2e5eb052f8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/create/business-partner-portal-create-supplier-document.service.ts",
+            "integrity": "sha1:ede057bda0a6c4291e7ceac39ac5cb458afe8e6d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/delete/business-partner-portal-delete-supplier-document-by-id.command-handler.spec.ts",
+            "integrity": "sha1:8006e69d91a68f43cc92a027a824f275c2f49c95"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/delete/business-partner-portal-delete-supplier-document-by-id.command-handler.ts",
+            "integrity": "sha1:e3beb6dd595f414399239f85118c8ff3f5aaa7c2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/delete/business-partner-portal-delete-supplier-document-by-id.command.ts",
+            "integrity": "sha1:83d9103d511666066cfac62153b0b459151fcf4b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/delete/business-partner-portal-delete-supplier-document-by-id.service.spec.ts",
+            "integrity": "sha1:e883eeb39c187462af2bd8213a06107b167d791c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/delete/business-partner-portal-delete-supplier-document-by-id.service.ts",
+            "integrity": "sha1:55056a73dd1d6b5abe33434d43ba7f95493389ea"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-add-supplier-documents-context.event.ts",
+            "integrity": "sha1:89913f7e65b3f93a728c2f8d1203775a8329c288"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-created-supplier-document.event-handler.ts",
+            "integrity": "sha1:56d580697654bacfd630a8cdf19c4a4694cc9dce"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-created-supplier-document.event.ts",
+            "integrity": "sha1:ff7fefd2e6b790df878d65ee72e0e79c66ec2606"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-created-supplier-documents.event-handler.ts",
+            "integrity": "sha1:7a6c2563fa3c080f1f7853d812f8d0158877e762"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-created-supplier-documents.event.ts",
+            "integrity": "sha1:020a433e7f76a9bc65aaec18016d06105534a0a1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-deleted-supplier-document.event-handler.ts",
+            "integrity": "sha1:8b2674ebefe25fb6c68375cd57d5f58cc9312419"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-deleted-supplier-document.event.ts",
+            "integrity": "sha1:ffd6420e0403f0d92ecf72801d98dd431392dd21"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-updated-supplier-document.event-handler.ts",
+            "integrity": "sha1:d7957232809fdf4a474cec3f4e671fb8fde95d9f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/events/business-partner-portal-updated-supplier-document.event.ts",
+            "integrity": "sha1:07763f07951ae2cc059caf07676da4b12c96e0f2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document-by-id.query-handler.spec.ts",
+            "integrity": "sha1:86dba260305bedc7fce95c65072bca3edc764a4a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document-by-id.query-handler.ts",
+            "integrity": "sha1:197c1114c0469cb5460eb2e5dc54f7426a54fa32"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document-by-id.query.ts",
+            "integrity": "sha1:60b43840199fad9597160d41ee1029013570f688"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document-by-id.service.spec.ts",
+            "integrity": "sha1:c38fe773dafb07081ccfeea728d43c799367f0ce"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document-by-id.service.ts",
+            "integrity": "sha1:1c63988057ccd46de62f5e4ca7b79a059248390a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document.query-handler.spec.ts",
+            "integrity": "sha1:3a42baabbcbe94b256e735a04707416857e904ee"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document.query-handler.ts",
+            "integrity": "sha1:fdd0cc9a343650a6893138807f9c7e6fab368475"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document.query.ts",
+            "integrity": "sha1:7fb3595e8549eba84981a9f161c3912ed241e4b4"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document.service.spec.ts",
+            "integrity": "sha1:9848cb2e57d6be7cb1251ba4babe449ae36d55f0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/find/business-partner-portal-find-supplier-document.service.ts",
+            "integrity": "sha1:b2ff0c7389f0c9448a6a27589e87a02f7e71b39f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/get/business-partner-portal-get-supplier-documents.query-handler.spec.ts",
+            "integrity": "sha1:daa1673b4d0c92a4aff93e061ca78cf32463c84f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/get/business-partner-portal-get-supplier-documents.query-handler.ts",
+            "integrity": "sha1:0b76534898528515ce4ea0bb6a35449ebb9752c1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/get/business-partner-portal-get-supplier-documents.query.ts",
+            "integrity": "sha1:034094c2feae3119201db1981ceacb96795341b9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/get/business-partner-portal-get-supplier-documents.service.spec.ts",
+            "integrity": "sha1:380a32f85c96da7a9e527e9059369d509d2f240c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/get/business-partner-portal-get-supplier-documents.service.ts",
+            "integrity": "sha1:07483c01e8509b1bda1e8f3ea58c68cb21e7084b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/paginate/business-partner-portal-paginate-supplier-documents.query-handler.spec.ts",
+            "integrity": "sha1:04b688739e160ae900f7cfbd102bb18905926228"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/paginate/business-partner-portal-paginate-supplier-documents.query-handler.ts",
+            "integrity": "sha1:6dc0d96a76bf43c54acec32ec8df62f882ca5053"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/paginate/business-partner-portal-paginate-supplier-documents.query.ts",
+            "integrity": "sha1:fef32f948f9cdf73f380917e0e6e937282fce958"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/paginate/business-partner-portal-paginate-supplier-documents.service.spec.ts",
+            "integrity": "sha1:f83dcd1694a3ca72374b1a62432672d7e7163437"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/paginate/business-partner-portal-paginate-supplier-documents.service.ts",
+            "integrity": "sha1:6b2aaa1868b89a160a34a18fa4cce7e441015aa7"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/sagas/business-partner-portal-supplier-document.sagas.ts",
+            "integrity": "sha1:7c2e6b8bd8923f0e9edbf2da5967f3190acbceda"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/update/business-partner-portal-update-supplier-document-by-id.command-handler.spec.ts",
+            "integrity": "sha1:313c9ae4bf57a179aed1d1e6923459d58bf3cc3d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/update/business-partner-portal-update-supplier-document-by-id.command-handler.ts",
+            "integrity": "sha1:6264b24f6d0caba2afaf53f6e09035caf80230d8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/update/business-partner-portal-update-supplier-document-by-id.command.ts",
+            "integrity": "sha1:f5cc106ba5ebe3cb6f6182273aa7c5f0eeb5cfe6"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/update/business-partner-portal-update-supplier-document-by-id.service.spec.ts",
+            "integrity": "sha1:0c69a70c161fc09d00df2b4010e3fd72efafb5f0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/application/update/business-partner-portal-update-supplier-document-by-id.service.ts",
+            "integrity": "sha1:c2c8f48a003bd965e3d6308c2e67927215a774ad"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/business-partner-portal-supplier-document.aggregate.ts",
+            "integrity": "sha1:b9803b912ea405b4dcadb944991d6cf582cbe114"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/business-partner-portal-supplier-document.mapper.ts",
+            "integrity": "sha1:f37e7ea2b504cd1d03e1ada0857b32edc2144df1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/business-partner-portal-supplier-document.repository.ts",
+            "integrity": "sha1:d104181fcad1a73d128cb1ef9d84832096baccd9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/business-partner-portal-supplier-document.response.ts",
+            "integrity": "sha1:086942e3e6476a042ab65e7cdfead77f3a7a057c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/types/index.ts",
+            "integrity": "sha1:3f9b8f2e62263506df9df9a49205ad1ebcdd74fe"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/types/public-api.ts",
+            "integrity": "sha1:9bc750ec16f69215bc296ce12af8c51d70dd326d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/index.ts",
+            "integrity": "sha1:3f9b8f2e62263506df9df9a49205ad1ebcdd74fe"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/public-api.ts",
+            "integrity": "sha1:f263009a3a4f659d6c71b6c43f48f74ac841a84e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/index.ts",
+            "integrity": "sha1:1c36fd0ff6fc7d2c2f32274d3523637c26d0e35a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/infrastructure/mock/business-partner-portal-mock-supplier-document.data.ts",
+            "integrity": "sha1:0013b480cf20599286d9ce9739d169d56bfd1c9c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/infrastructure/mock/business-partner-portal-mock-supplier-document.repository.ts",
+            "integrity": "sha1:609fc4b873ca478fe4a5431898ab77bb936d16e9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/infrastructure/mock/business-partner-portal-mock-supplier-document.seeder.ts",
+            "integrity": "sha1:743a2c8427f9aad63bb5cf327913a087b7c2046a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/infrastructure/sequelize/business-partner-portal-sequelize-supplier-document.model.ts",
+            "integrity": "sha1:a1f4451ba24d2ed36ae3f4099c9019416309727d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/infrastructure/sequelize/business-partner-portal-sequelize-supplier-document.repository.ts",
+            "integrity": "sha1:32129e6542bb20750c4d03a18ecb62c9e0417314"
+        },
+        {
+            "path": "src/@api/business-partner-portal/business-partner-portal.seeder.ts",
+            "integrity": "sha1:68e1b574face2228e7741bd41a31a38e8eae74fa"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-id.ts",
+            "integrity": "sha1:94493f5f53b3028a5991ae7a3c2709e4815222e5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-row-id.ts",
+            "integrity": "sha1:d9e500301549995b9db877066ef5841be0c0e3c7"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-business-partner-id.ts",
+            "integrity": "sha1:3072bb3f7bf2f439fde0ad2b872fc5e5c05df6a9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-document-type.ts",
+            "integrity": "sha1:7cfea357905ca2cf22b2ab42de3f6d9e8f7fd1b2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-status.ts",
+            "integrity": "sha1:ead8c526b83a33902bbfd02c6b983a08a1a77aa4"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-document-number.ts",
+            "integrity": "sha1:25b3c2512475e9a27dc959450cb8c6c43aad1cad"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-file.ts",
+            "integrity": "sha1:ee5df37fc0620cabc4fdaede530152e229f94879"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-file-hash.ts",
+            "integrity": "sha1:790569046375be9b747451bd2537b29128c26a24"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-supplier-invoice-number.ts",
+            "integrity": "sha1:cd7b083edfec5ca5fbdba773f9c18a50c1e9deee"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-supplier-invoice-amount.ts",
+            "integrity": "sha1:799095339e651f46f96f6d3eda766c21002eea2b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-supplier-invoice-date.ts",
+            "integrity": "sha1:bfb8cf4fa7eee4cf3ba258f3c5cc52c2ad887b8a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-currency-code.ts",
+            "integrity": "sha1:207d6537966ee63c0472c7d439a1544c18186453"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-external-document-id.ts",
+            "integrity": "sha1:11f78e96c86dd68159c2a74ff204ca508e102313"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-external-company-code.ts",
+            "integrity": "sha1:fe890d8f0fbb9e63bf73fb0a64733291eb1f0d2e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-external-processing-status.ts",
+            "integrity": "sha1:1766de4f442a251210a28b129155918b9f0db188"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-purchase-invoice-header-id.ts",
+            "integrity": "sha1:3773b900a7b14a91b0f545e529aa580f54c6bae5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-ocr-confidence-score.ts",
+            "integrity": "sha1:c964c2191ac2c2d4ed1fe6b034dcf2c08ef141be"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-sent-for-processing-at.ts",
+            "integrity": "sha1:b644522d85a485d9f3f11eb94f8e4ffb88898914"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-ocr-data.ts",
+            "integrity": "sha1:f2cbfdec99701f33a21baaadebe1dfa963dc69f8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-linked-at.ts",
+            "integrity": "sha1:8a7c7045199fee7048c72e907f452f9a93c2df9b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-processed-at.ts",
+            "integrity": "sha1:0dff87a4b10097da3369c4ed095191c057d9b2cb"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-retry-count.ts",
+            "integrity": "sha1:0c1c308c536d008ca9d72589fe4eef35c1dabcb0"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-error-code.ts",
+            "integrity": "sha1:676f416bfd724a39264a65de73af39f931c8651f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-last-retry-at.ts",
+            "integrity": "sha1:97ae3faad24b264daf5affb81773df62643c99cd"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-notes.ts",
+            "integrity": "sha1:9148f98be505f16c028c3dccc31d6ba92dbe3381"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-error-message.ts",
+            "integrity": "sha1:4effb5a0b46376e0ac377a949be0d4ed595aa876"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-is-archived.ts",
+            "integrity": "sha1:9b808aae96f140501b75f2ea23bd9086f2935c52"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-supplier-notes.ts",
+            "integrity": "sha1:d9a8d4c340f88b4e68aaa1040670e770a32f7eff"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-created-at.ts",
+            "integrity": "sha1:3a1ce8fa74dcb978f402bb7de5c582960ba3ee67"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-updated-at.ts",
+            "integrity": "sha1:3457332e11ec9c0a874741169b7d1508dbfbebc7"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/types/business-partner-portal-supplier-document-status.enum.ts",
+            "integrity": "sha1:358e2c3ec9110aaba6d4882bf71835addf49b668"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/value-objects/business-partner-portal-supplier-document-deleted-at.ts",
+            "integrity": "sha1:f88f46efe2dac21577d95cee537e6a505b126bcb"
+        },
+        {
+            "path": "src/@app/business-partner-portal/supplier-document/domain/types/business-partner-portal-supplier-document-document-type.enum.ts",
+            "integrity": "sha1:955ad1c82627adf00c11a67d5a58e7cb5afcef54"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-create-supplier-document.controller.spec.ts",
+            "integrity": "sha1:5029ecf720c2d6385ac4d629489192efcd40d056"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-create-supplier-document.controller.ts",
+            "integrity": "sha1:bbbf51cf83b138c240f88c89fe5408971e74c2e7"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-delete-supplier-document-by-id.controller.spec.ts",
+            "integrity": "sha1:b38d06870390886a7226f968bd3139551d3fb104"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-delete-supplier-document-by-id.controller.ts",
+            "integrity": "sha1:3508f996411a2317d37f4b7d96be3366c959a770"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-find-supplier-document-by-id.controller.spec.ts",
+            "integrity": "sha1:aacdca27b83014d17c453fe30e3df0aa6f032b69"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-find-supplier-document-by-id.controller.ts",
+            "integrity": "sha1:8b8eb36eb0901b16d887d688ae39975aca809757"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-find-supplier-document.controller.spec.ts",
+            "integrity": "sha1:da779e7fb2e45b12ada7871337297ec1043529a1"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-find-supplier-document.controller.ts",
+            "integrity": "sha1:be12bdbaa480faf89d4917966d89822d9c53564e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-get-supplier-documents.controller.spec.ts",
+            "integrity": "sha1:2530f0ef4a25b1f83bfc741dcfb444ec7e39049a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-get-supplier-documents.controller.ts",
+            "integrity": "sha1:e3d3406ebd551a7f5c2831a8e244ce99a4c78084"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-paginate-supplier-documents.controller.spec.ts",
+            "integrity": "sha1:70195f8a235ba6dfc13787cae6679adb8c1eeb41"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-paginate-supplier-documents.controller.ts",
+            "integrity": "sha1:90a8f583204e5c98aa40a81b416472876fa4880b"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-update-supplier-document-by-id.controller.spec.ts",
+            "integrity": "sha1:0d0eddc8f34e8e400a1223cb13a76e665a9cfc64"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/controllers/business-partner-portal-update-supplier-document-by-id.controller.ts",
+            "integrity": "sha1:2b2e2d508cc7784988bf637b686ca3d256bd6512"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/business-partner-portal-supplier-document.dto.ts",
+            "integrity": "sha1:bdba3c5581e57fe56b2e60e54a85651b31b65726"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/business-partner-portal-create-supplier-document.dto.ts",
+            "integrity": "sha1:329b42a1676551dca1cfe2e04ce9d2d9a7fa1735"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/business-partner-portal-update-supplier-document-by-id.dto.ts",
+            "integrity": "sha1:cdc463e67a516194229bc5d9e901a234c80d9855"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/business-partner-portal-update-supplier-documents.dto.ts",
+            "integrity": "sha1:19c3c9c5f673bb1a57c24605a5df1b6fa6f4332a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/index.ts",
+            "integrity": "sha1:3f9b8f2e62263506df9df9a49205ad1ebcdd74fe"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/dto/public-api.ts",
+            "integrity": "sha1:a911b5ac175cd1d25c10c20c5c2d8b18cca94e7c"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/graphql/business-partner-portal-supplier-document.graphql",
+            "integrity": "sha1:9019f40478d1ae5394dcaf1ba32fcbfa13e65539"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-create-supplier-document.handler.spec.ts",
+            "integrity": "sha1:2ee8e49dec09d127c57d88710e92c2fc0ae2261e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-create-supplier-document.handler.ts",
+            "integrity": "sha1:8ca1eea8e4e09cf14104e14460a354614e078433"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-delete-supplier-document-by-id.handler.spec.ts",
+            "integrity": "sha1:4bacf5d207dc37cda34cba7c6e9f0f16413446df"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-delete-supplier-document-by-id.handler.ts",
+            "integrity": "sha1:244ea377b58909e8293d89101f93e8a159c7c3ae"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-find-supplier-document-by-id.handler.spec.ts",
+            "integrity": "sha1:a9b2b8ede37d7508e77b050ba72411b22cabb008"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-find-supplier-document-by-id.handler.ts",
+            "integrity": "sha1:f1d16bd0ccacb716b12f6ce6b1317754a6b289b6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-find-supplier-document.handler.spec.ts",
+            "integrity": "sha1:9a90acb9dfd87ee334d22e19a1781fb9c73c1537"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-find-supplier-document.handler.ts",
+            "integrity": "sha1:a41a2f630608747f00ecb3b1afb5603c5264e668"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-get-supplier-documents.handler.spec.ts",
+            "integrity": "sha1:d0301eaf6a6a18f2aea54087b80167cd2295f068"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-get-supplier-documents.handler.ts",
+            "integrity": "sha1:96447b2e254778374eef19976794f7be413be861"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-paginate-supplier-documents.handler.spec.ts",
+            "integrity": "sha1:deb37d6491b5254fb0f49dcb7f566aa477031214"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-paginate-supplier-documents.handler.ts",
+            "integrity": "sha1:c106aea89abb58c383d373678a65ba9d11afd901"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-update-supplier-document-by-id.handler.spec.ts",
+            "integrity": "sha1:938aa28125560e677e79f8b5f05ccf142f3684ee"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/handlers/business-partner-portal-update-supplier-document-by-id.handler.ts",
+            "integrity": "sha1:b5278908344f60df514ea1779a00deeb92c59981"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/index.ts",
+            "integrity": "sha1:1b2a2c6704089a7c4ff2bb5d4a401db5d3965a36"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-create-supplier-document.resolver.spec.ts",
+            "integrity": "sha1:d645e0f8742cae9a84c83b8257c6b8e784515b96"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-create-supplier-document.resolver.ts",
+            "integrity": "sha1:851750640dea46eb1926671744a6a21a83e7ad07"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-delete-supplier-document-by-id.resolver.spec.ts",
+            "integrity": "sha1:a55b2eb46d197367769efac55289cf6c5ff5a19c"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-delete-supplier-document-by-id.resolver.ts",
+            "integrity": "sha1:a7f320f296c02c8dd8b9981e57eb1b497c527c7f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-find-supplier-document-by-id.resolver.spec.ts",
+            "integrity": "sha1:842d5d6daf5db4d5173898d1d6e405c1fb96e510"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-find-supplier-document-by-id.resolver.ts",
+            "integrity": "sha1:d9f561a32101c68e3c1862947a971b109bd5c74b"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-find-supplier-document.resolver.spec.ts",
+            "integrity": "sha1:745b4fd1b2683a9df02c5042a414e0769dc81f93"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-find-supplier-document.resolver.ts",
+            "integrity": "sha1:10b7621fcc3c815c7792ca042cc1cf85486ece00"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-get-supplier-documents.resolver.spec.ts",
+            "integrity": "sha1:653fce67cf7fc0621f784c532a2cc4e61c67486f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-get-supplier-documents.resolver.ts",
+            "integrity": "sha1:1dc65b6dce5265d485438a699986cc3e4c11e4ca"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-paginate-supplier-documents.resolver.spec.ts",
+            "integrity": "sha1:5e46c36476dffee70da9aef5a8a312002475c08c"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-paginate-supplier-documents.resolver.ts",
+            "integrity": "sha1:9f0efac43315f5ec00f3ead8fa43988227c8da2f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-update-supplier-document-by-id.resolver.spec.ts",
+            "integrity": "sha1:d5484c11cc6c808e311af347d350cea11e40dd17"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/resolvers/business-partner-portal-update-supplier-document-by-id.resolver.ts",
+            "integrity": "sha1:7c29206a3967fe8fce3fdc27778967c08047bdc1"
+        },
+        {
+            "path": "src/@api/business-partner-portal/supplier-document/seeder/business-partner-portal-supplier-document.seeder.ts",
+            "integrity": "sha1:67005a01829637dd0f1b04fe31300e37e6124e90"
+        },
+        {
+            "path": "postman/business-partner-portal/business-partner-portal.supplier-document.postman.json",
+            "integrity": "sha1:fc7b5b102a5b105bb9a8cf07be86e36816035f87"
+        }
+    ]
+}

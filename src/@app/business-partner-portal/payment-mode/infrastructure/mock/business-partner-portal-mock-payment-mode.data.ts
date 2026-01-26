@@ -1,0 +1,348 @@
+/**
+ * @aurora-generated
+ * @source cliter/business-partner-portal/payment-mode.aurora.yaml
+ */
+import { BusinessPartnerPortalPaymentModeType } from '@api/graphql';
+
+export const businessPartnerPortalMockPaymentModeData: any[] = [
+  {
+    id: 'fec97da3-7594-49b6-a11a-a4052fc65b2d',
+    rowId: 60556397001687110000,
+    externalId:
+      'rodn78j37atki2cquxp2jarz1dwnmxssqolgvfwudand654tma6vf6ypwnt832e',
+    code: 'r94ua97s9cioxkqp10u9ksu9b954fmdeeeqpye2ee54fz2pfxupyu3hqanhka23',
+    name: 'Small Rubber Car',
+    description:
+      'Quia rem et sit ea aut veniam et ipsam quam. Soluta a eum. Optio facere voluptatem in voluptatem soluta alias quo possimus ut. Fugiat facere quo voluptas amet possimus ut ad. Voluptatem distinctio et atque quia facere.',
+    type: BusinessPartnerPortalPaymentModeType.WIRE,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: false,
+    sort: 3229,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '739bc060-ca52-4fd9-98f5-7d694727197d',
+    rowId: 76244921331211300000,
+    externalId:
+      'fi1q1gzwzmwjk1wzs8nciwf6aco9izjxybi5c0tzuy9cdf18egb4wjtp0yjax77',
+    code: 'y8nco8qhd0oc2xmly4knsko3vuk6q0kp9vypptrro56rk69mb6mh3oi5xp36k5g',
+    name: 'Intelligent Concrete Keyboard',
+    description:
+      'Aut error vero. Aut dolorem quia fuga. Doloremque repellendus enim. Dolor quae sequi. Deserunt ex nobis asperiores impedit velit iure eos.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: false,
+    sort: 9297,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'd38e54e9-a5ec-4b7c-b6be-9e876b4d9f3c',
+    rowId: 88537704175814840000,
+    externalId:
+      'pef5sv3m8fdqf9pn151w36s11oq7hfsodhvbrg2tba5pk70r69hborfp9m822dp',
+    code: 'ekaer5a8r12ar9zooehyxk18392p1o2zdhyu2dgrd3y7lus5uehimn8uyyw9r1f',
+    name: 'Gorgeous Rubber Salad',
+    description:
+      'Reprehenderit illum minima delectus. Et omnis dolor. Accusamus perferendis saepe. Et et aut esse.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 5277,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '775af5db-e313-4dfc-8edb-ef5a018fd6ce',
+    rowId: 23159602810951950000,
+    externalId:
+      'vyldc2po8hc63gajffyif1k5bx0hrvspzsresf3e04tfy95xa1et73x0w18yf7l',
+    code: '45xtwsezh982jxkv6vf8rmawvwl0girfqtyhldibujqev4hw6xz4c1tm9siwyfm',
+    name: 'Sleek Frozen Sausages',
+    description:
+      'Magnam eius quam tempora molestias nesciunt voluptate animi suscipit. Aut et id optio. Id quia et laboriosam quia. Exercitationem ea magni ratione.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: true,
+    sort: 6090,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '6076c1b5-af97-42c5-a0da-a568260a091a',
+    rowId: 15118244497945465000,
+    externalId:
+      'pvf4gozyo40p7ow9pvudi0e5kkqqns2fnqiy4i56dil5gcurnvfhof49kta6aw4',
+    code: 'xm4198sonzh7sm8x0wrqwsv26bgaq8ux1qxuc1mg6c72a872q6rbopv49fjyrem',
+    name: 'Practical Soft Pants',
+    description:
+      'Ipsum enim nesciunt quo aut velit. Facere aut dignissimos. Consequatur cum officia. Officia occaecati blanditiis quas harum non vero. Et natus occaecati et velit tenetur omnis in. Sapiente ut provident consequatur dolores dolores sed beatae.',
+    type: BusinessPartnerPortalPaymentModeType.CASH,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 8265,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '090bab4a-4e4b-48a4-823c-65c1426ddda6',
+    rowId: 88492766762136550000,
+    externalId:
+      'rdnkj1tvjfvb8z9v2btomf4a6lcla9ql1mn9wxuyt4tatnn9kk1csqguwxc50w0',
+    code: 'cm9numri57usymaeb272xbrkzpla1mhu1623m9cknn3pq9ae5tgsi4krnw5ishx',
+    name: 'Unbranded Metal Chicken',
+    description:
+      'Tenetur non perferendis dignissimos vel. Dolorum at sit id ab officiis aliquam voluptatem voluptate. Rerum unde cum. Sed dicta vero laborum hic magnam earum impedit necessitatibus. Est sit possimus rerum dolor.',
+    type: BusinessPartnerPortalPaymentModeType.WIRE,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 9922,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '80fb93c5-e15b-4327-bcfd-c107125a50bb',
+    rowId: 56610869257441360000,
+    externalId:
+      'fr9nr0qk5329ie3tk7vuiqm7icyq6tz3whgx7tqscgzerq64fecluw8d243j4k4',
+    code: 'wlaw79ifuz5ugp7f3omftceb2508liycw6p5ctrca50dcdog4gj4g1uzgion5xb',
+    name: 'Sleek Fresh Chicken',
+    description:
+      'Omnis omnis ullam. Adipisci non aliquid velit nesciunt. Similique distinctio libero recusandae corrupti doloremque. Cum eum blanditiis ab nihil odit reiciendis dolores. Doloribus inventore non nesciunt rem laboriosam corrupti.',
+    type: BusinessPartnerPortalPaymentModeType.DIGITAL_WALLET,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 9642,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'aebe0bba-7a51-4296-961e-8bc4e0e2203e',
+    rowId: 76618300455055130000,
+    externalId:
+      't9sfxk1ciovn3mwzlreaupa3c489i5git3kg3f6xy74kyiv3mneb3zl2491twjn',
+    code: '9netrygsrlvif9v4ufwwxj11nc5osz90nh22znytm5fk7b1akszv54bki2nnpo9',
+    name: 'Rustic Metal Sausages',
+    description:
+      'Labore quos facilis itaque. Assumenda expedita minus aut a. Vel ut nam. Laboriosam commodi a molestiae ea consequatur architecto. Id sint quas expedita et voluptates nulla et architecto incidunt. Libero unde nemo est ut asperiores hic cumque.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: true,
+    sort: 7707,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '99302031-c531-45cc-ae8f-48e6375d8ca3',
+    rowId: 38219571728634135000,
+    externalId:
+      'cameynrvgyfwd40kpxxgvbpopftlwwxdwz4xf4zbqr5uoz39tkke6d4buku4vbr',
+    code: 'g35pse78ngt4k5pvevqdjda6ht6b6hctkckfaq6dqf1m5xxm3wk4gbowi37xdwl',
+    name: 'Generic Rubber Bike',
+    description:
+      'Doloremque repellendus dolore qui. Rem et iure sit error autem. Perspiciatis qui id in fugiat illum. Quam sint nemo possimus omnis ipsam.',
+    type: BusinessPartnerPortalPaymentModeType.WIRE,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: true,
+    sort: 8530,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'c9524d47-b593-4a45-979b-b1dbc59e8b53',
+    rowId: 73276838335438590000,
+    externalId:
+      'hlono5g66b45wej4wzigavespe1fg6dbrz9svgo5nt8c0noae6y8mq08fyjd0bw',
+    code: 'qc26jb096gnodx64bznuxbgd8rv72qz3xg59t6jx203qaeh5wfj2vndnt116w61',
+    name: 'Generic Metal Soap',
+    description:
+      'Porro ab doloribus quam quis eos molestiae quas. Ut facilis delectus officiis ut vero ut. Et placeat recusandae quia et voluptatem quae quod rerum ut. Aliquam laboriosam alias dolore voluptas quia aliquid impedit. Fuga aut dolor eos. Nostrum velit et quae.',
+    type: BusinessPartnerPortalPaymentModeType.CARD,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: true,
+    sort: 8804,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'b9cb437f-280b-4cf0-9d74-16986138995a',
+    rowId: 94004773791573490000,
+    externalId:
+      '88krhqdnjm8e8gtp9zgur6cy5bci3j13j77qje43vg9ajtlrthv9z8c8u1g9jby',
+    code: 'ckhfezjabn4mv31kwbeqsdsj6ceby52ngaq51f9pflmnrxrhmkxsux2xt5gxhno',
+    name: 'Sleek Frozen Table',
+    description:
+      'Illum cum dolores et rem reprehenderit voluptatem velit. Quis hic temporibus sunt quia. Eos velit debitis quibusdam architecto voluptate suscipit eum. Ratione officia vero error eaque sint ab pariatur non unde. Animi adipisci dolore autem ullam.',
+    type: BusinessPartnerPortalPaymentModeType.DIRECT_DEBIT,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: false,
+    sort: 2129,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'ec1bac52-8c99-4d19-ac27-437b482bacd2',
+    rowId: 75733816691200280000,
+    externalId:
+      'fwxst270muvzm90skupptfc1kyj3u8urqc75hdb23iqhyi3qi74ljc8wtkpucfl',
+    code: '2psh0p7i8wxr0zngiu4lebbbv5ba2rpbiac0lhreotqo3ird53jb1v1pj8rkq5s',
+    name: 'Intelligent Granite Sausages',
+    description:
+      'Sit nostrum sed et. Aut quas dicta et sapiente ut. Et quo molestiae quia et modi.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: true,
+    sort: 6935,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'a4ec8caa-ff97-4ba1-9628-c6525e2063cc',
+    rowId: 60542407250432130000,
+    externalId:
+      'h15s5s2ndegclbhfrpngsalziirmeqmnykkpo5jaemk9465yuee5quz1ef3rijw',
+    code: '2n2ge69juoi8netc7nvfajo5jdsmrhh5g6qad4sqqkjydntvb0abd3wftjisiyi',
+    name: 'Awesome Fresh Cheese',
+    description:
+      'Animi aut quia consequuntur iure. Iure aut hic voluptas enim et. Ducimus et inventore odit.',
+    type: BusinessPartnerPortalPaymentModeType.WIRE,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: true,
+    sort: 4043,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'f08429e6-4459-44aa-b309-e0bff02a1cc0',
+    rowId: 46787399760108090000,
+    externalId:
+      'hl21rjyvsz2dwm8rq8cr3wa2to82v37z0b553n0pi7a5e9i5thahr43oif6tkha',
+    code: '61r6whgl73nsty3ulhh74xyb4ao3yvz0tautpj01dkhzn1n2mr9q7w269di4r82',
+    name: 'Awesome Rubber Fish',
+    description:
+      'Deserunt eum quia accusantium magnam adipisci vero. Sed neque aut ab quod dolores quas. Est autem ipsam voluptatem quos. Non facilis eum explicabo alias. Quia voluptates sed praesentium laboriosam molestias. Tenetur ullam laboriosam earum facere perferendis sit qui illo fuga.',
+    type: BusinessPartnerPortalPaymentModeType.DIGITAL_WALLET,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: true,
+    sort: 9692,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'b97b95b1-5cb1-437a-bdfd-2db252841f28',
+    rowId: 51838599891576726000,
+    externalId:
+      '1cvv36f3k924f9d877x2hds4bc1gmwb0sknreqc3o9e5gk2vhljj8gm8inhz2am',
+    code: '2uf2jzxajlrr6xqjv7uruzfhfcz42f2f8zxho92pod9l4xhi78kozwg1s1cxfbo',
+    name: 'Intelligent Wooden Shoes',
+    description:
+      'Aut quo omnis aspernatur sed omnis alias. Ratione nostrum accusantium dolorem est sit iste aut molestiae tempore. Voluptatum aut illum. Maxime itaque rerum veniam provident cupiditate fuga nesciunt nulla nisi.',
+    type: BusinessPartnerPortalPaymentModeType.OTHER,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 6102,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '723f7f79-a0a7-4c18-85ac-58119d0d1171',
+    rowId: 20475111555213582000,
+    externalId:
+      '1mrvti9mfhttuelmlmha4tfz2wx6tpeadvl4aegw6ktwb5ps2zlk1fagfdojf8x',
+    code: '6kh3a3lb12eqha3qklv1a8wzfj0vbuvwmcog0q2lzs36qlkw0109qnplrmin2wn',
+    name: 'Handmade Plastic Salad',
+    description:
+      'Molestiae saepe eius quia at. Molestias iste facilis inventore soluta velit eius. Aut reprehenderit cupiditate. Ea sint qui placeat nostrum possimus. Hic beatae ullam.',
+    type: BusinessPartnerPortalPaymentModeType.DIRECT_DEBIT,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 3905,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '57311ea7-83a8-458e-9e9e-2be7008ff4f4',
+    rowId: 96192583066403110000,
+    externalId:
+      'onxvbc5nca3bbilbrgdtzqbkkvc8yudmvl5qogw7zzbqj4htz07zlnovrb2ize6',
+    code: 'o21859t2w39i8h5qrkmuihtd9y6g9h6ijkuah2dvtewsmzv07xgv0i69jitfxxm',
+    name: 'Handcrafted Metal Shirt',
+    description:
+      'Sed aut modi. Et ut vitae est similique et ab dolore. Provident perferendis aut ea quia nulla pariatur cum. At sed aut repellendus. Nisi animi voluptas amet consectetur qui numquam quis.',
+    type: BusinessPartnerPortalPaymentModeType.CASH,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: false,
+    sort: 2938,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: '7e280ef1-36ce-40cc-8132-bcf151171b4f',
+    rowId: 90007544094413440000,
+    externalId:
+      'dctyj230bxrb19mrlcettj5ct335ab9rmqn7zlqw0tojfghfiun5ntj0v87py03',
+    code: 'mpyvwf4y50vz2eydcau02i9zmvod6xksv4ftftfppl3zqh64zqzt4g6g9ihxt98',
+    name: 'Ergonomic Fresh Car',
+    description:
+      'Maxime non harum velit doloribus ipsam molestias quia et. Fugit aut est quis voluptas. Praesentium deserunt illum rem earum ea qui et. Repellendus quia porro. Sunt placeat dolores ullam. Est hic voluptatem qui.',
+    type: BusinessPartnerPortalPaymentModeType.ELECTRONIC,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 7458,
+    isActive: false,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'f6634181-db9b-446c-91c5-587270018aac',
+    rowId: 74242857583522960000,
+    externalId:
+      'zjeyvh9znuwj8tq8ht82qba25i1ozai1kxx6dd82rtc8hgr2wiew6h5urxnf9no',
+    code: 'nsfl7xmd8d9sg81cn39krekfwvfqwcpju7qtv6ukvo19c1lzeps4qlp35ghay8m',
+    name: 'Rustic Soft Gloves',
+    description:
+      'Veritatis placeat velit rerum incidunt nobis voluptatem sed. Et suscipit quidem magnam adipisci modi voluptatem ratione illo praesentium. Non nemo illo quasi. Adipisci modi et quo molestiae quaerat. Quasi saepe tenetur velit vitae sapiente fugit est.',
+    type: BusinessPartnerPortalPaymentModeType.DIGITAL_WALLET,
+    isAccountNumberRequired: false,
+    isRoutingInfoRequired: true,
+    isRecurringSupported: false,
+    sort: 4364,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+  {
+    id: 'a50a562c-38b5-4ab2-854c-6cdf0ea9669d',
+    rowId: 24534874711045310000,
+    externalId:
+      'xuf6v3dzfg09xmogyxu11bl57ggewo9f4gksavd40srx3h49885kmwetpr5h8ym',
+    code: 'iwair4cbfrgxvubww9rb1ui03tjto00gh9urx3cldqkd2kwml5usoz7032b1aob',
+    name: 'Fantastic Rubber Table',
+    description:
+      'Beatae placeat sed aspernatur earum tempore sapiente eum et. Ducimus ullam illum corporis pariatur et soluta architecto atque. Iusto nihil beatae et. Est facere dignissimos minus reprehenderit. Mollitia dolorum ex facere. Consequatur vero illum repudiandae cum.',
+    type: BusinessPartnerPortalPaymentModeType.DIGITAL_WALLET,
+    isAccountNumberRequired: true,
+    isRoutingInfoRequired: false,
+    isRecurringSupported: false,
+    sort: 4684,
+    isActive: true,
+    meta: { foo: 'bar' },
+  },
+];

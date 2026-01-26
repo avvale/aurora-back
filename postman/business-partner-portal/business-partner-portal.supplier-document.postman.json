@@ -1,0 +1,480 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/supplier-document",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreateSupplierDocument",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreateSupplierDocumentInput!)\n{\n\tbusinessPartnerPortalCreateSupplierDocument (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tbusinessPartnerId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tpurchaseInvoiceHeaderId\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 58989333803750750000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"documentNumber\": \"dhte3ym6x2tzjdmmlqhcn9taocrkqh5msnz5w5p95g42l4silpurj6ml8njza8w\", \n\t\t\"documentType\": 'CREDIT_NOTE', \n\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"0im1n8iq3erjki8rvmzivv412rnn1uj017qynb1wp0g2h4tocf4rb2uglhv7jvo\", \n\t\t\"supplierInvoiceNumber\": \"tyz7qjol6sqiyfhc6nc9q2apk0o4t8ps127100pxp36u6nige6dpxgp07b64fy4\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 7805930019.81, \n\t\t\"currencyCode\": \"t8q\", \n\t\t\"externalDocumentId\": \"dlz0jhoqg0feal1ukxd9mpb77aoigd7mx9s1d6ipninpwor7ic16lak01f8ya8i\", \n\t\t\"externalCompanyCode\": \"v5ixrycfnwpe5tk\", \n\t\t\"externalProcessingStatus\": \"xqqu8gzlo43lqoe8tlid16n958sjgxh4w0r0h7iefupwdd6rs2x7ntlts1v35q6\", \n\t\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"ocrConfidenceScore\": 889.78, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-25 23:35:47\", \n\t\t\"processedAt\": \"2026-01-26 02:08:53\", \n\t\t\"linkedAt\": \"2026-01-26 03:02:56\", \n\t\t\"errorCode\": \"pt9gz0dt5q32zgdfcbvqahe3a5z8igao5s6ysy53sstb14xoaleysivhvcgf0in\", \n\t\t\"errorMessage\": \"Iusto at quod delectus est beatae dolor vitae. Dicta deleniti quidem ut. Beatae odio officia sed. Qui qui voluptas sint ducimus in id.\", \n\t\t\"retryCount\": 2318, \n\t\t\"lastRetryAt\": \"2026-01-26 15:54:56\", \n\t\t\"notes\": \"Id laboriosam ut. Repellat alias nam molestiae vel mollitia aut ad debitis qui. Similique mollitia et rem et similique voluptatem qui. Dolorem vel assumenda aut exercitationem odit et maiores. Cumque quam est exercitationem perspiciatis voluptas recusandae voluptas non ut.\", \n\t\t\"supplierNotes\": \"Vel dolorem autem perferendis. Tenetur culpa tempore delectus. Nulla explicabo quasi vero. Cupiditate maiores numquam. Quis ut culpa modi.\", \n\t\t\"isArchived\": true\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreateSupplierDocuments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreateSupplierDocumentInput]!)\n{\n\tbusinessPartnerPortalCreateSupplierDocuments (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"e469f9e8-9ad0-4cef-a0ac-295ebe3e2c96\", \n\t\t\t\"rowId\": 52422543263224310000, \n\t\t\t\"businessPartnerId\": \"e5509797-cd23-4a30-b851-c0663134b747\", \n\t\t\t\"documentNumber\": \"mw2yuqrb8nock7fejkhqaop5tbrenvzrfhs9vudlaspbfrsims4wqaj65nghyad\", \n\t\t\t\"documentType\": 'PROFORMA', \n\t\t\t\"status\": 'REJECTED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"npuecrw8u8zl3frtanfe9a2br9yakxyp36oo39brylm0admc0d7fufi76ikh99y\", \n\t\t\t\"supplierInvoiceNumber\": \"yjchk3e3vbjcetrndhngllt0fd8fvq9oraab968j4al18j6u8nl6nonqy8wzzr2\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 7404356946.63, \n\t\t\t\"currencyCode\": \"4xg\", \n\t\t\t\"externalDocumentId\": \"4k6hiuwhqqwca7e8rq180tkd4xeafaut1zat34xtnyd86xb20flz1umc3uld35f\", \n\t\t\t\"externalCompanyCode\": \"vkx5rg6xzbc26gz\", \n\t\t\t\"externalProcessingStatus\": \"fzapoj668xvabapfmd7baxvf2vem12jash0c9dzu8rk5xtmf72ogsyze72uwbc4\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"120c5738-3f4b-4170-925a-509169f3fc0e\", \n\t\t\t\"ocrConfidenceScore\": 824.62, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 03:00:29\", \n\t\t\t\"processedAt\": \"2026-01-26 08:25:38\", \n\t\t\t\"linkedAt\": \"2026-01-26 17:45:53\", \n\t\t\t\"errorCode\": \"wml2pwywfpjrdtax0iqvzew19w13vlpxzkpkzx70eh6d7uyk9x3qtqxtlm0fj69\", \n\t\t\t\"errorMessage\": \"Officia magni sit corporis delectus aperiam eum. Non animi optio. Minus inventore iusto distinctio harum dignissimos sint nesciunt. Hic veniam qui at quia eum.\", \n\t\t\t\"retryCount\": 5786, \n\t\t\t\"lastRetryAt\": \"2026-01-26 08:59:26\", \n\t\t\t\"notes\": \"Officia enim quo ab aut nemo deleniti repellat quisquam eos. Minima id eum dolorem sed debitis. Aliquam repellendus et aut et reiciendis ut id placeat distinctio. Natus sed veniam velit facere dolores. Eligendi ut autem sapiente quod. Ut nam corrupti doloribus exercitationem ab est officiis a dolor.\", \n\t\t\t\"supplierNotes\": \"Sed voluptatum id enim est accusamus minus omnis. Blanditiis quasi deserunt et facere. Sit assumenda dolore repellat suscipit earum rem. Sed ea hic consectetur iste et quia ipsa commodi.\", \n\t\t\t\"isArchived\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f4885977-f914-43f3-aa75-a4aeed6f4032\", \n\t\t\t\"rowId\": 28468308986827407000, \n\t\t\t\"businessPartnerId\": \"247f4ace-3d0e-47cc-aebf-27592891f4d0\", \n\t\t\t\"documentNumber\": \"19d2uvsp89afu426eck5tde5ufvsydwb65jdcdl0qzgbyrfj2r3g0svo7724mgk\", \n\t\t\t\"documentType\": 'PROFORMA', \n\t\t\t\"status\": 'PROCESSED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"e97jp9799s4645t9218vveutxyhszgdx5o9mmepl50ivwdyd3my709vre26ikhv\", \n\t\t\t\"supplierInvoiceNumber\": \"ykb0zce2uxs5ak4cwxy1ivoq9b3azjf7tumo9am63yahhftd47rpxev2b6whcz7\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 5893053704.16, \n\t\t\t\"currencyCode\": \"8p3\", \n\t\t\t\"externalDocumentId\": \"zis4pjmz5th4peks32bwqermliap53wbwyrlr8vazcjhslpv3so3knewfvdt38l\", \n\t\t\t\"externalCompanyCode\": \"bklir0x7gjkhb1j\", \n\t\t\t\"externalProcessingStatus\": \"tpo3y778mksuvk3jdmju3l0fyl0vt0bipthsw4l1mzxa4zplc1hu6mxmtaag2js\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"896ba50a-1717-4e76-92e2-447f1435b191\", \n\t\t\t\"ocrConfidenceScore\": 872.42, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 12:44:13\", \n\t\t\t\"processedAt\": \"2026-01-26 04:30:45\", \n\t\t\t\"linkedAt\": \"2026-01-26 19:03:21\", \n\t\t\t\"errorCode\": \"8fswt9plgrgqotog7xaqkg98nvvhd36gyrgvl77vp5qmzn541d1evo0afd169j1\", \n\t\t\t\"errorMessage\": \"Est ullam inventore dignissimos magni dignissimos rerum. Sapiente sunt laborum illum fugit harum. Velit sapiente officia quia ad rem alias dolor accusantium.\", \n\t\t\t\"retryCount\": 6407, \n\t\t\t\"lastRetryAt\": \"2026-01-26 11:09:08\", \n\t\t\t\"notes\": \"Vel nobis reprehenderit qui tenetur et nesciunt eos. Et consequuntur consequatur nam. Cumque consequatur necessitatibus sunt nesciunt officiis et nobis. Natus mollitia quia est. Non illo inventore porro.\", \n\t\t\t\"supplierNotes\": \"Rerum enim accusamus. Et molestiae quis repudiandae eos ex impedit ut officiis. Ad et saepe ullam et vel ut quaerat explicabo. Deserunt molestiae ut id est eius tempore vero. Voluptatem officia voluptatem excepturi saepe expedita esse quibusdam rerum.\", \n\t\t\t\"isArchived\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"96c81e4f-dd7c-469d-9909-c68e346f6ece\", \n\t\t\t\"rowId\": 85814655722742220000, \n\t\t\t\"businessPartnerId\": \"6823a7ae-61d0-4599-9fcd-0b78f28bf374\", \n\t\t\t\"documentNumber\": \"shzislrl9csdngunp2a1owbulrmdcuxjn75xqe2krqeo81ddwzjzfucrky6wro7\", \n\t\t\t\"documentType\": 'INVOICE', \n\t\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"emzd8e943139xue35f73sxj80t6tibpkh3bbhp1x8dxt9aa1whi33jb5sctjcv9\", \n\t\t\t\"supplierInvoiceNumber\": \"2gk4nb4x0pg9jvh9cp4aylsyq9ef1he5mo9v354rwohno8onk21bbbbyli0z2ed\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 5381493452.16, \n\t\t\t\"currencyCode\": \"mxv\", \n\t\t\t\"externalDocumentId\": \"ylcrrkw4zu87d4cujk4cdnlitjjjlwtuhkak4kevnt5kuyutxu6kp4e8ijdwt7q\", \n\t\t\t\"externalCompanyCode\": \"7bgv5mceb8pbd1l\", \n\t\t\t\"externalProcessingStatus\": \"6iwqv9fcu88nhctcu5gqaaw719a2g0ssd8s5z9xztibubcrk6x6puwza5gqsufb\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"4958f1d7-801c-4498-b092-c0274ebc3cb7\", \n\t\t\t\"ocrConfidenceScore\": 283.56, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 02:21:11\", \n\t\t\t\"processedAt\": \"2026-01-26 15:40:06\", \n\t\t\t\"linkedAt\": \"2026-01-26 04:35:09\", \n\t\t\t\"errorCode\": \"b8hfkomu88g5acdspxn3qjvfs3w8hh4gpqiudl1fpw54vcp5vkjij085t0c9b8g\", \n\t\t\t\"errorMessage\": \"Quibusdam excepturi hic ab excepturi accusamus. Harum eum alias et consequatur id maiores eveniet ipsa. Porro minima omnis voluptates dolor reprehenderit voluptate sit laborum. Autem repudiandae veniam quod esse recusandae.\", \n\t\t\t\"retryCount\": 4327, \n\t\t\t\"lastRetryAt\": \"2026-01-26 14:52:52\", \n\t\t\t\"notes\": \"Provident consequatur vitae maiores commodi qui fuga fugiat perspiciatis aut. Eius blanditiis natus veritatis repellat expedita ducimus. Et inventore dolor. Culpa qui odio est. Debitis magnam dignissimos fugiat et sed veniam dolore iure dignissimos.\", \n\t\t\t\"supplierNotes\": \"Voluptas tempora tenetur omnis qui quod accusamus assumenda. Quia dolorum atque corrupti delectus nemo. Commodi ducimus eligendi quasi omnis. Saepe aspernatur cumque aut odio itaque tenetur consequatur quidem velit. Nesciunt nihil et unde inventore amet ut. Adipisci ab ut aperiam sequi.\", \n\t\t\t\"isArchived\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f6b49b1b-21ab-458f-9daf-ed783ffbdd91\", \n\t\t\t\"rowId\": 47202278799711810000, \n\t\t\t\"businessPartnerId\": \"9b810ce6-e5ad-4f73-9fbd-6c38dd19bd3e\", \n\t\t\t\"documentNumber\": \"nwhalbemp3uokljoqxhx2o0gybnxqjjkhd6qtsrc91bs4v179g0ohay84bepq06\", \n\t\t\t\"documentType\": 'PROFORMA', \n\t\t\t\"status\": 'VALIDATING', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"e1wspfg8vz994y91j8kwxxokqgwambbhh7psfajkfevdx74gpxfixtdzwbj90y3\", \n\t\t\t\"supplierInvoiceNumber\": \"5vwomx4auq3pdmmdd4y2yg1g70ixcosmvg3fjo06q5gtpdhd6lobh2x8n8y14k7\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 1953710022.11, \n\t\t\t\"currencyCode\": \"tb7\", \n\t\t\t\"externalDocumentId\": \"2ahm2ool3loclpzqgxhvjcv7toc39s7y7zdqosq77m9uqnpkgt6o0a4xxyqf72p\", \n\t\t\t\"externalCompanyCode\": \"7a8kaoqjz3rmv41\", \n\t\t\t\"externalProcessingStatus\": \"1jzopli5f7b1r85efhg83dkoea90dtz928gjih135g9cd1g5oqciaweaksayj52\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"f1b461c7-50c6-4b2a-8db3-e8106a7b11a1\", \n\t\t\t\"ocrConfidenceScore\": 141.58, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 06:30:27\", \n\t\t\t\"processedAt\": \"2026-01-25 22:33:52\", \n\t\t\t\"linkedAt\": \"2026-01-26 01:18:50\", \n\t\t\t\"errorCode\": \"d23ux7ybefioqfr5tjix5t7ui9bhamvl2f0ain6592ac8n78yu7tuzacxupwi7h\", \n\t\t\t\"errorMessage\": \"Excepturi minima consequuntur libero. Deleniti architecto ex blanditiis qui ad. Reiciendis optio et optio nostrum nihil harum. Explicabo aliquid rerum. Necessitatibus tenetur debitis debitis velit laudantium ut omnis eaque quam. Non repellat soluta vero inventore est fugiat eius rem asperiores.\", \n\t\t\t\"retryCount\": 5542, \n\t\t\t\"lastRetryAt\": \"2026-01-26 05:56:36\", \n\t\t\t\"notes\": \"Consequatur rem ea eaque iusto consequuntur. Sunt repudiandae qui tempora repudiandae a ipsa cupiditate cumque. Perferendis officia velit qui dolorem facere.\", \n\t\t\t\"supplierNotes\": \"Autem quis magni dolor aut ea est rerum. Sunt sit maxime optio velit velit laudantium rerum explicabo autem. Reprehenderit error quisquam et laudantium. Exercitationem officia et pariatur ipsam est placeat quas. Repellat velit nulla optio quidem debitis doloribus ullam.\", \n\t\t\t\"isArchived\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e73bd23b-0b12-48eb-9c64-494d09b12fef\", \n\t\t\t\"rowId\": 72365122485904070000, \n\t\t\t\"businessPartnerId\": \"72e0ed95-2747-4e73-aff8-ffab3564e149\", \n\t\t\t\"documentNumber\": \"g46qewf1m01ep67d62uemfp9v3y727n7b7vtwzop0tmdffnbqzlp6bokg90gnhi\", \n\t\t\t\"documentType\": 'CREDIT_NOTE', \n\t\t\t\"status\": 'LINKED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"e1mr80k2jn04ll5rpkf1pw5cuu2l0pvl4iwsqnxbt2n8e4o90am9jon900f6ssb\", \n\t\t\t\"supplierInvoiceNumber\": \"fwpdtywv4sa39mrs3ui6518oko74ttfjunjvbezsa0cywhyp9jswq7w93bwgmc4\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 3931399453.56, \n\t\t\t\"currencyCode\": \"c06\", \n\t\t\t\"externalDocumentId\": \"xxt4bzd5089dmirsh8hob5j3dtya8cht8jpl4xpogcsqrvw9ni38fm8se47izfp\", \n\t\t\t\"externalCompanyCode\": \"uo0ji8nzx6tifon\", \n\t\t\t\"externalProcessingStatus\": \"xjzmbanq424b2b4krnpr8nwf5wp4jxtb3iikcovcidyi8tkbdiv0f2xs75a3hwz\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"08b6df5f-bed4-464c-b854-20bc0a756199\", \n\t\t\t\"ocrConfidenceScore\": 927.33, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 00:09:19\", \n\t\t\t\"processedAt\": \"2026-01-25 23:03:36\", \n\t\t\t\"linkedAt\": \"2026-01-26 06:35:51\", \n\t\t\t\"errorCode\": \"7pzpjhe85iaz8aatiwobk1q6b1uz74jxepwevs1socm8hzck4uhg7fk99iplfq1\", \n\t\t\t\"errorMessage\": \"Libero ad et voluptas rerum dolor porro sed numquam culpa. Reiciendis officia minus facere non odit deleniti modi ut aut. Sit aut omnis velit inventore alias laborum deserunt dicta. Sunt optio sint. Natus dolorem doloribus ullam veritatis quis aut. Et placeat quis autem.\", \n\t\t\t\"retryCount\": 3766, \n\t\t\t\"lastRetryAt\": \"2026-01-26 10:44:20\", \n\t\t\t\"notes\": \"Quia accusamus maiores molestias incidunt illum quia voluptas voluptas pariatur. Inventore pariatur officia dolore sed repellat ipsam est. Ex natus sunt non modi consequatur ipsa repellat placeat et. Voluptatem placeat quia. Officiis dolorem possimus vel.\", \n\t\t\t\"supplierNotes\": \"Ab et et recusandae iure sequi doloribus rem consequuntur qui. Eos eaque quam ut. Itaque et possimus praesentium. Accusantium tempora eum perspiciatis quo accusamus quas qui. Iusto ab ducimus eos ut accusamus.\", \n\t\t\t\"isArchived\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"781f9309-d37d-4392-854f-cacba246d8f1\", \n\t\t\t\"rowId\": 54436129457250640000, \n\t\t\t\"businessPartnerId\": \"5611c5ea-6e51-42ad-b42e-cfc793341043\", \n\t\t\t\"documentNumber\": \"6wl25occcwn5qnbyse8wpupbhcd9xxu114nizy6xjbpvvjs33a6atlzzs6kdey6\", \n\t\t\t\"documentType\": 'INVOICE', \n\t\t\t\"status\": 'UPLOADED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"5vx6p86wqoqsr7b5o8vnfqkow5i4rmiu81e58gnepqajq1auwtp9iuf19pvw1dc\", \n\t\t\t\"supplierInvoiceNumber\": \"uss5u11ws8gruwyrly8t95hcxalciwrfvhrq9hmh35ydg39epmgw8lx8ewyn9o0\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-25\", \n\t\t\t\"supplierInvoiceAmount\": 3333477100.88, \n\t\t\t\"currencyCode\": \"h7d\", \n\t\t\t\"externalDocumentId\": \"8v1zzw40hnfqzadq3ektpzakx3gm1gg5dmjqgbcv8uw7ffcvdacybmqdpg4tzqp\", \n\t\t\t\"externalCompanyCode\": \"uik4bxtov1mnrde\", \n\t\t\t\"externalProcessingStatus\": \"cshlyni2vj1i9o4yqtis9rp1dbelq2uq8m7yb8j6spqv92fi94b7hb0ueauwgov\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"c174742f-2824-42bc-a0c5-840dd48eda31\", \n\t\t\t\"ocrConfidenceScore\": 256.34, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 17:10:26\", \n\t\t\t\"processedAt\": \"2026-01-26 13:28:19\", \n\t\t\t\"linkedAt\": \"2026-01-26 07:14:30\", \n\t\t\t\"errorCode\": \"1vqhshxhzqfcq7zacoj1m9kcxyuuo6pdn6xi2olzrs5lmm2fmtz59toyczz5q3z\", \n\t\t\t\"errorMessage\": \"Autem itaque sequi aliquam cumque earum aut. Quia quas neque. Et et rem consequatur beatae. Modi ipsum maiores. Aut excepturi rem autem quos vel commodi eaque.\", \n\t\t\t\"retryCount\": 5359, \n\t\t\t\"lastRetryAt\": \"2026-01-25 23:43:50\", \n\t\t\t\"notes\": \"Delectus praesentium consequatur nihil voluptatem quisquam aut vel ut quo. Error earum ut iure ut laboriosam corrupti. Nihil consequatur quo est exercitationem dolores.\", \n\t\t\t\"supplierNotes\": \"Labore alias exercitationem repellat qui eum. Quae minima eos qui sint pariatur aut aut tempore maxime. Quia adipisci suscipit eligendi sed assumenda molestias qui error. Est asperiores non. Placeat sint recusandae modi at consequatur ullam dolorum omnis ea.\", \n\t\t\t\"isArchived\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"7016f701-ffde-4566-acfd-301bc5d4c1c9\", \n\t\t\t\"rowId\": 30499243921978495000, \n\t\t\t\"businessPartnerId\": \"d160ce9e-1252-47c8-b606-440a3fe35d84\", \n\t\t\t\"documentNumber\": \"4rqlg56u5gthsw0pqmx3j8c3rtncd5s1iotmw88fuhqzlpivprzs2pc8ahab3wu\", \n\t\t\t\"documentType\": 'PROFORMA', \n\t\t\t\"status\": 'PROCESSED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"7qr70rdholnarmaowoeqiy2rmhgtont057auu6i8qybd1f3femdcuahsrhdtsos\", \n\t\t\t\"supplierInvoiceNumber\": \"hpqnkr1hvgti9euxwcs39pc6yaadnv4peehpwimdjn0atesc8x820my58vtarw7\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 4762619336.63, \n\t\t\t\"currencyCode\": \"cob\", \n\t\t\t\"externalDocumentId\": \"tvixkqot9r8yim0vfph3lfqqyofyxebo2fv2fz000y32hmzovom8kpu28keg0d4\", \n\t\t\t\"externalCompanyCode\": \"4ouj2vesl5cof0c\", \n\t\t\t\"externalProcessingStatus\": \"rvuzofv3p5rcnc9ojsq3i1gm0yj3n2dzvjy8s2ki9zw6nfmxgwlha3lyrn932x4\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"88025dce-91f8-4683-95c4-78e31420a34f\", \n\t\t\t\"ocrConfidenceScore\": 521.41, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 10:54:41\", \n\t\t\t\"processedAt\": \"2026-01-26 01:10:54\", \n\t\t\t\"linkedAt\": \"2026-01-26 15:40:02\", \n\t\t\t\"errorCode\": \"h2fn8v7bc2gnzdd7kfjgdast5l515xksf8seqm14fr4riwpeewufwhrf0rrwlsz\", \n\t\t\t\"errorMessage\": \"Qui eum sit. Voluptatum nisi delectus. Magnam vel sequi in.\", \n\t\t\t\"retryCount\": 6866, \n\t\t\t\"lastRetryAt\": \"2026-01-26 04:41:23\", \n\t\t\t\"notes\": \"Voluptatibus voluptatibus fugit officiis est iusto omnis modi. Est molestiae vel explicabo. Ut ab est accusamus rerum debitis ut. Rerum repellat ipsum natus quam fugit. Culpa aperiam dolorum hic. Vel et quis qui nihil.\", \n\t\t\t\"supplierNotes\": \"Porro tenetur voluptatem dolores numquam architecto. Veritatis sed ad corporis. Quibusdam est aliquam vel accusantium velit. Animi odit maiores ad deleniti debitis laborum sed ipsa recusandae.\", \n\t\t\t\"isArchived\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"997f54d6-f1c5-44f2-a112-9ced99db61d7\", \n\t\t\t\"rowId\": 35410328824026845000, \n\t\t\t\"businessPartnerId\": \"0bc97c6f-187a-4ea0-bb06-14b582b4f5c0\", \n\t\t\t\"documentNumber\": \"7d63fso8joyjq678hhikm02jm3kot88kapzvypec5a1b8c15fbadpkvf54if35t\", \n\t\t\t\"documentType\": 'DEBIT_NOTE', \n\t\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"gou3kfs1922vczlclv0qvbkulpsdpcl8rnp9qdatim8qcj3x4gloek2qfln2jga\", \n\t\t\t\"supplierInvoiceNumber\": \"rmmktt2hchjr81hmyy0ibjbzmr2411e0wsthpgcscjlpi81px9yju8utwocv23w\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 6117303713.29, \n\t\t\t\"currencyCode\": \"5wi\", \n\t\t\t\"externalDocumentId\": \"32zmo686nr31wsct7p91lbuels7kj727uht6xnbpat12ba2to739itednvv64bz\", \n\t\t\t\"externalCompanyCode\": \"72myjuitq41qm47\", \n\t\t\t\"externalProcessingStatus\": \"r5m6wiwbkwdyiqq31hz38i0czitm3jj95ak3jra402oyk1brbquurfqd16fswzq\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"4926b62f-f2e3-4d51-90c2-cd102feef03f\", \n\t\t\t\"ocrConfidenceScore\": 632.19, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 04:43:56\", \n\t\t\t\"processedAt\": \"2026-01-26 18:11:16\", \n\t\t\t\"linkedAt\": \"2026-01-26 13:45:02\", \n\t\t\t\"errorCode\": \"jmxzarvngh41i3nnvazp3cebgjxhu6bv734kgh0i4zwlp5jds96t902lhuab3tr\", \n\t\t\t\"errorMessage\": \"Error ex id neque impedit possimus culpa accusantium. Quasi quis ab aliquam sunt aspernatur perferendis modi et dicta. Odit a libero quis ut. Explicabo incidunt ut non facilis nesciunt vel quibusdam exercitationem.\", \n\t\t\t\"retryCount\": 1680, \n\t\t\t\"lastRetryAt\": \"2026-01-26 06:21:45\", \n\t\t\t\"notes\": \"Sunt nulla saepe perspiciatis dolor nobis ullam dolor. Totam tempora illo hic. Quia dolor enim atque tempora.\", \n\t\t\t\"supplierNotes\": \"Maiores doloribus nihil delectus libero consequatur est facilis omnis. Laborum perspiciatis aliquid voluptatibus dolorem rem sit nostrum eveniet et. Voluptas dolorem optio cum odit dolor incidunt dolor repellendus. Quia alias voluptas repudiandae nemo deserunt corporis architecto.\", \n\t\t\t\"isArchived\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ec05bd12-9b5b-4223-a6fa-fda509f5c8c8\", \n\t\t\t\"rowId\": 35924980019911893000, \n\t\t\t\"businessPartnerId\": \"817a2542-4848-4d92-ba01-f6fe558501ad\", \n\t\t\t\"documentNumber\": \"uwylgwuzwv0dqz68k1blv5km5h2qjlbqz5wns21cwhm0x79cfcgl9v05gmz8ij1\", \n\t\t\t\"documentType\": 'CREDIT_NOTE', \n\t\t\t\"status\": 'UPLOADED', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"2epckj7mcwg1cnzrkq6zn3uo8i8i538yr8w0jgxcqhz3bkbu7ugk916hxj9y14u\", \n\t\t\t\"supplierInvoiceNumber\": \"x7ylo0lqlb9o4k8a9886v5sdtfsr2eqce5p7t60tf4voq5quwyr1fqxgx09db5g\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-25\", \n\t\t\t\"supplierInvoiceAmount\": 9251083808.45, \n\t\t\t\"currencyCode\": \"pvi\", \n\t\t\t\"externalDocumentId\": \"yi7ofln88l2yb0hkzumd0jtw37rg01kimcm86s48m2kbdaz5ilo2rkhqrij5qoo\", \n\t\t\t\"externalCompanyCode\": \"jhchqowjd2d2v7d\", \n\t\t\t\"externalProcessingStatus\": \"c0vkwhgf2076cpjpepgwuckhdwvftwkbklb3vyzw64ujjvfzkxg66upi27wzll6\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"d84e2fea-39d5-45e7-8d5b-8ff7639d121f\", \n\t\t\t\"ocrConfidenceScore\": 453.51, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 13:50:47\", \n\t\t\t\"processedAt\": \"2026-01-26 11:52:09\", \n\t\t\t\"linkedAt\": \"2026-01-26 14:46:36\", \n\t\t\t\"errorCode\": \"ccpi2i9lg8di9xjubl8d87ggvkpbw02umugsfyo2ltqlazsy1ebmz2c9ubw4o7z\", \n\t\t\t\"errorMessage\": \"Corporis fugiat in est ut eum saepe illum. Provident ullam dignissimos voluptates exercitationem. Aperiam in illo numquam est molestiae. Molestiae quos ex iure eaque. Eligendi et eaque provident est officiis ab sint repellat.\", \n\t\t\t\"retryCount\": 6644, \n\t\t\t\"lastRetryAt\": \"2026-01-26 05:59:46\", \n\t\t\t\"notes\": \"Facilis molestias sapiente dolor at maxime laboriosam quia. Non inventore aut. Quaerat magnam et veniam odio sed reiciendis nesciunt nostrum. Quos quasi qui numquam consequatur et enim eum libero. Numquam omnis ex suscipit. Vel harum ullam aut.\", \n\t\t\t\"supplierNotes\": \"Porro dolorum nesciunt corporis numquam ea itaque nihil explicabo rerum. Distinctio voluptatem maxime distinctio sed harum optio voluptatem atque molestiae. Qui ratione dolore sit. Vitae fugit ducimus et architecto necessitatibus in et.\", \n\t\t\t\"isArchived\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f047e6ee-6165-410f-9c12-e0677053b98c\", \n\t\t\t\"rowId\": 65115332130229920000, \n\t\t\t\"businessPartnerId\": \"6416fed8-480f-4577-921f-142a810386b8\", \n\t\t\t\"documentNumber\": \"l3hi1aty4ncaml6mdto330fpmeu6rpvq6yjoujz9lga6mwab9f9snfm4ii1wl69\", \n\t\t\t\"documentType\": 'PROFORMA', \n\t\t\t\"status\": 'PROCESSING', \n\t\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\t\"fileHash\": \"k99hzrx5308a8ebxdzoxdnkg110xtfcu500muvcx15hnkbq25rxqxn87w1a7nsl\", \n\t\t\t\"supplierInvoiceNumber\": \"vupdodzip1pqiblokhrec7p1eb9v4hfacjs2cwssfb47aeg0nn5du57kaqhvwnn\", \n\t\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\t\"supplierInvoiceAmount\": 8030699822.31, \n\t\t\t\"currencyCode\": \"ml0\", \n\t\t\t\"externalDocumentId\": \"xukjqj4k3xj4h2kr49340626roqxd96ilgccw84thv2602aqu0nol2njpl7qmba\", \n\t\t\t\"externalCompanyCode\": \"t9v9snte38u6ru4\", \n\t\t\t\"externalProcessingStatus\": \"vlklhvh31pabv8jebbz1jixc9jqff8tiwwt61wemzxpt0f38hv2vqwzi1556al3\", \n\t\t\t\"purchaseInvoiceHeaderId\": \"8e8341d7-13b9-43ed-9d8b-5f3d57923e82\", \n\t\t\t\"ocrConfidenceScore\": 850.17, \n\t\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\t\"sentForProcessingAt\": \"2026-01-26 09:14:43\", \n\t\t\t\"processedAt\": \"2026-01-26 14:04:04\", \n\t\t\t\"linkedAt\": \"2026-01-25 22:54:42\", \n\t\t\t\"errorCode\": \"wxgij76v2h0wi3iyy28d7qta6fks5bt9ka3tgc8bcpxjfv7d9n3s1gi7onr3ard\", \n\t\t\t\"errorMessage\": \"Dignissimos pariatur omnis iste suscipit. Maiores rerum ipsa mollitia et expedita. Dicta consectetur quas est ullam totam sit repellendus eum.\", \n\t\t\t\"retryCount\": 4846, \n\t\t\t\"lastRetryAt\": \"2026-01-25 22:37:55\", \n\t\t\t\"notes\": \"Repudiandae non sequi sit aliquam minus ut dolorum dignissimos. Modi natus at reiciendis reiciendis dolorem quo in. Et eum sit hic quia explicabo. Necessitatibus magnam ut qui asperiores recusandae esse quam ducimus fugiat. Voluptatem a et placeat.\", \n\t\t\t\"supplierNotes\": \"Repellendus in omnis. Et praesentium a impedit ea harum expedita et et. Reprehenderit quia quidem ex dolorem assumenda corrupti sequi enim. At ut tempore et quidem. Laborum vitae nam voluptas aspernatur.\", \n\t\t\t\"isArchived\": false\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginateSupplierDocuments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginateSupplierDocuments (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetSupplierDocuments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetSupplierDocuments (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindSupplierDocument",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindSupplierDocument (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindSupplierDocumentById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindSupplierDocumentById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdateSupplierDocument",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdateSupplierDocumentInput!)\n{\n\tbusinessPartnerPortalUpdateSupplierDocument (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 44595014962971705000, \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"documentNumber\": \"n8fxnil7cp7oaosq6duopw5e7pp1unnil7dqahzzx5ztklw5qcb1a9zz2494hv8\", \n\t\t\"documentType\": 'DEBIT_NOTE', \n\t\t\"status\": 'PROCESSED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"vwwr31vbx9nap3luyf5hdsxe9hfy1bl9v82si0fc5gsyz8lw4lde5rr1ykm8g2y\", \n\t\t\"supplierInvoiceNumber\": \"lf7yci1dquxxbufnfkpaovrg9sl2zcsm2oqqqinxdf8t422d6yrig5954b0g0di\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 2098189118.77, \n\t\t\"currencyCode\": \"5fd\", \n\t\t\"externalDocumentId\": \"dc9d0vr4xu8mxpinc8y1kzljkbo2l6skwmty4j0ccb3o5hjtefbwgk4zu57s46t\", \n\t\t\"externalCompanyCode\": \"c2kye7lt012c18d\", \n\t\t\"externalProcessingStatus\": \"0fw3jjcs0fnbxxs3fkky9s3xeslso1wkzccrxiwvdzf2vu6qwqo321xmlvoeftb\", \n\t\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"ocrConfidenceScore\": 566.62, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 03:57:35\", \n\t\t\"processedAt\": \"2026-01-26 14:14:26\", \n\t\t\"linkedAt\": \"2026-01-25 21:06:51\", \n\t\t\"errorCode\": \"2282j47cfumbz0qlqfdyfmtds311kf1mtvvr9ho34luoaitj5xhygngly1ei8s9\", \n\t\t\"errorMessage\": \"Qui quisquam quos commodi rerum aut ut. Nemo et facere fugit. Ea ipsa voluptatem magnam repellat voluptas sunt.\", \n\t\t\"retryCount\": 4689, \n\t\t\"lastRetryAt\": \"2026-01-26 05:28:16\", \n\t\t\"notes\": \"Ad fugit voluptatibus rerum. Quasi omnis esse pariatur. Quis vel ad tenetur ut tempora aperiam tempore qui placeat. Doloremque debitis perferendis impedit doloribus optio consequatur facilis.\", \n\t\t\"supplierNotes\": \"Et minus accusamus occaecati esse. Aut tempora sed omnis eaque. Doloremque molestiae dolor adipisci nesciunt tempora nulla recusandae doloribus inventore.\", \n\t\t\"isArchived\": true\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeleteSupplierDocumentById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeleteSupplierDocumentById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeleteSupplierDocuments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeleteSupplierDocuments (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tdocumentNumber\n\t\tdocumentType\n\t\tstatus\n\t\tfile\n\t\tfileHash\n\t\tsupplierInvoiceNumber\n\t\tsupplierInvoiceDate\n\t\tsupplierInvoiceAmount\n\t\tcurrencyCode\n\t\texternalDocumentId\n\t\texternalCompanyCode\n\t\texternalProcessingStatus\n\t\tocrConfidenceScore\n\t\tocrData\n\t\tsentForProcessingAt\n\t\tprocessedAt\n\t\tlinkedAt\n\t\terrorCode\n\t\terrorMessage\n\t\tretryCount\n\t\tlastRetryAt\n\t\tnotes\n\t\tsupplierNotes\n\t\tisArchived\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-document/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 21315465952772153000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"documentNumber\": \"qwozoalvksg3eo6pg5b6ncfutsembevxi46k8vxharoxuy11hwxanjblvcvw7et\", \n\t\"documentType\": 'INVOICE', \n\t\"status\": 'VALIDATING', \n\t\"file\": { \"foo\" : \"bar\" }, \n\t\"fileHash\": \"eugc49qhugi0nmeb31cdjj1yefu5zk1o20fth8gkn8ayni5l5vsiz4qas9z2gps\", \n\t\"supplierInvoiceNumber\": \"w7gqrvylyj5vrjfhgd7bi5wb2odmvlgq0grsfnt4p7gi07vl83wji6mjwvz23gd\", \n\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\"supplierInvoiceAmount\": 4982479672.76, \n\t\"currencyCode\": \"4by\", \n\t\"externalDocumentId\": \"zk9dmy23f7q6wg32ihumvru0kptc2osdlye770zlnnf2o6j8wdnysjqtc9na6vw\", \n\t\"externalCompanyCode\": \"fz24swelmld4xjg\", \n\t\"externalProcessingStatus\": \"qzkp690ano6qzcin9vdtj1epnrdor7xo9423p3hp1uq9ohy6b0rih6ge0qzs0w2\", \n\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"ocrConfidenceScore\": 607.86, \n\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\"sentForProcessingAt\": \"2026-01-26 01:21:11\", \n\t\"processedAt\": \"2026-01-26 03:19:28\", \n\t\"linkedAt\": \"2026-01-26 05:57:31\", \n\t\"errorCode\": \"sb66y2fc34pr02eophs5uikbpoewbdd3adu3hh1gla9pwmjh4x6xib60muglqrs\", \n\t\"errorMessage\": \"Libero quas quaerat autem. Consequatur voluptatem nulla rerum at. Corporis eos veniam. Aut omnis corrupti repudiandae iusto rerum autem sequi qui aut. Saepe odio sed quae alias sit provident aut et debitis.\", \n\t\"retryCount\": 9494, \n\t\"lastRetryAt\": \"2026-01-26 04:22:28\", \n\t\"notes\": \"Quod omnis amet omnis perspiciatis sunt cupiditate cupiditate cumque vel. Consequatur similique sint asperiores nemo libero. Possimus voluptatem est et facere dolorem aut. Asperiores ut hic cum modi odio est. Non minus ipsum quod impedit repudiandae quod. Rerum eligendi laudantium repellat quas dicta necessitatibus.\", \n\t\"supplierNotes\": \"Fugiat est et aperiam recusandae vel. Ut laboriosam odit et. Eum ex minus. Omnis unde exercitationem. Corrupti sed neque ad.\", \n\t\"isArchived\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-document/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-document", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-documents/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"ef70d70c-a2b5-49b5-8188-97b4de7189c7\", \n\t\t\"rowId\": 36046292115724040000, \n\t\t\"businessPartnerId\": \"bea65fb7-5a59-478e-867b-3095c5933733\", \n\t\t\"documentNumber\": \"rrlzebfg1i5pkfdpqhrepmujewdfpx4dxob3w2gklr1qd8f8xsegklfv0aw86ax\", \n\t\t\"documentType\": 'INVOICE', \n\t\t\"status\": 'PROCESSING', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"hcwoodwt9at3ial9u7dsm345ylu79zvffx8h24tazvuizibh4g7xd88j97jhiz4\", \n\t\t\"supplierInvoiceNumber\": \"agjsgadzpt7cd9o98p0osggtp7di62bh7loo6arvybkkj1ch2mgfgfx3ikxuhqa\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 9030841306.73, \n\t\t\"currencyCode\": \"4fm\", \n\t\t\"externalDocumentId\": \"zv50a81c4y1z3guarq37sl1i9ks1h823k7mezinpkje2t7mh2s6trvqjb47pal8\", \n\t\t\"externalCompanyCode\": \"33dujh8fg72t3oe\", \n\t\t\"externalProcessingStatus\": \"3x6tu8png250a5pd7wty6dli4kdgxzd89jqofpcxkex2ci9fbtxiz7ht231linn\", \n\t\t\"purchaseInvoiceHeaderId\": \"89b8eba3-55d6-48be-88e9-20d038794d95\", \n\t\t\"ocrConfidenceScore\": 557.21, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-25 21:45:10\", \n\t\t\"processedAt\": \"2026-01-26 16:46:01\", \n\t\t\"linkedAt\": \"2026-01-26 07:19:18\", \n\t\t\"errorCode\": \"zstfpvnvz982piicu7dq0go565qvtcxczgcpikjscqcv8p3nce5uosvwnlztnrv\", \n\t\t\"errorMessage\": \"Velit dolorem ea. Et cum non pariatur omnis inventore itaque deserunt inventore qui. Quia sunt neque. Rem autem soluta qui quidem ullam est deleniti. Accusantium repellat consequatur hic natus velit omnis. Et minima accusamus eum quisquam labore accusantium.\", \n\t\t\"retryCount\": 8433, \n\t\t\"lastRetryAt\": \"2026-01-26 02:06:12\", \n\t\t\"notes\": \"Et ut possimus ullam voluptatem nemo voluptatibus. Dicta harum iure blanditiis reiciendis in. Qui libero reprehenderit aperiam nihil. Ipsum iste omnis soluta qui similique nulla accusamus excepturi.\", \n\t\t\"supplierNotes\": \"Adipisci adipisci reprehenderit illum debitis ut adipisci explicabo. Est explicabo nisi impedit. Ipsam rerum inventore in sapiente rerum magnam.\", \n\t\t\"isArchived\": false\n\t}, \n\t{\n\t\t\"id\": \"3394db05-bb5a-42a8-b64e-6351346004ff\", \n\t\t\"rowId\": 14139688873288909000, \n\t\t\"businessPartnerId\": \"07656c0f-ea32-4eeb-976a-2adb460a49d2\", \n\t\t\"documentNumber\": \"2akpyb3qy94h99b3sqbyryneu8lledl6n13wfrbdidg3qd543zcjuyk41029kua\", \n\t\t\"documentType\": 'PROFORMA', \n\t\t\"status\": 'LINKED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"zfoyfxn389dym4rbdljcx6dlzlg8cgbwkttquwq5rjx05gbsaxhby49yny44jx0\", \n\t\t\"supplierInvoiceNumber\": \"gy6h3wiq553dz4z00uo6vc302799zs1164omgvo5gnbcj2kjcyjsz4cgb9q7aor\", \n\t\t\"supplierInvoiceDate\": \"2026-01-25\", \n\t\t\"supplierInvoiceAmount\": 9219260090.96, \n\t\t\"currencyCode\": \"hqb\", \n\t\t\"externalDocumentId\": \"wfpl54ha29fcc21nvtwrvhsee4yf3u302jupmfxudti1ahuside1heu655qa74j\", \n\t\t\"externalCompanyCode\": \"fu1eq36b0c43q06\", \n\t\t\"externalProcessingStatus\": \"v0jai9ocoyhgqjkdlr6m01ps6b0b148c69dtl1jl85lw5oru17fe2f5zyuvg615\", \n\t\t\"purchaseInvoiceHeaderId\": \"0405adca-c224-4b07-a0e2-046d044a9c4b\", \n\t\t\"ocrConfidenceScore\": 679.56, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 12:20:53\", \n\t\t\"processedAt\": \"2026-01-26 15:02:25\", \n\t\t\"linkedAt\": \"2026-01-26 08:31:00\", \n\t\t\"errorCode\": \"r856r336iy7ymb2ycuiszrfybb6xh0el2k284werm7digkkmn0uta5pcpu22b5l\", \n\t\t\"errorMessage\": \"Ipsum illo voluptas magni dolore. Voluptatem quos rem et non rerum. Quia nemo consequatur quia eum ut adipisci. Libero ipsam nostrum esse qui. Tenetur eos minus exercitationem labore quis ut ab sed. Cupiditate voluptates non tempora voluptas minima.\", \n\t\t\"retryCount\": 8435, \n\t\t\"lastRetryAt\": \"2026-01-26 11:50:11\", \n\t\t\"notes\": \"Quidem saepe iste quia dolorem dolorem omnis dolorum. Ut sed laborum tenetur modi consequatur nam voluptatem numquam. Deleniti expedita molestiae quia eos fuga tempore aut amet ut.\", \n\t\t\"supplierNotes\": \"Occaecati facere facere deleniti quos. Voluptate velit nihil architecto sit animi quos id iure. Et sit fugiat aut suscipit. Omnis molestiae pariatur ex fuga impedit qui laborum veniam ducimus. In et qui et optio commodi sit quaerat animi autem.\", \n\t\t\"isArchived\": false\n\t}, \n\t{\n\t\t\"id\": \"e25f7772-d782-49cc-9b2e-9d33b44ec3d9\", \n\t\t\"rowId\": 81525744756129330000, \n\t\t\"businessPartnerId\": \"5aee610d-fe36-48fa-b40f-87ea11b52be5\", \n\t\t\"documentNumber\": \"yq257rpaqjurlcbaj5dc79lz8nxq8md4j70c8pt3lm9gyd5uukrl4f1wsp3551i\", \n\t\t\"documentType\": 'DEBIT_NOTE', \n\t\t\"status\": 'UPLOADED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"z5l0sdwcq0vgmle3urgzr1rcerap16amlb3c2k830oboa9ulituq5bgpntxkad9\", \n\t\t\"supplierInvoiceNumber\": \"qtbarp8u6e8fclcq5wrfcg3lc2asa7bieinab0cxhrrijodzwmsexzk5edtqjdv\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 1037551736.28, \n\t\t\"currencyCode\": \"h1n\", \n\t\t\"externalDocumentId\": \"hz4sigmug2yltp4mep39lvz1ay8j33o2y34rrsba8y04jwj039dcbpyxu29zuo4\", \n\t\t\"externalCompanyCode\": \"d2t1vfr5goh4u3i\", \n\t\t\"externalProcessingStatus\": \"0qti2z0k8kwebbcf87zy8sntl1r68r95ggx4mj18sqolqhdvst5iaijacg02q4o\", \n\t\t\"purchaseInvoiceHeaderId\": \"2d43fa3b-3bb4-4761-a647-46526169ba2f\", \n\t\t\"ocrConfidenceScore\": 839.42, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 10:19:10\", \n\t\t\"processedAt\": \"2026-01-26 10:43:50\", \n\t\t\"linkedAt\": \"2026-01-25 23:47:58\", \n\t\t\"errorCode\": \"x8tuceen8mpr3sx9mmew1e6xsr22pvlwsh2sif0h4skc7lh0546vo2ahg4hxbpi\", \n\t\t\"errorMessage\": \"Quaerat eum ex vel quidem laboriosam consequuntur minus est rerum. Non sunt labore iusto accusantium nisi vero sequi. Iusto quo ratione dolorem consequatur rerum.\", \n\t\t\"retryCount\": 4667, \n\t\t\"lastRetryAt\": \"2026-01-26 08:06:35\", \n\t\t\"notes\": \"Debitis aliquam totam. Sapiente dolores libero alias cum dolorem. Unde enim possimus voluptas eos blanditiis in vel quod.\", \n\t\t\"supplierNotes\": \"Doloribus nesciunt fuga voluptatibus fuga qui in et debitis laborum. Mollitia quod voluptate rem eum at. Nobis expedita nisi iure placeat natus et ut vel. Sint debitis necessitatibus necessitatibus veritatis commodi optio quam ab ducimus. Iusto ut dignissimos numquam fugiat.\", \n\t\t\"isArchived\": false\n\t}, \n\t{\n\t\t\"id\": \"33bcedeb-a4d8-4963-8e30-8c09176dc21c\", \n\t\t\"rowId\": 25059102911617500000, \n\t\t\"businessPartnerId\": \"096d373e-203b-4b20-9e9d-525489165176\", \n\t\t\"documentNumber\": \"ym7otzre9ix767qyawbr49n7m8cy27qa7jaxurlixe9dl5n72lcwhvsfxiygi4e\", \n\t\t\"documentType\": 'OTHER', \n\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"xqiixogpjyc4p3yr7392qt52wlmvx38kxangy8lnivoje5716newzvqo5ltjyr3\", \n\t\t\"supplierInvoiceNumber\": \"0w6pg7e09t1vze7caknphx23om3v2p2vw6cpcyho62n9knxbqn4j536jh2kymps\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 8074902659.37, \n\t\t\"currencyCode\": \"f7q\", \n\t\t\"externalDocumentId\": \"4rgob2zc9sqypvj6gtxtlji0etw90aymoqt4i7doxyxdim9qxib1467n4khbei9\", \n\t\t\"externalCompanyCode\": \"kxkq31whe1c8jem\", \n\t\t\"externalProcessingStatus\": \"abbh5sfyf4ogvur3d8629ju69pw6i07me0nsr3vsli56dh1fa1mj9z92e5wec4a\", \n\t\t\"purchaseInvoiceHeaderId\": \"c9854fc8-bb53-4add-a1b3-25d5e79b58d6\", \n\t\t\"ocrConfidenceScore\": 426.91, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 01:37:38\", \n\t\t\"processedAt\": \"2026-01-26 14:57:37\", \n\t\t\"linkedAt\": \"2026-01-26 19:07:11\", \n\t\t\"errorCode\": \"1ve7i9apigvha1k38z9rdp7daoojh3hg6nxaqacny3bhlippowg8471el78oahb\", \n\t\t\"errorMessage\": \"Sed voluptatum id fugiat molestiae voluptatem dolor mollitia error quae. Aliquam magni quae non eum voluptatem et sapiente ut neque. Et voluptatibus illum dolorem laborum voluptate libero. Illum at deserunt vel rem temporibus. Aut magni earum et qui tempore voluptate nostrum.\", \n\t\t\"retryCount\": 6087, \n\t\t\"lastRetryAt\": \"2026-01-26 17:53:04\", \n\t\t\"notes\": \"Debitis ut facilis dolorum officiis blanditiis doloribus earum ipsa et. Dolorum vel possimus et. Ut asperiores ut dolores assumenda rerum adipisci iusto a harum. Impedit omnis est fugit mollitia. Aperiam aut molestiae.\", \n\t\t\"supplierNotes\": \"Eveniet ipsa consectetur omnis optio ducimus ab. Nam in qui doloremque impedit itaque amet tempora est est. Sit asperiores aut. Commodi quis blanditiis. Officiis nihil ullam nobis enim perspiciatis. Commodi rem dolorum natus quas corporis sit dignissimos est consequatur.\", \n\t\t\"isArchived\": true\n\t}, \n\t{\n\t\t\"id\": \"60cb9537-2d71-49cb-a07a-50a207aecf26\", \n\t\t\"rowId\": 96956813992254620000, \n\t\t\"businessPartnerId\": \"df63c84c-3b60-44bb-a067-a437b65947fe\", \n\t\t\"documentNumber\": \"6eib5ekeceqgd1z8k362ys7hdrl5myfwsz7xvnqbdntx6l72cbzyf1kkvqllzhe\", \n\t\t\"documentType\": 'PROFORMA', \n\t\t\"status\": 'PROCESSED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"81f6frppr8df1jcunvsnpch0l5on4v4e6tbb6niqd4ujqigpq9b5gwvmbunwjup\", \n\t\t\"supplierInvoiceNumber\": \"253zaq2s2b8f43cm70yy1xacqw6q3lg4hjm4mxdjf9gh9har179jt4mnxmlkrdn\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 1070835805.45, \n\t\t\"currencyCode\": \"q10\", \n\t\t\"externalDocumentId\": \"5fza91pjv1qsnkaz5x20ukd4a1a5hnd4it396sah77cw51729ghe3qzgikhr7ep\", \n\t\t\"externalCompanyCode\": \"d7ghjzium19z4er\", \n\t\t\"externalProcessingStatus\": \"zfnfpehqkko8j1rviovlkqsa6e8gnupry6sy88nqupvmjhtcpcnhribv5gl6b1a\", \n\t\t\"purchaseInvoiceHeaderId\": \"56c253fd-3658-4a8e-80cc-f773dbe5ffa4\", \n\t\t\"ocrConfidenceScore\": 410.68, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 11:30:38\", \n\t\t\"processedAt\": \"2026-01-26 14:46:10\", \n\t\t\"linkedAt\": \"2026-01-26 06:05:52\", \n\t\t\"errorCode\": \"8vj9buagqp3eqoppz1o58zmgqucj1nm4k7d1yes1n07ululvsyx64n5rltogrlk\", \n\t\t\"errorMessage\": \"Sed et aut voluptatibus perferendis aut accusamus delectus voluptas. Itaque placeat voluptate voluptatibus sit repellendus voluptatem possimus. Corrupti quos non. Nemo aut debitis sit qui repudiandae beatae impedit numquam id.\", \n\t\t\"retryCount\": 7576, \n\t\t\"lastRetryAt\": \"2026-01-25 20:28:26\", \n\t\t\"notes\": \"Et optio occaecati consequatur qui aut repudiandae quibusdam est sed. Dolores ut quis et quas adipisci corrupti odit saepe dolorum. Praesentium omnis amet. Sint ipsa sit culpa et.\", \n\t\t\"supplierNotes\": \"Quos occaecati perferendis eum velit deleniti ducimus. Rerum et est corporis. Perferendis ullam cumque voluptas tempora et cupiditate dicta distinctio est. Velit magni esse vel alias velit molestias quia.\", \n\t\t\"isArchived\": true\n\t}, \n\t{\n\t\t\"id\": \"e88ac376-d0e6-4e64-8978-6d6a95ef25be\", \n\t\t\"rowId\": 73358161454028410000, \n\t\t\"businessPartnerId\": \"9799698d-08de-4507-87e2-2ab685ae37c6\", \n\t\t\"documentNumber\": \"elkqsayvrsra41hacabkoajcqsihlvaekcayi19xicnt89krlkgu15uulkmsptg\", \n\t\t\"documentType\": 'PROFORMA', \n\t\t\"status\": 'UPLOADED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"nf3r07n4dpk0hchcat2kwt7oiqpxa5z21dcsthu719swyyz6kj5dsigslv2sfgf\", \n\t\t\"supplierInvoiceNumber\": \"slsjs4mf4hjpalb5cq0vi9s2jgejk5bdnf1q4c6rohnztef267sk5evv4yye6sx\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 7421885652.38, \n\t\t\"currencyCode\": \"2cs\", \n\t\t\"externalDocumentId\": \"ik6qlp8j83d41kw0dbfqyjkzdho5nclvpejudw6aetckcilnmd2tlwxjquphces\", \n\t\t\"externalCompanyCode\": \"mbhgxg6jmipnao5\", \n\t\t\"externalProcessingStatus\": \"0l3swcb8hflki4mmyds8w3zxglr3ljztkyrvud1b7s1xbzoev58tbugesb59iq9\", \n\t\t\"purchaseInvoiceHeaderId\": \"edddf71f-91c5-498c-9536-250668090fd2\", \n\t\t\"ocrConfidenceScore\": 915.43, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 11:33:04\", \n\t\t\"processedAt\": \"2026-01-25 21:57:33\", \n\t\t\"linkedAt\": \"2026-01-26 02:05:36\", \n\t\t\"errorCode\": \"koftf56q46zpedu77uh4wpjtcfcrjd1uuudj4cduenz1giaswvv50xle2m1mi2m\", \n\t\t\"errorMessage\": \"Recusandae libero quas laborum praesentium dolorum officiis. Voluptas nihil dolorem blanditiis aspernatur ea asperiores. Corporis nemo et sed dolorem eaque dolor soluta deleniti sit. Voluptate placeat doloribus saepe ut natus aliquam sint eaque. Autem aut quasi voluptatem debitis blanditiis quia et dicta.\", \n\t\t\"retryCount\": 4587, \n\t\t\"lastRetryAt\": \"2026-01-26 09:09:47\", \n\t\t\"notes\": \"Debitis non dolor vel vitae ut quo. Et quod sunt recusandae illum quo fuga quo. Quia quis asperiores ut. Debitis velit nisi adipisci animi.\", \n\t\t\"supplierNotes\": \"Cum perferendis harum sed recusandae non aspernatur. Alias ex laudantium placeat et provident. In odio culpa autem aperiam ut pariatur. Adipisci optio laborum maiores ratione aut necessitatibus voluptate quia. Nisi placeat ea qui ut natus. Cumque et tempore et.\", \n\t\t\"isArchived\": true\n\t}, \n\t{\n\t\t\"id\": \"0af3a2ea-3402-4784-b305-ce41443abe7d\", \n\t\t\"rowId\": 90394342839976540000, \n\t\t\"businessPartnerId\": \"e2aab992-52c1-4fd6-be9e-e39961fd4abf\", \n\t\t\"documentNumber\": \"dfhq18stn23050rg0tmg0jwgfkuux0kkfshp66x3zhrnlk7g2s2lb5lsqewyadz\", \n\t\t\"documentType\": 'PROFORMA', \n\t\t\"status\": 'VALIDATING', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"31yd3riua7bs6esnzbkwx1clc93hyhecfj4l1jplykci8k3c90phch4fwlus4ka\", \n\t\t\"supplierInvoiceNumber\": \"fcw8l5i2n0mk8w7vdljn09youp6wgtwp11yp8t844s749pt33bgj87oyhasvlgw\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 8892261119.81, \n\t\t\"currencyCode\": \"4s8\", \n\t\t\"externalDocumentId\": \"v10q01xhyni0rcf3zpdwnuj6rk77kdtt81oq3fsrzejyp2e382qra8trjta0axr\", \n\t\t\"externalCompanyCode\": \"dwrotn0z7k5h4j3\", \n\t\t\"externalProcessingStatus\": \"1792blupcj2jim353rsuv1jzytv8yqyeadtvsbmmfg9xazoljlx319xrlsvghx5\", \n\t\t\"purchaseInvoiceHeaderId\": \"afbe8b7c-19be-4f73-878b-299849f5d231\", \n\t\t\"ocrConfidenceScore\": 127.85, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 09:03:33\", \n\t\t\"processedAt\": \"2026-01-26 01:00:50\", \n\t\t\"linkedAt\": \"2026-01-26 05:14:02\", \n\t\t\"errorCode\": \"lpki3lijlysc5rlgsan4mp7rl5241nvebgclp9kp04klzn4ji338wuzuhdbg3rq\", \n\t\t\"errorMessage\": \"Quam incidunt consequatur vel at consequatur illo qui quia voluptatibus. Libero illo mollitia. Repellat numquam aut dolores tenetur. Facere sed corrupti voluptate officiis fugit. Sit aliquid nobis aliquam. Ut ex et quaerat placeat reiciendis possimus.\", \n\t\t\"retryCount\": 1361, \n\t\t\"lastRetryAt\": \"2026-01-26 09:18:41\", \n\t\t\"notes\": \"Amet minus recusandae vero est amet. Neque ut et natus nam dolorem ut. Architecto blanditiis qui. Omnis corporis voluptas sint officia vel laudantium quam ipsa. Nobis ex qui provident accusamus sed modi consequatur. Quia nemo maiores.\", \n\t\t\"supplierNotes\": \"Dolorem possimus aut praesentium dolorem inventore amet reprehenderit. Et cum cum suscipit quia unde facere est. Alias velit a mollitia excepturi.\", \n\t\t\"isArchived\": true\n\t}, \n\t{\n\t\t\"id\": \"d149c16c-fb63-44de-ad09-0f4c1ded803d\", \n\t\t\"rowId\": 54985480013313040000, \n\t\t\"businessPartnerId\": \"538e220f-a098-41b8-ab9f-9803cad880df\", \n\t\t\"documentNumber\": \"ejy4x24x5nqfsgjfr6qhz1572y50wkqgr9q8gry7gu0vds4qzqzenfrc9e9cmix\", \n\t\t\"documentType\": 'CREDIT_NOTE', \n\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"vjaxz9gi2y2ud39d0fx9b8djhbt9cwzz3lfyfzfvfuujqjidmtsnhf8u5eg18v0\", \n\t\t\"supplierInvoiceNumber\": \"nnwmd8meqo9prwg2ywgc4fllualnrgslwqxoubsj5a6paugtsqhkukcnrt63h04\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 5028693663.96, \n\t\t\"currencyCode\": \"4od\", \n\t\t\"externalDocumentId\": \"m3wn53qkjwxsxlb4kv2b48sqowpyqgr896lwy1lw6kmmqb1wld7b6nime5fivka\", \n\t\t\"externalCompanyCode\": \"x58x2cyhu8az6f4\", \n\t\t\"externalProcessingStatus\": \"cj1l3og2elt82ew356fbef8z7svlei68bb7ov0yfd4n2secpd914wddzvh2sgkg\", \n\t\t\"purchaseInvoiceHeaderId\": \"394b7aa0-d33f-4f37-8fb5-fe98b4180b60\", \n\t\t\"ocrConfidenceScore\": 286.88, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 19:08:00\", \n\t\t\"processedAt\": \"2026-01-26 14:18:50\", \n\t\t\"linkedAt\": \"2026-01-26 20:04:28\", \n\t\t\"errorCode\": \"bg8oaqkjzgque3mayp2cvadmek1uy4l2xprit2je7u5j6hesu5mfznr3v0fifqi\", \n\t\t\"errorMessage\": \"Velit est ullam. Qui aliquam et. Doloribus quidem iste autem omnis. Id reiciendis enim quisquam officia. Et autem ex perspiciatis omnis et omnis. Omnis quae magni consequuntur voluptas iste sed et quibusdam accusamus.\", \n\t\t\"retryCount\": 1915, \n\t\t\"lastRetryAt\": \"2026-01-26 00:30:45\", \n\t\t\"notes\": \"Nostrum excepturi suscipit dolor accusamus nobis. Provident quia quam. Earum voluptates labore est saepe qui qui.\", \n\t\t\"supplierNotes\": \"Et officiis ut quia libero. Culpa occaecati delectus voluptatibus maiores. Est ipsam velit. Ut accusantium quos odio quod aspernatur.\", \n\t\t\"isArchived\": false\n\t}, \n\t{\n\t\t\"id\": \"2992ef3d-0d32-4021-a868-3a40d1eedff9\", \n\t\t\"rowId\": 22732562947246473000, \n\t\t\"businessPartnerId\": \"ef815449-dd61-4bff-a5d6-57fa8c14a7f5\", \n\t\t\"documentNumber\": \"5tevkh1mwjunfs5v7dsl4djzq65o6e9gd50jh8e9m26juxik5hhpxv2l4arggwf\", \n\t\t\"documentType\": 'OTHER', \n\t\t\"status\": 'PENDING_UPLOAD', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"9x6oam30g3alrdd59wgwme9pv4fgomosywxt54q6fccxpx7foqoneidgvwoe7fr\", \n\t\t\"supplierInvoiceNumber\": \"r0cfwd1hn4bjydqntt3cpr0ngft1sjccvtrhsxrwvu494zdde18amvorgahdrfd\", \n\t\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\t\"supplierInvoiceAmount\": 2533377122.32, \n\t\t\"currencyCode\": \"nzi\", \n\t\t\"externalDocumentId\": \"ny2uuqfzrwr56ximp9vf22970df6npg0esnknm4luj4ai329kbbhnvrgbhvb965\", \n\t\t\"externalCompanyCode\": \"8td6impx1vifhq6\", \n\t\t\"externalProcessingStatus\": \"j736kif08c9wzapu2tpa9uvbyvdkyn2sxd2k93c3anlrbnkqcj4b4rg7pztp870\", \n\t\t\"purchaseInvoiceHeaderId\": \"d1562c3d-9fcc-4595-ac21-a817ef8b644b\", \n\t\t\"ocrConfidenceScore\": 585.63, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 15:26:58\", \n\t\t\"processedAt\": \"2026-01-26 06:56:24\", \n\t\t\"linkedAt\": \"2026-01-26 04:12:40\", \n\t\t\"errorCode\": \"czlbq21x8up1cprnmf2b2laca5pezg0tkyua1fiiqrbyop2okqalob2i5jexh2o\", \n\t\t\"errorMessage\": \"Maxime quaerat dolores ut fugiat quam amet aut consequatur. Quam in dolore porro dicta reiciendis veniam repellat. Omnis nemo ad. Sit qui sequi dolorem ex porro facilis enim. Tenetur esse aut quod nihil quasi mollitia.\", \n\t\t\"retryCount\": 2958, \n\t\t\"lastRetryAt\": \"2026-01-26 19:25:42\", \n\t\t\"notes\": \"Soluta et dicta quia placeat ea facere corrupti molestias. Quis officiis accusantium rerum quam quidem pariatur quas nihil. Quas qui asperiores quis. Placeat id id et aspernatur ad quibusdam et et nisi. Sed numquam nobis. Accusamus explicabo omnis.\", \n\t\t\"supplierNotes\": \"Aut assumenda consequatur beatae non pariatur ut. Sunt repellat sequi aliquid dolor ipsa et voluptates. Ipsum voluptatem nobis non. Aut dolor facere illo et qui quia aliquam et. Natus ex eos dolorum nulla magni incidunt.\", \n\t\t\"isArchived\": true\n\t}, \n\t{\n\t\t\"id\": \"c9b59452-1029-46f5-9751-07da79a1823f\", \n\t\t\"rowId\": 49812434761363276000, \n\t\t\"businessPartnerId\": \"30e705d3-1dbc-4eff-87c1-a57b598657c9\", \n\t\t\"documentNumber\": \"afnvjw9fxjnmmh9bow6yipoxy2nj1fmltgz58tfj31a0q0vslbwbqmae4jsvf0s\", \n\t\t\"documentType\": 'PROFORMA', \n\t\t\"status\": 'REJECTED', \n\t\t\"file\": { \"foo\" : \"bar\" }, \n\t\t\"fileHash\": \"81jw0xu7binwcq7gfwa29yonvz3n69hps7brn1m43pqa1wz2p8zr0mh6ht34x6a\", \n\t\t\"supplierInvoiceNumber\": \"7kp77xlc58ti6i69mivyy0k4pql2i675m8hc9te9dxh4968x488cmjj7p5p4wt9\", \n\t\t\"supplierInvoiceDate\": \"2026-01-25\", \n\t\t\"supplierInvoiceAmount\": 9213665865.65, \n\t\t\"currencyCode\": \"6oc\", \n\t\t\"externalDocumentId\": \"ai8jd8ulrpa1minuemn643tgkb6hnmo0te4wjx9zlal88s7v2sjd9g1i581vqwo\", \n\t\t\"externalCompanyCode\": \"nodpj4rws30dytr\", \n\t\t\"externalProcessingStatus\": \"jlkp1khycwhqlkj0p5ckib8eglqo6m9xoizd9dlemw8uihqbmhgocrfo5d6wc84\", \n\t\t\"purchaseInvoiceHeaderId\": \"a08e198d-c45d-4f07-ac95-597cd88f3ec2\", \n\t\t\"ocrConfidenceScore\": 433.54, \n\t\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\t\"sentForProcessingAt\": \"2026-01-26 09:52:16\", \n\t\t\"processedAt\": \"2026-01-26 18:18:11\", \n\t\t\"linkedAt\": \"2026-01-26 06:39:13\", \n\t\t\"errorCode\": \"s4br8hwk0psjjfar7zycedr2nni5nrvskm4jsh5qh0p61f5lqqchflreiycvuvw\", \n\t\t\"errorMessage\": \"Libero ea soluta. Et eum ducimus iste est aut explicabo. Aperiam sit et dignissimos dicta commodi voluptate modi sint repellat. Ab porro ipsa odit aut molestiae veniam et quasi sunt.\", \n\t\t\"retryCount\": 7518, \n\t\t\"lastRetryAt\": \"2026-01-26 11:36:40\", \n\t\t\"notes\": \"Reprehenderit aperiam nihil sapiente. Minus quod maiores. Labore id ipsam impedit ut occaecati nesciunt facilis minus. Et dolores quia facilis sed ipsum animi ducimus autem doloribus.\", \n\t\t\"supplierNotes\": \"Facilis cum culpa vitae beatae et quibusdam consequatur. Illo reprehenderit qui et eum sint omnis dolorem aut. Asperiores nisi cum voluptatem. Aut et soluta maiores ut eos. Impedit eius fugiat mollitia iusto est velit animi ea.\", \n\t\t\"isArchived\": false\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-documents/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-documents", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-documents/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-documents/paginate",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-documents", "paginate"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-documents/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-documents/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-documents", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-document/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-document/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-document", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-document/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-document/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "supplier-document",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-document/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 34030956627966415000, \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"documentNumber\": \"zx6ou368c5gremruhf57tqhinzts5st35blrhkxu6sgwvgu6e2bikb85tle7f4x\", \n\t\"documentType\": 'OTHER', \n\t\"status\": 'SENT_FOR_PROCESSING', \n\t\"file\": { \"foo\" : \"bar\" }, \n\t\"fileHash\": \"gry543n6ocrfdxc0c9o66olzjrkv5xyx6yr46mx3ekget7vvnlprjutxxc35m50\", \n\t\"supplierInvoiceNumber\": \"he37plys62fkk7oimb3vnjw3vmiu07evfc6zzf6lm0ymrwicanizo7ansyjbhy1\", \n\t\"supplierInvoiceDate\": \"2026-01-26\", \n\t\"supplierInvoiceAmount\": 9344858258.84, \n\t\"currencyCode\": \"zsp\", \n\t\"externalDocumentId\": \"dai5rb03xjx2g8fyshpyrxgp14stjug2as8awmk5mywm94z3yfs9btsvud4cl6g\", \n\t\"externalCompanyCode\": \"q7ujq4edx9ceva8\", \n\t\"externalProcessingStatus\": \"wvt5os77tofsrtpr8mks2s0dgkb1ugggdx8dnccv4znswbt87n5gs7a99qvatwm\", \n\t\"purchaseInvoiceHeaderId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"ocrConfidenceScore\": 267.86, \n\t\"ocrData\": { \"foo\" : \"bar\" }, \n\t\"sentForProcessingAt\": \"2026-01-26 06:44:37\", \n\t\"processedAt\": \"2026-01-26 20:06:30\", \n\t\"linkedAt\": \"2026-01-26 10:30:47\", \n\t\"errorCode\": \"rzerislkuu9b6b827jwsrzygt1xtfern0r8c23uanx8zy1cfui5dq9yprqas3f3\", \n\t\"errorMessage\": \"Facere harum nostrum beatae enim ipsam qui rem rem. Hic itaque distinctio veritatis. Ut architecto eos sapiente at provident. Ullam tempore similique quam et blanditiis ut expedita molestiae neque. Ea dolor reprehenderit voluptas fuga optio quod repellat.\", \n\t\"retryCount\": 6603, \n\t\"lastRetryAt\": \"2026-01-26 17:42:16\", \n\t\"notes\": \"Ex qui eius quia inventore autem. Occaecati nisi nihil recusandae. Nobis voluptas modi distinctio. Incidunt adipisci quia voluptatem velit.\", \n\t\"supplierNotes\": \"Modi et amet. Fugit excepturi ipsa aliquam. Quae quo asperiores consequuntur beatae asperiores est. Illo sunt dolorem eos culpa enim iusto. Doloribus quia illo doloremque. Ut non laboriosam reiciendis et molestiae beatae cupiditate consequatur dolorem.\", \n\t\"isArchived\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-document/update",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-document", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-document/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-document/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "supplier-document",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/supplier-documents/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/supplier-documents/delete",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "supplier-documents", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

@@ -49,37 +49,38 @@ aggregateProperties:
       Unique internal document number assigned on upload. Follows sequential format (e.g., "SDOC-2024-000001"). Used as primary reference in communications with supplier and integration logs. Cannot be changed after creation. Generated automatically by the system.
   - name: documentType
     type: enum
-    enumOptions: [INVOICE, CREDIT_NOTE, DEBIT_NOTE, PROFORMA, OTHER]
+    enumOptions:
+      - INVOICE
+      - CREDIT_NOTE
+      - DEBIT_NOTE
+      - PROFORMA
+      - OTHER
     nullable: true
     defaultValue: INVOICE
     description: |
       Classification of the uploaded document. INVOICE: Standard supplier invoice for goods/services. CREDIT_NOTE: Adjustment reducing amount owed. DEBIT_NOTE: Adjustment increasing amount owed. PROFORMA: Preliminary invoice for review. OTHER: Miscellaneous supporting documents. Used by the processing system to apply appropriate processing rules.
   - name: status
     type: enum
-    enumOptions: [PENDING_UPLOAD, UPLOADED, VALIDATING, SENT_FOR_PROCESSING, PROCESSING, PROCESSED, LINKED, ERROR, REJECTED]
+    enumOptions:
+      - PENDING_UPLOAD
+      - UPLOADED
+      - VALIDATING
+      - SENT_FOR_PROCESSING
+      - PROCESSING
+      - PROCESSED
+      - LINKED
+      - ERROR
+      - REJECTED
     nullable: false
     defaultValue: PENDING_UPLOAD
     index: index
     description: |
       Current processing status of the document. PENDING_UPLOAD: Upload initiated but file not yet received. UPLOADED: File received and stored successfully. VALIDATING: Basic validation in progress (format, size, virus scan). SENT_FOR_PROCESSING: Document transmitted to external system for OCR processing. PROCESSING: External system actively processing (OCR, data extraction). PROCESSED: Processing completed, data available. LINKED: Purchase invoice created and linked to this document. ERROR: Processing failed (see errorCode/errorMessage). REJECTED: Document rejected by external system or manually.
-  - name: fileName
-    type: varchar
-    maxLength: 255
-    nullable: false
+  - name: file
+    type: jsonb
+    nullable: true
     description: |
-      Original file name as uploaded by the supplier (e.g., "Invoice_2024_001.pdf"). Preserved for reference and display in portal. Does not affect internal storage naming. May contain special characters and spaces. Used in UI and notifications to help supplier identify their documents.
-  - name: fileSize
-    type: int
-    unsigned: true
-    nullable: false
-    description: |
-      File size in bytes. Used for storage quota management, upload validation (max size enforcement), and UI display. Validated against maximum allowed size during upload (typically 10-50 MB for invoice PDFs). Stored as unsigned integer to support files up to ~4GB.
-  - name: mimeType
-    type: varchar
-    maxLength: 128
-    nullable: false
-    description: |
-      MIME type of the uploaded file (e.g., "application/pdf", "image/jpeg", "image/png", "image/tiff"). Used to validate file format against allowed types, determine processing pipeline, and set correct content-type for downloads. OCR systems typically support PDF and common image formats.
+      File metadata and storage information in JSON format. Contains file name, original name, MIME type, size in bytes, storage path/URL, and upload timestamp. Used for file retrieval, display in portal, and storage management. NULL if upload not completed. Structure: {fileName: string, originalName: string, mimeType: string, size: number, path: string, uploadedAt: timestamp}.
   - name: fileHash
     type: varchar
     maxLength: 64
@@ -87,18 +88,6 @@ aggregateProperties:
     index: index
     description: |
       SHA-256 hash of the uploaded file content. Used for duplicate detection (prevent same invoice uploaded twice), integrity verification, and audit trail. Calculated server-side after upload completes. NULL during upload or if calculation fails. Indexed for fast duplicate lookups. 64 chars for hex-encoded SHA-256.
-  - name: storagePath
-    type: varchar
-    maxLength: 510
-    nullable: true
-    description: |
-      Internal storage path or object key where the file is stored (e.g., S3 bucket path, Azure Blob path, or local filesystem path). Not exposed to users. NULL if file not yet stored or storage failed. Format depends on configured storage backend. Used by file service to retrieve document for external transmission or download.
-  - name: storageUrl
-    type: varchar
-    maxLength: 2046
-    nullable: true
-    description: |
-      Temporary signed URL for accessing the stored file. Generated on-demand with expiration for security. NULL when not requested or expired. Used for download links in portal and external system integration. Regenerated as needed. Not persisted long-term due to expiration.
   - name: supplierInvoiceNumber
     type: varchar
     maxLength: 64
@@ -113,7 +102,9 @@ aggregateProperties:
       Invoice date as provided by the supplier on upload. Used for reference and initial validation before processing. May be corrected by OCR results. NULL if not provided by supplier. Helps prioritize processing by invoice age.
   - name: supplierInvoiceAmount
     type: decimal
-    decimals: [12, 2]
+    decimals:
+      - 12
+      - 2
     nullable: true
     description: |
       Total invoice amount as declared by supplier on upload. Used for initial validation and matching against OCR results. NULL if not provided. Discrepancies between declared and OCR-extracted amounts may trigger review workflow. Stored in supplier's declared currency.
@@ -159,7 +150,9 @@ aggregateProperties:
       type: select
   - name: ocrConfidenceScore
     type: decimal
-    decimals: [5, 2]
+    decimals:
+      - 5
+      - 2
     nullable: true
     description: |
       Overall OCR confidence score from the processing system (0.00 to 100.00). Indicates reliability of extracted data. NULL until OCR completes. Low scores may trigger manual review. Used for quality metrics and processing decisions. Display as percentage in UI. Scores below threshold (e.g., 80%) may require manual verification.

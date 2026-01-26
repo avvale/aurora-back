@@ -1,0 +1,533 @@
+{
+    "version": "0.0.1",
+    "files": [
+        {
+            "path": "src/@app/business-partner-portal/business-partner-portal.seed.ts",
+            "integrity": "sha1:9529b67fbed63eff95d2231a56bf5c980b2add09"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/create/business-partner-portal-create-partner-contact.command-handler.spec.ts",
+            "integrity": "sha1:e7398754ba050fdf5e4340cbcd75b7b67d48e878"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/create/business-partner-portal-create-partner-contact.command-handler.ts",
+            "integrity": "sha1:7b8ed36a34bff2b4e63efd36241a44fd1c43f3dd"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/create/business-partner-portal-create-partner-contact.command.ts",
+            "integrity": "sha1:ece0809b1ac911b98871c476a2be6e726746d012"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/create/business-partner-portal-create-partner-contact.service.spec.ts",
+            "integrity": "sha1:597551b9c86d846cb4051f6c5be7a17baa6aaa20"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/create/business-partner-portal-create-partner-contact.service.ts",
+            "integrity": "sha1:962b999aab924feb672767d4abec8d2654d39ae5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/delete/business-partner-portal-delete-partner-contact-by-id.command-handler.spec.ts",
+            "integrity": "sha1:df27bf52fd95050c7648ea0fa6ad2cae56a86f2c"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/delete/business-partner-portal-delete-partner-contact-by-id.command-handler.ts",
+            "integrity": "sha1:473d464ed5b308891b8de21eee0b443a5b48da15"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/delete/business-partner-portal-delete-partner-contact-by-id.command.ts",
+            "integrity": "sha1:92676c3d970f2b51f1e94eb715abf0c83f9b0826"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/delete/business-partner-portal-delete-partner-contact-by-id.service.spec.ts",
+            "integrity": "sha1:1cc18bdc1e50d7cfe37b71b6970cee5dac39b00f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/delete/business-partner-portal-delete-partner-contact-by-id.service.ts",
+            "integrity": "sha1:6e3944b5329be117ea19f817f2a2ea1ca7927f86"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-add-partner-contacts-context.event.ts",
+            "integrity": "sha1:8fb245d8dcc39bfcd5bbcb7ef8c432c3973729e2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-created-partner-contact.event-handler.ts",
+            "integrity": "sha1:2eb087499fc1b5f4a92ade56425cbf1dc2bb1edf"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-created-partner-contact.event.ts",
+            "integrity": "sha1:9d19ad6c0332356b41f1a59f2a5858a73f9c8cfe"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-created-partner-contacts.event-handler.ts",
+            "integrity": "sha1:073168cd0ad0036f7353630569422d1461254c5a"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-created-partner-contacts.event.ts",
+            "integrity": "sha1:ced771b8183670c8e1b957387d2c111ac80852f5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-deleted-partner-contact.event-handler.ts",
+            "integrity": "sha1:b9d6b52e61a008dc1d0d70cd6691b17f6bac64c5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-deleted-partner-contact.event.ts",
+            "integrity": "sha1:a8d4c49f277ec935561fd68515bc99b3c1492f16"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-updated-partner-contact.event-handler.ts",
+            "integrity": "sha1:53b65f1a83b591fdc2d7ebc064eb9c22838fb997"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/events/business-partner-portal-updated-partner-contact.event.ts",
+            "integrity": "sha1:cff87a9537a7f4db7064f8ca247e4ce8c33de0de"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact-by-id.query-handler.spec.ts",
+            "integrity": "sha1:3abb38837d73b43350a4e71929239bc0065a9e5f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact-by-id.query-handler.ts",
+            "integrity": "sha1:2ffc345ee0b5550e5035f8810f78fd2c1ed23c73"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact-by-id.query.ts",
+            "integrity": "sha1:3454224124e237142126d8e14a6c3e4dea6582c6"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact-by-id.service.spec.ts",
+            "integrity": "sha1:24bd935b202659e55c21a321cc8472093f06acb1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact-by-id.service.ts",
+            "integrity": "sha1:e710c66ab592a7769bff01cce0d0cf2ba9a0b5d3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact.query-handler.spec.ts",
+            "integrity": "sha1:78fe4e3617822ea1a882a2fad904058596cb1bd2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact.query-handler.ts",
+            "integrity": "sha1:45dacee48a8d7d7078b4bd5dd496a3e1069d38f3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact.query.ts",
+            "integrity": "sha1:d4579fc1db076a7ea9ea7242841bd63319dfc780"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact.service.spec.ts",
+            "integrity": "sha1:0699e5177c747d7b5068f229c8e6a7f5ea5946bb"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/find/business-partner-portal-find-partner-contact.service.ts",
+            "integrity": "sha1:f2a68826015a2dbb8f59930c175aa01ed6e6657d"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/get/business-partner-portal-get-partner-contacts.query-handler.spec.ts",
+            "integrity": "sha1:3d8197696f00d69003dbea97bb4d654728a9a2b8"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/get/business-partner-portal-get-partner-contacts.query-handler.ts",
+            "integrity": "sha1:aab32b4905a35bc91ea28464162b2101df70ce55"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/get/business-partner-portal-get-partner-contacts.query.ts",
+            "integrity": "sha1:3c5669b2f00aab21200ec013e6f516f9b62c666b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/get/business-partner-portal-get-partner-contacts.service.spec.ts",
+            "integrity": "sha1:7871f1658017e5a22352d8e90dd4e189975a2239"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/get/business-partner-portal-get-partner-contacts.service.ts",
+            "integrity": "sha1:de04fe3ca0c16517dcf2cfde1ad63727e4c1ae06"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/paginate/business-partner-portal-paginate-partner-contacts.query-handler.spec.ts",
+            "integrity": "sha1:1326def0b6f53c5044ef561c91f8a2eabc99bc11"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/paginate/business-partner-portal-paginate-partner-contacts.query-handler.ts",
+            "integrity": "sha1:479733703b216b63c540427aa0ee9da273b8a69f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/paginate/business-partner-portal-paginate-partner-contacts.query.ts",
+            "integrity": "sha1:c0e9992b9bb00e7c55f1a5839bcf7411b4657780"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/paginate/business-partner-portal-paginate-partner-contacts.service.spec.ts",
+            "integrity": "sha1:7c3a2dc1e174667633bd270b5e72239ba3dfda71"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/paginate/business-partner-portal-paginate-partner-contacts.service.ts",
+            "integrity": "sha1:c042c2dd56af9c76e5d7acced5ce2ba924906dab"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/sagas/business-partner-portal-partner-contact.sagas.ts",
+            "integrity": "sha1:88a9ff3ca00df265d6565f4ebb33e84f09c14f05"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/update/business-partner-portal-update-partner-contact-by-id.command-handler.spec.ts",
+            "integrity": "sha1:ced4199bd1d96e9d0f39adc488778088be36adae"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/update/business-partner-portal-update-partner-contact-by-id.command-handler.ts",
+            "integrity": "sha1:40efd992bdeb9bfbd3130d7e6106d2275d5b61d9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/update/business-partner-portal-update-partner-contact-by-id.command.ts",
+            "integrity": "sha1:aea101cf691df82215335684f739348eb1ac50cd"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/update/business-partner-portal-update-partner-contact-by-id.service.spec.ts",
+            "integrity": "sha1:58e025c3ff7a165a63e335b6838e3f5d0d090187"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/application/update/business-partner-portal-update-partner-contact-by-id.service.ts",
+            "integrity": "sha1:5bba54af3c51231d73b66db8c94a72b41bcebf03"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/business-partner-portal-partner-contact.aggregate.ts",
+            "integrity": "sha1:29c4cec32a20d332528eba4aa9b5cc29ddc40368"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/business-partner-portal-partner-contact.mapper.ts",
+            "integrity": "sha1:410dcd6f7323b9fc2d39f5becca0916c5b3721fe"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/business-partner-portal-partner-contact.repository.ts",
+            "integrity": "sha1:39e29ff30bcea5421df0c26d2c20ac107f239ed3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/business-partner-portal-partner-contact.response.ts",
+            "integrity": "sha1:d43893373bdc0dceac0eaba192c7990556752089"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/types/index.ts",
+            "integrity": "sha1:608ff614ce422056804024ff19c01d375d0f904e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/types/public-api.ts",
+            "integrity": "sha1:90f9a62b3a871abfdd00f41e80ced6f683cc6a61"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/index.ts",
+            "integrity": "sha1:608ff614ce422056804024ff19c01d375d0f904e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/public-api.ts",
+            "integrity": "sha1:1d065247d9c350b37a82ebb6f19b2c8789f34842"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/index.ts",
+            "integrity": "sha1:57b13765d6b77a872443b0df272f8e61d1babbc6"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/infrastructure/mock/business-partner-portal-mock-partner-contact.data.ts",
+            "integrity": "sha1:d14c9a408e4c01e5bc2417ebf51b3eadf75fba21"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/infrastructure/mock/business-partner-portal-mock-partner-contact.repository.ts",
+            "integrity": "sha1:5a5108db7652c3b1478184b9c1c81a2b840c06fc"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/infrastructure/mock/business-partner-portal-mock-partner-contact.seeder.ts",
+            "integrity": "sha1:6974b3a09178d096c9512faddaf292a6024de55e"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/infrastructure/sequelize/business-partner-portal-sequelize-partner-contact.model.ts",
+            "integrity": "sha1:1e632cea9f05d4d00e3db4231c86084725daa54b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/infrastructure/sequelize/business-partner-portal-sequelize-partner-contact.repository.ts",
+            "integrity": "sha1:0c7c22cb90684a84bf33b7edfead65c3eebebe08"
+        },
+        {
+            "path": "src/@api/business-partner-portal/business-partner-portal.seeder.ts",
+            "integrity": "sha1:68e1b574face2228e7741bd41a31a38e8eae74fa"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-row-id.ts",
+            "integrity": "sha1:5cc1b338b94f6a1fea853578a838a2cf9e76aed3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-id.ts",
+            "integrity": "sha1:0d8ab5a2eac50186513cbc98766d52fe6e7f5395"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-first-name.ts",
+            "integrity": "sha1:cd2cdb553364501e74ce18af0b1eb7f1613a2db2"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-position.ts",
+            "integrity": "sha1:a7ed1d3c0eb7151aaaee73ed45437b458b5ca28b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-last-name.ts",
+            "integrity": "sha1:8ea6d4c5b007485de64b50e489116fd9868f092b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-department.ts",
+            "integrity": "sha1:56114b9e08c92ae24cbe669b9f486f7c28a4a4a6"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-is-active.ts",
+            "integrity": "sha1:63cf67e4a38a449b00fc71a86f5bc7fcda58549f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-business-partner-id.ts",
+            "integrity": "sha1:51171a36f8e3835673d45647dd0c17818fe98d8f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-email.ts",
+            "integrity": "sha1:79f23d8cbb85dbef81f41a766c2fc6eb0c4a73c3"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-is-user.ts",
+            "integrity": "sha1:2d636fcbed80f12e749e76dc5472469dff6cc413"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-phone.ts",
+            "integrity": "sha1:3f937ccd2c39df00192d4b2f883853801f07279f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-is-primary.ts",
+            "integrity": "sha1:afd6eb3d5a94e571d993e94431563bb34ebb661b"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-mobile.ts",
+            "integrity": "sha1:81b97f0aa57878b66f12fc30705e0ed0b82f22f9"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-notes.ts",
+            "integrity": "sha1:2c02660c06d354418f905baf542f5e7e75008d77"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-updated-at.ts",
+            "integrity": "sha1:67b5feac86254f84a3ef02163a006c233ca13a69"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-user-id.ts",
+            "integrity": "sha1:b6f7858b1a9f20cce61d1b5aaf52f5bfe5625db1"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-created-at.ts",
+            "integrity": "sha1:39ef734672fc096b29663261fb6fab1ee565da5f"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-deleted-at.ts",
+            "integrity": "sha1:b2fca053af036bdf264a3ecf900aa043d2166dd5"
+        },
+        {
+            "path": "src/@app/business-partner-portal/partner-contact/domain/value-objects/business-partner-portal-partner-contact-preferred-language.ts",
+            "integrity": "sha1:6883cc29dd40e52312e5bd2a985a4f39c7b14ecb"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-create-partner-contact.controller.spec.ts",
+            "integrity": "sha1:0aa8c2ec8001d66afef6f71463f96af12ca36a16"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-create-partner-contact.controller.ts",
+            "integrity": "sha1:6fde14a8369419076344e464bc71e903c453b4a3"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-delete-partner-contact-by-id.controller.spec.ts",
+            "integrity": "sha1:3bc1047a77ea07ff50eea53d96aebdd71da2c5fb"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-delete-partner-contact-by-id.controller.ts",
+            "integrity": "sha1:07e0f6553a345f3253fbd2deb95cb8a1c0318230"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-find-partner-contact-by-id.controller.spec.ts",
+            "integrity": "sha1:862b29874ed4881c1aa01ab24970ddc5c4c3632f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-find-partner-contact-by-id.controller.ts",
+            "integrity": "sha1:7f56bbaabbd46fed708332abc25aa0cc67784c4a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-find-partner-contact.controller.spec.ts",
+            "integrity": "sha1:fe96b169b625a00897d628316d88a8ef9a29b4cb"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-find-partner-contact.controller.ts",
+            "integrity": "sha1:99559b01b383362a3873c33b6b52bacca8fd36b6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-get-partner-contacts.controller.spec.ts",
+            "integrity": "sha1:6422004e4fd0854445acab0dabfc02625f203e2a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-get-partner-contacts.controller.ts",
+            "integrity": "sha1:592c4bf5b0c5fb70508e1ab77fb0ef646a5d5cb6"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-paginate-partner-contacts.controller.spec.ts",
+            "integrity": "sha1:092181fb7b8f6f12b13813624e4cc52439fd7701"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-paginate-partner-contacts.controller.ts",
+            "integrity": "sha1:37b0beb4ab141102091d805c68b9adc9290d1383"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-update-partner-contact-by-id.controller.spec.ts",
+            "integrity": "sha1:0001ae63a9ad6cfbc3a0c6385a2d3bb00deb4809"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/controllers/business-partner-portal-update-partner-contact-by-id.controller.ts",
+            "integrity": "sha1:496ccfc90378d905e8fc504af8a4151f6e251365"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/business-partner-portal-partner-contact.dto.ts",
+            "integrity": "sha1:10c2f3f57c9795e64b54b09790e83bbc56ae160a"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/business-partner-portal-create-partner-contact.dto.ts",
+            "integrity": "sha1:4f6ac90a7676175cccce634a10d67ce3bf3d1d18"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/business-partner-portal-update-partner-contact-by-id.dto.ts",
+            "integrity": "sha1:5612d6693056bd125212c0a9f0b047857f13b6bb"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/business-partner-portal-update-partner-contacts.dto.ts",
+            "integrity": "sha1:262e29e574ca1e88a0743797032a96b9d74ee66e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/index.ts",
+            "integrity": "sha1:608ff614ce422056804024ff19c01d375d0f904e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/dto/public-api.ts",
+            "integrity": "sha1:5e251a0c3f5c289b629089b759a10e852e404d44"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/graphql/business-partner-portal-partner-contact.graphql",
+            "integrity": "sha1:a8685c7f393cb93bed75a36b8a8ce1d946445477"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-create-partner-contact.handler.spec.ts",
+            "integrity": "sha1:3cb3bce0b4a1a617d434a8324bed06b1469a639d"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-create-partner-contact.handler.ts",
+            "integrity": "sha1:6feb329792f3b87e19e6f384b7a7075bfbdcbe10"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-delete-partner-contact-by-id.handler.spec.ts",
+            "integrity": "sha1:7c6030e3dfe503b621b2598b5fa2515b94506a32"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-delete-partner-contact-by-id.handler.ts",
+            "integrity": "sha1:12dd2375ab43999a0c879459ff1651dc1ad1ee5b"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-find-partner-contact-by-id.handler.spec.ts",
+            "integrity": "sha1:bf1772d703306c36224c599f19bb9503777260e1"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-find-partner-contact-by-id.handler.ts",
+            "integrity": "sha1:8a099dc0793eb3086c72f820166aac30375a270e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-find-partner-contact.handler.spec.ts",
+            "integrity": "sha1:03bb20ae38981d46d3a53bfcea4bdb8843fa952b"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-find-partner-contact.handler.ts",
+            "integrity": "sha1:5dd8266beb56786a4085ee1e500c422b7122265b"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-get-partner-contacts.handler.spec.ts",
+            "integrity": "sha1:e9d0d5cc73418329918f07be0f4e277c52ccd6d2"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-get-partner-contacts.handler.ts",
+            "integrity": "sha1:822d8f1a92a22b3a298a2667c2f885dfabed3c22"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-paginate-partner-contacts.handler.spec.ts",
+            "integrity": "sha1:0c2fcf015cbd8c9530e050513712dba383f52c0e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-paginate-partner-contacts.handler.ts",
+            "integrity": "sha1:166531f034a3281c3e39f15e24261e44eaff7101"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-update-partner-contact-by-id.handler.spec.ts",
+            "integrity": "sha1:257d65ff358f443477a5a990ea67e92fc705eaa9"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/handlers/business-partner-portal-update-partner-contact-by-id.handler.ts",
+            "integrity": "sha1:b21ca1e30110a523d14f7a002aaac7207cf2a53e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/index.ts",
+            "integrity": "sha1:4e2dce1e4e82241ebf2a3ddb89372cb20cba1d86"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-create-partner-contact.resolver.spec.ts",
+            "integrity": "sha1:30d1a9822cf8e064fb7714ab5091e6f3b3c87b7f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-create-partner-contact.resolver.ts",
+            "integrity": "sha1:2737939866a8c2f33412fadffe7bfadce92ba57d"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-delete-partner-contact-by-id.resolver.spec.ts",
+            "integrity": "sha1:2021e2051fac04f772cb70487e927cc4d05a84cd"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-delete-partner-contact-by-id.resolver.ts",
+            "integrity": "sha1:055456e806e71729482f7cc08539db863cb1c6bc"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-find-partner-contact-by-id.resolver.spec.ts",
+            "integrity": "sha1:c7da073b22ba13af5bdc318ba69e8dc4f3c79122"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-find-partner-contact-by-id.resolver.ts",
+            "integrity": "sha1:0795559845b49ee98acb3baf074669bbcf5dd2fd"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-find-partner-contact.resolver.spec.ts",
+            "integrity": "sha1:d84aa72fab61a1a0b39ba228ec756c9716e474dc"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-find-partner-contact.resolver.ts",
+            "integrity": "sha1:a8be6ddd80846e1af69127ef02adaf6ac8ea6b21"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-get-partner-contacts.resolver.spec.ts",
+            "integrity": "sha1:f69ca51ff9a36a0c233e4e0a57bee27ecdbaf20e"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-get-partner-contacts.resolver.ts",
+            "integrity": "sha1:e9ac189dd28d680b6774322c058e7f8d336bff5f"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-paginate-partner-contacts.resolver.spec.ts",
+            "integrity": "sha1:468e1721e1a6df13c1b3c6fb6d2de13819c5fbb4"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-paginate-partner-contacts.resolver.ts",
+            "integrity": "sha1:59463eb19ef47ca5eecf35dedf17527149163743"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-update-partner-contact-by-id.resolver.spec.ts",
+            "integrity": "sha1:153541fc946550466518b67217c85d9ace86e15d"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/resolvers/business-partner-portal-update-partner-contact-by-id.resolver.ts",
+            "integrity": "sha1:f5a767673053f170068b46ec9674f35ef29eefe3"
+        },
+        {
+            "path": "src/@api/business-partner-portal/partner-contact/seeder/business-partner-portal-partner-contact.seeder.ts",
+            "integrity": "sha1:3a55decdcdb8e1b332c9ebfadfb5c323a278b820"
+        },
+        {
+            "path": "postman/business-partner-portal/business-partner-portal.partner-contact.postman.json",
+            "integrity": "sha1:532b0b1352bae344c818e924380e1197bfa7d70b"
+        }
+    ]
+}

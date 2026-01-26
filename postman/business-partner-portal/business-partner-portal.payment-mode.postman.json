@@ -1,0 +1,480 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/payment-mode",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePaymentMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreatePaymentModeInput!)\n{\n\tbusinessPartnerPortalCreatePaymentMode (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 62706519411127410000, \n\t\t\"externalId\": \"fb8o7jzua5v3hyc1dugeym6iey17oojqg1lqhb7e5ebs9fmleh4rh5bewux52fl\", \n\t\t\"code\": \"ejh0ncbjguc4pvhahnrzd6mnv5djrp41ghfry7czdx0vpevmp9lpskdjc3irkhv\", \n\t\t\"name\": \"Handmade Metal Towels\", \n\t\t\"description\": \"Consequuntur eos adipisci esse ut et. Voluptas facilis facere ea. Culpa placeat omnis nihil consectetur eum inventore voluptatibus molestiae nostrum. Quasi numquam velit dolores alias repellendus est. Similique non enim et nesciunt nostrum et eum sequi. Et maiores deleniti laudantium itaque minus in aut.\", \n\t\t\"type\": 'CHECK', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": true, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 6253, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreatePaymentModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreatePaymentModeInput]!)\n{\n\tbusinessPartnerPortalCreatePaymentModes (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"e8611f03-5fe8-44bd-a01d-18d76c6b379c\", \n\t\t\t\"rowId\": 83917846199451160000, \n\t\t\t\"externalId\": \"rridx5ua9wsj2o77hkric6vubx2zs7w9v55l49et6j8njv6jc87o5jhsvjapwnq\", \n\t\t\t\"code\": \"tbphjhbks0a1r92mwljrgnyhgnpgimky03wkq058mbcj761vl1qym451ep16ts3\", \n\t\t\t\"name\": \"Sleek Metal Keyboard\", \n\t\t\t\"description\": \"Quia asperiores et velit quod et. Reiciendis ex iure nemo tempore sint voluptates harum accusamus. Qui amet omnis deserunt nihil rerum. Tempore quia eveniet. Qui est est ut dolores.\", \n\t\t\t\"type\": 'ELECTRONIC', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": true, \n\t\t\t\"sort\": 4719, \n\t\t\t\"isActive\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"327746f7-2f50-4adf-b6bf-d44bac1081be\", \n\t\t\t\"rowId\": 59656211399399070000, \n\t\t\t\"externalId\": \"nbp2akrkv73loowrb5acp2q8ma04qypt22miix2vl7zd8y0hl2gyx5lusn9haqe\", \n\t\t\t\"code\": \"1fzknpsc94gmsv970ow9ej7k1x1jnw287nczhy9cohqhw0tjt57eapvpj675fy6\", \n\t\t\t\"name\": \"Handcrafted Frozen Keyboard\", \n\t\t\t\"description\": \"Quia voluptatem quo velit blanditiis et iusto. Ut incidunt ipsa quaerat adipisci cupiditate. Atque delectus voluptate et et esse. Dolores repellat facere aspernatur. Quaerat consequatur et dolorem voluptatibus in. Provident error exercitationem qui veniam.\", \n\t\t\t\"type\": 'DIGITAL_WALLET', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": false, \n\t\t\t\"sort\": 8254, \n\t\t\t\"isActive\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"090b3944-7822-4d6e-a925-7a5cba927f2e\", \n\t\t\t\"rowId\": 29957232110523910000, \n\t\t\t\"externalId\": \"bxhjtjwntz5cvq4zxqdt9iuh72zaiqiihgfuptxgw0aoak5bvywq14u275spe6i\", \n\t\t\t\"code\": \"jw28ep9y2go7lfxaw3qkmwgx3jrpugdmjf7d8yprn7l6koml5tc5kv1ol5qq1oo\", \n\t\t\t\"name\": \"Practical Steel Bike\", \n\t\t\t\"description\": \"Ut quos sit. Maxime quae corrupti. Beatae voluptate dolores voluptas voluptas velit similique nemo optio. Sed eos ut ducimus molestias autem. Repudiandae voluptatem vitae. Itaque suscipit commodi molestiae quisquam quos et eveniet explicabo accusantium.\", \n\t\t\t\"type\": 'DIGITAL_WALLET', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": false, \n\t\t\t\"sort\": 7345, \n\t\t\t\"isActive\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"0897f1e3-74ad-4948-aec0-b25ee0263f49\", \n\t\t\t\"rowId\": 59754646393049100000, \n\t\t\t\"externalId\": \"7bagsjxuostthbjafwh7tad9lzko084sbtxdfgpkz4jx08dcoyubc0i3cdixikr\", \n\t\t\t\"code\": \"y2t4z9mp6wurx5ue5aild725008z4n9ap6pivc0l9u3m8klj0lc8tcngb4zlqd2\", \n\t\t\t\"name\": \"Fantastic Fresh Chips\", \n\t\t\t\"description\": \"Aliquam totam quaerat explicabo animi odio. Et quasi consequatur aut facilis et dolor nobis. Amet fuga et sunt alias sequi officia.\", \n\t\t\t\"type\": 'ELECTRONIC', \n\t\t\t\"isAccountNumberRequired\": false, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": true, \n\t\t\t\"sort\": 5002, \n\t\t\t\"isActive\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"aeee509a-a598-4613-84a9-a4abb2aa19a4\", \n\t\t\t\"rowId\": 77900121342256920000, \n\t\t\t\"externalId\": \"3uu5wc2tc0h9z1ywb7j3rcsi8h7xi07cn7lvqfifbnellhpj9selj8o4reqmo2g\", \n\t\t\t\"code\": \"xqgd01qiwfqjcd0fs9tk97do0lfnezmdje5dz1mv4k5ilgiepbgw16gjbndtc6f\", \n\t\t\t\"name\": \"Licensed Steel Pizza\", \n\t\t\t\"description\": \"Officia omnis est harum. Consectetur tenetur repudiandae. Animi velit maxime doloribus aut incidunt corporis. Iusto at ut et earum. Ex aut id reiciendis odio et labore.\", \n\t\t\t\"type\": 'CHECK', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": true, \n\t\t\t\"sort\": 8204, \n\t\t\t\"isActive\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"b72b7e6e-8bac-474c-bf92-47cfd73c44a6\", \n\t\t\t\"rowId\": 18390029842202278000, \n\t\t\t\"externalId\": \"ej6vyh3ufecc34fdym1w06lypwnrjmcvgeuu4x5ujiq9r3tnimmks4hsw76syml\", \n\t\t\t\"code\": \"n3ekjckjehkmag6iot3bt66grhn93lp7jjlxqwb4fr0sxfp7p5ib0dq6rjoja8u\", \n\t\t\t\"name\": \"Generic Steel Gloves\", \n\t\t\t\"description\": \"Mollitia est ratione consequuntur voluptates. Qui recusandae facere dolores dolores possimus ut. Cupiditate et omnis numquam. Ex impedit hic consequatur consequuntur odio. Dolore nihil in itaque eum sunt.\", \n\t\t\t\"type\": 'CHECK', \n\t\t\t\"isAccountNumberRequired\": false, \n\t\t\t\"isRoutingInfoRequired\": true, \n\t\t\t\"isRecurringSupported\": true, \n\t\t\t\"sort\": 3316, \n\t\t\t\"isActive\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f4a8ae5a-577f-4ef2-a5c0-290c44c061e2\", \n\t\t\t\"rowId\": 86859539677423830000, \n\t\t\t\"externalId\": \"tesw4wg8de16wbd1ptefurni4m7sqcaq81mwps1gfa5st8tj1bwqb414eent4uz\", \n\t\t\t\"code\": \"q2rmp5bqnatx7fpb5zsu37pqd4zpyoxydj5t56g4nusfcucwk0ev7zqzb65z9sq\", \n\t\t\t\"name\": \"Intelligent Metal Salad\", \n\t\t\t\"description\": \"Excepturi qui nulla amet eos libero. Et molestias non ad et. Sint vero aut. Recusandae et eveniet fugiat sint illum recusandae dignissimos enim sunt. Rerum ex quia consequatur. Praesentium voluptas quidem beatae qui exercitationem in.\", \n\t\t\t\"type\": 'DIRECT_DEBIT', \n\t\t\t\"isAccountNumberRequired\": false, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": true, \n\t\t\t\"sort\": 5368, \n\t\t\t\"isActive\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"8be8aed1-f06d-4c5a-940c-eca4d3b81b7a\", \n\t\t\t\"rowId\": 13828312838155858000, \n\t\t\t\"externalId\": \"6kk5iyp6n8wipph6t6g0j21nt1fpimb11bjhpogop4mftn58obf9k1nw8ir7dyi\", \n\t\t\t\"code\": \"etkm9zwow0mtpgdmd3e66xuggfbpiuaastd3dktdus136o1gno8x34qsiyt2im6\", \n\t\t\t\"name\": \"Intelligent Fresh Chair\", \n\t\t\t\"description\": \"Aut molestiae beatae. Amet omnis soluta in enim reprehenderit est et. At libero ratione in non voluptatem. Voluptatibus qui quia non.\", \n\t\t\t\"type\": 'WIRE', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": false, \n\t\t\t\"sort\": 9092, \n\t\t\t\"isActive\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"da48b52c-af60-416e-ad2a-bb0e41cc50ac\", \n\t\t\t\"rowId\": 80736650323378730000, \n\t\t\t\"externalId\": \"8j2wgb5sruwilpmhxs4s3a51lvwb4rheoynipuwupausd91wij25dz8mczqvp3v\", \n\t\t\t\"code\": \"hl99j8smqtqghf5dwou9h5ph08i0ouasug8ctxdloaityvv92a27610nip0s9av\", \n\t\t\t\"name\": \"Practical Metal Chips\", \n\t\t\t\"description\": \"Molestiae eos odit aspernatur est dolorem. Est enim eum qui ducimus perspiciatis quis unde et cumque. Doloremque quia doloremque aut quaerat ipsam voluptates sint neque. Tenetur nemo laborum animi maiores eos at.\", \n\t\t\t\"type\": 'CHECK', \n\t\t\t\"isAccountNumberRequired\": false, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": false, \n\t\t\t\"sort\": 4998, \n\t\t\t\"isActive\": true, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e7343d90-244c-41df-b9e2-dfadad26ab83\", \n\t\t\t\"rowId\": 23510318234874950000, \n\t\t\t\"externalId\": \"xk5hp8y9s2zbyye1zqqjg6tjy6na5lziwv1fbu2d6dydei7xgrzx7dg0my2nych\", \n\t\t\t\"code\": \"0j2gw42w4b4bngwbbpsru6xcuuhonh5a32l0jc5pbpipc1kfw3qn9ikpv51xrnw\", \n\t\t\t\"name\": \"Generic Fresh Pizza\", \n\t\t\t\"description\": \"Reprehenderit qui necessitatibus. Esse qui dignissimos neque repudiandae quidem. Hic aut velit velit accusamus non ut et corrupti. Consectetur eaque veritatis. Necessitatibus unde nisi rem temporibus consequatur voluptatem ut nihil.\", \n\t\t\t\"type\": 'CARD', \n\t\t\t\"isAccountNumberRequired\": true, \n\t\t\t\"isRoutingInfoRequired\": false, \n\t\t\t\"isRecurringSupported\": false, \n\t\t\t\"sort\": 9221, \n\t\t\t\"isActive\": false, \n\t\t\t\"meta\": { \"foo\" : \"bar\" }\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginatePaymentModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginatePaymentModes (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetPaymentModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetPaymentModes (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPaymentMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindPaymentMode (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindPaymentModeById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindPaymentModeById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdatePaymentMode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdatePaymentModeInput!)\n{\n\tbusinessPartnerPortalUpdatePaymentMode (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 96302516956304570000, \n\t\t\"externalId\": \"ovda2mff8ps2muwitgwttx45hby121jek3vcjpcvemujuk2089c3276f9uvqomh\", \n\t\t\"code\": \"wvgkrl416sy2ixbodsmvonsfgjcxqiyysjkhzbdec3geip4wj27f7z31aop14fa\", \n\t\t\"name\": \"Handmade Concrete Soap\", \n\t\t\"description\": \"Tenetur sed inventore officiis placeat sunt corporis tempora labore error. Ipsa architecto molestiae. Sint culpa voluptate eaque consequatur totam. Unde distinctio esse iusto similique quis et. Provident est ipsam nihil dolor iste reiciendis quis iste qui.\", \n\t\t\"type\": 'CARD', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": false, \n\t\t\"sort\": 4833, \n\t\t\"isActive\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePaymentModeById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeletePaymentModeById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeletePaymentModes",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeletePaymentModes (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\texternalId\n\t\tcode\n\t\tname\n\t\tdescription\n\t\ttype\n\t\tisAccountNumberRequired\n\t\tisRoutingInfoRequired\n\t\tisRecurringSupported\n\t\tsort\n\t\tisActive\n\t\tmeta\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-mode/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 55627718127703070000, \n\t\"externalId\": \"5yulpcqg5gobk028cli3hkipxhm07qrn3pne2wrp5uiggssdx3esek8zr2ncc2u\", \n\t\"code\": \"albmrbii4lm5rva7qkia5ajfkzelprnleair0zabmtcaaqa5m8e3q0l3dkjbqt8\", \n\t\"name\": \"Licensed Fresh Sausages\", \n\t\"description\": \"Odio deserunt sint. Suscipit sed repellat. Nisi consequatur animi quia fugiat voluptatem. Dolores ullam autem aut et aut dolores incidunt reiciendis non. Sit adipisci ab qui aut ipsa consequatur iste suscipit aut.\", \n\t\"type\": 'CASH', \n\t\"isAccountNumberRequired\": true, \n\t\"isRoutingInfoRequired\": true, \n\t\"isRecurringSupported\": false, \n\t\"sort\": 2525, \n\t\"isActive\": true, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-mode/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-mode", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-modes/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"618c6bc1-5892-4914-9c4b-484115f903d2\", \n\t\t\"rowId\": 44570375432746150000, \n\t\t\"externalId\": \"e2094emwb3m2shykkthh81rfogmw624oa2r0kmrajw6epvpz34ngqo11j4yn5uf\", \n\t\t\"code\": \"odtr8n2hbb7wbvp9azqdh8nd0thnbwx1md2waep3ddfex2hjo1w8w6xzqf51588\", \n\t\t\"name\": \"Refined Cotton Salad\", \n\t\t\"description\": \"Nemo ullam et sed unde cupiditate. Eos est blanditiis quis qui voluptate necessitatibus quis. Est ut iste non. Eos et voluptate sed tempore cumque odit. Ratione animi magni. Ullam voluptatem quo impedit assumenda quia est ut nostrum.\", \n\t\t\"type\": 'ELECTRONIC', \n\t\t\"isAccountNumberRequired\": true, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": false, \n\t\t\"sort\": 9893, \n\t\t\"isActive\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"4987c099-6a30-468d-a604-5ea8df7f017c\", \n\t\t\"rowId\": 39181784216353145000, \n\t\t\"externalId\": \"6pxvgtwbfhiik5zklntez1erqp92bthh6ffpcpn341zv97joee4ghpzg3kyfp47\", \n\t\t\"code\": \"88bm9awic4ey35udikkmzrg0b1dl2ozdcne298eay3erqcvvuxtoy3u2ujgdyri\", \n\t\t\"name\": \"Awesome Rubber Keyboard\", \n\t\t\"description\": \"Quia cumque voluptates iste praesentium veniam aperiam excepturi. Molestiae vero asperiores voluptas. Voluptates enim nam autem sed incidunt totam officiis. Aut quo tempora odit ut ex eum. Nesciunt est qui aliquid sunt vitae.\", \n\t\t\"type\": 'DIRECT_DEBIT', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": false, \n\t\t\"sort\": 8369, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"99089709-caa8-412f-9856-b60ae406d220\", \n\t\t\"rowId\": 50389300841239190000, \n\t\t\"externalId\": \"32bik968lmxkgi1d2s9i6dabbo3fy35t7thvy39qupersfe1quqwfpuxshfrko0\", \n\t\t\"code\": \"oe59kgg8qq5m1kstp2jugcsl9vi3tvqg122pvk5lauz67y9061yryfaia1xx4hj\", \n\t\t\"name\": \"Handmade Wooden Chair\", \n\t\t\"description\": \"Molestiae voluptates officiis. Blanditiis quod temporibus corporis dignissimos assumenda quidem dicta facilis vel. Ut quod expedita voluptates. Voluptatem occaecati aut sapiente ex quam.\", \n\t\t\"type\": 'CHECK', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": true, \n\t\t\"isRecurringSupported\": false, \n\t\t\"sort\": 1939, \n\t\t\"isActive\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"f07176c0-2273-45ce-b3da-f07eb2c20fc9\", \n\t\t\"rowId\": 81891484081629800000, \n\t\t\"externalId\": \"nl8r4yrqpwa7nugyjp4xe55ibis1phjo4u0lncl4vpzf76i72wr42bllu5ii0l7\", \n\t\t\"code\": \"4bongs8ezl4unwb1085vxzjbegfo1fg5bufzgpjd871ht70hdaeg7pw4j4jnmcw\", \n\t\t\"name\": \"Gorgeous Rubber Chips\", \n\t\t\"description\": \"Sed perspiciatis debitis sunt nemo. Et et aliquam sit. Expedita dolorem ullam corporis eaque voluptatibus. Aspernatur esse aliquam quae. Enim explicabo enim velit tenetur laudantium voluptatem atque explicabo rerum.\", \n\t\t\"type\": 'OTHER', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 8409, \n\t\t\"isActive\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"ddbf2073-31bd-4d3a-90ac-508fe53b0150\", \n\t\t\"rowId\": 12498631777670756000, \n\t\t\"externalId\": \"zx18kgxfg4eb55g016s3o8xjedy9ouwkco65odvhlc6erewtrmdgrfux9eqdw42\", \n\t\t\"code\": \"g79jixr51o2otpwnlxyeinqamdlh1tr2xk8akb2a9jcpi4smpz8u7yyifff4mng\", \n\t\t\"name\": \"Fantastic Frozen Ball\", \n\t\t\"description\": \"Nisi dolor dicta laborum iure. Molestiae ipsa aliquid vel delectus ut. Fugit quo molestias quisquam iste eum non cupiditate minus dolor.\", \n\t\t\"type\": 'ELECTRONIC', \n\t\t\"isAccountNumberRequired\": true, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 4632, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"ccf39a8a-da79-45cc-a29a-0b1300b4097f\", \n\t\t\"rowId\": 55792680415121000000, \n\t\t\"externalId\": \"lmnqiti8l2o6xnfryt53gpmlvvwmwzydllqaalj85rczij4jbbm0fahrml3pbwa\", \n\t\t\"code\": \"002kvgnxwwnk9yg2ap8nckdkp1rkrbwnvwk2rb5egqmpsvyseo79ybkhmqfp2x5\", \n\t\t\"name\": \"Awesome Granite Sausages\", \n\t\t\"description\": \"Consectetur vel est animi quisquam et earum expedita. Ut voluptatem sit quibusdam ut. Est odio ipsa ut minima eaque officiis nihil qui beatae. Provident recusandae voluptate. Iusto amet atque aut eveniet nam asperiores optio rerum dolorem. Quam facere iusto culpa at.\", \n\t\t\"type\": 'OTHER', \n\t\t\"isAccountNumberRequired\": true, \n\t\t\"isRoutingInfoRequired\": true, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 4418, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"90b551e7-dc91-4302-9262-2290da822ae7\", \n\t\t\"rowId\": 62458945181623665000, \n\t\t\"externalId\": \"4qg8yprbeo1bwa4cvrob43z1s5laq94y5m12tg9oxk3xdth3tlr8s7o7cb3hox6\", \n\t\t\"code\": \"gn5rpgfrm6qrc8m5cui91hwb2nku0wytf8mpogc3xlcx3h9lo3427hbnajc5aeh\", \n\t\t\"name\": \"Sleek Fresh Keyboard\", \n\t\t\"description\": \"Voluptatem et aliquid fugit. Nostrum accusamus qui repudiandae. Sit sit a mollitia cum ipsa.\", \n\t\t\"type\": 'CHECK', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 4419, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"ed538656-9e49-409d-ab11-3a72c49eeb07\", \n\t\t\"rowId\": 67778070218512380000, \n\t\t\"externalId\": \"nbpr9n3px442utmpp3fqxlw7evlztuhlbz9buemcg37vxd7hsz81y5dhufmkyqm\", \n\t\t\"code\": \"msanvt6iqbslgh9o2bnbtg3gvwiryb829ppfyvxpdaja1q41vumkh9a5n3fy5bd\", \n\t\t\"name\": \"Ergonomic Frozen Hat\", \n\t\t\"description\": \"Vel nisi facilis necessitatibus. Nobis ut minima earum. Harum deleniti nesciunt dicta deleniti. Ut consectetur est perferendis voluptatem laboriosam natus. Maxime mollitia repellendus magnam sit excepturi. Atque at quo.\", \n\t\t\"type\": 'ELECTRONIC', \n\t\t\"isAccountNumberRequired\": false, \n\t\t\"isRoutingInfoRequired\": true, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 2967, \n\t\t\"isActive\": true, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"775f7dc2-abff-47be-b430-51ecbfd9527d\", \n\t\t\"rowId\": 29473837848395977000, \n\t\t\"externalId\": \"ke2ooddkt5nq9tgxy6addp7p2esftawpd5bi19q82dsbh559jpfdgr6fyv1ihe6\", \n\t\t\"code\": \"9el7xmt2ovnuox63nr0irclj4l9akv45v0yx3ivk9g7uwfy8cugsla9fxvu2tqt\", \n\t\t\"name\": \"Handmade Rubber Hat\", \n\t\t\"description\": \"Delectus et voluptate voluptas suscipit reiciendis deserunt reiciendis libero vero. Voluptatem aperiam rem. Autem et nam quis nemo. Non laudantium quia veniam autem nihil. Et esse modi. Magnam et dolorem.\", \n\t\t\"type\": 'DIGITAL_WALLET', \n\t\t\"isAccountNumberRequired\": true, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 3286, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}, \n\t{\n\t\t\"id\": \"b3e972b2-99b9-4878-a68b-d5b358cfd887\", \n\t\t\"rowId\": 94605554992642750000, \n\t\t\"externalId\": \"ahia14osn5pdueucndduoldmzy717f1nahxxiwa8hbsaqvjekxgpr1kyeetfk4c\", \n\t\t\"code\": \"hewfbs4ru9idxogcga3sxmb1vj8kt8z5t3x924p620ielxajo0wuxyk4dwedcyz\", \n\t\t\"name\": \"Small Soft Keyboard\", \n\t\t\"description\": \"Earum accusantium accusantium. Quae nam rem molestiae facilis dolorem facere sed. Error cupiditate fugiat ea officia porro dolore occaecati consequatur ea. In rerum dolorem quia.\", \n\t\t\"type\": 'WIRE', \n\t\t\"isAccountNumberRequired\": true, \n\t\t\"isRoutingInfoRequired\": false, \n\t\t\"isRecurringSupported\": true, \n\t\t\"sort\": 5066, \n\t\t\"isActive\": false, \n\t\t\"meta\": { \"foo\" : \"bar\" }\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-modes/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-modes", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-modes/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-modes/paginate",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-modes", "paginate"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-modes/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-modes/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-modes", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-mode/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-mode/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-mode", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-mode/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-mode/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-mode",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-mode/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 36956313566747100000, \n\t\"externalId\": \"j4x4jhqqh7pdjcgb0w3dw3u2nojg2hpxfb2x89w7d5f09tgr05zymp94xr52puv\", \n\t\"code\": \"svjryb9x6mfc86advnxjlrfqgkyxho4t3145jciu8j4ol2bfkx6qdnlz2cwyr3w\", \n\t\"name\": \"Generic Metal Keyboard\", \n\t\"description\": \"Libero iure maiores molestias. Laudantium sequi ad aut repellat quod mollitia aliquid ea in. Maiores inventore nihil est hic harum cumque tenetur. Doloremque odio quia eaque nobis non modi. Sint repellendus necessitatibus itaque.\", \n\t\"type\": 'CARD', \n\t\"isAccountNumberRequired\": false, \n\t\"isRoutingInfoRequired\": false, \n\t\"isRecurringSupported\": true, \n\t\"sort\": 2849, \n\t\"isActive\": true, \n\t\"meta\": { \"foo\" : \"bar\" }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-mode/update",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-mode", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-mode/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-mode/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "payment-mode",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/payment-modes/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/payment-modes/delete",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "payment-modes", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

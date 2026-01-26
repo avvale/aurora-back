@@ -1,0 +1,484 @@
+{
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - business-partner-portal/sales-invoice-header",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - businessPartnerPortalCreateSalesInvoiceHeader",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalCreateSalesInvoiceHeaderInput!)\n{\n\tbusinessPartnerPortalCreateSalesInvoiceHeader (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tbusinessPartnerId\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 69873024877136250000, \n\t\t\"invoiceNumber\": \"jsn7pxts09awh7vzu8ztqnc4nlcf2jlekq2stkmp74a3h2aeppr8miwkjm7xh3d\", \n\t\t\"externalId\": \"z5xr1d7vtrdglz3aoayv5m77z2mqiargr7dhqg94zvjbearexzl9lvqdkgucotb\", \n\t\t\"externalSystemCode\": \"mxyizfzucson14x\", \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"invoiceDate\": \"2026-01-25\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'SENT', \n\t\t\"subtotal\": 9018697435.71, \n\t\t\"taxAmount\": 7360972403.92, \n\t\t\"discountAmount\": 7154952936.44, \n\t\t\"totalAmount\": 5984755910.72, \n\t\t\"paidAmount\": 1635529233.66, \n\t\t\"currencyCode\": \"a4t\", \n\t\t\"paymentTermDays\": 7577, \n\t\t\"notes\": \"Nisi voluptate quia vero recusandae iste placeat praesentium fuga. Praesentium est sequi temporibus. Aspernatur quo sunt ad placeat qui culpa. Dolores dolores incidunt et eius. Dolore alias sed dicta quas.\", \n\t\t\"customerNotes\": \"Modi sed ut sed laudantium. Ut non vel enim consectetur ratione aliquam omnis aut ducimus. Voluptatibus aut modi adipisci dolorum nemo aut ipsam velit. Explicabo fugit iste sint. Distinctio et error laborum quo quas nostrum placeat architecto.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalCreateSalesInvoiceHeaders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[BusinessPartnerPortalCreateSalesInvoiceHeaderInput]!)\n{\n\tbusinessPartnerPortalCreateSalesInvoiceHeaders (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"9ca883e6-3426-4a03-8e59-f7d8be04c6f7\", \n\t\t\t\"rowId\": 74982120646028920000, \n\t\t\t\"invoiceNumber\": \"k0rllfhu3tnjtnop0gw4klpsw4fubujayyu6omi1tixx5g15muvoqlmu9kmaxe4\", \n\t\t\t\"externalId\": \"pkydatgtmmc3cdmq1v9mopzcpi638mak3p8ymp18o7c0cyycvo8osq176syfir5\", \n\t\t\t\"externalSystemCode\": \"egjqcwpqigf9n8x\", \n\t\t\t\"businessPartnerId\": \"6c385f5f-a9da-4014-a564-acb64cfe80f2\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'PARTIALLY_PAID', \n\t\t\t\"subtotal\": 4157538723.96, \n\t\t\t\"taxAmount\": 2139115454.63, \n\t\t\t\"discountAmount\": 3074621671.66, \n\t\t\t\"totalAmount\": 2613817266.22, \n\t\t\t\"paidAmount\": 1808449018.26, \n\t\t\t\"currencyCode\": \"fgy\", \n\t\t\t\"paymentTermDays\": 5183, \n\t\t\t\"notes\": \"Et voluptatum distinctio fuga et autem rerum et ea similique. Quasi aut accusamus eius quia unde et est dicta. Doloribus quaerat voluptatum et. Id consequatur doloremque commodi. Earum numquam vel animi excepturi ipsum quis.\", \n\t\t\t\"customerNotes\": \"Illo dolorem recusandae in blanditiis hic. Sunt facilis consequuntur velit iusto consequatur illum. Aut eos ut sed porro incidunt et omnis. Architecto illo placeat officiis omnis modi.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"cccae62f-d0a3-479c-8e6e-7dea4a99466f\", \n\t\t\t\"rowId\": 23368692986430206000, \n\t\t\t\"invoiceNumber\": \"m6e3prflrt4yfc2rdimm3p0fdw0hy09p52xfit9835qsh0gw3mxrcxy8ksvjjw7\", \n\t\t\t\"externalId\": \"3xf3z5r3l05x3lycyv4rzg4tvng94am3c3iu9xmdlsb6ytj4vy5uxe301ln745a\", \n\t\t\t\"externalSystemCode\": \"ctw6fqkdyt495gq\", \n\t\t\t\"businessPartnerId\": \"22ee2af0-89bc-405f-8fcd-e49ddbb3596e\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'SENT', \n\t\t\t\"subtotal\": 5140519872.72, \n\t\t\t\"taxAmount\": 5721722200.15, \n\t\t\t\"discountAmount\": 4858110790.13, \n\t\t\t\"totalAmount\": 9580190905.21, \n\t\t\t\"paidAmount\": 7861383657.58, \n\t\t\t\"currencyCode\": \"jrh\", \n\t\t\t\"paymentTermDays\": 3657, \n\t\t\t\"notes\": \"Alias rerum labore voluptatibus aliquid. Aut dolorem et in omnis reprehenderit sed et delectus. Est ut ipsa sit quia earum. Cum qui rerum voluptatem corrupti tenetur dolorem aut sunt. Non illum dolor sit cum qui hic deserunt. Voluptas eaque quae fuga natus qui voluptates asperiores.\", \n\t\t\t\"customerNotes\": \"Omnis doloremque dolorem alias. Et reiciendis eos omnis sunt praesentium nihil doloribus sit. A unde eaque explicabo. Velit nostrum aut et commodi. Nisi vitae eligendi ipsa nisi non earum sit magnam.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"4ab26d23-9cf1-4edc-af64-a7e302d87226\", \n\t\t\t\"rowId\": 46789808252835270000, \n\t\t\t\"invoiceNumber\": \"dh3m5nnc35ay6k95gmgw16k49r5p0ft6yqwpbp3gtan32wl8p8o6esgbrd6fa5z\", \n\t\t\t\"externalId\": \"ppj7kkry6bobi1fkn3pcaagyzd7pwz1igd5nklkkdrhksf7f6jlfnoierhr0k3i\", \n\t\t\t\"externalSystemCode\": \"5dkr9or7bht3vnq\", \n\t\t\t\"businessPartnerId\": \"2d4dca5c-86af-43ab-9bc0-6a5a7b341ed9\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'DRAFT', \n\t\t\t\"subtotal\": 3688927796.18, \n\t\t\t\"taxAmount\": 9427630225.46, \n\t\t\t\"discountAmount\": 4151151221.83, \n\t\t\t\"totalAmount\": 1726395433.45, \n\t\t\t\"paidAmount\": 2984382222.83, \n\t\t\t\"currencyCode\": \"xno\", \n\t\t\t\"paymentTermDays\": 8271, \n\t\t\t\"notes\": \"Repellat autem aut doloremque occaecati debitis. Est maiores ad consequatur autem. Porro laboriosam quis quis ipsum atque dolor corrupti non est. Dicta deserunt aut labore rem ab. Aliquid labore tempora vitae. Id tenetur eveniet aut et quia a id.\", \n\t\t\t\"customerNotes\": \"Quo similique explicabo quas aperiam et qui voluptas. Quidem esse mollitia optio veniam sed beatae iusto praesentium. Nesciunt vel unde porro corporis esse aperiam dolores. Qui et et vero rem laudantium eum asperiores. Quia natus cupiditate architecto.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"07649f44-9c0d-49f5-8ab0-ff7fc309cb1c\", \n\t\t\t\"rowId\": 81871451548273020000, \n\t\t\t\"invoiceNumber\": \"axcf5vgi33rbwhdqqyyhnpgrvydzib3dnkwr4jdv15stoiahtf7ag3nq2m31idv\", \n\t\t\t\"externalId\": \"rlf5murwfa3tgai0a8tdin8orje1wcehytbnu916h2b042dpltr4wnl4nxy50w9\", \n\t\t\t\"externalSystemCode\": \"maymnjq4wermgp7\", \n\t\t\t\"businessPartnerId\": \"852aca2c-c00c-4bb3-8796-c018b532fe2f\", \n\t\t\t\"invoiceDate\": \"2026-01-25\", \n\t\t\t\"dueDate\": \"2026-01-25\", \n\t\t\t\"status\": 'CANCELLED', \n\t\t\t\"subtotal\": 1282112690.44, \n\t\t\t\"taxAmount\": 2837017458.24, \n\t\t\t\"discountAmount\": 3178576141.77, \n\t\t\t\"totalAmount\": 7457593395.32, \n\t\t\t\"paidAmount\": 8514325647.48, \n\t\t\t\"currencyCode\": \"50n\", \n\t\t\t\"paymentTermDays\": 9432, \n\t\t\t\"notes\": \"Mollitia quis similique voluptatem numquam. Modi corrupti asperiores. Porro earum earum iste cupiditate iusto.\", \n\t\t\t\"customerNotes\": \"Incidunt praesentium blanditiis quibusdam accusamus dolor eveniet ullam dignissimos omnis. Qui nesciunt fugiat nemo ea illum non reprehenderit quod. Modi sed aut animi adipisci beatae quis. Nesciunt omnis rerum sit deleniti et ullam possimus rerum. Quidem eligendi odio modi expedita. Quia voluptatem sunt.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"17577f42-16e0-4c3a-b809-3f1b0b479ad3\", \n\t\t\t\"rowId\": 88361126479909260000, \n\t\t\t\"invoiceNumber\": \"2xx09n6i8cf7loiph5yy31fv2079t81qwvzob5b2if1doaojx0rv6oh4bse5vm2\", \n\t\t\t\"externalId\": \"fxadek1c3w259nj4yjepy3ucj5o7eh1hwauzi0iwlj25jzpbgcnmenamkejrcft\", \n\t\t\t\"externalSystemCode\": \"s309u70c5pt3ko9\", \n\t\t\t\"businessPartnerId\": \"c31795da-4605-443c-ae47-fb1a2a6428cd\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'DRAFT', \n\t\t\t\"subtotal\": 8642918247.74, \n\t\t\t\"taxAmount\": 9689779562.65, \n\t\t\t\"discountAmount\": 3190701016.42, \n\t\t\t\"totalAmount\": 2430895532.19, \n\t\t\t\"paidAmount\": 8958782354.37, \n\t\t\t\"currencyCode\": \"2h2\", \n\t\t\t\"paymentTermDays\": 1656, \n\t\t\t\"notes\": \"Voluptatem delectus velit minima veritatis error alias enim. Ipsum facere quia officiis nihil. Eligendi non asperiores eum consequatur hic mollitia facere.\", \n\t\t\t\"customerNotes\": \"Error autem ad similique et quidem. Culpa ea ipsam quisquam sapiente recusandae eaque ab et laboriosam. Et ducimus laborum autem et saepe fugiat dolores et.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"2a0e91ce-dcff-4109-a239-9421d40663f1\", \n\t\t\t\"rowId\": 48989836918168770000, \n\t\t\t\"invoiceNumber\": \"5u1ztmojcme08mlxcgbr75zsteah3nf2z47uzpfhj025hnxhx70x36y90gqmlk8\", \n\t\t\t\"externalId\": \"bp0ixdscua5zh7lchbvibdr7g6gt1wo8ik4d9b6k5vb81emsr6mfli5ff6sfvad\", \n\t\t\t\"externalSystemCode\": \"d6vc1vp7ncpdjls\", \n\t\t\t\"businessPartnerId\": \"281409d4-ce2d-48ab-ade5-b63de3ee4c79\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'OVERDUE', \n\t\t\t\"subtotal\": 8222686196.29, \n\t\t\t\"taxAmount\": 8289702514.16, \n\t\t\t\"discountAmount\": 2178272952.14, \n\t\t\t\"totalAmount\": 6940274906.24, \n\t\t\t\"paidAmount\": 8234975856.28, \n\t\t\t\"currencyCode\": \"s9i\", \n\t\t\t\"paymentTermDays\": 5415, \n\t\t\t\"notes\": \"Possimus voluptatem eveniet dolorum quod quia. Qui enim voluptas numquam. Veritatis suscipit assumenda impedit cumque. Dolorem architecto repellendus.\", \n\t\t\t\"customerNotes\": \"Dignissimos perspiciatis esse blanditiis suscipit atque qui. Magnam sunt maiores dicta rerum placeat odio quaerat ad. Accusantium enim omnis consequuntur deserunt. Et illum et fugiat autem vel aut praesentium adipisci.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e7c3f751-0ad0-4a4b-ab40-31f58508447f\", \n\t\t\t\"rowId\": 16619577713248838000, \n\t\t\t\"invoiceNumber\": \"zfn3re4eb7oev081fl6zz3pk5z3qvr1a84x69lw05c3jsl3m37pnl6hqnq0rdc1\", \n\t\t\t\"externalId\": \"w7bbtkqqi8i2c4cah76v40w9rg8i465fpjqtf8ew19j90ho1uh3aahydtm3l4tu\", \n\t\t\t\"externalSystemCode\": \"slh89xo0pdnwazb\", \n\t\t\t\"businessPartnerId\": \"1a36dee6-66ef-45ef-b252-d59ef180b71d\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'DRAFT', \n\t\t\t\"subtotal\": 3231426998.88, \n\t\t\t\"taxAmount\": 5147645265.99, \n\t\t\t\"discountAmount\": 9121306046.39, \n\t\t\t\"totalAmount\": 3079745524.72, \n\t\t\t\"paidAmount\": 5459005079.69, \n\t\t\t\"currencyCode\": \"hxh\", \n\t\t\t\"paymentTermDays\": 2296, \n\t\t\t\"notes\": \"Magni eius voluptas. Excepturi et animi sunt non sint sit. Dolores repellendus reprehenderit dolorem nostrum necessitatibus ut corrupti. Magni cum magni laudantium quia aut adipisci cum.\", \n\t\t\t\"customerNotes\": \"Magnam officia ipsum. Qui suscipit ipsum nostrum voluptatem. Sit architecto accusantium eos nobis quia assumenda dolor ut sunt.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"fb554591-d1c2-45f4-8346-ad3d4cc965d6\", \n\t\t\t\"rowId\": 75227141209820920000, \n\t\t\t\"invoiceNumber\": \"56lc7cavqt3nrwisfeaeaslrrmhand5n4difan797cofxjdz14j3u35s5az0ihl\", \n\t\t\t\"externalId\": \"2sctoaejhp9t0hmki77s8frtfqyd249n1gstfywutbu38wrhygbhqz5ci1snvev\", \n\t\t\t\"externalSystemCode\": \"jnwsvrmcsa3m80g\", \n\t\t\t\"businessPartnerId\": \"12a0f299-ee16-47a7-9927-58e58110f99d\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'PARTIALLY_PAID', \n\t\t\t\"subtotal\": 9745998385.91, \n\t\t\t\"taxAmount\": 7670849810.81, \n\t\t\t\"discountAmount\": 3482532733.29, \n\t\t\t\"totalAmount\": 7793468681.66, \n\t\t\t\"paidAmount\": 2075942931.95, \n\t\t\t\"currencyCode\": \"rku\", \n\t\t\t\"paymentTermDays\": 7186, \n\t\t\t\"notes\": \"Aut illo sunt quisquam optio qui nisi quis velit ratione. Natus expedita fugit aliquam officia nemo ipsam at velit. Quo voluptate architecto cum unde assumenda enim. Nobis recusandae laborum consequatur officiis sit modi. Similique animi rerum earum quo aliquam sequi dolores. Dolore sit voluptas eos ab iste ut.\", \n\t\t\t\"customerNotes\": \"Odit sit nisi itaque deserunt sapiente aspernatur libero fugiat eaque. Nam non pariatur voluptate temporibus. Eum sunt magnam eos rem. Atque eligendi qui est illo recusandae.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"52bc7ddb-4c71-4b74-9143-c9c1404cf486\", \n\t\t\t\"rowId\": 91862442937241730000, \n\t\t\t\"invoiceNumber\": \"di72kpzi9o3f5qyz9o1mzkcpessgk50g6owknv16r1c3965zafdu9fhbkpg7an2\", \n\t\t\t\"externalId\": \"u2r9amntoilolc7dku4nn77x62y55idved11ztdcxysxk0fermfdvx8kncftj4r\", \n\t\t\t\"externalSystemCode\": \"yyami10uvsgfv7g\", \n\t\t\t\"businessPartnerId\": \"e05d7fca-6a84-4a07-92cc-3156d6f11a5d\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-25\", \n\t\t\t\"status\": 'PARTIALLY_PAID', \n\t\t\t\"subtotal\": 9819065426.75, \n\t\t\t\"taxAmount\": 9446681417.95, \n\t\t\t\"discountAmount\": 5899717741.11, \n\t\t\t\"totalAmount\": 2849728294.98, \n\t\t\t\"paidAmount\": 4899558144.66, \n\t\t\t\"currencyCode\": \"adi\", \n\t\t\t\"paymentTermDays\": 4961, \n\t\t\t\"notes\": \"Sit id ut eum est et ut. Modi tempora esse. Minus facilis minus consequuntur laudantium alias ducimus voluptas aliquid nobis. Sit voluptatem iure nulla vitae provident illum doloremque.\", \n\t\t\t\"customerNotes\": \"Consequatur dicta quas facilis ipsa eum reiciendis veritatis facere. Et eveniet aut id expedita pariatur et ut qui. Et perferendis eligendi molestiae laboriosam dolorum dolor doloremque iusto doloremque.\"\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"2fd948de-b6fe-49b0-9bae-9895e4e2a3fa\", \n\t\t\t\"rowId\": 96030128406702640000, \n\t\t\t\"invoiceNumber\": \"duevt1xju7sr1jq0eijlcc07g68t7xa6or8itoqpeqffyjfr1id4sxg1ztii9zo\", \n\t\t\t\"externalId\": \"7uq577po6iuff2jn9j2anrlvkhqe13ul09j0mz7whfp9f7keuraobvrjbtmp6zt\", \n\t\t\t\"externalSystemCode\": \"8a9df5rp660t79v\", \n\t\t\t\"businessPartnerId\": \"d886436c-0fae-42d8-a18b-754c8ee197ca\", \n\t\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\t\"dueDate\": \"2026-01-26\", \n\t\t\t\"status\": 'SENT', \n\t\t\t\"subtotal\": 7314452609.79, \n\t\t\t\"taxAmount\": 1249453763.62, \n\t\t\t\"discountAmount\": 8261746558.24, \n\t\t\t\"totalAmount\": 5103022998.85, \n\t\t\t\"paidAmount\": 3868506617.53, \n\t\t\t\"currencyCode\": \"mwy\", \n\t\t\t\"paymentTermDays\": 8641, \n\t\t\t\"notes\": \"Eos aut dolor illo asperiores dolorum pariatur dolorum. Laudantium adipisci ad eum et dolores. Culpa asperiores neque.\", \n\t\t\t\"customerNotes\": \"Fugiat placeat corrupti veniam quo. Sunt natus doloribus at vel molestiae consequuntur. Minima maiores iusto.\"\n\t\t}\n\t]\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalPaginateSalesInvoiceHeaders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tbusinessPartnerPortalPaginateSalesInvoiceHeaders (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalGetSalesInvoiceHeaders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalGetSalesInvoiceHeaders (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindSalesInvoiceHeader",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tbusinessPartnerPortalFindSalesInvoiceHeader (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalFindSalesInvoiceHeaderById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tbusinessPartnerPortalFindSalesInvoiceHeaderById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalUpdateSalesInvoiceHeader",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:BusinessPartnerPortalUpdateSalesInvoiceHeaderInput!)\n{\n\tbusinessPartnerPortalUpdateSalesInvoiceHeader (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 80809496342110370000, \n\t\t\"invoiceNumber\": \"b31t7i7umt35gh85x000xluvgt8aebx8pjzp3imdzxt9r1en3zo0shth38ld1i4\", \n\t\t\"externalId\": \"d5fula1hya4xxbpcqfaz1hwdbf6cdzziiw76teldat8dq6utm0bwgviwej68z04\", \n\t\t\"externalSystemCode\": \"v7xq7ufhf3b3by9\", \n\t\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"invoiceDate\": \"2026-01-25\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'PAID', \n\t\t\"subtotal\": 1091994252.94, \n\t\t\"taxAmount\": 1855595663.31, \n\t\t\"discountAmount\": 1600172252.57, \n\t\t\"totalAmount\": 5146870966.26, \n\t\t\"paidAmount\": 5281424784.12, \n\t\t\"currencyCode\": \"q8t\", \n\t\t\"paymentTermDays\": 7649, \n\t\t\"notes\": \"Quo minus quia tenetur sunt vel et voluptatem ratione. Est aut iste non fuga repellendus deserunt ad voluptates voluptate. Voluptatum fuga eius qui molestias labore et rerum ad numquam.\", \n\t\t\"customerNotes\": \"Totam voluptatum ipsam sapiente dignissimos a et sequi laboriosam quo. Magnam et accusamus omnis non ut et vel. Accusamus dicta reprehenderit aut. Voluptas praesentium enim voluptates. Quidem aut voluptas eaque necessitatibus in. Omnis quo accusamus aut est voluptatem ab ullam deleniti nam.\"\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeleteSalesInvoiceHeaderById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tbusinessPartnerPortalDeleteSalesInvoiceHeaderById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - businessPartnerPortalDeleteSalesInvoiceHeaders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tbusinessPartnerPortalDeleteSalesInvoiceHeaders (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tinvoiceNumber\n\t\texternalId\n\t\texternalSystemCode\n\t\tinvoiceDate\n\t\tdueDate\n\t\tstatus\n\t\tsubtotal\n\t\ttaxAmount\n\t\tdiscountAmount\n\t\ttotalAmount\n\t\tpaidAmount\n\t\tcurrencyCode\n\t\tpaymentTermDays\n\t\tnotes\n\t\tcustomerNotes\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-header/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 18316314414373460000, \n\t\"invoiceNumber\": \"mdoccwd1iqrbdwdnyi19fhvyp0dhei0pam8f7b4hoidw25o4aczlr20t415vjv0\", \n\t\"externalId\": \"d0yfiyhqhedwhsk6tzxvjxn3rmkcfkdn0iq52m3uzvu7xlhapy9fypsjcobhtds\", \n\t\"externalSystemCode\": \"2lbi6l2gw1696zr\", \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"invoiceDate\": \"2026-01-26\", \n\t\"dueDate\": \"2026-01-26\", \n\t\"status\": 'REFUNDED', \n\t\"subtotal\": 3171827815.37, \n\t\"taxAmount\": 6048468815.64, \n\t\"discountAmount\": 1972006858.49, \n\t\"totalAmount\": 2361621587.32, \n\t\"paidAmount\": 3076945093.95, \n\t\"currencyCode\": \"sb3\", \n\t\"paymentTermDays\": 8478, \n\t\"notes\": \"Molestias quibusdam quo explicabo explicabo amet aut est laboriosam quae. Sed sed id enim in vel est. Beatae enim sint in et temporibus rerum delectus. Similique soluta quidem sapiente.\", \n\t\"customerNotes\": \"Quam laboriosam sunt quia. Quisquam doloribus incidunt quis et perferendis. Rerum sit voluptatem ea temporibus excepturi voluptas ut. Ullam accusantium voluptates quos voluptas. Consequuntur soluta ea nobis corrupti. Odio ut et quaerat a consequatur omnis autem nemo.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-header/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-header", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-headers/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"21b9567e-f35b-4856-a2e8-a8d6d2c6bc68\", \n\t\t\"rowId\": 50255165108724000000, \n\t\t\"invoiceNumber\": \"ljpaenvoe0ab611sd2yb6hkshx1hvpj2lvshaqq1irpncitqva708mzpkjfhdwe\", \n\t\t\"externalId\": \"evu0f2uc5uv21t8ph5px6ii3n2c0lowsu79qa5sndtnr6ukogpwqrdly3z5ct4o\", \n\t\t\"externalSystemCode\": \"wm7vt254xge9koa\", \n\t\t\"businessPartnerId\": \"c4aa7d4c-14cf-4ea9-b197-e893f7940a45\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-25\", \n\t\t\"status\": 'REFUNDED', \n\t\t\"subtotal\": 5376607701.22, \n\t\t\"taxAmount\": 7527458083.18, \n\t\t\"discountAmount\": 2719034803.42, \n\t\t\"totalAmount\": 5840274567.89, \n\t\t\"paidAmount\": 7779018993.94, \n\t\t\"currencyCode\": \"5ru\", \n\t\t\"paymentTermDays\": 8037, \n\t\t\"notes\": \"Modi dolores libero. Voluptatum dolores illo eveniet ut nihil non iste et animi. Aut rerum sunt architecto ducimus harum nisi non dolores.\", \n\t\t\"customerNotes\": \"Quo recusandae aliquam ut sunt quo illo ut soluta. Unde eligendi voluptatibus officia veritatis culpa repellat et blanditiis repellat. Et dolor alias accusantium delectus corporis quia officia libero labore. Architecto velit aspernatur culpa ratione aut.\"\n\t}, \n\t{\n\t\t\"id\": \"edf29004-3dd9-4cc1-874f-b361b2936157\", \n\t\t\"rowId\": 39148674879319060000, \n\t\t\"invoiceNumber\": \"r1g276f3l33gxk6fmfz3yls3rsob0phwuwx24uomt5t0glv278v4zzbx5bhgm86\", \n\t\t\"externalId\": \"gey2icteef7587nep8l7w84d0t9v5r84mf8s3w70a6juyr0keted36dwsvrnmho\", \n\t\t\"externalSystemCode\": \"gis5qetwvis9dur\", \n\t\t\"businessPartnerId\": \"0c01853c-1589-482a-882d-1df829733bdf\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'OVERDUE', \n\t\t\"subtotal\": 5070959163.66, \n\t\t\"taxAmount\": 1325964417.23, \n\t\t\"discountAmount\": 9657916265.16, \n\t\t\"totalAmount\": 2608881008.51, \n\t\t\"paidAmount\": 3928632181.39, \n\t\t\"currencyCode\": \"9g7\", \n\t\t\"paymentTermDays\": 1850, \n\t\t\"notes\": \"Officiis iste labore. Voluptas mollitia sint eligendi officia qui molestiae iste est cumque. Porro natus sunt et non. Ipsum placeat minus provident.\", \n\t\t\"customerNotes\": \"In laboriosam itaque odit laudantium quam non aspernatur magnam aut. Necessitatibus praesentium numquam est. Dolorum at perferendis aut. Sunt et exercitationem. Accusamus doloremque nisi doloremque quia. Rem consectetur delectus ad soluta.\"\n\t}, \n\t{\n\t\t\"id\": \"ecd05116-44b5-4483-a52b-7bea3ae272af\", \n\t\t\"rowId\": 80690160562492110000, \n\t\t\"invoiceNumber\": \"1l2x1e4f3nldrwp6x8917cbgae1jtbt9whavh4xr0amhfmpt44lots87g814065\", \n\t\t\"externalId\": \"wzmbv0xnfl48nu2ms3r4mbtf31l2y9tpfnbwds06hve83yz8yi8yd3saevh2e47\", \n\t\t\"externalSystemCode\": \"1xliipqjilv6k1d\", \n\t\t\"businessPartnerId\": \"556a93f8-b812-46e1-a09b-ea44ee223aa4\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'PAID', \n\t\t\"subtotal\": 4849301136.23, \n\t\t\"taxAmount\": 1658965485.61, \n\t\t\"discountAmount\": 3763967903.42, \n\t\t\"totalAmount\": 6989161752.58, \n\t\t\"paidAmount\": 9236532585.46, \n\t\t\"currencyCode\": \"ymw\", \n\t\t\"paymentTermDays\": 9383, \n\t\t\"notes\": \"Repudiandae non qui natus rerum vero quasi corporis necessitatibus minus. Tempore aspernatur necessitatibus aut qui autem voluptatibus enim et. Nemo doloremque consequatur fuga. Et ut aut incidunt vero laudantium qui omnis. Beatae id asperiores.\", \n\t\t\"customerNotes\": \"Expedita et non excepturi blanditiis et. Consectetur minima necessitatibus atque quia nam. Velit quod non dolorem temporibus voluptas reprehenderit dicta sequi. Et ex qui odio.\"\n\t}, \n\t{\n\t\t\"id\": \"1ff7a50f-e936-429e-b0ea-f2dbcce52db9\", \n\t\t\"rowId\": 12120742202157433000, \n\t\t\"invoiceNumber\": \"705hiiybk0wcub0vmq85m477j7jo6ya645dmw2fku9weuhotv4uvt38bgwyxfs4\", \n\t\t\"externalId\": \"bfrja6yd6zw25os4v08jq74dipk79sd32zebjy70m0pm5h9mduov1ne9yxkt984\", \n\t\t\"externalSystemCode\": \"a5zl7s61iql7s73\", \n\t\t\"businessPartnerId\": \"7b1f7bb1-3254-402c-9a11-ed67cbfe92f3\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'DRAFT', \n\t\t\"subtotal\": 1853403986.38, \n\t\t\"taxAmount\": 8564097238.48, \n\t\t\"discountAmount\": 8220260405.53, \n\t\t\"totalAmount\": 8808649029.87, \n\t\t\"paidAmount\": 2513284281.64, \n\t\t\"currencyCode\": \"ifk\", \n\t\t\"paymentTermDays\": 7512, \n\t\t\"notes\": \"Laboriosam tenetur aliquam sequi necessitatibus est dolorem recusandae sit. Voluptatem quis alias magni sit repellat cupiditate consequatur reprehenderit dolore. Aliquam ut dolores sit. Perspiciatis voluptas dolores dicta velit cumque in sed autem. Et eos nulla eos ea autem aspernatur explicabo enim.\", \n\t\t\"customerNotes\": \"Non dolores officia quia facere iusto. Possimus aut excepturi dolore dolorem consequuntur. Dolor aut eos numquam aut optio. Porro quia ducimus nihil.\"\n\t}, \n\t{\n\t\t\"id\": \"f6b908e9-8ca3-4d9f-9c17-d23b1a9b1163\", \n\t\t\"rowId\": 81637360107336500000, \n\t\t\"invoiceNumber\": \"uj81ecs7shkw6duz7lcs0oimumxxef6ss7bbpmxqcml14syf4g4k0ejq6u1speo\", \n\t\t\"externalId\": \"rmdrqub45v671iqfuildsxym7qeeeeiborworze10g0en7bw901hlc33iyt4diq\", \n\t\t\"externalSystemCode\": \"664ohg5h7dy16v2\", \n\t\t\"businessPartnerId\": \"332ee3a1-9df3-4e00-8b1b-06255c3d409b\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-25\", \n\t\t\"status\": 'SENT', \n\t\t\"subtotal\": 3112454011.91, \n\t\t\"taxAmount\": 8981804726.72, \n\t\t\"discountAmount\": 8400487724.59, \n\t\t\"totalAmount\": 5947524249.27, \n\t\t\"paidAmount\": 5244947567.37, \n\t\t\"currencyCode\": \"svm\", \n\t\t\"paymentTermDays\": 1095, \n\t\t\"notes\": \"Dolores iusto suscipit placeat et ratione. Aut quas et laudantium est. Et fugit eveniet ex recusandae. Quasi sed necessitatibus. Odio rerum nemo enim.\", \n\t\t\"customerNotes\": \"Est et nostrum et eveniet et voluptatibus. Quia laborum autem. Aut minima facilis. Quae rem mollitia odit et autem laboriosam officiis ex dolorem. Atque sunt saepe est eum et quo quos laudantium. Voluptatibus sit laborum cum quia perferendis aut perspiciatis.\"\n\t}, \n\t{\n\t\t\"id\": \"775e0514-8289-4bd8-8fba-a17f48d41176\", \n\t\t\"rowId\": 77237593617961840000, \n\t\t\"invoiceNumber\": \"7uusklha8kpq7q8gpoa5k1v6e967fp7fjhp1aptw5c1h6u7ss5bo7p3jetyycmb\", \n\t\t\"externalId\": \"avsew27hj5hxbek22tslb6fba5brmsaasctrmaahil0cxvflbx4xd7b23c9kgvr\", \n\t\t\"externalSystemCode\": \"weaulnvnt6pwzbo\", \n\t\t\"businessPartnerId\": \"9545a16e-2408-4001-829e-8bcdd340cebb\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'OVERDUE', \n\t\t\"subtotal\": 3882974340.69, \n\t\t\"taxAmount\": 2825892102.36, \n\t\t\"discountAmount\": 8841476309.71, \n\t\t\"totalAmount\": 6706021835.52, \n\t\t\"paidAmount\": 9665157467.49, \n\t\t\"currencyCode\": \"nd6\", \n\t\t\"paymentTermDays\": 8943, \n\t\t\"notes\": \"Quia ipsa at cum temporibus amet sint rerum distinctio. Dicta ex dignissimos praesentium. At pariatur qui nostrum mollitia. Error facilis earum. Iusto et pariatur voluptate est ducimus.\", \n\t\t\"customerNotes\": \"Doloremque corrupti atque sit consectetur sed et ut quas odit. Perferendis corrupti totam labore delectus aspernatur natus qui. Quidem tempore cumque ullam qui possimus explicabo. Dolor officiis quos corrupti provident sit. Odit fugit alias sint. Aut distinctio tempore aut porro minima culpa quaerat.\"\n\t}, \n\t{\n\t\t\"id\": \"dc3c4079-1b0a-4301-b3d9-08809855fa7c\", \n\t\t\"rowId\": 16700432957948620000, \n\t\t\"invoiceNumber\": \"moxc704rlozk8fdtd22gnp5opgtbkp4gkla2hfdr1q4bn71mquelr7j1dyk7ohf\", \n\t\t\"externalId\": \"agh21fi382xpbdp4xrxy2xgdddbq7lvgjgtbxjffd1ycr3whd2ex4ps3rx8r1gm\", \n\t\t\"externalSystemCode\": \"hj1qz99wpnelxd2\", \n\t\t\"businessPartnerId\": \"a424c984-7b77-45bc-b20b-65b2ff643410\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-25\", \n\t\t\"status\": 'SENT', \n\t\t\"subtotal\": 9346510354.17, \n\t\t\"taxAmount\": 7221149158.75, \n\t\t\"discountAmount\": 5390574954.86, \n\t\t\"totalAmount\": 9850021991.57, \n\t\t\"paidAmount\": 1292402040.41, \n\t\t\"currencyCode\": \"69r\", \n\t\t\"paymentTermDays\": 3079, \n\t\t\"notes\": \"Voluptate voluptate repudiandae blanditiis qui possimus eum. Doloremque non enim quis possimus porro et unde commodi. Aut maiores ut nihil neque. Quis ab molestiae dolore atque. Architecto eaque atque velit sed in tempora quam. Sequi enim illo reprehenderit saepe sunt.\", \n\t\t\"customerNotes\": \"Voluptatibus est adipisci reiciendis. Voluptas aut quia. Esse iure qui sint doloremque beatae. Blanditiis architecto ut molestiae. Sed veniam excepturi fuga.\"\n\t}, \n\t{\n\t\t\"id\": \"3b5a76d7-64e7-49eb-ad76-aeb7db63541f\", \n\t\t\"rowId\": 12317164585703297000, \n\t\t\"invoiceNumber\": \"6g08q066jch6llhpav4gtg6qb3smzr8cq26eu150rl9uqs8huuqq587h1x1vl8i\", \n\t\t\"externalId\": \"d8fgo3kc2bdclutn3lurln5y2tuvkm21rhvnfpn0n3v14jg0t6lrs2ndy9wnd34\", \n\t\t\"externalSystemCode\": \"bvcrlspttnku38u\", \n\t\t\"businessPartnerId\": \"d714d556-27b3-484f-913a-b2b3606d8d17\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'CANCELLED', \n\t\t\"subtotal\": 3583899903.46, \n\t\t\"taxAmount\": 6354456001.94, \n\t\t\"discountAmount\": 7970814128.42, \n\t\t\"totalAmount\": 5812237115.97, \n\t\t\"paidAmount\": 5186739747.78, \n\t\t\"currencyCode\": \"n03\", \n\t\t\"paymentTermDays\": 5308, \n\t\t\"notes\": \"Itaque debitis iusto sunt fugit ut laborum omnis et. Quos consequuntur repellat. Facere veritatis aut facere et officia numquam. Sunt vero velit eum repellendus cupiditate. Et repellat voluptas nisi neque nesciunt. Est sint et nihil laborum eos tempora et qui.\", \n\t\t\"customerNotes\": \"Nemo consectetur nemo voluptatem dolores earum quidem nemo non. Dignissimos quasi non eveniet. Provident sit vero quis ut eum voluptas.\"\n\t}, \n\t{\n\t\t\"id\": \"64f4aacc-99ef-466e-81ca-71b2f26732d7\", \n\t\t\"rowId\": 62912711623763970000, \n\t\t\"invoiceNumber\": \"o8zsxqsf3h7rlmlelg2rhdyejdo1ofalcezpdawoz8hkfhu1b2e65pd7gipi5j0\", \n\t\t\"externalId\": \"d1wf7pmt1gncroo39pxrncywvp5vj8q92t021s6312jut2oyj5om6z2th8obylq\", \n\t\t\"externalSystemCode\": \"1mt1hxy56oz48jz\", \n\t\t\"businessPartnerId\": \"dfb74752-6cc1-4e88-9534-79983176c574\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'REFUNDED', \n\t\t\"subtotal\": 1053613027.83, \n\t\t\"taxAmount\": 7760675273.55, \n\t\t\"discountAmount\": 8038518286.96, \n\t\t\"totalAmount\": 3272913023.63, \n\t\t\"paidAmount\": 1276598911.51, \n\t\t\"currencyCode\": \"87a\", \n\t\t\"paymentTermDays\": 7637, \n\t\t\"notes\": \"Sunt et exercitationem. Dolores voluptates occaecati eveniet omnis doloribus blanditiis autem cumque reiciendis. Laborum tempore non magni totam illo sint. Ea repellat sit quam eos fugit eos vero ipsam. Voluptatem quod atque. Et repellendus ut quas dolorum sunt vel omnis illum.\", \n\t\t\"customerNotes\": \"Reprehenderit maxime quis animi. Ea nam officia dolores est est. Unde rerum nihil aperiam vitae sed necessitatibus. Quos dolor aut quae quaerat ea est molestiae aut.\"\n\t}, \n\t{\n\t\t\"id\": \"dffbcabb-767a-4a21-be23-6a0a251f3a00\", \n\t\t\"rowId\": 22661441922242970000, \n\t\t\"invoiceNumber\": \"1ao5g269hw4ohiexj02usxl8a7cf0dd6130rqroibp3ipyawoq0fduhu9m2zul3\", \n\t\t\"externalId\": \"etx5lxkh271qnif49gb1medi92g98xd6n541cb0voz5yduv3dywrkps27uf3s3s\", \n\t\t\"externalSystemCode\": \"5wxm5shyt8m7r8g\", \n\t\t\"businessPartnerId\": \"3637aed1-d539-4ffa-ab9b-2b1c80f71dc9\", \n\t\t\"invoiceDate\": \"2026-01-26\", \n\t\t\"dueDate\": \"2026-01-26\", \n\t\t\"status\": 'PAID', \n\t\t\"subtotal\": 7570826251.62, \n\t\t\"taxAmount\": 9173908343.96, \n\t\t\"discountAmount\": 5748986884.54, \n\t\t\"totalAmount\": 6557943059.75, \n\t\t\"paidAmount\": 4012577176.52, \n\t\t\"currencyCode\": \"5ai\", \n\t\t\"paymentTermDays\": 2018, \n\t\t\"notes\": \"Sunt iure numquam dignissimos dolores omnis eveniet nisi rem voluptate. Autem fugiat voluptas omnis dolorem dolore et labore. Sunt inventore rerum saepe ab mollitia rerum. Animi odio unde deleniti impedit sit illum voluptatem necessitatibus. Aut illum sint adipisci enim accusamus quaerat dolore et qui.\", \n\t\t\"customerNotes\": \"Dicta sed porro vel id molestiae exercitationem non. Quaerat et magni ea velit hic recusandae minus. Illum tempore natus aut iure quo sequi qui. Voluptatem ad odit recusandae sunt voluptatum facere beatae quia inventore.\"\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-headers/create",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-headers", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-headers/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-headers/paginate",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "sales-invoice-headers",
+            "paginate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-headers/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-headers/get",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-headers", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-header/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-header/find",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-header", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-header/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-header/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "sales-invoice-header",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-header/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 33881060333524030000, \n\t\"invoiceNumber\": \"l7wubljk0ofququstjsiauwbit7jv2amsv0q78nwsj7tckflv0e6bm400k3zdch\", \n\t\"externalId\": \"v7l42859asqwipsiduome2k5or6lv26c8n4qs1ii1pv7x17l0za5fiuowduvvb0\", \n\t\"externalSystemCode\": \"bkazhqs9aj174ir\", \n\t\"businessPartnerId\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"invoiceDate\": \"2026-01-25\", \n\t\"dueDate\": \"2026-01-26\", \n\t\"status\": 'SENT', \n\t\"subtotal\": 9382298604.67, \n\t\"taxAmount\": 5434678770.41, \n\t\"discountAmount\": 1825637467.45, \n\t\"totalAmount\": 4215539626.95, \n\t\"paidAmount\": 4461895842.63, \n\t\"currencyCode\": \"8ys\", \n\t\"paymentTermDays\": 7235, \n\t\"notes\": \"Quae quasi impedit ullam nam animi voluptatem. Eveniet minus labore dolore ipsum sequi eveniet non accusamus. Sit ut saepe rerum sunt occaecati et quam distinctio sunt.\", \n\t\"customerNotes\": \"Consequatur dolores nobis similique odio aliquam. Id dolorem similique. Minima ullam quia ratione rerum perferendis eum veniam perspiciatis. Est ipsam quasi harum vitae labore. Eum in vel inventore at expedita et id. Rerum necessitatibus rem aperiam quo nisi.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-header/update",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-header", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-header/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-header/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "business-partner-portal",
+            "sales-invoice-header",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - business-partner-portal/sales-invoice-headers/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/business-partner-portal/sales-invoice-headers/delete",
+          "host": ["{{URL}}"],
+          "path": ["business-partner-portal", "sales-invoice-headers", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
