@@ -1,13 +1,14 @@
 ---
-name: bounded-context-generator
+name: aurora-context-generator
 description: >
-  Generates CONTEXT.md documentation for bounded contexts by exploring existing code and YAML definitions.
-  Trigger: When user asks to document a bounded context, generate CONTEXT.md, or analyze a domain.
+  Generates CONTEXT.md documentation for bounded contexts by exploring existing
+  code and YAML definitions. Trigger: When user asks to document a bounded
+  context, generate CONTEXT.md, or analyze a domain.
 license: MIT
 metadata:
   author: aurora
-  version: "1.0"
-  auto_invoke: "Generate CONTEXT.md, document bounded context, analyze domain"
+  version: '1.0'
+  auto_invoke: 'Generate CONTEXT.md, document bounded context, analyze domain'
 allowed-tools: Read, Write, Glob, Grep, Task, AskUserQuestion
 ---
 
@@ -33,13 +34,13 @@ Before generating, ALWAYS explore the bounded context:
 
 ### 2. Information Sources
 
-| Source | What to Extract |
-|--------|-----------------|
-| `cliter/{context}/*.aurora.yaml` | Modules, fields, relationships, aggregates |
-| `src/@api/{context}/` | API endpoints, resolvers, DTOs |
-| `src/@apps/{context}/*/application/` | Commands, queries, handlers, use cases |
-| `src/@apps/{context}/*/domain/` | Value objects, entities, business rules |
-| `src/@apps/{context}/*/infrastructure/` | Repositories, external integrations |
+| Source                                  | What to Extract                            |
+| --------------------------------------- | ------------------------------------------ |
+| `cliter/{context}/*.aurora.yaml`        | Modules, fields, relationships, aggregates |
+| `src/@api/{context}/`                   | API endpoints, resolvers, DTOs             |
+| `src/@apps/{context}/*/application/`    | Commands, queries, handlers, use cases     |
+| `src/@apps/{context}/*/domain/`         | Value objects, entities, business rules    |
+| `src/@apps/{context}/*/infrastructure/` | Repositories, external integrations        |
 
 ### 3. Module Discovery from YAML
 
@@ -47,10 +48,10 @@ Read `.aurora.yaml` files and extract:
 
 ```yaml
 # From the YAML, extract:
-boundedContextName: business-partner-portal  # Context name
-moduleName: partner                          # Module name
-moduleNames: partners                        # Plural
-aggregateName: Partner                       # Aggregate
+boundedContextName: business-partner-portal # Context name
+moduleName: partner # Module name
+moduleNames: partners # Plural
+aggregateName: Partner # Aggregate
 
 # From properties, infer:
 # - Field types and relationships
@@ -62,18 +63,19 @@ aggregateName: Partner                       # Aggregate
 
 Look for patterns in code:
 
-| Code Pattern | Business Rule Type |
-|--------------|-------------------|
-| `@Guards()` decorators | Access control rules |
+| Code Pattern           | Business Rule Type    |
+| ---------------------- | --------------------- |
+| `@Guards()` decorators | Access control rules  |
 | Validators in handlers | Data validation rules |
-| `if/throw` in domain | Domain invariants |
-| Value Objects | Data constraints |
-| Saga/Events | Process rules |
+| `if/throw` in domain   | Domain invariants     |
+| Value Objects          | Data constraints      |
+| Saga/Events            | Process rules         |
 
 ## Generation Process
 
 1. **Receive bounded context name** from user
 2. **Explore code structure**:
+
    ```bash
    # Find all YAML definitions
    glob: cliter/{context}/*.aurora.yaml
@@ -84,6 +86,7 @@ Look for patterns in code:
    # Find domain entities and value objects
    glob: src/@apps/{context}/**/domain/**/*.ts
    ```
+
 3. **Read and analyze** each found file
 4. **Extract information**:
    - Modules from YAML files
@@ -104,13 +107,14 @@ Look for patterns in code:
 
 ## Modules
 
-| Module | Responsibility |
-|--------|----------------|
+| Module   | Responsibility                       |
+| -------- | ------------------------------------ |
 | {module} | {Inferred from aggregate and fields} |
 
 ## Key Business Rules
 
 {Extracted from code analysis}
+
 - Rule from guards/validators
 - Rule from domain invariants
 - Rule from value object constraints
@@ -118,6 +122,7 @@ Look for patterns in code:
 ## Main Flows
 
 {Extracted from command/query handlers}
+
 1. **{CommandName}**: {Description from handler}
 2. **{QueryName}**: {Description from handler}
 
@@ -172,9 +177,12 @@ fd "handler.ts" src/@apps/{context}/
 
 If code exploration reveals ambiguity, ask user:
 
-1. **Purpose clarification**: "Based on the modules found ({list}), is this context about {inferred purpose}?"
-2. **Missing information**: "I couldn't find business rules in code. Can you describe the key constraints?"
-3. **Dependencies**: "I found imports from {contexts}. Are there other dependencies?"
+1. **Purpose clarification**: "Based on the modules found ({list}), is this
+   context about {inferred purpose}?"
+2. **Missing information**: "I couldn't find business rules in code. Can you
+   describe the key constraints?"
+3. **Dependencies**: "I found imports from {contexts}. Are there other
+   dependencies?"
 
 ## Resources
 

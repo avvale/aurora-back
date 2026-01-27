@@ -54,7 +54,7 @@ standards.
 | Project structure, folder organization, navigating codebase    | `.claude/skills/aurora-project-structure/SKILL.md` |
 | Analyzing or editing \*.aurora.yaml files, schema validation   | `.claude/skills/aurora-schema/SKILL.md`            |
 | Sync Aurora schemas with Google Sheets (push, pull, diff)      | `.claude/skills/aurora-sheets-sync/SKILL.md`       |
-| Generate CONTEXT.md for bounded contexts from code exploration | `.claude/skills/bounded-context-generator/SKILL.md`|
+| Generate CONTEXT.md for bounded contexts from code exploration | `.claude/skills/aurora-context-generator/SKILL.md` |
 | Migrations SQL, procedures, functions, triggers (tools)        | `.claude/skills/aurora-tools-scripts/SKILL.md`     |
 | Git commits, commit messages, conventional commits             | `.claude/skills/conventional-commits/SKILL.md`     |
 | Commit and push changes (/commit command)                      | `.claude/skills/commit/SKILL.md`                   |
@@ -77,6 +77,7 @@ standards.
 
 ## Bounded Context Documentation
 
-Before working on any bounded context, check if `cliter/[bounded-context]/CONTEXT.md`
-exists and read it to understand the business domain, modules, and rules.
-This file contains business logic documentation specific to each installed bounded context.
+Before working on any bounded context, check if
+`cliter/[bounded-context]/CONTEXT.md` exists and read it to understand the
+business domain, modules, and rules. This file contains business logic
+documentation specific to each installed bounded context.
