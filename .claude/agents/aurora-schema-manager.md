@@ -120,6 +120,59 @@ description: >
     to product module for line items. Central to the sales workflow.
 ```
 
+## Mandatory Fields (REQUIRED in all modules)
+
+**IMPORTANTE: Todos los módulos DEBEN incluir estos campos obligatoriamente.**
+
+### 1. Campo rowId (después del id)
+
+```yaml
+- name: rowId
+  type: bigint
+  index: unique
+  autoIncrement: true
+  nullable: false
+  description: >
+    Auto-incrementing sequential identifier. Used for internal ordering and
+    legacy system compatibility. Unlike the UUID 'id', this provides a
+    human-readable sequential number.
+```
+
+### 2. Campos de marca de tiempo (al final del aggregateProperties)
+
+```yaml
+- name: createdAt
+  type: timestamp
+  nullable: true
+  description: >
+    Timestamp when the record was created. Automatically set on insertion. Part
+    of audit trail.
+
+- name: updatedAt
+  type: timestamp
+  nullable: true
+  description: >
+    Timestamp when the record was last modified. Automatically updated on any
+    field change. Part of audit trail.
+
+- name: deletedAt
+  type: timestamp
+  nullable: true
+  description: >
+    Soft delete timestamp. NULL indicates active record. When set, record is
+    excluded from normal queries but preserved for audit trail and potential
+    recovery.
+```
+
+### Orden de campos en aggregateProperties
+
+1. `id` (primaryKey)
+2. `rowId` (autoIncrement) ← **OBLIGATORIO**
+3. ... campos del módulo ...
+4. `createdAt` ← **OBLIGATORIO**
+5. `updatedAt` ← **OBLIGATORIO**
+6. `deletedAt` ← **OBLIGATORIO**
+
 ## Edition Operations
 
 ### Creating Fields
@@ -142,6 +195,8 @@ Cuando se te pida crear un campo:
 - [ ] No duplica un campo existente
 - [ ] Es consistente con campos similares en otros módulos
 - [ ] **Si es tipo `id`, NO incluir `length`**
+- [ ] **Si es un módulo nuevo, incluir `rowId` y campos de timestamp
+      (`createdAt`, `updatedAt`, `deletedAt`)**
 
 ### Editing Fields
 
@@ -448,6 +503,18 @@ Each YAML will be headed by the module definition:
 - Does the description add value beyond the moduleName?
 - Does it explain the module's role within its bounded context?
 
+### 2.1 Verify Mandatory Fields
+
+**IMPORTANTE: Verificar que el módulo incluya los campos obligatorios:**
+
+- [ ] ¿Tiene campo `rowId` (después de `id`)?
+- [ ] ¿Tiene campo `createdAt`?
+- [ ] ¿Tiene campo `updatedAt`?
+- [ ] ¿Tiene campo `deletedAt`?
+
+Si faltan campos obligatorios, incluirlos en el reporte de análisis y en la
+propuesta de YAML mejorado.
+
 ### 3. Analyze Each Field
 
 For each field in `aggregateProperties`, evaluate:
@@ -477,6 +544,15 @@ For each field in `aggregateProperties`, evaluate:
 Suggested description:
 
 > [Suggested description explaining purpose and role within bounded context]
+
+### Missing Mandatory Fields ❌ (if any)
+
+| Field     | Position          | Status  |
+| --------- | ----------------- | ------- |
+| rowId     | After id          | Missing |
+| createdAt | End of properties | Missing |
+| updatedAt | End of properties | Missing |
+| deletedAt | End of properties | Missing |
 
 ### Fields Without Description ❌
 
