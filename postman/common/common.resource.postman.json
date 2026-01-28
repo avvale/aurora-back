@@ -1,561 +1,480 @@
 {
-    "info": {
-		"_postman_id"   : "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
-		"name"          : "@app - common/resource",
-		"schema"        : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  "info": {
+    "_postman_id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+    "name": "@app - common/resource",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GraphQL - commonCreateResource",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:CommonCreateResourceInput!)\n{\n\tcommonCreateResource (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 92970929097774140000, \n\t\t\"code\": \"rwrxc146nt1p9ubg93hmism6fnxp9k5y57rbsequz16aivcllu3e9jijm1jgtv6\", \n\t\t\"name\": \"Ergonomic Granite Pants\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": true\n\t}\n}"
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
     },
-    "item": [
-        {
-			"name": "GraphQL - commonCreateResource",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($payload:CommonCreateResourceInput!)\n{\n\tcommonCreateResource (payload:$payload)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t}\n}",
-                        "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"code\": \"a5qu71tgf1azs5o3uvvmp5d4kgdbc4qpepccfe4fw6vj5rgwyp855ub45zkc8y\", \n\t\t\"name\": \"Awesome Fresh Sausages\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+    {
+      "name": "GraphQL - commonCreateResources",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:[CommonCreateResourceInput]!)\n{\n\tcommonCreateResources (payload:$payload)\n}",
+            "variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"a4016c4f-6fe7-4657-bd82-2de16bba7a24\", \n\t\t\t\"rowId\": 78950620999577700000, \n\t\t\t\"code\": \"2sq22z505mp7vb1qj8t7ihvfh8jb6jdq98ea0n4mqtikj0vkbiaocxtrys3ftyx\", \n\t\t\t\"name\": \"Licensed Cotton Pants\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"19b89b35-3841-457e-978d-952613e2ec4e\", \n\t\t\t\"rowId\": 66962829657672890000, \n\t\t\t\"code\": \"am67esv0gula65xbj2rxb9odegsewqgjtdu298wehqbxya2cod94wa8wvpko18w\", \n\t\t\t\"name\": \"Gorgeous Cotton Hat\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"f552010c-a5ac-4d0f-8695-213d2348ee45\", \n\t\t\t\"rowId\": 13132299060477018000, \n\t\t\t\"code\": \"r8vjs61ofa5d3w4u9w9w98rv5vm7737qwhw05f4elbllxb3s3gle3b3os5cjr5c\", \n\t\t\t\"name\": \"Unbranded Concrete Mouse\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"6ca07bf5-68df-43d0-9961-051b26ee2e50\", \n\t\t\t\"rowId\": 45679825899018460000, \n\t\t\t\"code\": \"b2busyd3a9oxo2w59dgaxoerhpbd7wd88ta3hvyvopy9n7j9gfoucyw8kne0axr\", \n\t\t\t\"name\": \"Unbranded Frozen Tuna\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"1d2e6fd0-acdc-49b7-92f5-6fc1050d38a1\", \n\t\t\t\"rowId\": 88550258031251340000, \n\t\t\t\"code\": \"yo31jedp4ak963u8ywg2hktysfu5erwql0huqqcx91ziw5y5id4s7ww9m9oazvl\", \n\t\t\t\"name\": \"Awesome Plastic Pizza\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"96f7a954-4b9b-4a5e-9cd1-af3e2a6b9e3c\", \n\t\t\t\"rowId\": 99243051438358630000, \n\t\t\t\"code\": \"a2qsmkv9ukzkpaz9o9zx8z8d1ep9aw1woirovs9yhhm1bd7pdzri13047h80zc4\", \n\t\t\t\"name\": \"Intelligent Concrete Gloves\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"294ffc8c-1f37-47d5-b706-fbc04ee0f730\", \n\t\t\t\"rowId\": 62525739030976470000, \n\t\t\t\"code\": \"tcxvhzovd12g0o8njob4wzmr9pw2qm1lv6bbsfwuot5elchjuzi4g7z97bb1a4i\", \n\t\t\t\"name\": \"Awesome Fresh Pizza\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"97df6921-d918-4146-9de2-dfe7918bba45\", \n\t\t\t\"rowId\": 45591680379545170000, \n\t\t\t\"code\": \"jjs80a3lv34yj2jm9rzaa1v5k0y893by2fuj5qdeg2jsetaaogql6iylj3izu8b\", \n\t\t\t\"name\": \"Rustic Metal Car\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"de617d24-b24e-4663-9056-cef753dcf574\", \n\t\t\t\"rowId\": 70143198024085900000, \n\t\t\t\"code\": \"gqvilkjorua4fzexfew2z7cm1dbvt4kojdx93yepn52f0cu1eb7u59d1mhn26yc\", \n\t\t\t\"name\": \"Small Soft Ball\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"390b59fb-ed94-4a39-be12-c2c051d97442\", \n\t\t\t\"rowId\": 22917592819431596000, \n\t\t\t\"code\": \"ijn8njvr0tguomjpp4tqsjcy562zuz3ml7hig97f42djokvh3wnww6bdjsojzvl\", \n\t\t\t\"name\": \"Handmade Plastic Pizza\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": false\n\t\t}\n\t]\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonCreateResources",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($payload:[CommonCreateResourceInput]!)\n{\n\tcommonCreateResources (payload:$payload)\n}",
-						"variables": "{\n\t\"payload\":\n\t[\n\t\t{\n\t\t\t\"id\": \"e9c58fa5-6572-4ad6-89d5-b53decc171a4\", \n\t\t\t\"code\": \"qlmy46hzc47e1t2vumr7ksqn8z5j1nt5ym0suky1l87wdilwkw8rfnrq2ia89u\", \n\t\t\t\"name\": \"Ergonomic Frozen Bacon\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"ca27b23c-4658-42ef-8ed9-fcefb76a258a\", \n\t\t\t\"code\": \"kiheirv9wip6hzk66rphjeqqimpc7kaa1gjrz3holokx9qd317b7qfxs3vsznq\", \n\t\t\t\"name\": \"Handmade Soft Chips\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"a7cca9c8-03fb-41e8-89ff-d1bcd9162bf8\", \n\t\t\t\"code\": \"sp3x8ypzrtaodacv6qsmqwpkmxi38q0oiydfex04sexl1u2lq1113ljqmoasu7\", \n\t\t\t\"name\": \"Handcrafted Frozen Ball\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"39ff687b-8221-4eb3-834a-56733ed32119\", \n\t\t\t\"code\": \"6nhkf8psa1m9nl65xw9skw8q2rjnz2m2e2plt9l6s96au6ja4a7ylxtt0hlg5g\", \n\t\t\t\"name\": \"Tasty Wooden Shirt\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"e07c27d9-4adc-41ba-b558-2296cddbcb53\", \n\t\t\t\"code\": \"x662abwyk8b9gfg8lo3ji0zg24fzzmfzfxt6czkg6ut541wnruz620qdqec90p\", \n\t\t\t\"name\": \"Ergonomic Metal Mouse\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"c36dd818-695a-4175-935a-35df52de6a1e\", \n\t\t\t\"code\": \"ya3np9ws4t6menfyowv0ezxo72p18rzatbdkjwg7m5od2s3c31v7vandqhdqrh\", \n\t\t\t\"name\": \"Tasty Wooden Chips\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"31186f49-c936-46ca-b476-2fa7233eb16f\", \n\t\t\t\"code\": \"6eainu1z5bksrd4ougse12vpf8csjjd974evh66k8t5f7eshy12pivdi10hkeq\", \n\t\t\t\"name\": \"Refined Wooden Fish\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"13630dd7-309a-4c91-9530-f385afdfe858\", \n\t\t\t\"code\": \"pyssoku81msdd9e7p8enewip5nyz7s0giwlqpjnuyxcj9ue75cgw9nhjdvoprg\", \n\t\t\t\"name\": \"Fantastic Frozen Bike\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"98b239e4-60e5-453b-99cc-645afb09f4c5\", \n\t\t\t\"code\": \"huar8qyck3f2lfk78dc3pajqo5z8ag3u0o0drfih819yk5dew5iucharhec7gy\", \n\t\t\t\"name\": \"Awesome Plastic Table\", \n\t\t\t\"isActive\": false, \n\t\t\t\"hasAttachments\": true\n\t\t}, \n\t\t{\n\t\t\t\"id\": \"48f3f9fb-a066-476f-a5b7-77783876dfd1\", \n\t\t\t\"code\": \"x3wfixfgn8ht6dbetvd4bnikum0eca9dwxerflk5mzy8u6fbbr6xzkethjir4u\", \n\t\t\t\"name\": \"Incredible Cotton Pizza\", \n\t\t\t\"isActive\": true, \n\t\t\t\"hasAttachments\": false\n\t\t}\n\t]\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonPaginateResources",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tcommonPaginateResources (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonPaginateResources",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query ($query:QueryStatement $constraint:QueryStatement)\n{\n\tcommonPaginateResources (query:$query constraint:$constraint)\n\t{\n\t\ttotal\n\t\tcount\n\t\trows\n\t}\n}",
-						"variables": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonGetResources",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tcommonGetResources (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonGetResources",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query ($query:QueryStatement)\n{\n\tcommonGetResources (query: $query)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonFindResource",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($query:QueryStatement)\n{\n\tcommonFindResource (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonFindResource",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query ($query:QueryStatement)\n{\n\tcommonFindResource (query: $query)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonFindResourceById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query ($id:ID)\n{\n\tcommonFindResourceById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonFindResourceById",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query ($id:ID)\n{\n\tcommonFindResourceById (id:$id)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonUpdateResource",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($payload:CommonUpdateResourceInput!)\n{\n\tcommonUpdateResource (payload:$payload)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"rowId\": 35836225735818110000, \n\t\t\"code\": \"y67kzevlew1owxc84jhqpqoor6l3dlmqwnitz9ah645sege418kt7qhy2ds8m4v\", \n\t\t\"name\": \"Awesome Rubber Computer\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonUpdateResource",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($payload:CommonUpdateResourceInput!)\n{\n\tcommonUpdateResource (payload:$payload)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"payload\":\n\t{\n\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\t\"code\": \"kurve9j1xnlgxnjyc12jg3gj1b7gbkxfb6uyy62sgxpst7exh4u06qgs0x80t0\", \n\t\t\"name\": \"Gorgeous Plastic Keyboard\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonDeleteResourceById",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($id:ID!)\n{\n\tcommonDeleteResourceById (id:$id)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonDeleteResourceById",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($id:ID!)\n{\n\tcommonDeleteResourceById (id:$id)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GraphQL - commonDeleteResources",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation ($query:QueryStatement)\n{\n\tcommonDeleteResources (query: $query)\n\t{\n\t\tid\n\t\trowId\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
+            "variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
+          }
         },
-        {
-			"name": "GraphQL - commonDeleteResources",
-			"request": {
-				"method": "POST",
-				"header": [
-                ],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($query:QueryStatement)\n{\n\tcommonDeleteResources (query: $query)\n\t{\n\t\tid\n\t\tcode\n\t\tname\n\t\tisActive\n\t\thasAttachments\n\t\tcreatedAt\n\t\tupdatedAt\n\t}\n}",
-						"variables": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}"
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/graphql",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/graphql",
+          "host": ["{{URL}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resource/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 28043374210271750000, \n\t\"code\": \"mqpadvp8twf2nr88v7tveyznh41upr9qm1bxpczya41rjri0brte2rs8dp4i6g6\", \n\t\"name\": \"Licensed Fresh Chicken\", \n\t\"isActive\": true, \n\t\"hasAttachments\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resource/create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key"   : "Content-Type",
-						"name"  : "Content-Type",
-						"type"  : "text",
-						"value" : "application/json"
-					}				],
-				"body": {
-					"mode"  : "raw",
-					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"code\": \"fyu13o7h6utgvw4hiw8c7n0fpjdsvxk81ek0yqrc2sp7mu5gsfajlgxta0ahbe\", \n\t\"name\": \"Handmade Cotton Sausages\", \n\t\"isActive\": false, \n\t\"hasAttachments\": false\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resource/create",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resource",
-                        "create"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resource/create",
+          "host": ["{{URL}}"],
+          "path": ["common", "resource", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resources/create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n\t{\n\t\t\"id\": \"b2598ee5-da4e-4187-ac55-7285ec144ea9\", \n\t\t\"rowId\": 12683684127304198000, \n\t\t\"code\": \"zeyprxokm9at9q5jm9xrlzgunnvlf3hzf1tpjrwbd3tbcsnhjxwqc0aidu9ssj1\", \n\t\t\"name\": \"Awesome Plastic Towels\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"8de6efd4-4665-43f5-99da-75f0fad25fba\", \n\t\t\"rowId\": 61992955057592730000, \n\t\t\"code\": \"7k34gvns0nn1hmu85h6bhetsma15hdrnjsc0wsy6ersq9aqykh5h8p3zobie5m4\", \n\t\t\"name\": \"Generic Rubber Chicken\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"d805622a-df57-43ac-81f0-50ab6253eeb6\", \n\t\t\"rowId\": 17892544958150308000, \n\t\t\"code\": \"dtijnp46br9xaq0txu4w1h66iogf3cg64av5og6fh7g4pzcpi0ae4rl1xzhxw8q\", \n\t\t\"name\": \"Intelligent Soft Keyboard\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"d0338438-c890-46bc-88a6-6c9116450521\", \n\t\t\"rowId\": 52434370398009180000, \n\t\t\"code\": \"40h74b5souwusdv8w5f5pd2by1t3tqn8pn44emxi5u7txh9dk8jtzz6epxdkapb\", \n\t\t\"name\": \"Tasty Wooden Fish\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"67b5b500-bdbe-4eb8-adc3-a26888f62b4c\", \n\t\t\"rowId\": 52698322335712570000, \n\t\t\"code\": \"4f8gokbw5yt6l2sqj0afhlwd9tz6fkga2c8tysye6dfazf8z59zqne6qbj3y1sx\", \n\t\t\"name\": \"Rustic Soft Tuna\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"c9d3a5bd-87ac-4a0c-ab68-4785f898a4f0\", \n\t\t\"rowId\": 16983346506136547000, \n\t\t\"code\": \"pspcnuvnrxt18ffb165635b9vi8d5yb566taphy8cpeb24drqgbqdgfjhrnevkv\", \n\t\t\"name\": \"Handmade Granite Sausages\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"4d625a54-9e28-4a8c-a53f-c13284330897\", \n\t\t\"rowId\": 48310195473204360000, \n\t\t\"code\": \"q9rh99p051nurdymdsnd99h8jolypyss6rh519dzj2tyqr1i7b6bwusqsuccb7l\", \n\t\t\"name\": \"Tasty Steel Pants\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"97057b0c-355b-4b37-a74f-1564286f301f\", \n\t\t\"rowId\": 60598799544762460000, \n\t\t\"code\": \"sx3w0z8f4emmvkwhf4itprtzc13hff3u2rg53sv5ay11u0knhrsbr939zm7gf0h\", \n\t\t\"name\": \"Sleek Frozen Chicken\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"4e5e210a-6cf4-4078-ba45-3e13673f688f\", \n\t\t\"rowId\": 48691343022123885000, \n\t\t\"code\": \"jqkwydiv4xu11b7vl1xjl9e9a6h0x2hgqbb91c3qc61urn5g0xa61eqzcdm0k6q\", \n\t\t\"name\": \"Refined Plastic Keyboard\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"08b11730-616f-4c64-8af5-c4d26a0d1a63\", \n\t\t\"rowId\": 63517896275045860000, \n\t\t\"code\": \"cw1z9w8w98r7dunw427bnf809bjb72d2bxyrlfxeq4erezj1to8830r04e87yea\", \n\t\t\"name\": \"Ergonomic Wooden Hat\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resources/create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key"   : "Content-Type",
-						"name"  : "Content-Type",
-						"type"  : "text",
-						"value" : "application/json"
-					}				],
-				"body": {
-					"mode"  : "raw",
-					"raw"   : "[\n\t{\n\t\t\"id\": \"521188cf-38c3-4350-8e72-07ceed76c550\", \n\t\t\"code\": \"katfvsra2mi83kil0c0820s6w4892hsm2f23pvcgyj3yi914td2p9wz6zx067r\", \n\t\t\"name\": \"Tasty Frozen Fish\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"577502fe-f848-428b-bfca-c91e550ee1df\", \n\t\t\"code\": \"k11pog8otwxbam8utmokdu9t9jp61d2b7lbcnz53r5qcya7o54k9qdz4201296\", \n\t\t\"name\": \"Refined Steel Salad\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"72f910bf-bc71-4c6e-a657-27ac6a89adbc\", \n\t\t\"code\": \"2xdyohlsispa1u161iplhvuc5z3r3o6xalw4lo88cs6qp0ht9j019xqhq8db7w\", \n\t\t\"name\": \"Incredible Wooden Fish\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"056f3b5d-f26a-4965-bc64-55095ea89848\", \n\t\t\"code\": \"l83z8hxgj1jkwxiefhxcql7k66fgb8d29mebujqck82pwi007734mmf9nie9qb\", \n\t\t\"name\": \"Sleek Concrete Towels\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"9267d7c9-6f28-437f-819a-97b6d70f6ad5\", \n\t\t\"code\": \"d3iv2xgzzznbaf51kdxa9igk5yicvyz847r884s1kj8glr6q9g9r9vs0wp4ae0\", \n\t\t\"name\": \"Handcrafted Granite Bike\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"5d0f32b9-cde9-4769-a19d-2443f2838801\", \n\t\t\"code\": \"pb6e0j1wfw6l9t6i2gmh0iw64fmkzs3l0035kc063k8qeve2fvbvh39082ssdf\", \n\t\t\"name\": \"Incredible Steel Ball\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"27d1b6fa-987a-40b7-a602-fe36ff0351d4\", \n\t\t\"code\": \"oflawzhyhsa4082dkh2i7n1i1a2f5ix7k9my72u2b7k2nnd4775gwi03x74a4m\", \n\t\t\"name\": \"Licensed Soft Towels\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"71d23b65-1b93-44f4-a559-26bb25d40af6\", \n\t\t\"code\": \"ed7nt1hbpabcqmeitdv5gfwqwhksqx3ias10eulim76g9nnx8a2jq3okinzbpj\", \n\t\t\"name\": \"Ergonomic Plastic Chair\", \n\t\t\"isActive\": false, \n\t\t\"hasAttachments\": true\n\t}, \n\t{\n\t\t\"id\": \"487cefa4-8186-42f6-9c24-63c484b26d47\", \n\t\t\"code\": \"otk1f7lnmb7grokjhmwff8gjw9f001ctvjwljvicok6uxwu291y06i5gk78itk\", \n\t\t\"name\": \"Handmade Cotton Car\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}, \n\t{\n\t\t\"id\": \"c5e10a3f-3802-4516-85eb-b8f3898261bc\", \n\t\t\"code\": \"swnqfvcuhgkkds32bfuxuwz4i7ytf9z9tvgh3v9hcnngfydswfmg0mft99jen7\", \n\t\t\"name\": \"Sleek Fresh Computer\", \n\t\t\"isActive\": true, \n\t\t\"hasAttachments\": false\n\t}\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resources/create",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resources",
-                        "create"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resources/create",
+          "host": ["{{URL}}"],
+          "path": ["common", "resources", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resources/paginate",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resources/paginate",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"query\":\n\t{\n\t\t\"offset\": 0,\n\t\t\"limit\": 10\n\t}\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resources/paginate",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-                        "resources",
-                        "paginate"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resources/paginate",
+          "host": ["{{URL}}"],
+          "path": ["common", "resources", "paginate"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resources/get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resources/get",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{ \n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resources/get",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resources",
-                        "get"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resources/get",
+          "host": ["{{URL}}"],
+          "path": ["common", "resources", "get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resource/find",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resource/find",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\"\n\t\t}\n\t}\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resource/find",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resource",
-                        "find"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resource/find",
+          "host": ["{{URL}}"],
+          "path": ["common", "resource", "find"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resource/find/{id}",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resource/find/{id}",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resource/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resource",
-                        "find",
-						"5b19d6ac-4081-573b-96b3-56964d5326a8"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resource/find/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "common",
+            "resource",
+            "find",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resource/update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"rowId\": 38651406623684630000, \n\t\"code\": \"zf9d1s14wp2b27fszsn38zv9jxww5n8yd4xfgjxvothadmlyufe37fguyrgv7xq\", \n\t\"name\": \"Handmade Rubber Salad\", \n\t\"isActive\": false, \n\t\"hasAttachments\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resource/update",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw"   : "{\n\t\"id\": \"5b19d6ac-4081-573b-96b3-56964d5326a8\", \n\t\"code\": \"gkwwuco2mdupc6k7kc4shgbc8l76zb5cuxygjqjtuzp25k9oor5d1eryd0kb98\", \n\t\"name\": \"Incredible Wooden Salad\", \n\t\"isActive\": false, \n\t\"hasAttachments\": true\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resource/update",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resource",
-                        "update"
-					]
-				}
-			},
-			"response": []
+        "url": {
+          "raw": "{{URL}}/common/resource/update",
+          "host": ["{{URL}}"],
+          "path": ["common", "resource", "update"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resource/delete/{id}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
         },
-        {
-			"name": "REST - common/resource/delete/{id}",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resource/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resource",
-                        "delete",
-						"5b19d6ac-4081-573b-96b3-56964d5326a8"
-					]
-				}
-			},
-			"response": []
-		},
-        {
-			"name": "REST - common/resources/delete",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{URL}}/common/resources/delete",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"common",
-						"resources",
-                        "delete"
-					]
-				}
-			},
-			"response": []
-		}
-    ],
-    "variable": [
-		{
-			"id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
-			"key": "URL",
-			"value": "http://localhost:8080",
-			"type": "string"
-		}
-	]
+        "url": {
+          "raw": "{{URL}}/common/resource/delete/5b19d6ac-4081-573b-96b3-56964d5326a8",
+          "host": ["{{URL}}"],
+          "path": [
+            "common",
+            "resource",
+            "delete",
+            "5b19d6ac-4081-573b-96b3-56964d5326a8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REST - common/resources/delete",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"query\":\n\t{\n\t\t\"where\":\n\t\t{\n\t\t\t\"id\":\n\t\t\t{\n\t\t\t\t\"[substring]\": \"\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/common/resources/delete",
+          "host": ["{{URL}}"],
+          "path": ["common", "resources", "delete"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "d9bc3afc-fd40-5505-b57f-8f5d5118e01b",
+      "key": "URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
 }

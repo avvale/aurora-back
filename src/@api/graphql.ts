@@ -2935,12 +2935,8 @@ export interface IMutation {
     commonDeleteLangById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonDeleteLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
     commonCreateResource(payload: CommonCreateResourceInput): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
-    commonCreateResources(payload: Nullable<CommonCreateResourceInput>[]): boolean | Promise<boolean>;
     commonUpdateResourceById(payload: CommonUpdateResourceByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
-    commonUpdateResources(payload: CommonUpdateResourcesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
-    commonUpsertResource(payload: CommonUpdateResourceByIdInput): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
     commonDeleteResourceById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
-    commonDeleteResources(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonResource>[] | Promise<Nullable<CommonResource>[]>;
     iamCreateAccount(payload: IamCreateAccountInput): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccountById(payload: IamUpdateAccountByIdInput, constraint?: Nullable<QueryStatement>): Nullable<IamAccount> | Promise<Nullable<IamAccount>>;
     iamUpdateAccounts(payload: IamUpdateAccountsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<IamAccount>[] | Promise<Nullable<IamAccount>[]>;
@@ -3628,6 +3624,7 @@ export interface CommonLang {
 
 export interface CommonResource {
     id: string;
+    rowId: GraphQLInt;
     code: GraphQLString;
     name: GraphQLString;
     isActive: GraphQLBoolean;

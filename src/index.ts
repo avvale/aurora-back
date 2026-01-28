@@ -11,3 +11,10 @@ export { BusinessPartnerPortalPartnerContactResponse } from './@app/business-par
 export { BusinessPartnerPortalPartnerContactMapper } from './@app/business-partner-portal/partner-contact/domain/business-partner-portal-partner-contact.mapper';
 export { businessPartnerPortalMockPartnerContactData } from './@app/business-partner-portal/partner-contact/infrastructure/mock/business-partner-portal-mock-partner-contact.data';
 export { BusinessPartnerPortalPartnerContactDto } from './@api/business-partner-portal/partner-contact/dto/business-partner-portal-partner-contact.dto';
+export { CommonResource } from './@app/common/resource/domain/common-resource.aggregate';
+export { CommonResourceModel } from './@app/common/resource';
+export { CommonResourceResponse } from './@app/common/resource/domain/common-resource.response';
+export { CommonResourceMapper } from './@app/common/resource/domain/common-resource.mapper';
+export { commonMockResourceData } from './@app/common/resource/infrastructure/mock/common-mock-resource.data';
+export { CommonModule } from './@api/common/common.module';
+export { CommonResourceDto } from './@api/common/resource/dto/common-resource.dto';
