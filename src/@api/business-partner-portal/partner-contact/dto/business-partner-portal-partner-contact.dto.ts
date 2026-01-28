@@ -73,24 +73,46 @@ export class BusinessPartnerPortalPartnerContactDto {
 
   @ApiProperty({
     type: String,
-    description:
-      'Direct phone number for the contact person. Should include extension if applicable (e.g., &quot;+1-555-0100 ext. 123&quot;). NULL indicates no direct phone available. Used for urgent communications or when email is not suitable. Format is not strictly validated to allow for various international formats and extensions.',
+    description: 'phone [input here api field description]',
   })
   phone?: string;
 
   @ApiProperty({
     type: String,
-    description:
-      'Mobile phone number for the contact person. Should include country code for international contacts (e.g., &quot;+1-555-0100&quot;). NULL indicates no mobile number on record. Used for urgent communications, SMS notifications, or when contact is not at their desk. Particularly useful for field representatives or executives.',
+    description: 'phoneCountryPrefix [input here api field description]',
+  })
+  phoneCountryPrefix?: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'phoneSanitized [input here api field description]',
+  })
+  phoneSanitized?: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'mobile [input here api field description]',
   })
   mobile?: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'mobileCountryPrefix [input here api field description]',
+  })
+  mobileCountryPrefix?: string;
+
+  @ApiProperty({
+    type: String,
+    description: 'mobileSanitized [input here api field description]',
+  })
+  mobileSanitized?: string;
 
   @ApiProperty({
     type: Boolean,
     description:
       'Indicates if this is the primary contact for the business partner. Primary contact is the main point of contact and receives general communications by default. Only one contact per partner should be primary. When true, this contact is displayed first and used as default in partner communications. Defaults to false. Required field.',
   })
-  isPrimary: boolean;
+  isPrincipal: boolean;
 
   @ApiProperty({
     type: Boolean,

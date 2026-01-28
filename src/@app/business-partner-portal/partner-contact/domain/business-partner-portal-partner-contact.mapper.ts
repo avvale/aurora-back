@@ -16,12 +16,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
@@ -126,11 +130,27 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
       new BusinessPartnerPortalPartnerContactPhone(partnerContact.phone, {
         undefinable: true,
       }),
+      new BusinessPartnerPortalPartnerContactPhoneCountryPrefix(
+        partnerContact.phoneCountryPrefix,
+        { undefinable: true },
+      ),
+      new BusinessPartnerPortalPartnerContactPhoneSanitized(
+        partnerContact.phoneSanitized,
+        { undefinable: true },
+      ),
       new BusinessPartnerPortalPartnerContactMobile(partnerContact.mobile, {
         undefinable: true,
       }),
-      new BusinessPartnerPortalPartnerContactIsPrimary(
-        partnerContact.isPrimary,
+      new BusinessPartnerPortalPartnerContactMobileCountryPrefix(
+        partnerContact.mobileCountryPrefix,
+        { undefinable: true },
+      ),
+      new BusinessPartnerPortalPartnerContactMobileSanitized(
+        partnerContact.mobileSanitized,
+        { undefinable: true },
+      ),
+      new BusinessPartnerPortalPartnerContactIsPrincipal(
+        partnerContact.isPrincipal,
         { undefinable: true },
       ),
       new BusinessPartnerPortalPartnerContactIsActive(partnerContact.isActive, {
@@ -193,8 +213,12 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
       partnerContact.department.value,
       partnerContact.email.value,
       partnerContact.phone.value,
+      partnerContact.phoneCountryPrefix.value,
+      partnerContact.phoneSanitized.value,
       partnerContact.mobile.value,
-      partnerContact.isPrimary.value,
+      partnerContact.mobileCountryPrefix.value,
+      partnerContact.mobileSanitized.value,
+      partnerContact.isPrincipal.value,
       partnerContact.isActive.value,
       partnerContact.isUser.value,
       partnerContact.userId.value,

@@ -15,12 +15,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
@@ -68,9 +72,21 @@ export class BusinessPartnerPortalMockPartnerContactSeeder extends MockSeeder<Bu
           ),
           new BusinessPartnerPortalPartnerContactEmail(partnerContact.email),
           new BusinessPartnerPortalPartnerContactPhone(partnerContact.phone),
+          new BusinessPartnerPortalPartnerContactPhoneCountryPrefix(
+            partnerContact.phoneCountryPrefix,
+          ),
+          new BusinessPartnerPortalPartnerContactPhoneSanitized(
+            partnerContact.phoneSanitized,
+          ),
           new BusinessPartnerPortalPartnerContactMobile(partnerContact.mobile),
-          new BusinessPartnerPortalPartnerContactIsPrimary(
-            partnerContact.isPrimary,
+          new BusinessPartnerPortalPartnerContactMobileCountryPrefix(
+            partnerContact.mobileCountryPrefix,
+          ),
+          new BusinessPartnerPortalPartnerContactMobileSanitized(
+            partnerContact.mobileSanitized,
+          ),
+          new BusinessPartnerPortalPartnerContactIsPrincipal(
+            partnerContact.isPrincipal,
           ),
           new BusinessPartnerPortalPartnerContactIsActive(
             partnerContact.isActive,

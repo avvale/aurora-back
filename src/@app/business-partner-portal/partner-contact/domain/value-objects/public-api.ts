@@ -10,12 +10,16 @@ export { BusinessPartnerPortalPartnerContactEmail } from './business-partner-por
 export { BusinessPartnerPortalPartnerContactFirstName } from './business-partner-portal-partner-contact-first-name';
 export { BusinessPartnerPortalPartnerContactId } from './business-partner-portal-partner-contact-id';
 export { BusinessPartnerPortalPartnerContactIsActive } from './business-partner-portal-partner-contact-is-active';
-export { BusinessPartnerPortalPartnerContactIsPrimary } from './business-partner-portal-partner-contact-is-primary';
+export { BusinessPartnerPortalPartnerContactIsPrincipal } from './business-partner-portal-partner-contact-is-principal';
 export { BusinessPartnerPortalPartnerContactIsUser } from './business-partner-portal-partner-contact-is-user';
 export { BusinessPartnerPortalPartnerContactLastName } from './business-partner-portal-partner-contact-last-name';
 export { BusinessPartnerPortalPartnerContactMobile } from './business-partner-portal-partner-contact-mobile';
+export { BusinessPartnerPortalPartnerContactMobileCountryPrefix } from './business-partner-portal-partner-contact-mobile-country-prefix';
+export { BusinessPartnerPortalPartnerContactMobileSanitized } from './business-partner-portal-partner-contact-mobile-sanitized';
 export { BusinessPartnerPortalPartnerContactNotes } from './business-partner-portal-partner-contact-notes';
 export { BusinessPartnerPortalPartnerContactPhone } from './business-partner-portal-partner-contact-phone';
+export { BusinessPartnerPortalPartnerContactPhoneCountryPrefix } from './business-partner-portal-partner-contact-phone-country-prefix';
+export { BusinessPartnerPortalPartnerContactPhoneSanitized } from './business-partner-portal-partner-contact-phone-sanitized';
 export { BusinessPartnerPortalPartnerContactPosition } from './business-partner-portal-partner-contact-position';
 export { BusinessPartnerPortalPartnerContactPreferredLanguage } from './business-partner-portal-partner-contact-preferred-language';
 export { BusinessPartnerPortalPartnerContactRowId } from './business-partner-portal-partner-contact-row-id';

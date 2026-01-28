@@ -35,18 +35,16 @@ type BusinessPartnerPortalPartnerContact {
   Business email address of the contact person. Required field for direct communication. Must be a valid, active email address. Used for sending notifications, documents, and correspondence. Indexed for fast lookups. Should be unique per contact but not enforced to allow shared departmental emails in some cases.
   """
   email: GraphQLString!
-  """
-  Direct phone number for the contact person. Should include extension if applicable (e.g., &quot;+1-555-0100 ext. 123&quot;). NULL indicates no direct phone available. Used for urgent communications or when email is not suitable. Format is not strictly validated to allow for various international formats and extensions.
-  """
   phone: GraphQLString
-  """
-  Mobile phone number for the contact person. Should include country code for international contacts (e.g., &quot;+1-555-0100&quot;). NULL indicates no mobile number on record. Used for urgent communications, SMS notifications, or when contact is not at their desk. Particularly useful for field representatives or executives.
-  """
+  phoneCountryPrefix: GraphQLString
+  phoneSanitized: GraphQLString
   mobile: GraphQLString
+  mobileCountryPrefix: GraphQLString
+  mobileSanitized: GraphQLString
   """
   Indicates if this is the primary contact for the business partner. Primary contact is the main point of contact and receives general communications by default. Only one contact per partner should be primary. When true, this contact is displayed first and used as default in partner communications. Defaults to false. Required field.
   """
-  isPrimary: GraphQLBoolean!
+  isPrincipal: GraphQLBoolean!
   """
   Indicates whether the contact is currently active. When false, the contact is no longer with the organization or should not be contacted. Inactive contacts are preserved for historical records but not used in active communications. Use instead of hard deletion to maintain audit trail. Required field, defaults to true.
   """
@@ -91,8 +89,12 @@ input BusinessPartnerPortalCreatePartnerContactInput {
   department: GraphQLString
   email: GraphQLString!
   phone: GraphQLString
+  phoneCountryPrefix: GraphQLString
+  phoneSanitized: GraphQLString
   mobile: GraphQLString
-  isPrimary: GraphQLBoolean!
+  mobileCountryPrefix: GraphQLString
+  mobileSanitized: GraphQLString
+  isPrincipal: GraphQLBoolean!
   isActive: GraphQLBoolean!
   isUser: GraphQLBoolean!
   userId: ID
@@ -109,8 +111,12 @@ input BusinessPartnerPortalUpdatePartnerContactByIdInput {
   department: GraphQLString
   email: GraphQLString
   phone: GraphQLString
+  phoneCountryPrefix: GraphQLString
+  phoneSanitized: GraphQLString
   mobile: GraphQLString
-  isPrimary: GraphQLBoolean
+  mobileCountryPrefix: GraphQLString
+  mobileSanitized: GraphQLString
+  isPrincipal: GraphQLBoolean
   isActive: GraphQLBoolean
   isUser: GraphQLBoolean
   userId: ID
@@ -127,8 +133,12 @@ input BusinessPartnerPortalUpdatePartnerContactsInput {
   department: GraphQLString
   email: GraphQLString
   phone: GraphQLString
+  phoneCountryPrefix: GraphQLString
+  phoneSanitized: GraphQLString
   mobile: GraphQLString
-  isPrimary: GraphQLBoolean
+  mobileCountryPrefix: GraphQLString
+  mobileSanitized: GraphQLString
+  isPrincipal: GraphQLBoolean
   isActive: GraphQLBoolean
   isUser: GraphQLBoolean
   userId: ID

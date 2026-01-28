@@ -15,12 +15,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
@@ -96,11 +100,26 @@ describe('BusinessPartnerPortalCreatePartnerContactService', () => {
           phone: new BusinessPartnerPortalPartnerContactPhone(
             businessPartnerPortalMockPartnerContactData[0].phone,
           ),
+          phoneCountryPrefix:
+            new BusinessPartnerPortalPartnerContactPhoneCountryPrefix(
+              businessPartnerPortalMockPartnerContactData[0].phoneCountryPrefix,
+            ),
+          phoneSanitized: new BusinessPartnerPortalPartnerContactPhoneSanitized(
+            businessPartnerPortalMockPartnerContactData[0].phoneSanitized,
+          ),
           mobile: new BusinessPartnerPortalPartnerContactMobile(
             businessPartnerPortalMockPartnerContactData[0].mobile,
           ),
-          isPrimary: new BusinessPartnerPortalPartnerContactIsPrimary(
-            businessPartnerPortalMockPartnerContactData[0].isPrimary,
+          mobileCountryPrefix:
+            new BusinessPartnerPortalPartnerContactMobileCountryPrefix(
+              businessPartnerPortalMockPartnerContactData[0].mobileCountryPrefix,
+            ),
+          mobileSanitized:
+            new BusinessPartnerPortalPartnerContactMobileSanitized(
+              businessPartnerPortalMockPartnerContactData[0].mobileSanitized,
+            ),
+          isPrincipal: new BusinessPartnerPortalPartnerContactIsPrincipal(
+            businessPartnerPortalMockPartnerContactData[0].isPrincipal,
           ),
           isActive: new BusinessPartnerPortalPartnerContactIsActive(
             businessPartnerPortalMockPartnerContactData[0].isActive,

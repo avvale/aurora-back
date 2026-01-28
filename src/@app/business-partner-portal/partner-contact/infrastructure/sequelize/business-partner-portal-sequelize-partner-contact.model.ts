@@ -249,6 +249,20 @@ export class BusinessPartnerPortalPartnerContactModel extends Model<BusinessPart
   phone: string;
 
   @Column({
+    field: 'phoneCountryPrefix',
+    allowNull: true,
+    type: DataTypes.STRING(4),
+  })
+  phoneCountryPrefix: string;
+
+  @Column({
+    field: 'phoneSanitized',
+    allowNull: true,
+    type: DataTypes.STRING(64),
+  })
+  phoneSanitized: string;
+
+  @Column({
     field: 'mobile',
     allowNull: true,
     type: DataTypes.STRING(64),
@@ -256,12 +270,26 @@ export class BusinessPartnerPortalPartnerContactModel extends Model<BusinessPart
   mobile: string;
 
   @Column({
-    field: 'isPrimary',
+    field: 'mobileCountryPrefix',
+    allowNull: true,
+    type: DataTypes.STRING(4),
+  })
+  mobileCountryPrefix: string;
+
+  @Column({
+    field: 'mobileSanitized',
+    allowNull: true,
+    type: DataTypes.STRING(64),
+  })
+  mobileSanitized: string;
+
+  @Column({
+    field: 'isPrincipal',
     allowNull: false,
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   })
-  isPrimary: boolean;
+  isPrincipal: boolean;
 
   @Column({
     field: 'isActive',

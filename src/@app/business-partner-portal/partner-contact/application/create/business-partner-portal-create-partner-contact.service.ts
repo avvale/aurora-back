@@ -14,12 +14,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactUpdatedAt,
@@ -46,8 +50,12 @@ export class BusinessPartnerPortalCreatePartnerContactService {
       department: BusinessPartnerPortalPartnerContactDepartment;
       email: BusinessPartnerPortalPartnerContactEmail;
       phone: BusinessPartnerPortalPartnerContactPhone;
+      phoneCountryPrefix: BusinessPartnerPortalPartnerContactPhoneCountryPrefix;
+      phoneSanitized: BusinessPartnerPortalPartnerContactPhoneSanitized;
       mobile: BusinessPartnerPortalPartnerContactMobile;
-      isPrimary: BusinessPartnerPortalPartnerContactIsPrimary;
+      mobileCountryPrefix: BusinessPartnerPortalPartnerContactMobileCountryPrefix;
+      mobileSanitized: BusinessPartnerPortalPartnerContactMobileSanitized;
+      isPrincipal: BusinessPartnerPortalPartnerContactIsPrincipal;
       isActive: BusinessPartnerPortalPartnerContactIsActive;
       isUser: BusinessPartnerPortalPartnerContactIsUser;
       userId: BusinessPartnerPortalPartnerContactUserId;
@@ -67,8 +75,12 @@ export class BusinessPartnerPortalCreatePartnerContactService {
       payload.department,
       payload.email,
       payload.phone,
+      payload.phoneCountryPrefix,
+      payload.phoneSanitized,
       payload.mobile,
-      payload.isPrimary,
+      payload.mobileCountryPrefix,
+      payload.mobileSanitized,
+      payload.isPrincipal,
       payload.isActive,
       payload.isUser,
       payload.userId,

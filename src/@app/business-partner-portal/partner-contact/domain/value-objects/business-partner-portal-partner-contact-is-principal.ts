@@ -8,8 +8,9 @@ import {
   ValidationRules,
 } from '@aurorajs.dev/core';
 
-export class BusinessPartnerPortalPartnerContactIsPrimary extends BooleanValueObject {
-  public readonly type: string = 'BusinessPartnerPortalPartnerContactIsPrimary';
+export class BusinessPartnerPortalPartnerContactIsPrincipal extends BooleanValueObject {
+  public readonly type: string =
+    'BusinessPartnerPortalPartnerContactIsPrincipal';
 
   constructor(
     value: boolean,
@@ -20,7 +21,7 @@ export class BusinessPartnerPortalPartnerContactIsPrimary extends BooleanValueOb
       value,
       Object.assign(
         {
-          name: 'BusinessPartnerPortalPartnerContactIsPrimary',
+          name: 'BusinessPartnerPortalPartnerContactIsPrincipal',
           nullable: false,
           undefinable: false,
         },

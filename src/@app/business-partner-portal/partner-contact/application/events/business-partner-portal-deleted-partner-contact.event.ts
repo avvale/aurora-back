@@ -17,8 +17,12 @@ export class BusinessPartnerPortalDeletedPartnerContactEvent {
         department: string;
         email: string;
         phone: string;
+        phoneCountryPrefix: string;
+        phoneSanitized: string;
         mobile: string;
-        isPrimary: boolean;
+        mobileCountryPrefix: string;
+        mobileSanitized: string;
+        isPrincipal: boolean;
         isActive: boolean;
         isUser: boolean;
         userId: string;

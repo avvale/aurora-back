@@ -16,12 +16,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
@@ -81,9 +85,21 @@ export class BusinessPartnerPortalMockPartnerContactRepository
           ),
           new BusinessPartnerPortalPartnerContactEmail(itemCollection.email),
           new BusinessPartnerPortalPartnerContactPhone(itemCollection.phone),
+          new BusinessPartnerPortalPartnerContactPhoneCountryPrefix(
+            itemCollection.phoneCountryPrefix,
+          ),
+          new BusinessPartnerPortalPartnerContactPhoneSanitized(
+            itemCollection.phoneSanitized,
+          ),
           new BusinessPartnerPortalPartnerContactMobile(itemCollection.mobile),
-          new BusinessPartnerPortalPartnerContactIsPrimary(
-            itemCollection.isPrimary,
+          new BusinessPartnerPortalPartnerContactMobileCountryPrefix(
+            itemCollection.mobileCountryPrefix,
+          ),
+          new BusinessPartnerPortalPartnerContactMobileSanitized(
+            itemCollection.mobileSanitized,
+          ),
+          new BusinessPartnerPortalPartnerContactIsPrincipal(
+            itemCollection.isPrincipal,
           ),
           new BusinessPartnerPortalPartnerContactIsActive(
             itemCollection.isActive,

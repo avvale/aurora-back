@@ -57,9 +57,19 @@ describe('BusinessPartnerPortalUpdatePartnerContactByIdCommandHandler', () => {
                 businessPartnerPortalMockPartnerContactData[0].department,
               email: businessPartnerPortalMockPartnerContactData[0].email,
               phone: businessPartnerPortalMockPartnerContactData[0].phone,
+              phoneCountryPrefix:
+                businessPartnerPortalMockPartnerContactData[0]
+                  .phoneCountryPrefix,
+              phoneSanitized:
+                businessPartnerPortalMockPartnerContactData[0].phoneSanitized,
               mobile: businessPartnerPortalMockPartnerContactData[0].mobile,
-              isPrimary:
-                businessPartnerPortalMockPartnerContactData[0].isPrimary,
+              mobileCountryPrefix:
+                businessPartnerPortalMockPartnerContactData[0]
+                  .mobileCountryPrefix,
+              mobileSanitized:
+                businessPartnerPortalMockPartnerContactData[0].mobileSanitized,
+              isPrincipal:
+                businessPartnerPortalMockPartnerContactData[0].isPrincipal,
               isActive: businessPartnerPortalMockPartnerContactData[0].isActive,
               isUser: businessPartnerPortalMockPartnerContactData[0].isUser,
               userId: businessPartnerPortalMockPartnerContactData[0].userId,

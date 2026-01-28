@@ -17,12 +17,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
@@ -43,8 +47,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
   department: BusinessPartnerPortalPartnerContactDepartment;
   email: BusinessPartnerPortalPartnerContactEmail;
   phone: BusinessPartnerPortalPartnerContactPhone;
+  phoneCountryPrefix: BusinessPartnerPortalPartnerContactPhoneCountryPrefix;
+  phoneSanitized: BusinessPartnerPortalPartnerContactPhoneSanitized;
   mobile: BusinessPartnerPortalPartnerContactMobile;
-  isPrimary: BusinessPartnerPortalPartnerContactIsPrimary;
+  mobileCountryPrefix: BusinessPartnerPortalPartnerContactMobileCountryPrefix;
+  mobileSanitized: BusinessPartnerPortalPartnerContactMobileSanitized;
+  isPrincipal: BusinessPartnerPortalPartnerContactIsPrincipal;
   isActive: BusinessPartnerPortalPartnerContactIsActive;
   isUser: BusinessPartnerPortalPartnerContactIsUser;
   userId: BusinessPartnerPortalPartnerContactUserId;
@@ -66,8 +74,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     department: BusinessPartnerPortalPartnerContactDepartment,
     email: BusinessPartnerPortalPartnerContactEmail,
     phone: BusinessPartnerPortalPartnerContactPhone,
+    phoneCountryPrefix: BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+    phoneSanitized: BusinessPartnerPortalPartnerContactPhoneSanitized,
     mobile: BusinessPartnerPortalPartnerContactMobile,
-    isPrimary: BusinessPartnerPortalPartnerContactIsPrimary,
+    mobileCountryPrefix: BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+    mobileSanitized: BusinessPartnerPortalPartnerContactMobileSanitized,
+    isPrincipal: BusinessPartnerPortalPartnerContactIsPrincipal,
     isActive: BusinessPartnerPortalPartnerContactIsActive,
     isUser: BusinessPartnerPortalPartnerContactIsUser,
     userId: BusinessPartnerPortalPartnerContactUserId,
@@ -89,8 +101,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     this.department = department;
     this.email = email;
     this.phone = phone;
+    this.phoneCountryPrefix = phoneCountryPrefix;
+    this.phoneSanitized = phoneSanitized;
     this.mobile = mobile;
-    this.isPrimary = isPrimary;
+    this.mobileCountryPrefix = mobileCountryPrefix;
+    this.mobileSanitized = mobileSanitized;
+    this.isPrincipal = isPrincipal;
     this.isActive = isActive;
     this.isUser = isUser;
     this.userId = userId;
@@ -113,8 +129,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     department: BusinessPartnerPortalPartnerContactDepartment,
     email: BusinessPartnerPortalPartnerContactEmail,
     phone: BusinessPartnerPortalPartnerContactPhone,
+    phoneCountryPrefix: BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+    phoneSanitized: BusinessPartnerPortalPartnerContactPhoneSanitized,
     mobile: BusinessPartnerPortalPartnerContactMobile,
-    isPrimary: BusinessPartnerPortalPartnerContactIsPrimary,
+    mobileCountryPrefix: BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+    mobileSanitized: BusinessPartnerPortalPartnerContactMobileSanitized,
+    isPrincipal: BusinessPartnerPortalPartnerContactIsPrincipal,
     isActive: BusinessPartnerPortalPartnerContactIsActive,
     isUser: BusinessPartnerPortalPartnerContactIsUser,
     userId: BusinessPartnerPortalPartnerContactUserId,
@@ -136,8 +156,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       department,
       email,
       phone,
+      phoneCountryPrefix,
+      phoneSanitized,
       mobile,
-      isPrimary,
+      mobileCountryPrefix,
+      mobileSanitized,
+      isPrincipal,
       isActive,
       isUser,
       userId,
@@ -166,8 +190,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           department: event.payload.department?.value,
           email: event.payload.email.value,
           phone: event.payload.phone?.value,
+          phoneCountryPrefix: event.payload.phoneCountryPrefix?.value,
+          phoneSanitized: event.payload.phoneSanitized?.value,
           mobile: event.payload.mobile?.value,
-          isPrimary: event.payload.isPrimary.value,
+          mobileCountryPrefix: event.payload.mobileCountryPrefix?.value,
+          mobileSanitized: event.payload.mobileSanitized?.value,
+          isPrincipal: event.payload.isPrincipal.value,
           isActive: event.payload.isActive.value,
           isUser: event.payload.isUser.value,
           userId: event.payload.userId?.value,
@@ -197,8 +225,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           department: event.payload.department?.value,
           email: event.payload.email?.value,
           phone: event.payload.phone?.value,
+          phoneCountryPrefix: event.payload.phoneCountryPrefix?.value,
+          phoneSanitized: event.payload.phoneSanitized?.value,
           mobile: event.payload.mobile?.value,
-          isPrimary: event.payload.isPrimary?.value,
+          mobileCountryPrefix: event.payload.mobileCountryPrefix?.value,
+          mobileSanitized: event.payload.mobileSanitized?.value,
+          isPrincipal: event.payload.isPrincipal?.value,
           isActive: event.payload.isActive?.value,
           isUser: event.payload.isUser?.value,
           userId: event.payload.userId?.value,
@@ -229,8 +261,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           department: event.payload.department?.value,
           email: event.payload.email.value,
           phone: event.payload.phone?.value,
+          phoneCountryPrefix: event.payload.phoneCountryPrefix?.value,
+          phoneSanitized: event.payload.phoneSanitized?.value,
           mobile: event.payload.mobile?.value,
-          isPrimary: event.payload.isPrimary.value,
+          mobileCountryPrefix: event.payload.mobileCountryPrefix?.value,
+          mobileSanitized: event.payload.mobileSanitized?.value,
+          isPrincipal: event.payload.isPrincipal.value,
           isActive: event.payload.isActive.value,
           isUser: event.payload.isUser.value,
           userId: event.payload.userId?.value,
@@ -256,8 +292,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       department: this.department?.value,
       email: this.email.value,
       phone: this.phone?.value,
+      phoneCountryPrefix: this.phoneCountryPrefix?.value,
+      phoneSanitized: this.phoneSanitized?.value,
       mobile: this.mobile?.value,
-      isPrimary: this.isPrimary.value,
+      mobileCountryPrefix: this.mobileCountryPrefix?.value,
+      mobileSanitized: this.mobileSanitized?.value,
+      isPrincipal: this.isPrincipal.value,
       isActive: this.isActive.value,
       isUser: this.isUser.value,
       userId: this.userId?.value,
@@ -282,8 +322,12 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       department: this.department?.value,
       email: this.email.value,
       phone: this.phone?.value,
+      phoneCountryPrefix: this.phoneCountryPrefix?.value,
+      phoneSanitized: this.phoneSanitized?.value,
       mobile: this.mobile?.value,
-      isPrimary: this.isPrimary.value,
+      mobileCountryPrefix: this.mobileCountryPrefix?.value,
+      mobileSanitized: this.mobileSanitized?.value,
+      isPrincipal: this.isPrincipal.value,
       isActive: this.isActive.value,
       isUser: this.isUser.value,
       userId: this.userId?.value,

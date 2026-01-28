@@ -11,12 +11,16 @@ import {
   BusinessPartnerPortalPartnerContactFirstName,
   BusinessPartnerPortalPartnerContactId,
   BusinessPartnerPortalPartnerContactIsActive,
-  BusinessPartnerPortalPartnerContactIsPrimary,
+  BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
+  BusinessPartnerPortalPartnerContactMobileCountryPrefix,
+  BusinessPartnerPortalPartnerContactMobileSanitized,
   BusinessPartnerPortalPartnerContactNotes,
   BusinessPartnerPortalPartnerContactPhone,
+  BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
+  BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
   BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactUserId,
@@ -60,11 +64,25 @@ export class BusinessPartnerPortalCreatePartnerContactCommandHandler
         phone: new BusinessPartnerPortalPartnerContactPhone(
           command.payload.phone,
         ),
+        phoneCountryPrefix:
+          new BusinessPartnerPortalPartnerContactPhoneCountryPrefix(
+            command.payload.phoneCountryPrefix,
+          ),
+        phoneSanitized: new BusinessPartnerPortalPartnerContactPhoneSanitized(
+          command.payload.phoneSanitized,
+        ),
         mobile: new BusinessPartnerPortalPartnerContactMobile(
           command.payload.mobile,
         ),
-        isPrimary: new BusinessPartnerPortalPartnerContactIsPrimary(
-          command.payload.isPrimary,
+        mobileCountryPrefix:
+          new BusinessPartnerPortalPartnerContactMobileCountryPrefix(
+            command.payload.mobileCountryPrefix,
+          ),
+        mobileSanitized: new BusinessPartnerPortalPartnerContactMobileSanitized(
+          command.payload.mobileSanitized,
+        ),
+        isPrincipal: new BusinessPartnerPortalPartnerContactIsPrincipal(
+          command.payload.isPrincipal,
         ),
         isActive: new BusinessPartnerPortalPartnerContactIsActive(
           command.payload.isActive,
