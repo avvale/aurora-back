@@ -882,6 +882,30 @@ When making modifications, document them:
 
 ---
 
+## Field Patterns Reference
+
+Para campos compuestos que requieren múltiples propiedades relacionadas (como
+teléfonos, direcciones, etc.), consulta el archivo de patrones:
+
+**Archivo:** `.claude/agents/assets/field-patterns.md`
+
+Cuando el usuario o `aurora-back-architect` solicite agregar una funcionalidad
+que tiene un patrón definido (ej: "agregar teléfono móvil"), DEBES usar TODOS
+los campos del patrón, no solo el campo principal.
+
+**Ejemplo:**
+
+```
+Usuario: Necesito agregar un campo de teléfono móvil al módulo customer
+
+aurora-schema-manager: Voy a agregar el patrón completo de Mobile Phone:
+- mobile (número formateado para display)
+- mobileCountryPrefix (prefijo país)
+- mobileSanitized (solo dígitos para APIs)
+```
+
+---
+
 ## TRACKING PROTOCOL
 
 Al finalizar tu ejecución (después de analizar o modificar YAMLs), DEBES invocar
