@@ -428,6 +428,21 @@ describe('business-partner', () => {
         );
       });
   });
+  test('/REST:POST business-partner-portal/business-partner/create - Got 400 Conflict, BusinessPartnerType has to be a enum option of CUSTOMER, SUPPLIER, VENDOR, AFFILIATE, PARTNER, OTHER', () => {
+    return request(app.getHttpServer())
+      .post('/business-partner-portal/business-partner/create')
+      .set('Accept', 'application/json')
+      .send({
+        ...mockData[0],
+        type: '****',
+      })
+      .expect(400)
+      .then((res) => {
+        expect(res.body.message).toContain(
+          'Value for BusinessPartnerPortalBusinessPartnerType has to be any of this options: CUSTOMER, SUPPLIER, VENDOR, AFFILIATE, PARTNER, OTHER',
+        );
+      });
+  });
 
   test('/REST:POST business-partner-portal/business-partner/create - Got 409 Conflict, item already exist in database', () => {
     return request(app.getHttpServer())

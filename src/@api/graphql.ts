@@ -34,6 +34,15 @@ export enum AuditingSideEffectMethod {
     DELETE = "DELETE"
 }
 
+export enum BusinessPartnerPortalBusinessPartnerType {
+    CUSTOMER = "CUSTOMER",
+    SUPPLIER = "SUPPLIER",
+    VENDOR = "VENDOR",
+    AFFILIATE = "AFFILIATE",
+    PARTNER = "PARTNER",
+    OTHER = "OTHER"
+}
+
 export enum BusinessPartnerPortalPartnerAddressType {
     BILLING = "BILLING",
     SHIPPING = "SHIPPING",
@@ -372,7 +381,7 @@ export interface BusinessPartnerPortalCreateBusinessPartnerInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    type: Nullable<GraphQLString>[];
+    type: Nullable<BusinessPartnerPortalBusinessPartnerType>[];
     name: GraphQLString;
     tin?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
@@ -388,7 +397,7 @@ export interface BusinessPartnerPortalUpdateBusinessPartnerByIdInput {
     id: string;
     externalId?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    type?: Nullable<Nullable<GraphQLString>[]>;
+    type?: Nullable<Nullable<BusinessPartnerPortalBusinessPartnerType>[]>;
     name?: Nullable<GraphQLString>;
     tin?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
@@ -404,7 +413,7 @@ export interface BusinessPartnerPortalUpdateBusinessPartnersInput {
     id?: Nullable<string>;
     externalId?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    type?: Nullable<Nullable<GraphQLString>[]>;
+    type?: Nullable<Nullable<BusinessPartnerPortalBusinessPartnerType>[]>;
     name?: Nullable<GraphQLString>;
     tin?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;
@@ -3162,7 +3171,7 @@ export interface BusinessPartnerPortalBusinessPartner {
     rowId: GraphQLInt;
     externalId?: Nullable<GraphQLString>;
     code?: Nullable<GraphQLString>;
-    type: Nullable<GraphQLString>[];
+    type: Nullable<BusinessPartnerPortalBusinessPartnerType>[];
     name: GraphQLString;
     tin?: Nullable<GraphQLString>;
     email?: Nullable<GraphQLString>;

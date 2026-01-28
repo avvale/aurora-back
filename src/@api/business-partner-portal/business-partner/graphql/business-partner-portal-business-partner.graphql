@@ -1,5 +1,13 @@
 # @aurora-generated
 # @source cliter/business-partner-portal/business-partner.aurora.yaml
+enum BusinessPartnerPortalBusinessPartnerType {
+  CUSTOMER
+  SUPPLIER
+  VENDOR
+  AFFILIATE
+  PARTNER
+  OTHER
+}
 
 type BusinessPartnerPortalBusinessPartner {
   """
@@ -21,7 +29,7 @@ type BusinessPartnerPortalBusinessPartner {
   """
   Classification of the business partner relationship. CUSTOMER: Buys products/services. SUPPLIER: Provides goods to the company. VENDOR: Provides services to the company. AFFILIATE: Marketing or referral partner. PARTNER: Strategic business partner. OTHER: Any other relationship type. Used to filter partners and apply specific business rules based on relationship type.
   """
-  type: [GraphQLString]!
+  type: [BusinessPartnerPortalBusinessPartnerType]!
   """
   Legal or commercial name of the business partner. Used in official documents, contracts, and communications. Must be the complete registered business name for legal entities. For individuals, use full legal name. Required field for partner identification and documentation. Indexed for fast search operations.
   """
@@ -76,7 +84,7 @@ input BusinessPartnerPortalCreateBusinessPartnerInput {
   id: ID!
   externalId: GraphQLString
   code: GraphQLString
-  type: [GraphQLString]!
+  type: [BusinessPartnerPortalBusinessPartnerType]!
   name: GraphQLString!
   tin: GraphQLString
   email: GraphQLString
@@ -92,7 +100,7 @@ input BusinessPartnerPortalUpdateBusinessPartnerByIdInput {
   id: ID!
   externalId: GraphQLString
   code: GraphQLString
-  type: [GraphQLString]
+  type: [BusinessPartnerPortalBusinessPartnerType]
   name: GraphQLString
   tin: GraphQLString
   email: GraphQLString
@@ -108,7 +116,7 @@ input BusinessPartnerPortalUpdateBusinessPartnersInput {
   id: ID
   externalId: GraphQLString
   code: GraphQLString
-  type: [GraphQLString]
+  type: [BusinessPartnerPortalBusinessPartnerType]
   name: GraphQLString
   tin: GraphQLString
   email: GraphQLString

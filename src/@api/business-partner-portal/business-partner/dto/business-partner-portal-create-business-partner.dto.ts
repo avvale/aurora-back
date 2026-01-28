@@ -2,6 +2,7 @@
  * @aurora-generated
  * @source cliter/business-partner-portal/business-partner.aurora.yaml
  */
+import { BusinessPartnerPortalBusinessPartnerType } from '@api/graphql';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class BusinessPartnerPortalCreateBusinessPartnerDto {
@@ -31,7 +32,7 @@ export class BusinessPartnerPortalCreateBusinessPartnerDto {
     description:
       'Classification of the business partner relationship. CUSTOMER: Buys products/services. SUPPLIER: Provides goods to the company. VENDOR: Provides services to the company. AFFILIATE: Marketing or referral partner. PARTNER: Strategic business partner. OTHER: Any other relationship type. Used to filter partners and apply specific business rules based on relationship type.',
   })
-  type: string[];
+  type: BusinessPartnerPortalBusinessPartnerType[];
 
   @ApiProperty({
     type: String,
