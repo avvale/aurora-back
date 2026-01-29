@@ -55,6 +55,16 @@ Aurora tracks file modifications via hash. Files with custom changes are
 - Without `-f`: Modified files are preserved
 - With `-f`: All files are overwritten (use with caution)
 
+### CRITICAL: Handling `.origin` files after regeneration
+
+When Aurora detects that a file was manually modified (different hash), it
+creates a `.origin.ts` file instead of overwriting. The CLI asks:
+`Do you want to manage origin files? (Y/n)` — **always answer `Y`**.
+
+**After the CLI finishes, invoke the `aurora-origin-merge` skill** to handle all
+`.origin` files. That skill contains the complete merge workflow, rules by file
+type, and conflict resolution.
+
 ---
 
 ## Execution Flow

@@ -55,6 +55,7 @@ standards.
 | Analyzing or editing \*.aurora.yaml files, schema validation   | `.claude/skills/aurora-schema/SKILL.md`            |
 | Sync Aurora schemas with Google Sheets (push, pull, diff)      | `.claude/skills/aurora-sheets-sync/SKILL.md`       |
 | Generate CONTEXT.md for bounded contexts from code exploration | `.claude/skills/aurora-context-generator/SKILL.md` |
+| Merge .origin.ts files after Aurora CLI regeneration           | `.claude/skills/aurora-origin-merge/SKILL.md`      |
 | Migrations SQL, procedures, functions, triggers (tools)        | `.claude/skills/aurora-tools-scripts/SKILL.md`     |
 | Git commits, commit messages, conventional commits             | `.claude/skills/conventional-commits/SKILL.md`     |
 | Commit and push changes (/commit command)                      | `.claude/skills/commit/SKILL.md`                   |
