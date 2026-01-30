@@ -9,8 +9,9 @@ description: >
 license: MIT
 metadata:
   author: aurora
-  version: '1.0'
+  version: '1.1'
   auto_invoke: 'origin file merge, .origin.ts, merge after regeneration'
+  scope: back
 allowed-tools: Read, Edit, Write, Glob, Grep, Bash, Task
 ---
 
@@ -58,6 +59,59 @@ it into the existing file.
 
 ## Step-by-Step Merge Workflow
 
+### Step 0: Detect YAML Schema Delta (CRITICAL)
+
+**Before touching any `.origin` file, you MUST determine what changed in the YAML
+schema.** This tells you exactly what to merge and — equally important — what NOT
+to merge (fields intentionally removed from certain files).
+
+**Detect which workflow the developer followed:**
+
+```bash
+# Check if YAML has uncommitted changes
+git diff HEAD -- cliter/<bc>/<module>.aurora.yaml
+```
+
+- **If diff exists** → Flujo A (YAML changed, not yet committed) → compare
+  against `HEAD`
+- **If no diff** → Flujo B (YAML already committed) → compare against previous
+  commit
+
+**Get the previous YAML version:**
+
+```bash
+# Flujo A: YAML not committed yet — HEAD has the old version
+git show HEAD:cliter/<bc>/<module>.aurora.yaml > /tmp/old-schema.yaml
+
+# Flujo B: YAML already committed — get the commit before the latest change
+PREV_COMMIT=$(git log -2 --format="%H" -- cliter/<bc>/<module>.aurora.yaml | tail -1)
+git show $PREV_COMMIT:cliter/<bc>/<module>.aurora.yaml > /tmp/old-schema.yaml
+```
+
+**Compare old vs current YAML to get the delta:**
+
+```bash
+diff /tmp/old-schema.yaml cliter/<bc>/<module>.aurora.yaml
+```
+
+**The delta tells you:**
+
+| Delta | Action |
+| --- | --- |
+| New field in YAML | Merge from `.origin` into existing files |
+| Removed field in YAML | Remove from existing files |
+| Changed field type/properties | Update in existing files |
+| No change for a field | DO NOT touch — even if missing from existing file |
+
+**WHY this matters:** Without the YAML delta, you cannot distinguish between:
+
+- A field that is **new** (must be merged from `.origin`)
+- A field that was **intentionally removed** from a specific file (e.g., a
+  back-calculated field removed from the creation DTO/Input)
+
+If a field exists in the YAML but is NOT in the existing file, and the YAML delta
+shows that field is NOT new → **it was intentionally removed. Do NOT add it.**
+
 ### Step 1: Find All .origin Files
 
 ```bash
@@ -71,35 +125,42 @@ Read BOTH files side by side:
 1. **Existing file** (has custom code + old schema)
 2. **Origin file** (has NO custom code + new schema)
 
-```bash
-# Read both files
-bat path/to/file.ts
-bat path/to/file.origin.ts
-```
+### Step 3: Merge Using the YAML Delta
 
-### Step 3: Identify the Delta
+For each change identified in Step 0:
 
-Compare to find ONLY what's NEW in `.origin` due to schema changes:
+**New field added:**
 
-- **New imports** (new Value Objects, new types)
-- **New parameters** in `register()` calls
-- **New fields** in Response constructor
-- **New column definitions** in Sequelize models
-- **New properties** in aggregate classes
-- **New DTO fields** in input/output types
-- **New event properties** in event classes
+1. Find the field in the `.origin` file
+2. Copy the corresponding code (import, Value Object instantiation, response
+   mapping, etc.) into the existing file
+3. Respect the field order from the YAML
 
-### Step 4: Merge Surgically
+**Field removed:**
 
-**GOLDEN RULE: Copy ONLY new schema code from .origin → existing file. NEVER
-overwrite custom logic.**
+1. Remove the corresponding code from the existing file
+2. Remove unused imports
 
-Apply changes in this order:
+**Field type/properties changed:**
 
-1. Add new imports (alphabetical order)
-2. Add new fields/parameters in the correct position (match field order from
-   YAML)
-3. Preserve ALL custom code untouched
+1. Find the field in the `.origin` file
+2. Replace the corresponding code in the existing file with the `.origin`
+   version
+3. Preserve any custom transformation logic around that field
+
+**GOLDEN RULE: Only merge code related to fields that CHANGED in the YAML delta.
+Never touch code for fields that didn't change — even if the `.origin` file has
+them and the existing file doesn't.**
+
+### Step 4: Preserve ALL Custom Code
+
+While merging, ensure:
+
+- Custom class properties remain untouched
+- Custom logic in method bodies is preserved
+- Custom helper methods are kept
+- Custom imports are retained
+- Intentionally removed fields stay removed
 
 ### Step 5: Delete the .origin File
 
@@ -410,6 +471,20 @@ private makeAggregate(model, cQMetadata) {
 }
 ```
 
+### Scenario: Field exists in .origin but NOT in existing file
+
+**This is the most dangerous case.** Before adding anything, check the YAML
+delta from Step 0:
+
+- **Field IS in the YAML delta (new)** → Merge it from `.origin`
+- **Field is NOT in the YAML delta (existed before)** → It was intentionally
+  removed. **DO NOT add it.**
+
+**Common case:** A field like `code` exists in the YAML (and in `.origin`) but
+was removed from the creation DTO/Input because it's auto-generated by a
+database trigger or calculated in the back-end. The YAML delta won't show `code`
+as new → don't touch it.
+
 ### Scenario: Multiple .origin files from one regeneration
 
 Process them ALL. Order doesn't matter since each .origin corresponds to exactly
@@ -440,6 +515,8 @@ After merging ALL .origin files:
 
 | Mistake | Consequence | Prevention |
 | --- | --- | --- |
+| Skipping YAML delta detection (Step 0) | Re-adding intentionally removed fields | ALWAYS diff YAML before merging |
+| Adding a field that exists in .origin but was intentionally removed | Breaks custom back-calculation logic | Check YAML delta — if field is NOT new, don't add it |
 | Replacing existing file with .origin entirely | Custom code LOST | Always compare first |
 | Forgetting to add new import | TypeScript compilation error | Check .origin imports section |
 | Wrong parameter order in `register()` | Runtime mapping errors | Match YAML field order |
