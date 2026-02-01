@@ -312,6 +312,8 @@ Need reusable business logic?
 - Write unit tests for handlers
 - Follow NestJS naming conventions
 - Use TypeScript strict mode (see `typescript` skill)
+- Use enum types from `domain/types/` instead of hardcoded strings for enum
+  fields
 
 ### ❌ DON'T
 
