@@ -5,7 +5,7 @@ description: >
   descripciones y semántica de campos y módulo. Puede crear, editar y borrar
   campos cuando lo indica aurora-back-architect o el usuario
 tools: Glob, Grep, Read, Write, Edit, WebFetch, TodoWrite, WebSearch
-model: sonnet
+model: opus
 color: yellow
 ---
 
