@@ -1,18 +1,18 @@
 ---
 name: aurora-development
 description: >
-    Expert NestJS development with CQRS architecture for Aurora projects. Covers
-    commands, queries, handlers, business logic placement, guards, interceptors,
-    and custom decorators, Value Objects. Trigger: When implementing NestJS
-    components, CQRS handlers, business logic, guards, interceptors, or custom
-    decorators in Aurora projects.
+  Expert NestJS development with CQRS architecture for Aurora projects. Covers
+  commands, queries, handlers, business logic placement, guards, interceptors,
+  and custom decorators, Value Objects. Trigger: When implementing NestJS
+  components, CQRS handlers, business logic, guards, interceptors, or custom
+  decorators in Aurora projects.
 license: MIT
 metadata:
-    author: aurora
-    version: '1.2'
-    auto_invoke:
-        'Implementing NestJS/Aurora components, handlers, services, guards,
-        interceptors'
+  author: aurora
+  version: '1.2'
+  auto_invoke:
+    'Implementing NestJS/Aurora components, handlers, services, guards,
+    interceptors'
 allowed-tools: Read, Edit, Write, Glob, Grep, Bash, WebFetch, WebSearch, Task
 ---
 
@@ -47,6 +47,33 @@ etc.), see `aurora-cqrs` skill.
 
 ## Critical Patterns
 
+### ⚠️ FIRST DECISION: Where Does the Logic Go? (MANDATORY GATE)
+
+**Before writing ANY code, classify the operation:**
+
+```
+Is it a DOMAIN OPERATION? (provision, cancel, approve, reject, activate, close, etc.)
+│
+├─ YES → Create Command + Handler + Service in @app/application/<operation>/
+│        The @api handler ONLY does: commandBus.dispatch(new CustomCommand(...))
+│        Business validations go in the @app CommandHandler.execute()
+│        Persistence + events go in the @app Service.main()
+│        SEE: patterns.md → Pattern 4 for full example
+│
+└─ NO → It's standard CRUD or simple orchestration
+         Use existing generated commands/queries
+```
+
+**⚠️ NEVER put business logic (validations, status checks, repository queries,
+if/throw) in @api handlers. Even if you see existing @api handlers in the
+codebase that do this (e.g., IAM account handlers), those are LEGACY EXCEPTIONS
+for cross-module orchestration, NOT a pattern to follow for domain operations.**
+
+**⚠️ Domain operations with additionalApis ALWAYS need their own @app layer
+(Command + Handler + Service). The @api handler is ONLY a thin dispatcher.**
+
+---
+
 ### ⚠️ Code Formatting (CRITICAL!)
 
 **MANDATORY: Use `prettier` skill after EVERY file modification**
@@ -64,13 +91,16 @@ npm run format -- <file-path>
 
 #### ✅ Command Handler (execute() method)
 
-**PUT HERE:** Business validations, complex rules, pre-validation queries, duplicate checks, external service calls, transformations before persisting.
+**PUT HERE:** Business validations, complex rules, pre-validation queries,
+duplicate checks, external service calls, transformations before persisting.
 
 #### ❌ Service (main() method)
 
-**DO NOT PUT HERE:** Business validations, business rules, pre-validation queries.
+**DO NOT PUT HERE:** Business validations, business rules, pre-validation
+queries.
 
-**Services are ONLY for:** Creating aggregate with factory pattern, persisting via repository, publishing domain events.
+**Services are ONLY for:** Creating aggregate with factory pattern, persisting
+via repository, publishing domain events.
 
 #### 🔑 Decision Tree
 
@@ -94,7 +124,8 @@ For detailed handler and service examples, see [Handler Examples](handlers.md).
 
 ### ⚠️ @api Handlers Rule (CRITICAL!)
 
-**@api handlers MUST ONLY dispatch commands/queries.** No business logic, no repository queries, no if/throw logic. See `aurora-cqrs` skill for full details.
+**@api handlers MUST ONLY dispatch commands/queries.** No business logic, no
+repository queries, no if/throw logic. See `aurora-cqrs` skill for full details.
 
 ---
 
@@ -109,8 +140,8 @@ For detailed handler and service examples, see [Handler Examples](handlers.md).
 ```typescript
 /* #region AI-generated code */
 const queryStatement: QueryStatement = {
-    where: { id: unitId },
-    include: [{ association: 'model' }], // Field name from YAML relationship
+  where: { id: unitId },
+  include: [{ association: 'model' }], // Field name from YAML relationship
 };
 /* #endregion AI-generated code */
 ```
@@ -135,9 +166,14 @@ const queryStatement: QueryStatement = {
 
 For detailed code examples, see:
 
-- [Handler Examples](handlers.md) — Command/Query handler examples with business logic
-- [NestJS Components](nestjs-components.md) — Guards, Interceptors, Pipes, Decorators, Exception Filters
-- [Common Patterns](patterns.md) — Validation, caching, exception filters, custom domain operations
+- [Handler Examples](handlers.md) — Command/Query handler examples with business
+  logic
+- [NestJS Components](nestjs-components.md) — Guards, Interceptors, Pipes,
+  Decorators, Exception Filters
+- [Common Patterns](patterns.md) — Validation, caching, exception filters,
+  custom domain operations
+- [Value Objects](value-objects.md) — Value Object construction rules for
+  partial updates (provision, status changes)
 - [Testing Patterns](testing.md) — Unit test examples
 
 ---
@@ -194,11 +230,11 @@ import { CreateUserCommand } from './create-user.command';
 ```typescript
 @Injectable()
 export class UserService {
-    constructor(
-        private readonly repository: UserRepository,
-        private readonly logger: Logger,
-        private readonly eventBus: EventBus,
-    ) {}
+  constructor(
+    private readonly repository: UserRepository,
+    private readonly logger: Logger,
+    private readonly eventBus: EventBus,
+  ) {}
 }
 ```
 
@@ -206,15 +242,10 @@ export class UserService {
 
 ```typescript
 @Module({
-    imports: [CqrsModule],
-    controllers: [UserController],
-    providers: [
-        UserService,
-        CreateUserHandler,
-        GetUsersHandler,
-        UserRepository,
-    ],
-    exports: [UserService],
+  imports: [CqrsModule],
+  controllers: [UserController],
+  providers: [UserService, CreateUserHandler, GetUsersHandler, UserRepository],
+  exports: [UserService],
 })
 export class UserModule {}
 ```
