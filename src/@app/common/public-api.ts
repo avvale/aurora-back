@@ -1,24 +1,33 @@
 import { CommonResourceHandlers, CommonResourceServices, CommonResourceModel, CommonIResourceRepository, CommonSequelizeResourceRepository, CommonResourceSagas } from './resource';
+import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRepository, CommonSequelizeLangRepository, CommonLangSagas } from './lang';
 
 /**
  * @aurora-generated
  * @source cliter/common
  */
 export const CommonHandlers = [
-    ...CommonResourceHandlers
+    ...CommonResourceHandlers,
+    ...CommonLangHandlers
 ];
 export const CommonServices = [
-    ...CommonResourceServices
+    ...CommonResourceServices,
+    ...CommonLangServices
 ];
 export const CommonModels = [
-    CommonResourceModel
+    CommonResourceModel,
+    CommonLangModel
 ];
 export const CommonRepositories = [
     {
         provide : CommonIResourceRepository,
         useClass: CommonSequelizeResourceRepository,
+    },
+    {
+        provide : CommonILangRepository,
+        useClass: CommonSequelizeLangRepository,
     }
 ];
 export const CommonSagas = [
-    CommonResourceSagas
+    CommonResourceSagas,
+    CommonLangSagas
 ];

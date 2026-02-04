@@ -2930,10 +2930,7 @@ export interface IMutation {
     commonCreateLang(payload: CommonCreateLangInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonCreateLangs(payload: Nullable<CommonCreateLangInput>[]): boolean | Promise<boolean>;
     commonUpdateLangById(payload: CommonUpdateLangByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
-    commonUpdateLangs(payload: CommonUpdateLangsInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
-    commonUpsertLang(payload: CommonUpdateLangByIdInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonDeleteLangById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
-    commonDeleteLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
     commonCreateResource(payload: CommonCreateResourceInput): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
     commonUpdateResourceById(payload: CommonUpdateResourceByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
     commonDeleteResourceById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonResource> | Promise<Nullable<CommonResource>>;
@@ -3608,6 +3605,7 @@ export interface CommonCreatedCrop {
 
 export interface CommonLang {
     id: string;
+    rowId: GraphQLInt;
     name: GraphQLString;
     image?: Nullable<GraphQLString>;
     iso6392: GraphQLString;

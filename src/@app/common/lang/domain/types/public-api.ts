@@ -2,4 +2,4 @@
  * @aurora-generated
  * @source cliter/common/lang.aurora.yaml
  */
-export * from './public-api';
+export { CommonLangDirEnum } from './common-lang-dir.enum';
