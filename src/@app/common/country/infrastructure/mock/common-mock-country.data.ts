@@ -1,6 +1,7 @@
-// ignored file
-/* eslint-disable quotes */
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/common/country.aurora.yaml
+ */
 import { CommonCountryMapType } from '@api/graphql';
 
 export const commonMockCountryData = [

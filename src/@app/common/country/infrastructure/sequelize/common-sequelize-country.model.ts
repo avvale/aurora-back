@@ -1,5 +1,7 @@
-/* eslint-disable indent */
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/common/country.aurora.yaml
+ */
 import { CommonCountryI18nModel } from '@app/common/country';
 import {
   AuditingSideEffectEvent,
@@ -28,6 +30,10 @@ import {
   timestamps: false,
   indexes: [
     {
+      fields: ['rowId'],
+      unique: true,
+    },
+    {
       fields: ['iso3166Alpha2'],
       unique: false,
     },
@@ -41,6 +47,28 @@ import {
     },
     {
       fields: ['customCode'],
+      unique: false,
+    },
+    {
+      fields: ['rowId'],
+      unique: true,
+    },
+    {
+      fields: ['countryId'],
+      unique: true,
+      name: 'uniqueCountryIdLangId',
+    },
+    {
+      fields: ['langId'],
+      unique: true,
+      name: 'uniqueCountryIdLangId',
+    },
+    {
+      fields: ['name'],
+      unique: false,
+    },
+    {
+      fields: ['slug'],
       unique: false,
     },
   ],
@@ -154,6 +182,14 @@ export class CommonCountryModel extends Model<CommonCountryModel> {
   id: string;
 
   @Column({
+    field: 'rowId',
+    autoIncrement: true,
+    allowNull: false,
+    type: DataTypes.BIGINT,
+  })
+  rowId: number;
+
+  @Column({
     field: 'iso3166Alpha2',
     allowNull: false,
     type: DataTypes.CHAR(2),
@@ -177,7 +213,7 @@ export class CommonCountryModel extends Model<CommonCountryModel> {
   @Column({
     field: 'customCode',
     allowNull: true,
-    type: DataTypes.STRING(63),
+    type: DataTypes.STRING(64),
   })
   customCode: string;
 

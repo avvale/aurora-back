@@ -148,12 +148,6 @@ export enum CommonCountryMapType {
     TERRAIN = "TERRAIN"
 }
 
-export enum CommonAdministrativeArea {
-    ADMINISTRATIVE_AREA_LEVEL_1 = "ADMINISTRATIVE_AREA_LEVEL_1",
-    ADMINISTRATIVE_AREA_LEVEL_2 = "ADMINISTRATIVE_AREA_LEVEL_2",
-    ADMINISTRATIVE_AREA_LEVEL_3 = "ADMINISTRATIVE_AREA_LEVEL_3"
-}
-
 export enum CommonLangDir {
     LTR = "LTR",
     RTL = "RTL"
@@ -2661,7 +2655,7 @@ export interface IQuery {
     commonFindCountryById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonGetCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
     commonPaginateCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Pagination | Promise<Pagination>;
-    commonAdministrativeAreasCountry(countryId: GraphQLString, administrativeAreaLevel1Id?: Nullable<GraphQLString>, administrativeAreaLevel2Id?: Nullable<GraphQLString>): Nullable<CommonAdministrativeAreasCountry> | Promise<Nullable<CommonAdministrativeAreasCountry>>;
+    commonAdministrativeAreasCountry(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
     commonFindLang(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonFindLangById(id?: Nullable<string>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonGetLangs(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonLang>[] | Promise<Nullable<CommonLang>[]>;
@@ -2922,10 +2916,7 @@ export interface IMutation {
     commonCreateCountry(payload: CommonCreateCountryInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonCreateCountries(payload: Nullable<CommonCreateCountryInput>[]): boolean | Promise<boolean>;
     commonUpdateCountryById(payload: CommonUpdateCountryByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
-    commonUpdateCountries(payload: CommonUpdateCountriesInput, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
-    commonUpsertCountry(payload: CommonUpdateCountryByIdInput): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
     commonDeleteCountryById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry> | Promise<Nullable<CommonCountry>>;
-    commonDeleteCountries(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonCountry>[] | Promise<Nullable<CommonCountry>[]>;
     commonCreateCrop(attachment: CommonCreateAttachmentInput, crop: CommonCropPropertiesInput): CommonCreatedCrop | Promise<CommonCreatedCrop>;
     commonCreateLang(payload: CommonCreateLangInput): Nullable<CommonLang> | Promise<Nullable<CommonLang>>;
     commonCreateLangs(payload: Nullable<CommonCreateLangInput>[]): boolean | Promise<boolean>;
@@ -3554,15 +3545,9 @@ export interface CommonAttachment {
     deletedAt?: Nullable<GraphQLTimestamp>;
 }
 
-export interface CommonAdministrativeAreasCountry {
-    commonCountry?: Nullable<CommonCountry>;
-    commonGetAdministrativeAreasLevel1?: Nullable<Nullable<CommonAdministrativeAreaLevel1>[]>;
-    commonGetAdministrativeAreasLevel2?: Nullable<Nullable<CommonAdministrativeAreaLevel2>[]>;
-    commonGetAdministrativeAreasLevel3?: Nullable<Nullable<CommonAdministrativeAreaLevel3>[]>;
-}
-
 export interface CommonCountry {
     id: string;
+    rowId: GraphQLInt;
     iso3166Alpha2: GraphQLString;
     iso3166Alpha3: GraphQLString;
     iso3166Numeric: GraphQLString;

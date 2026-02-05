@@ -1,3 +1,7 @@
+/**
+ * @aurora-generated
+ * @source cliter/common/country.aurora.yaml
+ */
 import {
   CQMetadata,
   IRepository,
@@ -98,18 +102,6 @@ export abstract class CommonICountryI18nRepository
     country: CommonCountry,
     options?: {
       updateOptions?: LiteralObject;
-      queryStatement?: QueryStatement;
-      constraint?: QueryStatement;
-      cQMetadata?: CQMetadata;
-      dataFactory?: (aggregate: CommonCountry) => LiteralObject;
-    },
-  ): Promise<void>;
-
-  // update and increment records
-  abstract updateAndIncrement(
-    country: CommonCountry,
-    options?: {
-      updateAndIncrementOptions?: LiteralObject;
       queryStatement?: QueryStatement;
       constraint?: QueryStatement;
       cQMetadata?: CQMetadata;

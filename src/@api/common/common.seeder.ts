@@ -1,8 +1,15 @@
+// ignored file
 /**
  * @aurora-generated
  * @source cliter/common
  */
-import { boundedContexts, langs, permissions } from '@app/common/common.seed';
+import {
+  boundedContexts,
+  countries,
+  langs,
+  permissions,
+} from '@app/common/common.seed';
+import { CommonCreateCountriesCommand } from '@app/common/country';
 import { CommonCreateLangsCommand } from '@app/common/lang';
 import { IamCreateBoundedContextsCommand } from '@app/iam/bounded-context';
 import { IamCreatePermissionsCommand } from '@app/iam/permission';
@@ -48,6 +55,30 @@ export class CommonSeeder implements OnApplicationBootstrap {
             'dir',
             'sort',
             'isActive',
+          ],
+          conflictAttributes: ['id'],
+        },
+      }),
+    );
+
+    void this.commandBus.dispatch(
+      new CommonCreateCountriesCommand(countries, {
+        timezone: process.env.TZ,
+        repositoryOptions: {
+          updateOnDuplicate: [
+            'iso3166Alpha2',
+            'iso3166Alpha3',
+            'iso3166Numeric',
+            'customCode',
+            'prefix',
+            'image',
+            'sor',
+            'administrativeAreas',
+            'latitude',
+            'longitude',
+            'zoom',
+            'mapType',
+            'availableLangs',
           ],
           conflictAttributes: ['id'],
         },

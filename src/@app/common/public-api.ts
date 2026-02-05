@@ -1,5 +1,6 @@
 import { CommonResourceHandlers, CommonResourceServices, CommonResourceModel, CommonIResourceRepository, CommonSequelizeResourceRepository, CommonResourceSagas } from './resource';
 import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRepository, CommonSequelizeLangRepository, CommonLangSagas } from './lang';
+import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, CommonICountryRepository, CommonSequelizeCountryRepository, CommonCountrySagas, CommonCountryI18nModel, CommonICountryI18nRepository, CommonSequelizeCountryI18nRepository } from './country';
 
 /**
  * @aurora-generated
@@ -7,15 +8,19 @@ import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRep
  */
 export const CommonHandlers = [
     ...CommonResourceHandlers,
-    ...CommonLangHandlers
+    ...CommonLangHandlers,
+    ...CommonCountryHandlers
 ];
 export const CommonServices = [
     ...CommonResourceServices,
-    ...CommonLangServices
+    ...CommonLangServices,
+    ...CommonCountryServices
 ];
 export const CommonModels = [
     CommonResourceModel,
-    CommonLangModel
+    CommonLangModel,
+    CommonCountryModel,
+    CommonCountryI18nModel
 ];
 export const CommonRepositories = [
     {
@@ -25,9 +30,18 @@ export const CommonRepositories = [
     {
         provide : CommonILangRepository,
         useClass: CommonSequelizeLangRepository,
+    },
+    {
+        provide : CommonICountryRepository,
+        useClass: CommonSequelizeCountryRepository,
+    },
+    {
+        provide : CommonICountryI18nRepository,
+        useClass: CommonSequelizeCountryI18nRepository
     }
 ];
 export const CommonSagas = [
     CommonResourceSagas,
-    CommonLangSagas
+    CommonLangSagas,
+    CommonCountrySagas
 ];

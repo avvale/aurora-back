@@ -1,5 +1,7 @@
-/* eslint-disable indent */
-/* eslint-disable key-spacing */
+/**
+ * @aurora-generated
+ * @source cliter/common/country.aurora.yaml
+ */
 import { CommonCountryModel } from '@app/common/country';
 import { CommonLangModel } from '@app/common/lang';
 import {
@@ -30,7 +32,36 @@ import {
   timestamps: false,
   indexes: [
     {
-      fields: ['countryId', 'langId'],
+      fields: ['rowId'],
+      unique: true,
+    },
+    {
+      fields: ['iso3166Alpha2'],
+      unique: false,
+    },
+    {
+      fields: ['iso3166Alpha3'],
+      unique: false,
+    },
+    {
+      fields: ['iso3166Numeric'],
+      unique: false,
+    },
+    {
+      fields: ['customCode'],
+      unique: false,
+    },
+    {
+      fields: ['rowId'],
+      unique: true,
+    },
+    {
+      fields: ['countryId'],
+      unique: true,
+      name: 'uniqueCountryIdLangId',
+    },
+    {
+      fields: ['langId'],
       unique: true,
       name: 'uniqueCountryIdLangId',
     },
@@ -152,6 +183,14 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel> {
   })
   id: string;
 
+  @Column({
+    field: 'rowId',
+    autoIncrement: true,
+    allowNull: false,
+    type: DataTypes.BIGINT,
+  })
+  rowId: number;
+
   @ForeignKey(() => CommonCountryModel)
   @Column({
     field: 'countryId',
@@ -185,35 +224,35 @@ export class CommonCountryI18nModel extends Model<CommonCountryI18nModel> {
   @Column({
     field: 'name',
     allowNull: false,
-    type: DataTypes.STRING(127),
+    type: DataTypes.STRING(128),
   })
   name: string;
 
   @Column({
     field: 'slug',
     allowNull: false,
-    type: DataTypes.STRING(127),
+    type: DataTypes.STRING(128),
   })
   slug: string;
 
   @Column({
     field: 'administrativeAreaLevel1',
     allowNull: true,
-    type: DataTypes.STRING(63),
+    type: DataTypes.STRING(64),
   })
   administrativeAreaLevel1: string;
 
   @Column({
     field: 'administrativeAreaLevel2',
     allowNull: true,
-    type: DataTypes.STRING(63),
+    type: DataTypes.STRING(64),
   })
   administrativeAreaLevel2: string;
 
   @Column({
     field: 'administrativeAreaLevel3',
     allowNull: true,
-    type: DataTypes.STRING(63),
+    type: DataTypes.STRING(64),
   })
   administrativeAreaLevel3: string;
 
