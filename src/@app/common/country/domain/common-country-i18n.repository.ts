@@ -109,6 +109,18 @@ export abstract class CommonICountryI18nRepository
     },
   ): Promise<void>;
 
+  // update and increment records
+  abstract updateAndIncrement(
+    country: CommonCountry,
+    options?: {
+      updateAndIncrementOptions?: LiteralObject;
+      queryStatement?: QueryStatement;
+      constraint?: QueryStatement;
+      cQMetadata?: CQMetadata;
+      dataFactory?: (aggregate: CommonCountry) => LiteralObject;
+    },
+  ): Promise<void>;
+
   // insert or update key identification element already existing in the table
   abstract upsert(
     country: CommonCountry,

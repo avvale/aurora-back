@@ -155,7 +155,7 @@ export class CommonCreateCountryService {
 
     // save new i18n record
     await this.repositoryI18n.create(country, {
-      dataFactory: (aggregate: CommonCountry) => aggregate.toI18nDTO(),
+      dataFactory: (aggregate: CommonCountry) => aggregate.toI18nRepository(),
       finderQueryStatement: (aggregate: CommonCountry) => ({
         where: {
           countryId: aggregate['id']['value'],

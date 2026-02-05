@@ -112,7 +112,7 @@ export class CommonCreateCountriesService {
     );
 
     await this.repositoryI18n.insert(countries, {
-      dataFactory: (aggregate) => aggregate.toI18nDTO(),
+      dataFactory: (aggregate) => aggregate.toI18nRepository(),
       insertOptions: cQMetadata?.repositoryOptions,
     });
 

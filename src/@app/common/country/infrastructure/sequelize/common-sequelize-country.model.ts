@@ -28,50 +28,7 @@ import {
   modelName: 'CommonCountry',
   freezeTableName: true,
   timestamps: false,
-  indexes: [
-    {
-      fields: ['rowId'],
-      unique: true,
-    },
-    {
-      fields: ['iso3166Alpha2'],
-      unique: false,
-    },
-    {
-      fields: ['iso3166Alpha3'],
-      unique: false,
-    },
-    {
-      fields: ['iso3166Numeric'],
-      unique: false,
-    },
-    {
-      fields: ['customCode'],
-      unique: false,
-    },
-    {
-      fields: ['rowId'],
-      unique: true,
-    },
-    {
-      fields: ['countryId'],
-      unique: true,
-      name: 'uniqueCountryIdLangId',
-    },
-    {
-      fields: ['langId'],
-      unique: true,
-      name: 'uniqueCountryIdLangId',
-    },
-    {
-      fields: ['name'],
-      unique: false,
-    },
-    {
-      fields: ['slug'],
-      unique: false,
-    },
-  ],
+  indexes: [],
 })
 export class CommonCountryModel extends Model<CommonCountryModel> {
   @AfterCreate

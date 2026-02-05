@@ -314,23 +314,6 @@ export class CommonCountry extends AggregateRoot {
     };
   }
 
-  toI18nDTO(): LiteralObject {
-    return {
-      id: uuid(),
-      rowId: this.rowId.value,
-      countryId: this.id.value,
-      langId: this.langId.value,
-      name: this.name.value,
-      slug: this.slug.value,
-      administrativeAreaLevel1: this.administrativeAreaLevel1?.value,
-      administrativeAreaLevel2: this.administrativeAreaLevel2?.value,
-      administrativeAreaLevel3: this.administrativeAreaLevel3?.value,
-      createdAt: this.createdAt?.value,
-      updatedAt: this.updatedAt?.value,
-      deletedAt: this.deletedAt?.value,
-    };
-  }
-
   // function called to get data for repository side effect methods
   toRepository(): LiteralObject {
     return {
@@ -357,7 +340,40 @@ export class CommonCountry extends AggregateRoot {
       administrativeAreaLevel1: this.administrativeAreaLevel1?.value,
       administrativeAreaLevel2: this.administrativeAreaLevel2?.value,
       administrativeAreaLevel3: this.administrativeAreaLevel3?.value,
-      lang: this.lang?.toDTO(),
+      lang: this.lang?.toRepository(),
+    };
+  }
+
+  toI18nDTO(): LiteralObject {
+    return {
+      id: uuid(),
+      rowId: this.rowId.value,
+      countryId: this.id.value,
+      langId: this.langId.value,
+      name: this.name.value,
+      slug: this.slug.value,
+      administrativeAreaLevel1: this.administrativeAreaLevel1?.value,
+      administrativeAreaLevel2: this.administrativeAreaLevel2?.value,
+      administrativeAreaLevel3: this.administrativeAreaLevel3?.value,
+      createdAt: this.createdAt?.value,
+      updatedAt: this.updatedAt?.value,
+      deletedAt: this.deletedAt?.value,
+    };
+  }
+
+  toI18nRepository(): LiteralObject {
+    return {
+      id: uuid(),
+      countryId: this.id.value,
+      langId: this.langId.value,
+      name: this.name.value,
+      slug: this.slug.value,
+      administrativeAreaLevel1: this.administrativeAreaLevel1?.value,
+      administrativeAreaLevel2: this.administrativeAreaLevel2?.value,
+      administrativeAreaLevel3: this.administrativeAreaLevel3?.value,
+      createdAt: this.createdAt?.value,
+      updatedAt: this.updatedAt?.value,
+      deletedAt: this.deletedAt?.value,
     };
   }
 }
