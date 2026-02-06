@@ -155,7 +155,8 @@ aggregateProperties:
       key: id
       field: lang
       avoidConstraint: true
-    description: null
+    description: |
+      Foreign key reference to the preferred language of the contact (common/lang module). Many-to-one relationship - multiple contacts can share the same language preference. Used to determine the language for portal UI localization, email templates, document generation, and all communications addressed to this contact. NULL indicates no language preference specified, in which case the system defaults to the partner organization's language or the platform default. Constraint avoided to prevent cross-bounded-context dependencies (common ↔ business-partner-portal).
   - name: notes
     type: text
     nullable: true
