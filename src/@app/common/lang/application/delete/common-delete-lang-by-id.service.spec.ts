@@ -1,7 +1,4 @@
-/**
- * @aurora-generated
- * @source cliter/common/lang.aurora.yaml
- */
+/** * @aurora-generated * @source cliter/common/lang.aurora.yaml */
 import {
   CommonILangRepository,
   commonMockLangData,
@@ -21,7 +18,6 @@ describe('CommonDeleteLangByIdService', () => {
   let service: CommonDeleteLangByIdService;
   let repository: CommonILangRepository;
   let mockRepository: CommonMockLangRepository;
-
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -44,17 +40,14 @@ describe('CommonDeleteLangByIdService', () => {
         },
       ],
     }).compile();
-
     service = module.get(CommonDeleteLangByIdService);
     repository = module.get(CommonILangRepository);
     mockRepository = module.get(CommonMockLangRepository);
   });
-
   describe('main', () => {
     test('CommonDeleteLangByIdService should be defined', () => {
       expect(service).toBeDefined();
     });
-
     test('should delete lang and emit event', async () => {
       jest
         .spyOn(repository, 'findById')
