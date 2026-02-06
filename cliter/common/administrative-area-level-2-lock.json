@@ -243,7 +243,7 @@
         },
         {
             "path": "src/@app/common/administrative-area-level-2/infrastructure/mock/common-mock-administrative-area-level-2.data.ts",
-            "integrity": "sha1:d7493f2826f68b724598364da9b86da116e9ca77"
+            "integrity": "sha1:a53d52d5b95143c7d5738951ba44180897d510d0"
         },
         {
             "path": "src/@app/common/administrative-area-level-2/infrastructure/mock/common-mock-administrative-area-level-2.repository.ts",
@@ -266,6 +266,22 @@
             "integrity": "sha1:130876e118302df10fbd48af06db05c1470eca1d"
         },
         {
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-custom-code.ts",
+            "integrity": "sha1:dacd839511c3b648f6812fa3d02b8959746400bf"
+        },
+        {
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-country-id.ts",
+            "integrity": "sha1:ee80fc5fb304a84c0cfc1573fd572f1ca1f80511"
+        },
+        {
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-administrative-area-level-1-id.ts",
+            "integrity": "sha1:95400f7f9f5aa5e4f95e2fe3c51c502c0ed08c6b"
+        },
+        {
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-code.ts",
+            "integrity": "sha1:b9c0b232ab9e2f1ee96cd3efa3b4077ea52dc7a3"
+        },
+        {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-id.ts",
             "integrity": "sha1:b4febcd1b7a7e42aba9d599f81d1e824e41ea40b"
         },
@@ -274,32 +290,16 @@
             "integrity": "sha1:efb695f0a5360786b0074110c3c456e5e7877c75"
         },
         {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-country-id.ts",
-            "integrity": "sha1:ee80fc5fb304a84c0cfc1573fd572f1ca1f80511"
-        },
-        {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-code.ts",
-            "integrity": "sha1:b9c0b232ab9e2f1ee96cd3efa3b4077ea52dc7a3"
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-zoom.ts",
+            "integrity": "sha1:c53306d67f4ccaa614a3a78769e0bbd7e0282dbf"
         },
         {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-name.ts",
             "integrity": "sha1:7217a0b3ffc28ea4042403190907796e9968fd12"
         },
         {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-administrative-area-level-1-id.ts",
-            "integrity": "sha1:95400f7f9f5aa5e4f95e2fe3c51c502c0ed08c6b"
-        },
-        {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-custom-code.ts",
-            "integrity": "sha1:dacd839511c3b648f6812fa3d02b8959746400bf"
-        },
-        {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-slug.ts",
             "integrity": "sha1:d0f028179affacb97bf998cd970c1ade337f67eb"
-        },
-        {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-latitude.ts",
-            "integrity": "sha1:09607030e68059e060d94ae032e2c17747a1e48d"
         },
         {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-longitude.ts",
@@ -310,12 +310,12 @@
             "integrity": "sha1:a10c0da348bfd14dcdf9baee37c6884f4cee5cd1"
         },
         {
-            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-zoom.ts",
-            "integrity": "sha1:c53306d67f4ccaa614a3a78769e0bbd7e0282dbf"
-        },
-        {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-created-at.ts",
             "integrity": "sha1:57c258835fadac92b7073b628eec868eb720d079"
+        },
+        {
+            "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-latitude.ts",
+            "integrity": "sha1:09607030e68059e060d94ae032e2c17747a1e48d"
         },
         {
             "path": "src/@app/common/administrative-area-level-2/domain/value-objects/common-administrative-area-level-2-updated-at.ts",
@@ -395,19 +395,19 @@
         },
         {
             "path": "src/@api/common/administrative-area-level-2/dto/common-administrative-area-level-2.dto.ts",
-            "integrity": "sha1:35f93e15fc9b321b60765ff616a1a81b5d933e05"
+            "integrity": "sha1:a28b08b500b6e91453f40ba52b8a233e58e369b5"
         },
         {
             "path": "src/@api/common/administrative-area-level-2/dto/common-create-administrative-area-level-2.dto.ts",
-            "integrity": "sha1:7718d5494f94099104e8f1749d2671b54a47887c"
+            "integrity": "sha1:7aba49ede89733eabfc42f6267d019239b9b5f26"
         },
         {
             "path": "src/@api/common/administrative-area-level-2/dto/common-update-administrative-area-level-2-by-id.dto.ts",
-            "integrity": "sha1:63631fcfb4fb815c1454aa949f69ffb178bd03ee"
+            "integrity": "sha1:41e014956d42336041679cf510e52e61e1a27726"
         },
         {
             "path": "src/@api/common/administrative-area-level-2/dto/common-update-administrative-areas-level-2.dto.ts",
-            "integrity": "sha1:ab0d088d9d67f0ab914854d1e7fe69954777c3eb"
+            "integrity": "sha1:beb32d80ad39672f3437907a2ef1303b4f235168"
         },
         {
             "path": "src/@api/common/administrative-area-level-2/dto/index.ts",
@@ -563,7 +563,7 @@
         },
         {
             "path": "postman/common/common.administrative-area-level-2.postman.json",
-            "integrity": "sha1:42fb1275e48347b10eff2bafe27db49f854d2ef6"
+            "integrity": "sha1:ff7463677c98900d2080caf0aede22a2f260be1f"
         }
     ]
 }
