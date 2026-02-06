@@ -104,7 +104,7 @@ export class CommonAdministrativeAreaLevel2Dto {
     enum: CommonAdministrativeAreaLevel2MapType,
     description:
       'Preferred map visualization type for this area. ROADMAP: Street map view. SATELLITE: Aerial imagery. HYBRID: Satellite with road overlay. TERRAIN: Topographic relief map. NULL uses system default.',
-    example: CommonAdministrativeAreaLevel1MapType.TERRAIN,
+    example: CommonAdministrativeAreaLevel2MapType.TERRAIN,
   })
   mapType?: CommonAdministrativeAreaLevel2MapType;
 
