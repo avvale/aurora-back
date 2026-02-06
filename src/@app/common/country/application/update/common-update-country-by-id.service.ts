@@ -113,7 +113,7 @@ export class CommonUpdateCountryByIdService {
       constraint,
       cQMetadata,
       updateByIdOptions: cQMetadata?.repositoryOptions,
-      dataFactory: (aggregate: CommonCountry) => aggregate.toI18nDTO(),
+      dataFactory: (aggregate: CommonCountry) => aggregate.toI18nRepository(),
       findArguments: {
         langId: contentLanguage.id,
         countryId: country.id.value,
