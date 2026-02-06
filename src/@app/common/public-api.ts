@@ -3,6 +3,7 @@ import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRep
 import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, CommonICountryRepository, CommonSequelizeCountryRepository, CommonCountrySagas, CommonCountryI18nModel, CommonICountryI18nRepository, CommonSequelizeCountryI18nRepository } from './country';
 import { CommonAdministrativeAreaLevel1Handlers, CommonAdministrativeAreaLevel1Services, CommonAdministrativeAreaLevel1Model, CommonIAdministrativeAreaLevel1Repository, CommonSequelizeAdministrativeAreaLevel1Repository, CommonAdministrativeAreaLevel1Sagas } from './administrative-area-level-1';
 import { CommonAdministrativeAreaLevel2Handlers, CommonAdministrativeAreaLevel2Services, CommonAdministrativeAreaLevel2Model, CommonIAdministrativeAreaLevel2Repository, CommonSequelizeAdministrativeAreaLevel2Repository, CommonAdministrativeAreaLevel2Sagas } from './administrative-area-level-2';
+import { CommonAdministrativeAreaLevel3Handlers, CommonAdministrativeAreaLevel3Services, CommonAdministrativeAreaLevel3Model, CommonIAdministrativeAreaLevel3Repository, CommonSequelizeAdministrativeAreaLevel3Repository, CommonAdministrativeAreaLevel3Sagas } from './administrative-area-level-3';
 
 /**
  * @aurora-generated
@@ -13,14 +14,16 @@ export const CommonHandlers = [
     ...CommonLangHandlers,
     ...CommonCountryHandlers,
     ...CommonAdministrativeAreaLevel1Handlers,
-    ...CommonAdministrativeAreaLevel2Handlers
+    ...CommonAdministrativeAreaLevel2Handlers,
+    ...CommonAdministrativeAreaLevel3Handlers
 ];
 export const CommonServices = [
     ...CommonResourceServices,
     ...CommonLangServices,
     ...CommonCountryServices,
     ...CommonAdministrativeAreaLevel1Services,
-    ...CommonAdministrativeAreaLevel2Services
+    ...CommonAdministrativeAreaLevel2Services,
+    ...CommonAdministrativeAreaLevel3Services
 ];
 export const CommonModels = [
     CommonResourceModel,
@@ -28,7 +31,8 @@ export const CommonModels = [
     CommonCountryModel,
     CommonCountryI18nModel,
     CommonAdministrativeAreaLevel1Model,
-    CommonAdministrativeAreaLevel2Model
+    CommonAdministrativeAreaLevel2Model,
+    CommonAdministrativeAreaLevel3Model
 ];
 export const CommonRepositories = [
     {
@@ -54,6 +58,10 @@ export const CommonRepositories = [
     {
         provide : CommonIAdministrativeAreaLevel2Repository,
         useClass: CommonSequelizeAdministrativeAreaLevel2Repository,
+    },
+    {
+        provide : CommonIAdministrativeAreaLevel3Repository,
+        useClass: CommonSequelizeAdministrativeAreaLevel3Repository,
     }
 ];
 export const CommonSagas = [
@@ -61,5 +69,6 @@ export const CommonSagas = [
     CommonLangSagas,
     CommonCountrySagas,
     CommonAdministrativeAreaLevel1Sagas,
-    CommonAdministrativeAreaLevel2Sagas
+    CommonAdministrativeAreaLevel2Sagas,
+    CommonAdministrativeAreaLevel3Sagas
 ];

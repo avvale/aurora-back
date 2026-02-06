@@ -23,3 +23,9 @@ export { CommonAdministrativeAreaLevel2Response } from './@app/common/administra
 export { CommonAdministrativeAreaLevel2Mapper } from './@app/common/administrative-area-level-2/domain/common-administrative-area-level-2.mapper';
 export { commonMockAdministrativeAreaLevel2Data } from './@app/common/administrative-area-level-2/infrastructure/mock/common-mock-administrative-area-level-2.data';
 export { CommonAdministrativeAreaLevel2Dto } from './@api/common/administrative-area-level-2/dto/common-administrative-area-level-2.dto';
+export { CommonAdministrativeAreaLevel3 } from './@app/common/administrative-area-level-3/domain/common-administrative-area-level-3.aggregate';
+export { CommonAdministrativeAreaLevel3Model } from './@app/common/administrative-area-level-3';
+export { CommonAdministrativeAreaLevel3Response } from './@app/common/administrative-area-level-3/domain/common-administrative-area-level-3.response';
+export { CommonAdministrativeAreaLevel3Mapper } from './@app/common/administrative-area-level-3/domain/common-administrative-area-level-3.mapper';
+export { commonMockAdministrativeAreaLevel3Data } from './@app/common/administrative-area-level-3/infrastructure/mock/common-mock-administrative-area-level-3.data';
+export { CommonAdministrativeAreaLevel3Dto } from './@api/common/administrative-area-level-3/dto/common-administrative-area-level-3.dto';
