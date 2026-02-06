@@ -2,6 +2,7 @@ import { CommonResourceHandlers, CommonResourceServices, CommonResourceModel, Co
 import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRepository, CommonSequelizeLangRepository, CommonLangSagas } from './lang';
 import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, CommonICountryRepository, CommonSequelizeCountryRepository, CommonCountrySagas, CommonCountryI18nModel, CommonICountryI18nRepository, CommonSequelizeCountryI18nRepository } from './country';
 import { CommonAdministrativeAreaLevel1Handlers, CommonAdministrativeAreaLevel1Services, CommonAdministrativeAreaLevel1Model, CommonIAdministrativeAreaLevel1Repository, CommonSequelizeAdministrativeAreaLevel1Repository, CommonAdministrativeAreaLevel1Sagas } from './administrative-area-level-1';
+import { CommonAdministrativeAreaLevel2Handlers, CommonAdministrativeAreaLevel2Services, CommonAdministrativeAreaLevel2Model, CommonIAdministrativeAreaLevel2Repository, CommonSequelizeAdministrativeAreaLevel2Repository, CommonAdministrativeAreaLevel2Sagas } from './administrative-area-level-2';
 
 /**
  * @aurora-generated
@@ -11,20 +12,23 @@ export const CommonHandlers = [
     ...CommonResourceHandlers,
     ...CommonLangHandlers,
     ...CommonCountryHandlers,
-    ...CommonAdministrativeAreaLevel1Handlers
+    ...CommonAdministrativeAreaLevel1Handlers,
+    ...CommonAdministrativeAreaLevel2Handlers
 ];
 export const CommonServices = [
     ...CommonResourceServices,
     ...CommonLangServices,
     ...CommonCountryServices,
-    ...CommonAdministrativeAreaLevel1Services
+    ...CommonAdministrativeAreaLevel1Services,
+    ...CommonAdministrativeAreaLevel2Services
 ];
 export const CommonModels = [
     CommonResourceModel,
     CommonLangModel,
     CommonCountryModel,
     CommonCountryI18nModel,
-    CommonAdministrativeAreaLevel1Model
+    CommonAdministrativeAreaLevel1Model,
+    CommonAdministrativeAreaLevel2Model
 ];
 export const CommonRepositories = [
     {
@@ -46,11 +50,16 @@ export const CommonRepositories = [
     {
         provide : CommonIAdministrativeAreaLevel1Repository,
         useClass: CommonSequelizeAdministrativeAreaLevel1Repository,
+    },
+    {
+        provide : CommonIAdministrativeAreaLevel2Repository,
+        useClass: CommonSequelizeAdministrativeAreaLevel2Repository,
     }
 ];
 export const CommonSagas = [
     CommonResourceSagas,
     CommonLangSagas,
     CommonCountrySagas,
-    CommonAdministrativeAreaLevel1Sagas
+    CommonAdministrativeAreaLevel1Sagas,
+    CommonAdministrativeAreaLevel2Sagas
 ];

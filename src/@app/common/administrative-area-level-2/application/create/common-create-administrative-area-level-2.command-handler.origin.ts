@@ -1,6 +1,9 @@
-/* eslint-disable key-spacing */
-import { CommonUpdateAdministrativeAreasLevel2Command } from '@app/common/administrative-area-level-2';
-import { CommonUpdateAdministrativeAreasLevel2Service } from '@app/common/administrative-area-level-2/application/update/common-update-administrative-areas-level-2.service';
+/**
+ * @aurora-generated
+ * @source cliter/common/administrative-area-level-2.aurora.yaml
+ */
+import { CommonCreateAdministrativeAreaLevel2Command } from '@app/common/administrative-area-level-2';
+import { CommonCreateAdministrativeAreaLevel2Service } from '@app/common/administrative-area-level-2/application/create/common-create-administrative-area-level-2.service';
 import {
   CommonAdministrativeAreaLevel2AdministrativeAreaLevel1Id,
   CommonAdministrativeAreaLevel2Code,
@@ -16,44 +19,34 @@ import {
 } from '@app/common/administrative-area-level-2/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-@CommandHandler(CommonUpdateAdministrativeAreasLevel2Command)
-export class CommonUpdateAdministrativeAreasLevel2CommandHandler
-  implements ICommandHandler<CommonUpdateAdministrativeAreasLevel2Command>
+@CommandHandler(CommonCreateAdministrativeAreaLevel2Command)
+export class CommonCreateAdministrativeAreaLevel2CommandHandler
+  implements ICommandHandler<CommonCreateAdministrativeAreaLevel2Command>
 {
   constructor(
-    private readonly updateAdministrativeAreasLevel2Service: CommonUpdateAdministrativeAreasLevel2Service,
+    private readonly createAdministrativeAreaLevel2Service: CommonCreateAdministrativeAreaLevel2Service,
   ) {}
 
   async execute(
-    command: CommonUpdateAdministrativeAreasLevel2Command,
+    command: CommonCreateAdministrativeAreaLevel2Command,
   ): Promise<void> {
     // call to use case and implements ValueObjects
-    await this.updateAdministrativeAreasLevel2Service.main(
+    await this.createAdministrativeAreaLevel2Service.main(
       {
-        id: new CommonAdministrativeAreaLevel2Id(command.payload.id, {
-          undefinable: true,
-        }),
+        id: new CommonAdministrativeAreaLevel2Id(command.payload.id),
         countryId: new CommonAdministrativeAreaLevel2CountryId(
           command.payload.countryId,
-          { undefinable: true },
         ),
         administrativeAreaLevel1Id:
           new CommonAdministrativeAreaLevel2AdministrativeAreaLevel1Id(
             command.payload.administrativeAreaLevel1Id,
-            { undefinable: true },
           ),
-        code: new CommonAdministrativeAreaLevel2Code(command.payload.code, {
-          undefinable: true,
-        }),
+        code: new CommonAdministrativeAreaLevel2Code(command.payload.code),
         customCode: new CommonAdministrativeAreaLevel2CustomCode(
           command.payload.customCode,
         ),
-        name: new CommonAdministrativeAreaLevel2Name(command.payload.name, {
-          undefinable: true,
-        }),
-        slug: new CommonAdministrativeAreaLevel2Slug(command.payload.slug, {
-          undefinable: true,
-        }),
+        name: new CommonAdministrativeAreaLevel2Name(command.payload.name),
+        slug: new CommonAdministrativeAreaLevel2Slug(command.payload.slug),
         latitude: new CommonAdministrativeAreaLevel2Latitude(
           command.payload.latitude,
         ),
@@ -65,8 +58,6 @@ export class CommonUpdateAdministrativeAreasLevel2CommandHandler
           command.payload.mapType,
         ),
       },
-      command.queryStatement,
-      command.constraint,
       command.cQMetadata,
     );
   }
