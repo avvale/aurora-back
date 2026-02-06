@@ -155,6 +155,9 @@ aggregateProperties:
       key: id
       field: country
     index: unique
+    indexFields:
+      - countryId
+      - langId
     indexName: uniqueCountryIdLangId
     description: |
       Foreign key to the parent country record. Links translation to base country. Combined with langId forms unique constraint (one translation per language).
@@ -169,8 +172,6 @@ aggregateProperties:
       key: id
       field: lang
       avoidConstraint: true
-    index: unique
-    indexName: uniqueCountryIdLangId
     description: |
       Foreign key to the language this translation is for. Combined with countryId forms unique constraint (one translation per language per country).
   - name: name

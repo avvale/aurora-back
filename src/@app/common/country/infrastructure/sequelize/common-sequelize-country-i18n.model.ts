@@ -36,12 +36,7 @@ import {
       unique: true,
     },
     {
-      fields: ['countryId'],
-      unique: true,
-      name: 'uniqueCountryIdLangId',
-    },
-    {
-      fields: ['langId'],
+      fields: ['countryId', 'langId'],
       unique: true,
       name: 'uniqueCountryIdLangId',
     },
