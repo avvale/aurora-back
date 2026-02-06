@@ -3,6 +3,7 @@
  * @source cliter/business-partner-portal/partner-contact.aurora.yaml
  */
 import { BusinessPartnerPortalBusinessPartnerDto } from '@api/business-partner-portal/business-partner';
+import { CommonLangDto } from '@api/common/lang';
 import { IamUserDto } from '@api/iam/user';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -73,37 +74,43 @@ export class BusinessPartnerPortalPartnerContactDto {
 
   @ApiProperty({
     type: String,
-    description: 'phone [input here api field description]',
+    description:
+      'Landline phone number of the contact with full formatting including country and area codes (e.g., +54 11 4567-8901). Used for display purposes in user-facing interfaces, partner directories, and printed communications. NULL indicates no landline number provided. Works together with phoneCountryPrefix and phoneSanitized to provide complete phone handling.',
   })
   phone?: string;
 
   @ApiProperty({
     type: String,
-    description: 'phoneCountryPrefix [input here api field description]',
+    description:
+      'Country calling code for the landline number without the plus sign (e.g., 54 for Argentina, 1 for USA, 34 for Spain). Used to identify the country for call routing and phone number validation rules. NULL when no landline phone is provided. Must be consistent with the country prefix embedded in the phone field.',
   })
   phoneCountryPrefix?: string;
 
   @ApiProperty({
     type: String,
-    description: 'phoneSanitized [input here api field description]',
+    description:
+      'Landline number stripped of all formatting characters, containing only digits (e.g., 541145678901). Used for telephony API integrations, automated dialing systems, and deduplication checks. Hidden from detail views to avoid displaying redundant phone information. NULL when no landline phone is provided. Automatically derived from the phone field during creation or update.',
   })
   phoneSanitized?: string;
 
   @ApiProperty({
     type: String,
-    description: 'mobile [input here api field description]',
+    description:
+      'Mobile phone number of the contact with full formatting including country prefix (e.g., +54 9 11 1234-5678). Used for display purposes in user-facing interfaces and partner directories. Preferred channel for urgent communications and SMS/WhatsApp notifications. NULL indicates no mobile number provided. Works together with mobileCountryPrefix and mobileSanitized to provide complete mobile handling.',
   })
   mobile?: string;
 
   @ApiProperty({
     type: String,
-    description: 'mobileCountryPrefix [input here api field description]',
+    description:
+      'Country calling code for the mobile number without the plus sign (e.g., 54 for Argentina, 1 for USA, 34 for Spain). Used to identify the country for SMS routing, WhatsApp Business API integration, and mobile number validation rules. NULL when no mobile phone is provided. Must be consistent with the country prefix embedded in the mobile field.',
   })
   mobileCountryPrefix?: string;
 
   @ApiProperty({
     type: String,
-    description: 'mobileSanitized [input here api field description]',
+    description:
+      'Mobile number stripped of all formatting characters, containing only digits (e.g., 5491112345678). Used for SMS gateway integrations, WhatsApp Business API, and deduplication checks. Hidden from detail views to avoid displaying redundant phone information. NULL when no mobile phone is provided. Automatically derived from the mobile field during creation or update.',
   })
   mobileSanitized?: string;
 
@@ -145,10 +152,16 @@ export class BusinessPartnerPortalPartnerContactDto {
 
   @ApiProperty({
     type: String,
-    description:
-      'ISO 639-1 two-letter language code for the contact&#x27;s preferred communication language (e.g., &quot;en&quot;, &quot;es&quot;, &quot;fr&quot;, &quot;de&quot;). Used to send communications in the contact&#x27;s preferred language. NULL indicates no preference specified (use system or partner default). Should match available languages in the system.',
+    description: 'langId [input here api field description]',
+    example: '53805b00-dfd2-5a5e-bc41-1ad8bf9722a5',
   })
-  preferredLanguage?: string;
+  langId?: string;
+
+  @ApiProperty({
+    type: () => CommonLangDto,
+    description: 'CommonLang [input here api field description]',
+  })
+  lang?: CommonLangDto;
 
   @ApiProperty({
     type: String,

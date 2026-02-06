@@ -25,7 +25,7 @@ export class BusinessPartnerPortalCreatedPartnerContactEvent {
         isActive: boolean;
         isUser: boolean;
         userId: string;
-        preferredLanguage: string;
+        langId: string;
         notes: string;
         createdAt: string;
         updatedAt: string;

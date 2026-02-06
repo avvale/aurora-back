@@ -12,6 +12,7 @@ export { BusinessPartnerPortalPartnerContactId } from './business-partner-portal
 export { BusinessPartnerPortalPartnerContactIsActive } from './business-partner-portal-partner-contact-is-active';
 export { BusinessPartnerPortalPartnerContactIsPrincipal } from './business-partner-portal-partner-contact-is-principal';
 export { BusinessPartnerPortalPartnerContactIsUser } from './business-partner-portal-partner-contact-is-user';
+export { BusinessPartnerPortalPartnerContactLangId } from './business-partner-portal-partner-contact-lang-id';
 export { BusinessPartnerPortalPartnerContactLastName } from './business-partner-portal-partner-contact-last-name';
 export { BusinessPartnerPortalPartnerContactMobile } from './business-partner-portal-partner-contact-mobile';
 export { BusinessPartnerPortalPartnerContactMobileCountryPrefix } from './business-partner-portal-partner-contact-mobile-country-prefix';
@@ -21,7 +22,6 @@ export { BusinessPartnerPortalPartnerContactPhone } from './business-partner-por
 export { BusinessPartnerPortalPartnerContactPhoneCountryPrefix } from './business-partner-portal-partner-contact-phone-country-prefix';
 export { BusinessPartnerPortalPartnerContactPhoneSanitized } from './business-partner-portal-partner-contact-phone-sanitized';
 export { BusinessPartnerPortalPartnerContactPosition } from './business-partner-portal-partner-contact-position';
-export { BusinessPartnerPortalPartnerContactPreferredLanguage } from './business-partner-portal-partner-contact-preferred-language';
 export { BusinessPartnerPortalPartnerContactRowId } from './business-partner-portal-partner-contact-row-id';
 export { BusinessPartnerPortalPartnerContactUpdatedAt } from './business-partner-portal-partner-contact-updated-at';
 export { BusinessPartnerPortalPartnerContactUserId } from './business-partner-portal-partner-contact-user-id';

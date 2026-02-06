@@ -17,6 +17,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -26,7 +27,6 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
   BusinessPartnerPortalPartnerContactUpdatedAt,
   BusinessPartnerPortalPartnerContactUserId,
@@ -93,9 +93,7 @@ export class BusinessPartnerPortalMockPartnerContactSeeder extends MockSeeder<Bu
           ),
           new BusinessPartnerPortalPartnerContactIsUser(partnerContact.isUser),
           new BusinessPartnerPortalPartnerContactUserId(partnerContact.userId),
-          new BusinessPartnerPortalPartnerContactPreferredLanguage(
-            partnerContact.preferredLanguage,
-          ),
+          new BusinessPartnerPortalPartnerContactLangId(partnerContact.langId),
           new BusinessPartnerPortalPartnerContactNotes(partnerContact.notes),
           new BusinessPartnerPortalPartnerContactCreatedAt({
             currentTimestamp: true,

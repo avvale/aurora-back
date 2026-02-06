@@ -3,6 +3,7 @@
  * @source cliter/business-partner-portal/partner-contact.aurora.yaml
  */
 import { BusinessPartnerPortalBusinessPartnerModel } from '@app/business-partner-portal/business-partner';
+import { CommonLangModel } from '@app/common/lang';
 import { IamUserModel } from '@app/iam/user';
 import {
   AuditingSideEffectEvent,
@@ -51,6 +52,10 @@ import {
     {
       fields: ['userId'],
       unique: true,
+    },
+    {
+      fields: ['langId'],
+      unique: false,
     },
   ],
 })
@@ -321,12 +326,19 @@ export class BusinessPartnerPortalPartnerContactModel extends Model<BusinessPart
   })
   user: IamUserModel;
 
+  @ForeignKey(() => CommonLangModel)
   @Column({
-    field: 'preferredLanguage',
+    field: 'langId',
     allowNull: true,
-    type: DataTypes.CHAR(2),
+    type: DataTypes.UUID,
   })
-  preferredLanguage: string;
+  langId: string;
+
+  @BelongsTo(() => CommonLangModel, {
+    constraints: false,
+    foreignKey: 'langId',
+  })
+  lang: CommonLangModel;
 
   @Column({
     field: 'notes',

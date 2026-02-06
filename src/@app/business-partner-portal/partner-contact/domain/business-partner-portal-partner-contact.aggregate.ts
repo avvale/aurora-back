@@ -19,6 +19,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -28,11 +29,11 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
   BusinessPartnerPortalPartnerContactUpdatedAt,
   BusinessPartnerPortalPartnerContactUserId,
 } from '@app/business-partner-portal/partner-contact/domain/value-objects';
+import { CommonLang } from '@app/common/lang';
 import { IamUser } from '@app/iam/user';
 import { CQMetadata, LiteralObject } from '@aurorajs.dev/core';
 import { AggregateRoot } from '@nestjs/cqrs';
@@ -56,13 +57,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
   isActive: BusinessPartnerPortalPartnerContactIsActive;
   isUser: BusinessPartnerPortalPartnerContactIsUser;
   userId: BusinessPartnerPortalPartnerContactUserId;
-  preferredLanguage: BusinessPartnerPortalPartnerContactPreferredLanguage;
+  langId: BusinessPartnerPortalPartnerContactLangId;
   notes: BusinessPartnerPortalPartnerContactNotes;
   createdAt: BusinessPartnerPortalPartnerContactCreatedAt;
   updatedAt: BusinessPartnerPortalPartnerContactUpdatedAt;
   deletedAt: BusinessPartnerPortalPartnerContactDeletedAt;
   user: IamUser;
   businessPartner: BusinessPartnerPortalBusinessPartner;
+  lang: CommonLang;
 
   constructor(
     id: BusinessPartnerPortalPartnerContactId,
@@ -83,13 +85,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     isActive: BusinessPartnerPortalPartnerContactIsActive,
     isUser: BusinessPartnerPortalPartnerContactIsUser,
     userId: BusinessPartnerPortalPartnerContactUserId,
-    preferredLanguage: BusinessPartnerPortalPartnerContactPreferredLanguage,
+    langId: BusinessPartnerPortalPartnerContactLangId,
     notes: BusinessPartnerPortalPartnerContactNotes,
     createdAt: BusinessPartnerPortalPartnerContactCreatedAt,
     updatedAt: BusinessPartnerPortalPartnerContactUpdatedAt,
     deletedAt: BusinessPartnerPortalPartnerContactDeletedAt,
     user?: IamUser,
     businessPartner?: BusinessPartnerPortalBusinessPartner,
+    lang?: CommonLang,
   ) {
     super();
     this.id = id;
@@ -110,13 +113,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     this.isActive = isActive;
     this.isUser = isUser;
     this.userId = userId;
-    this.preferredLanguage = preferredLanguage;
+    this.langId = langId;
     this.notes = notes;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.deletedAt = deletedAt;
     this.user = user;
     this.businessPartner = businessPartner;
+    this.lang = lang;
   }
 
   static register(
@@ -138,13 +142,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
     isActive: BusinessPartnerPortalPartnerContactIsActive,
     isUser: BusinessPartnerPortalPartnerContactIsUser,
     userId: BusinessPartnerPortalPartnerContactUserId,
-    preferredLanguage: BusinessPartnerPortalPartnerContactPreferredLanguage,
+    langId: BusinessPartnerPortalPartnerContactLangId,
     notes: BusinessPartnerPortalPartnerContactNotes,
     createdAt: BusinessPartnerPortalPartnerContactCreatedAt,
     updatedAt: BusinessPartnerPortalPartnerContactUpdatedAt,
     deletedAt: BusinessPartnerPortalPartnerContactDeletedAt,
     user?: IamUser,
     businessPartner?: BusinessPartnerPortalBusinessPartner,
+    lang?: CommonLang,
   ): BusinessPartnerPortalPartnerContact {
     return new BusinessPartnerPortalPartnerContact(
       id,
@@ -165,13 +170,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       isActive,
       isUser,
       userId,
-      preferredLanguage,
+      langId,
       notes,
       createdAt,
       updatedAt,
       deletedAt,
       user,
       businessPartner,
+      lang,
     );
   }
 
@@ -199,7 +205,7 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           isActive: event.payload.isActive.value,
           isUser: event.payload.isUser.value,
           userId: event.payload.userId?.value,
-          preferredLanguage: event.payload.preferredLanguage?.value,
+          langId: event.payload.langId?.value,
           notes: event.payload.notes?.value,
           createdAt: event.payload.createdAt?.value,
           updatedAt: event.payload.updatedAt?.value,
@@ -234,7 +240,7 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           isActive: event.payload.isActive?.value,
           isUser: event.payload.isUser?.value,
           userId: event.payload.userId?.value,
-          preferredLanguage: event.payload.preferredLanguage?.value,
+          langId: event.payload.langId?.value,
           notes: event.payload.notes?.value,
           createdAt: event.payload.createdAt?.value,
           updatedAt: event.payload.updatedAt?.value,
@@ -270,7 +276,7 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
           isActive: event.payload.isActive.value,
           isUser: event.payload.isUser.value,
           userId: event.payload.userId?.value,
-          preferredLanguage: event.payload.preferredLanguage?.value,
+          langId: event.payload.langId?.value,
           notes: event.payload.notes?.value,
           createdAt: event.payload.createdAt?.value,
           updatedAt: event.payload.updatedAt?.value,
@@ -301,13 +307,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       isActive: this.isActive.value,
       isUser: this.isUser.value,
       userId: this.userId?.value,
-      preferredLanguage: this.preferredLanguage?.value,
+      langId: this.langId?.value,
       notes: this.notes?.value,
       createdAt: this.createdAt?.value,
       updatedAt: this.updatedAt?.value,
       deletedAt: this.deletedAt?.value,
       user: this.user?.toDTO(),
       businessPartner: this.businessPartner?.toDTO(),
+      lang: this.lang?.toDTO(),
     };
   }
 
@@ -331,13 +338,14 @@ export class BusinessPartnerPortalPartnerContact extends AggregateRoot {
       isActive: this.isActive.value,
       isUser: this.isUser.value,
       userId: this.userId?.value,
-      preferredLanguage: this.preferredLanguage?.value,
+      langId: this.langId?.value,
       notes: this.notes?.value,
       createdAt: this.createdAt?.value,
       updatedAt: this.updatedAt?.value,
       deletedAt: this.deletedAt?.value,
-      user: this.user?.toDTO(),
-      businessPartner: this.businessPartner?.toDTO(),
+      user: this.user?.toRepository(),
+      businessPartner: this.businessPartner?.toRepository(),
+      lang: this.lang?.toRepository(),
     };
   }
 }

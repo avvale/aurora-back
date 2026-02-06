@@ -15,6 +15,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -24,7 +25,6 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactUpdatedAt,
   BusinessPartnerPortalPartnerContactUserId,
 } from '@app/business-partner-portal/partner-contact/domain/value-objects';
@@ -58,7 +58,7 @@ export class BusinessPartnerPortalUpdatePartnerContactByIdService {
       isActive?: BusinessPartnerPortalPartnerContactIsActive;
       isUser?: BusinessPartnerPortalPartnerContactIsUser;
       userId?: BusinessPartnerPortalPartnerContactUserId;
-      preferredLanguage?: BusinessPartnerPortalPartnerContactPreferredLanguage;
+      langId?: BusinessPartnerPortalPartnerContactLangId;
       notes?: BusinessPartnerPortalPartnerContactNotes;
     },
     constraint?: QueryStatement,
@@ -84,7 +84,7 @@ export class BusinessPartnerPortalUpdatePartnerContactByIdService {
       payload.isActive,
       payload.isUser,
       payload.userId,
-      payload.preferredLanguage,
+      payload.langId,
       payload.notes,
       null, // createdAt
       new BusinessPartnerPortalPartnerContactUpdatedAt({

@@ -21,7 +21,6 @@ describe('BusinessPartnerPortalDeletePartnerContactByIdService', () => {
   let service: BusinessPartnerPortalDeletePartnerContactByIdService;
   let repository: BusinessPartnerPortalIPartnerContactRepository;
   let mockRepository: BusinessPartnerPortalMockPartnerContactRepository;
-
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -44,19 +43,16 @@ describe('BusinessPartnerPortalDeletePartnerContactByIdService', () => {
         },
       ],
     }).compile();
-
     service = module.get(BusinessPartnerPortalDeletePartnerContactByIdService);
     repository = module.get(BusinessPartnerPortalIPartnerContactRepository);
     mockRepository = module.get(
       BusinessPartnerPortalMockPartnerContactRepository,
     );
   });
-
   describe('main', () => {
     test('BusinessPartnerPortalDeletePartnerContactByIdService should be defined', () => {
       expect(service).toBeDefined();
     });
-
     test('should delete partnerContact and emit event', async () => {
       jest
         .spyOn(repository, 'findById')

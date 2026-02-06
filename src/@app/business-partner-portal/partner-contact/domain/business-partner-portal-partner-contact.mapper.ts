@@ -18,6 +18,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -27,11 +28,11 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
   BusinessPartnerPortalPartnerContactUpdatedAt,
   BusinessPartnerPortalPartnerContactUserId,
 } from '@app/business-partner-portal/partner-contact/domain/value-objects';
+import { CommonLangMapper } from '@app/common/lang';
 import { IamUserMapper } from '@app/iam/user';
 import {
   CQMetadata,
@@ -162,10 +163,9 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
       new BusinessPartnerPortalPartnerContactUserId(partnerContact.userId, {
         undefinable: true,
       }),
-      new BusinessPartnerPortalPartnerContactPreferredLanguage(
-        partnerContact.preferredLanguage,
-        { undefinable: true },
-      ),
+      new BusinessPartnerPortalPartnerContactLangId(partnerContact.langId, {
+        undefinable: true,
+      }),
       new BusinessPartnerPortalPartnerContactNotes(partnerContact.notes, {
         undefinable: true,
       }),
@@ -195,6 +195,12 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
             eagerLoading: true,
           }).mapModelToAggregate(partnerContact.businessPartner, cQMetadata)
         : undefined,
+      this.options.eagerLoading
+        ? new CommonLangMapper({ eagerLoading: true }).mapModelToAggregate(
+            partnerContact.lang,
+            cQMetadata,
+          )
+        : undefined,
     );
   }
 
@@ -222,7 +228,7 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
       partnerContact.isActive.value,
       partnerContact.isUser.value,
       partnerContact.userId.value,
-      partnerContact.preferredLanguage.value,
+      partnerContact.langId.value,
       partnerContact.notes.value,
       partnerContact.createdAt.value,
       partnerContact.updatedAt.value,
@@ -236,6 +242,11 @@ export class BusinessPartnerPortalPartnerContactMapper implements IMapper {
         ? new BusinessPartnerPortalBusinessPartnerMapper({
             eagerLoading: true,
           }).mapAggregateToResponse(partnerContact.businessPartner)
+        : undefined,
+      this.options.eagerLoading
+        ? new CommonLangMapper({ eagerLoading: true }).mapAggregateToResponse(
+            partnerContact.lang,
+          )
         : undefined,
     );
   }

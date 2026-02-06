@@ -35,11 +35,29 @@ type BusinessPartnerPortalPartnerContact {
   Business email address of the contact person. Required field for direct communication. Must be a valid, active email address. Used for sending notifications, documents, and correspondence. Indexed for fast lookups. Should be unique per contact but not enforced to allow shared departmental emails in some cases.
   """
   email: GraphQLString!
+  """
+  Landline phone number of the contact with full formatting including country and area codes (e.g., +54 11 4567-8901). Used for display purposes in user-facing interfaces, partner directories, and printed communications. NULL indicates no landline number provided. Works together with phoneCountryPrefix and phoneSanitized to provide complete phone handling.
+  """
   phone: GraphQLString
+  """
+  Country calling code for the landline number without the plus sign (e.g., 54 for Argentina, 1 for USA, 34 for Spain). Used to identify the country for call routing and phone number validation rules. NULL when no landline phone is provided. Must be consistent with the country prefix embedded in the phone field.
+  """
   phoneCountryPrefix: GraphQLString
+  """
+  Landline number stripped of all formatting characters, containing only digits (e.g., 541145678901). Used for telephony API integrations, automated dialing systems, and deduplication checks. Hidden from detail views to avoid displaying redundant phone information. NULL when no landline phone is provided. Automatically derived from the phone field during creation or update.
+  """
   phoneSanitized: GraphQLString
+  """
+  Mobile phone number of the contact with full formatting including country prefix (e.g., +54 9 11 1234-5678). Used for display purposes in user-facing interfaces and partner directories. Preferred channel for urgent communications and SMS/WhatsApp notifications. NULL indicates no mobile number provided. Works together with mobileCountryPrefix and mobileSanitized to provide complete mobile handling.
+  """
   mobile: GraphQLString
+  """
+  Country calling code for the mobile number without the plus sign (e.g., 54 for Argentina, 1 for USA, 34 for Spain). Used to identify the country for SMS routing, WhatsApp Business API integration, and mobile number validation rules. NULL when no mobile phone is provided. Must be consistent with the country prefix embedded in the mobile field.
+  """
   mobileCountryPrefix: GraphQLString
+  """
+  Mobile number stripped of all formatting characters, containing only digits (e.g., 5491112345678). Used for SMS gateway integrations, WhatsApp Business API, and deduplication checks. Hidden from detail views to avoid displaying redundant phone information. NULL when no mobile phone is provided. Automatically derived from the mobile field during creation or update.
+  """
   mobileSanitized: GraphQLString
   """
   Indicates if this is the primary contact for the business partner. Primary contact is the main point of contact and receives general communications by default. Only one contact per partner should be primary. When true, this contact is displayed first and used as default in partner communications. Defaults to false. Required field.
@@ -58,10 +76,8 @@ type BusinessPartnerPortalPartnerContact {
   """
   userId: ID
   user: IamUser
-  """
-  ISO 639-1 two-letter language code for the contact&#x27;s preferred communication language (e.g., &quot;en&quot;, &quot;es&quot;, &quot;fr&quot;, &quot;de&quot;). Used to send communications in the contact&#x27;s preferred language. NULL indicates no preference specified (use system or partner default). Should match available languages in the system.
-  """
-  preferredLanguage: GraphQLString
+  langId: ID
+  lang: CommonLang
   """
   Free-text field for additional notes about the contact. Can include preferences, communication tips, relationship history, or any other relevant observations. NULL indicates no notes. Examples: &quot;Prefers morning calls&quot;, &quot;Decision maker for technical purchases&quot;, &quot;On vacation until [date]&quot;. Not used for structured data or business logic.
   """
@@ -98,7 +114,7 @@ input BusinessPartnerPortalCreatePartnerContactInput {
   isActive: GraphQLBoolean!
   isUser: GraphQLBoolean!
   userId: ID
-  preferredLanguage: GraphQLString
+  langId: ID
   notes: GraphQLString
 }
 
@@ -120,7 +136,7 @@ input BusinessPartnerPortalUpdatePartnerContactByIdInput {
   isActive: GraphQLBoolean
   isUser: GraphQLBoolean
   userId: ID
-  preferredLanguage: GraphQLString
+  langId: ID
   notes: GraphQLString
 }
 
@@ -142,7 +158,7 @@ input BusinessPartnerPortalUpdatePartnerContactsInput {
   isActive: GraphQLBoolean
   isUser: GraphQLBoolean
   userId: ID
-  preferredLanguage: GraphQLString
+  langId: ID
   notes: GraphQLString
 }
 

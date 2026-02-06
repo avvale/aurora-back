@@ -13,6 +13,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -22,7 +23,6 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactUserId,
 } from '@app/business-partner-portal/partner-contact/domain/value-objects';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
@@ -101,10 +101,9 @@ export class BusinessPartnerPortalUpdatePartnerContactByIdCommandHandler
         userId: new BusinessPartnerPortalPartnerContactUserId(
           command.payload.userId,
         ),
-        preferredLanguage:
-          new BusinessPartnerPortalPartnerContactPreferredLanguage(
-            command.payload.preferredLanguage,
-          ),
+        langId: new BusinessPartnerPortalPartnerContactLangId(
+          command.payload.langId,
+        ),
         notes: new BusinessPartnerPortalPartnerContactNotes(
           command.payload.notes,
         ),

@@ -3,6 +3,7 @@
  * @source cliter/business-partner-portal/partner-contact.aurora.yaml
  */
 import { BusinessPartnerPortalBusinessPartnerResponse } from '@app/business-partner-portal/business-partner';
+import { CommonLangResponse } from '@app/common/lang';
 import { IamUserResponse } from '@app/iam/user';
 
 export class BusinessPartnerPortalPartnerContactResponse {
@@ -25,12 +26,13 @@ export class BusinessPartnerPortalPartnerContactResponse {
     public readonly isActive: boolean,
     public readonly isUser: boolean,
     public readonly userId: string,
-    public readonly preferredLanguage: string,
+    public readonly langId: string,
     public readonly notes: string,
     public readonly createdAt: string,
     public readonly updatedAt: string,
     public readonly deletedAt: string,
     public readonly user: IamUserResponse,
     public readonly businessPartner: BusinessPartnerPortalBusinessPartnerResponse,
+    public readonly lang: CommonLangResponse,
   ) {}
 }

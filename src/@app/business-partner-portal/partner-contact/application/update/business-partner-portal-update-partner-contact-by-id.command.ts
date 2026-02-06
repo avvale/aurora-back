@@ -24,7 +24,7 @@ export class BusinessPartnerPortalUpdatePartnerContactByIdCommand {
       isActive?: boolean;
       isUser?: boolean;
       userId?: string;
-      preferredLanguage?: string;
+      langId?: string;
       notes?: string;
     },
     public readonly constraint?: QueryStatement,

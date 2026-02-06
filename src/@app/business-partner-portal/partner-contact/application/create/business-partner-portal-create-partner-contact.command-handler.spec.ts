@@ -73,9 +73,7 @@ describe('BusinessPartnerPortalCreatePartnerContactCommandHandler', () => {
               isActive: businessPartnerPortalMockPartnerContactData[0].isActive,
               isUser: businessPartnerPortalMockPartnerContactData[0].isUser,
               userId: businessPartnerPortalMockPartnerContactData[0].userId,
-              preferredLanguage:
-                businessPartnerPortalMockPartnerContactData[0]
-                  .preferredLanguage,
+              langId: businessPartnerPortalMockPartnerContactData[0].langId,
               notes: businessPartnerPortalMockPartnerContactData[0].notes,
             },
             { timezone: process.env.TZ },

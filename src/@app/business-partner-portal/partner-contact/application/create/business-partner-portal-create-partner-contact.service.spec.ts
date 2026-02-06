@@ -17,6 +17,7 @@ import {
   BusinessPartnerPortalPartnerContactIsActive,
   BusinessPartnerPortalPartnerContactIsPrincipal,
   BusinessPartnerPortalPartnerContactIsUser,
+  BusinessPartnerPortalPartnerContactLangId,
   BusinessPartnerPortalPartnerContactLastName,
   BusinessPartnerPortalPartnerContactMobile,
   BusinessPartnerPortalPartnerContactMobileCountryPrefix,
@@ -26,7 +27,6 @@ import {
   BusinessPartnerPortalPartnerContactPhoneCountryPrefix,
   BusinessPartnerPortalPartnerContactPhoneSanitized,
   BusinessPartnerPortalPartnerContactPosition,
-  BusinessPartnerPortalPartnerContactPreferredLanguage,
   BusinessPartnerPortalPartnerContactRowId,
   BusinessPartnerPortalPartnerContactUserId,
 } from '@app/business-partner-portal/partner-contact/domain/value-objects';
@@ -130,10 +130,9 @@ describe('BusinessPartnerPortalCreatePartnerContactService', () => {
           userId: new BusinessPartnerPortalPartnerContactUserId(
             businessPartnerPortalMockPartnerContactData[0].userId,
           ),
-          preferredLanguage:
-            new BusinessPartnerPortalPartnerContactPreferredLanguage(
-              businessPartnerPortalMockPartnerContactData[0].preferredLanguage,
-            ),
+          langId: new BusinessPartnerPortalPartnerContactLangId(
+            businessPartnerPortalMockPartnerContactData[0].langId,
+          ),
           notes: new BusinessPartnerPortalPartnerContactNotes(
             businessPartnerPortalMockPartnerContactData[0].notes,
           ),

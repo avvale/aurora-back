@@ -497,7 +497,7 @@ export interface BusinessPartnerPortalCreatePartnerContactInput {
     isActive: GraphQLBoolean;
     isUser: GraphQLBoolean;
     userId?: Nullable<string>;
-    preferredLanguage?: Nullable<GraphQLString>;
+    langId?: Nullable<string>;
     notes?: Nullable<GraphQLString>;
 }
 
@@ -519,7 +519,7 @@ export interface BusinessPartnerPortalUpdatePartnerContactByIdInput {
     isActive?: Nullable<GraphQLBoolean>;
     isUser?: Nullable<GraphQLBoolean>;
     userId?: Nullable<string>;
-    preferredLanguage?: Nullable<GraphQLString>;
+    langId?: Nullable<string>;
     notes?: Nullable<GraphQLString>;
 }
 
@@ -541,7 +541,7 @@ export interface BusinessPartnerPortalUpdatePartnerContactsInput {
     isActive?: Nullable<GraphQLBoolean>;
     isUser?: Nullable<GraphQLBoolean>;
     userId?: Nullable<string>;
-    preferredLanguage?: Nullable<GraphQLString>;
+    langId?: Nullable<string>;
     notes?: Nullable<GraphQLString>;
 }
 
@@ -3226,7 +3226,8 @@ export interface BusinessPartnerPortalPartnerContact {
     isUser: GraphQLBoolean;
     userId?: Nullable<string>;
     user?: Nullable<IamUser>;
-    preferredLanguage?: Nullable<GraphQLString>;
+    langId?: Nullable<string>;
+    lang?: Nullable<CommonLang>;
     notes?: Nullable<GraphQLString>;
     createdAt?: Nullable<GraphQLTimestamp>;
     updatedAt?: Nullable<GraphQLTimestamp>;

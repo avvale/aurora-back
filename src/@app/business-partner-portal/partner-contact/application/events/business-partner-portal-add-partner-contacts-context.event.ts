@@ -46,7 +46,7 @@ export class BusinessPartnerPortalAddPartnerContactsContextEvent extends Aggrega
                 isActive: partnerContact.isActive.value,
                 isUser: partnerContact.isUser.value,
                 userId: partnerContact.userId?.value,
-                preferredLanguage: partnerContact.preferredLanguage?.value,
+                langId: partnerContact.langId?.value,
                 notes: partnerContact.notes?.value,
                 createdAt: partnerContact.createdAt?.value,
                 updatedAt: partnerContact.updatedAt?.value,

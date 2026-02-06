@@ -424,18 +424,18 @@ describe('partner-contact', () => {
       });
   });
 
-  test('/REST:POST business-partner-portal/partner-contact/create - Got 400 Conflict, PartnerContactPreferredLanguage is not allowed, must be a length of 2', () => {
+  test('/REST:POST business-partner-portal/partner-contact/create - Got 400 Conflict, PartnerContactLangId is not allowed, must be a length of 36', () => {
     return request(app.getHttpServer())
       .post('/business-partner-portal/partner-contact/create')
       .set('Accept', 'application/json')
       .send({
         ...mockData[0],
-        preferredLanguage: '***',
+        langId: '*************************************',
       })
       .expect(400)
       .then((res) => {
         expect(res.body.message).toContain(
-          'Value for BusinessPartnerPortalPartnerContactPreferredLanguage is not allowed, must be a length of 2',
+          'Value for BusinessPartnerPortalPartnerContactLangId is not allowed, must be a length of 36',
         );
       });
   });
@@ -864,7 +864,7 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
+                            langId
                             notes
                         }
                     }
@@ -953,7 +953,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1005,7 +1004,7 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
+                            langId
                             notes
                         }
                     }
@@ -1052,7 +1051,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1106,7 +1104,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1156,7 +1153,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1206,7 +1202,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1252,7 +1247,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1305,7 +1299,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1354,7 +1347,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1408,7 +1400,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
@@ -1458,7 +1449,6 @@ describe('partner-contact', () => {
                             isActive
                             isUser
                             userId
-                            preferredLanguage
                             notes
                             createdAt
                             updatedAt
