@@ -11,3 +11,9 @@ export { CommonCountryResponse } from './@app/common/country/domain/common-count
 export { CommonCountryMapper } from './@app/common/country/domain/common-country.mapper';
 export { commonMockCountryData } from './@app/common/country/infrastructure/mock/common-mock-country.data';
 export { CommonCountryDto } from './@api/common/country/dto/common-country.dto';
+export { CommonAdministrativeAreaLevel1 } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.aggregate';
+export { CommonAdministrativeAreaLevel1Model } from './@app/common/administrative-area-level-1';
+export { CommonAdministrativeAreaLevel1Response } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.response';
+export { CommonAdministrativeAreaLevel1Mapper } from './@app/common/administrative-area-level-1/domain/common-administrative-area-level-1.mapper';
+export { commonMockAdministrativeAreaLevel1Data } from './@app/common/administrative-area-level-1/infrastructure/mock/common-mock-administrative-area-level-1.data';
+export { CommonAdministrativeAreaLevel1Dto } from './@api/common/administrative-area-level-1/dto/common-administrative-area-level-1.dto';

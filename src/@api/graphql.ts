@@ -2873,10 +2873,7 @@ export interface IMutation {
     commonCreateAdministrativeAreaLevel1(payload: CommonCreateAdministrativeAreaLevel1Input): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonCreateAdministrativeAreasLevel1(payload: Nullable<CommonCreateAdministrativeAreaLevel1Input>[]): boolean | Promise<boolean>;
     commonUpdateAdministrativeAreaLevel1ById(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
-    commonUpdateAdministrativeAreasLevel1(payload: CommonUpdateAdministrativeAreasLevel1Input, query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
-    commonUpsertAdministrativeAreaLevel1(payload: CommonUpdateAdministrativeAreaLevel1ByIdInput): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
     commonDeleteAdministrativeAreaLevel1ById(id: string, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1> | Promise<Nullable<CommonAdministrativeAreaLevel1>>;
-    commonDeleteAdministrativeAreasLevel1(query?: Nullable<QueryStatement>, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel1>[] | Promise<Nullable<CommonAdministrativeAreaLevel1>[]>;
     commonCreateAdministrativeAreaLevel2(payload: CommonCreateAdministrativeAreaLevel2Input): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
     commonCreateAdministrativeAreasLevel2(payload: Nullable<CommonCreateAdministrativeAreaLevel2Input>[]): boolean | Promise<boolean>;
     commonUpdateAdministrativeAreaLevel2ById(payload: CommonUpdateAdministrativeAreaLevel2ByIdInput, constraint?: Nullable<QueryStatement>): Nullable<CommonAdministrativeAreaLevel2> | Promise<Nullable<CommonAdministrativeAreaLevel2>>;
@@ -3423,6 +3420,7 @@ export interface BusinessPartnerPortalSupplierDocument {
 
 export interface CommonAdministrativeAreaLevel1 {
     id: string;
+    rowId: GraphQLInt;
     countryId: string;
     country?: Nullable<CommonCountry>;
     code: GraphQLString;

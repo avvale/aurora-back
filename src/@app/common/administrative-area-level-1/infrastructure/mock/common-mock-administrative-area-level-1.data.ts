@@ -1,6 +1,3 @@
-// ignored file
-/* eslint-disable quotes */
-/* eslint-disable key-spacing */
 import { CommonAdministrativeAreaLevel1MapType } from '@api/graphql';
 
 export const commonMockAdministrativeAreaLevel1Data = [

@@ -1,6 +1,7 @@
 import { CommonResourceHandlers, CommonResourceServices, CommonResourceModel, CommonIResourceRepository, CommonSequelizeResourceRepository, CommonResourceSagas } from './resource';
 import { CommonLangHandlers, CommonLangServices, CommonLangModel, CommonILangRepository, CommonSequelizeLangRepository, CommonLangSagas } from './lang';
 import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, CommonICountryRepository, CommonSequelizeCountryRepository, CommonCountrySagas, CommonCountryI18nModel, CommonICountryI18nRepository, CommonSequelizeCountryI18nRepository } from './country';
+import { CommonAdministrativeAreaLevel1Handlers, CommonAdministrativeAreaLevel1Services, CommonAdministrativeAreaLevel1Model, CommonIAdministrativeAreaLevel1Repository, CommonSequelizeAdministrativeAreaLevel1Repository, CommonAdministrativeAreaLevel1Sagas } from './administrative-area-level-1';
 
 /**
  * @aurora-generated
@@ -9,18 +10,21 @@ import { CommonCountryHandlers, CommonCountryServices, CommonCountryModel, Commo
 export const CommonHandlers = [
     ...CommonResourceHandlers,
     ...CommonLangHandlers,
-    ...CommonCountryHandlers
+    ...CommonCountryHandlers,
+    ...CommonAdministrativeAreaLevel1Handlers
 ];
 export const CommonServices = [
     ...CommonResourceServices,
     ...CommonLangServices,
-    ...CommonCountryServices
+    ...CommonCountryServices,
+    ...CommonAdministrativeAreaLevel1Services
 ];
 export const CommonModels = [
     CommonResourceModel,
     CommonLangModel,
     CommonCountryModel,
-    CommonCountryI18nModel
+    CommonCountryI18nModel,
+    CommonAdministrativeAreaLevel1Model
 ];
 export const CommonRepositories = [
     {
@@ -38,10 +42,15 @@ export const CommonRepositories = [
     {
         provide : CommonICountryI18nRepository,
         useClass: CommonSequelizeCountryI18nRepository
+    },
+    {
+        provide : CommonIAdministrativeAreaLevel1Repository,
+        useClass: CommonSequelizeAdministrativeAreaLevel1Repository,
     }
 ];
 export const CommonSagas = [
     CommonResourceSagas,
     CommonLangSagas,
-    CommonCountrySagas
+    CommonCountrySagas,
+    CommonAdministrativeAreaLevel1Sagas
 ];
