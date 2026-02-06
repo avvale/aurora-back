@@ -21,7 +21,6 @@ describe('CommonDeleteResourceByIdService', () => {
   let service: CommonDeleteResourceByIdService;
   let repository: CommonIResourceRepository;
   let mockRepository: CommonMockResourceRepository;
-
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -44,17 +43,14 @@ describe('CommonDeleteResourceByIdService', () => {
         },
       ],
     }).compile();
-
     service = module.get(CommonDeleteResourceByIdService);
     repository = module.get(CommonIResourceRepository);
     mockRepository = module.get(CommonMockResourceRepository);
   });
-
   describe('main', () => {
     test('CommonDeleteResourceByIdService should be defined', () => {
       expect(service).toBeDefined();
     });
-
     test('should delete resource and emit event', async () => {
       jest
         .spyOn(repository, 'findById')

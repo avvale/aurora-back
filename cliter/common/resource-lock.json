@@ -39,7 +39,7 @@
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resource-by-id.service.spec.ts",
-            "integrity": "sha1:f53a03dd75c67a561eb66839072a3b1dbe3f7152"
+            "integrity": "sha1:5fb10add425f7e4e526b31777a768aec43a9047f"
         },
         {
             "path": "src/@app/common/resource/application/delete/common-delete-resource-by-id.service.ts",
@@ -223,7 +223,7 @@
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.data.ts",
-            "integrity": "sha1:fa04efdddf0ba0db3cb720bed61f0bb71daa32aa"
+            "integrity": "sha1:d1ea5d04ebaf043b57425107cc82f46e0dab4f8c"
         },
         {
             "path": "src/@app/common/resource/infrastructure/mock/common-mock-resource.repository.ts",
@@ -246,12 +246,12 @@
             "integrity": "sha1:130876e118302df10fbd48af06db05c1470eca1d"
         },
         {
-            "path": "src/@app/common/resource/domain/value-objects/common-resource-id.ts",
-            "integrity": "sha1:9f1bb1660f7e869dc69ac228bb2d70058f9b6646"
-        },
-        {
             "path": "src/@app/common/resource/domain/value-objects/common-resource-row-id.ts",
             "integrity": "sha1:89f8193388aa8c5538068f3e163a2e7d424ed060"
+        },
+        {
+            "path": "src/@app/common/resource/domain/value-objects/common-resource-id.ts",
+            "integrity": "sha1:9f1bb1660f7e869dc69ac228bb2d70058f9b6646"
         },
         {
             "path": "src/@app/common/resource/domain/value-objects/common-resource-code.ts",
@@ -270,12 +270,12 @@
             "integrity": "sha1:005b1f62245affb65ee0217bfba6303138de67b7"
         },
         {
-            "path": "src/@app/common/resource/domain/value-objects/common-resource-updated-at.ts",
-            "integrity": "sha1:fac5c70fd538269f886c44445cb10c9b2ae3dd93"
-        },
-        {
             "path": "src/@app/common/resource/domain/value-objects/common-resource-created-at.ts",
             "integrity": "sha1:f1defb907efcf0fce7e0f25f7335e339ae10e45f"
+        },
+        {
+            "path": "src/@app/common/resource/domain/value-objects/common-resource-updated-at.ts",
+            "integrity": "sha1:fac5c70fd538269f886c44445cb10c9b2ae3dd93"
         },
         {
             "path": "src/@app/common/resource/domain/value-objects/common-resource-deleted-at.ts",
@@ -491,7 +491,7 @@
         },
         {
             "path": "postman/common/common.resource.postman.json",
-            "integrity": "sha1:b65217aae17eeed82d74767c736bf7326748fff1"
+            "integrity": "sha1:2783c569d9b7a5e121958c5d8c933633720a6533"
         }
     ]
 }
