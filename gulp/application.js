@@ -188,6 +188,19 @@ async function cleanAppModule() {
     'MsEntraIdModule',
   );
 
+  // remove BusinessPartnerPortalModule
+  codeWriter.removeImport(
+    sourceFile,
+    '@api/business-partner-portal/business-partner-portal.module',
+  );
+  codeWriter.removeDecoratorProperty(
+    sourceFile,
+    'AppModule',
+    'Module',
+    'imports',
+    'BusinessPartnerPortalModule',
+  );
+
   // remove CommonModule
   codeWriter.removeImport(sourceFile, '@api/common/common.module');
   codeWriter.removeDecoratorProperty(
