@@ -1,0 +1,133 @@
+version: 0.0.1
+boundedContextName: hub
+moduleName: app
+moduleNames: apps
+aggregateName: HubApp
+hasOAuth: true
+hasTenant: false
+hasAuditing: true
+front:
+  outlineIcon: mat_outline:apps
+  solidIcon: mat_solid:apps
+description: |
+  Registry of applications built with Aurora Lite. Each app represents an independent lightweight application with its own server, subdomain, and database. The HUB provides centralized visibility and SSO access to all registered apps via shared OAuth (RS256 + JWKS). Apps are provisioned through the Aurora CLI, which orchestrates DNS subdomain creation, Plesk subscription setup, database provisioning, and HUB registration. Related modules: iam/account (OAuth client registration for SSO).
+aggregateProperties:
+  - name: id
+    type: id
+    primaryKey: true
+    nullable: false
+    description: |
+      Unique identifier for the registered app. UUID v4 format, generated automatically on creation. Used as primary key for referencing this app across the HUB, in SSO token claims, and CLI provisioning workflows.
+  - name: rowId
+    type: bigint
+    index: unique
+    autoIncrement: true
+    nullable: false
+    description: |
+      Auto-incrementing sequential identifier for the app. Used for internal ordering, human-readable reference in admin interfaces, and optimized database queries. Not exposed in external APIs.
+  - name: code
+    type: varchar
+    maxLength: 64
+    nullable: false
+    index: unique
+    description: |
+      Unique machine-readable identifier for the app (e.g., "facturacion", "inventario", "crm"). Used as the subdomain prefix, database name suffix, and CLI reference. Must be lowercase, alphanumeric with hyphens only. Immutable after provisioning to prevent breaking DNS and infrastructure references.
+  - name: name
+    type: varchar
+    maxLength: 128
+    nullable: false
+    description: |
+      Human-readable display name of the app (e.g., "Sistema de Facturacion", "Control de Inventario"). Shown in the HUB dashboard, app launcher, and navigation menus. Can be updated without affecting infrastructure.
+  - name: description
+    type: text
+    nullable: true
+    description: |
+      Free-text description of the app's purpose and functionality. Displayed in the HUB app catalog to help users understand what each app does. NULL indicates no description provided.
+  - name: url
+    type: varchar
+    maxLength: 2046
+    nullable: false
+    description: |
+      Full base URL of the deployed app (e.g., "https://facturacion.tudominio.com"). Used for SSO redirects, health checks, and deep linking from the HUB dashboard. Must include protocol (https). Set automatically during CLI provisioning based on subdomain and base domain configuration.
+  - name: subdomain
+    type: varchar
+    maxLength: 64
+    nullable: false
+    index: unique
+    description: |
+      Subdomain assigned to the app (e.g., "facturacion" for facturacion.tudominio.com). Registered in DNS during CLI provisioning. Must be unique across all apps. Immutable after provisioning to prevent DNS inconsistencies. Used to derive the full URL.
+  - name: icon
+    type: varchar
+    maxLength: 255
+    nullable: true
+    description: |
+      Icon reference for the app in the HUB dashboard. Can be a Material Design icon name (e.g., "mat_outline:receipt_long") or a URL to a custom image. NULL defaults to a generic app icon in the UI.
+  - name: color
+    type: varchar
+    maxLength: 8
+    nullable: true
+    description: |
+      Hex color code for the app card in the HUB dashboard (e.g., "#3B82F6"). Used for visual differentiation between apps in the launcher. NULL defaults to the platform's primary color.
+  - name: sort
+    type: smallint
+    nullable: true
+    description: |
+      Display order of the app in the HUB dashboard and app launcher. Lower values appear first. NULL places the app at the end. Allows administrators to prioritize frequently used apps.
+  - name: oauthClientId
+    type: id
+    nullable: true
+    index: unique
+    description: |
+      Reference to the OAuth client registered in IAM for this app. Used as the client_id parameter in the Authorization Code Flow. The lite app uses this value along with OAUTH_ISSUER_URL to discover all OAuth endpoints via OIDC Discovery (/.well-known/openid-configuration). One-to-one relationship with the IAM OAuth client. NULL when the app is registered but OAuth has not been configured yet (development phase). Set during the authentication setup step of CLI provisioning.
+  - name: oauthRedirectUri
+    type: varchar
+    maxLength: 2046
+    nullable: true
+    description: |
+      Authorized redirect URI for the OAuth Authorization Code Flow (e.g., "https://facturacion.com/auth/callback"). The Authorization Server only redirects authorization codes to this exact URI. Must match the redirect_uri parameter sent during authorization requests. NULL when OAuth is not configured. Set during CLI provisioning based on the app URL. Critical for security — prevents authorization code interception attacks.
+  - name: isActive
+    type: boolean
+    nullable: false
+    defaultValue: true
+    description: |
+      Indicates whether the app is currently active and accessible. When false, the app is hidden from the HUB dashboard and SSO redirects are blocked. Used to temporarily disable apps for maintenance or decommissioning without removing the registration. Defaults to true.
+  - name: provisionedAt
+    type: timestamp
+    nullable: true
+    description: |
+      Timestamp when the app was fully provisioned via CLI (DNS + Plesk + database). NULL indicates the app is registered in the HUB but infrastructure has not been provisioned yet. Used to track provisioning status and distinguish between planned and deployed apps.
+  - name: pleskSubscriptionId
+    type: varchar
+    maxLength: 64
+    nullable: true
+    description: |
+      External identifier of the Plesk hosting subscription created for this app. Used by the CLI for subscription management operations (resize, suspend, delete). NULL when not provisioned via Plesk or when using alternative hosting. Stored for infrastructure lifecycle management.
+  - name: databaseName
+    type: varchar
+    maxLength: 64
+    nullable: true
+    description: |
+      Name of the PostgreSQL database created for this app (e.g., "aurora_lite_facturacion"). Set during CLI provisioning. Used for database lifecycle management and connection string generation. NULL when the database has not been provisioned yet.
+  - name: createdAt
+    type: timestamp
+    nullable: true
+    description: |
+      Timestamp when the app was registered in the HUB. Automatically set on record creation. Used for tracking when apps were added to the ecosystem.
+  - name: updatedAt
+    type: timestamp
+    nullable: true
+    description: |
+      Timestamp of the last modification to this app record. Automatically updated on any field change. Used for cache invalidation and audit trail.
+  - name: deletedAt
+    type: timestamp
+    nullable: true
+    description: |
+      Soft delete timestamp. NULL indicates an active registration. When set, the app is hidden from the HUB but preserved for historical records and infrastructure cleanup tracking. Deprovisioning infrastructure (DNS, Plesk, database) should be handled separately before soft deletion.
+excludedOperations:
+  - count
+  - getRaw
+  - max
+  - min
+  - rawSql
+  - sum
+  - updateAndIncrement

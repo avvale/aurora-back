@@ -20,6 +20,7 @@ function copyApplication() {
   return src(
     [
       '**/*',
+      '.claude/**',
       '.husky/**',
       '.gitignore',
       '.prettierrc',
@@ -336,6 +337,15 @@ async function cleanShareModule() {
     'src',
     '@aurora',
     'shared.module.ts',
+  ]);
+
+  ImportDriver.createImportItems(sourceFile, '@aurorajs.dev/core', [
+    'AuditingRunnerDisabledImplementationService',
+  ]);
+
+  ImportDriver.createImportItems(sourceFile, './modules', [
+    'CoreGetFallbackLangFromJsonService',
+    'CoreGetLangsFromJsonService',
   ]);
 
   // remove LoggingAxiosInterceptorService
